@@ -1,0 +1,6 @@
+.. _pullSol:
+
+.. literalinclude:: pull.py
+   :linenos:
+
+**Source:** :download:`pull.py`

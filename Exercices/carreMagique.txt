@@ -1,0 +1,6 @@
+.. _carreMagiqueSol:
+
+.. literalinclude:: carreMagique.py
+   :linenos:
+
+**Source:** :download:`carreMagique.py`

@@ -1,0 +1,13 @@
+.. _filtres:
+
+.. literalinclude:: filtres2ndOrdre.py
+   :linenos:
+
+**Source:** :download:`filtres2ndOrdre.py`
+
+.. figure:: filtrePasseHaut.*
+   :align: center
+   :width: 80%
+
+   Filtre passe-haut du 2nd ordre.
+

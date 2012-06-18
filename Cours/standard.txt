@@ -1,0 +1,171 @@
+.. _standard:
+.. _td4:
+
+=====================================================================
+                        Bibliothèque standard
+=====================================================================
+
+.. Time-stamp: <2012-06-18 23:56 ycopin@lyopc469>
+
+.. contents:: Table des matières
+..
+    1  optparse: gestion des arguments et options
+    2  [c]Pickle: sérialisation des données
+    3  *Batteries included*
+
+Python dispose d'une très riche bibliothèque de modules étendant les
+capacités du langage dans de nombreux domaines: nouveaux types de
+données, interactions avec le système, gestion des fichiers et des
+processus, protocoles de communication (internet, mail, FTP, etc.),
+multimédia, etc.
+
+* `The Python Standard Library <http://docs.python.org/library/>`_
+  (v2.7)
+* `Python by Example! <http://www.lightbird.net/py-by-example/>`_
+
+.. _optparse:
+
+optparse: gestion des arguments et options
+------------------------------------------
+
+.. index::
+   module: optparse
+
+* **Exemple:** :ref:`koch.py <kochSol>`
+
+  .. literalinclude:: ../Exercices/koch.py
+     :start-after: start-optparse
+     :end-before: end-optparse
+
+* Génère automatiquement une aide en ligne::
+  
+    $ python koch.py -h
+    Usage: koch.py [options] niveau
+    
+    Options:
+      --version             show program's version number and exit
+      -h, --help            show this help message and exit
+      -t TAILLE, --taille=TAILLE
+                            Taille [500 px]
+      -d DELTA, --delta=DELTA
+                            Delta [0.0 deg]
+      -f FIGURE, --figure=FIGURE
+                            Figure de sortie (format EPS)
+      -T, --turbo           Mode Turbo
+
+.. argparse: >2.7
+
+.. _pickle:
+
+[c]Pickle: sérialisation des données
+------------------------------------
+
+.. index::
+   module: pickle/cPickle
+
+Les modules :mod:`pickle`/:mod:`cPickle` permettent la sauvegarde
+pérenne d'objets python (« sérialisation »).
+
+>>> d = dict(a=1, b=2, c=3)
+>>> l = range(10000)
+>>> import cPickle as pickle         # 'cPickle' est + rapide que 'pickle'
+>>> pkl = open('archive.pkl', 'w')   # Overture du fichier en écriture
+>>> pickle.dump((d,l), pkl, protocol=-1) # Sérialisation du tuple (d,l)
+>>> pkl.close()                      # *IMPORTANT!* Fermeture du fichier 
+>>> d2,l2 = pickle.load(open('archive.pkl')) # Désérialisation (relecture)
+>>> d==d2
+True
+>>> l==l2
+True
+
+.. Attention:: les `pickles` ne sont pas un format d'échange de
+   données. Ils sont spécifiques à python, et peuvent dépendre de la
+   machine utilisée.
+
+
+*Batteries included*
+--------------------
+
+.. .. index::
+..    module: math
+
+* :mod:`math`: accès aux fonctions mathématiques (réelles)
+
+  >>> math.asin(math.sqrt(2)/2)/math.pi*180
+  45.00000000000001
+
+.. .. index::
+..    module: sys
+..    module: os
+..    module: shutil
+..    module: subprocess
+..    module: glob
+
+* Interaction système
+
+  - :mod:`sys`, :mod:`os`: interface système
+  - :mod:`shutil`: opérations sur les fichiers (*copy*, *move*, etc.)
+  - :mod:`subprocess`: éxécution de commandes système
+  - :mod:`glob`: méta-caractères du *shell* (p.ex. `toto?.*`)
+
+.. .. index::
+..    module: re
+
+* `Expressions régulières <http://docs.python.org/howto/regex.html>`_:
+  :mod:`re`
+
+.. .. index::
+..    module: time
+..    module: datetime
+
+* Gestion du temps (:mod:`time`) et des dates (:mod:`datetime`,
+  :mod:`calendar`)
+
+.. .. index::
+..    module: gzip
+..    module: bzip2
+..    module: zipfile
+..    module: tarfile
+
+* Fichiers compressés et archives: :mod:`gzip`, :mod:`bzip2`,
+  :mod:`zipfile`, :mod:`tarfile`
+
+.. .. index::
+..    module: cvs
+..    module: pickle/cPickle
+..    module: ConfigParser
+
+* Lecture & sauvegarde des données (outre :mod:`pickle`/:mod:`cPickle`)
+
+  - :mod:`csv`: lecture/sauvegarde de fichiers :abbr:`CSV (Comma
+    Separated Values)`
+  - :mod:`ConfigParser`: fichiers de configuration
+
+.. - :mod:`json`: lightweight data interchange format
+.. - yaml: http://pyyaml.org/
+
+.. .. index::
+..    module: urllib2
+
+* `Lecture d'une URL <http://docs.python.org/howto/urllib2.html>`_
+  (p.ex. page web): :mod:`urllib2`
+
+
+*Text/Graphical User Interfaces*
+--------------------------------
+
+- :abbr:`TUI (Text User Interface)`: `curses
+  <http://docs.python.org/library/curses.html>`_
+- :abbr:`GUI (Graphical User Interface)`: `Tkinter
+  <http://docs.python.org/library/tkinter.html>`_ (voir également
+  `easygui <http://easygui.sourceforge.net/>`_), 
+- Librairies externes; `PyGTK <http://www.pygtk.org/>`_, `PyQt
+  <http://www.riverbankcomputing.co.uk/software/pyqt/intro>`_,
+  `wxPython <http://www.wxpython.org/>`_
+
+.. Local Variables: ...
+.. mode: rst ...
+.. ispell-local-dictionary: "francais" ...
+.. mode: flyspell ...
+.. indent-tabs-mode: nil ...
+.. End: ...

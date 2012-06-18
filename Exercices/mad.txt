@@ -1,0 +1,6 @@
+.. _madSol:
+
+.. literalinclude:: mad.py
+   :linenos:
+
+**Source:** :download:`mad.py`

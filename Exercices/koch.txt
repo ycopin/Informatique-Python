@@ -1,0 +1,6 @@
+.. _kochSol:
+
+.. literalinclude:: koch.py
+   :linenos:
+
+**Source:** :download:`koch.py`

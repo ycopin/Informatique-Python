@@ -1,0 +1,916 @@
+.. Time-stamp: <2012-06-18 23:55 ycopin@lyopc469>
+.. _cours:
+
+=====================================================================
+                         Initiation à Python
+=====================================================================
+
+.. contents:: Table des matières
+..
+    1   Introduction
+      1.1  Installation
+      1.2  Notions d'Unix
+      1.3  L'invite de commande
+    2   Types de base
+    3   Structures de programmation
+    4   Les chaînes de caractères
+      4.1  Indexation
+      4.2  Méthodes
+      4.3  Formatage
+    5   Objets itérables
+    6   Fonctions
+    7   Bibliothèques et scripts
+      7.1  Bibliothèques externes
+      7.2  Bibliothèques personnelles et scripts
+    8   Classes
+    9   Exceptions
+    10  Entrées-sorties
+      10.1  Clavier/écran
+      10.2  Fichier
+    11  Éléments passés sous silence
+
+.. _td1:
+
+Introduction
+============
+
+**Liens:**
+
+- `Python Tutorial <http://docs.python.org/tutorial/>`_ (v2.7)
+- `Tutoriel Python
+  <http://python.developpez.com/cours/TutoVanRossum/>`_ (v2.4) |fr|
+- `Begginer's Guide <http://wiki.python.org/moin/BeginnersGuide>`_
+
+Installation
+------------
+
+Cette introduction repose sur les outils suivants:
+
+- `Python <http://python.org/download/>`_ p.ex. 2.7 [#p3k]_ (inclus
+  l'interpréteur de base et la bibliothèque standard)
+- Bibliothèques scientifiques: `Numpy et Scipy
+  <http://new.scipy.org/download.html>`_,
+- Bibliothèque graphique: `matplotlib
+  <http://matplotlib.sourceforge.net/users/installing.html>`_,
+- Interpréteur évolué, p.ex. `ipython
+  <http://ipython.org/download.html>`_,
+- Éditeur de texte évolué, p.ex. `emacs
+  <http://www.gnu.org/s/emacs/#Obtaining>`_
+
+Ces logiciels peuvent être installés indépendamment, de préférence
+sous Linux (p.ex. `Ubuntu <http://ubuntu-fr.org/>`_, `Fedora
+<http://fedoraproject.org/fr/>`_ ou `openSUSE
+<http://fr.opensuse.org/>`_), ou sous Windows ou MacOS. Il existe
+également des distributions « clés en main »:
+
+- `Python(x,y) <http://code.google.com/p/pythonxy/>`_ (Windows)
+- `Enthought Python Distribution
+  <http://www.enthought.com/products/epd.php>`_ (Windows, MacOS,
+  Linux, gratuite pour les étudiants du supérieur)
+
+Notions d'Unix
+--------------
+
+Les concepts suivants sont supposés connus:
+
+* ligne de commande: éxécutables et options
+* arborescence: chemin relatif (`[./]...`) et absolu (`/...`),
+  navigation (:command:`cd`)
+* gestion des fichiers (:command:`ls`, :command:`rm`, :command:`mv`)
+  et répertoires (:command:`mkdir`)
+* gestion des éxécutables: :envvar:`$PATH`, :command:`chmod +x`
+* gestion des processus: `&`, :kbd:`Control-c`, :kbd:`Control-z` +
+  :command:`bg`
+* variables d'environnement: :command:`export`, :file:`.bashrc`
+
+**Liens:**
+
+* `Quelques notions et commandes d'UNIX
+  <http://snovae.in2p3.fr/ycopin/enseignements/docs/notions_unix.pdf>`_
+  |fr|
+* `Introduction to Unix Study Guide
+  <http://www.sal.ksu.edu/faculty/tim/unix_sg/>`_
+  
+L'invite de commande
+--------------------
+
+Il existe principalement deux interpréteurs intéractifs de commandes
+Python:
+
+.. index:: interpréteur; python
+
+* :program:`python`: l'`interpréteur de base
+  <http://docs.python.org/tutorial/interpreter.html>`_::
+
+    $ python
+    Python 2.7.1+ (r271:86832, Apr 11 2011, 18:05:24) 
+    [GCC 4.5.2] on linux2
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>> 
+
+  - :kbd:`Control-d` pour sortir
+  - :samp:`help({commande})` pour obtenir l'aide d'une commande
+  - *A priori*, pas d'historique des commandes ni de complétion
+    automatique
+  
+  L'interpréteur de base permet également d'interpréter un « script »,
+  càd un ensemble de commandes regroupées dans un fichier texte
+  (généralement avec une extension `.py`): :samp:`python
+  {mon_script.py}`
+
+.. index:: interpréteur; ipython
+
+* :program:`ipython`: `interpréteur évolué <http://ipython.org/>`_
+  (avec historique et complétion automatique des commandes)::
+
+    $ ipython
+    Python 2.7.1+ (r271:86832, Apr 11 2011, 18:05:24) 
+    Type "copyright", "credits" or "license" for more information.
+    
+    IPython 0.10.1 -- An enhanced Interactive Python.
+    ?         -> Introduction and overview of IPython's features.
+    %quickref -> Quick reference.
+    help      -> Python's own help system.
+    object?   -> Details about 'object'. ?object also works, ?? prints more.
+    
+    In [1]: 
+
+  - :kbd:`Control-d` pour sortir
+  - :kbd:`Tab` pour la complétion automatique
+  - :kbd:`Haut` et :kbd:`Bas` pour le rappel des commandes
+  - Aide ipython: `object?` pour une aide sur un objet, `object??`
+    pour une aide plus complète (au niveau source)
+  - Commandes *magic* (voir `%magic`):
+
+    * :samp:`%run {mon_script.py}` pour éxecuter un script *dans*
+      l'interpréteur
+    * `%debug` pour lancer le mode débuggage intéractif *post-mortem*
+    * `%cpaste` pour coller et éxecuter un code pré-formaté
+
+
+Types de base
+=============
+
+.. index:: None
+
+- `None` (rien)
+
+.. index:: itérables; str
+
+- Chaînes de caractères: `str`
+
+  - Entre (simples ou triples) apostrophes `'` ou guillemets `"`:
+    `'Calvin'`, `"Calvin'n'Hobbes"`, `'''Two\\\nlines'''`,
+    `"""'Why?' he asked."""`
+  - Conversion: `str(3.2)`
+
+.. index:: 
+   pair: type numérique; bool
+   pair: type numérique; int
+   pair: type numérique; float
+   pair: type numérique; complex
+
+- Objets numériques: 
+
+  - Booléens `bool` (vrai/faux): `True`, `False`, `bool(3)`
+  - Entiers `int` (pas de valeur limite explicite, correspond *au
+    moins* au `long` du C): `-2`, `int(2.1)`, `int("4")`
+  - Réels `float` (entre ±1.7e±308, correspond au `double` du C):
+    `2.`, `3.5e-6`, `float(3)`
+  - Complexes `complex`: `1+2j`, `5.1j`, `complex(-3.14)`,
+    `complex('j')`
+
+  >>> 3/2            # Attention! Division euclidienne par défaut
+  1
+  >>> float(3)/2     # ou 'from __future__ import division'
+  1.5
+  >>> (1+2j)**-0.5   # puissance entière, réelle ou complexe
+  (0.5688644810057831-0.3515775842541429j)
+
+.. index:: 
+   pair: itérables; list
+   pair: itérables; tuple
+   pair: itérables; set
+   pair: itérables; dict
+.. index:: range
+.. index:: type
+.. index:: isinstance
+
+- Objets itérables: 
+
+  - Listes `list`: `['a', 3, [1,2], 'a']`
+  - Listes immuables `tuple`: `(2, 3.1, 'a', [])` (selon les
+    conditions d'utilisation, les parenthèses ne sont pas toujours
+    nécessaires)
+  - Listes à clés `dict`: `{'a':1, 'b':[1,2], 3:'c'}`
+  - Ensembles non ordonnés `set`: `set([1, 2, 3, 2])`
+
+  >>> x,y = 1,2       # Affectations multiples via tuples (ici les parenthèses ne sont pas nécessaires)
+  >>> l1 = ['a','b']; l2=['c',]; l1+l2 # Concaténation de listes
+  ['a', 'b', 'c']
+  >>> range(5)        # liste de 5 entiers commençant par 0
+  [0, 1, 2, 3, 4]
+  >>> set([2,1,3]) | set([1,2,'a']) # Union d'ensembles
+  set(['a', 1, 2, 3])
+
+- :samp:`type({obj})` retourne le type de l'objet,
+  :samp:`isinstance({obj},{type})` teste le type de l'objet.
+
+  >>> l = [1,2,3]
+  >>> type(l)
+  <type 'list'>
+  >>> isinstance(l,tuple)
+  False
+
+
+Structures de programmation
+===========================
+
+- Une instruction par ligne en général (ou instructions séparées par
+  `;` en interactif).
+- Les blocs sont définis par l'**indentation** (en général par pas de 4
+  espaces).
+- Les commentaires commencent par `#`, et vont jusqu'à la fin de la
+  ligne.
+
+.. index:: 
+   pair: booléen; True/False
+
+- Expression booléenne: une condition est une expression s'évaluant à
+  `True` ou `False`:
+
+  - `False`: test logique faux (p.ex. `3==4`), 0, `''`
+    (chaîne vide), `[]` (liste vide), etc.
+  - `True`: test logique vrai (p.ex. `3==3`), toute valeur/objet
+    non-nul (et donc s'évaluant par défaut à `True`)
+  - Tests logiques: `==`, `>`, `>=`, etc.
+
+    .. Attention:: Ne pas confondre `=` (affectation d'une variable)
+       et `==` (test logique d'égalité).
+
+  - Opérateurs logiques: `and`, `or`, `not`
+  - Opérateur ternaire: :samp:`{value} if {condition} else {altvalue}`
+
+.. index:: if ... elif ... else
+
+- Expression conditionnelle `if/elif/else`::
+
+    if i>0:     # Condition principale
+        print "i > 0"
+    elif i<0:   # Condition secondaire (si nécéssaire)
+        print "i < 0"
+    else:       # Cas final (si nécéssaire)
+        print "i = 0"
+
+.. index:: for ... in
+.. index:: continue
+.. index:: break
+
+- Boucle `for`: :samp:`for {element} in {iterable}:`, s'éxecute sur
+  chacun des *éléments* d'un objet *itérable*:
+
+  >>> for i in range(1,10,2): # entiers de 1 (inclus) à 10 (exclu) par pas de 2
+  ...     print "%d**2=%d" % (i, i**2) # %d affiche un entier
+  1**2=1
+  3**2=9
+  5**2=25
+  7**2=49
+  9**2=81
+
+  - `continue`: interrompt l'itération courante, et reprend la boucle
+    à l'itération suivante
+  - `break`: interrompt complètement la boucle
+
+.. index:: while
+.. index:: break
+
+- Boucle `while`: :samp:`while {condition}:` se répéte tant que la
+  *condition* est vraie, ou après une sortie explicite avec `break`
+
+  .. Attention:: aux boucles infinies, dont la condition d'éxecution
+     reste invariablement vraie (typiquement un critère de convergence
+     qui n'est jamais atteint). On peut toujours s'en protéger en
+     testant *en plus* sur un nombre maximal (raisonnable)
+     d'itérations:
+
+     >>> niter = 0
+     >>> while error>1e-6 and niter<100:
+     ...     error = ...   # A priori, error va décroître, et la boucle s'interrompre
+     ...     niter ++      # Mais on n'est jamais assez sûr!
+
+
+.. _td2:
+
+Les chaînes de caractères
+=========================
+
+.. index:: 
+   pair: itérables; str
+   pair: itérables; len
+   pair: itérables; slice
+
+Indexation
+----------
+
+Les chaînes sont des objets *itérables* -- i.e. constitués d'éléments
+(ici les caractères) sur lesquels il est possible de « boucler »
+(p.ex. avec `for`) -- et *immuables* -- i.e. dont les éléments
+individuels ne peuvent pas être modifiés.
+
+>>> alpha = 'abcdefghijklmnopqrstuvwxyz'
+>>> len(alpha)
+26
+>>> alpha[0]    # 1er élément (l'indexation commençe à 0)
+'a'
+>>> alpha[-1]   # Dernier élément (-2: avant dernier, etc.)
+'z'
+>>> alpha[5:10] # *Slice*, du 5ème élément (inclu) au 10ème élément (exclu)
+'fghij'
+>>> alpha[:5]   # Slice, du 1er élément (par défaut) au 5ème élément (exclu)
+'abcde'
+>>> alpha[20:]  # Slice, du 20ème élément (inclu) au dernier inclu (défaut)
+'uvwxyz'
+>>> alpha[::5]  # Slice, du 1er au dernier élément (défauts), tous les 5 éléments
+'afkpuz'
+
+Méthodes
+--------
+
+.. index:: dir
+
+Les chaînes de caractères disposent de nombreuses propriétés (des «
+méthodes ») facilitant leur manipulation:
+
+>>> n,t = "Calvin",'Hobbes'
+>>> titre = n + ' et ' + t; titre  # + = Concaténation de chaînes
+'Calvin et Hobbes'
+>>> titre.replace('et','&')        # Remplacement de sous-chaînes
+'Calvin & Hobbes'
+>>> ' & '.join(titre.split(' et ')) # Découpage et jonction
+'Calvin & Hobbes'
+>>> 'Hobbes' in titre              # in: Test d'inclusion
+True
+>>> titre.find("Hobbes")           # str.find: Recherche de sous-chaîne
+10
+>>> titre.center(30, '-')
+'-------Calvin et Hobbes-------'
+>>> dir(str)                       # Liste toutes les méthodes des chaînes
+  
+Formatage
+---------
+
+.. index:: print
+
+Le système de `formatage
+<http://docs.python.org/library/stdtypes.html#string-formatting-operations>`_
+des chaînes de caractères s'appuie sur l'opérateur `%`, et est très
+semblable au `sprintf` du C/C++:
+
+>>> "%s a %d ans" % ('Calvin',6)                          # 'format' % (tuple)
+'Calvin a 6 ans'
+>>> pi = 3.1415926535897931
+>>> "%(x)f  %(x).2f  %(y)f  %(y)g" % dict(x=pi, y=pi*1e9) # 'format' % {dict}
+'3.141593  3.14  3141592653.589793  3.14159e+09'
+
+`print` affiche à l'écran (plus spécifiquement la sortie standard) la
+conversion d'une variable en chaîne de caractères:
+
+>>> print "Calvin and Hobbes\nScientific progress goes 'boink'"
+Calvin and Hobbes
+Scientific progress goes 'boink'
+>>> print "%d fois %d font %d" % (3, 4, 3*4) # Formatage et affichage
+3 fois 4 font 12
+
+.. Python peut également gérer les caractères `Unicode
+.. <http://docs.python.org/howto/unicode.html>`_ (mais cela peut vite
+.. devenir fastidieux...):
+
+.. >>> print "α² + β² = γ²"
+.. α² + β² = γ²
+.. >>> for i in range(945,970):
+.. ...     print i,unichr(i)
+
+
+Objets itérables
+================
+
+.. index:: itérables
+
+Les chaînes de caractères, listes, tuples et dictionnaires sont les
+objets itérables de base en Python. Les listes et dictionnaires sont
+*mutables* -- leurs éléments constitutifs peuvent être changés à la
+volée -- tandis que chaînes de caractères et les tuples sont
+*immuables*.
+
+- Accès indexé: conforme à celui des chaînes de caractères
+
+  >>> l = range(1,6) # De 1 (inclus) à 6 (exclu) = [1,2,3,4,5]
+  >>> len(l)         # Nb d'éléments dans la liste (i varie de 0 à 4)
+  5
+  >>> l[0],l[-2]     # 1er et avant-dernier élément (l'indexation commençe à 0)
+  (1, 4)
+  >>> l[5]           # Erreur: indice hors-bornes
+  IndexError: list index out of range
+  >>> d = dict(a=1, b=2) # Création du dictionnaire {'a':1, 'b':2}
+  >>> d['a']         # Accès à une entrée via sa clé
+  1
+  >>> d['c']         # Erreur: clé inexistante!
+  KeyError: 'c'
+  >>> d['c'] = 3; d  # Ajout d'une clé et sa valeur
+  {'a': 1, 'c': 3, 'b': 2} # Noter qu'un dictionnaire N'est PAS ordonné!
+
+- Sous-listes (*slices*):
+
+  >>> l[1:-1]        # Du 2ème (`1`) *inclus* au dernier (`-1`) *exclu*
+  [2, 3, 4]
+  >>> l[1:-1:2]      # Idem, tous les 2 éléments
+  [2, 4]
+  >>> l[::2]         # Tous les 2 éléments (avec /start/ et /stop/ par défaut)
+  [1, 3, 5]
+
+- Modification d'éléments d'une liste (chaînes et tuples sont
+  **immuables**):
+
+  >>> l[0]='a'; l            # Remplacement du 1er élément
+  ['a', 2, 3, 4, 5]
+  >>> l[1::2]=['x','y']; l   # Remplacement d'éléments par /slices/
+  ['a', 'x', 3, 'y', 5]
+  >>> l + [1,2]; l           # Concaténation (l reste inchangé)
+  ['a', 'x', 3, 'y', 1, 2]
+  ['a', 'x', 3, 'y']
+  >>> l += [1,2]; l          # Concaténation (modification de l)
+  ['a', 'x', 3, 'y', 5, 1, 2]
+  >>> del l[-3:]; l          # Efface les 3 derniers éléments de la liste
+  ['a', 'x', 3, 'y']
+
+  .. Attention:: à la modification des objets mutables:
+
+     >>> l = range(3)  # l pointe vers la liste [0,1,2]
+     >>> m = l; m      # m est un *alias* de la liste l
+     [0, 1, 2]
+     >>> id(l); id(m); m is l 
+     171573452         # id(/obj/) retourne le n° d'identification en mémoire
+     171573452         # m et l ont le même id:
+     True              # ils correspondent donc bien au même objet en mémoire
+     >>> l[0] = 'a'; m # puisque l a été modifiée, il en est de même de m
+     ['a', 1, 2]
+     >>> m = l[:]      # copie des *éléments* de l dans une nouvelle liste m (clonage)
+     >>> id(l); id(m); m is l 
+     171573452
+     171161228         # m a un id différent de l: il s'agit de 2 objets distincts
+     False             # (contenant éventuellement la même chose!)
+     >>> del l[-1]; m  # les éléments de m n'ont pas été modifiés
+     ['a', 1, 2]
+
+- Liste en compréhension: 
+
+  >>> [ i**2 for i in range(5) ] # Carré de tous les éléments de [0,...,4]
+  [0, 1, 4, 9, 16]
+  >>> [ 2*i for i in range(10) if i%3!=0 ]  # Compréhension conditionnelle ('%' = reste euclidien)
+  [2, 4, 8, 10, 14, 16]
+  >>> [ 10*i+j for i in range(3) for j in range(4) ]     # Double compréhension
+  [0, 1, 2, 3, 10, 11, 12, 13, 20, 21, 22, 23]
+  >>> [ [ 10*i+j for i in range(3) ] for j in range(4) ] # Compréhensions imbriquées
+  [[0, 10, 20], [1, 11, 21], [2, 12, 22], [3, 13, 23]]
+
+.. - (générateurs)
+
+- Utilitaires sur les itérables:
+
+  >>> l1 = ['Calvin','Wallace','Boule']
+  >>> for i in range(len(l1)):     # Boucle sur les indices de l1
+  ...     print i,l1[i]            # Accès explicite, pas pythonique :-(
+  0 Calvin
+  1 Wallace
+  2 Boule
+  >>> for i,name in enumerate(l1): # Boucle sur indice,valeur de l1
+  ...     print i,name             # Pythonique! :-)
+  0 Calvin
+  1 Wallace
+  2 Boule
+  >>> l2 = ['Hobbes','Gromit','Bill']
+  >>> for n1,n2 in zip(l1,l2):     # Boucle simultanée sur 2 listes (ou +)
+  ...     print n1,'et',n2
+  Calvin et Hobbes
+  Wallace et Gromit
+  Boule et Bill
+  >>> sorted(zip(l1,l2)) # Tri, ici sur le 1er élément de chaque tuple de la liste
+  [('Boule', 'Bill'), ('Calvin', 'Hobbes'), ('Wallace', 'Gromit')]
+
+
+**Exercice:** :ref:`carreMagique`
+
+
+Fonctions
+=========
+
+Une fonction est un regroupement d'instructions impératives --
+assignations, branchement, boucles -- s'appliquant sur des arguments
+d'entrée. C'est le concept central de la programmation *impérative*.
+
+.. index:: def
+
+`def` permet de définir une fonction: :samp:`def {fonction}({arg1},
+{arg2}, ..., {option1}=valeur1, {option2}={valeur2}, ...):`. Les «
+`args` » sont des arguments nécéssaires (i.e. obligatoires), tandis
+que les « `kwargs` » -- arguments de type :samp:`{option}={valeur}` --
+sont optionnels, puisqu'ils possèdent une valeur par défaut. Si la
+fonction doit retourner une valeur, celle-ci est spécifiée par
+`return`.
+
+**Exemple:**
+
+.. code-block:: python
+   :linenos:
+
+   def mean(alist, power=1):
+     """Retourne la racine `power` de la moyenne des éléments de
+     `alist` à la puissance `power`: 
+ 
+     .. math:: \mu = (\frac{1}{N}\sum_{i=0}^{N-1} x_i^p)^{1/p}
+ 
+     `power=1` correspond à la moyenne arithmétique, `power=2` au
+     *Root Mean Squared*, etc.
+ 
+     Exemples:
+     >>> mean([1,2,3])
+     2.0
+     >>> mean([1,2,3], power=2)
+     2.160246899469287
+     """
+ 
+     s = 0.                  # Initialisation de la variable *s* comme *float*
+     for val in alist:       # Boucle sur les éléments de *alist*
+         s += val**power     # *s* est augmenté de *val* puissance *power*
+     mean = (s / len(alist))**(1./power) # *mean* = (somme valeurs / nb valeurs)**(1/power)
+ 
+     return mean
+
+.. Note:: Python est un langage à typage *dynamique*, p.ex., le type
+   des arguments d'une fonction n'est pas fixé *a priori*. Dans
+   l'exemple précédent, `alist` peut être une `list`, un `tuple` ou
+   tout autre itérable contenant des éléments pour lesquels les
+   opérations effectuées -- somme, exponentiation, division par un
+   entier -- ont été définies (p.ex. des entiers, des complexes, des
+   matrices, etc.).
+
+
+Bibliothèques et scripts
+========================
+
+Bibliothèques externes
+----------------------
+
+.. index:: import
+
+Une bibliothèque (ou module) est un code fournissant des
+fonctionnalités supplémentaires -- p.ex. des fonctions prédéfinies --
+à Python. Ainsi, le module :mod:`math` définit les fonctions et
+constantes mathématiques usuelles (`sqrt`, `pi`, etc.)
+
+Une bibliothèque « s'importe » avec la commande :samp:`import
+{module}`. Les fonctionnalités supplémentaires sont alors accessibles
+dans l'*espace de noms* :samp:`{module}` via
+:samp:`{module}.{fonction}`:
+
+>>> sqrt(2)                   # sqrt n'est pas une fonction standard de python
+NameError: name 'sqrt' is not defined
+>>> import math               # Importe tout le module 'math' 
+>>> dir(math)                 # Liste les fonctionnalités de 'math'
+['__doc__', '__name__', '__package__', 'acos', 'acosh', 'asin',
+'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos',
+'cosh', 'degrees', 'e', 'exp', 'fabs', 'factorial', 'floor', 'fmod',
+'frexp', 'fsum', 'hypot', 'isinf', 'isnan', 'ldexp', 'log', 'log10',
+'log1p', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt',
+'tan', 'tanh', 'trunc']
+>>> math.sqrt(math.pi)        # Les fonctionnalités sont disponibles sous 'math'
+1.7724538509055159
+>>> import math as M          # Importe 'math' dans l'espace 'M'
+>>> M.sqrt(M.pi)
+1.7724538509055159
+>>> from math import sqrt, pi # Importe uniquement 'sqrt' et 'pi' dans l'espace courant
+>>> sqrt(pi)
+1.7724538509055159
+
+.. Attention:: Il est possible d'importer toutes les fonctionnalités
+   d'une bibliothèque dans l'espace de noms courant:
+
+   >>> from math import *
+   >>> sqrt(pi)
+   1.7724538509055159
+
+   Cette pratique est cependant fortement *déconseillée*! (possibilité
+   de conflit dans les espaces de noms)
+
+Nous verrons par la suite quelques exemples de modules de la
+:ref:`standard`, ainsi que des :ref:`science` orientées analyse
+numérique.
+
+**Exercice:** :ref:`koch`
+
+Bibliothèques personnelles et scripts
+-------------------------------------
+
+Vous pouvez définir vos propres bibliothèques en regroupant les
+fonctionnalités au sein d'un même fichier :samp:`{monfichier}.py`. Si
+ce fichier est importé (p.ex. `import monfichier`), il agira comme une
+bibliothèque; si ce fichier est exécuté (p.ex. `python
+./monfichier.py`), il agira comme un *script*.
+
+.. Attention:: Toutes les instructions d'un module qui ne sont pas
+   encapsulées dans le `__main__` (voir plus bas) sont interprétées et
+   exécutées lors de l'`import` du module. Elles doivent donc en
+   général se limiter à la définition de variables, de fonctions et de
+   classes.
+
+   Un code Python peut donc être:
+
+   - un module -- s'il n'inclu que des définitions mais pas
+     d'instruction exécutable en dehors d'un éventuel `main`,
+   - ou un exécutable -- s'il inclut un `main` ou des instructions
+     exécutables,
+   - ou les deux à la fois.
+
+**Exemple:** :ref:`circonscrit.py <circonscrit>`
+
+Ce code peut être importé comme une bibliothèque (p.ex. `from
+circonscrit import Point`) dans un autre code python, ou bien être
+exécuté depuis la ligne de commande (p.ex. `./circonscrit.py`), auquel
+cas la partie `__main__` sera exécutée.
+
+- `#!` (`Sharp-bang <http://en.wikipedia.org/wiki/Shebang_(Unix)>`_):
+  la première ligne d'un script défini l'interpréteur à utiliser::
+
+    #!/usr/bin/env python
+
+- Un fichier incluant des caractères non-ASCII (p.ex. caractères
+  accentués, ou symboles UTF tel que ±) *doit* définir le système
+  d'encodage, généralement `utf-8`::
+
+    # -*- coding: utf-8 -*-
+
+  Notez que les noms de variables, fonctions,
+  etc. doivent être purement ASCII (`a-zA-Z0-9_`). De manière
+  générale, favorisez la langue anglaise (variables, commentaires,
+  affichages).
+- `if __name__=='__main__':` permet de séparer le `__main__` (i.e. le
+  corps du programme, à exécuter lors d'une utilisation en script) des
+  définitions de fonctions et classes, permettant une utilisation en
+  module.
+
+.. _td3:
+
+Classes
+=======
+
+.. index:: class
+
+Un objet est une entité de programmation, disposant de ses propres
+états et fonctionnalités. C'est le concept central de la
+*programmation orientée objet*.
+
+Au concept d'objet sont liées les notions de:
+
+- **Classe:** il s'agit d'un modèle d'objet, dans lequel sont définis
+  ses propriétés usuelles. P.ex. la classe `Point` peut représenter un
+  point dans le plan, caractérisé par ses coordonnées `x,y`, et
+  disposant de fonctionnalités propres (p.ex. `distance`).
+- **Instantiation:** c'est le fait générer un objet concret (une
+  instance) à partir d'un modèle (une classe). P.ex. `M = Point(2,3)`
+  crée le point *M* à partir de la classe `Point` et des coordonnées
+  *(2,3)*.
+- **Attributs:** variables internes décrivant l'état de
+  l'objet. P.ex. `M.x` donne la coordonnée en *x* du point *M*.
+- **Méthodes:** fonctions internes, s'appliquant en premier lieu sur
+  l'objet lui-même (`self`), décrivant le comportement de
+  l'objet. P.ex. `M.distance(N)` retourne la distance entre les points
+  *M* et *N*.
+
+  .. Attention:: Toutes les méthodes d'une classe doivent au moins
+     prendre `self` -- représentant l'objet lui-même -- comme premier
+     argument.
+
+- **Surcharge d'opérateurs:** cela permet de redéfinir les opérateurs
+  et fonctions usuels (`+`, `abs()`, `str()`, etc.), pour simplifier
+  l'écriture d'opérations sur les objets. Ainsi, on peut redéfinir
+  l'opérateur `+` dans la classe `Vector` pour que `v1 + v2` ait un
+  sens.
+
+  `Liste des méthodes standard et des surcharges d'opérateur
+  <http://rgruet.free.fr/PQR26/PQR2.6.html#SpecialMethods>`_
+- **Héritage de classe:** il s'agit de définir une classe à partir
+  d'une (ou plusieurs) classe(s) parente(s). La nouvelle classe
+  *hérite* des attributs et méthodes de sa (ses) parente(s), que l'on
+  peut alors modifier ou compléter. P.ex. la classe `Vector` hérite de
+  la classe `Point` (elle partage la notion de coordonnées), et lui
+  ajoute des méthodes propres à la notion de vecteur (p.ex. l'addition
+  vectorielle).
+
+  .. Attention:: Toutes les classes doivent au moins hériter de la
+     classe principale `object`.
+
+**Exemple de définition:**
+
+  .. literalinclude:: circonscrit.py
+     :start-after: start-classPoint
+     :end-before: end-classPoint
+     :linenos:
+
+**Exemple d'héritage:**
+
+  .. literalinclude:: circonscrit.py
+     :start-after: start-classVector
+     :end-before: end-classVector
+     :linenos:
+
+**Études de cas:**
+
+- `turtle.Vec2D`
+- `fractions.Fraction`
+
+
+Exceptions
+==========
+
+.. index:: try ... except
+
+Lorsqu'il rencontre une erreur dans l'exécution d'une instruction,
+l'interpréteur génère (`raise`) une erreur (`Exception`), de `nature
+différente <http://rgruet.free.fr/PQR26/PQR2.6.html#BuiltInExc>`_
+selon la nature de l'erreur: `KeyError`, `ValueError`,
+`AttributeError`, `NameError`, `TypeError`, `IOError`,
+`NotImplementedError`, etc. La levée d'une erreur n'est cependant pas
+nécessairement fatale, puisque Python dispose d'un mécanisme de
+*gestion des erreurs*.
+
+Il est d'usage en Python d'utiliser la philosophie :abbr:`EAFP (Easier
+to Ask for Forgiveness than Permission)` [#lbyl]_: plutôt que de
+tester explicitement toutes les conditions de validité d'une
+instruction, on « tente sa chance » d'abord, quitte à gérer les
+erreurs *a posteriori*. Cette gestion des `Exception` se fait par la
+construction `try ... except`::
+
+  def lireEntier():
+      while True:
+          try:
+              chaine = raw_input('Entrez un entier: ') # Lecture du clavier
+              # La conversion en type entier lève `ValueError` si impossible
+              return int(chaine)
+          except ValueError:             # Gestion de l'exception ValueError
+              print "'%s' n'est pas un entier" % chaine
+
+>>> lireEntier()
+Entrez un entier: toto
+'toto' n'est pas un entier
+Entrez un entier: 3,4
+'3,4' n'est pas un entier
+Entrez un entier: 4
+4
+
+.. index:: raise
+
+Dans l'élaboration d'un programme, gérez explicitement les erreurs que
+vous auriez pu tester *a priori* et pour lesquels il existe une
+solution évidente, et laissez passer les autres (ce qui provoquera
+finalement l'interruption du programme)
+
+.. Attention:: Évitez à tout prix les `except` *nu*, càd ne spécifiant
+   pas la ou les exceptions à gérer, car ils intercepteraient alors
+   *toutes* les exceptions, y compris celles que vous n'aviez pas
+   prévues!
+
+   >>> y = 2
+   >>> try:
+   ...    x = z                 # Copie y dans x
+   ...    print "Tout va bien"
+   ... except:
+   ...    print "Rien ne va plus"
+
+Vos procédures doivent également générer des exceptions
+(*documentées*) -- avec l'instruction :samp:`raise {Exception}` -- si
+elles ne peuvent conclure leur action, à charge de la procédure
+appelante de les gérer::
+
+  def diffsqr(x,y):
+      """Returns x**2 - y**2 for x >= y, raises ValueError if x < y."""
+  
+      if x < y:
+          raise ValueError("x=%f < y=%f" % (x,y))
+  
+      return x**2 - y**2
+
+.. index:: assert
+
+Avant de se lancer dans un calcul long et complexe, on peut vouloir
+tester la validité de certaines hypothèses fondamentales, soit par une
+structure `if ... raise`, ou plus facilement à l'aide d'`assert` (qui,
+si l'hypothèse n'est pas vérifiée, génère une `AssertionError`)::
+
+  def diffsqr(x,y):
+      """Returns x**2 - y**2 for x >= y."""
+  
+      assert x >= y, "x=%f < y=%f" % (x,y) # Test et msg d'erreur
+      return x**2 - y**2
+
+.. Note:: La règle générale à retenir concernant la gestion des
+   erreurs: **Fail early, fail often, fail better!**
+
+
+.. Espaces de noms et portée (*scope*)
+.. ===================================
+
+
+Entrées-sorties
+===============
+
+Clavier/écran
+-------------
+
+.. index:: raw_input
+
+L'affichage à l'écran se fait par `print`, la lecture du clavier par
+`raw_input`.
+
+Fichier
+-------
+
+.. index:: file
+
+La gestion des fichiers se fait à l'aide de l'objet `file`::
+  
+  # ========== ÉCRITURE ==========
+  outfile = file("carres.dat", 'w') # Ouverture du fichier "carres.dat" en écriture
+  for i in range(1,10):
+      outfile.write("%d  %d\n" % (i, i**2)) # Noter la présence du '\n' (non-automatique)
+  outfile.close()                   # Fermeture du fichier (nécessaire)
+
+  # ========== LECTURE ==========
+  infile = file("carres.dat")  # Ouverture du fichier "carres.dat" en lecture
+  for line in infile:          # Boucle sur les lignes du fichier
+      if line.strip().startswith('#'): # Ne pas considérer les lignes "commentées"
+          continue
+      try:                     # Essayons de lire 2 entiers sur cette ligne
+          x,x2 = [ int(tok) for tok in line.split() ]
+      except ValueError:       # Gestion des erreurs
+          print "Cannot decipher line '%s'" % line
+          continue
+      print "%d**3 = %d" % (x, x**3)
+
+
+Éléments passés sous silence
+============================
+
+Cette introduction à Python se limite à des fonctionnalités
+relativement simples et anciennes -- disons 2.5 -- du langage. De
+nombreuses fonctionnalités du langage n'ont pas été abordées (y
+compris les développements introduits dans les dernières versions de
+la branche 2.x):
+
+- `Variables globales
+  <http://geekandpoke.typepad.com/geekandpoke/2012/04/simply-explained-gv.html>`_
+- Arguments anonymes: `*args` and `**kwargs`
+- Fonction anonyme: `lambda x,y: x+y`
+- Itérateurs et générateurs: `yield`
+- Gestion de contexte: `with ... as` (:pep:`243`)
+- Nouveau système de formatage de chaîne: `str.format`
+- Décorateurs: fonction sur une fonction ou une classe
+  (`@staticmethod`, etc.)
+- Héritages multiples et méthodes de résolution
+- Etc.
+
+Ces fonctionnalités peuvent évidemment être très utiles, mais ne sont
+généralement pas strictement indispensables pour une utilisation «
+courante » de Python dans un contexte scientifique.
+
+
+.. rubric:: Notes de bas de page
+
+.. [#p3k] Le développement actuel de Python se fait uniquement sur la
+          branche 3.x, qui constiute une remise à plat
+          *non-rétrocompatible* du langage. À moins d'être activement
+          impliqué dans le développement de modules 3.x, il est encore
+          conseillé -- en 2011 pour un utilisateur scientifique lambda
+          -- de développer en python 2.x, car certaines bibliothèques
+          utiles n'ont pas encore été portées ou pleinement testées en
+          3.x.
+
+.. [#lbyl] Par opposition au :abbr:`LBYL (Look Before You Leap)` du
+           C/C++, basé sur une série *exhaustive* de tests *a priori*.
+
+
+.. |DANGER| unicode:: 0x2620 .. ☠ = SKULL AND CROSSBONES
+.. |fr| image:: ../Cours/france_flag_icon.png
+   :alt: Fr
+.. |en| image:: ../Cours/uk_flag_icon.png
+   :alt: En
+
+.. ①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳
+.. ↑↓→≡≠∈ℕℤℝℂ
+.. ☛☠☹☺⚡⚠
+
+.. Local Variables: ...
+.. mode: rst ...
+.. ispell-local-dictionary: "francais" ...
+.. mode: flyspell ...
+.. indent-tabs-mode: nil ...
+.. End: ...

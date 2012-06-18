@@ -1,0 +1,247 @@
+======================================================================
+                         Développer en python
+======================================================================
+
+.. Time-stamp: <2012-06-18 23:55 ycopin@lyopc469>
+
+.. contents:: Table des matières
+..
+    1  Le zen du python
+      1.1  Us et coutumes
+    2  Outils de développement
+      2.1  Vérification du code
+      2.2  Documentation et tests unitaires
+      2.3  Débugage et optimisation
+      2.4  Python packages
+      2.5  Python 2 vs. python 3
+      2.6  Integrated Development Environment
+
+.. _td7:
+
+Le zen du python
+================
+
+.. index:: Zen du python
+
+Le *zen du Python* (:pep:`20`) est une série de 20 aphorismes [#zen]_
+donnant les grands principes du Python::
+
+  >>> import this
+
+1.  Beautiful is better than ugly.
+2.  Explicit is better than implicit.
+3.  Simple is better than complex.
+4.  Complex is better than complicated.
+5.  Flat is better than nested.
+6.  Sparse is better than dense.
+7.  Readability counts.
+8.  Special cases aren't special enough to break the rules.
+9.  Although practicality beats purity.
+10. Errors should never pass silently.
+11. Unless explicitly silenced.
+12. In the face of ambiguity, refuse the temptation to guess.
+13. There should be one-- and preferably only one --obvious way to do it.
+14. Although that way may not be obvious at first unless you're Dutch.
+15. Now is better than never.
+16. Although never is often better than *right* now.
+17. If the implementation is hard to explain, it's a bad idea.
+18. If the implementation is easy to explain, it may be a good idea.
+19. Namespaces are one honking great idea -- let's do more of those!
+
+**En francais:**
+
+- Préfèrer le beau au laid,
+- l’explicite à l’implicite,
+- le simple au complexe,
+- le complexe au compliqué,
+- le déroulé à l’imbriqué,
+- l’aéré au compact.
+- La lisibilité compte.
+- Les cas particuliers ne le sont jamais assez pour violer les règles,
+- même s'il faut privilégier l’aspect pratique à la pureté.
+- Ne jamais passer les erreurs sous silence,
+- ou les faire taire explicitement.
+- Face à l’ambiguïté, ne pas se laisser tenter à deviner.
+- Il doit y avoir une -- et si possible une seule -- façon évidente de
+  procéder,
+- même si cette façon n’est pas évidente à première vue, à moins
+  d’être Hollandais.
+- Mieux vaut maintenant que jamais,
+- même si jamais est souvent mieux qu’immédiatement.
+- Si l’implémentation s’explique difficilement, c’est une mauvaise
+  idée.
+- Si l’implémentation s’explique facilement, c’est peut-être une bonne
+  idée.
+- Les espaces de nommage sont une sacrée bonne idée, utilisons-les
+  plus souvent !
+
+Us et coutumes
+--------------
+
+- *Easier to Ask for Forgiveness than Permission* (`try ... except`)
+- *Fail early, fail often, fail better!* (`raise`)
+- le *Style Guide for Python Code* (:pep:`8`)
+- `Idioms and Anti-Idioms in Python
+  <http://docs.python.org/howto/doanddont.html>`_
+
+**Quelques sages conseils supplémentaires**
+
+- *Ne réinventez pas la roue, encore moins le moteur à explosion*:
+  cherchez si ce que vous voulez faire n'a pas déjà été fait
+  (éventuellement en mieux...), et construisez dessus (en citant
+  évidemment vos sources), et contribuez si possible!
+- Codez *proprement*: commentez votre code, utilisez des noms de
+  variable qui ont un sens, créez des objets si nécessaire, etc.
+- Codez proprement *dès le début*: ne croyez pas que vous ne relirez
+  jamais votre code (ou même que personne n'aura jamais à le lire), ou
+  que vous aurez le temps de le refaire mieux plus tard...
+- « *L'optimisation prématurée est la source de tous les maux* »
+  (Knuth): mieux vaut un code lent mais juste et maintenable qu'un
+  code rapide et faux ou incompréhensible. Dans l'ordre absolu des
+  priorités:
+
+  1. Make it work.
+  2. Make it right.
+  3. Make it fast. 
+
+- *Respectez* le zen du python.
+
+Outils de développement
+=======================
+
+Je fournis ici essentiellement des liens vers des outils pouvant être
+utiles pour développer en python.
+
+- `Best Practices, Development Methodologies and the Zen of Python
+  <https://python.g-node.org/wiki/best_practices>`_
+
+Vérification du code
+--------------------
+
+Il s'agit d'outils permettant de vérifier *a priori* la validité
+syntaxique du code, de mettre en évidence des constructions
+dangereuses, les variables non-définies, etc. Ces outils ne testent
+malheureusement pas la validité des algorithmes et de leur
+mise en oeuvre...
+
+- `pyflakes <http://pypi.python.org/pypi/pyflakes>`_
+- `pychecker <http://pychecker.sourceforge.net/>`_
+- `pylint <http://pypi.python.org/pypi/pylint>`_
+- `pep8 <https://github.com/jcrocholl/pep8>`_
+
+Documentation et tests unitaires
+--------------------------------
+
+.. http://wiki.python.org/moin/DocumentationTools
+
+* Outils de documentation, ou comment transformer automagiquement un
+  code-source bien documenté en une documentation fonctionnelle.
+
+  - `Sphinx <http://sphinx.pocoo.org/>`_
+  - `reStructuredText for Sphinx <http://sphinx.pocoo.org/rest.html>`_
+
+* Conventions de documentation:
+
+  - Docstring convention: :pep:`257`
+  - `Documenting Your Project Using Sphinx
+    <http://packages.python.org/an_example_pypi_project/sphinx.html>`_
+  - `A Guide to NumPy/SciPy Documentation
+    <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
+
+* Tests unitaires: inclure des tests directement dans la documentation
+  (:mod:`doctest`) ou le code (:mod:`unittest`)
+
+  - `doctest <http://docs.python.org/library/doctest.html>`_
+  - `unittest <http://docs.python.org/library/unittest.html>`_
+  - `py.test <http://pytest.org/latest/>`_
+  - `nose <http://readthedocs.org/docs/nose/>`_
+
+Débugage et optimisation
+------------------------
+
+**Débogage**
+
+Les débogueurs permettent de « plonger » dans un code au cours
+d'exécution ou juste après une erreur (analyse post-mortem).
+
+- Modules de la bibliothèque standard: :mod:`pdb`, :mod:`timeit`
+
+  Ainsi, pour déboguer un script, il est possible de l'exécuter sous
+  le contrôle du débogueur `pdb
+  <http://docs.python.org/library/pdb.html>`_ en s'interrompant dès la
+  1ère instruction::
+
+    python -m pdb script.py
+    (Pdb) 
+
+- Commandes :program:`ipython`: `%run`, `%debug`, `%timeit`
+
+  Si un script exécuté sous `ipython` (commande `%run`) lève une
+  exception, il est possible d'inspecter l'état de la mémoire au
+  moment de l'erreur avec la commande `%debug`.
+
+**Profilage et optimisation**
+
+.. Warning:: *Premature optimization is the root of all evil* --
+   Donald Knuth
+
+Le profilage permet de déterminer le temps passé dans chacune des
+sous-fonctions d'un code, afin d'y identifier les parties à optimiser.
+
+- `python -O`, `__debug__`, `assert`
+- `Performance tips
+  <http://wiki.python.org/moin/PythonSpeed/PerformanceTips>`_
+- `Tutoriel de profilage
+  <http://scikit-learn.sourceforge.net/dev/developers/performance.html#profiling-python-code>`_
+- `cython <http://cython.org/>`_: *write C-extensions in python-like
+  language* (`Cython for NumPy users
+  <http://wiki.cython.org/tutorials/numpy>`_)
+
+.. - `Guppy <http://guppy-pe.sourceforge.net/>`_: *object and heap memory
+..   sizing, profiling and analysis*
+
+Python packages
+---------------
+
+Comment installer/créer des modules externes:
+
+- `pip <http://www.pip-installer.org/en/latest/>`_
+- `Hitchhiker’s Guide to Packaging
+  <http://guide.python-distribute.org/>`_
+
+Python 2 vs. python 3
+---------------------
+
+- `Python 2 or python 3?
+  <http://wiki.python.org/moin/Python2orPython3>`_
+- `Porting Python 2 Code to Python 3
+  <http://readthedocs.org/docs/python/en/latest/howto/pyporting.html>`_
+
+Integrated Development Environment
+----------------------------------
+
+- :program:`emacs` + `python-mode` + `ropemacs` pour l'édition, et
+  :program:`ipython` pour l'execution de code (voir `Python
+  Programming In Emacs
+  <http://www.emacswiki.org/emacs/PythonProgrammingInEmacs>`_)
+- `idle <http://docs.python.org/library/idle.html>`_
+- `spyder <http://code.google.com/p/spyderlib/>`_
+- `PythonToolkit <http://pythontoolkit.sourceforge.net/>`_
+
+.. Gestion de versions
+.. -------------------
+
+.. - `git <http://git-scm.com/>`_
+.. - `git@py4science <http://fperez.org/py4science/git.html>`_
+
+
+.. rubric:: Notes de bas de page
+
+.. [#zen] Dont seulement 19 ont été écrits.
+
+.. Local Variables: ...
+.. mode: rst ...
+.. ispell-local-dictionary: "francais" ...
+.. mode: flyspell ...
+.. indent-tabs-mode: nil ...
+.. End: ...
