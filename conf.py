@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# Informatique - Python documentation build configuration file, created by
-# sphinx-quickstart on Mon Jun 18 23:10:18 2012.
+# Analyse scientifique en Python documentation build configuration file, created by
+# sphinx-quickstart on Sun Aug 14 00:53:23 2011.
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #
@@ -40,15 +40,15 @@ source_suffix = '.txt'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Informatique - Python'
-copyright = u'2012, Yannick Copin'
+project = u'Analyse scientifique avec Python'
+copyright = u'2011, Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '2012-2013'
+version = '2012'
 # The full version, including alpha/beta/rc tags.
 release = '0.1'
 
@@ -65,7 +65,7 @@ today_fmt = '%d/%m/%y, %H:%M'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build']
+exclude_patterns = ['_build', 'Projets/2011']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 default_role = 'literal'
@@ -105,7 +105,12 @@ rst_prolog = u""
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'default'
+#html_theme = 'default'
+# http://sphinx.pocoo.org/theming.html
+# default, sphinxdoc, scrolls, agogo, traditional, nature, haiku
+html_theme = 'sphinxdoc'
+html_theme_options = {
+}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -125,6 +130,7 @@ html_theme = 'default'
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #html_logo = None
+html_logo = '_static/scipy2.png' # Ne pas utiliser avec thème agogo
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -178,7 +184,7 @@ html_show_copyright = True
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Informatique-Pythondoc'
+htmlhelp_basename = 'AnalyseScientifiquePython'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -197,8 +203,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Informatique-Python.tex',
-   u'Informatique - Python Documentation',
+  ('index', 'analyseScientifiquePython.tex',
+   u'Analyse scientifique avec Python',
    u'Yannick Copin', 'manual'),
 ]
 
@@ -228,74 +234,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'informatique-python',
-     u'Informatique - Python Documentation',
+    ('index', 'analyseScientifiquePython',
+     u'Analyse scientifique avec Python',
      [u'Yannick Copin'], 1)
 ]
-
-# If true, show URL addresses after external links.
-#man_show_urls = False
-
-
-# -- Options for Texinfo output ------------------------------------------------
-
-# Grouping the document tree into Texinfo files. List of tuples
-# (source start file, target name, title, author,
-#  dir menu entry, description, category)
-texinfo_documents = [
-  ('index', 'Informatique-Python', u'Informatique - Python Documentation',
-   u'Yannick Copin', 'Informatique-Python', 'One line description of project.',
-   'Miscellaneous'),
-]
-
-# Documents to append as an appendix to all manuals.
-#texinfo_appendices = []
-
-# If false, no module index is generated.
-#texinfo_domain_indices = True
-
-# How to display URL addresses: 'footnote', 'no', or 'inline'.
-#texinfo_show_urls = 'footnote'
-
-
-# -- Options for Epub output ---------------------------------------------------
-
-# Bibliographic Dublin Core info.
-epub_title = u'Informatique - Python'
-epub_author = u'Yannick Copin'
-epub_publisher = u'Yannick Copin'
-epub_copyright = u'2012, Yannick Copin'
-
-# The language of the text. It defaults to the language option
-# or en if the language is not set.
-#epub_language = ''
-
-# The scheme of the identifier. Typical schemes are ISBN or URL.
-#epub_scheme = ''
-
-# The unique identifier of the text. This can be a ISBN number
-# or the project homepage.
-#epub_identifier = ''
-
-# A unique identification for the text.
-#epub_uid = ''
-
-# A tuple containing the cover image and cover page html template filenames.
-#epub_cover = ()
-
-# HTML files that should be inserted before the pages created by sphinx.
-# The format is a list of tuples containing the path and title.
-#epub_pre_files = []
-
-# HTML files shat should be inserted after the pages created by sphinx.
-# The format is a list of tuples containing the path and title.
-#epub_post_files = []
-
-# A list of files that should not be packed into the epub file.
-#epub_exclude_files = []
-
-# The depth of the table of contents in toc.ncx.
-#epub_tocdepth = 3
-
-# Allow duplicate toc entries.
-#epub_tocdup = True

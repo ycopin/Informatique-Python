@@ -1,8 +1,8 @@
-=====================================================================
-                        Informatique - Python
-=====================================================================
+======================================================================
+                   Analyse scientifique avec Python
+======================================================================
 
-.. Time-stamp: <2012-08-27 13:55:38 ycopin>
+.. Time-stamp: <2012-08-27 13:55:40 ycopin>
 
 :Version: |version| du |today|
 :Auteur: Yannick Copin <`(at)ipnl.in2p3.fr`>
@@ -12,6 +12,26 @@
 
 .. Make interpreted `text` acts as literal ``text``
 .. default-role:: literal
+
+
+Pourquoi un module d'analyse scientifique ?
+===========================================
+
+* Pour *générer* ses données, p.ex. simulations numériques, contrôle
+  d'expériences;
+* Pour *traiter* ses données, i.e. supprimer les artefacts
+  observationnels;
+* Pour *analyser* ses données, i.e. extraire les quantités physiques
+  pertinentes, p.ex. en ajustant un modèle;
+* Pour *visualiser* ses données, et appréhender leur richesse
+  multi-dimensionnelle;
+* Pour *présenter* ses données, p.ex. générer des figures prêtes à
+  publier.
+
+Ce module s'addresse donc avant tout aux futurs expérimentateurs,
+phénoménologistes ou théoriciens voulant se frotter à la réalités des
+observations.
+
 
 Pourquoi Python ?
 =================
@@ -44,18 +64,6 @@ programes les plus complexes (projets de plus de 100000 lignes).
 * `Python Advocacy <http://docs.python.org/howto/advocacy.html>`_
 
 
-Organisation des TDs
-====================
-
-* :ref:`TD1 <td1>`: Introduction, types de base, structures de programmation
-* :ref:`TD2 <td2>`: Chaînes de caractères, objets itérables, fonctions, bibliothèques
-* :ref:`TD3 <td3>`: Classes, exceptions, entrées-sorties
-* :ref:`TD4 <td4>`: Librairie standard, révisions
-* :ref:`TD5 <td5>`: Numpy
-* :ref:`TD6 <td6>`: Scipy
-* :ref:`TD7 <td7>`: Zen du python, révisions
-
-
 Table des matières
 ==================
 
@@ -63,6 +71,7 @@ Table des matières
    :maxdepth: 2
    :numbered:
 
+   info
    Cours/cours
    Cours/circonscrit
    Cours/standard
@@ -76,7 +85,8 @@ Table des matières
    Exercices/koch
    Exercices/mad
    Exercices/pull
-
+   Projets/projets
+   Projets/correction_2011
 
 Index
 =====
