@@ -1,0 +1,268 @@
+.. Time-stamp: <2012-08-27 16:17:31 ycopin>
+.. _projets:
+
+=====================================================================
+                         Exemples de projets
+=====================================================================
+
+Introduction
+============
+
+L'évaluation de ce module se fera sous la forme d'un **micro-projet**,
+à développer *personnellement* et à *soutenir oralement*, en gardant à
+l'esprit un aspect essentiel: *il s'agit d'un module d'informatique
+dans une formation de physique*. L'objectif du projet doit donc être
+d'aborder un problème de physique -- au sens large -- en utilisant
+l'outil numérique -- au sens restreint: Python & Co. -- avec un regard
+critique et pragmatique.
+
+Les sujets proposés sont purement indicatifs: il n'est pas demandé
+d'en explorer systématiquement tous les aspects, mais il n'est pas non
+plus interdit de les développer dans de nouvelles directions. Vous
+pouvez également proposer votre propre sujet original. Dans tous les
+cas, il faut avant tout me présenter le projet que vous avez
+l'intention de développer pour que je le valide et éventuellement le
+recadre ou le précise.
+
+En pratique, le projet devra prendre la forme d'un module pur python
+*utile*, et permettant à un tiers de reprendre l'étude présentée en
+régénérant les résultats obtenus avec différents paramètres. Ce module
+devra être documenté au mieux (documentation interne et éventuellement
+externe), tant au niveau de la physique, de l'algorithmique et du
+code: objectifs, méthodes, sources, tests, limites, etc.
+
+Le but n'est pas de redévelopper des algorithmes de base et/ou des
+outils d'analyse déjà existants: il est largement encouragé de
+s'appuyer sur des modules externes, *dans le respect de la déontologie
+scientifique et des licences d'utilisation*. Le plagiat --
+copier/coller de code sans citation ni valeur ajoutée -- sera
+évidemment sanctionné.
+
+La soutenance (20mn) devra être une explication de votre code, des
+algorithmes utilisés, des résultats et des tests permettant d'en
+vérifier la pertinence, et éventuellement une démonstration *live*.
+
+L'évaluation portera sur l'analyse du projet à travers le code, ses
+commentaires, son utilisation et la présentation qu'en aura faite
+l'étudiant: obtention et étude critique des résultats -- « quelles
+sont les raisons me permettant de croire aux résultats? », capacité à
+circonscrire le sujet abordé dans le cadre d'un projet limité -- «
+quelle était la question, et quelle est la réponse? », pertinence dans
+le choix des stratégies de codage (modularité, extensibilité, «
+bidouillabilité »), respect du zen de Python, etc.
+
+Critères d'évaluation
+---------------------
+
+* Pondération selon la difficulté du sujet et l'existence d'un modèle
+* *Source Lines of Code* (hors commentaires et emprunts)
+* Structuration du programme (notamment utilisation de classes)
+* Utilisation pertinente de librairies externes
+* Documentations interne (code) *et* externe (document indépendant)
+* Évaluation des résultats (y compris précision, temps de calculs,
+  pertinence, etc.)
+* Modularité du code
+* Respect du Zen de Python
+* Présentation orale
+
+:ref:`Calendrier des projets <calendrier>`
+
+Projets de visualisation
+========================
+
+L'objectif premier de ces projets est de développer des outils de
+visualisation sous Python/Matplotlib.
+
+* `Coordonnées parallèles
+  <http://en.wikipedia.org/wiki/Parallel_coordinates>`_
+
+  - Sources éventuelles d'inspiration: `Parallel Coordinates plot in
+    Matplotlib
+    <http://stackoverflow.com/questions/8230638/parallel-coordinates-plot-in-matplotlib>`_,
+    `XDAT <http://www.xdat.org/>`_
+  - Exemples de jeu de données multi-variables: `Iris flower data set
+    <http://en.wikipedia.org/wiki/Iris_flower_data_set>`_,
+    :download:`Cars <./carsDataSet.dat>` (`source
+    <http://mbostock.github.com/protovis/ex/cars.html>`_)
+
+* `Andrew Curves
+  <http://www.jucs.org/jucs_11_11/visualization_of_high_dimensional/jucs_11_11_1806_1819_garc_a_osorio.pdf>`_
+  (voir également `Rip’s Applied Mathematics Blog
+  <http://rip94550.wordpress.com/2011/10/03/andrews-curves/>`_
+
+  - À appliquer sur les mêmes jeux de données que pour les coordonnées
+    parallèles.
+
+* `Stacked graphs <http://leebyron.com/else/streamgraph/>`_
+
+  - Source éventuelle d'inspiration: `Python recipe
+    <http://code.activestate.com/recipes/576633-stacked-graphs-using-matplotlib/>`_
+
+* `Diagramme de Hertzprung-Russel
+  <http://en.wikipedia.org/wiki/Hertzsprung-Russell_diagram>`_
+
+  L'objectif est de développer une classe permettant de tracer des
+  diagrammes HR à partir de diverses quantités observationnelles
+  (magnitudes apparentes ou absolues, couleurs) ou théoriques
+  (luminosité, températures effectives), ainsi que des isochrones.
+
+  - Source éventuelle d'inspiration: `Stellar evolutionary tracks
+    <http://en.wikipedia.org/wiki/File:Stellar_evolutionary_tracks-en.svg>`_
+  - Données photométriques: p.ex. :download:`M55 <./M55_BV.dat>`
+    (source: `BVI photometry in M55
+    <http://cdsarc.u-strasbg.fr/viz-bin/Cat?J/AJ/134/825>`_)
+  - Données théoriques: p.ex. `Padova database of stellar evolutionary
+    tracks and isochrones <http://pleiadi.pd.astro.it/>`_
+
+.. https://sites.google.com/site/roguewavesoftwarefrance/tutoriels/Python-Clustering-k-Means
+
+* `Treemaps <http://en.wikipedia.org/wiki/Treemap>`_
+
+  - Source éventuelle d'inspiration: `Treemaps under pylab
+    <http://www.scipy.org/Cookbook/Matplotlib/TreeMap>`_
+
+* De façon plus générale, l'ensemble des visualisations proposées
+  sous:
+
+  - `Flare <http://flare.prefuse.org/demo>`_
+  - `D3 <http://mbostock.github.com/d3/ex/>`_ (ex-`Protovis
+    <http://mbostock.github.com/protovis/ex/>`_)
+  - `R <http://addictedtor.free.fr/graphiques/>`_
+  - `Periodic Table of Vizualisation Methods
+    <http://www.visual-literacy.org/periodic_table/periodic_table.html>`_
+
+
+Projets statistiques
+====================
+
+- Tests statistiques du `NIST/SEMATECH e-Handbook of Statistical
+  Methods <http://www.itl.nist.gov/div898/handbook/>`_,
+  p.ex. `Comparisons based on data from two processes
+  <http://www.itl.nist.gov/div898/handbook/prc/section3/prc3.htm>`_
+- Statistiques robustes, p.ex. `Beers et al. (1990)
+  <http://adsabs.harvard.edu/abs/1990AJ....100...32B>`_
+
+Projets de physique
+===================
+
+Solitons
+--------
+
+On considère un câble sous tension auquel sont rigidement et
+régulièrement attachés des pendules. Les pendules sont couplés grâce
+au câble à travers sa constante de torsion. Dans un tel système on
+peut observer une large gamme de phénomènes ondulatoires. Le but de
+cet projet est d’étudier une solution très particulière : le
+*soliton*.
+
+Imaginons qu’une des extrémités du câble est attachée à une manivelle
+qui peut tourner librement. Il est alors possible de donner une
+impulsion au système en faisant un tour rapide ce qui déclenche la
+propagation d’un soliton. Dans ce projet, on considérera les pendules
+individuellement. Il n’est pas demandé de passer au modèle continu et
+de résoudre l’équation obtenue.
+
+Pour chaque pendule *n* dont la position est décrite par
+:math:`\theta_n`, l’équation d’évolution s’écrit:
+
+.. math::
+
+   \frac{d^2\theta_n}{d t^2} =
+   \alpha\sin\theta_n + \beta(\theta_{n-1} + \theta_{n+1} - 2\theta_n)
+
+où :math:`\alpha,\beta` sont des paramètres physiques. On résoudra
+numériquement cette équation pour chaque pendule. En donnant un « tour
+de manivelle numérique », on essayera d’obtenir la solution
+soliton. On cherchera en particulier à ajuster la solution par une
+équation du type :math:`\theta_n = a \tan^{-1}(\exp(b(n-n_0)))` où
+:math:`a,b,n_0` sont des paramètres à déterminer.
+
+De très nombreuses questions se posent (il ne vous est pas demandé de
+répondre à chacune d’entre elle):
+
+- Est-il toujours possible d’obtenir un soliton?
+- Sa vitesse est-elle constante?
+- Le soliton conserve-t-il sa forme?
+- Que se passe-t-il avec des pendules plus lourds? ou plus rapprochés?
+  avec un câble plus rigide? avec un frottement?
+- Comment le soliton se réfléchi-t-il si l’extrémité du câble est
+  rigidement fixée? et si elle tourne librement?
+- Dans ce système, le soliton est chiral. En effet, on peut tourner la
+  manivelle à gauche ou à droite. Un anti-soliton a-t-il les mêmes
+  propriétés (taille, vitesse, énergie) qu’un soliton?
+- Si on place une manivelle à chaque extrémité, on peut faire se
+  collisionner des solitons. Cette étude est très intéressante et
+  pleine de surprises. Que se passe-t-il lors de la collision de deux
+  solitons? Entre un soliton et un anti-soliton?
+
+
+Autres possibilités
+-------------------
+
+- Processus de percolation
+- Formation d'agrégats 2D/3D
+- Tesselation de Voronoi (exemple d'application en astrophysique:
+  `Voronoi binning: Optimal adaptive tessellations of
+  multi-dimensional data <http://arxiv.org/abs/0912.1303>`_)
+- `Équation de Schrödinger 1D
+  <http://www.scipy.org/Cookbook/SchrodingerFDTD>`_
+- `Reaction-Diffusion by the Gray-Scott Model
+  <http://mrob.com/pub/comp/xmorphia/>`_
+- Équation de `Cahn–Hilliard
+  <http://en.wikipedia.org/wiki/Cahn%E2%80%93Hilliard_equation>`_ (voir
+  p.ex. l'`exemple
+  <http://www.ctcms.nist.gov/fipy/examples/cahnHilliard/generated/examples.cahnHilliard.mesh2D.html>`_
+  sous `FiPy: A Finite Volume PDE Solver Using Python
+  <http://www.ctcms.nist.gov/fipy/>`_)
+- `Computational Methods for Nonlinear Systems
+  <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/ComputerExercises.html>`_
+
+Projets proposés par les étudiants
+----------------------------------
+
+Modèle de Potts 3D (Xavier Fabian)
+..................................
+
+`Modèle de Potts <http://en.wikipedia.org/wiki/Potts_model>`_ en 3D
+dans un univers carré à condition périodique. Le but est la mise en
+évidence de la transition de phase pour plusieurs jeux de paramètres
+avec 3 types de spins différents.
+
+1. Reproduire des résultats connus du modèle d'Ising en 2D pour
+   valider le code.
+2. Passer à un algorithme en *cluster* pour évaluer la différence avec
+   un algorithme classique.
+3. Passer en 3D
+4. Changer le nombre de type de spins (de 2 à 3).
+
+Jeux de paramètres à tester :
+
+- `Ising en 2D
+  <http://en.wikipedia.org/wiki/Square-lattice_Ising_model>`_ (2 types
+  de spins, algorithme de Glauber): Transition de phase attendue à
+  T~227K pour un couplage J=100 et un champ externe nul
+- Toujours Ising, mais avec l'`algorithme de Wolff
+  <http://en.wikipedia.org/wiki/Wolff_algorithm>`_
+- Ising en 3D avec Wolff
+- Potts (changer q=2 par q=3) en 3D avec Wolff
+
+**Références:** `Computational Studies of Pure and Dilute Spin Models
+<http://www.hermetic.ch/compsci/thesis/contents.htm>`_
+
+Équation de Poisson (Alexis Fagot)
+..................................
+
+Résolution de l'équation de Poisson 2D par :abbr:`MEF (Méthode des
+Élements Finis)`.
+
+- Sources éventuelles d'inspiration: `Simple Finite Elements in Python
+  <http://www.sfepy.org/>`_ pour la résolution des équations, `Line
+  integral convolution <http://scikits.appspot.com/vectorplot>`_ pour
+  la visualisation 2D d'un champ vectoriel.
+
+.. Local Variables: ...
+.. mode: rst ...
+.. ispell-local-dictionary: "francais" ...
+.. mode: flyspell ...
+.. indent-tabs-mode: nil ...
+.. End: ...
