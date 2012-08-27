@@ -1,0 +1,6 @@
+.. _cribleEratostheneSol:
+
+.. literalinclude:: crible.py
+   :linenos:
+
+**Source:** :download:`crible.py`

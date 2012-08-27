@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-06-18 23:23 ycopin@lyopc469>
+.. Time-stamp: <2012-08-27 13:46:01 ycopin>
 
 Références supplémentaires
 ==========================
@@ -45,16 +45,16 @@ Livres libres
 
 - `How to Think Like a Computer Scientist
   <http://www.greenteapress.com/thinkpython/thinkpython.html>`_
-  
+
   * `Wikibook <http://en.wikibooks.org/wiki/Think_Python>`_
   * `Interactive edition <http://thinkcspy.appspot.com/build/index.html>`_
 
 - `Dive into Python <http://diveintopython.org/>`_ (*lien mort*)
 - `Non-Programmer's Tutorial for Python 2.6
   <http://en.wikibooks.org/wiki/Non-Programmer's_Tutorial_for_Python_2.6>`_
- 
+
 - `A Python Book <http://www.rexx.com/~dkuhlman/python_book_01.html>`_
- 
+
 - `Apprendre à programmer avec Python
   <http://inforef.be/swi/python.htm>`_ |fr| (`Wikilivre
   <http://fr.wikibooks.org/wiki/Apprendre_%C3%A0_programmer_avec_Python>`_)
@@ -69,6 +69,9 @@ Python
 - `Cours Python 3 + exercices
   <http://www.iut-orsay.u-psud.fr/fr/departements/mesures_physiques/mphy_pedagogie.html>`_
   (voir également le cours d'algorithmique en C, et de `easygui`) |fr|
+- `DIY python workshop <http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
+- `Exemples de scripts Python
+  <http://fr.wikibooks.org/wiki/Exemples_de_scripts_Python>`_ |fr|
 
 Scientifique
 ............
@@ -86,6 +89,9 @@ Scientifique
 
 - `L’informatique scientifique avec Python
   <http://www.dakarlug.org/pat/scientifique/html/>`_ |fr|
+- `La programmation scientifique avec Python
+  <http://www.siteduzero.com/tutoriel-3-547399-la-programmation-scientifique-avec-python.html>`_
+  |fr|
 
 Autres
 ......

@@ -4,7 +4,7 @@
                        Bibliothèques numériques
 =====================================================================
 
-.. Time-stamp: <2012-06-18 23:57 ycopin@lyopc469>
+.. Time-stamp: <2012-07-25 11:49 ycopin@lyopc469>
 
 .. contents:: Table des matières
 ..
@@ -633,6 +633,7 @@ Il existe deux interfaces pour deux types d'utilisation:
     import matplotlib.pyplot as P
 
     x = N.linspace(-N.pi, N.pi, 100)
+    y = N.sin(x)
 
     fig,ax = P.subplots()
     ax.plot(x, y)

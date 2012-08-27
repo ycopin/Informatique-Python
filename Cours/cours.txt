@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-06-18 23:55 ycopin@lyopc469>
+.. Time-stamp: <2012-07-17 12:14 ycopin@lyopc469>
 .. _cours:
 
 =====================================================================
@@ -147,6 +147,12 @@ Python:
     * `%debug` pour lancer le mode débuggage intéractif *post-mortem*
     * `%cpaste` pour coller et éxecuter un code pré-formaté
 
+  Liens:
+  
+  - `Tutorial
+    <http://ipython.org/ipython-doc/stable/interactive/tutorial.html>`_
+  - `IPython Tip Sheet
+    <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/ipython.html>`_
 
 Types de base
 =============

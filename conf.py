@@ -95,7 +95,7 @@ pygments_style = 'sphinx'
 # every source file that is read.
 # rst_prolog = u"""
 # .. Warning::
-# 
+#
 #    Le cours du lundi 7/11/2011 est **ANNULÉ**. Veuillez transmettre le
 #    message à vos collègues SVP !
 # """
@@ -197,7 +197,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Informatique-Python.tex', u'Informatique - Python Documentation',
+  ('index', 'Informatique-Python.tex',
+   u'Informatique - Python Documentation',
    u'Yannick Copin', 'manual'),
 ]
 
@@ -227,7 +228,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'informatique-python', u'Informatique - Python Documentation',
+    ('index', 'informatique-python',
+     u'Informatique - Python Documentation',
      [u'Yannick Copin'], 1)
 ]
 

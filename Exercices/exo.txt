@@ -1,13 +1,30 @@
-.. Time-stamp: <2011-11-26 18:17 ycopin@lyopc469>
+.. Time-stamp: <2012-08-27 14:14:27 ycopin>
 .. _exercices:
 
 Exercices
 =========
 
+Manipulation de listes
+----------------------
+
+.. _cribleEratosthene:
+
+Crible d'Ératosthène
+''''''''''''''''''''
+
+Implémenter le `crible d'Ératosthène
+<http://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne>`_ pour
+afficher les nombres premiers compris entre 1 et un entier fixe, p.ex.::
+
+  Liste des entiers premiers ⩽ 41
+  [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]
+
+.. crible
+
 .. _carreMagique:
 
 Carré magique
--------------
+'''''''''''''
 
 Un carré magique d’ordre *n* est un tableau carré *n × n* dans lequel
 on écrit une et une seule fois les nombres entiers de 1 à *n²*, de
@@ -37,7 +54,7 @@ commençant à 1:
 Programmer cet algorithme pour pouvoir construire un carré magique
 d’ordre impair quelconque.
 
-.. carre 
+.. carre
 .. `Une solution <../../../Exercices/solution.html?pneer?pneerZntvdhr.ugzy>`_
 
 
@@ -62,9 +79,38 @@ générer à l'écran un `flocon de Koch
 .. koch
 .. `Une solution <../../../Exercices/solution.html?xbpu?xbpu.cl>`_
 
+.. _PDB:
 
-Manipulation de tableaux
-------------------------
+*Protein Data Bank*
+-------------------
+
+On chercher a réaliser un script qui analyse un fichier de données de
+type `PDB <http://fr.wikipedia.org/wiki/Protein_Data_Bank>`_ (*Protein
+Data Bank*).
+
+La banque de données `Worldwide Protein Data Bank
+<http://www.wwpdb.org/>`_ regroupe les structures obtenues par
+diffraction aux rayons X ou par RMN.  Le format est parfaitement
+defini et conventionnel (`Documentation
+<http://www.wwpdb.org/docs.html>`_).
+
+On propose d'assurer une lecture de ce fichier pour calculer notamment :
+
+- le barycentre de la biomolécule
+- le nombre d'acides aminés ou nucléobases
+- le nombre d'atomes
+- la masse moléculaire
+- les dimensions maximales de la protéine
+- etc.
+
+On propose de considerer par exemple la structure resolue pour la `GFP
+<http://www.rcsb.org/pdb/101/motm.do?momID=42>`_ (*Green Fluorescent
+Protein*, Prix Nobel 2008) (`Fichier PDB
+<http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)
+
+
+Manipulation de tableaux (arrays)
+---------------------------------
 
 .. _mad:
 
@@ -107,6 +153,8 @@ Si les erreurs :math:`\sigma_i` sont correctes, la distribution du
 Algorithmes numériques
 ----------------------
 
+.. _romberg:
+
 Intégration numérique de Romberg
 ''''''''''''''''''''''''''''''''
 
@@ -117,6 +165,8 @@ de calculer l'intégrale numérique de la fonction *f* entre les bornes
 
 Tester sur des solutions analytiques et en comparant à
 `scipy.integrate.romberg`.
+
+.. _rk:
 
 Méthode de Runge-Kutta
 ''''''''''''''''''''''
@@ -130,11 +180,11 @@ quatre.
 Tester sur des solutions analytiques et en comparant à
 `scipy.integrate.odeint`.
 
+Exercices supplémentaires
+-------------------------
 
-.. Test de maths
-.. -------------
+* `Learn Python The Hard Way <http://learnpythonthehardway.org/book/>`_
 
-.. .. math:: mean = ( \frac{1}{N}\sum_{i=0}^{N-1} x_i^p} )^{1/p}
 
 .. Local Variables: ...
 .. mode: rst ...
