@@ -2,7 +2,7 @@
                         Informatique - Python
 =====================================================================
 
-.. Time-stamp: <2012-06-19 00:03 ycopin@lyopc469>
+.. Time-stamp: <2012-08-27 13:55:38 ycopin>
 
 :Version: |version| du |today|
 :Auteur: Yannick Copin <`(at)ipnl.in2p3.fr`>
@@ -40,7 +40,7 @@ programes les plus complexes (projets de plus de 100000 lignes).
 
 **Liens:**
 
-* `About Python <http://www.python.org/about/>`_ 
+* `About Python <http://www.python.org/about/>`_
 * `Python Advocacy <http://docs.python.org/howto/advocacy.html>`_
 
 
@@ -72,6 +72,7 @@ Table des matières
    Cours/references
    Exercices/exo
    Exercices/carreMagique
+   Exercices/crible
    Exercices/koch
    Exercices/mad
    Exercices/pull
