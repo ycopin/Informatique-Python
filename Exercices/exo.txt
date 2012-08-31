@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-08-27 14:14:27 ycopin>
+.. Time-stamp: <2012-08-31 19:05:45 ycopin>
 .. _exercices:
 
 Exercices
@@ -7,7 +7,7 @@ Exercices
 Manipulation de listes
 ----------------------
 
-.. _cribleEratosthene:
+.. _crible:
 
 Crible d'Ératosthène
 ''''''''''''''''''''
@@ -16,7 +16,7 @@ Implémenter le `crible d'Ératosthène
 <http://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne>`_ pour
 afficher les nombres premiers compris entre 1 et un entier fixe, p.ex.::
 
-  Liste des entiers premiers ⩽ 41
+  Liste des entiers premiers <= 41
   [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]
 
 .. crible
@@ -133,7 +133,7 @@ Le *pull* est une quantité statistique permettant d'évaluer la
 conformité des erreurs par rapport à une distribution de valeurs
 (typiquement les résidus d'un ajustement).  Pour un échantillon
 :math:`\mathbf{x} = [x_i]` et les erreurs associées
-:math:`\mathrm{d}\mathbf{x} = [σ_i]`, le *pull* est défini par:
+:math:`\mathrm{d}\mathbf{x} = [\sigma_i]`, le *pull* est défini par:
 
 * Moyenne optimale (pondérée par la variance): :math:`E = (\sum_{i}
   x_i/\sigma_i^2)/(\sum_i 1/\sigma_i^2)`
@@ -183,8 +183,17 @@ Tester sur des solutions analytiques et en comparant à
 Exercices supplémentaires
 -------------------------
 
-* `Learn Python The Hard Way <http://learnpythonthehardway.org/book/>`_
+* `Exercices de base
+  <http://fr.wikibooks.org/wiki/Programmation_Python/Exercices_Base_du_langage>`_
+* `Entraînez-vous !
+  <http://www.siteduzero.com/forum-83-537209-p1-entrainez-vous-sur-le-langage-python.html>`_
+* `Learn Python The Hard Way <http://learnpythonthehardway.org/book/>`_ |en|
+* `Google Code Jam <http://code.google.com/codejam/>`_ |en|
 
+.. |fr| image:: ../Cours/france_flag_icon.png
+   :alt: Fr
+.. |en| image:: ../Cours/uk_flag_icon.png
+   :alt: En
 
 .. Local Variables: ...
 .. mode: rst ...

@@ -1,4 +1,4 @@
-.. _cribleEratostheneSol:
+.. _cribleSol:
 
 .. literalinclude:: crible.py
    :linenos:
