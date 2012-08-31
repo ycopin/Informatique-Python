@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-09-19 22:57 ycopin@lyopc469>
+.. Time-stamp: <2013-10-23 23:51 ycopin@lyonovae03.in2p3.fr>
 .. _cours:
 
 =====================================================================
@@ -53,7 +53,7 @@ Cette introduction repose sur les outils suivants:
 - Bibliothèque graphique: `matplotlib
   <http://matplotlib.org/users/installing.html>`_,
 - Interpréteur évolué, p.ex. `ipython
-  <http://ipython.org/download.html>`_,
+  <http://ipython.org/install.html>`_,
 - Éditeur de texte évolué, p.ex. `emacs
   <http://www.gnu.org/software/emacs/#Obtaining>`_
 
@@ -64,9 +64,9 @@ sous Linux (p.ex. `Ubuntu <http://ubuntu-fr.org/>`_, `Fedora
 également des distributions « clés en main »:
 
 - `Python(x,y) <http://code.google.com/p/pythonxy/>`_ (Windows)
-- `Enthought Python Distribution
-  <http://www.enthought.com/products/epd.php>`_ (Windows, MacOS,
-  Linux, gratuite pour les étudiants du supérieur)
+- `Enthought Canopy
+  <http://www.enthought.com/products/products/canopy>`_ (Windows,
+  MacOS, Linux, gratuite pour les étudiants du supérieur)
 
 Notions d'Unix
 --------------
@@ -262,11 +262,11 @@ Structures de programmation
 - Expression conditionnelle `if/elif/else`::
 
     if i>0:     # Condition principale
-        print "i > 0"
+        print "positif"
     elif i<0:   # Condition secondaire (si nécéssaire)
-        print "i < 0"
+        print "négatif"
     else:       # Cas final (si nécéssaire)
-        print "i = 0"
+        print "nul"
 
 .. index:: for ... in
 .. index:: continue
@@ -397,6 +397,8 @@ Scientific progress goes 'boink'
 .. α² + β² = γ²
 .. >>> for i in range(945,970):
 .. ...     print i,unichr(i)
+
+**Exercice:** tables de multiplications.
 
 
 Objets itérables
@@ -629,7 +631,7 @@ Nous verrons par la suite quelques exemples de modules de la
 :ref:`standard`, ainsi que des :ref:`science` orientées analyse
 numérique.
 
-**Exercice:** :ref:`koch`
+**Exercice:** :ref:`koch` (difficile)
 
 Bibliothèques personnelles et scripts
 -------------------------------------
@@ -816,7 +818,7 @@ finalement l'interruption du programme)
 
 Vos procédures doivent également générer des exceptions
 (*documentées*) -- avec l'instruction :samp:`raise {Exception}` -- si
-elles ne peuvent conclure leur action, à charge de la procédure
+elles ne peuvent conclure leur action, à charge pour la procédure
 appelante de les gérer::
 
   def diffsqr(x,y):

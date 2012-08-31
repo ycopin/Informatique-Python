@@ -1,4 +1,4 @@
-.. Time-stamp: <2013-01-09 00:03 ycopin@lyopc469>
+.. Time-stamp: <2013-09-25 19:23 ycopin@lyonovae03.in2p3.fr>
 .. _projets:
 
 =====================================================================
@@ -54,7 +54,7 @@ computationel ». Pour un projet en ce sens, un soin particulier sera
 donné à la contextualisation. Par exemple, on pourra tester les
 limites de la règle de Wade pour la structure de clusters métalliques,
 ou bien dans un contexte plus `biologique
-<http://fr.wikipedia.org/wiki/Dictyostelium_disco%C3%AFdeum>`_.
+<http://fr.wikipedia.org/wiki/Dictyostelium_discoideum>`_.
 
 Modèle d'Ising
 --------------

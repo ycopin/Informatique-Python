@@ -4,7 +4,7 @@
                        Bibliothèques numériques
 =====================================================================
 
-.. Time-stamp: <2012-11-09 16:42:29 ycopin>
+.. Time-stamp: <2013-10-23 23:53 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -37,7 +37,7 @@ Numpy
 - `Réference Numpy <http://docs.scipy.org/doc/numpy/reference/>`_
 - `Tutoriel numpy <http://www.scipy.org/Tentative_NumPy_Tutorial>`_
 - `Exemples annotés
-  <http://www.scipy.org/Numpy_Example_List_With_Doc/>`_
+  <http://wiki.scipy.org/Numpy_Example_List>`_
 
 .. - `Numpy Medkit <http://mentat.za.net/numpy/numpy_advanced_slides/>`_
 .. - `Getting Started with Numpy Arrays in Python
@@ -318,7 +318,7 @@ array([[[0, 0],
    pair: numpy; broadcasting
    pair: numpy; newaxis
 
-L'`array broadcasting <http://www.scipy.org/EricsBroadcastingDoc>`_
+L'`array broadcasting <http://wiki.scipy.org/EricsBroadcastingDoc>`_
 définit les régles selon lesquelles deux tableaux de formats
 *différents* peuvent éventuellement s'apparier.
 
@@ -606,7 +606,7 @@ fonctionnalités `numpy`. P.ex.:
   - `statsmodel <http://statsmodels.sourceforge.net/>`_: modèles statistiques
 
 - `Scipy Topical softwares <http://www.scipy.org/Topical_Software>`_
-- `Numpy/Scipy projects <http://www.scipy.org/Projects>`_
+- `Numpy/Scipy projects <http://wiki.scipy.org/Projects>`_
 
 .. http://www.osc.edu/supercomputing/training/python/python_pt2_0702.pdf
 
@@ -730,8 +730,8 @@ différents domaines de la physique/chimie:
   <http://www.astro.rug.nl/software/kapteyn/>`_ et autres `modules
   astronomiques
   <http://oneau.wordpress.com/2010/10/02/python-for-astronomy/>`_
-- *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
-   <http://sfepy.org/doc-devel/index.html>`_
+- *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, 
+  `SfePy <http://sfepy.org/doc-devel/index.html>`_
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
   <http://packages.python.org/milk/>`_, `MDP
   <http://mdp-toolkit.sourceforge.net/>`_ et autres `modules
