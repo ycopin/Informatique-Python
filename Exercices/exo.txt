@@ -58,6 +58,24 @@ d’ordre impair quelconque.
 .. `Une solution <../../../Exercices/solution.html?pneer?pneerZntvdhr.ugzy>`_
 
 
+.. _life:
+
+Jeu de la Vie
+--------------
+
+On se propose de programmer l'automate cellulaire le plus célèbre: `le jeu de vie <http://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
+
+Pour cela vous créerez une classe `life` qui contiendra la grille du jeu ainsi que les méthodes qui permettront son évolution.
+
+Vous initialiserez la grille aléatoirement à l'aide du module `random`.
+
+Dans un premier temps, on affichera l'évolution de l'automate dans la sortie standard du terminal. Pour que l'affichage soit agréable à l'oeil vous marquerez des pauses entre chaque grille (grâce au module `time`).
+
+Vous aurez aussi besoin du module `copy` pour la réalisation de cet exercice.
+
+.. life
+
+
 .. _koch:
 
 Flocon de Koch
@@ -147,6 +165,31 @@ Si les erreurs :math:`\sigma_i` sont correctes, la distribution du
 *pull* est centrée sur 0 avec une déviation standard de 1.
 
 Écrire une fonction `pull(x, dx)` calculant le *pull* de tableaux 1D.
+
+
+.. _logistique:
+
+Diagramme de Bifurcation : la Suite Logistique 
+-----------------------------------------------
+
+Ecrivez une fonction qui calcule la valeur d'équilibre 
+de la `suite logistique <http://fr.wikipedia.org/wiki/Suite_logistique>`_ pour un :math:`x_0` (nécessairement compris entre 0 et 1) et un paramètre :math:`\mu` donné.
+Générez l'ensemble de ces points d'équilibre pour des valeurs de :math:`\mu` comprises entre 0 et 4.
+
+Vous utiliserez la bibliothèque `matplotlib` pour 
+tracer vos résultats.
+
+
+.. _julia:
+
+Ensemble de Julia
+-------------------
+
+On souhaite représenter des `ensembles de Julia <http://fr.wikipedia.org/wiki/Ensemble_de_Julia>`_ pour quelques valeurs de c.
+
+On utilisera la fonction `numpy.meshgrid` pour construire le plan complexe.
+
+On affichera les résultats grâce à la fonction `matplotlib.pyplot.imshow`.
 
 .. _algo:
 
