@@ -751,6 +751,7 @@ Au concept d'objet sont liées les notions de:
 - `turtle.Vec2D`
 - `fractions.Fraction`
 
+**Exercice:** :ref:`life`
 
 Exceptions
 ==========
