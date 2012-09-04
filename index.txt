@@ -2,7 +2,7 @@
                         Informatique - Python
 =====================================================================
 
-.. Time-stamp: <2012-08-27 13:55:38 ycopin>
+.. Time-stamp: <2012-08-31 19:34:32 ycopin>
 
 :Version: |version| du |today|
 :Auteur: Yannick Copin <`(at)ipnl.in2p3.fr`>
