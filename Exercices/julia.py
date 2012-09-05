@@ -1,28 +1,30 @@
-import matplotlib.pyplot as pl
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Time-stamp: <2012-09-05 02:10 ycopin@lyopc469>
+
+"""Visualisation de l'`ensemble de julia
+<http://fr.wikipedia.org/wiki/Ensemble_de_Julia>`_.
+
+Exercice: proposer des solutions pour accélerer le calcul.
+"""
+
 import numpy as np
+import matplotlib.pyplot as plt
 
+c = complex(0.284,0.0122)           # Constante
 
+xlim = 1.5                          # [-xlim,xlim] × i[-xlim,xlim]
+nx = 1000                           # Nb de pixels
+niter = 100                         # Nb d'itérations
 
+x = np.linspace(-xlim, xlim, nx)    # nx valeurs de -xlim à +xlim
+xx,yy = np.meshgrid(x, x)           # Tableaux 2D
+z = xx + 1j*yy                      # Portion du plan complexe
+for i in range(niter):              # Itération: z(n+1) = z(n)**2 + c
+    z = z**2 + c
 
-def iter(x,y,c,niter=100):
-    """
-    On definit une fonction qui permet d'exploiter la puissance de numpy meshgrid
-    Cela permet d'iterer la fonction pour le parametre c sur l'ensemble de la portion du plan complexe etudie.
-    On évite ainsi d'écrire de laborieuses boucles for
-    """
-    i=0
-    while(i<niter):
-        # le produit complexe n'est pas défini pour une grille
-        # on calcule explicitement parties réelle et imaginaire
-        xv=x**2-y**2+c.real
-        yv=2*x*y+c.imag
-        x=xv
-        y=yv
-        i+=1
-    return (x**2+y**2)**0.5
-
-
-c=complex(0.284,0.0122)
-xx,yy=np.meshgrid(np.linspace(1.5,-1.5,1000),np.linspace(1.5,-1.5,1000))
-z=iter(xx,yy,c)
-pl.imshow(z)
+# Visualisation
+plt.imshow(np.abs(z), extent=[-xlim,xlim,-xlim,xlim], aspect='equal')
+plt.title(c)
+plt.show()
+    

@@ -1,105 +1,96 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Time-stamp: <2012-09-05 01:22 ycopin@lyopc469>
+
 import random
-import copy
-import time
 
+class Life(object):
 
-class life:
-    def __init__(self,h,w,toric=False):
+    cells = {False:"□", True:"■"} # Dead and living cell representations
+    
+    def __init__(self, h, w, periodic=False):
         """
-        create a double list (the game grid) with the wanted size and initialize it with random
-        O (dead) and 1 (alive)
-        l is the number of lines
-        w is the number of columns
+        Create a 2D-list (the game grid *G*) with the wanted size (*h*
+        rows, *w* columns) and initialize it with random booleans
+        (dead/alive). The world is periodic if *periodic* is True.
         """
     
-        self.G=[[random.randint(0,1) for j in range(w)] for i in range(h)]
-        self.h=h
-        self.w=w
-        self.toric=toric
+        self.h = int(h)
+        self.w = int(w)
+        assert self.h > 0 and self.w > 0
+        # Random initialization of a h×w world
+        self.G = [ [ random.choice([True,False])
+                     for j in range(self.w) ]
+                   for i in range(self.h) ] # h rows of w elements
+        self.periodic = periodic
 
-#    for i in range(w):
- #       for j in range(l):
-  #          self.G[i][j]=random.randint(0,1)
-   # return G
-
-    def get_value(self,x,y):
+    def get(self,i,j):
         """
-        This method return the cell state safely.
-        Even if the cell is outside the grid
+        This method returns the state of cell (*i*,*j*) safely, even
+        if the (*i*,*j*) is outside the grid.
         """
-        if (self.toric==True):
-    
-            if (x<0):
-                x+=self.h
-            if (y<0):
-                y+=self.w
-            if((x/self.h)>=1):
-                x-=self.h
-            if(y/self.w>=1):
-                y-=self.w
-            v=self.G[x][y]
-        else:
-            if((x<0) or (y<0) or (x/self.h)>=1 or (y/self.w)>=1):
-                v=0
-            else:
-                v=self.G[x][y]
-        return v
-
-    def __repr__(self):
-        """
-        Convert the list to a visually 
-        handy string
-        """
-
-        s=""
-        D={0:" ",1:"#"}
-        j=0
-    
-        for i in self.G:
-            for j in i:
-                s+=D[j]
-            s+="\n"
-        return s
-    
-    def will_survive(self,x,y):
-        """ tell if a cell will be alive at the next game step"""
-        s=-self.G[x][y]
-        a=self.G[x][y]
-        for i in range(-1,2):
-            for j in range(-1,2):
-                s+=self.get_value(x+i,y+j)
-
-        if s==3:
-            a=1
-        if s<2 or s>3:
-            a=0
-        return a
-
-    def update_grid(self):
-        """
-        make the grid G go a step further into the game
-        """
-        T=copy.deepcopy(self)
-        #On clone le jeu a l'instant t
-        #Cela permet de modifier la grille du jeu
-        #en gardant toujours la meme reference
         
-        for i in range(self.h):
-            for j in range(self.w):
-                self.G[i][j]=T.will_survive(i,j)
+        if self.periodic:
+            return self.G[i%h][j%w]     # Periodic conditions
+        else:
+            if 0<=i<h and 0<=j<w:       # Inside grid
+                return self.G[i][j]
+            else:                       # Outside grid
+                return 0                # There's nobody out there...
+
+    def __str__(self):
+        """
+        Convert the grid to a visually handy string.
+        """
+
+        return '\n'.join([ ''.join([ self.cells[val] for val in row ])
+                           for row in self.G ])
+    
+    def will_survive(self,i,j):
+        """Tells if cell (*i*,*j*) will survive during game iteration,
+        depending on the number of living neighboring cells."""
+
+        alive = self.get(i,j)           # Current cell status
+        # Count living cells *around* current one (excluding current one)
+        count = sum( self.get(i+ii,j+jj)
+                     for ii in [-1,0,1]
+                     for jj in [-1,0,1]
+                     if (ii,jj)!=(0,0) )
+
+        if count==3:
+            # A cell w/ 3 neighbors will either stay alive or resuscitate
+            future = True
+        elif count<2 or count>3:
+            # A cell w/ too few or too many neighbors will die
+            future = False
+        else:
+            # A cell w/ 2 or 3 neighbors will stay as it is (dead or alive)
+            future = self.get(i,j)      # Current status
+
+        return future
+
+    def evolve(self):
+        """
+        Evolve the game grid by one step.
+        """
+
+        # Update the grid
+        self.G = [ [ self.will_survive(i,j)
+                     for j in range(self.w) ]
+                   for i in range(self.h) ] 
         
 if __name__=="__main__":
 
-    #nombre d'iteration
-    N=100
-    #instanciation du jeu
-    L=life(20,60,toric=True)
+    import time
 
-    #boucle qui itere le jeu et
-    #l'affiche dans le terminal
-    for i in range(N):
-        print L
+    h,w = (20,60)                       # (nrows,ncolumns)
+    n = 100                             # Nb of iterations
+
+    life = Life(h, w, periodic=True) # Instantiation (including initialization)
+
+    for i in range(n):                  # Iterations
+        print life                      # Print current world
         print "\n"
-        time.sleep(0.1)
-        L.update_grid()
+        time.sleep(0.1)                 # Pause a bit
+        life.evolve()                   # Evolve world
         

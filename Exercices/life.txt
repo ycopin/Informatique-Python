@@ -1,0 +1,6 @@
+.. _lifeSol:
+
+.. literalinclude:: life.py
+   :linenos:
+
+**Source:** :download:`life.py`

@@ -4,7 +4,7 @@
                        Bibliothèques numériques
 =====================================================================
 
-.. Time-stamp: <2012-07-25 11:49 ycopin@lyopc469>
+.. Time-stamp: <2012-09-05 02:46 ycopin@lyopc469>
 
 .. contents:: Table des matières
 ..
@@ -646,8 +646,9 @@ Il existe deux interfaces pour deux types d'utilisation:
 - `Cookbook matplotlib <http://www.scipy.org/Cookbook/Matplotlib>`_
 
 **Exemple:** :ref:`filtres2ndOrdre.py <filtres>`
-**Exercice:** :ref:`logistique`
-**Exercice:** :ref:`julia`
+
+**Exercices:** :ref:`logistique`, :ref:`julia`
+
 Mayavi (3D)
 -----------
 

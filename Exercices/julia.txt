@@ -1,0 +1,6 @@
+.. _juliaSol:
+
+.. literalinclude:: julia.py
+   :linenos:
+
+**Source:** :download:`julia.py`

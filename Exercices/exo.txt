@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-08-31 19:05:45 ycopin>
+.. Time-stamp: <2012-09-05 02:45 ycopin@lyopc469>
 .. _exercices:
 
 Exercices
@@ -60,21 +60,45 @@ d’ordre impair quelconque.
 
 .. _life:
 
-Jeu de la Vie
---------------
+Jeu de la vie
+-------------
 
-On se propose de programmer l'automate cellulaire le plus célèbre: `le jeu de vie <http://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
+On se propose de programmer l'automate cellulaire le plus célèbre, `le
+Jeu de la vie <http://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
 
-Pour cela vous créerez une classe `life` qui contiendra la grille du jeu ainsi que les méthodes qui permettront son évolution.
+Pour cela, vous créerez une classe `Life` qui contiendra la grille du
+jeu ainsi que les méthodes qui permettront son évolution.  Vous
+initialiserez la grille aléatoirement à l'aide de la fonction
+`random.choice([True,False])`, et vous afficherez l'évolution de
+l'automate dans la sortie standard du terminal, p.ex.::
 
-Vous initialiserez la grille aléatoirement à l'aide du module `random`.
+  ...#..#.....##.....................###.................####.
+  .....###............................#..................#...#
+  #........#..................................####.#.......#.#
+  .....#...#.................................#..#..#.......###
+  ................##..........................#.............#.
+  .....#.#......##..#.................##.......###...#........
+  ..............##.##..........#.#....##.............#.##.....
+  ..............##.##..........#.#.....#........#......##.....
+  ................#...........#..#.....#........#.............
+  ......................##.....#......##.........#.....##.....
+  ......................##.......................#.#...#......
+  .......................##..#....................#..##.......
+  ...................##......##.......###..........###........
+  ..................###...######......#..#....................
+  ...###............#.#........##....#........................
+  ...#.##...........#..#........##.....##.....................
+  ....##.............##........#.###..........................
+  ......#.....................##..............................
+  .............#..............##..#...........................
+  ............#.#...............##.##.#.#................#.#..
 
-Dans un premier temps, on affichera l'évolution de l'automate dans la sortie standard du terminal. Pour que l'affichage soit agréable à l'oeil vous marquerez des pauses entre chaque grille (grâce au module `time`).
 
-Vous aurez aussi besoin du module `copy` pour la réalisation de cet exercice.
+N.B.: Pour que l'affichage soit agréable à l'oeil, vous marquerez des
+pauses entre l'affichage de chaque itération grâce à la fonction
+`time.sleep`.
 
 .. life
-
 
 .. _koch:
 
@@ -166,30 +190,40 @@ Si les erreurs :math:`\sigma_i` sont correctes, la distribution du
 
 Écrire une fonction `pull(x, dx)` calculant le *pull* de tableaux 1D.
 
-
 .. _logistique:
 
-Diagramme de Bifurcation : la Suite Logistique 
------------------------------------------------
+Diagramme de bifurcation : la suite logistique
+''''''''''''''''''''''''''''''''''''''''''''''
 
-Ecrivez une fonction qui calcule la valeur d'équilibre 
-de la `suite logistique <http://fr.wikipedia.org/wiki/Suite_logistique>`_ pour un :math:`x_0` (nécessairement compris entre 0 et 1) et un paramètre :math:`\mu` donné.
-Générez l'ensemble de ces points d'équilibre pour des valeurs de :math:`\mu` comprises entre 0 et 4.
+Écrivez une fonction qui calcule la valeur d'équilibre de la `suite
+logistique <http://fr.wikipedia.org/wiki/Suite_logistique>`_ pour un
+:math:`x_0` (nécessairement compris entre 0 et 1) et un paramètre
+:math:`r` (parfois noté :math:`\mu`) donné.
 
-Vous utiliserez la bibliothèque `matplotlib` pour 
-tracer vos résultats.
+Générez l'ensemble de ces points d'équilibre pour des valeurs de
+:math:`r` comprises entre 0 et 4:
 
+.. figure:: logistique.*
+   :align: center
+
+N.B.: Vous utiliserez la bibliothèque `matplotlib` pour tracer vos
+résultats.
 
 .. _julia:
 
 Ensemble de Julia
--------------------
+'''''''''''''''''
 
-On souhaite représenter des `ensembles de Julia <http://fr.wikipedia.org/wiki/Ensemble_de_Julia>`_ pour quelques valeurs de c.
+Représentez l'`ensemble de Julia
+<http://fr.wikipedia.org/wiki/Ensemble_de_Julia>`_ pour la constante
+complexe :math:`c = 0.284 + 0.0122j`:
 
-On utilisera la fonction `numpy.meshgrid` pour construire le plan complexe.
+.. figure:: julia.*
+   :align: center
 
-On affichera les résultats grâce à la fonction `matplotlib.pyplot.imshow`.
+N.B.: On utilisera la fonction `numpy.meshgrid` pour construire le
+plan complexe, et l'on affichera le résultat grâce à la fonction
+`matplotlib.pyplot.imshow`.
 
 .. _algo:
 

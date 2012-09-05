@@ -2,7 +2,7 @@
                         Informatique - Python
 =====================================================================
 
-.. Time-stamp: <2012-08-31 19:34:32 ycopin>
+.. Time-stamp: <2012-09-05 02:39 ycopin@lyopc469>
 
 :Version: |version| du |today|
 :Auteur: Yannick Copin <`(at)ipnl.in2p3.fr`>
@@ -73,9 +73,12 @@ Table des matières
    Exercices/exo
    Exercices/carreMagique
    Exercices/crible
+   Exercices/life
    Exercices/koch
    Exercices/mad
    Exercices/pull
+   Exercices/logistique
+   Exercices/julia
 
 
 Index
