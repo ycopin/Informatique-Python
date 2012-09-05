@@ -646,7 +646,8 @@ Il existe deux interfaces pour deux types d'utilisation:
 - `Cookbook matplotlib <http://www.scipy.org/Cookbook/Matplotlib>`_
 
 **Exemple:** :ref:`filtres2ndOrdre.py <filtres>`
-
+**Exercice:** :ref:`logistique`
+**Exercice:** :ref:`julia`
 Mayavi (3D)
 -----------
 
