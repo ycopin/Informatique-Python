@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2012-09-05 01:22 ycopin@lyopc469>
+# Time-stamp: <2012-09-05 09:31 ycopin@lyopc469>
 
 import random
 
 class Life(object):
 
-    cells = {False:"□", True:"■"} # Dead and living cell representations
+    cells = {False:".", True:"#"} # Dead and living cell representations
     
     def __init__(self, h, w, periodic=False):
         """
