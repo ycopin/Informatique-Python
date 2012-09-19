@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-08-27 13:46:01 ycopin>
+.. Time-stamp: <2012-09-19 22:58 ycopin@lyopc469>
 
 Références supplémentaires
 ==========================
@@ -35,7 +35,7 @@ Listes de liens
 - `Python références et astuces:
   <http://staff.umh.ac.be/Villers.Didier/python.html>`_ (2009) |fr|
 
-- `IPython en ligne <http://www.pythonanywhere.com/try-ipython/>`_
+- `IPython en ligne <https://www.pythonanywhere.com/try-ipython/>`_
 - `IPython cookbook <http://wiki.ipython.org/Cookbook>`_
 - `Starter Kit (py4science)
   <http://fperez.org/py4science/starter_kit.html>`_
@@ -84,7 +84,9 @@ Scientifique
 - `Computational Physics with Python
   <http://www-personal.umich.edu/~mejn/computational-physics/>`_ (avec
   exercices)
-- `SciPy 2011 tutorials <http://conference.scipy.org/scipy2011/tutorials.php>`_: numpy, scipy, matplotlib, ipython
+- `SciPy 2011 tutorials
+  <http://conference.scipy.org/scipy2011/tutorials.php>`_: numpy,
+  scipy, matplotlib, ipython
 - `Practical Python for Astronomers <http://python4astronomers.github.com/>`_
 
 - `L’informatique scientifique avec Python
@@ -106,7 +108,7 @@ Sphinx & co.
 .. * `Dumping PowerPoint in Favor of Web Sites
 ..   <http://www.sal.ksu.edu/faculty/tim/prof-day/index.html>`_ (2011)
 
-* `Sample doc <http://matplotlib.sourceforge.net/sampledoc/>`_
+* `Sample doc <http://matplotlib.org/sampledoc/>`_
 
 .. |fr| image:: ../Cours/france_flag_icon.png
    :alt: Fr

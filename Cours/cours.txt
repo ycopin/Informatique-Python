@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-08-31 18:52:50 ycopin>
+.. Time-stamp: <2012-09-19 22:57 ycopin@lyopc469>
 .. _cours:
 
 =====================================================================
@@ -51,11 +51,11 @@ Cette introduction repose sur les outils suivants:
 - Bibliothèques scientifiques: `Numpy et Scipy
   <http://new.scipy.org/download.html>`_,
 - Bibliothèque graphique: `matplotlib
-  <http://matplotlib.sourceforge.net/users/installing.html>`_,
+  <http://matplotlib.org/users/installing.html>`_,
 - Interpréteur évolué, p.ex. `ipython
   <http://ipython.org/download.html>`_,
 - Éditeur de texte évolué, p.ex. `emacs
-  <http://www.gnu.org/s/emacs/#Obtaining>`_
+  <http://www.gnu.org/software/emacs/#Obtaining>`_
 
 Ces logiciels peuvent être installés indépendamment, de préférence
 sous Linux (p.ex. `Ubuntu <http://ubuntu-fr.org/>`_, `Fedora
@@ -506,7 +506,7 @@ volée -- tandis que chaînes de caractères et les tuples sont
   [('Boule', 'Bill'), ('Calvin', 'Hobbes'), ('Wallace', 'Gromit')]
 
 
-**Exercice:** :ref:`carreMagique`
+**Exercices:** :ref:`crible`, :ref:`carreMagique`
 
 
 Fonctions
@@ -732,21 +732,21 @@ Au concept d'objet sont liées les notions de:
   .. Attention:: Toutes les classes doivent au moins hériter de la
      classe principale `object`.
 
-**Exemple de définition:**
+.. rubric:: Exemple de définition
 
-  .. literalinclude:: circonscrit.py
-     :start-after: start-classPoint
-     :end-before: end-classPoint
-     :linenos:
+.. literalinclude:: circonscrit.py
+   :start-after: start-classPoint
+   :end-before: end-classPoint
+   :linenos:
 
-**Exemple d'héritage:**
+.. rubric:: Exemple d'héritage
 
-  .. literalinclude:: circonscrit.py
-     :start-after: start-classVector
-     :end-before: end-classVector
-     :linenos:
+.. literalinclude:: circonscrit.py
+   :start-after: start-classVector
+   :end-before: end-classVector
+   :linenos:
 
-**Études de cas:**
+.. rubric:: Études de cas
 
 - `turtle.Vec2D`
 - `fractions.Fraction`

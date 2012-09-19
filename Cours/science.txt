@@ -4,7 +4,7 @@
                        Bibliothèques numériques
 =====================================================================
 
-.. Time-stamp: <2012-09-05 02:46 ycopin@lyopc469>
+.. Time-stamp: <2012-09-19 23:01 ycopin@lyopc469>
 
 .. contents:: Table des matières
 ..
@@ -200,7 +200,7 @@ supérieure, chaque axe est indéxable indépendamment.
 >>> x[1::3] *= -1; x    # Modification "in-place"
 array([ 0, -1,  2,  3, -4,  5,  6, -7,  8,  9])
 
-**Slicing**
+.. rubric:: *Slicing*
 
 .. index:: pair: numpy; slicing
 
@@ -242,7 +242,7 @@ array([[[ 0],
 >>> y[:,:,0:1].shape
 (2, 3, 1)  # L'axe 2 a été conservé, il ne contient pourtant qu'un seul élément
 
-**Modification de format**
+.. rubric:: Modification de format
 
 .. index:: 
    pair: numpy; reshape
@@ -291,7 +291,7 @@ array([[0, 1],
 .. Attention:: `N.resize(arr, shape)` (complétion avec des copies de
    `arr`) est différent de `arr.resize(shape)` (complétion avec des 0).
 
-**Empilage**
+.. rubric:: *Stacking*
 
 .. index:: 
    pair: numpy; hstack
@@ -312,7 +312,7 @@ array([[[0, 0],
         [3, 3],
         [4, 4]]])
 
-**Broadcasting**
+.. rubric:: *Broadcasting*
 
 .. index:: 
    pair: numpy; broadcasting
@@ -334,7 +334,7 @@ ValueError: shape mismatch: objects cannot be broadcast to a single shape
 array([[10, 11, 12],
        [23, 24, 25]])
 
-**Indexation évoluée**
+.. rubric:: Indexation évoluée
 
 .. index:: 
    pair: numpy; nonzero
@@ -366,7 +366,7 @@ array([ 1.,  2.,  3.])
 >>> a.mean()           # *ndarray* dispose de nombreuses méthodes numériques de base
 2.0
 
-**Opérations sur les axes**
+.. rubric:: Opérations sur les axes
 
 .. index:: pair: numpy; axis
 
@@ -381,7 +381,7 @@ array([0, 1])        # ce sont donc les minima par colonne (2)
 >>> x.min(axis=1)    # minima le long de l'axe 1 (i.e. l'axe des colonnes)
 array([3, 1, 0])     # ce sont donc les minima par ligne (3)
 
-**Opérations matricielles**
+.. rubric:: Opérations matricielles
 
 .. index:: 
    pair: numpy; matrix
@@ -412,7 +412,7 @@ matrix([[0, 1],
 Le sous-module :mod:`numpy.linalg` fournit des outils spécifiques au
 calcul matriciel (inverse, déterminant, valeurs propres, etc.).
 
-**Ufuncs**
+.. rubric:: *Ufuncs*
 
 .. index:: 
    pair: numpy; ufuncs
@@ -435,16 +435,13 @@ False
 >>> N.allclose(y, [0,1,0,-1,0])   # Test d'égalité numérique de tous les éléments
 True
 
-**Exercices:** 
-
-* :ref:`mad`
-* :ref:`pull`
+**Exercices:** :ref:`mad`, :ref:`pull`
 
 
 Tableaux évolués
 ----------------
 
-**Types composés**
+.. rubric:: Types composés
 
 .. index:: 
    pair: numpy; dtype
@@ -470,7 +467,7 @@ rec.array([('Calvin', 6, 1.2), ('Hobbes', 5, 1.8)],
 >>> rec.nom                          # Accès direct par attribut
 chararray(['Calvin', 'Hobbes'], dtype='|S10')
 
-**Tableaux masqués**
+.. rubric:: Tableaux masqués
 
 .. index:: 
    module: numpy.ma
@@ -608,7 +605,7 @@ Matplotlib (2D/3D)
 .. index::
    module: matplotlib
 
-`Matplotlib <http://matplotlib.sourceforge.net/>`_ est une
+`Matplotlib <http://matplotlib.org/>`_ est une
 bibliothèque graphique de visualisation 2D (et marginalement 3D), avec
 support intéractif et sorties de haute qualité
 
@@ -626,7 +623,7 @@ Il existe deux interfaces pour deux types d'utilisation:
   >>> show()                      # Affiche le résultat
 
 * `pyplot
-  <http://matplotlib.sourceforge.net/users/pyplot_tutorial.html>`_:
+  <http://matplotlib.org/users/pyplot_tutorial.html>`_:
   interface orientée objet, généralement pour les scripts::
 
     import numpy as N
@@ -639,10 +636,10 @@ Il existe deux interfaces pour deux types d'utilisation:
     ax.plot(x, y)
     P.show()
 
-**Liens:**
+**Liens**
 
-- `Gallery <http://matplotlib.sourceforge.net/gallery.html>`_ 
-- `Examples <http://matplotlib.sourceforge.net/examples/>`_
+- `Gallery <http://matplotlib.org/gallery.html>`_ 
+- `Examples <http://matplotlib.org/examples/>`_
 - `Cookbook matplotlib <http://www.scipy.org/Cookbook/Matplotlib>`_
 
 **Exemple:** :ref:`filtres2ndOrdre.py <filtres>`
@@ -655,9 +652,9 @@ Mayavi (3D)
 .. index::
    module: mayavi/mlab
 
-`mayavi.mlab <http://github.enthought.com/mayavi/mayavi/mlab.html>`_
+`mayavi.mlab <http://docs.enthought.com/mayavi/mayavi/mlab.html>`_
 est une bibliothèque graphique de visualisation 3D s'appuyant sur
-`Mayavi <http://github.enthought.com/mayavi/mayavi/index.html>`_.
+`Mayavi <http://docs.enthought.com/mayavi/mayavi/index.html>`_.
 
 .. Note:: Utiliser :command:`ipython -wthread` pour l'utilisation
    intéractive des figures.

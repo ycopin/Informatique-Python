@@ -2,7 +2,7 @@
                          Développer en python
 ======================================================================
 
-.. Time-stamp: <2012-06-18 23:55 ycopin@lyopc469>
+.. Time-stamp: <2012-09-19 22:55 ycopin@lyopc469>
 
 .. contents:: Table des matières
 ..
@@ -104,7 +104,7 @@ Us et coutumes
   2. Make it right.
   3. Make it fast. 
 
-- *Respectez* le zen du python.
+- *Respectez* le zen du python, il vous le rendra.
 
 Outils de développement
 =======================
@@ -154,12 +154,12 @@ Documentation et tests unitaires
   - `doctest <http://docs.python.org/library/doctest.html>`_
   - `unittest <http://docs.python.org/library/unittest.html>`_
   - `py.test <http://pytest.org/latest/>`_
-  - `nose <http://readthedocs.org/docs/nose/>`_
+  - `nose <http://nose.readthedocs.org/en/latest/>`_
 
 Débugage et optimisation
 ------------------------
 
-**Débogage**
+.. rubric:: Débogage
 
 Les débogueurs permettent de « plonger » dans un code au cours
 d'exécution ou juste après une erreur (analyse post-mortem).
@@ -180,7 +180,7 @@ d'exécution ou juste après une erreur (analyse post-mortem).
   exception, il est possible d'inspecter l'état de la mémoire au
   moment de l'erreur avec la commande `%debug`.
 
-**Profilage et optimisation**
+.. rubric:: Profilage et optimisation
 
 .. Warning:: *Premature optimization is the root of all evil* --
    Donald Knuth
@@ -215,7 +215,7 @@ Python 2 vs. python 3
 - `Python 2 or python 3?
   <http://wiki.python.org/moin/Python2orPython3>`_
 - `Porting Python 2 Code to Python 3
-  <http://readthedocs.org/docs/python/en/latest/howto/pyporting.html>`_
+  <http://python.readthedocs.org/en/latest/howto/pyporting.html>`_
 
 Integrated Development Environment
 ----------------------------------
