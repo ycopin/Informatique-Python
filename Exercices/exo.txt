@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-09-19 23:12 ycopin@lyopc469>
+.. Time-stamp: <2012-09-29 00:13 ycopin@lyopc469>
 .. _exercices:
 
 Exercices
@@ -57,6 +57,26 @@ d’ordre impair quelconque.
 .. carre
 .. `Une solution <../../../Exercices/solution.html?pneer?pneerZntvdhr.ugzy>`_
 
+.. _koch:
+
+Flocon de Koch
+--------------
+
+.. index::
+   module: turtle
+
+En utilisant les commandes `left`, `right` et `forward` de la
+bibliothèque graphique standard `turtle` dans une fonction récursive,
+générer à l'écran un `flocon de Koch
+<http://fr.wikipedia.org/wiki/Flocon_de_Koch>`_ d'ordre arbitraire.
+
+.. figure:: koch_3.*
+   :align: center
+
+   Flocon de Koch d'ordre 3.
+
+.. koch
+.. `Une solution <../../../Exercices/solution.html?xbpu?xbpu.cl>`_
 
 .. _life:
 
@@ -87,27 +107,6 @@ pauses entre l'affichage de chaque itération grâce à la fonction
 `time.sleep`.
 
 .. life
-
-.. _koch:
-
-Flocon de Koch
---------------
-
-.. index::
-   module: turtle
-
-En utilisant les commandes `left`, `right` et `forward` de la
-bibliothèque graphique standard `turtle` dans une fonction récursive,
-générer à l'écran un `flocon de Koch
-<http://fr.wikipedia.org/wiki/Flocon_de_Koch>`_ d'ordre arbitraire.
-
-.. figure:: koch_3.*
-   :align: center
-
-   Flocon de Koch d'ordre 3.
-
-.. koch
-.. `Une solution <../../../Exercices/solution.html?xbpu?xbpu.cl>`_
 
 .. _PDB:
 

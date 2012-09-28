@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2012-08-31 19:00:41 ycopin>
+# Time-stamp: <2012-09-29 00:12 ycopin@lyopc469>
 
 """
 Crible d'Ératosthène.
@@ -18,19 +18,20 @@ if sys.argv[1:]: # Présence d'au moins un argument sur la ligne de commande
     except ValueError:
         raise ValueError("L'argument '%s' n'est pas un entier" % sys.argv[1])
 else:                        # Pas d'argument sur la ligne de commande
-    n = 101                  # Valeur par défaut
+    n = 10001                  # Valeur par défaut
 # end-sys
 
 # Liste des entiers *potentiellement* premiers. Les nb non-premiers
-# seront remplacés par 'None'.
+# seront étiquetés par 0.
 l = range(n+1)                          # <0,...,n>
-l[0],l[1] = None,None                   # 0 et 1 ne sont pas premiers
+l[1] = 0                                # 1 n'est pas premiers
 
 i = 2                                   # Entier à tester
 while i**2 <= n:                        # Inutile de tester jusqu'à n
-    l[2*i::i] = [None]*len(l[2*i::i])   # Étiqueter tous les multiples de i
-    i += 1                              # Passer à l'entier test suivant
+    if l[i]:                            # Si i n'est pas étiqueté...
+        l[2*i::i] = [None]*len(l[2*i::i]) # ...étiqueter tous les multiples de i
+    i += 1                              # Passer à l'entier à tester suivant
 
 # Afficher la liste des entiers premiers (non-étiquetés)
 print "Liste des entiers premiers <=", n
-print [ i for i in l if i is not None ]
+print [ i for i in l if i ]
