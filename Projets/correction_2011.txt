@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-02-20 23:39:51 ycopin>
+.. Time-stamp: <2012-10-01 23:40 ycopin@lyopc469>
 
 =====================================================================
                      Correction des projets 2011
@@ -50,8 +50,6 @@ Outils d'analyse de code
 * `doxygen` (documentation automatique)
 * `construct_call_graph.py
   <http://blog.prashanthellina.com/2007/11/14/generating-call-graphs-for-understanding-and-refactoring-python-code/>`_
-* `pycallgraph` (inutilisable en présence de librairies)
-
 
 .. |+| image:: ../_static/smile.gif
    :alt: Bon

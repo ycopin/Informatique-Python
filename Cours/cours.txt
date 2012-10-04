@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-07-17 12:14 ycopin@lyopc469>
+.. Time-stamp: <2012-09-20 00:21 ycopin@lyopc469>
 .. _cours:
 
 =====================================================================
@@ -262,11 +262,11 @@ Structures de programmation
 - Expression conditionnelle `if/elif/else`::
 
     if i>0:     # Condition principale
-        print "i > 0"
+        print "positif"
     elif i<0:   # Condition secondaire (si nécéssaire)
-        print "i < 0"
+        print "négatif"
     else:       # Cas final (si nécéssaire)
-        print "i = 0"
+        print "nul"
 
 .. index:: for ... in
 .. index:: continue
@@ -395,6 +395,8 @@ Scientific progress goes 'boink'
 .. α² + β² = γ²
 .. >>> for i in range(945,970):
 .. ...     print i,unichr(i)
+
+**Exercice:** tables de multiplications.
 
 
 Objets itérables
