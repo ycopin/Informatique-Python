@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-09-19 22:58 ycopin@lyopc469>
+.. Time-stamp: <2012-10-01 23:29 ycopin@lyopc469>
 
 Références supplémentaires
 ==========================
@@ -54,6 +54,8 @@ Livres libres
   <http://en.wikibooks.org/wiki/Non-Programmer's_Tutorial_for_Python_2.6>`_
 
 - `A Python Book <http://www.rexx.com/~dkuhlman/python_book_01.html>`_
+- ` Python for Informatics: Exploring Information
+  <http://www.pythonlearn.com/>`_
 
 - `Apprendre à programmer avec Python
   <http://inforef.be/swi/python.htm>`_ |fr| (`Wikilivre

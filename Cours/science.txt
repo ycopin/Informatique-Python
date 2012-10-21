@@ -4,7 +4,7 @@
                        Bibliothèques numériques
 =====================================================================
 
-.. Time-stamp: <2012-09-19 23:01 ycopin@lyopc469>
+.. Time-stamp: <2012-10-02 00:10 ycopin@lyopc469>
 
 .. contents:: Table des matières
 ..
@@ -668,16 +668,24 @@ est une bibliothèque graphique de visualisation 3D s'appuyant sur
 Autres librairies scientifiques
 ===============================
 
-- `quantities <http://packages.python.org/quantities/>`_, `magnitudes
+- Quantités dimensionnées (i.e. avec des unités physiques):
+  `quantities <http://packages.python.org/quantities/>`_, `magnitudes
   <http://juanreyero.com/open/magnitude/>`_, `unum
-  <https://bitbucket.org/kiv/unum/>`_: manipulation de quantités
-  dimensionnées (i.e. avec des unités physiques)
-- sympy_: calcul symbolique (voir également ce `tutoriel sympy
+  <https://bitbucket.org/kiv/unum/>`_
+- Calcul symbolique: sympy_ (voir également ce `tutoriel sympy
   <http://mattpap.github.com/scipy-2011-tutorial/html/>`_)
-- `networkx <http://networkx.lanl.gov/>`_: manipulation de graphes et
-  réseaux
-- `PyMC <http://code.google.com/p/pymc/>`_: *Markov Chain Monte Carlo*
+- `PyROOT <http://root.cern.ch/drupal/content/pyroot>`_
+- *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
+   <http://packages.python.org/milk/>`_, `MDP
+   <http://mdp-toolkit.sourceforge.net/>`_ et autres `modules
+   <http://wiki.python.org/moin/PythonForArtificialIntelligence>`_
+- Graphes et réseaux: `networkx <http://networkx.lanl.gov/>`_
+- Astronomie: `astropy <http://www.astropy.org/>`_, `Kapteyn
+  <http://www.astro.rug.nl/software/kapteyn/>`_ et autres `modules
+  <http://oneau.wordpress.com/2010/10/02/python-for-astronomy/>`_
 - `Etc. <http://www.scipy.org/Topical_Software>`_
+
+.. - `PyMC <http://code.google.com/p/pymc/>`_: *Monte Carlo Markov Chain*
 
 Exemples complets
 =================
