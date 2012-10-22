@@ -4,7 +4,7 @@
                        Bibliothèques numériques
 =====================================================================
 
-.. Time-stamp: <2012-10-02 00:10 ycopin@lyopc469>
+.. Time-stamp: <2012-10-22 02:03 ycopin@lyopc469>
 
 .. contents:: Table des matières
 ..
@@ -595,6 +595,8 @@ fonctionnalités `numpy`.
 
 .. http://www.osc.edu/supercomputing/training/python/python_pt2_0702.pdf
 
+**Exercice:** :ref:`anscombe`
+
 
 Bibliothèques graphiques
 ========================
@@ -638,9 +640,9 @@ Il existe deux interfaces pour deux types d'utilisation:
 
 **Liens**
 
+- `Tutorial matplotlib <http://www.loria.fr/~rougier/teaching/matplotlib/>`_
 - `Gallery <http://matplotlib.org/gallery.html>`_ 
 - `Examples <http://matplotlib.org/examples/>`_
-- `Cookbook matplotlib <http://www.scipy.org/Cookbook/Matplotlib>`_
 
 **Exemple:** :ref:`filtres2ndOrdre.py <filtres>`
 

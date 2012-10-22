@@ -1,0 +1,10 @@
+.. _anscombeSol:
+
+.. figure:: anscombe.*
+   :align: center
+   :width: 50%
+
+.. literalinclude:: anscombe.py
+   :linenos:
+
+**Source:** :download:`anscombe.py`
