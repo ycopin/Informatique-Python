@@ -624,7 +624,7 @@ Matplotlib (2D/3D)
 
 `Matplotlib <http://matplotlib.org/>`_ est une
 bibliothèque graphique de visualisation 2D (et marginalement 3D), avec
-support intéractif et sorties de haute qualité
+support intéractif et sorties de haute qualité.
 
 .. Note:: Utiliser :command:`ipython -pylab` pour l'utilisation
    intéractive des figures.
@@ -652,6 +652,13 @@ Il existe deux interfaces pour deux types d'utilisation:
     fig,ax = P.subplots()
     ax.plot(x, y)
     P.show()
+
+Dans les deux cas, le résultat est le même:
+
+.. image:: simple.*
+   :align: center
+   :width: 30%
+
 
 **Liens**
 
@@ -693,9 +700,9 @@ Autres librairies scientifiques
   <http://mattpap.github.com/scipy-2011-tutorial/html/>`_)
 - `PyROOT <http://root.cern.ch/drupal/content/pyroot>`_
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
-   <http://packages.python.org/milk/>`_, `MDP
-   <http://mdp-toolkit.sourceforge.net/>`_ et autres `modules
-   <http://wiki.python.org/moin/PythonForArtificialIntelligence>`_
+  <http://packages.python.org/milk/>`_, `MDP
+  <http://mdp-toolkit.sourceforge.net/>`_ et autres `modules
+  <http://wiki.python.org/moin/PythonForArtificialIntelligence>`_
 - Graphes et réseaux: `networkx <http://networkx.lanl.gov/>`_
 - Astronomie: `astropy <http://www.astropy.org/>`_, `Kapteyn
   <http://www.astro.rug.nl/software/kapteyn/>`_ et autres `modules
