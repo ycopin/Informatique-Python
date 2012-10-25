@@ -513,18 +513,32 @@ Entrées/sorties
 .. index:: 
    pair: numpy; save/load
    pair: numpy; savetxt/loadtxt
+   pair: numpy; genfromtxt
 
-:mod:`numpy` peut sauvegarder et relire des tableaux dans un format
-binaire `.npy` ou un format texte (moins compact mais *human
-readable*):
+:mod:`numpy` peut lire (`N.loadtxt`) ou sauvegarder (`N.savetxt`) des
+tableaux dans un simple fichier ASCII:
 
->>> x = N.linspace(-1,1,1e6+1)
+>>> x = N.linspace(-1,1,100)
+>>> N.savetxt('archive_x.dat', x)   # Sauvegarde dans le fichier 'archive_x.dat'
+>>> y = N.loadtxt("archive_x.dat")  # Relecture à partir du fichier 'archive_x.dat'
+>>> (x==y).all()
+True
+
+.. Attention:: `N.loadtxt` supporte les types composés,
+   mais ne supporte pas les données manquantes; utiliser la fonction
+   `N.genfromtxt` dans ce cas.
+
+Le format ASCII n'est pas optimale pour de gros tableaux: il peut
+alors être avantageux d'utiliser le format binaire `.npy`, beaucoup
+plus compact (mais non *human readable*):
+
+>>> x = N.linspace(-1,1,1e6)
 >>> N.save('archive_x.npy', x)   # Sauvegarde dans le fichier 'archive_x.npy'
 >>> y = N.load("archive_x.npy")  # Relecture à partir du fichier 'archive_x.npy'
 >>> (x==y).all()
 True
 
-Il est également possible de *sérialiser* les tableaux à l'aide de la
+Il est enfin possible de *sérialiser* les tableaux à l'aide de la
 bibliothèque standard :ref:`[c]Pickle <pickle>`.
 
 
@@ -535,12 +549,13 @@ Sous-modules
    module: numpy.polynomial
    module: numpy.fft
 
-:mod:`numpy` fournit en outre les sous-modules suivants:
+:mod:`numpy` fournit en outre quelques fonctionnalités
+supplémentaires, parmis lesquelles les sous-modules suivants:
 
-- :mod:`numpy.polynomial`: manipulation des polynômes (racines, polynômes
-  orthogonaux, etc.)
+- :mod:`numpy.random`: générateurs de nombres aléatoires
 - :mod:`numpy.fft`: *Discrete Fourier Transform* 
-
+- :mod:`numpy.lib.polynomial`: manipulation des polynômes (racines,
+  polynômes orthogonaux, etc.)
 
 .. _td6:
 
@@ -553,7 +568,7 @@ Scipy
 :mod:`scipy` est une bibliothèque *numérique* [#sym]_ d'algorithmes et de
 fonctions mathématiques, basée sur les tableaux :mod:`numpy`,
 complétant ou améliorant (en terme de performances) les
-fonctionnalités `numpy`.
+fonctionnalités `numpy`. P.ex.:
 
 - Functions spéciales: :mod:`scipy.special` (fonctions de Bessel, erf,
   gamma, etc.)
@@ -719,8 +734,9 @@ Exemples complets
 
 .. rubric:: Notes de bas de page
 
-.. [#sym] Python dispose également d'une librairie de calcul
-   *formel*, `sympy <http://www.sympy.org/>`_
+.. [#sym] Python dispose également d'une librairie de calcul *formel*,
+   `sympy <http://www.sympy.org/>`_, et d'un environnement de calcul
+   mathématique, `sage <http://www.sagemath.org/>`_.
 
 .. |fr| image:: ../Cours/france_flag_icon.png
    :alt: Fr
