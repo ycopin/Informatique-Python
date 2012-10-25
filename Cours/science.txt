@@ -657,7 +657,7 @@ Dans les deux cas, le résultat est le même:
 
 .. image:: simple.*
    :align: center
-   :width: 30%
+   :width: 60%
 
 
 **Liens**
