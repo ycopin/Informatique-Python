@@ -2,7 +2,7 @@
                         Informatique - Python
 =====================================================================
 
-.. Time-stamp: <2012-09-05 02:39 ycopin@lyopc469>
+.. Time-stamp: <2012-11-08 00:39 ycopin@lyopc469>
 
 :Version: |version| du |today|
 :Auteur: Yannick Copin <`(at)ipnl.in2p3.fr`>
@@ -54,7 +54,7 @@ Organisation des TDs
 * :ref:`TD5 <td5>`: Numpy
 * :ref:`TD6 <td6>`: Scipy
 * :ref:`TD7 <td7>`: Zen du python, révisions
-
+* :ref:`Page projets <projets>`: Exemple de sujets de micro-projets
 
 Table des matières
 ==================
@@ -77,8 +77,10 @@ Table des matières
    Exercices/koch
    Exercices/mad
    Exercices/pull
+   Exercices/anscombe
    Exercices/logistique
    Exercices/julia
+   Projets/projets
 
 
 Index

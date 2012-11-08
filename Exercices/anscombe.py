@@ -54,9 +54,10 @@ if __name__=='__main__':
 
     quartet = N.genfromtxt("anscombe.dat") # Read Anscombe's Quartet
 
-    fig,axs = P.subplots(2,2)           # axs is (2,2)
+    fig = P.figure()
 
-    for i,ax in enumerate(axs.ravel()): # Loop over quartet sets x,y
+    for i in range(4):                  # Loop over quartet sets x,y
+        ax = fig.add_subplot(2,2,i+1)
         print "Dataset %d " % (i+1) + "="*20
         x,y = quartet[:,2*i:2*i+2].T
         printStats(x, y)                # Print main statistics
