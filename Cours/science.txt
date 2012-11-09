@@ -4,7 +4,7 @@
                        Bibliothèques numériques
 =====================================================================
 
-.. Time-stamp: <2012-10-22 02:03 ycopin@lyopc469>
+.. Time-stamp: <2012-11-09 16:42:29 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -17,11 +17,11 @@
       1.3  Entrées/sorties
       1.4  Sous-modules
     2  Scipy
+      2.1  Quelques exemples complets
     3  Bibliothèques graphiques
       3.1  Matplotlib (2D/3D)
       3.2  Mayavi (3D)
     4  Autres librairies scientifiques
-    5  Exemples complets
 
 * `Standard Numeric and Mathematical Modules
   <http://docs.python.org/library/numeric.html>`_
@@ -613,6 +613,35 @@ fonctionnalités `numpy`. P.ex.:
 **Exercice:** :ref:`anscombe`
 
 
+Quelques exemples complets
+--------------------------
+
+* `Interpolation
+  <http://docs.scipy.org/doc/scipy/reference/tutorial/interpolate.html>`_
+* `Integration
+  <http://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html>`_
+  (intégrales numériques, équations différentielles)
+
+  - `Oscillation amortie
+    <http://www.dakarlug.org/pat/scientifique/html/scipy.html>`_
+  - `Zombie Apocalypse
+    <http://www.scipy.org/Cookbook/Zombie_Apocalypse_ODEINT>`_
+
+* `Optimisation
+  <http://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html>`_
+  (moindres carrés, ajustements, recherche de zéros)
+* `Traitement du signal
+  <http://docs.scipy.org/doc/scipy/reference/tutorial/signal.html>`_
+  (splines, convolution, filtrage)
+* `Algèbre linéaire
+  <http://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html>`_
+  (systèmes linéaires, moindres carrés, décompositions)
+* `Statistiques
+  <http://docs.scipy.org/doc/scipy/reference/tutorial/stats.html>`_
+  (variables aléatoires, distributions, tests)
+
+
+
 Bibliothèques graphiques
 ========================
 
@@ -668,7 +697,7 @@ Dans les deux cas, le résultat est le même:
 
 **Exemple:** :ref:`filtres2ndOrdre.py <filtres>`
 
-**Exercices:** :ref:`logistique`, :ref:`julia`
+**Exercices:** :ref:`julia`, :ref:`logistique`
 
 Mayavi (3D)
 -----------
@@ -692,52 +721,28 @@ est une bibliothèque graphique de visualisation 3D s'appuyant sur
 Autres librairies scientifiques
 ===============================
 
-- Quantités dimensionnées (i.e. avec des unités physiques):
-  `quantities <http://packages.python.org/quantities/>`_, `magnitudes
-  <http://juanreyero.com/open/magnitude/>`_, `unum
-  <https://bitbucket.org/kiv/unum/>`_
-- Calcul symbolique: sympy_ (voir également ce `tutoriel sympy
-  <http://mattpap.github.com/scipy-2011-tutorial/html/>`_)
-- `PyROOT <http://root.cern.ch/drupal/content/pyroot>`_
+Une liste **non-exhaustive** de librairies scientifiques dans
+différents domaines de la physique/chimie:
+
+- Mécanique quantique: `QuTiP <http://code.google.com/p/qutip/>`_
+- Électromagnétisme: `EMpy <http://lbolla.github.com/EMpy/>`_
+- Astronomie: `astropy <http://www.astropy.org/>`_, `Kapteyn
+  <http://www.astro.rug.nl/software/kapteyn/>`_ et autres `modules
+  astronomiques
+  <http://oneau.wordpress.com/2010/10/02/python-for-astronomy/>`_
+- *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
+   <http://sfepy.org/doc-devel/index.html>`_
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
   <http://packages.python.org/milk/>`_, `MDP
   <http://mdp-toolkit.sourceforge.net/>`_ et autres `modules
+  d'intelligence artificielle
   <http://wiki.python.org/moin/PythonForArtificialIntelligence>`_
-- Graphes et réseaux: `networkx <http://networkx.lanl.gov/>`_
-- Astronomie: `astropy <http://www.astropy.org/>`_, `Kapteyn
-  <http://www.astro.rug.nl/software/kapteyn/>`_ et autres `modules
-  <http://oneau.wordpress.com/2010/10/02/python-for-astronomy/>`_
+- Calcul symbolique: sympy_ (voir également ce `tutoriel sympy
+  <http://mattpap.github.com/scipy-2011-tutorial/html/>`_)
+- `PyROOT <http://root.cern.ch/drupal/content/pyroot>`_
 - `Etc. <http://www.scipy.org/Topical_Software>`_
 
 .. - `PyMC <http://code.google.com/p/pymc/>`_: *Monte Carlo Markov Chain*
-
-Exemples complets
-=================
-
-* `Interpolation
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/interpolate.html>`_
-* `Integration
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html>`_
-  (intégrales numériques, équations différentielles)
-
-  - `Oscillation amortie
-    <http://www.dakarlug.org/pat/scientifique/html/scipy.html>`_
-  - `Zombie Apocalypse
-    <http://www.scipy.org/Cookbook/Zombie_Apocalypse_ODEINT>`_
-
-* `Optimisation
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html>`_
-  (moindres carrés, ajustements, recherche de zéros)
-* `Traitement du signal
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/signal.html>`_
-  (splines, convolution, filtrage)
-* `Algèbre linéaire
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html>`_
-  (systèmes linéaires, moindres carrés, décompositions)
-* `Statistiques
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/stats.html>`_
-  (variables aléatoires, distributions, tests)
-
 
 .. rubric:: Notes de bas de page
 

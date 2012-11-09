@@ -1,9 +1,36 @@
-.. Time-stamp: <2012-11-08 01:30 ycopin@lyopc469>
+.. Time-stamp: <2012-11-09 16:03:48 ycopin>
 .. _projets:
 
 =====================================================================
                             Micro-projets
 =====================================================================
+
+Introduction
+------------
+
+Les micro-projets seront évalués sur la base d'un rapport d'une
+quinzaine de pages et d'une soutenance orale. Il vous est demandé de
+travailler par binome. En plus des 4 séances prévues pour discuter de
+l'avancée du projet, un travail personnel est attendu.
+
+.. Note:: L'utilisation de bibliothèques externes (scientifiques,
+   visualisation, etc.) est fortement encouragée.
+
+Échéancier: 
+
+* Avant le 16 novembre : choix d'un sujet de projet et envoi d'un
+  email a votre chargé de TD
+* Novembre/décembre : 4 séances de discussion
+* 4 janvier 2013 12:00 : envoi des codes et du rapport au chargé de TD
+  sous forme électronique. Une version papier du rapport sera
+  également déposée au secrétariat.
+* Courant janvier : soutenance (15 mn + questions)
+
+Une liste de sujets possibles est donnée ci-dessous. Elle est
+non-exhaustive, c'est-à-dire que vous pouvez *en accord avec votre
+chargé de TD* proposer une autre étude. Les sujets donnés sont
+volontairement ouverts : ce sont des *pistes* sur lesquelles vous êtes
+sensés partir et évoluer.
 
 
 Formation de pistes de fourmis sur un pont à 2 branches
@@ -51,14 +78,14 @@ projet sera d’étudier le diagramme de phase du système en fonction de
 la température et du champ magnétique par simulation de Monte-Carlo.
 
 
-Méthode de Huckel
+Méthode de Hückel
 -----------------
 
-La spectroscopie et la réactivité des électrons π est centrale en
-chimie. Un outil efficace pour les appréhender est l'approche
-développé par Huckel. Il vous est demande ici de mettre en oeuvre
-cette méthode pour l'analyse des orbitales et de l'énergie d'une
-famille de molécules répondant aux hypothèse sous-jacentes. On
+La spectroscopie et la réactivité des électrons :math:`\pi` est
+centrale en chimie. Un outil efficace pour les appréhender est
+l'approche développé par Hückel. Il vous est demande ici de mettre en
+oeuvre cette méthode pour l'analyse des orbitales et de l'énergie
+d'une famille de molécules répondant aux hypothèse sous-jacentes. On
 discutera notamment du choix de la paramétrisation du système.
 
 
@@ -66,6 +93,7 @@ discutera notamment du choix de la paramétrisation du système.
 -------------------------------------------------------------
 
 À rédiger.
+
 
 Densité d'états d'un nanotube
 -----------------------------
@@ -81,6 +109,7 @@ L’objectif du projet sera de calculer la densité d'états de nanotubes
 de carbone de différentes chiralités et d'établir le lien entre la
 chiralité et le fait que le nanotube soit semiconducteur ou
 métallique.
+
 
 Solitons
 --------
@@ -131,6 +160,7 @@ répondre à chacune d’entre elle):
   collisionner des solitons. Cette étude est très intéressante et
   pleine de surprises. Que se passe-t-il lors de la collision de deux
   solitons? Entre un soliton et un anti-soliton?
+
 
 .. Auto-organisation d'un banc de poisson
 .. --------------------------------------
