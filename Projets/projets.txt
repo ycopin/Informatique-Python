@@ -244,6 +244,15 @@ d’étudier un cas particulier mais on prendra soin au contraire
 d’effectuer des moyennes sur un très grand nombre de tirages
 (plusieurs centaines).
 
+Sources: 
+
+* `Percolation theory <http://en.wikipedia.org/wiki/Percolation_theory>`_
+* `Concepts fondamentaux de la percolation
+  <http://percolation.free.fr/theseweb003.html>`_
+* Percolation exercises: `2006
+  <http://pages.physics.cornell.edu/~sethna/StatMech/ComputerExercises/Percolation/Percolation.html>`_,
+  `2012
+  <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/ComputerExercises/Percolation/Percolation.html>`_
 
 Modèle de Potts 3D
 ..................
