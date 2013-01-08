@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-11-09 16:03:48 ycopin>
+.. Time-stamp: <2013-01-09 00:03 ycopin@lyopc469>
 .. _projets:
 
 =====================================================================
@@ -136,7 +136,7 @@ Pour chaque pendule *n* dont la position est décrite par
    \frac{d^2\theta_n}{d t^2} =
    \alpha\sin\theta_n + \beta(\theta_{n-1} + \theta_{n+1} - 2\theta_n)
 
-où :math:`\alpha,\beta` sont des paramètres physiques. On résoudra
+où :math:`\alpha,\beta` sont des paramètres physiques. On résoudra
 numériquement cette équation pour chaque pendule. En donnant un « tour
 de manivelle numérique », on essayera d’obtenir la solution
 soliton. On cherchera en particulier à ajuster la solution par une
