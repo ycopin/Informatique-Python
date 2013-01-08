@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-10-01 23:29 ycopin@lyopc469>
+.. Time-stamp: <2012-11-12 15:40:50 ycopin>
 
 Références supplémentaires
 ==========================
@@ -74,6 +74,10 @@ Python
 - `DIY python workshop <http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
 - `Exemples de scripts Python
   <http://fr.wikibooks.org/wiki/Exemples_de_scripts_Python>`_ |fr|
+- `Google's Python Class
+  <http://code.google.com/edu/languages/google-python-class/>`_
+- `CheckIO <http://www.checkio.org/>`_, pour apprendre la
+  programmation Python en s'amusant !
 
 Scientifique
 ............
@@ -116,3 +120,10 @@ Sphinx & co.
    :alt: Fr
 .. |en| image:: ../Cours/uk_flag_icon.png
    :alt: En
+
+.. Local Variables: ...
+.. mode: rst ...
+.. ispell-local-dictionary: "francais" ...
+.. mode: flyspell ...
+.. indent-tabs-mode: nil ...
+.. End: ...
