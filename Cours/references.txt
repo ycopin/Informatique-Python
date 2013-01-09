@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-10-04 16:08:24 ycopin>
+.. Time-stamp: <2012-10-17 18:42:54 ycopin>
 
 Références supplémentaires
 ==========================
@@ -87,6 +87,8 @@ Scientifique
   exercices)
 - `SciPy 2011 tutorials <http://conference.scipy.org/scipy2011/tutorials.php>`_: numpy, scipy, matplotlib, ipython
 - `Practical Python for Astronomers <http://python4astronomers.github.com/>`_
+- `Lectures on Computational Economics
+  <http://johnstachurski.net/lectures/>`_ (avec exercices)
 
 - `L’informatique scientifique avec Python
   <http://www.dakarlug.org/pat/scientifique/html/>`_ |fr|
