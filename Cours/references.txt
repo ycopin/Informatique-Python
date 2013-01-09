@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-11-12 15:40:50 ycopin>
+.. Time-stamp: <2013-01-09 22:07 ycopin@lyopc469>
 
 Références supplémentaires
 ==========================
@@ -54,6 +54,7 @@ Livres libres
   <http://en.wikibooks.org/wiki/Non-Programmer's_Tutorial_for_Python_2.6>`_
 
 - `A Python Book <http://www.rexx.com/~dkuhlman/python_book_01.html>`_
+- `Start Programming with Python <http://python-ebook.blogspot.fr/>`_
 - ` Python for Informatics: Exploring Information
   <http://www.pythonlearn.com/>`_
 
@@ -94,6 +95,8 @@ Scientifique
   <http://conference.scipy.org/scipy2011/tutorials.php>`_: numpy,
   scipy, matplotlib, ipython
 - `Practical Python for Astronomers <http://python4astronomers.github.com/>`_
+- `Lectures on Computational Economics
+  <http://johnstachurski.net/lectures/>`_ (avec exercices)
 
 - `L’informatique scientifique avec Python
   <http://www.dakarlug.org/pat/scientifique/html/>`_ |fr|
