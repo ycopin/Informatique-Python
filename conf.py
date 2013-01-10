@@ -41,14 +41,14 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Analyse scientifique avec Python'
-copyright = u'2011, Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
+copyright = u'2013, Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '2012'
+version = '2013'
 # The full version, including alpha/beta/rc tags.
 release = '0.1'
 

@@ -1,116 +1,28 @@
-.. Time-stamp: <2012-02-20 23:41:15 ycopin>
+.. Time-stamp: <2013-01-10 23:07 ycopin@lyopc469>
 .. _info:
 
 ======================================================================
                         Informations pratiques
 ======================================================================
 
-- `Cours en ligne <http://snovae.in2p3.fr/ycopin/enseignements/Python/>`_
-- **Horaire:** Lundi 8h-10h, salle "Ariane 11"
-- **Module:** 3 ETCS, 16h de cours/TD
-- **Évaluation:** sur :ref:`projets <projets>` avec soutenance orale
-- **Responsable:** Yannick Copin <@ipnl.in2p3.fr>, Bureau 420 de
+- Atelier "Analyse scientifique en Python"
+- `Cours en ligne <https://informatique-python.readthedocs.org/en/python-m2//>`_
+- Responsable: Yannick Copin <@ipnl.in2p3.fr>, Bureau 420 de
   l'IPNL (4 rue Fermi)
-- **Scolarité:** Mme Salvi (#32689)
+- Scolarité: Mme Salvi (#32689)
 
 .. _calendrier:
 
 Calendrier
 ==========
 
-**Enseignements (Automne 2011)**
+===========================  ================================================
+Séance
+===========================  ================================================
+lundi 14/01 - 8h30-12h30     python I
+mardi 15/01 - 8h30-12h30     python II, organisation du µ-projet (1h)
+vendredi 18/01 - 8h30-12h30  méthodes numériques I, 1er support µ-projet (1h)
+vendredi 25/01 - 8h30-12h30  méthodes numériques II, débriefing µ-projet (1h)
+===========================  ================================================
 
-======  =====  =======================
-Séance  Date   
-======  =====  =======================
-#1      10/10  Python 1: introduction
-#2      17/10  Python 2: types de base, itérables
-#3      24/10  Python 3: fonctions, classes et modules
---      31/10  *Vacances*
---      07/11  **Annulé**
-#4      14/11  Python 4; librairie standard
-#5      21/11  Librairies numériques 1
-#6      28/11  Librairies numériques 2
-#7      05/12  Zen du python et aide au développeur
---      12/12  *Projet personnel*
-#8      16/12  Soutient projets (14h-16h, Ariane 2 ou 4)
-#8bis   10/01  Soutient projets (10h-12h, Ariane XX)
-======  =====  =======================
-
-**Projets**
-
-Le calendrier est le suivant:
-
-- 05/12/11: choix des sujets (par mail)
-- 16/01/12 12h: dépot des projets
-- 23/01/12 9h-12h: soutenance orale
-- **20/02/12 9h**: 2ème session (oral)
-
-N'hésitez pas à me contacter pour en discuter.
-
-Étudiants
-=========
-
-================  =================  ========================  =====  ==========  ====
-Nom               etu.univ-lyon1.fr  Projet                    Dépôt  Soutenance  Note
-================  =================  ========================  =====  ==========  ====
-Émeric Bergmann   `emeric.bergmann`  Schrödinger 1D*           15:01     9:20      13
-Xavier Fabian     `xavier.fabian`    Modèle de Potts 3D        19:05     9:40      14
-Clément Mancuso   `clement.mancuso`  Coordonnées parallèles*   10:56    10:00     *8*
-Gabriel Giono     `gabriel.giono`    Diagrame de Voronoi*      12:19    10:20     *8* → 10
-Laura Hangard     `laura.hangard`    Diagramme HR*             20:22    10:40      10
-Arnaud Steen      `arnaud.steen`     Solitons*                 18:06    11:00      12
-Clément Février   `clement.fevrier`  Agrégats                  11:58    11:20      15
-Nathalie Alleq    `nathalie.alleq`   Percolation                        ABANDON
-Cyril Auclair     `cyril.auclair`    Agrégats                           ABANDON
-Alexis Fagot      `alexis.fagot`     Équation de Poisson 2D*            ABANDON
-================  =================  ========================  =====  ==========  ====
-
-:ref:`Détail des résultats <resultats2011>`
-
-Maquette
-========
-
-Plan originel: *Méthodes numériques pour la physique*
------------------------------------------------------
-
-Maquette: :download:`Méthodes numériques <./Méthodes_numériques.pdf>`
-
-* Python (4h)
-
-  - Les bases
-  - Les objets
-  - Quelques modules utiles: `ipython`, `optparse`, `re`, `os`,
-    `glob`, `datetime`, `urllib2`, etc.
-
-* Bibliothèques numériques: `numpy`, `matplotlib` (2h)
-* Méthodes numériques "par la pratique" (4h): étude de petits cas
-  concrets avec `scipy` abordant entre autres:
-
-  - Fonctions mathématiques
-  - Intégration numérique, équations différentielles
-  - Optimisations linéaires, non-linéaires, avec contraintes
-  - Statistiques
-  - Transformée de Fourier
-  - Interpolation, filtrage
-
-* Applications (6h): des applications plus larges, peut-être sous la
-  forme de petits projets, p.ex.:
-
-  - l'imagerie
-  - la spectroscopie
-  - autre...
-
-Plan retenu: *Analyse scientifique avec Python*
------------------------------------------------
-
-* Introduction au langage Python
-
-  - Élements du langage
-  - Bibliothèque standard
-  - Librairies numériques (`numpy`, `scipy`) et graphiques
-    (`matplotlib`)
-  - Notes de développement
-
-* Analyse par la pratique
-* Micro-projets
+Toutes les séances ont lieu en Ariane 12. 
