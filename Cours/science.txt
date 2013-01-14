@@ -4,7 +4,7 @@
                        Bibliothèques numériques
 =====================================================================
 
-.. Time-stamp: <2012-07-25 11:49 ycopin@lyopc469>
+.. Time-stamp: <2013-01-14 00:58 ycopin@lyopc469>
 
 .. contents:: Table des matières
 ..
@@ -17,11 +17,11 @@
       1.3  Entrées/sorties
       1.4  Sous-modules
     2  Scipy
+      2.1  Quelques exemples complets
     3  Bibliothèques graphiques
       3.1  Matplotlib (2D/3D)
       3.2  Mayavi (3D)
     4  Autres librairies scientifiques
-    5  Exemples complets
 
 * `Standard Numeric and Mathematical Modules
   <http://docs.python.org/library/numeric.html>`_
@@ -200,7 +200,7 @@ supérieure, chaque axe est indéxable indépendamment.
 >>> x[1::3] *= -1; x    # Modification "in-place"
 array([ 0, -1,  2,  3, -4,  5,  6, -7,  8,  9])
 
-**Slicing**
+.. rubric:: *Slicing*
 
 .. index:: pair: numpy; slicing
 
@@ -242,7 +242,7 @@ array([[[ 0],
 >>> y[:,:,0:1].shape
 (2, 3, 1)  # L'axe 2 a été conservé, il ne contient pourtant qu'un seul élément
 
-**Modification de format**
+.. rubric:: Modification de format
 
 .. index:: 
    pair: numpy; reshape
@@ -291,7 +291,7 @@ array([[0, 1],
 .. Attention:: `N.resize(arr, shape)` (complétion avec des copies de
    `arr`) est différent de `arr.resize(shape)` (complétion avec des 0).
 
-**Empilage**
+.. rubric:: *Stacking*
 
 .. index:: 
    pair: numpy; hstack
@@ -312,7 +312,7 @@ array([[[0, 0],
         [3, 3],
         [4, 4]]])
 
-**Broadcasting**
+.. rubric:: *Broadcasting*
 
 .. index:: 
    pair: numpy; broadcasting
@@ -334,7 +334,7 @@ ValueError: shape mismatch: objects cannot be broadcast to a single shape
 array([[10, 11, 12],
        [23, 24, 25]])
 
-**Indexation évoluée**
+.. rubric:: Indexation évoluée
 
 .. index:: 
    pair: numpy; nonzero
@@ -366,7 +366,7 @@ array([ 1.,  2.,  3.])
 >>> a.mean()           # *ndarray* dispose de nombreuses méthodes numériques de base
 2.0
 
-**Opérations sur les axes**
+.. rubric:: Opérations sur les axes
 
 .. index:: pair: numpy; axis
 
@@ -381,7 +381,7 @@ array([0, 1])        # ce sont donc les minima par colonne (2)
 >>> x.min(axis=1)    # minima le long de l'axe 1 (i.e. l'axe des colonnes)
 array([3, 1, 0])     # ce sont donc les minima par ligne (3)
 
-**Opérations matricielles**
+.. rubric:: Opérations matricielles
 
 .. index:: 
    pair: numpy; matrix
@@ -412,7 +412,7 @@ matrix([[0, 1],
 Le sous-module :mod:`numpy.linalg` fournit des outils spécifiques au
 calcul matriciel (inverse, déterminant, valeurs propres, etc.).
 
-**Ufuncs**
+.. rubric:: *Ufuncs*
 
 .. index:: 
    pair: numpy; ufuncs
@@ -435,16 +435,13 @@ False
 >>> N.allclose(y, [0,1,0,-1,0])   # Test d'égalité numérique de tous les éléments
 True
 
-**Exercices:** 
-
-* :ref:`mad`
-* :ref:`pull`
+**Exercices:** :ref:`mad`, :ref:`pull`
 
 
 Tableaux évolués
 ----------------
 
-**Types composés**
+.. rubric:: Types composés
 
 .. index:: 
    pair: numpy; dtype
@@ -470,7 +467,7 @@ rec.array([('Calvin', 6, 1.2), ('Hobbes', 5, 1.8)],
 >>> rec.nom                          # Accès direct par attribut
 chararray(['Calvin', 'Hobbes'], dtype='|S10')
 
-**Tableaux masqués**
+.. rubric:: Tableaux masqués
 
 .. index:: 
    module: numpy.ma
@@ -516,18 +513,32 @@ Entrées/sorties
 .. index:: 
    pair: numpy; save/load
    pair: numpy; savetxt/loadtxt
+   pair: numpy; genfromtxt
 
-:mod:`numpy` peut sauvegarder et relire des tableaux dans un format
-binaire `.npy` ou un format texte (moins compact mais *human
-readable*):
+:mod:`numpy` peut lire (`N.loadtxt`) ou sauvegarder (`N.savetxt`) des
+tableaux dans un simple fichier ASCII:
 
->>> x = N.linspace(-1,1,1e6+1)
+>>> x = N.linspace(-1,1,100)
+>>> N.savetxt('archive_x.dat', x)   # Sauvegarde dans le fichier 'archive_x.dat'
+>>> y = N.loadtxt("archive_x.dat")  # Relecture à partir du fichier 'archive_x.dat'
+>>> (x==y).all()
+True
+
+.. Attention:: `N.loadtxt` supporte les types composés,
+   mais ne supporte pas les données manquantes; utiliser la fonction
+   `N.genfromtxt` dans ce cas.
+
+Le format ASCII n'est pas optimale pour de gros tableaux: il peut
+alors être avantageux d'utiliser le format binaire `.npy`, beaucoup
+plus compact (mais non *human readable*):
+
+>>> x = N.linspace(-1,1,1e6)
 >>> N.save('archive_x.npy', x)   # Sauvegarde dans le fichier 'archive_x.npy'
 >>> y = N.load("archive_x.npy")  # Relecture à partir du fichier 'archive_x.npy'
 >>> (x==y).all()
 True
 
-Il est également possible de *sérialiser* les tableaux à l'aide de la
+Il est enfin possible de *sérialiser* les tableaux à l'aide de la
 bibliothèque standard :ref:`[c]Pickle <pickle>`.
 
 
@@ -538,12 +549,13 @@ Sous-modules
    module: numpy.polynomial
    module: numpy.fft
 
-:mod:`numpy` fournit en outre les sous-modules suivants:
+:mod:`numpy` fournit en outre quelques fonctionnalités
+supplémentaires, parmis lesquelles les sous-modules suivants:
 
-- :mod:`numpy.polynomial`: manipulation des polynômes (racines, polynômes
-  orthogonaux, etc.)
+- :mod:`numpy.random`: générateurs de nombres aléatoires
 - :mod:`numpy.fft`: *Discrete Fourier Transform* 
-
+- :mod:`numpy.lib.polynomial`: manipulation des polynômes (racines,
+  polynômes orthogonaux, etc.)
 
 .. _td6:
 
@@ -556,7 +568,7 @@ Scipy
 :mod:`scipy` est une bibliothèque *numérique* [#sym]_ d'algorithmes et de
 fonctions mathématiques, basée sur les tableaux :mod:`numpy`,
 complétant ou améliorant (en terme de performances) les
-fonctionnalités `numpy`.
+fonctionnalités `numpy`. P.ex.:
 
 - Functions spéciales: :mod:`scipy.special` (fonctions de Bessel, erf,
   gamma, etc.)
@@ -598,90 +610,11 @@ fonctionnalités `numpy`.
 
 .. http://www.osc.edu/supercomputing/training/python/python_pt2_0702.pdf
 
-
-Bibliothèques graphiques
-========================
-
-Matplotlib (2D/3D)
-------------------
-
-.. index::
-   module: matplotlib
-
-`Matplotlib <http://matplotlib.sourceforge.net/>`_ est une
-bibliothèque graphique de visualisation 2D (et marginalement 3D), avec
-support intéractif et sorties de haute qualité
-
-.. Note:: Utiliser :command:`ipython -pylab` pour l'utilisation
-   intéractive des figures.
-
-Il existe deux interfaces pour deux types d'utilisation:
-
-* `pylab`: interface procédurale, très similaire à MATLAB et
-  généralement réservée à l'analyse interactive:
-
-  >>> from pylab import *         # À NE PAS FAIRE DANS UN SCRIPT!
-  >>> x = linspace(-pi, pi, 100)  # pylab importe numpy dans l'espace courant
-  >>> plot(x, sin(x))             # Trace la courbe y = y(x)
-  >>> show()                      # Affiche le résultat
-
-* `pyplot
-  <http://matplotlib.sourceforge.net/users/pyplot_tutorial.html>`_:
-  interface orientée objet, généralement pour les scripts::
-
-    import numpy as N
-    import matplotlib.pyplot as P
-
-    x = N.linspace(-N.pi, N.pi, 100)
-    y = N.sin(x)
-
-    fig,ax = P.subplots()
-    ax.plot(x, y)
-    P.show()
-
-**Liens:**
-
-- `Gallery <http://matplotlib.sourceforge.net/gallery.html>`_ 
-- `Examples <http://matplotlib.sourceforge.net/examples/>`_
-- `Cookbook matplotlib <http://www.scipy.org/Cookbook/Matplotlib>`_
-
-**Exemple:** :ref:`filtres2ndOrdre.py <filtres>`
-
-Mayavi (3D)
------------
-
-.. index::
-   module: mayavi/mlab
-
-`mayavi.mlab <http://github.enthought.com/mayavi/mayavi/mlab.html>`_
-est une bibliothèque graphique de visualisation 3D s'appuyant sur
-`Mayavi <http://github.enthought.com/mayavi/mayavi/index.html>`_.
-
-.. Note:: Utiliser :command:`ipython -wthread` pour l'utilisation
-   intéractive des figures.
-
-**Voir également:**
-
-- `VPython <http://www.vpython.org/>`_: *3D Programming for Ordinary
-  Mortals*
+**Exercice:** :ref:`anscombe`
 
 
-Autres librairies scientifiques
-===============================
-
-- `quantities <http://packages.python.org/quantities/>`_, `magnitudes
-  <http://juanreyero.com/open/magnitude/>`_, `unum
-  <https://bitbucket.org/kiv/unum/>`_: manipulation de quantités
-  dimensionnées (i.e. avec des unités physiques)
-- sympy_: calcul symbolique (voir également ce `tutoriel sympy
-  <http://mattpap.github.com/scipy-2011-tutorial/html/>`_)
-- `networkx <http://networkx.lanl.gov/>`_: manipulation de graphes et
-  réseaux
-- `PyMC <http://code.google.com/p/pymc/>`_: *Markov Chain Monte Carlo*
-- `Etc. <http://www.scipy.org/Topical_Software>`_
-
-Exemples complets
-=================
+Quelques exemples complets
+--------------------------
 
 * `Interpolation
   <http://docs.scipy.org/doc/scipy/reference/tutorial/interpolate.html>`_
@@ -708,10 +641,114 @@ Exemples complets
   (variables aléatoires, distributions, tests)
 
 
+
+Bibliothèques graphiques
+========================
+
+Matplotlib (2D/3D)
+------------------
+
+.. index::
+   module: matplotlib
+
+`Matplotlib <http://matplotlib.org/>`_ est une
+bibliothèque graphique de visualisation 2D (et marginalement 3D), avec
+support intéractif et sorties de haute qualité.
+
+.. Note:: Utiliser :command:`ipython -pylab` pour l'utilisation
+   intéractive des figures.
+
+Il existe deux interfaces pour deux types d'utilisation:
+
+* `pylab`: interface procédurale, très similaire à MATLAB et
+  généralement réservée à l'analyse interactive:
+
+  >>> from pylab import *         # À NE PAS FAIRE DANS UN SCRIPT!
+  >>> x = linspace(-pi, pi, 100)  # pylab importe numpy dans l'espace courant
+  >>> plot(x, sin(x))             # Trace la courbe y = y(x)
+  >>> show()                      # Affiche le résultat
+
+* `pyplot
+  <http://matplotlib.org/users/pyplot_tutorial.html>`_:
+  interface orientée objet, généralement pour les scripts::
+
+    import numpy as N
+    import matplotlib.pyplot as P
+
+    x = N.linspace(-N.pi, N.pi, 100)
+    y = N.sin(x)
+
+    fig,ax = P.subplots()
+    ax.plot(x, y)
+    P.show()
+
+Dans les deux cas, le résultat est le même:
+
+.. image:: simple.*
+   :align: center
+   :width: 60%
+
+
+**Liens**
+
+- `Tutorial matplotlib <http://www.loria.fr/~rougier/teaching/matplotlib/>`_
+- `Gallery <http://matplotlib.org/gallery.html>`_ 
+- `Examples <http://matplotlib.org/examples/>`_
+
+**Exemple:** :ref:`filtres2ndOrdre.py <filtres>`
+
+**Exercices:** :ref:`julia`, :ref:`logistique`
+
+Mayavi (3D)
+-----------
+
+.. index::
+   module: mayavi/mlab
+
+`mayavi.mlab <http://docs.enthought.com/mayavi/mayavi/mlab.html>`_
+est une bibliothèque graphique de visualisation 3D s'appuyant sur
+`Mayavi <http://docs.enthought.com/mayavi/mayavi/index.html>`_.
+
+.. Note:: Utiliser :command:`ipython -wthread` pour l'utilisation
+   intéractive des figures.
+
+**Voir également:**
+
+- `VPython <http://www.vpython.org/>`_: *3D Programming for Ordinary
+  Mortals*
+
+
+Autres librairies scientifiques
+===============================
+
+Une liste **non-exhaustive** de librairies scientifiques dans
+différents domaines de la physique/chimie:
+
+- Mécanique quantique: `QuTiP <http://code.google.com/p/qutip/>`_
+- Électromagnétisme: `EMpy <http://lbolla.github.com/EMpy/>`_
+- Astronomie: `astropy <http://www.astropy.org/>`_, `Kapteyn
+  <http://www.astro.rug.nl/software/kapteyn/>`_ et autres `modules
+  astronomiques
+  <http://oneau.wordpress.com/2010/10/02/python-for-astronomy/>`_
+- *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
+  <http://sfepy.org/doc-devel/index.html>`_
+- *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
+  <http://packages.python.org/milk/>`_, `MDP
+  <http://mdp-toolkit.sourceforge.net/>`_ et autres `modules
+  d'intelligence artificielle
+  <http://wiki.python.org/moin/PythonForArtificialIntelligence>`_
+- Calcul symbolique: sympy_ (voir également ce `tutoriel sympy
+  <http://mattpap.github.com/scipy-2011-tutorial/html/>`_)
+- `PyROOT <http://root.cern.ch/drupal/content/pyroot>`_
+- `Etc. <http://www.scipy.org/Topical_Software>`_
+
+.. - `PyMC <http://code.google.com/p/pymc/>`_: *Monte Carlo Markov Chain*
+
 .. rubric:: Notes de bas de page
 
-.. [#sym] Python dispose également d'une librairie de calcul
-   *formel*, `sympy <http://www.sympy.org/>`_
+.. [#sym] Python dispose également d'une librairie de calcul *formel*,
+   `sympy <http://www.sympy.org/>`_, et d'un environnement de calcul
+   mathématique, `sage <http://www.sagemath.org/>`_.
 
 .. |fr| image:: ../Cours/france_flag_icon.png
    :alt: Fr

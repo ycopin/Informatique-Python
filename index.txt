@@ -2,7 +2,7 @@
                    Analyse scientifique avec Python
 ======================================================================
 
-.. Time-stamp: <2012-08-27 13:55:40 ycopin>
+.. Time-stamp: <2013-01-14 01:00 ycopin@lyopc469>
 
 :Version: |version| du |today|
 :Auteur: Yannick Copin <`(at)ipnl.in2p3.fr`>
@@ -64,6 +64,18 @@ programes les plus complexes (projets de plus de 100000 lignes).
 * `Python Advocacy <http://docs.python.org/howto/advocacy.html>`_
 
 
+Organisation des TDs
+====================
+
+* :ref:`TD1 <td1>`: Introduction, types de base, structures de programmation
+* :ref:`TD2 <td2>`: Chaînes de caractères, objets itérables, fonctions, bibliothèques
+* :ref:`TD3 <td3>`: Classes, exceptions, entrées-sorties
+* :ref:`TD4 <td4>`: Librairie standard, révisions
+* :ref:`TD5 <td5>`: Numpy
+* :ref:`TD6 <td6>`: Scipy
+* :ref:`TD7 <td7>`: Zen du python, révisions
+* :ref:`Page projets <projets>`: Exemple de sujets de micro-projets
+
 Table des matières
 ==================
 
@@ -82,11 +94,14 @@ Table des matières
    Exercices/exo
    Exercices/carreMagique
    Exercices/crible
+   Exercices/life
    Exercices/koch
    Exercices/mad
    Exercices/pull
+   Exercices/anscombe
+   Exercices/julia
+   Exercices/logistique
    Projets/projets
-   Projets/correction_2011
 
 Index
 =====

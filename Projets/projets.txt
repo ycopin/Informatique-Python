@@ -1,71 +1,9 @@
-.. Time-stamp: <2012-08-27 16:17:31 ycopin>
+.. Time-stamp: <2013-01-14 01:03 ycopin@lyopc469>
 .. _projets:
 
 =====================================================================
-                         Exemples de projets
+                            Micro-projets
 =====================================================================
-
-Introduction
-============
-
-L'évaluation de ce module se fera sous la forme d'un **micro-projet**,
-à développer *personnellement* et à *soutenir oralement*, en gardant à
-l'esprit un aspect essentiel: *il s'agit d'un module d'informatique
-dans une formation de physique*. L'objectif du projet doit donc être
-d'aborder un problème de physique -- au sens large -- en utilisant
-l'outil numérique -- au sens restreint: Python & Co. -- avec un regard
-critique et pragmatique.
-
-Les sujets proposés sont purement indicatifs: il n'est pas demandé
-d'en explorer systématiquement tous les aspects, mais il n'est pas non
-plus interdit de les développer dans de nouvelles directions. Vous
-pouvez également proposer votre propre sujet original. Dans tous les
-cas, il faut avant tout me présenter le projet que vous avez
-l'intention de développer pour que je le valide et éventuellement le
-recadre ou le précise.
-
-En pratique, le projet devra prendre la forme d'un module pur python
-*utile*, et permettant à un tiers de reprendre l'étude présentée en
-régénérant les résultats obtenus avec différents paramètres. Ce module
-devra être documenté au mieux (documentation interne et éventuellement
-externe), tant au niveau de la physique, de l'algorithmique et du
-code: objectifs, méthodes, sources, tests, limites, etc.
-
-Le but n'est pas de redévelopper des algorithmes de base et/ou des
-outils d'analyse déjà existants: il est largement encouragé de
-s'appuyer sur des modules externes, *dans le respect de la déontologie
-scientifique et des licences d'utilisation*. Le plagiat --
-copier/coller de code sans citation ni valeur ajoutée -- sera
-évidemment sanctionné.
-
-La soutenance (20mn) devra être une explication de votre code, des
-algorithmes utilisés, des résultats et des tests permettant d'en
-vérifier la pertinence, et éventuellement une démonstration *live*.
-
-L'évaluation portera sur l'analyse du projet à travers le code, ses
-commentaires, son utilisation et la présentation qu'en aura faite
-l'étudiant: obtention et étude critique des résultats -- « quelles
-sont les raisons me permettant de croire aux résultats? », capacité à
-circonscrire le sujet abordé dans le cadre d'un projet limité -- «
-quelle était la question, et quelle est la réponse? », pertinence dans
-le choix des stratégies de codage (modularité, extensibilité, «
-bidouillabilité »), respect du zen de Python, etc.
-
-Critères d'évaluation
----------------------
-
-* Pondération selon la difficulté du sujet et l'existence d'un modèle
-* *Source Lines of Code* (hors commentaires et emprunts)
-* Structuration du programme (notamment utilisation de classes)
-* Utilisation pertinente de librairies externes
-* Documentations interne (code) *et* externe (document indépendant)
-* Évaluation des résultats (y compris précision, temps de calculs,
-  pertinence, etc.)
-* Modularité du code
-* Respect du Zen de Python
-* Présentation orale
-
-:ref:`Calendrier des projets <calendrier>`
 
 Projets de visualisation
 ========================
@@ -145,6 +83,38 @@ Projets statistiques
 Projets de physique
 ===================
 
+Formation d'agrégats
+--------------------
+
+La formation d'agrégats est par essence un sujet interdisciplinaire,
+ou la modélisation joue un rôle certain comme « microscope
+computationel ». Pour un projet en ce sens, un soin particulier sera
+donné à la contextualisation. Par exemple, on pourra tester les
+limites de la règle de Wade pour la structure de clusters métalliques,
+ou bien dans un contexte plus `biologique
+<http://fr.wikipedia.org/wiki/Dictyostelium_disco%C3%AFdeum>`_.
+
+Modèle d'Ising
+--------------
+
+Le modèle d'Ising est le modèle le plus simple du magnétisme. Le
+modèle 1D est exactement soluble par la méthode de la matrice de
+transfert. La généralisation à 2 dimensions a été faite par Lars
+Onsager en 1944, mais la solution est assez compliquée. Il n'existe
+pas de solution analytique en 3D. On va ici considérer un système de
+spins sur réseau. Chaque spin :math:`\sigma_i` peut prendre 2 valeurs
+(« *up* » et « *down* »). L'hamiltonien du système, 
+
+.. math::
+
+   H = -J \sum_{i,j} \sigma_i \sigma_j - h \sum_{i} \sigma_i
+
+contient deux contributions : l'interaction entre premiers voisins et
+le couplage à un champ magnétique. On va considérer un réseau carré
+avec une interaction ferromagnétique (:math:`J > 0`). L’objectif du
+projet sera d’étudier le diagramme de phase du système en fonction de
+la température et du champ magnétique par simulation de Monte-Carlo.
+
 Solitons
 --------
 
@@ -170,7 +140,7 @@ Pour chaque pendule *n* dont la position est décrite par
    \frac{d^2\theta_n}{d t^2} =
    \alpha\sin\theta_n + \beta(\theta_{n-1} + \theta_{n+1} - 2\theta_n)
 
-où :math:`\alpha,\beta` sont des paramètres physiques. On résoudra
+où :math:`\alpha,\beta` sont des paramètres physiques. On résoudra
 numériquement cette équation pour chaque pendule. En donnant un « tour
 de manivelle numérique », on essayera d’obtenir la solution
 soliton. On cherchera en particulier à ajuster la solution par une
@@ -185,7 +155,7 @@ répondre à chacune d’entre elle):
 - Le soliton conserve-t-il sa forme?
 - Que se passe-t-il avec des pendules plus lourds? ou plus rapprochés?
   avec un câble plus rigide? avec un frottement?
-- Comment le soliton se réfléchi-t-il si l’extrémité du câble est
+- Comment le soliton se réfléchit-il si l’extrémité du câble est
   rigidement fixée? et si elle tourne librement?
 - Dans ce système, le soliton est chiral. En effet, on peut tourner la
   manivelle à gauche ou à droite. Un anti-soliton a-t-il les mêmes
@@ -196,16 +166,18 @@ répondre à chacune d’entre elle):
   solitons? Entre un soliton et un anti-soliton?
 
 
+.. Auto-organisation d'un banc de poisson
+.. --------------------------------------
+
+.. include:: banc_poisson.txt
+
+
 Autres possibilités
 -------------------
 
-- Processus de percolation
-- Formation d'agrégats 2D/3D
 - Tesselation de Voronoi (exemple d'application en astrophysique:
   `Voronoi binning: Optimal adaptive tessellations of
   multi-dimensional data <http://arxiv.org/abs/0912.1303>`_)
-- `Équation de Schrödinger 1D
-  <http://www.scipy.org/Cookbook/SchrodingerFDTD>`_
 - `Reaction-Diffusion by the Gray-Scott Model
   <http://mrob.com/pub/comp/xmorphia/>`_
 - Équation de `Cahn–Hilliard
@@ -217,11 +189,76 @@ Autres possibilités
 - `Computational Methods for Nonlinear Systems
   <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/ComputerExercises.html>`_
 
-Projets proposés par les étudiants
-----------------------------------
+États de diffusion pour l’équation de Schrödinger 1D stationnaire
+.................................................................
 
-Modèle de Potts 3D (Xavier Fabian)
-..................................
+On s’intéresse à la diffusion d’une particule de masse m à travers un
+potentiel carré défini par :math:`V(x) = V_0` pour :math:`0 \leq x
+\leq a`, et 0 sinon.
+
+Les solutions de cette équation en dehors de la région où règne le
+potentiel sont connues. Les paramètres d’intégration de ces fonctions
+d’onde peuvent se déterminer par les relations de continuité aux
+frontières avec la région où règne le potentiel. En résolvant
+l’équation différentielle dans la région du potentiel pour *x* allant
+de *a* à 0 on peut obtenir une autre valeur pour ces paramètre
+d’intégration. Il faut ensuite appliquer un algorithme de minimisation
+pour déterminer les constantes d’intégration.
+
+Les objectifs de ce projet sont :
+
+* Écrire un programme qui résolve l’équation de Schrödinger.
+* En déduire les coefficients de transmission et de réflexion.
+
+Références: 
+
+* *A numerical method for quantum tunnelling*, Pang T., Computers un
+  Physics, 9, p 602-605.
+* `Équation de Schrödinger 1D
+  <http://www.scipy.org/Cookbook/SchrodingerFDTD>`_
+
+Percolation
+...........
+
+Ce sujet propose d’étudier le phénomène de percolation. La percolation
+est un processus physique qui décrit pour un système, une transition
+d’un état vers un autre. Le système que nous étudierons est composé
+ici d’une grille carrée dont les cases sont soit vides, soit pleines.
+Initialement, la matrice est vide et l’on tire aléatoirement une case
+que l’on rempli. On défini la concentration comme le rapport du nombre
+de cases noires sur le nombre total de cases.  À partir d'une certaine
+concentration critique un chemin continu de cases noires s'établit
+entre deux bords opposés du système (haut et bas, ou gauche et droite)
+et on dit alors que le système percole. Le but du sujet est d’étudier
+la transition d’un système qui ne percole pas (à gauche sur la figure)
+vers un système qui percole (à droite). Pour ce faire, on établira un
+algorithme qui pour une configuration donnée détermine si le réseau de
+cases noires percole ou non. On étudiera également la taille et le
+nombre des amas de cases noires en fonction de la concentration. On
+étudiera aussi les effets de la taille du système.
+
+.. image:: percolation.png
+   :width: 10cm
+   :align:   center
+
+Cette étude repose sur un tirage pseudo aléatoire et pas conséquent
+nécessite un traitement statistique. On ne pourra pas se contenter
+d’étudier un cas particulier mais on prendra soin au contraire
+d’effectuer des moyennes sur un très grand nombre de tirages
+(plusieurs centaines).
+
+**Sources:**
+
+* `Percolation theory <http://en.wikipedia.org/wiki/Percolation_theory>`_
+* `Concepts fondamentaux de la percolation
+  <http://percolation.free.fr/theseweb003.html>`_
+* Percolation exercises: `2006
+  <http://pages.physics.cornell.edu/~sethna/StatMech/ComputerExercises/Percolation/Percolation.html>`_,
+  `2012
+  <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/ComputerExercises/Percolation/Percolation.html>`_
+
+Modèle de Potts 3D
+..................
 
 `Modèle de Potts <http://en.wikipedia.org/wiki/Potts_model>`_ en 3D
 dans un univers carré à condition périodique. Le but est la mise en
@@ -249,16 +286,32 @@ Jeux de paramètres à tester :
 **Références:** `Computational Studies of Pure and Dilute Spin Models
 <http://www.hermetic.ch/compsci/thesis/contents.htm>`_
 
-Équation de Poisson (Alexis Fagot)
-..................................
+*Protein Data Bank*
+...................
 
-Résolution de l'équation de Poisson 2D par :abbr:`MEF (Méthode des
-Élements Finis)`.
+On chercher a réaliser un script qui analyse un fichier de données de
+type `PDB <http://fr.wikipedia.org/wiki/Protein_Data_Bank>`_ (*Protein
+Data Bank*).
 
-- Sources éventuelles d'inspiration: `Simple Finite Elements in Python
-  <http://www.sfepy.org/>`_ pour la résolution des équations, `Line
-  integral convolution <http://scikits.appspot.com/vectorplot>`_ pour
-  la visualisation 2D d'un champ vectoriel.
+La banque de données `Worldwide Protein Data Bank
+<http://www.wwpdb.org/>`_ regroupe les structures obtenues par
+diffraction aux rayons X ou par RMN.  Le format est parfaitement
+defini et conventionnel (`Documentation
+<http://www.wwpdb.org/docs.html>`_).
+
+On propose d'assurer une lecture de ce fichier pour calculer notamment :
+
+- le barycentre de la biomolécule
+- le nombre d'acides aminés ou nucléobases
+- le nombre d'atomes
+- la masse moléculaire
+- les dimensions maximales de la protéine
+- etc.
+
+On propose de considerer par exemple la structure resolue pour la `GFP
+<http://www.rcsb.org/pdb/101/motm.do?momID=42>`_ (*Green Fluorescent
+Protein*, Prix Nobel 2008) (`Fichier PDB
+<http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)
 
 .. Local Variables: ...
 .. mode: rst ...

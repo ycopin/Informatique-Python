@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-10-17 18:42:54 ycopin>
+.. Time-stamp: <2013-01-14 01:01 ycopin@lyopc469>
 
 Références supplémentaires
 ==========================
@@ -35,7 +35,7 @@ Listes de liens
 - `Python références et astuces:
   <http://staff.umh.ac.be/Villers.Didier/python.html>`_ (2009) |fr|
 
-- `IPython en ligne <http://www.pythonanywhere.com/try-ipython/>`_
+- `IPython en ligne <https://www.pythonanywhere.com/try-ipython/>`_
 - `IPython cookbook <http://wiki.ipython.org/Cookbook>`_
 - `Starter Kit (py4science)
   <http://fperez.org/py4science/starter_kit.html>`_
@@ -55,6 +55,8 @@ Livres libres
 
 - `A Python Book <http://www.rexx.com/~dkuhlman/python_book_01.html>`_
 - `Start Programming with Python <http://python-ebook.blogspot.fr/>`_
+- ` Python for Informatics: Exploring Information
+  <http://www.pythonlearn.com/>`_
 
 - `Apprendre à programmer avec Python
   <http://inforef.be/swi/python.htm>`_ |fr| (`Wikilivre
@@ -73,6 +75,8 @@ Python
 - `DIY python workshop <http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
 - `Exemples de scripts Python
   <http://fr.wikibooks.org/wiki/Exemples_de_scripts_Python>`_ |fr|
+- `Google's Python Class
+  <http://code.google.com/edu/languages/google-python-class/>`_
 
 Scientifique
 ............
@@ -85,7 +89,9 @@ Scientifique
 - `Computational Physics with Python
   <http://www-personal.umich.edu/~mejn/computational-physics/>`_ (avec
   exercices)
-- `SciPy 2011 tutorials <http://conference.scipy.org/scipy2011/tutorials.php>`_: numpy, scipy, matplotlib, ipython
+- `SciPy 2011 tutorials
+  <http://conference.scipy.org/scipy2011/tutorials.php>`_: numpy,
+  scipy, matplotlib, ipython
 - `Practical Python for Astronomers <http://python4astronomers.github.com/>`_
 - `Lectures on Computational Economics
   <http://johnstachurski.net/lectures/>`_ (avec exercices)
@@ -109,9 +115,16 @@ Sphinx & co.
 .. * `Dumping PowerPoint in Favor of Web Sites
 ..   <http://www.sal.ksu.edu/faculty/tim/prof-day/index.html>`_ (2011)
 
-* `Sample doc <http://matplotlib.sourceforge.net/sampledoc/>`_
+* `Sample doc <http://matplotlib.org/sampledoc/>`_
 
 .. |fr| image:: ../Cours/france_flag_icon.png
    :alt: Fr
 .. |en| image:: ../Cours/uk_flag_icon.png
    :alt: En
+
+.. Local Variables: ...
+.. mode: rst ...
+.. ispell-local-dictionary: "francais" ...
+.. mode: flyspell ...
+.. indent-tabs-mode: nil ...
+.. End: ...

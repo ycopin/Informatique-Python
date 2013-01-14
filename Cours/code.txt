@@ -2,19 +2,20 @@
                          Développer en python
 ======================================================================
 
-.. Time-stamp: <2012-06-18 23:55 ycopin@lyopc469>
+.. Time-stamp: <2013-01-14 00:27 ycopin@lyopc469>
 
 .. contents:: Table des matières
 ..
     1  Le zen du python
       1.1  Us et coutumes
     2  Outils de développement
-      2.1  Vérification du code
-      2.2  Documentation et tests unitaires
-      2.3  Débugage et optimisation
-      2.4  Python packages
-      2.5  Python 2 vs. python 3
-      2.6  Integrated Development Environment
+      2.1  *Integrated Development Environment*
+      2.2  Vérification du code
+      2.3  Documentation
+      2.4  Les méthodes de tests
+      2.5  Débugage et optimisation
+      2.6  *Python packages*
+      2.7  Python 2 vs. python 3
 
 .. _td7:
 
@@ -48,32 +49,32 @@ donnant les grands principes du Python::
 18. If the implementation is easy to explain, it may be a good idea.
 19. Namespaces are one honking great idea -- let's do more of those!
 
-**En francais:**
+Une traduction libre en français:
 
-- Préfèrer le beau au laid,
-- l’explicite à l’implicite,
-- le simple au complexe,
-- le complexe au compliqué,
-- le déroulé à l’imbriqué,
-- l’aéré au compact.
-- La lisibilité compte.
-- Les cas particuliers ne le sont jamais assez pour violer les règles,
-- même s'il faut privilégier l’aspect pratique à la pureté.
-- Ne jamais passer les erreurs sous silence,
-- ou les faire taire explicitement.
-- Face à l’ambiguïté, ne pas se laisser tenter à deviner.
-- Il doit y avoir une -- et si possible une seule -- façon évidente de
-  procéder,
-- même si cette façon n’est pas évidente à première vue, à moins
-  d’être Hollandais.
-- Mieux vaut maintenant que jamais,
-- même si jamais est souvent mieux qu’immédiatement.
-- Si l’implémentation s’explique difficilement, c’est une mauvaise
-  idée.
-- Si l’implémentation s’explique facilement, c’est peut-être une bonne
-  idée.
-- Les espaces de nommage sont une sacrée bonne idée, utilisons-les
-  plus souvent !
+1. Préfèrer le beau au laid,
+2. l’explicite à l’implicite,
+3. le simple au complexe,
+4. le complexe au compliqué,
+5. le déroulé à l’imbriqué,
+6. l’aéré au compact.
+7. La lisibilité compte.
+8. Les cas particuliers ne le sont jamais assez pour violer les règles,
+9. même s'il faut privilégier l’aspect pratique à la pureté.
+10. Ne jamais passer les erreurs sous silence,
+11. ou les faire taire explicitement.
+12. Face à l’ambiguïté, ne pas se laisser tenter à deviner.
+13. Il doit y avoir une -- et si possible une seule -- façon évidente de
+    procéder,
+14. même si cette façon n’est pas évidente à première vue, à moins
+    d’être Hollandais.
+15. Mieux vaut maintenant que jamais,
+16. même si jamais est souvent mieux qu’immédiatement.
+17. Si l’implémentation s’explique difficilement, c’est une mauvaise
+    idée.
+18. Si l’implémentation s’explique facilement, c’est peut-être une bonne
+    idée.
+19. Les espaces de nommage sont une sacrée bonne idée, utilisons-les
+    plus souvent !
 
 Us et coutumes
 --------------
@@ -83,28 +84,32 @@ Us et coutumes
 - le *Style Guide for Python Code* (:pep:`8`)
 - `Idioms and Anti-Idioms in Python
   <http://docs.python.org/howto/doanddont.html>`_
+- `Code Like a Pythonista: Idiomatic Python
+  <http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html>`_
+- `Google Python Style Guide
+  <http://google-styleguide.googlecode.com/svn/trunk/pyguide.html>`_
 
-**Quelques sages conseils supplémentaires**
+**Quelques conseils supplémentaires**
 
-- *Ne réinventez pas la roue, encore moins le moteur à explosion*:
-  cherchez si ce que vous voulez faire n'a pas déjà été fait
-  (éventuellement en mieux...), et construisez dessus (en citant
+- *Ne réinventez pas la roue [#wheel]_, encore moins le moteur à
+  explosion*: cherchez si ce que vous voulez faire n'a pas déjà été
+  fait (éventuellement en mieux...), construisez dessus (en citant
   évidemment vos sources), et contribuez si possible!
 - Codez *proprement*: commentez votre code, utilisez des noms de
   variable qui ont un sens, créez des objets si nécessaire, etc.
 - Codez proprement *dès le début*: ne croyez pas que vous ne relirez
   jamais votre code (ou même que personne n'aura jamais à le lire), ou
   que vous aurez le temps de le refaire mieux plus tard...
-- « *L'optimisation prématurée est la source de tous les maux* »
-  (Knuth): mieux vaut un code lent mais juste et maintenable qu'un
-  code rapide et faux ou incompréhensible. Dans l'ordre absolu des
+- « L'optimisation prématurée est la source de tous les maux » (Donald
+  Knuth): mieux vaut un code lent mais juste et maintenable qu'un code
+  rapide et faux ou incompréhensible. Dans l'ordre absolu des
   priorités:
 
-  1. Make it work.
-  2. Make it right.
-  3. Make it fast. 
+  1. *Make it work.*
+  2. *Make it right.*
+  3. *Make it fast.*
 
-- *Respectez* le zen du python.
+- *Respectez* le zen du python, il vous le rendra.
 
 Outils de développement
 =======================
@@ -115,22 +120,35 @@ utiles pour développer en python.
 - `Best Practices, Development Methodologies and the Zen of Python
   <https://python.g-node.org/wiki/best_practices>`_
 
+*Integrated Development Environment*
+------------------------------------
+
+- `idle <http://docs.python.org/library/idle.html>`_, l'IDE intégré à Python
+- :program:`emacs` + `python-mode` + `ropemacs` pour l'édition, et
+  :program:`ipython` pour l'execution de code (voir `Python
+  Programming In Emacs
+  <http://www.emacswiki.org/emacs/PythonProgrammingInEmacs>`_)
+- `spyder <http://code.google.com/p/spyderlib/>`_
+- `PythonToolkit <http://pythontoolkit.sourceforge.net/>`_
+- `Etc.
+  <http://en.wikipedia.org/wiki/List_of_integrated_development_environments_for_Python#Python>`_
+
 Vérification du code
 --------------------
 
 Il s'agit d'outils permettant de vérifier *a priori* la validité
 syntaxique du code, de mettre en évidence des constructions
 dangereuses, les variables non-définies, etc. Ces outils ne testent
-malheureusement pas la validité des algorithmes et de leur
-mise en oeuvre...
+pas nécessairement la validité des algorithmes et de leur mise en
+oeuvre...
 
 - `pyflakes <http://pypi.python.org/pypi/pyflakes>`_
 - `pychecker <http://pychecker.sourceforge.net/>`_
 - `pylint <http://pypi.python.org/pypi/pylint>`_
 - `pep8 <https://github.com/jcrocholl/pep8>`_
 
-Documentation et tests unitaires
---------------------------------
+Documentation
+-------------
 
 .. http://wiki.python.org/moin/DocumentationTools
 
@@ -148,18 +166,29 @@ Documentation et tests unitaires
   - `A Guide to NumPy/SciPy Documentation
     <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
 
-* Tests unitaires: inclure des tests directement dans la documentation
-  (:mod:`doctest`) ou le code (:mod:`unittest`)
+Les méthodes de tests
+---------------------
 
-  - `doctest <http://docs.python.org/library/doctest.html>`_
-  - `unittest <http://docs.python.org/library/unittest.html>`_
-  - `py.test <http://pytest.org/latest/>`_
-  - `nose <http://readthedocs.org/docs/nose/>`_
+Le but est de tester chaque partie du code, en incluant des tests
+directement dans la documentation ou en écrivant du code spécifique:
+
+1. Les tests unitaires vérifient individuellement chacune des
+   fonctions, méthodes, etc.
+2. Les tests d'intégration évaluent les interactions entre différentes
+   unités du programmes.
+3. Les tests système assurent le bon fonctionnement du programme dans
+   sa globalité.
+
+- `doctest <http://docs.python.org/library/doctest.html>`_: tests
+   unitaires inclus à la documentation
+- `unittest <http://docs.python.org/library/unittest.html>`_
+- `py.test <http://pytest.org/latest/>`_
+- `nose <http://nose.readthedocs.org/en/latest/>`_
 
 Débugage et optimisation
 ------------------------
 
-**Débogage**
+.. rubric:: Débogage
 
 Les débogueurs permettent de « plonger » dans un code au cours
 d'exécution ou juste après une erreur (analyse post-mortem).
@@ -180,7 +209,7 @@ d'exécution ou juste après une erreur (analyse post-mortem).
   exception, il est possible d'inspecter l'état de la mémoire au
   moment de l'erreur avec la commande `%debug`.
 
-**Profilage et optimisation**
+.. rubric:: Profilage et optimisation
 
 .. Warning:: *Premature optimization is the root of all evil* --
    Donald Knuth
@@ -200,8 +229,8 @@ sous-fonctions d'un code, afin d'y identifier les parties à optimiser.
 .. - `Guppy <http://guppy-pe.sourceforge.net/>`_: *object and heap memory
 ..   sizing, profiling and analysis*
 
-Python packages
----------------
+*Python packages*
+-----------------
 
 Comment installer/créer des modules externes:
 
@@ -215,18 +244,7 @@ Python 2 vs. python 3
 - `Python 2 or python 3?
   <http://wiki.python.org/moin/Python2orPython3>`_
 - `Porting Python 2 Code to Python 3
-  <http://readthedocs.org/docs/python/en/latest/howto/pyporting.html>`_
-
-Integrated Development Environment
-----------------------------------
-
-- :program:`emacs` + `python-mode` + `ropemacs` pour l'édition, et
-  :program:`ipython` pour l'execution de code (voir `Python
-  Programming In Emacs
-  <http://www.emacswiki.org/emacs/PythonProgrammingInEmacs>`_)
-- `idle <http://docs.python.org/library/idle.html>`_
-- `spyder <http://code.google.com/p/spyderlib/>`_
-- `PythonToolkit <http://pythontoolkit.sourceforge.net/>`_
+  <http://python.readthedocs.org/en/latest/howto/pyporting.html>`_
 
 .. Gestion de versions
 .. -------------------
@@ -238,6 +256,8 @@ Integrated Development Environment
 .. rubric:: Notes de bas de page
 
 .. [#zen] Dont seulement 19 ont été écrits.
+.. [#wheel] « *Don't reinvent the wheel, unless you plan on learning
+   more about wheels* » -- Jeff Atwood
 
 .. Local Variables: ...
 .. mode: rst ...

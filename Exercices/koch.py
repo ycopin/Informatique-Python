@@ -3,7 +3,7 @@
 
 from __future__ import division         # Pas de division euclidienne par défaut
 
-__version__ = "Time-stamp: <2011-11-14 11:52:44 ycopin>"
+__version__ = "Time-stamp: <2013-01-14 00:49 ycopin@lyopc469>"
 __author__ = "Yannick Copin <y.copin@ipnl.in2p3.fr>"
 
 """
@@ -54,9 +54,11 @@ if __name__=='__main__':
     # start-optparse
     from optparse import OptionParser
 
+    desc = u"Tracé (via 'turtle') d'un flocon de Koch d'ordre arbitraire."
+
     # Définition des options
-    parser = OptionParser(usage="%prog [options] niveau",
-                          version=__version__)
+    parser = OptionParser(usage="%prog [options] ordre",
+                          version=__version__, description=desc)
     parser.add_option("-t", "--taille", type=int, 
                       help="Taille [%default px]",
                       default=500)

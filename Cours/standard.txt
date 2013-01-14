@@ -5,13 +5,16 @@
                         Bibliothèque standard
 =====================================================================
 
-.. Time-stamp: <2012-06-18 23:56 ycopin@lyopc469>
+.. Time-stamp: <2013-01-14 00:49 ycopin@lyopc469>
 
 .. contents:: Table des matières
 ..
-    1  optparse: gestion des arguments et options
+    1  Gestion des arguments/options de la ligne de commande
+      1.1  Gestion simple: `sys`
+      1.2  Gestion avancée: `optparse`
     2  [c]Pickle: sérialisation des données
     3  *Batteries included*
+    4  *Text/Graphical User Interfaces*
 
 Python dispose d'une très riche bibliothèque de modules étendant les
 capacités du langage dans de nombreux domaines: nouveaux types de
@@ -25,11 +28,28 @@ multimédia, etc.
 
 .. _optparse:
 
-optparse: gestion des arguments et options
-------------------------------------------
+Gestion des arguments/options de la ligne de commande
+-----------------------------------------------------
+
+.. index::
+   module: sys
+
+Le module `sys` permet un accès direct aux arguments de la ligne de
+commande, via la liste `sys.argv`: `sys.argv[0]` contient le nom du
+script executé, `sys.argv[1]` le nom du 1er argument (s'il existe),
+etc.
+
+**Exemple:** :ref:`crible.py <cribleSol>`
+
+.. literalinclude:: ../Exercices/crible.py
+   :start-after: start-sys
+   :end-before: end-sys
 
 .. index::
    module: optparse
+
+Pour une gestion avancée des arguments et/ou options de la ligne de
+commande, il est préférable d'utiliser le module `optparse`.
 
 * **Exemple:** :ref:`koch.py <kochSol>`
 
@@ -40,8 +60,10 @@ optparse: gestion des arguments et options
 * Génère automatiquement une aide en ligne::
   
     $ python koch.py -h
-    Usage: koch.py [options] niveau
+    Usage: koch.py [options] ordre
     
+    Tracé (via 'turtle') d'un flocon de Koch d'ordre arbitraire.
+
     Options:
       --version             show program's version number and exit
       -h, --help            show this help message and exit

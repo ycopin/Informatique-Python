@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-08-27 14:14:27 ycopin>
+.. Time-stamp: <2013-01-14 01:04 ycopin@lyopc469>
 .. _exercices:
 
 Exercices
@@ -7,7 +7,7 @@ Exercices
 Manipulation de listes
 ----------------------
 
-.. _cribleEratosthene:
+.. _crible:
 
 Crible d'Ératosthène
 ''''''''''''''''''''
@@ -16,7 +16,7 @@ Implémenter le `crible d'Ératosthène
 <http://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne>`_ pour
 afficher les nombres premiers compris entre 1 et un entier fixe, p.ex.::
 
-  Liste des entiers premiers ⩽ 41
+  Liste des entiers premiers <= 41
   [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]
 
 .. crible
@@ -57,7 +57,6 @@ d’ordre impair quelconque.
 .. carre
 .. `Une solution <../../../Exercices/solution.html?pneer?pneerZntvdhr.ugzy>`_
 
-
 .. _koch:
 
 Flocon de Koch
@@ -79,35 +78,35 @@ générer à l'écran un `flocon de Koch
 .. koch
 .. `Une solution <../../../Exercices/solution.html?xbpu?xbpu.cl>`_
 
-.. _PDB:
+.. _life:
 
-*Protein Data Bank*
--------------------
+Jeu de la vie
+-------------
 
-On chercher a réaliser un script qui analyse un fichier de données de
-type `PDB <http://fr.wikipedia.org/wiki/Protein_Data_Bank>`_ (*Protein
-Data Bank*).
+On se propose de programmer l'automate cellulaire le plus célèbre, `le
+Jeu de la vie <http://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
 
-La banque de données `Worldwide Protein Data Bank
-<http://www.wwpdb.org/>`_ regroupe les structures obtenues par
-diffraction aux rayons X ou par RMN.  Le format est parfaitement
-defini et conventionnel (`Documentation
-<http://www.wwpdb.org/docs.html>`_).
+Pour cela, vous créerez une classe `Life` qui contiendra la grille du
+jeu ainsi que les méthodes qui permettront son évolution.  Vous
+initialiserez la grille aléatoirement à l'aide de la fonction
+`random.choice([True,False])`, et vous afficherez l'évolution de
+l'automate dans la sortie standard du terminal, p.ex.::
 
-On propose d'assurer une lecture de ce fichier pour calculer notamment :
+  ...#..#.....##.......
+  .....###.............
+  #........#...........
+  .....#...#...........
+  ................##...
+  .....#.#......##..#..
+  ..............##.##..
+  ..............##.##..
+  ................#....
 
-- le barycentre de la biomolécule
-- le nombre d'acides aminés ou nucléobases
-- le nombre d'atomes
-- la masse moléculaire
-- les dimensions maximales de la protéine
-- etc.
+N.B.: Pour que l'affichage soit agréable à l'oeil, vous marquerez des
+pauses entre l'affichage de chaque itération grâce à la fonction
+`time.sleep`.
 
-On propose de considerer par exemple la structure resolue pour la `GFP
-<http://www.rcsb.org/pdb/101/motm.do?momID=42>`_ (*Green Fluorescent
-Protein*, Prix Nobel 2008) (`Fichier PDB
-<http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)
-
+.. life
 
 Manipulation de tableaux (arrays)
 ---------------------------------
@@ -133,7 +132,7 @@ Le *pull* est une quantité statistique permettant d'évaluer la
 conformité des erreurs par rapport à une distribution de valeurs
 (typiquement les résidus d'un ajustement).  Pour un échantillon
 :math:`\mathbf{x} = [x_i]` et les erreurs associées
-:math:`\mathrm{d}\mathbf{x} = [σ_i]`, le *pull* est défini par:
+:math:`\mathrm{d}\mathbf{x} = [\sigma_i]`, le *pull* est défini par:
 
 * Moyenne optimale (pondérée par la variance): :math:`E = (\sum_{i}
   x_i/\sigma_i^2)/(\sum_i 1/\sigma_i^2)`
@@ -147,6 +146,85 @@ Si les erreurs :math:`\sigma_i` sont correctes, la distribution du
 *pull* est centrée sur 0 avec une déviation standard de 1.
 
 Écrire une fonction `pull(x, dx)` calculant le *pull* de tableaux 1D.
+
+.. _anscombe:
+
+Quartet d'Anscombe
+''''''''''''''''''
+
+Après chargement des données, calculer et afficher les propriétés
+statistiques des quatres jeux de données du :download:`Quartet
+d'Anscombe <anscombe.dat>`:
+
+* Moyenne et variance des *x* (`N.mean` et `N.var`)
+* Moyenne et variance des *y*
+* Corrélation entre les *x* et les *y* (`scipy.stats.pearsonr`)
+* Équation de la droite de régression linéaire
+  (`scipy.stats.linregress`)
+
+.. table:: Quartet d'Anscombe
+
+   =====  =====  =====  =====  =====  =====  =====  =====
+   I             II            III           IV
+   ------------  ------------  ------------  ------------
+       x      y      x      y      x      y      x      y
+   =====  =====  =====  =====  =====  =====  =====  =====
+    10.0   8.04   10.0   9.14   10.0   7.46    8.0   6.58
+     8.0   6.95    8.0   8.14    8.0   6.77    8.0   5.76
+    13.0   7.58   13.0   8.74   13.0  12.74    8.0   7.71
+     9.0   8.81    9.0   8.77    9.0   7.11    8.0   8.84
+    11.0   8.33   11.0   9.26   11.0   7.81    8.0   8.47
+    14.0   9.96   14.0   8.10   14.0   8.84    8.0   7.04
+     6.0   7.24    6.0   6.13    6.0   6.08    8.0   5.25
+     4.0   4.26    4.0   3.10    4.0   5.39   19.0  12.50
+    12.0  10.84   12.0   9.13   12.0   8.15    8.0   5.56
+     7.0   4.82    7.0   7.26    7.0   6.42    8.0   7.91
+     5.0   5.68    5.0   4.74    5.0   5.73    8.0   6.89
+   =====  =====  =====  =====  =====  =====  =====  =====
+
+Pour chacun des jeux de données, tracer *y* en fonction de *x*, ainsi
+que la droite de régression linéaire.
+
+.. _logistique:
+
+Diagramme de bifurcation : la suite logistique
+''''''''''''''''''''''''''''''''''''''''''''''
+
+Écrivez une fonction qui calcule la valeur d'équilibre de la `suite
+logistique <http://fr.wikipedia.org/wiki/Suite_logistique>`_ pour un
+:math:`x_0` (nécessairement compris entre 0 et 1) et un paramètre
+:math:`r` (parfois noté :math:`\mu`) donné.
+
+Générez l'ensemble de ces points d'équilibre pour des valeurs de
+:math:`r` comprises entre 0 et 4:
+
+.. figure:: logistique.*
+   :align: center
+   :width: 50%
+
+   Diagramme de bifurcation.
+
+N.B.: Vous utiliserez la bibliothèque `matplotlib` pour tracer vos
+résultats.
+
+.. _julia:
+
+Ensemble de Julia
+'''''''''''''''''
+
+Représentez l'`ensemble de Julia
+<http://fr.wikipedia.org/wiki/Ensemble_de_Julia>`_ pour la constante
+complexe :math:`c = 0.284 + 0.0122j`:
+
+.. figure:: julia.*
+   :align: center
+   :width: 50%
+
+   Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
+
+N.B.: On utilisera la fonction `numpy.meshgrid` pour construire le
+plan complexe, et l'on affichera le résultat grâce à la fonction
+`matplotlib.pyplot.imshow`.
 
 .. _algo:
 
@@ -183,8 +261,19 @@ Tester sur des solutions analytiques et en comparant à
 Exercices supplémentaires
 -------------------------
 
-* `Learn Python The Hard Way <http://learnpythonthehardway.org/book/>`_
+* `Exercices de base
+  <http://fr.wikibooks.org/wiki/Programmation_Python/Exercices_Base_du_langage>`_
+* `Entraînez-vous !
+  <http://www.siteduzero.com/forum-83-537209-p1-entrainez-vous-sur-le-langage-python.html>`_
+* `Learn Python The Hard Way <http://learnpythonthehardway.org/book/>`_ |en|
+* `Google Code Jam <http://code.google.com/codejam/>`_ |en|
+* `CheckIO <http://www.checkio.org/>`_
 
+
+.. |fr| image:: ../Cours/france_flag_icon.png
+   :alt: Fr
+.. |en| image:: ../Cours/uk_flag_icon.png
+   :alt: En
 
 .. Local Variables: ...
 .. mode: rst ...

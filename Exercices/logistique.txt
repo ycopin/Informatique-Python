@@ -1,0 +1,6 @@
+.. _logistiqueSol:
+
+.. literalinclude:: logistique.py
+   :linenos:
+
+**Source:** :download:`logistique.py`

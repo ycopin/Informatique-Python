@@ -1,0 +1,86 @@
+.. -*- mode: rst -*-
+.. Time-stamp: <2012-11-08 01:32 ycopin@lyopc469>
+
+Auto-organisation d'un banc de poisson
+--------------------------------------
+
+:Author: Hanna Julienne <hanna.julienne@gmail.com>
+
+La coordination d'un `banc de poissons
+<http://www.youtube.com/watch?v=cIgHEhziUxU>`_ ou d'un `vol d'oiseaux
+<https://vimeo.com/31158841>`_ est tout à fait frappante: les milliers
+d'individus qui composent ces structures se meuvent comme un seul.  On
+observe aussi, dans les bancs de poisson, d'impressionnants
+comportements d'évitement des prédateurs (`flash expansion, fountain
+effect
+<http://www.colby.edu/biology/BI358j/Readings/Partridge%201982.pdf>`_).
+
+Pourtant ces mouvements harmonieusement coordonnés ne peuvent pas
+s'expliquer par l'existence d'un poisson leader. Comment pourrait-il
+être visible par tous ou diriger les *flash expansion* qui ont lieu à
+un endroit précis du banc de poisson? De la même manière on ne voit
+pas quelle contrainte extérieure pourrait expliquer le phénomène.
+
+Une hypothèse plus vraisemblable pour rendre compte de ces phénomènes
+est que la cohérence de l'ensemble est due à la somme de comportements
+individuels. Chaque individu adapte son comportement par rapport à son
+environnement proche. C'est ce qu'on appelle *auto-organisation*.  En
+effet, on a établi expérimentalement que les poissons se positionnent
+par rapport à leurs *k* plus proches voisins de la manière suivante:
+
+* ils s'éloignent de leurs voisins très proches (zone de répulsion en
+  rouge sur la figure ci-dessous)
+* ils s'alignent avec des voisins qui sont à distance modérée (zone
+  jaune)
+* ils s'approchent de leur voisins s'ils sont à la fois suffisamment
+  proches et distants (zone verte)
+
+.. figure::  zone_poisson.png
+   :width: 10cm
+   :align: center
+
+   **Figure:** Environnement proche du poisson: zones dans lesquelles
+   le positionnement d'un voisin provoque une réponse de la part de
+   l'individu au centre
+
+Dans notre modèle, nous allons prendre en compte l'influence des *k*
+plus proches voisins. On calculera la contribution de chaque voisin
+selon la zone dans laquelle il se situe. Le déplacement du poisson
+sera la moyenne de ces contributions. Il est à noter qu'un voisin en
+dehors des trois zones d'influence n'a pas d'effet.
+
+L'environnement proche d'un poisson est modélisé par des sphères
+imbriquées qui présentent une zone aveugle (voir figure).
+
+Par ailleurs, si un individu n'a pas de voisins dans son environnement
+proche il adopte un comportment de recherche. Il explore aléatoirement
+les alentours jusqu'à ce qu'il repère le banc de poissons et
+finalement s'en rapproche.
+
+Ce projet vise à :
+
+* Coder le comportement des poissons et à les faire évoluer dans un
+  environnement **2D**.
+* On essaiera d'obtenir un comportement collectif cohérent (similaire
+  à un banc de poisson) et d'établir les conditions nécessaires à ce
+  comportement.
+* On étudiera notamment l'influence du nombre d'individus pris en
+  compte. Est-ce que le positionnement par rapport au plus proche
+  voisin (*k* = 1) est suffisant?
+* On pourra se servir de la visualisation pour rendre compte de la
+  cohérence du comportment et éventuellement inventer des mesures pour
+  rendre compte de manière quantifier de cette cohérence.
+
+Suggestions :
+
+.. Attention:: Les suggestions sont difficiles à réaliser. On
+   cherchera à obtenir des résultats sur le projet de base avant de
+   s'y risquer.
+
+* Passer le projet en 3D
+* modéliser la réponse des individus face à un prédateur
+
+Références :
+
+* `Craig Reynolds Boids <http://www.red3d.com/cwr/boids/>`_
+
