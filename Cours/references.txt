@@ -1,4 +1,4 @@
-.. Time-stamp: <2013-01-14 01:01 ycopin@lyopc469>
+.. Time-stamp: <2013-01-14 17:32:59 ycopin>
 
 Références supplémentaires
 ==========================
@@ -17,7 +17,7 @@ Documentation générale
 - `Python Documentation
   <http://wiki.python.org/moin/PythonDocumentation>`_
 - `Python Frequently Asked Questions
-  <http://docs.python.org/faq/index.html>`_
+  <http://docs.python.org/2/faq/index.html>`_
 
 Forums de discussion
 --------------------
@@ -55,7 +55,7 @@ Livres libres
 
 - `A Python Book <http://www.rexx.com/~dkuhlman/python_book_01.html>`_
 - `Start Programming with Python <http://python-ebook.blogspot.fr/>`_
-- ` Python for Informatics: Exploring Information
+- `Python for Informatics: Exploring Information
   <http://www.pythonlearn.com/>`_
 
 - `Apprendre à programmer avec Python
@@ -69,14 +69,16 @@ Cours en ligne
 Python
 ......
 
+- `Le site du zéro
+  <http://www.siteduzero.com/informatique/tutoriels/langage-python>`_
+  |fr|
 - `Cours Python 3 + exercices
   <http://www.iut-orsay.u-psud.fr/fr/departements/mesures_physiques/mphy_pedagogie.html>`_
   (voir également le cours d'algorithmique en C, et de `easygui`) |fr|
 - `DIY python workshop <http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
 - `Exemples de scripts Python
   <http://fr.wikibooks.org/wiki/Exemples_de_scripts_Python>`_ |fr|
-- `Google's Python Class
-  <http://code.google.com/edu/languages/google-python-class/>`_
+- `Google's Python Class <https://developers.google.com/edu/python/>`_
 
 Scientifique
 ............

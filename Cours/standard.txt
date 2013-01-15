@@ -5,7 +5,7 @@
                         Bibliothèque standard
 =====================================================================
 
-.. Time-stamp: <2013-01-14 00:49 ycopin@lyopc469>
+.. Time-stamp: <2013-01-15 18:22:02 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -22,7 +22,7 @@ données, interactions avec le système, gestion des fichiers et des
 processus, protocoles de communication (internet, mail, FTP, etc.),
 multimédia, etc.
 
-* `The Python Standard Library <http://docs.python.org/library/>`_
+* `The Python Standard Library <http://docs.python.org/2/library/>`_
   (v2.7)
 * `Python by Example! <http://www.lightbird.net/py-by-example/>`_
 
@@ -39,7 +39,7 @@ commande, via la liste `sys.argv`: `sys.argv[0]` contient le nom du
 script executé, `sys.argv[1]` le nom du 1er argument (s'il existe),
 etc.
 
-**Exemple:** :ref:`crible.py <cribleSol>`
+.. rubric:: Exemple:
 
 .. literalinclude:: ../Exercices/crible.py
    :start-after: start-sys
@@ -51,29 +51,29 @@ etc.
 Pour une gestion avancée des arguments et/ou options de la ligne de
 commande, il est préférable d'utiliser le module `optparse`.
 
-* **Exemple:** :ref:`koch.py <kochSol>`
+.. rubric:: Exemple:
 
-  .. literalinclude:: ../Exercices/koch.py
-     :start-after: start-optparse
-     :end-before: end-optparse
+.. literalinclude:: ../Exercices/koch.py
+   :start-after: start-optparse
+   :end-before: end-optparse
 
-* Génère automatiquement une aide en ligne::
+Cette solution génère automatiquement une aide en ligne, p.ex.::
   
-    $ python koch.py -h
-    Usage: koch.py [options] ordre
-    
-    Tracé (via 'turtle') d'un flocon de Koch d'ordre arbitraire.
+  $ python koch.py --help
+  Usage: koch.py [options] ordre
 
-    Options:
-      --version             show program's version number and exit
-      -h, --help            show this help message and exit
-      -t TAILLE, --taille=TAILLE
-                            Taille [500 px]
-      -d DELTA, --delta=DELTA
-                            Delta [0.0 deg]
-      -f FIGURE, --figure=FIGURE
-                            Figure de sortie (format EPS)
-      -T, --turbo           Mode Turbo
+  Tracé (via 'turtle') d'un flocon de Koch d'ordre arbitraire.
+
+  Options:
+    --version             show program's version number and exit
+    -h, --help            show this help message and exit
+    -t TAILLE, --taille=TAILLE
+                          Taille [500 px]
+    -d DELTA, --delta=DELTA
+                          Delta [0.0 deg]
+    -f FIGURE, --figure=FIGURE
+                          Figure de sortie (format EPS)
+    -T, --turbo           Mode Turbo
 
 .. argparse: >2.7
 
@@ -100,7 +100,7 @@ True
 >>> l==l2
 True
 
-.. Attention:: les `pickles` ne sont pas un format d'échange de
+.. Attention:: Les `pickles` ne sont pas un format d'échange de
    données. Ils sont spécifiques à python, et peuvent dépendre de la
    machine utilisée.
 
@@ -133,7 +133,7 @@ True
 .. .. index::
 ..    module: re
 
-* `Expressions régulières <http://docs.python.org/howto/regex.html>`_:
+* `Expressions régulières <http://docs.python.org/2/howto/regex.html>`_:
   :mod:`re`
 
 .. .. index::
@@ -169,7 +169,7 @@ True
 .. .. index::
 ..    module: urllib2
 
-* `Lecture d'une URL <http://docs.python.org/howto/urllib2.html>`_
+* `Lecture d'une URL <http://docs.python.org/2/howto/urllib2.html>`_
   (p.ex. page web): :mod:`urllib2`
 
 
@@ -177,10 +177,10 @@ True
 --------------------------------
 
 - :abbr:`TUI (Text User Interface)`: `curses
-  <http://docs.python.org/library/curses.html>`_
+  <http://docs.python.org/2/library/curses.html>`_
 - :abbr:`GUI (Graphical User Interface)`: `Tkinter
-  <http://docs.python.org/library/tkinter.html>`_ (voir également
-  `easygui <http://easygui.sourceforge.net/>`_), 
+  <http://docs.python.org/2/library/tkinter.html>`_ (voir également
+  `easygui <http://easygui.sourceforge.net/>`_),
 - Librairies externes; `PyGTK <http://www.pygtk.org/>`_, `PyQt
   <http://www.riverbankcomputing.co.uk/software/pyqt/intro>`_,
   `wxPython <http://www.wxpython.org/>`_

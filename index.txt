@@ -2,7 +2,7 @@
                    Analyse scientifique avec Python
 ======================================================================
 
-.. Time-stamp: <2013-01-14 01:00 ycopin@lyopc469>
+.. Time-stamp: <2013-01-14 17:30:18 ycopin>
 
 :Version: |version| du |today|
 :Auteur: Yannick Copin <`(at)ipnl.in2p3.fr`>
@@ -61,7 +61,7 @@ programes les plus complexes (projets de plus de 100000 lignes).
 **Liens:**
 
 * `About Python <http://www.python.org/about/>`_
-* `Python Advocacy <http://docs.python.org/howto/advocacy.html>`_
+* `Python Advocacy <http://docs.python.org/2/howto/advocacy.html>`_
 
 
 Organisation des TDs

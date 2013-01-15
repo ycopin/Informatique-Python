@@ -1,4 +1,4 @@
-.. Time-stamp: <2013-01-14 00:52 ycopin@lyopc469>
+.. Time-stamp: <2013-01-15 18:14:29 ycopin>
 .. _cours:
 
 =====================================================================
@@ -34,9 +34,9 @@
 Introduction
 ============
 
-**Liens:**
+.. rubric:: Liens:
 
-- `Python Tutorial <http://docs.python.org/tutorial/>`_ (v2.7)
+- `Python Tutorial <http://docs.python.org/2/tutorial/>`_ (v2.7)
 - `Tutoriel Python
   <http://python.developpez.com/cours/TutoVanRossum/>`_ (v2.4) |fr|
 - `Begginer's Guide <http://wiki.python.org/moin/BeginnersGuide>`_
@@ -54,8 +54,9 @@ Cette introduction repose sur les outils suivants:
   <http://matplotlib.org/users/installing.html>`_,
 - Interpréteur évolué, p.ex. `ipython
   <http://ipython.org/download.html>`_,
-- Éditeur de texte évolué, p.ex. `emacs
-  <http://www.gnu.org/software/emacs/#Obtaining>`_
+- `Éditeur de texte évolué
+  <http://en.wikipedia.org/wiki/Comparison_of_text_editors>`_,
+  p.ex. `emacs <http://www.gnu.org/software/emacs/#Obtaining>`_
 
 Ces logiciels peuvent être installés indépendamment, de préférence
 sous Linux (p.ex. `Ubuntu <http://ubuntu-fr.org/>`_, `Fedora
@@ -83,7 +84,7 @@ Les concepts suivants sont supposés connus:
   :command:`bg`
 * variables d'environnement: :command:`export`, :file:`.bashrc`
 
-**Liens:**
+.. rubric:: Liens
 
 * `Quelques notions et commandes d'UNIX
   <http://snovae.in2p3.fr/ycopin/enseignements/docs/notions_unix.pdf>`_
@@ -100,7 +101,7 @@ Python:
 .. index:: interpréteur; python
 
 * :program:`python`: l'`interpréteur de base
-  <http://docs.python.org/tutorial/interpreter.html>`_::
+  <http://docs.python.org/2/tutorial/interpreter.html>`_::
 
     $ python
     Python 2.7.1+ (r271:86832, Apr 11 2011, 18:05:24) 
@@ -234,8 +235,8 @@ Structures de programmation
 
 - Une instruction par ligne en général (ou instructions séparées par
   `;` en interactif).
-- Les blocs sont définis par l'**indentation** (en général par pas de 4
-  espaces).
+- Les blocs sont définis par l'**indentation** (en général par pas de
+  4 espaces).
 - Les commentaires commencent par `#`, et vont jusqu'à la fin de la
   ligne.
 
@@ -275,6 +276,12 @@ Structures de programmation
 - Boucle `for`: :samp:`for {element} in {iterable}:`, s'éxecute sur
   chacun des *éléments* d'un objet *itérable*:
 
+  >>> for lettre in "Toto":   # boucle sur les lettres de la chaîne "Toto"
+  ...     print lettre
+  T
+  o
+  t
+  o
   >>> for i in range(1,10,2): # entiers de 1 (inclus) à 10 (exclu) par pas de 2
   ...     print i**2          # Affichage de i**2
   1
@@ -287,8 +294,10 @@ Structures de programmation
     à l'itération suivante
   - `break`: interrompt complètement la boucle
 
+  .. Note:: contrairement au C/C++, l'itération se fait directement
+     sur les *éléments* de l'itérable, et non sur une indexation.
+
 .. index:: while
-.. index:: break
 
 - Boucle `while`: :samp:`while {condition}:` se répéte tant que la
   *condition* est vraie, ou après une sortie explicite avec `break`
@@ -344,8 +353,9 @@ Méthodes
 
 .. index:: dir
 
-Les chaînes de caractères disposent de nombreuses propriétés (des «
-méthodes ») facilitant leur manipulation:
+Les chaînes de caractères disposent de `nombreuses propriétés
+<http://docs.python.org/2/library/stdtypes.html#string-methods>`_ (des
+« méthodes ») facilitant leur manipulation:
 
 >>> n,t = "Calvin",'Hobbes'
 >>> titre = n + ' et ' + t; titre  # + = Concaténation de chaînes
@@ -370,7 +380,7 @@ Formatage
 .. index:: print
 
 Le système de `formatage
-<http://docs.python.org/library/stdtypes.html#string-formatting-operations>`_
+<http://docs.python.org/2/library/stdtypes.html#string-formatting-operations>`_
 des chaînes de caractères s'appuie sur l'opérateur `%`, et est très
 semblable au `sprintf` du C/C++:
 
@@ -398,7 +408,14 @@ Scientific progress goes 'boink'
 .. >>> for i in range(945,970):
 .. ...     print i,unichr(i)
 
-**Exercice:** tables de multiplications.
+.. rubric:: Exercice: 
+
+Écrire un programme affichant les tables de multiplication::
+
+  1 x 1 = 1
+  1 x 2 = 2
+  ...
+  9 x 9 = 81
 
 
 Objets itérables
@@ -508,7 +525,9 @@ volée -- tandis que chaînes de caractères et les tuples sont
   [('Boule', 'Bill'), ('Calvin', 'Hobbes'), ('Wallace', 'Gromit')]
 
 
-**Exercices:** :ref:`crible`, :ref:`carreMagique`
+.. rubric:: Exercices: 
+
+:ref:`crible`, :ref:`carreMagique`
 
 
 Fonctions
@@ -522,13 +541,13 @@ d'entrée. C'est le concept central de la programmation *impérative*.
 
 `def` permet de définir une fonction: :samp:`def {fonction}({arg1},
 {arg2}, ..., {option1}=valeur1, {option2}={valeur2}, ...):`. Les «
-`args` » sont des arguments nécéssaires (i.e. obligatoires), tandis
-que les « `kwargs` » -- arguments de type :samp:`{option}={valeur}` --
+*args* » sont des arguments nécéssaires (i.e. obligatoires), tandis
+que les « *kwargs* » -- arguments de type :samp:`{option}={valeur}` --
 sont optionnels, puisqu'ils possèdent une valeur par défaut. Si la
 fonction doit retourner une valeur, celle-ci est spécifiée par
 `return`.
 
-**Exemples:**
+.. rubric:: Exemples:
 
 .. code-block:: python
    :linenos:
@@ -544,6 +563,12 @@ fonction doit retourner une valeur, celle-ci est spécifiée par
       tc = (tf - 32.)/1.8       # Conversion Fahrenheit → Celsius
 
       return tc
+
+.. Note:: Dans la définition d'une fonction, la première chaîne de
+   charactères (appelé `docstring`) servira de documentation pour la
+   fonction, accessible de l'interpréteur via p.ex. `help(temp_f2c)`,
+   ou `tmp_f2c?` sous ipython. Elle se doit d'être tout à la fois
+   pertinente, concise *et* complète.
 
 .. code-block:: python
    :linenos:
@@ -571,13 +596,20 @@ fonction doit retourner une valeur, celle-ci est spécifiée par
  
      return mean
 
-.. Note:: Python est un langage à typage *dynamique*, p.ex., le type
-   des arguments d'une fonction n'est pas fixé *a priori*. Dans
-   l'exemple précédent, `alist` peut être une `list`, un `tuple` ou
-   tout autre itérable contenant des éléments pour lesquels les
-   opérations effectuées -- somme, exponentiation, division par un
-   entier -- ont été définies (p.ex. des entiers, des complexes, des
-   matrices, etc.).
+Il faut noter plusieurs choses importantes:
+
+- Python est un langage à typage *dynamique*, p.ex., le type des
+  arguments d'une fonction n'est pas fixé *a priori*. Dans l'exemple
+  précédent, `alist` peut être une `list`, un `tuple` ou tout autre
+  itérable contenant des éléments pour lesquels les opérations
+  effectuées -- somme, exponentiation, division par un entier -- ont
+  été définies (p.ex. des entiers, des complexes, des matrices, etc.).
+- La définition d'une fonction se fait dans un « espace parallèle » où
+  les variables ont une portée (*scope*) locale [#scope]_. Ainsi, la
+  variable `s` définie *dans* la fonction `mean` n'interfère pas avec
+  le « monde extérieur » ; inversement, la définition de `mean` ne
+  connait rien d'autre que les variables explicitement définies dans
+  la liste des arguments.
 
 
 Bibliothèques et scripts
@@ -631,7 +663,9 @@ Nous verrons par la suite quelques exemples de modules de la
 :ref:`standard`, ainsi que des :ref:`science` orientées analyse
 numérique.
 
-**Exercice:** :ref:`koch`
+.. rubric:: Exercice:
+
+:ref:`koch`
 
 Bibliothèques personnelles et scripts
 -------------------------------------
@@ -656,12 +690,13 @@ bibliothèque; si ce fichier est exécuté (p.ex. `python
      exécutables,
    - ou les deux à la fois.
 
-**Exemple:** :ref:`circonscrit.py <circonscrit>`
+.. rubric:: Exemple:
 
-Ce code peut être importé comme une bibliothèque (p.ex. `from
-circonscrit import Point`) dans un autre code python, ou bien être
-exécuté depuis la ligne de commande (p.ex. `./circonscrit.py`), auquel
-cas la partie `__main__` sera exécutée.
+Le code :ref:`circonscrit.py <circonscrit>` peut être importé comme
+une bibliothèque (p.ex. `import circonscrit`) dans un autre code
+python, ou bien être exécuté depuis la ligne de commande
+(p.ex. `./circonscrit.py`), auquel cas la partie `__main__` sera
+exécutée.
 
 - `#!` (`Sharp-bang <http://en.wikipedia.org/wiki/Shebang_(Unix)>`_):
   la première ligne d'un script défini l'interpréteur à utiliser::
@@ -674,10 +709,13 @@ cas la partie `__main__` sera exécutée.
 
     # -*- coding: utf-8 -*-
 
-  Notez que les noms de variables, fonctions,
-  etc. doivent être purement ASCII (`a-zA-Z0-9_`). De manière
-  générale, favorisez la langue anglaise (variables, commentaires,
-  affichages).
+  Notez que les noms de variables, fonctions, etc. doivent être
+  purement ASCII (`a-zA-Z0-9_`). De manière générale, favorisez la
+  langue anglaise (variables, commentaires, affichages).
+- `"""doc"""`: la chaîne de documentation de la bibliothèque
+  (`docstring`, :pep:`257`), qui sera utilisée comme aide en ligne du
+  module (`help(circonscrit)`), doit être la *1ère* instruction du
+  script.
 - `if __name__=='__main__':` permet de séparer le `__main__` (i.e. le
   corps du programme, à exécuter lors d'une utilisation en script) des
   définitions de fonctions et classes, permettant une utilisation en
@@ -753,7 +791,9 @@ Au concept d'objet sont liées les notions de:
 - `turtle.Vec2D`
 - `fractions.Fraction`
 
-**Exercice:** :ref:`life`
+.. rubric:: Exercice:
+
+:ref:`life`
 
 Exceptions
 ==========
@@ -919,16 +959,17 @@ courante » de Python dans un contexte scientifique.
 .. rubric:: Notes de bas de page
 
 .. [#p3k] Le développement actuel de Python se fait uniquement sur la
-          branche 3.x, qui constiute une remise à plat
-          *non-rétrocompatible* du langage. À moins d'être activement
-          impliqué dans le développement de modules 3.x, il est encore
-          conseillé -- en 2011 pour un utilisateur scientifique lambda
-          -- de développer en python 2.x, car certaines bibliothèques
-          utiles n'ont pas encore été portées ou pleinement testées en
-          3.x.
+   branche 3.x, qui constiute une remise à plat *non-rétrocompatible*
+   du langage. À moins d'être activement impliqué dans le
+   développement de modules 3.x, il est encore conseillé -- en 2011
+   pour un utilisateur scientifique lambda -- de développer en python
+   2.x, car certaines bibliothèques utiles n'ont pas encore été
+   portées ou pleinement testées en 3.x.
+
+.. [#scope] La notion de « portée » est plus complexe, je simplifie...
 
 .. [#lbyl] Par opposition au :abbr:`LBYL (Look Before You Leap)` du
-           C/C++, basé sur une série *exhaustive* de tests *a priori*.
+   C/C++, basé sur une série *exhaustive* de tests *a priori*.
 
 
 .. |DANGER| unicode:: 0x2620 .. ☠ = SKULL AND CROSSBONES

@@ -2,7 +2,7 @@
                          Développer en python
 ======================================================================
 
-.. Time-stamp: <2013-01-14 00:27 ycopin@lyopc469>
+.. Time-stamp: <2013-01-15 18:36:05 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -89,7 +89,7 @@ Us et coutumes
 - `Google Python Style Guide
   <http://google-styleguide.googlecode.com/svn/trunk/pyguide.html>`_
 
-**Quelques conseils supplémentaires**
+.. rubric:: Quelques conseils supplémentaires:
 
 - *Ne réinventez pas la roue [#wheel]_, encore moins le moteur à
   explosion*: cherchez si ce que vous voulez faire n'a pas déjà été
@@ -152,19 +152,19 @@ Documentation
 
 .. http://wiki.python.org/moin/DocumentationTools
 
+* Conventions de documentation:
+
+  - *Docstring convention*: :pep:`257`
+  - `Documenting Your Project Using Sphinx
+    <http://packages.python.org/an_example_pypi_project/sphinx.html>`_
+  - `A Guide to NumPy/SciPy Documentation
+    <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
+
 * Outils de documentation, ou comment transformer automagiquement un
   code-source bien documenté en une documentation fonctionnelle.
 
   - `Sphinx <http://sphinx.pocoo.org/>`_
   - `reStructuredText for Sphinx <http://sphinx.pocoo.org/rest.html>`_
-
-* Conventions de documentation:
-
-  - Docstring convention: :pep:`257`
-  - `Documenting Your Project Using Sphinx
-    <http://packages.python.org/an_example_pypi_project/sphinx.html>`_
-  - `A Guide to NumPy/SciPy Documentation
-    <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
 
 Les méthodes de tests
 ---------------------

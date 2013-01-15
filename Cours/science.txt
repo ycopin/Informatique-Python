@@ -4,7 +4,7 @@
                        Bibliothèques numériques
 =====================================================================
 
-.. Time-stamp: <2013-01-14 00:58 ycopin@lyopc469>
+.. Time-stamp: <2013-01-15 18:34:13 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -24,7 +24,7 @@
     4  Autres librairies scientifiques
 
 * `Standard Numeric and Mathematical Modules
-  <http://docs.python.org/library/numeric.html>`_
+  <http://docs.python.org/2/library/numeric.html>`_
 
 .. _td5:
 
@@ -435,7 +435,9 @@ False
 >>> N.allclose(y, [0,1,0,-1,0])   # Test d'égalité numérique de tous les éléments
 True
 
-**Exercices:** :ref:`mad`, :ref:`pull`
+.. rubric:: Exercices:
+
+:ref:`mad`, :ref:`pull`
 
 
 Tableaux évolués
@@ -586,7 +588,7 @@ fonctionnalités `numpy`. P.ex.:
 - Traitement d'images multi-dimensionnelles: :mod:`scipy.ndimage`
 - Entrées/sorties: :mod:`scipy.io`
 
-**Liens:**
+.. rubric:: Liens:
 
 - `Réference Scipy <http://docs.scipy.org/doc/scipy/reference/>`_
 - `Cookbook Scipy <http://www.scipy.org/Cookbook>`_
@@ -595,14 +597,14 @@ fonctionnalités `numpy`. P.ex.:
 - `Calcul numérique haut-niveau
   <http://dakarlug.org/pat/scientifique/html/scipy.html>`_ |fr|
 
-**Voir également:**
+.. rubric:: Voir également:
 
 - `Pandas <http://pandas.pydata.org/>`_: structuration et analyse de données
 - `Scikits <http://scikits.appspot.com/scikits>`_: modules
   supplémentaires, parmi lesquels:
 
   - `scikit-learn <http://scikit-learn.org/>`_: *machine learning*
-  - `scikits-image <http://scikits-image.org/>`_: *image processing*
+  - `scikit-image <http://scikit-image.org/>`_: *image processing*
   - `statsmodel <http://statsmodels.sourceforge.net/>`_: modèles statistiques
 
 - `Scipy Topical softwares <http://www.scipy.org/Topical_Software>`_
@@ -610,7 +612,9 @@ fonctionnalités `numpy`. P.ex.:
 
 .. http://www.osc.edu/supercomputing/training/python/python_pt2_0702.pdf
 
-**Exercice:** :ref:`anscombe`
+.. rubric:: Exercice:
+
+:ref:`anscombe`
 
 
 Quelques exemples complets
@@ -663,14 +667,14 @@ Il existe deux interfaces pour deux types d'utilisation:
 * `pylab`: interface procédurale, très similaire à MATLAB et
   généralement réservée à l'analyse interactive:
 
-  >>> from pylab import *         # À NE PAS FAIRE DANS UN SCRIPT!
+  >>> from pylab import *         # DÉCONSEILLÉ DANS UN SCRIPT!
   >>> x = linspace(-pi, pi, 100)  # pylab importe numpy dans l'espace courant
   >>> plot(x, sin(x))             # Trace la courbe y = y(x)
   >>> show()                      # Affiche le résultat
 
 * `pyplot
   <http://matplotlib.org/users/pyplot_tutorial.html>`_:
-  interface orientée objet, généralement pour les scripts::
+  interface orientée objet, préférable pour les scripts::
 
     import numpy as N
     import matplotlib.pyplot as P
@@ -678,9 +682,9 @@ Il existe deux interfaces pour deux types d'utilisation:
     x = N.linspace(-N.pi, N.pi, 100)
     y = N.sin(x)
 
-    fig,ax = P.subplots()
-    ax.plot(x, y)
-    P.show()
+    fig,ax = P.subplots() # Création de la figure et de l'axe
+    ax.plot(x, y)         # Tracé de la courbe dans l'axe
+    P.show()              # Affichage de la figure
 
 Dans les deux cas, le résultat est le même:
 
@@ -689,15 +693,19 @@ Dans les deux cas, le résultat est le même:
    :width: 60%
 
 
-**Liens**
+.. rubric:: Liens:
 
 - `Tutorial matplotlib <http://www.loria.fr/~rougier/teaching/matplotlib/>`_
 - `Gallery <http://matplotlib.org/gallery.html>`_ 
 - `Examples <http://matplotlib.org/examples/>`_
 
-**Exemple:** :ref:`filtres2ndOrdre.py <filtres>`
+.. rubric:: Exemple:
 
-**Exercices:** :ref:`julia`, :ref:`logistique`
+:ref:`filtres2ndOrdre.py <filtres>`
+
+.. rubric:: Exercices:
+
+:ref:`julia`, :ref:`logistique`
 
 Mayavi (3D)
 -----------
@@ -712,7 +720,7 @@ est une bibliothèque graphique de visualisation 3D s'appuyant sur
 .. Note:: Utiliser :command:`ipython -wthread` pour l'utilisation
    intéractive des figures.
 
-**Voir également:**
+.. rubric:: Voir également:
 
 - `VPython <http://www.vpython.org/>`_: *3D Programming for Ordinary
   Mortals*
@@ -734,12 +742,14 @@ différents domaines de la physique/chimie:
   <http://sfepy.org/doc-devel/index.html>`_
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
   <http://packages.python.org/milk/>`_, `MDP
-  <http://mdp-toolkit.sourceforge.net/>`_ et autres `modules
-  d'intelligence artificielle
+  <http://mdp-toolkit.sourceforge.net/>`_, `AstroML
+  <http://astroml.github.com/>`_ et autres `modules d'intelligence
+  artificielle
   <http://wiki.python.org/moin/PythonForArtificialIntelligence>`_
 - Calcul symbolique: sympy_ (voir également ce `tutoriel sympy
   <http://mattpap.github.com/scipy-2011-tutorial/html/>`_)
-- `PyROOT <http://root.cern.ch/drupal/content/pyroot>`_
+- Interface à `Root <http://root.cern.ch/drupal/>`_: `PyROOT
+  <http://root.cern.ch/drupal/content/pyroot>`_
 - `Etc. <http://www.scipy.org/Topical_Software>`_
 
 .. - `PyMC <http://code.google.com/p/pymc/>`_: *Monte Carlo Markov Chain*

@@ -1,12 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__author__ = "Yannick Copin <y.copin@ipnl.in2p3.fr>"
-__version__ = "Time-stamp: <2011-09-27 12:17:25 ycopin>"
-
 """
 Calcul du cercle circonscrit à 3 points du plan.
+
+Ce script peut être utilisé comme bibliothèque (`import circonscrit`),
+définissant les classes `Point` et `Vector`, le point origine `O` et
+la function `circumCircle`. Il peut également être utilisé comme un
+programme (`python circonscrit.py`).
 """
+
+__author__ = "Yannick Copin <y.copin@ipnl.in2p3.fr>"
+__version__ = "Time-stamp: <2011-09-27 12:17:25 ycopin>"
 
 from math import sqrt, hypot
 
@@ -56,18 +61,14 @@ O = Point(0,0)
 
 # start-classVector
 class Vector(Point):
-    """Un `Vector` hérite de `Point` avec des méthodes additionnelles
-    (p.ex. l'addition)."""
+    """Un `Vector` est défini par 2 `Point`s. Il hérite de `Point`
+    avec des méthodes additionnelles (p.ex. l'addition)."""
 
-    def __init__(self, A, B=O):
-        """Définit le vecteur :math:`\vec{AB}` si B!=O, ou
-        :math:`\vec{OA}` sinon."""
+    def __init__(self, A, B):
+        """Définit le vecteur :math:`\vec{AB}`."""
 
         # Initialisation de la classe parente
-        if B.isOrigin():                # B = O
-            Point.__init__(self, A.x, A.y)
-        else:                           # B != O
-            Point.__init__(self, B.x-A.x, B.y-A.y)
+        Point.__init__(self, B.x-A.x, B.y-A.y)
             
         # Attribut propre à la classe dérivée
         self.norm2 = self.x**2 + self.y**2 # Norme du vecteur au carré
@@ -95,8 +96,8 @@ class Vector(Point):
     def __abs__(self):
         """Surcharge de la fonction `abs()`"""
 
-        # Complètement idiot! Il vaudrait mieux sqrt(self.norm2), mais
-        # c'est pour l'exemple...
+        # Il vaudrait mieux sqrt(self.norm2), mais c'est pour
+        # l'exemple d'utilisation d'une méthode héritée...
         return Point.distance(self, O)
 # end-classVector
 
@@ -107,10 +108,14 @@ def circumCircle(M,N,P):
 
     Retourne: centre (Point),rayon (float)"""
 
+    MN = Vector(M,N)
+    NP = Vector(N,P)
+    PM = Vector(P,M)
+    
     # Diamètre
-    m = N.distance(P)
-    n = P.distance(M)
-    p = M.distance(N)
+    m = abs(NP)                         # |NP|
+    n = abs(PM)                         # |PM|
+    p = abs(MN)                         # |MN|
 
     d = (m+n+p)*(-m+n+p)*(m-n+p)*(m+n-p)
     if d>0: 
@@ -119,20 +124,16 @@ def circumCircle(M,N,P):
         raise ValueError("Undefined circumscribed circle diameter.")
 
     # Centre
-    dm2 = Vector(M).norm2
-    dn2 = Vector(N).norm2
-    dp2 = Vector(P).norm2
-
-    MN = Vector(M,N)
-    NP = Vector(N,P)
-    PM = Vector(P,M)
-    
     d = -2*( M.x*NP.y + N.x*PM.y + P.x*MN.y )
     if d==0:
         raise ValueError("Undefined circumscribed circle center.")
     
-    x0 = -( dm2*NP.y + dn2*PM.y + dp2*MN.y ) / d
-    y0 =  ( dm2*NP.x + dn2*PM.x + dp2*MN.x ) / d
+    om2 = Vector(O,M).norm2             # |OM|²
+    on2 = Vector(O,N).norm2             # |ON|²
+    op2 = Vector(O,P).norm2             # |OP|²
+
+    x0 = -( om2*NP.y + on2*PM.y + op2*MN.y ) / d
+    y0 =  ( om2*NP.x + on2*PM.x + op2*MN.x ) / d
 
     return Point(x0,y0),diam/2.         # Centre,R
 
@@ -142,9 +143,11 @@ if __name__=='__main__':
     # start-optparse
     from optparse import OptionParser
 
+    description = "Calcul du cercle circonscrit à 3 points du plan."
+
     parser = OptionParser(usage="%prog [-p/--plot] "
                           "[-i/--input coordfile | x1,y1 x2,y2 x3,y3]",
-                          version=__version__)
+                          version=__version__, description=description)
     parser.add_option("-i", "--input",
                       help="Input coordinate file (one 'x,y' per line)")
     parser.add_option("-p", "--plot",
@@ -165,17 +168,17 @@ if __name__=='__main__':
 
     points = [None]*3                   # Génère la liste de 3 points
     for i,arg in enumerate(args):
-        try:
+        try:                            # Déchiffrage de l'argument 'x,y'
             x,y = ( float(t) for t in arg.split(',') )
         except ValueError:
             parser.error("Cannot parse x,y coordinates '%s'" % arg)
 
-        points[i] = Point(x,y)
+        points[i] = Point(x,y)          # Création du point
         print "#%d: %s" % (i+1,str(points[i]))
 
     # Calcul du cercle cisconscrit
     try:
-        center,radius = circumCircle(*points)
+        center,radius = circumCircle(*points) # Délistage
         print "Circumscribed circle: %s, radius=%f" % (str(center),radius)
     except ValueError:
         raise ValueError("Undefined circumscribed circle")

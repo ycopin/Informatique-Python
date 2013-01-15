@@ -3,10 +3,9 @@
 
 from __future__ import division         # Pas de division euclidienne par défaut
 
-__version__ = "Time-stamp: <2013-01-14 00:49 ycopin@lyopc469>"
-__author__ = "Yannick Copin <y.copin@ipnl.in2p3.fr>"
-
 """
+Tracé (via 'turtle') d'un flocon de Koch d'ordre arbitraire.
+
 Dans le même genre:
 
 - courbe de Peano (http://fr.wikipedia.org/wiki/Courbe_de_Peano)
@@ -16,9 +15,11 @@ Dans le même genre:
 Voir également:
 
 - L-système: http://fr.wikipedia.org/wiki/L-système
-
-Autres exemples à http://natesoares.com/tutorials/python-fractals/
+- Autres exemples: http://natesoares.com/tutorials/python-fractals/
 """
+
+__version__ = "Time-stamp: <2013-01-14 00:49 ycopin@lyopc469>"
+__author__ = "Yannick Copin <y.copin@ipnl.in2p3.fr>"
 
 import turtle as T
 
@@ -52,6 +53,7 @@ def koch(niveau=3, iter=0, taille=100, delta=0):
 if __name__=='__main__':
 
     # start-optparse
+    # Exemple d'utilisation de la librairie de gestion d'arguments 'optparse'
     from optparse import OptionParser
 
     desc = u"Tracé (via 'turtle') d'un flocon de Koch d'ordre arbitraire."
