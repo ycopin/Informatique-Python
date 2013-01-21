@@ -1,4 +1,4 @@
-.. Time-stamp: <2013-01-15 18:14:29 ycopin>
+.. Time-stamp: <2013-01-15 18:49:59 ycopin>
 .. _cours:
 
 =====================================================================
@@ -12,7 +12,7 @@
       1.2  Notions d'Unix
       1.3  L'invite de commande
     2   Types de base
-    3   Structures de programmation
+    3   Structures de contrôle
     4   Les chaînes de caractères
       4.1  Indexation
       4.2  Méthodes
@@ -84,7 +84,7 @@ Les concepts suivants sont supposés connus:
   :command:`bg`
 * variables d'environnement: :command:`export`, :file:`.bashrc`
 
-.. rubric:: Liens
+.. rubric:: Liens:
 
 * `Quelques notions et commandes d'UNIX
   <http://snovae.in2p3.fr/ycopin/enseignements/docs/notions_unix.pdf>`_
@@ -148,12 +148,12 @@ Python:
     * `%debug` pour lancer le mode débuggage intéractif *post-mortem*
     * `%cpaste` pour coller et éxecuter un code pré-formaté
 
-  Liens:
+.. rubric:: Liens:
   
-  - `Tutorial
-    <http://ipython.org/ipython-doc/stable/interactive/tutorial.html>`_
-  - `IPython Tip Sheet
-    <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/ipython.html>`_
+- `Tutorial
+  <http://ipython.org/ipython-doc/stable/interactive/tutorial.html>`_
+- `IPython Tip Sheet
+  <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/ipython.html>`_
 
 Types de base
 =============
@@ -164,7 +164,7 @@ Types de base
 
 .. index:: itérables; str
 
-- Chaînes de caractères: `str`
+- **Chaînes de caractères**: `str`
 
   - Entre (simples ou triples) apostrophes `'` ou guillemets `"`:
     `'Calvin'`, `"Calvin'n'Hobbes"`, `'''Two\\\nlines'''`,
@@ -177,7 +177,7 @@ Types de base
    pair: type numérique; float
    pair: type numérique; complex
 
-- Objets numériques: 
+- **Types numériques**: 
 
   - Booléens `bool` (vrai/faux): `True`, `False`, `bool(3)`
   - Entiers `int` (pas de valeur limite explicite, correspond *au
@@ -203,7 +203,7 @@ Types de base
 .. index:: type
 .. index:: isinstance
 
-- Objets itérables: 
+- **Objets itérables**: 
 
   - Listes `list`: `['a', 3, [1,2], 'a']`
   - Listes immuables `tuple`: `(2, 3.1, 'a', [])` (selon les
@@ -230,8 +230,8 @@ Types de base
   False
 
 
-Structures de programmation
-===========================
+Structures de contrôle
+======================
 
 - Une instruction par ligne en général (ou instructions séparées par
   `;` en interactif).
@@ -243,8 +243,8 @@ Structures de programmation
 .. index:: 
    pair: booléen; True/False
 
-- Expression booléenne: une condition est une expression s'évaluant à
-  `True` ou `False`:
+- **Expression booléenne**: une condition est une expression
+  s'évaluant à `True` ou `False`:
 
   - `False`: test logique faux (p.ex. `3==4`), 0, `''`
     (chaîne vide), `[]` (liste vide), etc.
@@ -260,7 +260,7 @@ Structures de programmation
 
 .. index:: if ... elif ... else
 
-- Expression conditionnelle `if/elif/else`::
+- **Expression conditionnelle** `if/elif/else`::
 
     if i>0:     # Condition principale
         print "positif"
@@ -273,15 +273,9 @@ Structures de programmation
 .. index:: continue
 .. index:: break
 
-- Boucle `for`: :samp:`for {element} in {iterable}:`, s'éxecute sur
+- **Boucle for**: :samp:`for {element} in {iterable}:`, s'éxecute sur
   chacun des *éléments* d'un objet *itérable*:
 
-  >>> for lettre in "Toto":   # boucle sur les lettres de la chaîne "Toto"
-  ...     print lettre
-  T
-  o
-  t
-  o
   >>> for i in range(1,10,2): # entiers de 1 (inclus) à 10 (exclu) par pas de 2
   ...     print i**2          # Affichage de i**2
   1
@@ -294,12 +288,9 @@ Structures de programmation
     à l'itération suivante
   - `break`: interrompt complètement la boucle
 
-  .. Note:: contrairement au C/C++, l'itération se fait directement
-     sur les *éléments* de l'itérable, et non sur une indexation.
-
 .. index:: while
 
-- Boucle `while`: :samp:`while {condition}:` se répéte tant que la
+- **Boucle while**: :samp:`while {condition}:` se répéte tant que la
   *condition* est vraie, ou après une sortie explicite avec `break`
 
   .. Attention:: aux boucles infinies, dont la condition d'éxecution
@@ -311,7 +302,7 @@ Structures de programmation
      >>> niter = 0
      >>> while error>1e-6 and niter<100:
      ...     error = ...   # A priori, error va décroître, et la boucle s'interrompre
-     ...     niter ++      # Mais on n'est jamais assez sûr!
+     ...     niter ++      # Mais on n'est jamais assez prudent!
 
 
 .. _td2:
