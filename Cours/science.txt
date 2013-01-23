@@ -4,7 +4,7 @@
                        Bibliothèques numériques
 =====================================================================
 
-.. Time-stamp: <2013-01-15 18:34:13 ycopin>
+.. Time-stamp: <2013-01-23 01:19 ycopin@lyopc469>
 
 .. contents:: Table des matières
 ..
@@ -127,7 +127,7 @@ Création de tableaux
   un *start* et un *end* (préférable à `N.arange` sur des
   réels). 
 
-  >>> N.linspace(0, 2*N.pi, 5) # 101 nb entre 0 et 2π (inclus), type réel par défaut
+  >>> N.linspace(0, 2*N.pi, 5) # 5 nb entre 0 et 2π (inclus), type réel par défaut
   array([ 0.,  1.57079633,  3.14159265,  4.71238898,  6.28318531])
 
 
@@ -296,7 +296,6 @@ array([[0, 1],
 .. index:: 
    pair: numpy; hstack
    pair: numpy; vstack
-   pair: numpy; dstack
 
 >>> a = N.arange(5); a
 array([0, 1, 2, 3, 4])
@@ -305,12 +304,6 @@ array([0, 1, 2, 3, 4, 0, 1, 2, 3, 4])
 >>> N.vstack((a,a))  # Stack vertical (le long des lignes)
 array([[0, 1, 2, 3, 4],
        [0, 1, 2, 3, 4]])
->>> N.dstack((a,a))  # Stack en profondeur (le long des plans)
-array([[[0, 0],
-        [1, 1],
-        [2, 2],
-        [3, 3],
-        [4, 4]]])
 
 .. rubric:: *Broadcasting*
 
@@ -318,9 +311,28 @@ array([[[0, 0],
    pair: numpy; broadcasting
    pair: numpy; newaxis
 
-L'`array broadcasting <http://www.scipy.org/EricsBroadcastingDoc>`_
+L'`array broadcasting
+<http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html>`_
 définit les régles selon lesquelles deux tableaux de formats
-*différents* peuvent éventuellement s'apparier.
+*différents* peuvent éventuellement s'apparier:
+
+1. Deux tableaux sont compatibles (*broadcastable*) si, pour chaque
+   dimension (`axis`), soit les tailles sont égales, soit l'une
+   d'elles est exactement égale à 1. P.ex. (5,3) et (1,3) sont des
+   formats *broadcastable*, (5,3) et (5,1) également, mais (5,3) et
+   (3,1) ne le sont pas.
+2. Si un tableau a une dimension (`axis`) de taille 1, le tableau sera
+   dupliqué à la volée autant de fois que nécessaire selon cette
+   dimension pour attendre la taille de l'autre tableau dans cette
+   dimension. P.ex. un tableau (2,1,3) pourra être transformé en
+   tableau (2,5,3) en le dupliquant 5 fois le long du 2ème axe
+   (`axis=1`).
+3. La taille selon chaque dimension (`axis`) après *broadcast* est
+   égale au maximum de toutes les tailles d'entrée le long de cette
+   dimension. P.ex. (5,3,1) × (1,3,4) → (5,3,4).
+4. Si un des tableaux a un rang (`ndim`) inférieur à l'autre, alors
+   son format (`shape`) est précédé d'autant de 1 que
+   nécessaire. P.ex. (5,3,1) × (4,) = (5,3,1) × (1,1,4) → (5,3,4).
 
 >>> a = N.arange(6).reshape(2,3) # Shape (2,3)
 >>> b = N.array([10,20,30])      # Shape (3,) ~ (1,3) → (2,3) = (1,3) copié 2 fois
@@ -333,6 +345,9 @@ ValueError: shape mismatch: objects cannot be broadcast to a single shape
 >>> a+c[:,N.newaxis]             # = c.reshape(-1,1) → (2,1) → (2,3) = (2,1) copié 3 fois
 array([[10, 11, 12],
        [23, 24, 25]])
+
+Voir également cette `présentation
+<http://www.scipy.org/EricsBroadcastingDoc>`_.
 
 .. rubric:: Indexation évoluée
 

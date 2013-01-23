@@ -1,4 +1,4 @@
-.. Time-stamp: <2013-01-10 23:07 ycopin@lyopc469>
+.. Time-stamp: <2013-01-23 00:51 ycopin@lyopc469>
 .. _info:
 
 ======================================================================
@@ -6,23 +6,42 @@
 ======================================================================
 
 - Atelier "Analyse scientifique en Python"
-- `Cours en ligne <https://informatique-python.readthedocs.org/en/python-m2//>`_
-- Responsable: Yannick Copin <@ipnl.in2p3.fr>, Bureau 420 de
-  l'IPNL (4 rue Fermi)
+- `Cours en ligne
+  <https://informatique-python.readthedocs.org/en/python-m2//>`_
+- Responsable: Yannick Copin <@ipnl.in2p3.fr>, Bureau 420 de l'IPNL (4
+  rue Fermi)
 - Scolarité: Mme Salvi (#32689)
 
-.. _calendrier:
+.. rubric:: Calendrier
 
-Calendrier
-==========
+Toutes les séances ont lieu de 8h30 à 12h30 en Ariane 12. 
 
-===========================  ================================================
-Séance
-===========================  ================================================
-lundi 14/01 - 8h30-12h30     python I
-mardi 15/01 - 8h30-12h30     python II, organisation du µ-projet (1h)
-vendredi 18/01 - 8h30-12h30  méthodes numériques I, 1er support µ-projet (1h)
-vendredi 25/01 - 8h30-12h30  méthodes numériques II, débriefing µ-projet (1h)
-===========================  ================================================
+===========  ==  ======================
+Date         TD  
+===========  ==  ======================
+Lundi 14/01   1  Python I
+Mardi 15/01   2  Python II
+Lundi 21/01   3  Méthodes numériques I
+Mardi 22/01   4  Méthodes numériques II
+===========  ==  ======================
 
-Toutes les séances ont lieu en Ariane 12. 
+.. rubric:: Participants
+
+=================  ===  ===  ===  ===
+Étudiant           TD1  TD2  TD3  TD4
+=================  ===  ===  ===  ===
+`Diallo Mamadou`_   x    x    x    x
+`Moussi Nabyl`_          x         x
+`Mathieu Guerry`_   x    x    x    x
+=================  ===  ===  ===  ===
+
+.. _Diallo Mamadou: madkoumi@yahoo.dot.fr
+.. _Moussi Nabyl: moussinabyl@yahoo.dot.fr
+.. _Mathieu Guerry: mathieu.guerry@etu.univ-lyon1.dot.fr
+
+.. |+| image:: ./_static/smile.gif
+   :alt: Bon
+.. |~| image:: ./_static/err.gif
+   :alt: Moyen
+.. |-| image:: ./_static/frown.gif
+   :alt: Faible

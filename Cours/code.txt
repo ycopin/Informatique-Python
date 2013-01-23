@@ -2,7 +2,7 @@
                          Développer en python
 ======================================================================
 
-.. Time-stamp: <2013-01-15 18:36:05 ycopin>
+.. Time-stamp: <2013-01-23 00:54 ycopin@lyopc469>
 
 .. contents:: Table des matières
 ..
@@ -91,8 +91,8 @@ Us et coutumes
 
 .. rubric:: Quelques conseils supplémentaires:
 
-- *Ne réinventez pas la roue [#wheel]_, encore moins le moteur à
-  explosion*: cherchez si ce que vous voulez faire n'a pas déjà été
+- *Ne réinventez pas la roue, encore moins le moteur à explosion*
+  [#wheel]_: cherchez si ce que vous voulez faire n'a pas déjà été
   fait (éventuellement en mieux...), construisez dessus (en citant
   évidemment vos sources), et contribuez si possible!
 - Codez *proprement*: commentez votre code, utilisez des noms de
