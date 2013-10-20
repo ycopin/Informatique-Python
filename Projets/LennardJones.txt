@@ -1,0 +1,23 @@
+Diagramme de phase du potentiel de Lennard-Jones
+--------------------------------------
+
+:Author: Mathieu Leocmach <mathieu.leocmach@ens-lyon.fr>
+
+Le potentiel de Lennard-Jones est souvent utilisé pour décrire les interactions entre deux atomes au sein d'un système monoatomique de type gaz rare. Son expression en fonction de la distance r entre les deux noyaux atomiques est :
+
+.. math::
+    E_p(r) \ = \ 4 \ E_0 \ \left[ \ \left( \frac{r_0}{r} \ \right)^{12} - \left( \frac{r_0}{r} \ \right)^{6} \ \right]
+
+Avec :math:`r_0` la distance pour laquelle :math:`E_p(r_0) = 0`.
+
+On programmera un simulateur de dynamique moléculaire pour N particules identiques dans un cube periodique de taille fixe L et à une température T. On prendra soin d'adimentionner toutes les grandeurs et d'imposer des conditions aux limites periodiques. On se renseignera sur les façons possibles de déterminer les conditions initiales et d'imposer la température.
+
+Les positions et vitesses des particules seront exportées de façon régulières pour visualisation (par exemple dans `Paraview <http://www.paraview.org/>`_).
+
+* On pourra observer les collisions de 2 ou 3 particules à différentes températures avant de passer à des N plus grands (100 particules ?).
+
+* On fera varier :math:`V=L^3` et T pour déterminer les frontières des différentes phases.
+
+* On pourra aussi essayer d'aller vers de plus grands N pour tester l'influence de la taille finie de l'échantillon. Des optimisations seront alors sûrement nécessaires pour accélérer le programme.
+
+* On pourra aussi tester d'autres types de potentiels comme celui de Weeks-Chandler-Anderson et discuter des différences observées.

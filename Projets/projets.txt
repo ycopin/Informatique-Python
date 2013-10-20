@@ -222,6 +222,11 @@ répondre à chacune d’entre elle):
 
 .. include:: banc_poisson.txt
 
+.. Diagramme de phase du potentiel de Lennard-Jones
+.. --------------------------------------
+
+.. include:: LennardJones.txt
+
 
 Autres possibilités
 -------------------
