@@ -227,6 +227,11 @@ répondre à chacune d’entre elle):
 
 .. include:: LennardJones.txt
 
+.. Suivit de particule(s)
+.. --------------------------------------
+
+.. include:: particletracking.txt
+
 
 Autres possibilités
 -------------------
