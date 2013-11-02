@@ -45,6 +45,12 @@ Indication: on peut étudier ce système avec des EDOs. Cela peut aussi
 donner lieu à une simulation individu centré et éventuellement une
 comparaison entre les deux types de modèle.
 
+.. figure::  1000px-Aco_branches.svg.png
+   :width: 50%
+   :align: center
+
+   **Figure:** 1) la première fourmi trouve la source de nourriture (F), via un chemin quelconque (a), puis revient au nid (N) en laissant derrière elle une piste de phéromone (b). 2) les fourmis empruntent indifféremment les 4 chemins possibles, mais le renforcement de la piste rend plus attractif le chemin le plus court. 3) les fourmis empruntent le chemin le plus court, les portions longues des autres chemins voient la piste de phéromones s'évaporer. Source `Johann Dréo via Wikimedia Commons <http://commons.wikimedia.org/wiki/File:Aco_branches.svg>`_.
+
 Formation d'agrégats
 --------------------
 
@@ -54,7 +60,14 @@ computationel ». Pour un projet en ce sens, un soin particulier sera
 donné à la contextualisation. Par exemple, on pourra tester les
 limites de la règle de Wade pour la structure de clusters métalliques,
 ou bien dans un contexte plus `biologique
-<http://fr.wikipedia.org/wiki/Dictyostelium_disco%C3%AFdeum>`_.
+<http://fr.wikipedia.org/wiki/Dictyostelium_discoideum>`_.
+
+.. figure::  DLA.jpg
+   :width: 50%
+   :align: center
+
+   **Figure:** Résultat d'une agrégation limitée par la diffusion d'environ 33 000 particules obtenue en permettant à des marcheurs aléatoires d'adhérer à une semence centrale. Les couleurs indiquent le temps d'arrivée des marcheurs. Source `WingkLEE (Own work) [Public domain], via Wikimedia Commons <http://commons.wikimedia.org/wiki/File%3AOf7_p0001_15h.jpg>`_.
+
 
 Modèle d'Ising
 --------------
@@ -77,6 +90,12 @@ avec une interaction ferromagnétique (:math:`J > 0`). L’objectif du
 projet sera d’étudier le diagramme de phase du système en fonction de
 la température et du champ magnétique par simulation de Monte-Carlo.
 
+.. figure::  Ising_betaC.gif
+   :width: 50%
+   :align: center
+
+   **Figure:** Modèle d'Ising au point critique. Source `AlterVista [GDFL], via Wikimedia Commons <http://upload.wikimedia.org/wikipedia/commons/f/f5/Ising_betaC.gif>`_.
+
 
 Méthode de Hückel
 -----------------
@@ -92,7 +111,37 @@ discutera notamment du choix de la paramétrisation du système.
 Évacuation d'une salle / déplacement d'une foule dans une rue
 -------------------------------------------------------------
 
-À rédiger.
+Le comportement d'une foule est un problème aux applications multiples : évacuation d'une salle, couloir du métro aux heures de pointes, manifestations...
+On peut en imaginer des modèles simples.
+Par exemple, on peut décrire chaque individu par sa position, sa vitesse, et comme étant soumis à des "forces" :
+
+* Une force qui spécifie la direction dans laquelle l'individu **veut** se déplacer,
+.. math::
+
+   f_{dir} = \frac{\textbf{v}_0 - \textbf{v}(t)}{\tau},
+
+où :math:`\textbf{v}_0` est la direction et la vitesse que la personne veut atteindre, 
+:math:`\textbf{v}` sa vitesse actuelle, et :math:`\tau` un temps caractéristique d'ajustement.
+
+* Une force qui l'oblige à éviter des obstacles qui peuvent être fixes (un mur, un massif de fleurs, ...), ou qui peuvent être les autres individus eux-mêmes. On pourra essayer 
+.. math::
+
+   f_{obs}(d) = a \exp -d/d_0
+
+où :math:`d` est la distance entre le piéton et l'obstacle, :math:`d_0` la "portée" de la force, et :math:`a` son amplitude.
+
+On pourra varier les différents paramètres apparaissant ci-dessus, tout en leur donnant une interprétation physique réelle, et étudier leur influence dans des situations concrètes. Par exemple à quelle vitesse, en fonction de :math:`\textbf{v}_0` et de la densité de piétons, se déplace une foule contrainte à avancer dans un couloir si chaque individu veut maintenir une vitesse :math:`\textbf{v}_0` ? Comment s'organise l'évacuation d'une salle initialement uniformément peuplée, avec une ou plusieurs sorties, et en la présence éventuels d'obstacles ?
+
+Il est également possible d'essayer d'autres expressions pour les forces.
+
+Il existe une littérature conséquente sur le sujet, que l'on pourra explorer si besoin. Par exemple : <http://www2.cnrs.fr/presse/communique/1852.htm>
+
+
+.. figure::  6k-RoomExit4.png
+   :width: 50%
+   :align: center
+
+   **Figure:** Un obstacle aide à l'évacuation. Source : http://www.openabm.org/book/export/html/1955_.
 
 
 Densité d'états d'un nanotube
@@ -160,12 +209,28 @@ répondre à chacune d’entre elle):
   collisionner des solitons. Cette étude est très intéressante et
   pleine de surprises. Que se passe-t-il lors de la collision de deux
   solitons? Entre un soliton et un anti-soliton?
+  
+.. figure::  mascaret.jpg
+   :width: 50%
+   :align: center
+
+   **Figure:** Un mascaret, une vague soliton, dans un estuaire de Grande Bretagne. Source `Arnold Price [CC-BY-SA-2.0 (http://creativecommons.org/licenses/by-sa/2.0)], via Wikimedia Commons <http://commons.wikimedia.org/wiki/File%3ATidal_Bore_-_geograph.org.uk_-_324581.jpg>`_.
 
 
 .. Auto-organisation d'un banc de poisson
 .. --------------------------------------
 
 .. include:: banc_poisson.txt
+
+.. Diagramme de phase du potentiel de Lennard-Jones
+.. --------------------------------------
+
+.. include:: LennardJones.txt
+
+.. Suivit de particule(s)
+.. --------------------------------------
+
+.. include:: particletracking.txt
 
 
 Autres possibilités
