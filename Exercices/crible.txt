@@ -1,9 +1,9 @@
-.. Time-stamp: <2013-11-05 17:19:33 ycopin>
+.. Time-stamp: <2013-11-05 17:42:59 ycopin>
 
 .. _cribleSol:
 
-Crible d'Ératosthène
---------------------
+.. Crible d'Ératosthène
+.. --------------------
 
 .. literalinclude:: crible.py
    :linenos:

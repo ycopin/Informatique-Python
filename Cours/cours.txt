@@ -1,4 +1,4 @@
-.. Time-stamp: <2013-11-05 15:08:50 ycopin>
+.. Time-stamp: <2013-11-05 17:43:45 ycopin>
 .. _cours:
 
 Initiation à Python
@@ -508,7 +508,7 @@ volée -- tandis que chaînes de caractères et les tuples sont
   [('Boule', 'Bill'), ('Calvin', 'Hobbes'), ('Wallace', 'Gromit')]
 
 
-**Exercices:** :ref:`crible`, :ref:`carreMagique`
+**Exercices:** :ref:`crible`, :ref:`carre`
 
 
 Fonctions
