@@ -1,10 +1,12 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2013-11-05 12:29:12 ycopin>
+.. Time-stamp: <2013-11-05 15:57:47 ycopin>
+
+:orphan:
 
 Suivi de particule(s)
----------------------
+=====================
 
-:Author: Mathieu Leocmach <mathieu.leocmach@ens-lyon.fr>
+.. sectionauthor:: Mathieu Leocmach <mathieu.leocmach@ens-lyon.fr>
 
 Dans de nombreux domaines de recherche expérimentale, on a besoin de
 localiser des particles dans une image ou de reconstituer leurs

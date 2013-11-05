@@ -1,10 +1,12 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2013-11-05 12:28:01 ycopin>
+.. Time-stamp: <2013-11-05 15:57:29 ycopin>
+
+:orphan:
 
 Diagramme de phase du potentiel de Lennard-Jones
-------------------------------------------------
+================================================
 
-:Author: Mathieu Leocmach <mathieu.leocmach@ens-lyon.fr>
+.. sectionauthor:: Mathieu Leocmach <mathieu.leocmach@ens-lyon.fr>
 
 Le potentiel de Lennard-Jones est souvent utilisé pour décrire les
 interactions entre deux atomes au sein d'un système monoatomique de
