@@ -1,0 +1,50 @@
+.. -*- mode: rst -*-
+.. Time-stamp: <2013-11-05 12:29:12 ycopin>
+
+Suivi de particule(s)
+---------------------
+
+:Author: Mathieu Leocmach <mathieu.leocmach@ens-lyon.fr>
+
+Dans de nombreux domaines de recherche expérimentale, on a besoin de
+localiser des particles dans une image ou de reconstituer leurs
+trajectoires à partir d'une vidéo. Il peut s'agir de virus envahissant
+une cellule, de traceurs dans un écoulement, d'objets célestes fonçant
+vers la terre pour la détruire, etc.
+
+Dans ce projet, on essayera d'abord de localiser une particule unique
+dans une image à 2 dimensions (niveaux de gris) en utilisant
+l'algorithme de Crocker & Grier décrit `ici
+<http://physics.nyu.edu/grierlab/methods/methods.html>`_. On utilisera
+sans retenue les fonctions de la bibliothèque `scipy.ndimage`.
+
+On essayera d'obtenir une localisation plus fine que la taille du
+pixel. On essayera ensuite de détecter plusieurs particules dans une
+image.
+
+Afin de pouvoir traiter efficacement une séquence d'images de même
+taille, on privilégiera une implémentation orientée objet. L'objet de
+la classe `Finder` sera construit une seule fois en début de séquence
+et il contiendra les images intermédiaires nécessaire au
+traitement. On nourrira ensuite cet objet avec chaque image de la
+séquence pour obtenir les coordonnées des particules.
+
+Enfin, on pourra essayer de relier les coordonnées dans des images
+successives pour constituer des trajectoires.
+
+On contactera le créateur du sujet pour obtenir des séquences d'images
+expérimentales de particules Browniennes.
+
+.. figure::  dilute_raw.png
+   :width: 25%
+   :align: center
+
+   **Figure:** Exemple d'image test où on voudra localiser les
+   particules.
+
+.. Local Variables: ...
+.. mode: rst ...
+.. ispell-local-dictionary: "francais" ...
+.. mode: flyspell ...
+.. indent-tabs-mode: nil ...
+.. End: ...

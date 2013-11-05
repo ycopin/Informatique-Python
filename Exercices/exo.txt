@@ -1,4 +1,4 @@
-.. Time-stamp: <2012-10-22 01:25 ycopin@lyopc469>
+.. Time-stamp: <2013-11-05 12:17:26 ycopin>
 .. _exercices:
 
 Exercices
@@ -73,7 +73,7 @@ générer à l'écran un `flocon de Koch
 .. figure:: koch_3.*
    :align: center
 
-   Flocon de Koch d'ordre 3.
+   **Figure:** Flocon de Koch d'ordre 3.
 
 .. koch
 .. `Une solution <../../../Exercices/solution.html?xbpu?xbpu.cl>`_
@@ -202,7 +202,7 @@ Générez l'ensemble de ces points d'équilibre pour des valeurs de
    :align: center
    :width: 50%
 
-   Diagramme de bifurcation.
+   **Figure:** Diagramme de bifurcation.
 
 N.B.: Vous utiliserez la bibliothèque `matplotlib` pour tracer vos
 résultats.
@@ -220,7 +220,7 @@ complexe :math:`c = 0.284 + 0.0122j`:
    :align: center
    :width: 50%
 
-   Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
+   **Figure:** Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
 
 N.B.: On utilisera la fonction `numpy.meshgrid` pour construire le
 plan complexe, et l'on affichera le résultat grâce à la fonction
