@@ -1,5 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2013-11-05 15:57:38 ycopin>
+.. Time-stamp: <2013-11-05 18:48:57 ycopin>
 
 :orphan:
 

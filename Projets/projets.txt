@@ -1,4 +1,4 @@
-.. Time-stamp: <2013-11-05 18:06:27 ycopin>
+.. Time-stamp: <2013-11-05 18:19:03 ycopin>
 .. _projets:
 
 
@@ -46,6 +46,7 @@ donner lieu à une simulation individu centré et éventuellement une
 comparaison entre les deux types de modèle.
 
 .. figure:: Aco_branches.png
+   :width: 50%
    :align: center
 
    **Figure:** 1) la première fourmi trouve la source de nourriture
