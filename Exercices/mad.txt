@@ -1,4 +1,9 @@
+.. Time-stamp: <2013-11-05 16:44:45 ycopin>
+
 .. _madSol:
+
+*Median Absolute Deviation*
+---------------------------
 
 .. literalinclude:: mad.py
    :linenos:

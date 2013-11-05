@@ -1,4 +1,9 @@
+.. Time-stamp: <2013-11-05 16:44:24 ycopin>
+
 .. _lifeSol:
+
+Jeu de la vie
+-------------
 
 .. literalinclude:: life.py
    :linenos:

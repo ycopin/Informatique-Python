@@ -1,17 +1,14 @@
 .. _standard:
 .. _td4:
 
-=====================================================================
-                        Bibliothèque standard
-=====================================================================
+Bibliothèque standard
+#####################
 
-.. Time-stamp: <2012-08-31 19:18:47 ycopin>
+.. Time-stamp: <2013-11-05 15:09:26 ycopin>
 
 .. contents:: Table des matières
 ..
     1  Gestion des arguments/options de la ligne de commande
-      1.1  Gestion simple: `sys`
-      1.2  Gestion avancée: `optparse`
     2  [c]Pickle: sérialisation des données
     3  *Batteries included*
     4  *Text/Graphical User Interfaces*
@@ -29,7 +26,7 @@ multimédia, etc.
 .. _optparse:
 
 Gestion des arguments/options de la ligne de commande
------------------------------------------------------
+=====================================================
 
 .. index::
    module: sys
@@ -80,7 +77,7 @@ commande, il est préférable d'utiliser le module `optparse`.
 .. _pickle:
 
 [c]Pickle: sérialisation des données
-------------------------------------
+====================================
 
 .. index::
    module: pickle/cPickle
@@ -106,7 +103,7 @@ True
 
 
 *Batteries included*
---------------------
+====================
 
 .. .. index::
 ..    module: math
@@ -174,7 +171,7 @@ True
 
 
 *Text/Graphical User Interfaces*
---------------------------------
+================================
 
 - :abbr:`TUI (Text User Interface)`: `curses
   <http://docs.python.org/library/curses.html>`_

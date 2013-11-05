@@ -1,4 +1,9 @@
+.. Time-stamp: <2013-11-05 16:44:05 ycopin>
+
 .. _kochSol:
+
+Flocon de Koch
+--------------
 
 .. literalinclude:: koch.py
    :linenos:

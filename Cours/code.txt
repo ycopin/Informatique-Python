@@ -1,8 +1,7 @@
-======================================================================
-                         Développer en python
-======================================================================
+Développer en python
+####################
 
-.. Time-stamp: <2013-11-05 12:43:35 ycopin>
+.. Time-stamp: <2013-11-05 15:10:38 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -111,6 +110,7 @@ Us et coutumes
   3. *Make it fast.*
 
 - *Respectez* le zen du python, il vous le rendra.
+
 
 Outils de développement
 =======================

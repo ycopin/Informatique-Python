@@ -1,9 +1,8 @@
-.. Time-stamp: <2013-10-23 23:51 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2013-11-05 15:08:50 ycopin>
 .. _cours:
 
-=====================================================================
-                         Initiation à Python
-=====================================================================
+Initiation à Python
+###################
 
 .. contents:: Table des matières
 ..
@@ -153,6 +152,7 @@ Python:
     <http://ipython.org/ipython-doc/stable/interactive/tutorial.html>`_
   - `IPython Tip Sheet
     <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/ipython.html>`_
+
 
 Types de base
 =============

@@ -1,10 +1,12 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2012-11-08 01:32 ycopin@lyopc469>
+.. Time-stamp: <2013-11-05 15:57:38 ycopin>
 
-Auto-organisation d'un banc de poisson
---------------------------------------
+:orphan:
 
-:Author: Hanna Julienne <hanna.julienne@gmail.com>
+Auto-organisation d'un banc de poissons
+=======================================
+
+.. sectionauthor:: Hanna Julienne <hanna.julienne@gmail.com>
 
 La coordination d'un `banc de poissons
 <http://www.youtube.com/watch?v=cIgHEhziUxU>`_ ou d'un `vol d'oiseaux
@@ -35,8 +37,8 @@ par rapport à leurs *k* plus proches voisins de la manière suivante:
 * ils s'approchent de leur voisins s'ils sont à la fois suffisamment
   proches et distants (zone verte)
 
-.. figure::  zone_poisson.png
-   :width: 10cm
+.. figure:: zone_poisson.png
+   :width: 8cm
    :align: center
 
    **Figure:** Environnement proche du poisson: zones dans lesquelles

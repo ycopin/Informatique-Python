@@ -1,4 +1,9 @@
+.. Time-stamp: <2013-11-05 16:45:58 ycopin>
+
 .. _juliaSol:
+
+Ensemble de Julia
+-----------------
 
 .. literalinclude:: julia.py
    :linenos:

@@ -1,4 +1,9 @@
+.. Time-stamp: <2013-11-05 16:45:42 ycopin>
+
 .. _logistiqueSol:
+
+Suite logistique
+----------------
 
 .. literalinclude:: logistique.py
    :linenos:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2013-10-23 23:43 ycopin@lyonovae03.in2p3.fr>
+# Time-stamp: <2013-11-05 17:19:01 ycopin>
 
 """
 Crible d'Ératosthène.
@@ -18,7 +18,7 @@ if sys.argv[1:]: # Présence d'au moins un argument sur la ligne de commande
     except ValueError:
         raise ValueError("L'argument '%s' n'est pas un entier" % sys.argv[1])
 else:                        # Pas d'argument sur la ligne de commande
-    n = 10001                  # Valeur par défaut
+    n = 101                  # Valeur par défaut
 # end-sys
 
 # Liste des entiers *potentiellement* premiers. Les nb non-premiers
