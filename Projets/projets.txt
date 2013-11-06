@@ -1,4 +1,4 @@
-.. Time-stamp: <2013-11-05 18:19:03 ycopin>
+.. Time-stamp: <2013-11-06 18:51:52 ycopin>
 .. _projets:
 
 
@@ -16,22 +16,31 @@ l'avancée du projet, un travail personnel est attendu.
 .. Note:: L'utilisation de bibliothèques externes (scientifiques,
    visualisation, etc.) est fortement encouragée.
 
-.. Échéancier: 
-
-.. * Avant le 16 novembre : choix d'un sujet de projet et envoi d'un
-..   email a votre chargé de TD
-.. * Novembre/décembre : 4 séances de discussion
-.. * 4 janvier 2013 12:00 : envoi des codes et du rapport au chargé de TD
-..   sous forme électronique. Une version papier du rapport sera
-..   également déposée au secrétariat.
-.. * Courant janvier : soutenance (15 mn + questions)
-
 Une liste de sujets possibles est donnée ci-dessous. Elle est
 non-exhaustive, c'est-à-dire que vous pouvez *en accord avec votre
 chargé de TD* proposer une autre étude. Les sujets donnés sont
 volontairement ouverts : ce sont des *pistes* sur lesquelles vous êtes
 sensés partir et évoluer.
 
+Informations pratiques
+----------------------
+
+.. WARNING:: Il s'agit ici d'informations **préliminaires**, qui
+   restent à confirmer.
+
+* Avant le 16 novembre : choix d'un sujet de projet et envoi d'un
+  email a votre chargé de TD
+* Novembre/décembre : 4 séances de discussion
+* 13 janvier 2014, 18:00 : envoi des codes et du rapport au chargé de TD
+  sous forme électronique. Une version papier du rapport sera
+  également déposée au secrétariat.
+* Deuxième quinzaine de janvier : soutenance (15 mn + questions)
+
+Le rapport, redigé en `LaTeX <http://fr.wikipedia.org/wiki/LaTeX>`_
+(imposé pour validation ultérieure `C2i2e
+<http://c2i2e.ens-lyon.fr/aide/>`_) doit faire entre 10 et 15 pages,
+éventuellement avec quelques annexes (p.ex. version commentée du
+code).
 
 Formation de pistes de fourmis sur un pont à 2 branches
 =======================================================
