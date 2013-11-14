@@ -36,7 +36,7 @@ class Life(object):
             if 0<=i<self.h and 0<=j<self.w:       # Inside grid
                 return self.world[i][j]
             else:                       # Outside grid
-                return 0                # There's nobody out there...
+                return False            # There's nobody out there...
 
     def __str__(self):
         """
