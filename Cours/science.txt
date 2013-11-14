@@ -574,7 +574,7 @@ fonctionnalités `numpy`. P.ex.:
 - Intégration numérique: :mod:`scipy.integrate` (intégration numérique
   ou d'équations différentielles)
 - Méthodes d'optimisation: :mod:`scipy.optimize` (minimisation,
-  moindres-carrés, zéros d'une fonctions, etc.)
+  moindres-carrés, zéros d'une fonction, etc.)
 - Interpolation: :mod:`scipy.interpolate` (interpolation, splines)
 - Transformées de Fourier: :mod:`scipy.fftpack`
 - Traitement du signal: :mod:`scipy.signal` (convolution, corrélation,
