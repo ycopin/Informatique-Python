@@ -2,7 +2,7 @@
                         Informatique & Python
 *********************************************************************
 
-.. Time-stamp: <2013-11-05 17:18:36 ycopin>
+.. Time-stamp: <2013-11-18 11:02:30 ycopin>
 
 .. highlight:: python
    :linenothreshold: 3
@@ -23,6 +23,7 @@
    Cours/exemples
    Exercices/exo
    Projets/projets
+   Projets/projets2013
 
 .. toctree::
    :hidden:

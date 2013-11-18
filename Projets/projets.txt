@@ -1,4 +1,4 @@
-.. Time-stamp: <2013-11-06 18:51:52 ycopin>
+.. Time-stamp: <2013-11-18 11:14:46 ycopin>
 .. _projets:
 
 
@@ -22,25 +22,7 @@ chargé de TD* proposer une autre étude. Les sujets donnés sont
 volontairement ouverts : ce sont des *pistes* sur lesquelles vous êtes
 sensés partir et évoluer.
 
-Informations pratiques
-----------------------
-
-.. WARNING:: Il s'agit ici d'informations **préliminaires**, qui
-   restent à confirmer.
-
-* Avant le 16 novembre : choix d'un sujet de projet et envoi d'un
-  email a votre chargé de TD
-* Novembre/décembre : 4 séances de discussion
-* 13 janvier 2014, 18:00 : envoi des codes et du rapport au chargé de TD
-  sous forme électronique. Une version papier du rapport sera
-  également déposée au secrétariat.
-* Deuxième quinzaine de janvier : soutenance (15 mn + questions)
-
-Le rapport, redigé en `LaTeX <http://fr.wikipedia.org/wiki/LaTeX>`_
-(imposé pour validation ultérieure `C2i2e
-<http://c2i2e.ens-lyon.fr/aide/>`_) doit faire entre 10 et 15 pages,
-éventuellement avec quelques annexes (p.ex. version commentée du
-code).
+Les modalités pratiques sont disponibles sur la page :ref:`projets2013`.
 
 Formation de pistes de fourmis sur un pont à 2 branches
 =======================================================

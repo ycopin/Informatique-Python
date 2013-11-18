@@ -1,5 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2013-11-05 18:48:57 ycopin>
+.. Time-stamp: <2013-11-18 12:31:45 ycopin>
 
 :orphan:
 
@@ -82,7 +82,10 @@ Suggestions :
 * Passer le projet en 3D
 * modéliser la réponse des individus face à un prédateur
 
-Références :
+Liens :
 
 * `Craig Reynolds Boids <http://www.red3d.com/cwr/boids/>`_
-
+* `Décrypter les interactions entre poissons au sein d'un banc
+  <http://www.cnrs.fr/insb/recherche/parutions/articles2012/g-theraulaz2.htm>`_
+* `Nuées d’oiseaux <http://mpt2013.fr/nuees-doiseaux/>`_ et `bancs de
+  poissons <http://mpt2013.fr/bancs-de-poissons/>`_
