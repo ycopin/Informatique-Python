@@ -1,5 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2013-11-18 11:42:19 ycopin>
+.. Time-stamp: <2013-11-27 10:57 ycopin@lyonovae03.in2p3.fr>
 
 .. _projets2013:
 
@@ -36,6 +36,22 @@ développement. Une section bibliographique est conseillée.
 
    * - Binôme
      - Sujet
+   * - *Groupe du mercredi matin*
+     - ..
+   * - Guillaume Blot, Gabriel Rocheman
+     - Ising
+   * - Méril Reboud, Sami Jouabert
+     - Percolation
+   * - Nicolas Auvray, Samuel Boury
+     - Foule
+   * - Maxime Lombart, Sophie Michel
+     - Poissons
+   * - Louis Garbe
+     - Poissons
+   * - Juliette Monsel, Barbara Pascal
+     - Fourmis
+   * - Marion Teyssedre, Perceval Desforges
+     - Fourmis
    * - *Groupe du jeudi matin*
      - ..
    * - Thibaut Coudarchet, Lilian Chabrol
