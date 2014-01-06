@@ -1,4 +1,4 @@
-.. Time-stamp: <2013-01-14 01:03 ycopin@lyopc469>
+.. Time-stamp: <2013-02-18 13:23:42 ycopin>
 .. _projets:
 
 =====================================================================
@@ -216,6 +216,8 @@ Références:
   Physics, 9, p 602-605.
 * `Équation de Schrödinger 1D
   <http://www.scipy.org/Cookbook/SchrodingerFDTD>`_
+* `Quantum Python: Animating the Schrodinger Equation
+  <http://jakevdp.github.com/blog/2012/09/05/quantum-python/>`_
 
 Percolation
 ...........

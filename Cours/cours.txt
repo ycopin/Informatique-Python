@@ -1,4 +1,4 @@
-.. Time-stamp: <2013-01-15 18:49:59 ycopin>
+.. Time-stamp: <2013-02-04 10:10:47 ycopin>
 .. _cours:
 
 =====================================================================
@@ -68,6 +68,7 @@ sous Linux (p.ex. `Ubuntu <http://ubuntu-fr.org/>`_, `Fedora
 - `Enthought Python Distribution
   <http://www.enthought.com/products/epd.php>`_ (Windows, MacOS,
   Linux, gratuite pour les étudiants du supérieur)
+.. http://jakevdp.github.com/blog/2013/02/02/setting-up-a-mac-for-python-development/
 
 Notions d'Unix
 --------------
