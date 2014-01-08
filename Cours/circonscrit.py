@@ -1,17 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+__author__ = "Yannick Copin <y.copin@ipnl.in2p3.fr>"
+__version__ = "Time-stamp: <2014-01-08 22:01:24 ycopin>"
+
 """
 Calcul du cercle circonscrit à 3 points du plan.
-
-Ce script peut être utilisé comme bibliothèque (`import circonscrit`),
-définissant les classes `Point` et `Vector`, le point origine `O` et
-la function `circumCircle`. Il peut également être utilisé comme un
-programme (`python circonscrit.py`).
 """
-
-__author__ = "Yannick Copin <y.copin@ipnl.in2p3.fr>"
-__version__ = "Time-stamp: <2011-09-27 12:17:25 ycopin>"
 
 from math import sqrt, hypot
 
@@ -61,14 +56,18 @@ O = Point(0,0)
 
 # start-classVector
 class Vector(Point):
-    """Un `Vector` est défini par 2 `Point`s. Il hérite de `Point`
-    avec des méthodes additionnelles (p.ex. l'addition)."""
+    """Un `Vector` hérite de `Point` avec des méthodes additionnelles
+    (p.ex. l'addition)."""
 
-    def __init__(self, A, B):
-        """Définit le vecteur :math:`\vec{AB}`."""
+    def __init__(self, A, B=O):
+        """Définit le vecteur :math:`\vec{AB}` si B!=O, ou
+        :math:`\vec{OA}` sinon."""
 
         # Initialisation de la classe parente
-        Point.__init__(self, B.x-A.x, B.y-A.y)
+        if B.isOrigin():                # B = O
+            Point.__init__(self, A.x, A.y)
+        else:                           # B != O
+            Point.__init__(self, B.x-A.x, B.y-A.y)
             
         # Attribut propre à la classe dérivée
         self.norm2 = self.x**2 + self.y**2 # Norme du vecteur au carré

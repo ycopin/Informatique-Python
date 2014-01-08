@@ -1,4 +1,4 @@
-.. Time-stamp: <2013-01-14 17:32:59 ycopin>
+.. Time-stamp: <2014-01-08 23:15:35 ycopin>
 
 Références supplémentaires
 ==========================
@@ -17,7 +17,7 @@ Documentation générale
 - `Python Documentation
   <http://wiki.python.org/moin/PythonDocumentation>`_
 - `Python Frequently Asked Questions
-  <http://docs.python.org/2/faq/index.html>`_
+  <http://docs.python.org/faq/index.html>`_
 
 Forums de discussion
 --------------------
@@ -78,7 +78,10 @@ Python
 - `DIY python workshop <http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
 - `Exemples de scripts Python
   <http://fr.wikibooks.org/wiki/Exemples_de_scripts_Python>`_ |fr|
-- `Google's Python Class <https://developers.google.com/edu/python/>`_
+- `Google's Python Class
+  <http://code.google.com/edu/languages/google-python-class/>`_
+- `CheckIO <http://www.checkio.org/>`_, pour apprendre la
+  programmation Python en s'amusant !
 
 Scientifique
 ............
@@ -107,7 +110,9 @@ Scientifique
 Autres
 ......
 
-- `Data Visualization <https://graphics.stanford.edu/wikis/cs448b-11-fall>`_
+- `Visualization <http://cs171.org/>`_
+
+.. - `Data Visualization <https://graphics.stanford.edu/wikis/cs448b-11-fall>`_
 
 .. - http://francois.brucker.perso.centrale-marseille.fr/cours/courant/python.html
 
@@ -124,9 +129,3 @@ Sphinx & co.
 .. |en| image:: ../Cours/uk_flag_icon.png
    :alt: En
 
-.. Local Variables: ...
-.. mode: rst ...
-.. ispell-local-dictionary: "francais" ...
-.. mode: flyspell ...
-.. indent-tabs-mode: nil ...
-.. End: ...

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2012-09-05 09:31 ycopin@lyopc469>
+# Time-stamp: <2014-01-08 22:01:23 ycopin>
 
 import random
 
@@ -19,9 +19,9 @@ class Life(object):
         self.w = int(w)
         assert self.h > 0 and self.w > 0
         # Random initialization of a h×w world
-        self.G = [ [ random.choice([True,False])
-                     for j in range(self.w) ]
-                   for i in range(self.h) ] # h rows of w elements
+        self.world = [ [ random.choice([True,False])
+                         for j in range(self.w) ]
+                       for i in range(self.h) ] # h rows of w elements
         self.periodic = periodic
 
     def get(self,i,j):
@@ -31,12 +31,12 @@ class Life(object):
         """
         
         if self.periodic:
-            return self.G[i%h][j%w]     # Periodic conditions
+            return self.world[i%self.h][j%self.w] # Periodic conditions
         else:
-            if 0<=i<h and 0<=j<w:       # Inside grid
-                return self.G[i][j]
+            if 0<=i<self.h and 0<=j<self.w:       # Inside grid
+                return self.world[i][j]
             else:                       # Outside grid
-                return 0                # There's nobody out there...
+                return False            # There's nobody out there...
 
     def __str__(self):
         """
@@ -44,9 +44,9 @@ class Life(object):
         """
 
         return '\n'.join([ ''.join([ self.cells[val] for val in row ])
-                           for row in self.G ])
+                           for row in self.world ])
     
-    def will_survive(self,i,j):
+    def evolve_cell(self,i,j):
         """Tells if cell (*i*,*j*) will survive during game iteration,
         depending on the number of living neighboring cells."""
 
@@ -65,7 +65,7 @@ class Life(object):
             future = False
         else:
             # A cell w/ 2 or 3 neighbors will stay as it is (dead or alive)
-            future = self.get(i,j)      # Current status
+            future = alive             # Current status
 
         return future
 
@@ -75,9 +75,9 @@ class Life(object):
         """
 
         # Update the grid
-        self.G = [ [ self.will_survive(i,j)
-                     for j in range(self.w) ]
-                   for i in range(self.h) ] 
+        self.world = [ [ self.evolve_cell(i,j)
+                         for j in range(self.w) ]
+                       for i in range(self.h) ] 
         
 if __name__=="__main__":
 

@@ -1,0 +1,31 @@
+.. Time-stamp: <2013-11-05 16:17:49 ycopin>
+
+Exemples
+========
+
+.. _circonscrit:
+
+Cercle circonscrit
+------------------
+
+.. literalinclude:: circonscrit.py
+   :linenos:
+
+**Source:** :download:`circonscrit.py`
+
+
+.. _filtres:
+
+Filtres du 2nd ordre
+--------------------
+
+.. figure:: filtrePasseHaut.*
+   :align: center
+   :width: 60%
+
+   **Figure:** Filtre passe-haut du 2nd ordre.
+
+.. literalinclude:: filtres2ndOrdre.py
+   :linenos:
+
+**Source:** :download:`filtres2ndOrdre.py`

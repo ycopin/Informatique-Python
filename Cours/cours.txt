@@ -1,9 +1,8 @@
-.. Time-stamp: <2013-02-04 10:10:47 ycopin>
+.. Time-stamp: <2014-01-08 23:06:44 ycopin>
 .. _cours:
 
-=====================================================================
-                         Initiation à Python
-=====================================================================
+Initiation à Python
+###################
 
 .. contents:: Table des matières
 ..
@@ -12,7 +11,7 @@
       1.2  Notions d'Unix
       1.3  L'invite de commande
     2   Types de base
-    3   Structures de contrôle
+    3   Structures de programmation
     4   Les chaînes de caractères
       4.1  Indexation
       4.2  Méthodes
@@ -36,7 +35,7 @@ Introduction
 
 .. rubric:: Liens:
 
-- `Python Tutorial <http://docs.python.org/2/tutorial/>`_ (v2.7)
+- `Python Tutorial <http://docs.python.org/tutorial/>`_ (v2.7)
 - `Tutoriel Python
   <http://python.developpez.com/cours/TutoVanRossum/>`_ (v2.4) |fr|
 - `Begginer's Guide <http://wiki.python.org/moin/BeginnersGuide>`_
@@ -53,7 +52,7 @@ Cette introduction repose sur les outils suivants:
 - Bibliothèque graphique: `matplotlib
   <http://matplotlib.org/users/installing.html>`_,
 - Interpréteur évolué, p.ex. `ipython
-  <http://ipython.org/download.html>`_,
+  <http://ipython.org/install.html>`_,
 - `Éditeur de texte évolué
   <http://en.wikipedia.org/wiki/Comparison_of_text_editors>`_,
   p.ex. `emacs <http://www.gnu.org/software/emacs/#Obtaining>`_
@@ -65,10 +64,9 @@ sous Linux (p.ex. `Ubuntu <http://ubuntu-fr.org/>`_, `Fedora
 également des distributions « clés en main »:
 
 - `Python(x,y) <http://code.google.com/p/pythonxy/>`_ (Windows)
-- `Enthought Python Distribution
-  <http://www.enthought.com/products/epd.php>`_ (Windows, MacOS,
-  Linux, gratuite pour les étudiants du supérieur)
-.. http://jakevdp.github.com/blog/2013/02/02/setting-up-a-mac-for-python-development/
+- `Enthought Canopy
+  <http://www.enthought.com/products/products/canopy>`_ (Windows,
+  MacOS, Linux, gratuite pour les étudiants du supérieur)
 
 Notions d'Unix
 --------------
@@ -102,7 +100,7 @@ Python:
 .. index:: interpréteur; python
 
 * :program:`python`: l'`interpréteur de base
-  <http://docs.python.org/2/tutorial/interpreter.html>`_::
+  <http://docs.python.org/tutorial/interpreter.html>`_::
 
     $ python
     Python 2.7.1+ (r271:86832, Apr 11 2011, 18:05:24) 
@@ -231,13 +229,13 @@ Types de base
   False
 
 
-Structures de contrôle
-======================
+Structures de programmation
+===========================
 
 - Une instruction par ligne en général (ou instructions séparées par
   `;` en interactif).
-- Les blocs sont définis par l'**indentation** (en général par pas de
-  4 espaces).
+- Les blocs sont définis par l'**indentation** (en général par pas de 4
+  espaces).
 - Les commentaires commencent par `#`, et vont jusqu'à la fin de la
   ligne.
 
@@ -290,6 +288,7 @@ Structures de contrôle
   - `break`: interrompt complètement la boucle
 
 .. index:: while
+.. index:: break
 
 - **Boucle while**: :samp:`while {condition}:` se répéte tant que la
   *condition* est vraie, ou après une sortie explicite avec `break`
@@ -346,7 +345,7 @@ Méthodes
 .. index:: dir
 
 Les chaînes de caractères disposent de `nombreuses propriétés
-<http://docs.python.org/2/library/stdtypes.html#string-methods>`_ (des
+<http://docs.python.org/library/stdtypes.html#string-methods>`_ (des
 « méthodes ») facilitant leur manipulation:
 
 >>> n,t = "Calvin",'Hobbes'
@@ -372,7 +371,7 @@ Formatage
 .. index:: print
 
 Le système de `formatage
-<http://docs.python.org/2/library/stdtypes.html#string-formatting-operations>`_
+<http://docs.python.org/library/stdtypes.html#string-formatting-operations>`_
 des chaînes de caractères s'appuie sur l'opérateur `%`, et est très
 semblable au `sprintf` du C/C++:
 
@@ -402,13 +401,7 @@ Scientific progress goes 'boink'
 
 .. rubric:: Exercice: 
 
-Écrire un programme affichant les tables de multiplication::
-
-  1 x 1 = 1
-  1 x 2 = 2
-  ...
-  9 x 9 = 81
-
+:ref:`tables`
 
 Objets itérables
 ================
@@ -519,7 +512,7 @@ volée -- tandis que chaînes de caractères et les tuples sont
 
 .. rubric:: Exercices: 
 
-:ref:`crible`, :ref:`carreMagique`
+:ref:`crible`, :ref:`carre`
 
 
 Fonctions
@@ -850,7 +843,7 @@ finalement l'interruption du programme)
 
 Vos procédures doivent également générer des exceptions
 (*documentées*) -- avec l'instruction :samp:`raise {Exception}` -- si
-elles ne peuvent conclure leur action, à charge de la procédure
+elles ne peuvent conclure leur action, à charge pour la procédure
 appelante de les gérer::
 
   def diffsqr(x,y):
@@ -951,7 +944,7 @@ courante » de Python dans un contexte scientifique.
 .. rubric:: Notes de bas de page
 
 .. [#p3k] Le développement actuel de Python se fait uniquement sur la
-   branche 3.x, qui constiute une remise à plat *non-rétrocompatible*
+   branche 3.x, qui constitue une remise à plat *non-rétrocompatible*
    du langage. À moins d'être activement impliqué dans le
    développement de modules 3.x, il est encore conseillé -- en 2011
    pour un utilisateur scientifique lambda -- de développer en python

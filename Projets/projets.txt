@@ -1,9 +1,8 @@
-.. Time-stamp: <2013-02-18 13:23:42 ycopin>
+.. Time-stamp: <2014-01-08 23:26:50 ycopin>
 .. _projets:
 
-=====================================================================
-                            Micro-projets
-=====================================================================
+Micro-projets
+#############
 
 Projets de visualisation
 ========================
@@ -83,16 +82,54 @@ Projets statistiques
 Projets de physique
 ===================
 
+Formation de pistes de fourmis sur un pont à 2 branches
+-------------------------------------------------------
+
+Si on propose à une colonie de fourmis de choisir entre 2 branches
+pour rejoindre une source de nourriture la branche finalement choisie
+est toujours la plus courte. Le projet consiste à modéliser et
+caractériser ce comportement.
+
+Indication: on peut étudier ce système avec des EDOs. Cela peut aussi
+donner lieu à une simulation individu centré et éventuellement une
+comparaison entre les deux types de modèle.
+
+.. figure:: Aco_branches.png
+   :width: 50%
+   :align: center
+
+   **Figure:** 1) la première fourmi trouve la source de nourriture
+   (F), via un chemin quelconque (a), puis revient au nid (N) en
+   laissant derrière elle une piste de phéromone (b). 2) les fourmis
+   empruntent indifféremment les 4 chemins possibles, mais le
+   renforcement de la piste rend plus attractif le chemin le plus
+   court. 3) les fourmis empruntent le chemin le plus court, les
+   portions longues des autres chemins voient la piste de phéromones
+   s'évaporer. Source: `Johann Dréo
+   <http://commons.wikimedia.org/wiki/File:Aco_branches.svg>`_ via
+   Wikimedia Commons.
+
 Formation d'agrégats
 --------------------
 
 La formation d'agrégats est par essence un sujet interdisciplinaire,
 ou la modélisation joue un rôle certain comme « microscope
 computationel ». Pour un projet en ce sens, un soin particulier sera
-donné à la contextualisation. Par exemple, on pourra tester les
-limites de la règle de Wade pour la structure de clusters métalliques,
-ou bien dans un contexte plus `biologique
-<http://fr.wikipedia.org/wiki/Dictyostelium_disco%C3%AFdeum>`_.
+donné à la contextualisation. P. ex., on pourra tester les limites de
+la règle de Wade pour la structure de clusters métalliques, ou bien
+dans un contexte plus `biologique
+<http://fr.wikipedia.org/wiki/Dictyostelium_discoideum>`_.
+
+.. figure:: DLA.jpg
+   :width: 50%
+   :align: center
+
+   **Figure:** Résultat d'une agrégation limitée par la diffusion
+   d'environ 33 000 particules obtenue en permettant à des marcheurs
+   aléatoires d'adhérer à une semence centrale. Les couleurs indiquent
+   le temps d'arrivée des marcheurs. Source: `WingkLEE
+   <http://commons.wikimedia.org/wiki/File%3AOf7_p0001_15h.jpg>`_ (Own
+   work) [Public domain], via Wikimedia Commons.
 
 Modèle d'Ising
 --------------
@@ -114,6 +151,15 @@ le couplage à un champ magnétique. On va considérer un réseau carré
 avec une interaction ferromagnétique (:math:`J > 0`). L’objectif du
 projet sera d’étudier le diagramme de phase du système en fonction de
 la température et du champ magnétique par simulation de Monte-Carlo.
+
+.. figure:: ising.png
+   :width: 50%
+   :align: center
+
+   **Figure:** Modèle d'Ising au point critique. Source: `Paul
+   Coddington
+   <http://cs.adelaide.edu.au/~paulc/physics/spinmodels.html>`_.
+
 
 Solitons
 --------
@@ -164,6 +210,16 @@ répondre à chacune d’entre elle):
   collisionner des solitons. Cette étude est très intéressante et
   pleine de surprises. Que se passe-t-il lors de la collision de deux
   solitons? Entre un soliton et un anti-soliton?
+  
+.. figure::  mascaret.jpg
+   :width: 50%
+   :align: center
+
+   **Figure:** Un mascaret, une vague soliton, dans un estuaire de
+   Grande Bretagne. Source: `Arnold Price
+   <http://commons.wikimedia.org/wiki/File%3ATidal_Bore_-_geograph.org.uk_-_324581.jpg>`_
+   [`CC-BY-SA-2.0 <http://creativecommons.org/licenses/by-sa/2.0>`_],
+   via Wikimedia Commons.
 
 
 .. Auto-organisation d'un banc de poisson
@@ -181,8 +237,8 @@ Autres possibilités
 - `Reaction-Diffusion by the Gray-Scott Model
   <http://mrob.com/pub/comp/xmorphia/>`_
 - Équation de `Cahn–Hilliard
-  <http://en.wikipedia.org/wiki/Cahn%E2%80%93Hilliard_equation>`_ (voir
-  p.ex. l'`exemple
+  <http://en.wikipedia.org/wiki/Cahn%E2%80%93Hilliard_equation>`_
+  (voir l'`exemple NIST
   <http://www.ctcms.nist.gov/fipy/examples/cahnHilliard/generated/examples.cahnHilliard.mesh2D.html>`_
   sous `FiPy: A Finite Volume PDE Solver Using Python
   <http://www.ctcms.nist.gov/fipy/>`_)
@@ -241,7 +297,7 @@ nombre des amas de cases noires en fonction de la concentration. On
 
 .. image:: percolation.png
    :width: 10cm
-   :align:   center
+   :align: center
 
 Cette étude repose sur un tirage pseudo aléatoire et pas conséquent
 nécessite un traitement statistique. On ne pourra pas se contenter
@@ -249,7 +305,7 @@ d’étudier un cas particulier mais on prendra soin au contraire
 d’effectuer des moyennes sur un très grand nombre de tirages
 (plusieurs centaines).
 
-**Sources:**
+.. rubric:: Sources:
 
 * `Percolation theory <http://en.wikipedia.org/wiki/Percolation_theory>`_
 * `Concepts fondamentaux de la percolation
@@ -285,8 +341,11 @@ Jeux de paramètres à tester :
 - Ising en 3D avec Wolff
 - Potts (changer q=2 par q=3) en 3D avec Wolff
 
-**Références:** `Computational Studies of Pure and Dilute Spin Models
+.. rubric:: Références:
+
+`Computational Studies of Pure and Dilute Spin Models
 <http://www.hermetic.ch/compsci/thesis/contents.htm>`_
+
 
 *Protein Data Bank*
 ...................
@@ -312,12 +371,5 @@ On propose d'assurer une lecture de ce fichier pour calculer notamment :
 
 On propose de considerer par exemple la structure resolue pour la `GFP
 <http://www.rcsb.org/pdb/101/motm.do?momID=42>`_ (*Green Fluorescent
-Protein*, Prix Nobel 2008) (`Fichier PDB
+Protein*, Prix Nobel 2008, `Fichier PDB
 <http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)
-
-.. Local Variables: ...
-.. mode: rst ...
-.. ispell-local-dictionary: "francais" ...
-.. mode: flyspell ...
-.. indent-tabs-mode: nil ...
-.. End: ...

@@ -1,11 +1,8 @@
-======================================================================
+*********************************************************************
                    Analyse scientifique avec Python
-======================================================================
+*********************************************************************
 
-.. Time-stamp: <2013-01-14 17:30:18 ycopin>
-
-:Version: |version| du |today|
-:Auteur: Yannick Copin <`(at)ipnl.in2p3.fr`>
+.. Time-stamp: <2014-01-08 22:53:02 ycopin>
 
 .. highlight:: python
    :linenothreshold: 3
@@ -13,100 +10,29 @@
 .. Make interpreted `text` acts as literal ``text``
 .. default-role:: literal
 
-
-Pourquoi un module d'analyse scientifique ?
-===========================================
-
-* Pour *générer* ses données, p.ex. simulations numériques, contrôle
-  d'expériences;
-* Pour *traiter* ses données, i.e. supprimer les artefacts
-  observationnels;
-* Pour *analyser* ses données, i.e. extraire les quantités physiques
-  pertinentes, p.ex. en ajustant un modèle;
-* Pour *visualiser* ses données, et appréhender leur richesse
-  multi-dimensionnelle;
-* Pour *présenter* ses données, p.ex. générer des figures prêtes à
-  publier.
-
-Ce module s'addresse donc avant tout aux futurs expérimentateurs,
-phénoménologistes ou théoriciens voulant se frotter à la réalités des
-observations.
-
-
-Pourquoi Python ?
-=================
-
-Les principales caractéristiques du langage `python`:
-
-- Syntaxe simple et lisible: langage pédagogique et facile à apprendre
-  et à utiliser;
-- Langage interprété: utilisation interactive ou script exécuté ligne
-  à ligne, pas de processus de compilation;
-- Haut niveau: typage dynamique, gestion active de la mémoire, pour
-  une plus grande facilité d'emploi;
-- Multi-paradigme: langage impératif et/ou orienté objet, selon les
-  besoins et les capacités de chacun;
-- Logiciel libre et ouvert, largement répandu (multi-plateforme) et
-  utilisé (forte communauté);
-- Riche bibliothèque standard: *Batteries included*;
-- Riche bibliothèque externe: de nombreuses bibliothèques de qualité,
-  dans divers domaines (y compris scientifiques), sont déjà
-  disponibles.
-
-L'objectif est bien d'apprendre *un seul* langage de haut niveau,
-permettant tout aussi bien des analyses rapides dans la vie de tous
-les jours -- quelques lignes de code en intéractif -- que des
-programes les plus complexes (projets de plus de 100000 lignes).
-
-**Liens:**
-
-* `About Python <http://www.python.org/about/>`_
-* `Python Advocacy <http://docs.python.org/2/howto/advocacy.html>`_
-
-
-Organisation des TDs
-====================
-
-* :ref:`TD1 <td1>`: Introduction, types de base, structures de programmation
-* :ref:`TD2 <td2>`: Chaînes de caractères, objets itérables, fonctions, bibliothèques
-* :ref:`TD3 <td3>`: Classes, exceptions, entrées-sorties
-* :ref:`TD4 <td4>`: Librairie standard, révisions
-* :ref:`TD5 <td5>`: Numpy
-* :ref:`TD6 <td6>`: Scipy
-* :ref:`TD7 <td7>`: Zen du python, révisions
-* :ref:`Page projets <projets>`: Exemple de sujets de micro-projets
-
-Table des matières
-==================
-
 .. toctree::
    :maxdepth: 2
    :numbered:
 
-   info
+   intro
    Cours/cours
-   Cours/circonscrit
    Cours/standard
    Cours/science
-   Cours/filtres2ndOrdre
    Cours/code
    Cours/references
+   Cours/exemples
    Exercices/exo
-   Exercices/carreMagique
+   Projets/projets
+
+.. toctree::
+   :hidden:
+
    Exercices/crible
-   Exercices/life
+   Exercices/carre
    Exercices/koch
+   Exercices/life
    Exercices/mad
    Exercices/pull
    Exercices/anscombe
-   Exercices/julia
    Exercices/logistique
-   Projets/projets
-
-Index
-=====
-
-* :ref:`genindex`
-* :ref:`search`
-
-.. * :ref:`modindex`
+   Exercices/julia

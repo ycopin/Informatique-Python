@@ -1,4 +1,9 @@
+.. Time-stamp: <2014-01-08 22:01:23 ycopin>
+
 .. _pullSol:
+
+Distribution du *pull*
+----------------------
 
 .. literalinclude:: pull.py
    :linenos:

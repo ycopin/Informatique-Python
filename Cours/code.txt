@@ -1,8 +1,7 @@
-======================================================================
-                         Développer en python
-======================================================================
+Développer en python
+####################
 
-.. Time-stamp: <2013-01-23 00:54 ycopin@lyopc469>
+.. Time-stamp: <2014-01-08 22:01:24 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -91,25 +90,27 @@ Us et coutumes
 
 .. rubric:: Quelques conseils supplémentaires:
 
-- *Ne réinventez pas la roue, encore moins le moteur à explosion*
-  [#wheel]_: cherchez si ce que vous voulez faire n'a pas déjà été
-  fait (éventuellement en mieux...), construisez dessus (en citant
-  évidemment vos sources), et contribuez si possible!
+- « Ne réinventez pas la roue, sauf si vous souhaitez en savoir plus
+  sur les roues » (Jeff Atwood [#wheel]_): cherchez si ce que vous
+  voulez faire n'a pas déjà été fait (éventuellement en mieux...),
+  construisez dessus (en citant évidemment vos sources), et contribuez
+  si possible!
 - Codez *proprement*: commentez votre code, utilisez des noms de
   variable qui ont un sens, créez des objets si nécessaire, etc.
 - Codez proprement *dès le début*: ne croyez pas que vous ne relirez
   jamais votre code (ou même que personne n'aura jamais à le lire), ou
   que vous aurez le temps de le refaire mieux plus tard...
 - « L'optimisation prématurée est la source de tous les maux » (Donald
-  Knuth): mieux vaut un code lent mais juste et maintenable qu'un code
-  rapide et faux ou incompréhensible. Dans l'ordre absolu des
-  priorités:
+  Knuth [#opt]_): mieux vaut un code lent mais juste et maintenable
+  qu'un code rapide et faux ou incompréhensible. Dans l'ordre absolu
+  des priorités:
 
   1. *Make it work.*
   2. *Make it right.*
   3. *Make it fast.*
 
 - *Respectez* le zen du python, il vous le rendra.
+
 
 Outils de développement
 =======================
@@ -152,6 +153,12 @@ Documentation
 
 .. http://wiki.python.org/moin/DocumentationTools
 
+* Outils de documentation, ou comment transformer automagiquement un
+  code-source bien documenté en une documentation fonctionnelle.
+
+  - `Sphinx <http://sphinx.pocoo.org/>`_
+  - `reStructuredText for Sphinx <http://sphinx.pocoo.org/rest.html>`_
+
 * Conventions de documentation:
 
   - *Docstring convention*: :pep:`257`
@@ -159,12 +166,6 @@ Documentation
     <http://packages.python.org/an_example_pypi_project/sphinx.html>`_
   - `A Guide to NumPy/SciPy Documentation
     <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
-
-* Outils de documentation, ou comment transformer automagiquement un
-  code-source bien documenté en une documentation fonctionnelle.
-
-  - `Sphinx <http://sphinx.pocoo.org/>`_
-  - `reStructuredText for Sphinx <http://sphinx.pocoo.org/rest.html>`_
 
 Les méthodes de tests
 ---------------------
@@ -258,6 +259,8 @@ Python 2 vs. python 3
 .. [#zen] Dont seulement 19 ont été écrits.
 .. [#wheel] « *Don't reinvent the wheel, unless you plan on learning
    more about wheels* » -- Jeff Atwood
+.. [#opt] « *Premature optimization is the root of all evil* » --
+   Donald Knuth
 
 .. Local Variables: ...
 .. mode: rst ...

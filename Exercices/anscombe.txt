@@ -1,10 +1,15 @@
+.. Time-stamp: <2014-01-08 22:01:24 ycopin>
+
 .. _anscombeSol:
+
+Quartet d'Anscombe
+------------------
+
+.. literalinclude:: anscombe.py
+   :linenos:
 
 .. figure:: anscombe.*
    :align: center
    :width: 50%
-
-.. literalinclude:: anscombe.py
-   :linenos:
 
 **Source:** :download:`anscombe.py`

@@ -1,6 +1,0 @@
-.. _circonscrit:
-
-.. literalinclude:: circonscrit.py
-   :linenos:
-
-**Source:** :download:`circonscrit.py`

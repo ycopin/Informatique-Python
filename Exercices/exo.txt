@@ -1,16 +1,29 @@
-.. Time-stamp: <2013-01-22 10:41 ycopin@lyopc469>
+.. Time-stamp: <2014-01-08 23:21:14 ycopin>
 .. _exercices:
 
 Exercices
-=========
+#########
+
+.. _tables:
+
+Tables de multiplication
+========================
+
+Écrire un programme affichant les tables de multiplication::
+
+  1 x 1 = 1
+  1 x 2 = 2
+  ...
+  9 x 9 = 81
+
 
 Manipulation de listes
-----------------------
+======================
 
 .. _crible:
 
 Crible d'Ératosthène
-''''''''''''''''''''
+--------------------
 
 Implémenter le `crible d'Ératosthène
 <http://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne>`_ pour
@@ -19,12 +32,10 @@ afficher les nombres premiers compris entre 1 et un entier fixe, p.ex.::
   Liste des entiers premiers <= 41
   [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]
 
-.. crible
-
-.. _carreMagique:
+.. _carre:
 
 Carré magique
-'''''''''''''
+-------------
 
 Un carré magique d’ordre *n* est un tableau carré *n × n* dans lequel
 on écrit une et une seule fois les nombres entiers de 1 à *n²*, de
@@ -54,13 +65,10 @@ commençant à 1:
 Programmer cet algorithme pour pouvoir construire un carré magique
 d’ordre impair quelconque.
 
-.. carre
-.. `Une solution <../../../Exercices/solution.html?pneer?pneerZntvdhr.ugzy>`_
-
 .. _koch:
 
 Flocon de Koch
---------------
+==============
 
 .. index::
    module: turtle
@@ -73,15 +81,12 @@ générer à l'écran un `flocon de Koch
 .. figure:: koch_3.*
    :align: center
 
-   Flocon de Koch d'ordre 3.
-
-.. koch
-.. `Une solution <../../../Exercices/solution.html?xbpu?xbpu.cl>`_
+   **Figure:** Flocon de Koch d'ordre 3.
 
 .. _life:
 
 Jeu de la vie
--------------
+=============
 
 On se propose de programmer l'automate cellulaire le plus célèbre, `le
 Jeu de la vie <http://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
@@ -106,15 +111,13 @@ N.B.: Pour que l'affichage soit agréable à l'oeil, vous marquerez des
 pauses entre l'affichage de chaque itération grâce à la fonction
 `time.sleep`.
 
-.. life
-
 Manipulation de tableaux (arrays)
----------------------------------
+=================================
 
 .. _mad:
 
 *Median Absolute Deviation*
-'''''''''''''''''''''''''''
+---------------------------
 
 En statistique, le *Median Absolute Deviation* (MAD) est un estimateur
 robuste de la dispersion d'un échantillon 1D: `MAD = median(| x -
@@ -127,7 +130,7 @@ axes.
 .. _pull:
 
 Distribution du *pull*
-''''''''''''''''''''''
+----------------------
 
 Le *pull* est une quantité statistique permettant d'évaluer la
 conformité des erreurs par rapport à une distribution de valeurs
@@ -151,7 +154,7 @@ Si les erreurs :math:`\sigma_i` sont correctes, la distribution du
 .. _anscombe:
 
 Quartet d'Anscombe
-''''''''''''''''''
+------------------
 
 Après chargement des données, calculer et afficher les propriétés
 statistiques des quatres jeux de données du :download:`Quartet
@@ -189,7 +192,7 @@ que la droite de régression linéaire.
 .. _logistique:
 
 Diagramme de bifurcation : la suite logistique
-''''''''''''''''''''''''''''''''''''''''''''''
+----------------------------------------------
 
 Écrivez une fonction qui calcule la valeur d'équilibre de la `suite
 logistique <http://fr.wikipedia.org/wiki/Suite_logistique>`_ pour un
@@ -203,7 +206,7 @@ Générez l'ensemble de ces points d'équilibre pour des valeurs de
    :align: center
    :width: 50%
 
-   Diagramme de bifurcation.
+   **Figure:** Diagramme de bifurcation.
 
 N.B.: Vous utiliserez la bibliothèque `matplotlib` pour tracer vos
 résultats.
@@ -211,7 +214,7 @@ résultats.
 .. _julia:
 
 Ensemble de Julia
-'''''''''''''''''
+-----------------
 
 Représentez l'`ensemble de Julia
 <http://fr.wikipedia.org/wiki/Ensemble_de_Julia>`_ pour la constante
@@ -221,21 +224,24 @@ complexe :math:`c = 0.284 + 0.0122j`:
    :align: center
    :width: 50%
 
-   Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
+   **Figure:** Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
 
 N.B.: On utilisera la fonction `numpy.meshgrid` pour construire le
 plan complexe, et l'on affichera le résultat grâce à la fonction
 `matplotlib.pyplot.imshow`.
 
+Voir également: `Superposition d'ensembles de Julia
+<http://maths.wikidot.com/julia-superposition>`_
+
 .. _algo:
 
 Algorithmes numériques
-----------------------
+======================
 
 .. _romberg:
 
 Intégration numérique de Romberg
-''''''''''''''''''''''''''''''''
+--------------------------------
 
 Écrire une fonction `integ_romberg(f, a, b, epsilon=1e-6)` permettant
 de calculer l'intégrale numérique de la fonction *f* entre les bornes
@@ -248,7 +254,7 @@ Tester sur des solutions analytiques et en comparant à
 .. _rk:
 
 Méthode de Runge-Kutta
-''''''''''''''''''''''
+----------------------
 
 Développer un algorithme permettant d'intégrer numériquement une
 équation différentielle du 1er ordre en utilisant la `méthode de
@@ -260,16 +266,15 @@ Tester sur des solutions analytiques et en comparant à
 `scipy.integrate.odeint`.
 
 Exercices supplémentaires
--------------------------
+=========================
 
 * `Exercices de base
-  <http://fr.wikibooks.org/wiki/Programmation_Python/Exercices_Base_du_langage>`_
+  <http://fr.wikibooks.org/wiki/Programmation_Python/Exercices_Base_du_langage>`_ |fr|
 * `Entraînez-vous !
-  <http://www.siteduzero.com/forum-83-537209-p1-entrainez-vous-sur-le-langage-python.html>`_
-* `Learn Python The Hard Way <http://learnpythonthehardway.org/book/>`_ |en|
-* `Google Code Jam <http://code.google.com/codejam/>`_ |en|
+  <http://www.siteduzero.com/forum-83-537209-p1-entrainez-vous-sur-le-langage-python.html>`_ |fr|
+* `Learn Python The Hard Way <http://learnpythonthehardway.org/book/>`_
+* `Google Code Jam <http://code.google.com/codejam/>`_
 * `CheckIO <http://www.checkio.org/>`_
-
 
 .. |fr| image:: ../Cours/france_flag_icon.png
    :alt: Fr

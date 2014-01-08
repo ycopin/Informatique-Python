@@ -1,10 +1,9 @@
 .. _science:
 
-=====================================================================
-                       Bibliothèques numériques
-=====================================================================
+Bibliothèques numériques
+########################
 
-.. Time-stamp: <2013-01-23 01:19 ycopin@lyopc469>
+.. Time-stamp: <2014-01-08 23:16:21 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -24,7 +23,7 @@
     4  Autres librairies scientifiques
 
 * `Standard Numeric and Mathematical Modules
-  <http://docs.python.org/2/library/numeric.html>`_
+  <http://docs.python.org/library/numeric.html>`_
 
 .. _td5:
 
@@ -37,7 +36,7 @@ Numpy
 - `Réference Numpy <http://docs.scipy.org/doc/numpy/reference/>`_
 - `Tutoriel numpy <http://www.scipy.org/Tentative_NumPy_Tutorial>`_
 - `Exemples annotés
-  <http://www.scipy.org/Numpy_Example_List_With_Doc/>`_
+  <http://wiki.scipy.org/Numpy_Example_List>`_
 
 .. - `Numpy Medkit <http://mentat.za.net/numpy/numpy_advanced_slides/>`_
 .. - `Getting Started with Numpy Arrays in Python
@@ -296,6 +295,7 @@ array([[0, 1],
 .. index:: 
    pair: numpy; hstack
    pair: numpy; vstack
+   pair: numpy; dstack
 
 >>> a = N.arange(5); a
 array([0, 1, 2, 3, 4])
@@ -304,6 +304,12 @@ array([0, 1, 2, 3, 4, 0, 1, 2, 3, 4])
 >>> N.vstack((a,a))  # Stack vertical (le long des lignes)
 array([[0, 1, 2, 3, 4],
        [0, 1, 2, 3, 4]])
+>>> N.dstack((a,a))  # Stack en profondeur (le long des plans)
+array([[[0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 4]]])
 
 .. rubric:: *Broadcasting*
 
@@ -592,7 +598,7 @@ fonctionnalités `numpy`. P.ex.:
 - Intégration numérique: :mod:`scipy.integrate` (intégration numérique
   ou d'équations différentielles)
 - Méthodes d'optimisation: :mod:`scipy.optimize` (minimisation,
-  moindres-carrés, zéros d'une fonctions, etc.)
+  moindres-carrés, zéros d'une fonction, etc.)
 - Interpolation: :mod:`scipy.interpolate` (interpolation, splines)
 - Transformées de Fourier: :mod:`scipy.fftpack`
 - Traitement du signal: :mod:`scipy.signal` (convolution, corrélation,
@@ -623,7 +629,7 @@ fonctionnalités `numpy`. P.ex.:
   - `statsmodel <http://statsmodels.sourceforge.net/>`_: modèles statistiques
 
 - `Scipy Topical softwares <http://www.scipy.org/Topical_Software>`_
-- `Numpy/Scipy projects <http://www.scipy.org/Projects>`_
+- `Numpy/Scipy projects <http://wiki.scipy.org/Projects>`_
 
 .. http://www.osc.edu/supercomputing/training/python/python_pt2_0702.pdf
 
@@ -641,6 +647,8 @@ Quelques exemples complets
   <http://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html>`_
   (intégrales numériques, équations différentielles)
 
+  - `Résolution d'équations différentielles avec scipy
+    <http://ipt.mpsi2.info/scipy/odeint>`_
   - `Oscillation amortie
     <http://www.dakarlug.org/pat/scientifique/html/scipy.html>`_
   - `Zombie Apocalypse
@@ -753,8 +761,8 @@ différents domaines de la physique/chimie:
   <http://www.astro.rug.nl/software/kapteyn/>`_ et autres `modules
   astronomiques
   <http://oneau.wordpress.com/2010/10/02/python-for-astronomy/>`_
-- *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
-  <http://sfepy.org/doc-devel/index.html>`_
+- *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, 
+  `SfePy <http://sfepy.org/doc-devel/index.html>`_
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
   <http://packages.python.org/milk/>`_, `MDP
   <http://mdp-toolkit.sourceforge.net/>`_, `AstroML
@@ -763,8 +771,7 @@ différents domaines de la physique/chimie:
   <http://wiki.python.org/moin/PythonForArtificialIntelligence>`_
 - Calcul symbolique: sympy_ (voir également ce `tutoriel sympy
   <http://mattpap.github.com/scipy-2011-tutorial/html/>`_)
-- Interface à `Root <http://root.cern.ch/drupal/>`_: `PyROOT
-  <http://root.cern.ch/drupal/content/pyroot>`_
+- `PyROOT <http://root.cern.ch/drupal/content/pyroot>`_
 - `Etc. <http://www.scipy.org/Topical_Software>`_
 
 .. - `PyMC <http://code.google.com/p/pymc/>`_: *Monte Carlo Markov Chain*
