@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-08 23:21:14 ycopin>
+.. Time-stamp: <2014-01-10 18:00:34 ycopin>
 .. _exercices:
 
 Exercices
@@ -74,8 +74,8 @@ Flocon de Koch
    module: turtle
 
 En utilisant les commandes `left`, `right` et `forward` de la
-bibliothèque graphique standard `turtle` dans une fonction récursive,
-générer à l'écran un `flocon de Koch
+bibliothèque graphique standard `turtle` dans une fonction
+*récursive*, générer à l'écran un `flocon de Koch
 <http://fr.wikipedia.org/wiki/Flocon_de_Koch>`_ d'ordre arbitraire.
 
 .. figure:: koch_3.*
@@ -85,8 +85,8 @@ générer à l'écran un `flocon de Koch
 
 .. _life:
 
-Jeu de la vie
-=============
+Jeu de la vie (programmation orientée objet)
+============================================
 
 On se propose de programmer l'automate cellulaire le plus célèbre, `le
 Jeu de la vie <http://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
@@ -150,6 +150,9 @@ Si les erreurs :math:`\sigma_i` sont correctes, la distribution du
 *pull* est centrée sur 0 avec une déviation standard de 1.
 
 Écrire une fonction `pull(x, dx)` calculant le *pull* de tableaux 1D.
+
+Visualisation (matplotlib)
+==========================
 
 .. _anscombe:
 
@@ -235,13 +238,28 @@ Voir également: `Superposition d'ensembles de Julia
 
 .. _algo:
 
-Algorithmes numériques
-======================
+Méthodes numériques
+===================
+
+.. _numerique:
+
+Calcul d'intégrale
+------------------
+
+Calculer numériquement l'intégrale :math:`\int_0^\infty
+\frac{x^3}{e^x-1}\mathrm{d}x = \frac{\pi^4}{15}`.
+
+Zéro d'une fonction
+-------------------
+
+Résoudre numériquement l'équation :math:`\frac{x\,e^x}{e^x - 1} = 5`. 
+
+.. x = 4.965114231744276
 
 .. _romberg:
 
-Intégration numérique de Romberg
---------------------------------
+Schéma de Romberg
+-----------------
 
 Écrire une fonction `integ_romberg(f, a, b, epsilon=1e-6)` permettant
 de calculer l'intégrale numérique de la fonction *f* entre les bornes
