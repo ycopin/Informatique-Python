@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-08 23:06:44 ycopin>
+.. Time-stamp: <2014-01-10 17:42:54 ycopin>
 .. _cours:
 
 Initiation à Python
@@ -35,7 +35,7 @@ Introduction
 
 .. rubric:: Liens:
 
-- `Python Tutorial <http://docs.python.org/tutorial/>`_ (v2.7)
+- `Python Tutorial <http://docs.python.org/2/tutorial/>`_ (v2.7)
 - `Tutoriel Python
   <http://python.developpez.com/cours/TutoVanRossum/>`_ (v2.4) |fr|
 - `Begginer's Guide <http://wiki.python.org/moin/BeginnersGuide>`_
@@ -48,7 +48,7 @@ Cette introduction repose sur les outils suivants:
 - `Python <http://python.org/download/>`_ p.ex. 2.7 [#p3k]_ (inclus
   l'interpréteur de base et la bibliothèque standard)
 - Bibliothèques scientifiques: `Numpy et Scipy
-  <http://new.scipy.org/download.html>`_,
+  <http://scipy.org/install.html>`_,
 - Bibliothèque graphique: `matplotlib
   <http://matplotlib.org/users/installing.html>`_,
 - Interpréteur évolué, p.ex. `ipython
@@ -64,9 +64,8 @@ sous Linux (p.ex. `Ubuntu <http://ubuntu-fr.org/>`_, `Fedora
 également des distributions « clés en main »:
 
 - `Python(x,y) <http://code.google.com/p/pythonxy/>`_ (Windows)
-- `Enthought Canopy
-  <http://www.enthought.com/products/products/canopy>`_ (Windows,
-  MacOS, Linux, gratuite pour les étudiants du supérieur)
+- `Enthought Canopy <http://www.enthought.com/products/canopy>`_
+  (Windows, MacOS, Linux, gratuite pour les étudiants du supérieur)
 
 Notions d'Unix
 --------------
@@ -100,7 +99,7 @@ Python:
 .. index:: interpréteur; python
 
 * :program:`python`: l'`interpréteur de base
-  <http://docs.python.org/tutorial/interpreter.html>`_::
+  <http://docs.python.org/2/tutorial/interpreter.html>`_::
 
     $ python
     Python 2.7.1+ (r271:86832, Apr 11 2011, 18:05:24) 
@@ -345,7 +344,7 @@ Méthodes
 .. index:: dir
 
 Les chaînes de caractères disposent de `nombreuses propriétés
-<http://docs.python.org/library/stdtypes.html#string-methods>`_ (des
+<http://docs.python.org/2/library/stdtypes.html#string-methods>`_ (des
 « méthodes ») facilitant leur manipulation:
 
 >>> n,t = "Calvin",'Hobbes'
@@ -371,7 +370,7 @@ Formatage
 .. index:: print
 
 Le système de `formatage
-<http://docs.python.org/library/stdtypes.html#string-formatting-operations>`_
+<http://docs.python.org/2/library/stdtypes.html#string-formatting-operations>`_
 des chaînes de caractères s'appuie sur l'opérateur `%`, et est très
 semblable au `sprintf` du C/C++:
 
@@ -391,7 +390,7 @@ Scientific progress goes 'boink'
 3 fois 4 font 12
 
 .. Python peut également gérer les caractères `Unicode
-.. <http://docs.python.org/howto/unicode.html>`_ (mais cela peut vite
+.. <http://docs.python.org/2/howto/unicode.html>`_ (mais cela peut vite
 .. devenir fastidieux...):
 
 .. >>> print "α² + β² = γ²"
@@ -552,7 +551,7 @@ fonction doit retourner une valeur, celle-ci est spécifiée par
 .. Note:: Dans la définition d'une fonction, la première chaîne de
    charactères (appelé `docstring`) servira de documentation pour la
    fonction, accessible de l'interpréteur via p.ex. `help(temp_f2c)`,
-   ou `tmp_f2c?` sous ipython. Elle se doit d'être tout à la fois
+   ou `temp_f2c?` sous ipython. Elle se doit d'être tout à la fois
    pertinente, concise *et* complète.
 
 .. code-block:: python

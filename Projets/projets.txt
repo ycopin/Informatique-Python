@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-08 23:26:50 ycopin>
+.. Time-stamp: <2014-01-09 17:37:17 ycopin>
 .. _projets:
 
 Micro-projets
@@ -64,9 +64,10 @@ visualisation sous Python/Matplotlib.
   - `Flare <http://flare.prefuse.org/demo>`_
   - `D3 <http://mbostock.github.com/d3/ex/>`_ (ex-`Protovis
     <http://mbostock.github.com/protovis/ex/>`_)
-  - `R <http://addictedtor.free.fr/graphiques/>`_
   - `Periodic Table of Vizualisation Methods
     <http://www.visual-literacy.org/periodic_table/periodic_table.html>`_
+
+..  - `R <http://addictedtor.free.fr/graphiques/>`_
 
 
 Projets statistiques

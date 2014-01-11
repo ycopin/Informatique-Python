@@ -3,7 +3,7 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2014-01-08 23:16:21 ycopin>
+.. Time-stamp: <2014-01-10 17:41:30 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -23,7 +23,7 @@ Bibliothèques numériques
     4  Autres librairies scientifiques
 
 * `Standard Numeric and Mathematical Modules
-  <http://docs.python.org/library/numeric.html>`_
+  <http://docs.python.org/2/library/numeric.html>`_
 
 .. _td5:
 
@@ -627,7 +627,7 @@ fonctionnalités `numpy`. P.ex.:
   - `scikit-learn <http://scikit-learn.org/>`_: *machine learning*
   - `scikit-image <http://scikit-image.org/>`_: *image processing*
   - `statsmodel <http://statsmodels.sourceforge.net/>`_: modèles statistiques
-
+    (`tutorial <http://jseabold.net/pages/talks>`_)
 - `Scipy Topical softwares <http://www.scipy.org/Topical_Software>`_
 - `Numpy/Scipy projects <http://wiki.scipy.org/Projects>`_
 
@@ -766,7 +766,7 @@ différents domaines de la physique/chimie:
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
   <http://packages.python.org/milk/>`_, `MDP
   <http://mdp-toolkit.sourceforge.net/>`_, `AstroML
-  <http://astroml.github.com/>`_ et autres `modules d'intelligence
+  <http://www.astroml.org/>`_ et autres `modules d'intelligence
   artificielle
   <http://wiki.python.org/moin/PythonForArtificialIntelligence>`_
 - Calcul symbolique: sympy_ (voir également ce `tutoriel sympy

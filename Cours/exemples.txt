@@ -1,12 +1,12 @@
-.. Time-stamp: <2013-11-05 16:17:49 ycopin>
+.. Time-stamp: <2014-01-11 10:28 ycopin@lyonovae03.in2p3.fr>
 
 Exemples
 ========
 
 .. _circonscrit:
 
-Cercle circonscrit
-------------------
+Cercle circonscrit (classe)
+---------------------------
 
 .. literalinclude:: circonscrit.py
    :linenos:
@@ -16,8 +16,8 @@ Cercle circonscrit
 
 .. _filtres:
 
-Filtres du 2nd ordre
---------------------
+Filtres du 2nd ordre (matplotlib)
+---------------------------------
 
 .. figure:: filtrePasseHaut.*
    :align: center

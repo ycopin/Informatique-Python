@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-08 23:15:35 ycopin>
+.. Time-stamp: <2014-01-10 17:44:15 ycopin>
 
 Références supplémentaires
 ==========================
@@ -35,8 +35,12 @@ Listes de liens
 - `Python références et astuces:
   <http://staff.umh.ac.be/Villers.Didier/python.html>`_ (2009) |fr|
 
+.. rubric:: ipython
+
 - `IPython en ligne <https://www.pythonanywhere.com/try-ipython/>`_
 - `IPython cookbook <http://wiki.ipython.org/Cookbook>`_
+- `IPython notebook
+  <https://www.wakari.io/sharing/bundle/hugo/01_notebook_introduction>`_
 - `Starter Kit (py4science)
   <http://fperez.org/py4science/starter_kit.html>`_
 
@@ -57,6 +61,8 @@ Livres libres
 - `Start Programming with Python <http://python-ebook.blogspot.fr/>`_
 - `Python for Informatics: Exploring Information
   <http://www.pythonlearn.com/>`_
+- `Advanced Design Patterns in Python
+  <http://pypix.com/python/advanced-data-structures/>`_
 
 - `Apprendre à programmer avec Python
   <http://inforef.be/swi/python.htm>`_ |fr| (`Wikilivre
@@ -70,7 +76,7 @@ Python
 ......
 
 - `Le site du zéro
-  <http://www.siteduzero.com/informatique/tutoriels/langage-python>`_
+  <http://fr.openclassrooms.com/informatique/cours/langage-python>`_
   |fr|
 - `Cours Python 3 + exercices
   <http://www.iut-orsay.u-psud.fr/fr/departements/mesures_physiques/mphy_pedagogie.html>`_
@@ -78,15 +84,14 @@ Python
 - `DIY python workshop <http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
 - `Exemples de scripts Python
   <http://fr.wikibooks.org/wiki/Exemples_de_scripts_Python>`_ |fr|
-- `Google's Python Class
-  <http://code.google.com/edu/languages/google-python-class/>`_
+- `Google's Python Class <https://developers.google.com/edu/python/>`_
 - `CheckIO <http://www.checkio.org/>`_, pour apprendre la
   programmation Python en s'amusant !
 
 Scientifique
 ............
 
-- `Python Scientific Lecture Notes <http://scipy-lectures.github.com/>`_
+- `Python Scientific Lecture Notes <http://scipy-lectures.github.io/>`_
 - `Handbook of the Physics Computing Course
   <http://pentangle.net/python/handbook/>`_ (2002)
 - `Practical Scientific Computing in Python
@@ -94,17 +99,19 @@ Scientifique
 - `Computational Physics with Python
   <http://www-personal.umich.edu/~mejn/computational-physics/>`_ (avec
   exercices)
-- `SciPy 2011 tutorials
-  <http://conference.scipy.org/scipy2011/tutorials.php>`_: numpy,
-  scipy, matplotlib, ipython
-- `Practical Python for Astronomers <http://python4astronomers.github.com/>`_
-- `Lectures on Computational Economics
-  <http://johnstachurski.net/lectures/>`_ (avec exercices)
+- *SciPy tutorials* (numpy, scipy, matplotlib, ipython): `2011
+  <http://conference.scipy.org/scipy2011/tutorials.php>`_, `2012
+  <http://conference.scipy.org/scipy2012/tutorials.php>`_, `2013
+  <http://conference.scipy.org/scipy2013/tutorials.php>`_, 
+- `Practical Python for Astronomers <http://python4astronomers.github.io/>`_
+- `Lectures on Computational Economics <http://quant-econ.net/>`_
+  (avec exercices)
+- `Scipy Central <scipy-central.org>`_ (*code snippets*)
 
 - `L’informatique scientifique avec Python
   <http://www.dakarlug.org/pat/scientifique/html/>`_ |fr|
 - `La programmation scientifique avec Python
-  <http://www.siteduzero.com/tutoriel-3-547399-la-programmation-scientifique-avec-python.html>`_
+  <http://fr.openclassrooms.com/informatique/cours/la-programmation-scientifique-avec-python>`_
   |fr|
 
 Autres

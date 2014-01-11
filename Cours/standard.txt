@@ -4,7 +4,7 @@
 Bibliothèque standard
 #####################
 
-.. Time-stamp: <2014-01-08 22:01:24 ycopin>
+.. Time-stamp: <2014-01-09 17:34:23 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -19,7 +19,7 @@ données, interactions avec le système, gestion des fichiers et des
 processus, protocoles de communication (internet, mail, FTP, etc.),
 multimédia, etc.
 
-* `The Python Standard Library <http://docs.python.org/library/>`_
+* `The Python Standard Library <http://docs.python.org/2/library/>`_
   (v2.7)
 * `Python by Example! <http://www.lightbird.net/py-by-example/>`_
 
@@ -130,7 +130,7 @@ True
 .. .. index::
 ..    module: re
 
-* `Expressions régulières <http://docs.python.org/howto/regex.html>`_:
+* `Expressions régulières <http://docs.python.org/2/howto/regex.html>`_:
   :mod:`re`
 
 .. .. index::
@@ -166,7 +166,7 @@ True
 .. .. index::
 ..    module: urllib2
 
-* `Lecture d'une URL <http://docs.python.org/howto/urllib2.html>`_
+* `Lecture d'une URL <http://docs.python.org/2/howto/urllib2.html>`_
   (p.ex. page web): :mod:`urllib2`
 
 
@@ -174,9 +174,9 @@ True
 ================================
 
 - :abbr:`TUI (Text User Interface)`: `curses
-  <http://docs.python.org/library/curses.html>`_
+  <http://docs.python.org/2/library/curses.html>`_
 - :abbr:`GUI (Graphical User Interface)`: `Tkinter
-  <http://docs.python.org/library/tkinter.html>`_ (voir également
+  <http://docs.python.org/2/library/tkinter.html>`_ (voir également
   `easygui <http://easygui.sourceforge.net/>`_), 
 - Librairies externes; `PyGTK <http://www.pygtk.org/>`_, `PyQt
   <http://www.riverbankcomputing.co.uk/software/pyqt/intro>`_,

@@ -1,7 +1,7 @@
 Développer en python
 ####################
 
-.. Time-stamp: <2014-01-08 22:01:24 ycopin>
+.. Time-stamp: <2014-01-09 17:21:51 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -82,7 +82,7 @@ Us et coutumes
 - *Fail early, fail often, fail better!* (`raise`)
 - le *Style Guide for Python Code* (:pep:`8`)
 - `Idioms and Anti-Idioms in Python
-  <http://docs.python.org/howto/doanddont.html>`_
+  <http://docs.python.org/2/howto/doanddont.html>`_
 - `Code Like a Pythonista: Idiomatic Python
   <http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html>`_
 - `Google Python Style Guide
@@ -119,12 +119,12 @@ Je fournis ici essentiellement des liens vers des outils pouvant être
 utiles pour développer en python.
 
 - `Best Practices, Development Methodologies and the Zen of Python
-  <https://python.g-node.org/wiki/best_practices>`_
+  <http://python.g-node.org/wiki/best_practices>`_
 
 *Integrated Development Environment*
 ------------------------------------
 
-- `idle <http://docs.python.org/library/idle.html>`_, l'IDE intégré à Python
+- `idle <http://docs.python.org/2/library/idle.html>`_, l'IDE intégré à Python
 - :program:`emacs` + `python-mode` + `ropemacs` pour l'édition, et
   :program:`ipython` pour l'execution de code (voir `Python
   Programming In Emacs
@@ -146,7 +146,7 @@ oeuvre...
 - `pyflakes <http://pypi.python.org/pypi/pyflakes>`_
 - `pychecker <http://pychecker.sourceforge.net/>`_
 - `pylint <http://pypi.python.org/pypi/pylint>`_
-- `pep8 <https://github.com/jcrocholl/pep8>`_
+- `pep8 <http://github.com/jcrocholl/pep8>`_
 
 Documentation
 -------------
@@ -156,16 +156,16 @@ Documentation
 * Outils de documentation, ou comment transformer automagiquement un
   code-source bien documenté en une documentation fonctionnelle.
 
-  - `Sphinx <http://sphinx.pocoo.org/>`_
-  - `reStructuredText for Sphinx <http://sphinx.pocoo.org/rest.html>`_
+  - `Sphinx <http://sphinx-doc.org/>`_
+  - `reStructuredText for Sphinx <http://sphinx-doc.org/rest.html>`_
 
 * Conventions de documentation:
 
   - *Docstring convention*: :pep:`257`
   - `Documenting Your Project Using Sphinx
-    <http://packages.python.org/an_example_pypi_project/sphinx.html>`_
+    <http://pythonhosted.org/an_example_pypi_project/sphinx.html>`_
   - `A Guide to NumPy/SciPy Documentation
-    <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
+    <http://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
 
 Les méthodes de tests
 ---------------------
@@ -180,9 +180,9 @@ directement dans la documentation ou en écrivant du code spécifique:
 3. Les tests système assurent le bon fonctionnement du programme dans
    sa globalité.
 
-- `doctest <http://docs.python.org/library/doctest.html>`_: tests
+- `doctest <http://docs.python.org/2/library/doctest.html>`_: tests
    unitaires inclus à la documentation
-- `unittest <http://docs.python.org/library/unittest.html>`_
+- `unittest <http://docs.python.org/2/library/unittest.html>`_
 - `py.test <http://pytest.org/latest/>`_
 - `nose <http://nose.readthedocs.org/en/latest/>`_
 
@@ -198,7 +198,7 @@ d'exécution ou juste après une erreur (analyse post-mortem).
 
   Ainsi, pour déboguer un script, il est possible de l'exécuter sous
   le contrôle du débogueur `pdb
-  <http://docs.python.org/library/pdb.html>`_ en s'interrompant dès la
+  <http://docs.python.org/2/library/pdb.html>`_ en s'interrompant dès la
   1ère instruction::
 
     python -m pdb script.py
