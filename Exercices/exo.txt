@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-10 18:00:34 ycopin>
+.. Time-stamp: <2014-01-11 11:22 ycopin@lyonovae03.in2p3.fr>
 .. _exercices:
 
 Exercices
@@ -256,6 +256,18 @@ Résoudre numériquement l'équation :math:`\frac{x\,e^x}{e^x - 1} = 5`.
 
 .. x = 4.965114231744276
 
+Intégration d'équations différentielles
+---------------------------------------
+
+Intégrer les équations du mouvement pour un boulet de canon
+soumis à des forces de frottement "turbulentes" (non-linéaires):
+
+.. math::
+
+   \ddot{\mathbf{r}} = \mathbf{g} - \frac{\alpha}{m}v\times\mathbf{v}.
+
+Solution: :ref:`canon` (:download:`canon.ipynb`)
+
 .. _romberg:
 
 Schéma de Romberg
@@ -264,7 +276,7 @@ Schéma de Romberg
 Écrire une fonction `integ_romberg(f, a, b, epsilon=1e-6)` permettant
 de calculer l'intégrale numérique de la fonction *f* entre les bornes
 *a* et *b* avec une précision *epsilon* selon la `méthode de Romberg
-<http://fr.wikipedia.org/wiki/M%C3%A9thode_de_Romberg>`_.
+<http://fr.wikipedia.org/wiki/Méthode_de_Romberg>`_.
 
 Tester sur des solutions analytiques et en comparant à
 `scipy.integrate.romberg`.
@@ -276,9 +288,8 @@ Méthode de Runge-Kutta
 
 Développer un algorithme permettant d'intégrer numériquement une
 équation différentielle du 1er ordre en utilisant la `méthode de
-Runge-Kutta
-<http://fr.wikipedia.org/wiki/M%C3%A9thodes_de_Runge-Kutta>`_ d'ordre
-quatre.
+Runge-Kutta <http://fr.wikipedia.org/wiki/Méthodes_de_Runge-Kutta>`_
+d'ordre quatre.
 
 Tester sur des solutions analytiques et en comparant à
 `scipy.integrate.odeint`.
