@@ -1,0 +1,20 @@
+.. % Time-stamp: <2014-01-12 23:42 ycopin@lyonovae03.in2p3.fr>
+
+Solutions aux exercices
+=======================
+
+* :ref:`cribleSol`
+* :ref:`carreSol`
+* :ref:`kochSol`
+* :ref:`lifeSol`
+* :ref:`madSol`
+* :ref:`pullSol`
+* :ref:`anscombeSol`
+* :ref:`logistiqueSol`
+* :ref:`juliaSol`
+* `Calculs numériques
+  <http://nbviewer.ipython.org/url/informatique-python.readthedocs.org/en/python-m2/_downloads/numerique.ipynb>`_
+  (:download:`numerique.ipynb`)
+* `Trajectoire d'un boulet de canon
+  <http://nbviewer.ipython.org/url/informatique-python.readthedocs.org/en/python-m2/_downloads/canon.ipynb>`_
+  (:download:`canon.ipynb`)

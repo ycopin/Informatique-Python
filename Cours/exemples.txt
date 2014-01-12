@@ -1,12 +1,12 @@
-.. Time-stamp: <2014-01-11 10:28 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-01-12 15:09 ycopin@lyonovae03.in2p3.fr>
 
 Exemples
 ========
 
 .. _circonscrit:
 
-Cercle circonscrit (classe)
----------------------------
+Cercle circonscrit (POO)
+------------------------
 
 .. literalinclude:: circonscrit.py
    :linenos:

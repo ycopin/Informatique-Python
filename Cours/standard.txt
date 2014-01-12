@@ -4,7 +4,7 @@
 Bibliothèque standard
 #####################
 
-.. Time-stamp: <2014-01-09 17:34:23 ycopin>
+.. Time-stamp: <2014-01-12 22:37 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -50,7 +50,7 @@ commande, il est préférable d'utiliser le module `optparse`.
 
 .. rubric:: Exemple:
 
-.. literalinclude:: ../Exercices/koch.py
+.. literalinclude:: circonscrit.py
    :start-after: start-optparse
    :end-before: end-optparse
 

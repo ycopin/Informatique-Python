@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-11 11:22 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-01-12 23:41 ycopin@lyonovae03.in2p3.fr>
 .. _exercices:
 
 Exercices
@@ -26,8 +26,8 @@ Crible d'Ératosthène
 --------------------
 
 Implémenter le `crible d'Ératosthène
-<http://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne>`_ pour
-afficher les nombres premiers compris entre 1 et un entier fixe, p.ex.::
+<http://fr.wikipedia.org/wiki/Crible_d'Ératosthène>`_ pour afficher
+les nombres premiers compris entre 1 et un entier fixe, p.ex.::
 
   Liste des entiers premiers <= 41
   [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]
@@ -85,8 +85,8 @@ bibliothèque graphique standard `turtle` dans une fonction
 
 .. _life:
 
-Jeu de la vie (programmation orientée objet)
-============================================
+Jeu de la vie (POO)
+===================
 
 On se propose de programmer l'automate cellulaire le plus célèbre, `le
 Jeu de la vie <http://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
@@ -243,8 +243,8 @@ Méthodes numériques
 
 .. _numerique:
 
-Calcul d'intégrale
-------------------
+Quadrature
+----------
 
 Calculer numériquement l'intégrale :math:`\int_0^\infty
 \frac{x^3}{e^x-1}\mathrm{d}x = \frac{\pi^4}{15}`.
@@ -254,19 +254,34 @@ Zéro d'une fonction
 
 Résoudre numériquement l'équation :math:`\frac{x\,e^x}{e^x - 1} = 5`. 
 
-.. x = 4.965114231744276
+.. _canon:
 
-Intégration d'équations différentielles
----------------------------------------
+Équation différentielle
+-----------------------
 
-Intégrer les équations du mouvement pour un boulet de canon
-soumis à des forces de frottement "turbulentes" (non-linéaires):
+À l'aide de la fonction `scipy.integrate.odeint
+<http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html>`_,
+intégrer les équations du mouvement d'un boulet de canon soumis à des
+forces de frottement « turbulentes » (en :math:`v^2`):
 
 .. math::
 
    \ddot{\mathbf{r}} = \mathbf{g} - \frac{\alpha}{m}v\times\mathbf{v}.
 
-Solution: :ref:`canon` (:download:`canon.ipynb`)
+Utiliser les valeurs numériques pour un boulet de canon de `36 livres
+<http://fr.wikipedia.org/wiki/Canon_de_36_livres>`_:
+
+.. code-block:: python
+
+    g = 9.81 # Pesanteur [m/s2]
+    cx = 0.45 # Coefficient de frottement d'une sphère
+    rhoAir = 1.2 # Masse volumique de l'air [kg/m3]
+    rad = 0.1748/2 # Rayon du boulet [m]
+    rho = 6.23e3 # Masse volumique du boulet [kg/m3]
+    mass = 4./3.*N.pi*rad**3 * rho # Masse du boulet [kg]
+    alpha = 0.5*cx*rhoAir*N.pi*rad**2 / mass # Coeff. de frottement / masse
+    v0 = 450. # Vitesse initiale [m/s]
+    alt = 45. # Inclinaison du canon [deg]
 
 .. _romberg:
 
