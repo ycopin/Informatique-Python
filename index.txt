@@ -2,7 +2,7 @@
                    Analyse scientifique avec Python
 *********************************************************************
 
-.. Time-stamp: <2014-01-12 22:43 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-01-13 00:18 ycopin@lyonovae03.in2p3.fr>
 
 .. highlight:: python
    :linenothreshold: 3
@@ -36,5 +36,4 @@
    Exercices/anscombe
    Exercices/logistique
    Exercices/julia
-   Exercices/canon
    Exercices/solutions
