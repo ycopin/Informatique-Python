@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-10 17:42:54 ycopin>
+.. Time-stamp: <2014-01-13 12:27:52 ycopin>
 .. _cours:
 
 Initiation à Python
@@ -447,8 +447,8 @@ volée -- tandis que chaînes de caractères et les tuples sont
   >>> l[1::2]=['x','y']; l   # Remplacement d'éléments par /slices/
   ['a', 'x', 3, 'y', 5]
   >>> l + [1,2]; l           # Concaténation (l reste inchangé)
-  ['a', 'x', 3, 'y', 1, 2]
-  ['a', 'x', 3, 'y']
+  ['a', 'x', 3, 'y', 5, 1, 2]
+  ['a', 'x', 3, 'y', 5]
   >>> l += [1,2]; l          # Concaténation (modification de l)
   ['a', 'x', 3, 'y', 5, 1, 2]
   >>> del l[-3:]; l          # Efface les 3 derniers éléments de la liste

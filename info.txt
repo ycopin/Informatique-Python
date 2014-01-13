@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-08 23:27:55 ycopin>
+.. Time-stamp: <2014-01-13 13:48:49 ycopin>
 
 :orphan:
 
@@ -7,7 +7,7 @@ Informations pratiques
 
 - Atelier "Analyse scientifique en Python"
 - `Cours en ligne
-  <https://informatique-python.readthedocs.org/en/python-m2//>`_
+  <https://informatique-python.readthedocs.org/fr/python-m2//>`_
 - Responsable: Yannick Copin <@ipnl.in2p3.fr>, Bureau 420 de l'IPNL (4
   rue Fermi)
 
@@ -27,13 +27,35 @@ Jeudi 16/01   9h-12h  Méthodes numériques II
 
 .. rubric:: Participants
 
-=================  ===  ===  ===  ===  ===
-Étudiant           TD1  TD2  TD3  TD4  TD5
-=================  ===  ===  ===  ===  ===
-`Yannick Copin`_   
-=================  ===  ===  ===  ===  ===
+==================  ===  ===  ===  ===  ===
+Étudiant            TD1  TD2  TD3  TD4  TD5
+==================  ===  ===  ===  ===  ===
+Étudiants M2
+-------------------------------------------
+`Assia Bessaa`_      x
+`Pierre Charlet`_    x
+`Benjamin Condon`_   x
+`Ludmilla Dirson`_   x
+`J.P. Fontaine`_     x
+`Shaoyou Lu`_        x
+`Florent Storme`_    x
+`Hadil Terroufi`_    x
+`Yang Yang`_         x
+Autres
+-------------------------------------------
+`Alex Juillard`_     x
+==================  ===  ===  ===  ===  ===
 
-.. _Yannick Copin: y.copin@ipnl.in2p3.fr
+.. _Florent Storme: florentstorme@gmail.com
+.. _J.P. Fontaine: jean-philippe.fontaine@etu.univ-lyon1.fr
+.. _Assia Bessaa: assia.bessaa@etu.univ-lyon1.fr
+.. _Hadil Terroufi: hadil.terroufi@etu.univ-lyon1.fr
+.. _Pierre Charlet: pierre.charlet@etu.univ-lyon1.fr
+.. _Ludmilla Dirson: ludmilla.dirson@etu.univ-lyon1.fr
+.. _Shaoyou Lu: lsyou110@hotmail.com
+.. _Benjamin Condon: benjamin.condon@etu.univ-lyon1.fr
+.. _Yang Yang: yang.yang@etu.univ-lyon1.fr
+.. _Alex Juillard: alex.juillard@gmail.com@gmail.com
 
 .. |+| image:: ./_static/smile.gif
    :alt: Bon
