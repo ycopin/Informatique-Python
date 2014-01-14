@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-12 23:41 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-01-14 16:07 ycopin@lyonovae03.in2p3.fr>
 .. _exercices:
 
 Exercices
@@ -243,16 +243,13 @@ Méthodes numériques
 
 .. _numerique:
 
-Quadrature
-----------
+Quadrature & zéro d'une fonction
+--------------------------------
 
-Calculer numériquement l'intégrale :math:`\int_0^\infty
-\frac{x^3}{e^x-1}\mathrm{d}x = \frac{\pi^4}{15}`.
-
-Zéro d'une fonction
--------------------
-
-Résoudre numériquement l'équation :math:`\frac{x\,e^x}{e^x - 1} = 5`. 
+* Calculer numériquement l'intégrale :math:`\int_0^\infty
+  \frac{x^3}{e^x-1}\mathrm{d}x = \frac{\pi^4}{15}`.
+* Résoudre numériquement l'équation :math:`\frac{x\,e^x}{e^x - 1} =
+  5`.
 
 .. _canon:
 

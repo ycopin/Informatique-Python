@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-08 22:01:24 ycopin>
+.. Time-stamp: <2014-01-14 16:12 ycopin@lyonovae03.in2p3.fr>
 
 .. _anscombeSol:
 
@@ -7,6 +7,31 @@ Quartet d'Anscombe
 
 .. literalinclude:: anscombe.py
    :linenos:
+
+::
+
+  $ python anscombe.py
+
+  Dataset 1 ====================
+  x: mean=9.00, variance=10.00
+  y: mean=7.50, variance=3.75
+  y vs. x: corrcoeff=0.82
+  y vs. x: y = 0.50 x + 3.00
+  Dataset 2 ====================
+  x: mean=9.00, variance=10.00
+  y: mean=7.50, variance=3.75
+  y vs. x: corrcoeff=0.82
+  y vs. x: y = 0.50 x + 3.00
+  Dataset 3 ====================
+  x: mean=9.00, variance=10.00
+  y: mean=7.50, variance=3.75
+  y vs. x: corrcoeff=0.82
+  y vs. x: y = 0.50 x + 3.00
+  Dataset 4 ====================
+  x: mean=9.00, variance=10.00
+  y: mean=7.50, variance=3.75
+  y vs. x: corrcoeff=0.82
+  y vs. x: y = 0.50 x + 3.00
 
 .. figure:: anscombe.*
    :align: center

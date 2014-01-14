@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-14 10:36 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-01-14 15:50 ycopin@lyonovae03.in2p3.fr>
 
 :orphan:
 
@@ -30,16 +30,16 @@ Jeudi 16/01   9h-12h  Nano-projet
 ==================  ===  ===  ===  ===  ===
 Étudiant            TD1  TD2  TD3  TD4  TD5
 ==================  ===  ===  ===  ===  ===
-`Assia Bessaa`_      x    
-`Thomas Brewer`_          x
-`Pierre Charlet`_    x    x
-`Benjamin Condon`_   x    x
-`Ludmilla Dirson`_   x    x
-`J.P. Fontaine`_     x    x
-`Shaoyou Lu`_        x    x
-`Florent Storme`_    x    x
-`Hadil Terroufi`_    x    x
-`Yang Yang`_         x    x
+`Assia Bessaa`_      x         x
+`Thomas Brewer`_          x    x    x
+`Pierre Charlet`_    x    x    x    x
+`Benjamin Condon`_   x    x    x    x
+`Ludmilla Dirson`_   x    x    x    x
+`J.P. Fontaine`_     x    x    x    x
+`Shaoyou Lu`_        x    x    x    x
+`Florent Storme`_    x    x    x    x
+`Hadil Terroufi`_    x    x    x    x
+`Yang Yang`_         x    x    x    x
 ==================  ===  ===  ===  ===  ===
 
 .. Autres

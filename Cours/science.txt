@@ -3,7 +3,7 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2014-01-10 17:41:30 ycopin>
+.. Time-stamp: <2014-01-14 16:07 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -635,7 +635,7 @@ fonctionnalités `numpy`. P.ex.:
 
 .. rubric:: Exercice:
 
-:ref:`anscombe`
+:ref:`anscombe`, :ref:`numerique`
 
 
 Quelques exemples complets
