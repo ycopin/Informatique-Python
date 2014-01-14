@@ -4,7 +4,7 @@
 Bibliothèque standard
 #####################
 
-.. Time-stamp: <2014-01-12 22:37 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-01-14 10:35 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -56,21 +56,17 @@ commande, il est préférable d'utiliser le module `optparse`.
 
 Cette solution génère automatiquement une aide en ligne, p.ex.::
   
-  $ python koch.py --help
-  Usage: koch.py [options] ordre
+  $ python circonscrit.py -h
+  Usage: circonscrit.py [-p/--plot] [-i/--input coordfile | x1,y1 x2,y2 x3,y3]
 
-  Tracé (via 'turtle') d'un flocon de Koch d'ordre arbitraire.
+  Calcul du cercle circonscrit à 3 points du plan.
 
   Options:
     --version             show program's version number and exit
     -h, --help            show this help message and exit
-    -t TAILLE, --taille=TAILLE
-                          Taille [500 px]
-    -d DELTA, --delta=DELTA
-                          Delta [0.0 deg]
-    -f FIGURE, --figure=FIGURE
-                          Figure de sortie (format EPS)
-    -T, --turbo           Mode Turbo
+    -i INPUT, --input=INPUT
+                          Fichier de coordonnées (un 'x,y' par ligne)
+    -p, --plot            Trace le cercle circonscrit
 
 .. argparse: >2.7
 

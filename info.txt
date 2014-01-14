@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-13 13:48:49 ycopin>
+.. Time-stamp: <2014-01-14 10:36 ycopin@lyonovae03.in2p3.fr>
 
 :orphan:
 
@@ -21,8 +21,8 @@ Date           TD
 Lundi 13/01   9h-12h  Python I
 Lundi 13/01  14h-17h  Python II
 Mardi 14/01   9h-12h  Python III
-Mardi 14/01  14h-17h  Méthodes numériques I
-Jeudi 16/01   9h-12h  Méthodes numériques II
+Mardi 14/01  14h-17h  Méthodes numériques
+Jeudi 16/01   9h-12h  Nano-projet
 ===========  =======  ======================
 
 .. rubric:: Participants
@@ -30,21 +30,22 @@ Jeudi 16/01   9h-12h  Méthodes numériques II
 ==================  ===  ===  ===  ===  ===
 Étudiant            TD1  TD2  TD3  TD4  TD5
 ==================  ===  ===  ===  ===  ===
-Étudiants M2
--------------------------------------------
-`Assia Bessaa`_      x
-`Pierre Charlet`_    x
-`Benjamin Condon`_   x
-`Ludmilla Dirson`_   x
-`J.P. Fontaine`_     x
-`Shaoyou Lu`_        x
-`Florent Storme`_    x
-`Hadil Terroufi`_    x
-`Yang Yang`_         x
-Autres
--------------------------------------------
-`Alex Juillard`_     x
+`Assia Bessaa`_      x    
+`Thomas Brewer`_          x
+`Pierre Charlet`_    x    x
+`Benjamin Condon`_   x    x
+`Ludmilla Dirson`_   x    x
+`J.P. Fontaine`_     x    x
+`Shaoyou Lu`_        x    x
+`Florent Storme`_    x    x
+`Hadil Terroufi`_    x    x
+`Yang Yang`_         x    x
 ==================  ===  ===  ===  ===  ===
+
+.. Autres
+.. -------------------------------------------
+.. `Alex Juillard`_ 
+.. `Sacha Davidson`_ 
 
 .. _Florent Storme: florentstorme@gmail.com
 .. _J.P. Fontaine: jean-philippe.fontaine@etu.univ-lyon1.fr
@@ -55,6 +56,7 @@ Autres
 .. _Shaoyou Lu: lsyou110@hotmail.com
 .. _Benjamin Condon: benjamin.condon@etu.univ-lyon1.fr
 .. _Yang Yang: yang.yang@etu.univ-lyon1.fr
+.. _Thomas Brewer: thomas.brewer@etu.univ-lyon1.fr
 .. _Alex Juillard: alex.juillard@gmail.com@gmail.com
 
 .. |+| image:: ./_static/smile.gif
