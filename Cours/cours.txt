@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-13 12:27:52 ycopin>
+.. Time-stamp: <2014-01-14 21:22:16 ycopin>
 .. _cours:
 
 Initiation à Python
@@ -380,8 +380,8 @@ semblable au `sprintf` du C/C++:
 >>> "%(x)f  %(x).2f  %(y)f  %(y)g" % dict(x=pi, y=pi*1e9) # 'format' % {dict}
 '3.141593  3.14  3141592653.589793  3.14159e+09'
 
-`print` affiche à l'écran (plus spécifiquement la sortie standard) la
-conversion d'une variable en chaîne de caractères:
+:func:`print` affiche à l'écran (plus spécifiquement la sortie
+standard) la conversion d'une variable en chaîne de caractères:
 
 >>> print "Calvin and Hobbes\nScientific progress goes 'boink'"
 Calvin and Hobbes
@@ -549,7 +549,7 @@ fonction doit retourner une valeur, celle-ci est spécifiée par
       return tc
 
 .. Note:: Dans la définition d'une fonction, la première chaîne de
-   charactères (appelé `docstring`) servira de documentation pour la
+   charactères (appelé *docstring*) servira de documentation pour la
    fonction, accessible de l'interpréteur via p.ex. `help(temp_f2c)`,
    ou `temp_f2c?` sous ipython. Elle se doit d'être tout à la fois
    pertinente, concise *et* complète.
@@ -697,7 +697,7 @@ exécutée.
   purement ASCII (`a-zA-Z0-9_`). De manière générale, favorisez la
   langue anglaise (variables, commentaires, affichages).
 - `"""doc"""`: la chaîne de documentation de la bibliothèque
-  (`docstring`, :pep:`257`), qui sera utilisée comme aide en ligne du
+  (*docstring*, :pep:`257`), qui sera utilisée comme aide en ligne du
   module (`help(circonscrit)`), doit être la *1ère* instruction du
   script.
 - `if __name__=='__main__':` permet de séparer le `__main__` (i.e. le
@@ -893,7 +893,8 @@ Fichiers
 .. index:: file
 
 La gestion des fichiers (lecture et écriture) se fait à partir de la
-fonction `open` retournant un objet `file`::
+fonction :func:`open` retournant un objet `file
+<http://docs.python.org/2/library/stdtypes.html#bltin-file-objects>`_::
   
   # ========== ÉCRITURE ==========
   outfile = open("carres.dat", 'w') # Ouverture du fichier "carres.dat" en écriture

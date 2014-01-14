@@ -3,7 +3,7 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2014-01-14 16:07 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-01-14 21:13:47 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -50,7 +50,7 @@ efficace de larges tableaux multidimensionnels, et de routines
 mathématiques de haut niveau (fonctions spéciales, algèbre linéaire,
 statistiques, etc.).
 
-.. Note:: La convention d'import utilisé par la suite est `import
+.. Note:: La convention d'import utilisé dans les exemples est `import
    numpy as N`.
 
 Tableaux
@@ -58,7 +58,7 @@ Tableaux
 
 .. index:: pair: numpy; ndarray
 
-Un `ndarray` (généralement appelé `array`) est un tableau
+Un :class:`numpy.ndarray` (généralement appelé `array`) est un tableau
 multidimensionnel *homogène*: tous les éléments doivent avoir le même
 type, en général numérique. Les différentes dimensions sont appelées
 des *axes*, tandis que le nombre de dimensions -- 0 pour un scalaire,
@@ -90,7 +90,8 @@ Création de tableaux
 
 .. index:: pair: numpy; array
 
-- `N.array`: convertit une liste d'éléments homogènes ou coercitibles
+- :func:`numpy.array`: convertit une liste d'éléments homogènes ou
+  coercitibles
   
   >>> N.array([[1.,2.],[3,4]]) # Liste de listes d'entiers et de réels
   array([[ 1.,  2.],           # Tableau 2D de réels
@@ -98,8 +99,8 @@ Création de tableaux
 
 .. index:: pair: numpy; zeros/ones
 
-- `N.zeros` (resp. `N.ones`): crée un tableau de format donné rempli
-  de zéros (resp. de uns)
+- :func:`numpy.zeros` (resp. :func:`numpy.ones`): crée un tableau de
+  format donné rempli de zéros (resp. de uns)
 
   >>> N.zeros((2,1))   # Shape (2,1): 2 lignes, 1 colonne, float par défaut
   array([[ 0.],
@@ -110,9 +111,9 @@ Création de tableaux
 .. index:: 
    pair: numpy; arange
 
-- `N.arange`: crée une séquence de nombres, en spécifiant
+- :func:`numpy.arange`: crée une séquence de nombres, en spécifiant
   éventuellement le *start*, le *end* et le *step* (similaire à
-  `range` pour les listes)
+  :func:`range` pour les listes)
 
   >>> N.arange(10, 30, 5)     # De 10 à 30 (exclu) par pas de 5, type entier par défaut
   array([10, 15, 20, 25])
@@ -122,9 +123,9 @@ Création de tableaux
 .. index:: 
    pair: numpy; linspace
 
-- `N.linspace`: répartition uniforme d'un nombre fixe de points entre
-  un *start* et un *end* (préférable à `N.arange` sur des
-  réels). 
+- :func:`numpy.linspace`: répartition uniforme d'un nombre fixe de
+  points entre un *start* et un *end* (préférable à
+  :func:`numpy.arange` sur des réels).
 
   >>> N.linspace(0, 2*N.pi, 5) # 5 nb entre 0 et 2π (inclus), type réel par défaut
   array([ 0.,  1.57079633,  3.14159265,  4.71238898,  6.28318531])
@@ -133,7 +134,7 @@ Création de tableaux
 .. index::
    pair: numpy; meshgrid
 
-- :samp:`N.meshgrid({x},{y})` est similaire à `N.linspace` en 2D.
+- :func:`numpy.meshgrid` est similaire à :func:`numpy.linspace` en 2D:
 
   >>> # 5 points entre 0 et 2 en "x", et 3 entre 0 et 1 en "y"
   >>> z = N.meshgrid(N.linspace(0,2,5), N.linspace(0,1,3)); z
@@ -147,10 +148,11 @@ Création de tableaux
 .. index:: 
    pair: numpy; mgrid
 
-- `N.mgrid` permet de générer des rampes d'indices (entiers) ou de
-  coordonnées (réels) de rang arbitraire avec une notation spéciale
-  faisant appel aux *Index tricks*. Équivalent à `N.linspace` en 1D et
-  *similaire (mais différent)* à `N.meshgrid` en 2D.
+- :obj:`numpy.mgrid` permet de générer des rampes d'indices (entiers)
+  ou de coordonnées (réels) de rang arbitraire avec une notation
+  spéciale faisant appel aux *Index tricks*. Équivalent à
+  :func:`numpy.linspace` en 1D et *similaire (mais différent)* à
+  :func:`numpy.meshgrid` en 2D.
 
   >>> N.mgrid[0:4:2,1:5:3]  # Grille 2D d'indices (entiers)
   array([[[0, 0],           # 0:4:2=[0,2] selon l'axe 0
@@ -179,9 +181,9 @@ Création de tableaux
 .. index:: 
    module: numpy.random
 
-- `N.random.rand` crée un tableau d'un format donné de réels
-  aléatoires dans [0,1[; `N.random.randn` génère un tableau d'un
-  format donné de réels tirés aléatoirement d'une distribution
+- :func:`numpy.random.rand` crée un tableau d'un format donné de réels
+  aléatoires dans [0,1[; :func:`numpy.random.randn` génère un tableau
+  d'un format donné de réels tirés aléatoirement d'une distribution
   gaussienne (normale) standard (μ=0, σ=1).
 
   Le sous-module :mod:`numpy.random` fournit des générateurs de
@@ -193,7 +195,7 @@ Manipulations sur les tableaux
 ''''''''''''''''''''''''''''''
 
 Les `array` 1D sont indexables comme les listes standard. En dimension
-supérieure, chaque axe est indéxable indépendamment. 
+supérieure, chaque axe est indéxable indépendamment.
 
 >>> x = N.arange(10);   # Rampe 1D
 >>> x[1::3] *= -1; x    # Modification "in-place"
@@ -538,8 +540,8 @@ Entrées/sorties
    pair: numpy; savetxt/loadtxt
    pair: numpy; genfromtxt
 
-:mod:`numpy` peut lire (`N.loadtxt`) ou sauvegarder (`N.savetxt`) des
-tableaux dans un simple fichier ASCII:
+:mod:`numpy` peut lire (:func:`numpy.loadtxt`) ou sauvegarder
+(:func:`numpy.savetxt`) des tableaux dans un simple fichier ASCII:
 
 >>> x = N.linspace(-1,1,100)
 >>> N.savetxt('archive_x.dat', x)   # Sauvegarde dans le fichier 'archive_x.dat'
@@ -547,9 +549,9 @@ tableaux dans un simple fichier ASCII:
 >>> (x==y).all()
 True
 
-.. Attention:: `N.loadtxt` supporte les types composés,
-   mais ne supporte pas les données manquantes; utiliser la fonction
-   `N.genfromtxt` dans ce cas.
+.. Attention:: :func:`numpy.loadtxt` supporte les types composés, mais
+   ne supporte pas les données manquantes; utiliser la fonction
+   :func:`numpy.genfromtxt` dans ce cas.
 
 Le format ASCII n'est pas optimale pour de gros tableaux: il peut
 alors être avantageux d'utiliser le format binaire `.npy`, beaucoup
@@ -575,7 +577,6 @@ Sous-modules
 :mod:`numpy` fournit en outre quelques fonctionnalités
 supplémentaires, parmis lesquelles les sous-modules suivants:
 
-- :mod:`numpy.random`: générateurs de nombres aléatoires
 - :mod:`numpy.fft`: *Discrete Fourier Transform* 
 - :mod:`numpy.lib.polynomial`: manipulation des polynômes (racines,
   polynômes orthogonaux, etc.)
@@ -588,10 +589,10 @@ Scipy
 .. index::
    module: scipy
 
-:mod:`scipy` est une bibliothèque *numérique* [#sym]_ d'algorithmes et de
-fonctions mathématiques, basée sur les tableaux :mod:`numpy`,
+:mod:`scipy` est une bibliothèque *numérique* [#sym]_ d'algorithmes et
+de fonctions mathématiques, basée sur les tableaux `ndarray`,
 complétant ou améliorant (en terme de performances) les
-fonctionnalités `numpy`. P.ex.:
+fonctionnalités de :mod:`numpy`. P.ex.:
 
 - Functions spéciales: :mod:`scipy.special` (fonctions de Bessel, erf,
   gamma, etc.)
@@ -687,7 +688,7 @@ support intéractif et sorties de haute qualité.
 
 Il existe deux interfaces pour deux types d'utilisation:
 
-* `pylab`: interface procédurale, très similaire à MATLAB et
+* :mod:`pylab`: interface procédurale, très similaire à MATLAB et
   généralement réservée à l'analyse interactive:
 
   >>> from pylab import *         # DÉCONSEILLÉ DANS UN SCRIPT!
@@ -695,9 +696,8 @@ Il existe deux interfaces pour deux types d'utilisation:
   >>> plot(x, sin(x))             # Trace la courbe y = y(x)
   >>> show()                      # Affiche le résultat
 
-* `pyplot
-  <http://matplotlib.org/users/pyplot_tutorial.html>`_:
-  interface orientée objet, préférable pour les scripts::
+* :mod:`matplotlib.pyplot`: interface orientée objet, préférable pour
+  les scripts::
 
     import numpy as N
     import matplotlib.pyplot as P
@@ -718,6 +718,8 @@ Dans les deux cas, le résultat est le même:
 
 .. rubric:: Liens:
 
+- `Tutorial pyplot
+  <http://matplotlib.org/users/pyplot_tutorial.html>`_
 - `Tutorial matplotlib <http://www.loria.fr/~rougier/teaching/matplotlib/>`_
 - `Gallery <http://matplotlib.org/gallery.html>`_ 
 - `Examples <http://matplotlib.org/examples/>`_

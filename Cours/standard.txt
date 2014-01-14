@@ -4,7 +4,7 @@
 Bibliothèque standard
 #####################
 
-.. Time-stamp: <2014-01-14 10:35 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-01-14 21:06:58 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -31,10 +31,10 @@ Gestion des arguments/options de la ligne de commande
 .. index::
    module: sys
 
-Le module `sys` permet un accès direct aux arguments de la ligne de
-commande, via la liste `sys.argv`: `sys.argv[0]` contient le nom du
-script executé, `sys.argv[1]` le nom du 1er argument (s'il existe),
-etc.
+Le module :mod:`sys` permet un accès direct aux arguments de la ligne
+de commande, via la liste :obj:`sys.argv`: `sys.argv[0]` contient le
+nom du script executé, `sys.argv[1]` le nom du 1er argument (s'il
+existe), etc.
 
 .. rubric:: Exemple:
 
@@ -46,7 +46,7 @@ etc.
    module: optparse
 
 Pour une gestion avancée des arguments et/ou options de la ligne de
-commande, il est préférable d'utiliser le module `optparse`.
+commande, il est préférable d'utiliser le module :mod:`optparse`.
 
 .. rubric:: Exemple:
 
@@ -142,7 +142,7 @@ True
 ..    module: zipfile
 ..    module: tarfile
 
-* Fichiers compressés et archives: :mod:`gzip`, :mod:`bzip2`,
+* Fichiers compressés et archives: :mod:`gzip`, :mod:`bz2`,
   :mod:`zipfile`, :mod:`tarfile`
 
 .. .. index::
@@ -169,11 +169,9 @@ True
 *Text/Graphical User Interfaces*
 ================================
 
-- :abbr:`TUI (Text User Interface)`: `curses
-  <http://docs.python.org/2/library/curses.html>`_
-- :abbr:`GUI (Graphical User Interface)`: `Tkinter
-  <http://docs.python.org/2/library/tkinter.html>`_ (voir également
-  `easygui <http://easygui.sourceforge.net/>`_), 
+- :abbr:`TUI (Text User Interface)`: :mod:`curses` 
+- :abbr:`GUI (Graphical User Interface)`: :mod:`Tkinter` (voir
+  également `easygui <http://easygui.sourceforge.net/>`_),
 - Librairies externes; `PyGTK <http://www.pygtk.org/>`_, `PyQt
   <http://www.riverbankcomputing.co.uk/software/pyqt/intro>`_,
   `wxPython <http://www.wxpython.org/>`_
