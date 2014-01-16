@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-14 15:50 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-01-16 22:39 ycopin@lyonovae03.in2p3.fr>
 
 :orphan:
 
@@ -21,8 +21,8 @@ Date           TD
 Lundi 13/01   9h-12h  Python I
 Lundi 13/01  14h-17h  Python II
 Mardi 14/01   9h-12h  Python III
-Mardi 14/01  14h-17h  Méthodes numériques
-Jeudi 16/01   9h-12h  Nano-projet
+Mardi 14/01  14h-17h  Méthodes numériques I
+Jeudi 16/01   9h-12h  Méthodes numériques II
 ===========  =======  ======================
 
 .. rubric:: Participants
@@ -31,21 +31,23 @@ Jeudi 16/01   9h-12h  Nano-projet
 Étudiant            TD1  TD2  TD3  TD4  TD5
 ==================  ===  ===  ===  ===  ===
 `Assia Bessaa`_      x         x
-`Thomas Brewer`_          x    x    x
-`Pierre Charlet`_    x    x    x    x
-`Benjamin Condon`_   x    x    x    x
+`Thomas Brewer`_          x    x    x    x
+`Pierre Charlet`_    x    x    x    x    x
+`Benjamin Condon`_   x    x    x    x    x
 `Ludmilla Dirson`_   x    x    x    x
-`J.P. Fontaine`_     x    x    x    x
-`Shaoyou Lu`_        x    x    x    x
-`Florent Storme`_    x    x    x    x
-`Hadil Terroufi`_    x    x    x    x
-`Yang Yang`_         x    x    x    x
+`J.P. Fontaine`_     x    x    x    x    x
+`Shaoyou Lu`_        x    x    x    x    x
+`Florent Storme`_    x    x    x    x    x
+`Hadil Terroufi`_    x    x    x    x    x
+`Yang Yang`_         x    x    x    x    x
 ==================  ===  ===  ===  ===  ===
 
 .. Autres
 .. -------------------------------------------
-.. `Alex Juillard`_ 
-.. `Sacha Davidson`_ 
+.. Alex Juillard
+.. Sacha Davidson
+.. Quentin Arnaud
+.. Loup Balleyguier 
 
 .. _Florent Storme: florentstorme@gmail.com
 .. _J.P. Fontaine: jean-philippe.fontaine@etu.univ-lyon1.fr
@@ -57,7 +59,6 @@ Jeudi 16/01   9h-12h  Nano-projet
 .. _Benjamin Condon: benjamin.condon@etu.univ-lyon1.fr
 .. _Yang Yang: yang.yang@etu.univ-lyon1.fr
 .. _Thomas Brewer: thomas.brewer@etu.univ-lyon1.fr
-.. _Alex Juillard: alex.juillard@gmail.com@gmail.com
 
 .. |+| image:: ./_static/smile.gif
    :alt: Bon

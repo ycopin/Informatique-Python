@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-10 17:44:15 ycopin>
+.. Time-stamp: <2014-01-16 00:06 ycopin@lyonovae03.in2p3.fr>
 
 Références supplémentaires
 ==========================
@@ -53,7 +53,7 @@ Livres libres
   * `Wikibook <http://en.wikibooks.org/wiki/Think_Python>`_
   * `Interactive edition <http://thinkcspy.appspot.com/build/index.html>`_
 
-- `Dive into Python <http://diveintopython.org/>`_ (*lien mort*)
+- `Dive into Python <http://diveintopython.net/>`_
 - `Non-Programmer's Tutorial for Python 2.6
   <http://en.wikibooks.org/wiki/Non-Programmer's_Tutorial_for_Python_2.6>`_
 
