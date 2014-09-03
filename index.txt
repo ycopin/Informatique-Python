@@ -2,7 +2,7 @@
                         Informatique & Python
 *********************************************************************
 
-.. Time-stamp: <2013-11-18 11:02:30 ycopin>
+.. Time-stamp: <2014-09-03 21:39 ycopin@lyonovae03.in2p3.fr>
 
 .. highlight:: python
    :linenothreshold: 3
@@ -37,4 +37,4 @@
    Exercices/anscombe
    Exercices/logistique
    Exercices/julia
-
+   Exercices/solutions

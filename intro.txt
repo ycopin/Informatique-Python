@@ -1,4 +1,4 @@
-.. Time-stamp: <2013-11-05 15:45:58 ycopin>
+.. Time-stamp: <2014-09-03 21:39 ycopin@lyonovae03.in2p3.fr>
 
 Introduction
 ############
@@ -31,7 +31,7 @@ permettant tout aussi bien des analyses rapides dans la vie de tous
 les jours -- quelques lignes de code en intéractif -- que des
 programes les plus complexes (projets de plus de 100000 lignes).
 
-**Liens:**
+.. rubric:: Liens:
 
 * `About Python <http://www.python.org/about/>`_
 * `Python Advocacy <http://docs.python.org/howto/advocacy.html>`_

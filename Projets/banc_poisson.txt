@@ -1,10 +1,10 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2013-11-18 12:31:45 ycopin>
+.. Time-stamp: <2014-09-03 22:00 ycopin@lyonovae03.in2p3.fr>
 
 :orphan:
 
 Auto-organisation d'un banc de poissons
-=======================================
+---------------------------------------
 
 .. sectionauthor:: Hanna Julienne <hanna.julienne@gmail.com>
 

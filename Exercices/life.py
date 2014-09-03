@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2012-09-05 09:31 ycopin@lyopc469>
+# Time-stamp: <2014-09-03 22:00 ycopin@lyonovae03.in2p3.fr>
 
 import random
 

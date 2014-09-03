@@ -4,7 +4,7 @@
 Bibliothèque standard
 #####################
 
-.. Time-stamp: <2013-11-05 15:09:26 ycopin>
+.. Time-stamp: <2014-09-03 22:00 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -19,7 +19,7 @@ données, interactions avec le système, gestion des fichiers et des
 processus, protocoles de communication (internet, mail, FTP, etc.),
 multimédia, etc.
 
-* `The Python Standard Library <http://docs.python.org/library/>`_
+* `The Python Standard Library <http://docs.python.org/2/library/>`_
   (v2.7)
 * `Python by Example! <http://www.lightbird.net/py-by-example/>`_
 
@@ -31,12 +31,12 @@ Gestion des arguments/options de la ligne de commande
 .. index::
    module: sys
 
-Le module `sys` permet un accès direct aux arguments de la ligne de
-commande, via la liste `sys.argv`: `sys.argv[0]` contient le nom du
-script executé, `sys.argv[1]` le nom du 1er argument (s'il existe),
-etc.
+Le module :mod:`sys` permet un accès direct aux arguments de la ligne
+de commande, via la liste :obj:`sys.argv`: `sys.argv[0]` contient le
+nom du script executé, `sys.argv[1]` le nom du 1er argument (s'il
+existe), etc.
 
-**Exemple:** :ref:`crible.py <cribleSol>`
+.. rubric:: Exemple:
 
 .. literalinclude:: ../Exercices/crible.py
    :start-after: start-sys
@@ -46,31 +46,27 @@ etc.
    module: optparse
 
 Pour une gestion avancée des arguments et/ou options de la ligne de
-commande, il est préférable d'utiliser le module `optparse`.
+commande, il est préférable d'utiliser le module :mod:`optparse`.
 
-* **Exemple:** :ref:`koch.py <kochSol>`
+.. rubric:: Exemple:
 
-  .. literalinclude:: ../Exercices/koch.py
-     :start-after: start-optparse
-     :end-before: end-optparse
+.. literalinclude:: circonscrit.py
+   :start-after: start-optparse
+   :end-before: end-optparse
 
-* Génère automatiquement une aide en ligne::
+Cette solution génère automatiquement une aide en ligne, p.ex.::
   
-    $ python koch.py -h
-    Usage: koch.py [options] ordre
-    
-    Tracé (via 'turtle') d'un flocon de Koch d'ordre arbitraire.
+  $ python circonscrit.py -h
+  Usage: circonscrit.py [-p/--plot] [-i/--input coordfile | x1,y1 x2,y2 x3,y3]
 
-    Options:
-      --version             show program's version number and exit
-      -h, --help            show this help message and exit
-      -t TAILLE, --taille=TAILLE
-                            Taille [500 px]
-      -d DELTA, --delta=DELTA
-                            Delta [0.0 deg]
-      -f FIGURE, --figure=FIGURE
-                            Figure de sortie (format EPS)
-      -T, --turbo           Mode Turbo
+  Calcul du cercle circonscrit à 3 points du plan.
+
+  Options:
+    --version             show program's version number and exit
+    -h, --help            show this help message and exit
+    -i INPUT, --input=INPUT
+                          Fichier de coordonnées (un 'x,y' par ligne)
+    -p, --plot            Trace le cercle circonscrit
 
 .. argparse: >2.7
 
@@ -130,7 +126,7 @@ True
 .. .. index::
 ..    module: re
 
-* `Expressions régulières <http://docs.python.org/howto/regex.html>`_:
+* `Expressions régulières <http://docs.python.org/2/howto/regex.html>`_:
   :mod:`re`
 
 .. .. index::
@@ -146,7 +142,7 @@ True
 ..    module: zipfile
 ..    module: tarfile
 
-* Fichiers compressés et archives: :mod:`gzip`, :mod:`bzip2`,
+* Fichiers compressés et archives: :mod:`gzip`, :mod:`bz2`,
   :mod:`zipfile`, :mod:`tarfile`
 
 .. .. index::
@@ -166,18 +162,16 @@ True
 .. .. index::
 ..    module: urllib2
 
-* `Lecture d'une URL <http://docs.python.org/howto/urllib2.html>`_
+* `Lecture d'une URL <http://docs.python.org/2/howto/urllib2.html>`_
   (p.ex. page web): :mod:`urllib2`
 
 
 *Text/Graphical User Interfaces*
 ================================
 
-- :abbr:`TUI (Text User Interface)`: `curses
-  <http://docs.python.org/library/curses.html>`_
-- :abbr:`GUI (Graphical User Interface)`: `Tkinter
-  <http://docs.python.org/library/tkinter.html>`_ (voir également
-  `easygui <http://easygui.sourceforge.net/>`_), 
+- :abbr:`TUI (Text User Interface)`: :mod:`curses` 
+- :abbr:`GUI (Graphical User Interface)`: :mod:`Tkinter` (voir
+  également `easygui <http://easygui.sourceforge.net/>`_),
 - Librairies externes; `PyGTK <http://www.pygtk.org/>`_, `PyQt
   <http://www.riverbankcomputing.co.uk/software/pyqt/intro>`_,
   `wxPython <http://www.wxpython.org/>`_
