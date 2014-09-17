@@ -3,7 +3,7 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2014-09-03 22:00 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-09-18 00:36 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -23,7 +23,7 @@ Bibliothèques numériques
     4  Autres librairies scientifiques
 
 * `Standard Numeric and Mathematical Modules
-  <http://docs.python.org/2/library/numeric.html>`_
+  <https://docs.python.org/2/library/numeric.html>`_
 
 .. _td5:
 
@@ -34,7 +34,7 @@ Numpy
    module: numpy
 
 - `Réference Numpy <http://docs.scipy.org/doc/numpy/reference/>`_
-- `Tutoriel numpy <http://www.scipy.org/Tentative_NumPy_Tutorial>`_
+- `Tutoriel numpy <http://wiki.scipy.org/Tentative_NumPy_Tutorial>`_
 - `Exemples annotés
   <http://wiki.scipy.org/Numpy_Example_List>`_
 
@@ -355,7 +355,7 @@ array([[10, 11, 12],
        [23, 24, 25]])
 
 Voir également cette `présentation
-<http://www.scipy.org/EricsBroadcastingDoc>`_.
+<http://wiki.scipy.org/EricsBroadcastingDoc>`_.
 
 .. rubric:: Indexation évoluée
 
@@ -369,9 +369,9 @@ array([-1. , -0.5,  0. ,  0.5,  1. ])
 array([False, False,  True,  True,  True], dtype=bool)
 >>> (a>=0).nonzero() # Indices des éléments ne s'évaluant pas à False
 (array([2, 3, 4]),)  # Indices des éléments >= 0
->>> a[(a>=0).nonzero()] # Indexation par un tableau d'indices
+>>> a[(a>=0).nonzero()] # Indexation par un tableau d'indices, pas pythonique...
 array([ 0. ,  0.5,  1. ])
->>> a[a>=0]             # Indexation par un tableau de booléens, **préférable**
+>>> a[a>=0]             # Indexation par un tableau de booléens, **pythonique**
 array([ 0. ,  0.5,  1. ])
 >>> a[a<0] -= 10; a # Soustrait 10 à toutes les valeurs <0 (= where(a<0, a-10, a)
 
@@ -613,7 +613,7 @@ fonctionnalités de :mod:`numpy`. P.ex.:
 .. rubric:: Liens:
 
 - `Réference Scipy <http://docs.scipy.org/doc/scipy/reference/>`_
-- `Cookbook Scipy <http://www.scipy.org/Cookbook>`_
+- `Cookbook Scipy <http://wiki.scipy.org/Cookbook>`_
 - `Scipy Course Outline
   <http://www.rexx.com/~dkuhlman/scipy_course_01.html>`_
 - `Calcul numérique haut-niveau
@@ -653,7 +653,7 @@ Quelques exemples complets
   - `Oscillation amortie
     <http://www.dakarlug.org/pat/scientifique/html/scipy.html>`_
   - `Zombie Apocalypse
-    <http://www.scipy.org/Cookbook/Zombie_Apocalypse_ODEINT>`_
+    <http://wiki.scipy.org/Cookbook/Zombie_Apocalypse_ODEINT>`_
 
 * `Optimisation
   <http://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html>`_
@@ -758,7 +758,7 @@ Une liste **non-exhaustive** de librairies scientifiques dans
 différents domaines de la physique/chimie:
 
 - Mécanique quantique: `QuTiP <http://code.google.com/p/qutip/>`_
-- Électromagnétisme: `EMpy <http://lbolla.github.com/EMpy/>`_
+- Électromagnétisme: `EMpy <https://lbolla.github.io/EMpy/>`_
 - Astronomie: `astropy <http://www.astropy.org/>`_, `Kapteyn
   <http://www.astro.rug.nl/software/kapteyn/>`_ et autres `modules
   astronomiques
@@ -766,13 +766,13 @@ différents domaines de la physique/chimie:
 - *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, 
   `SfePy <http://sfepy.org/doc-devel/index.html>`_
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
-  <http://packages.python.org/milk/>`_, `MDP
+  <https://packages.python.org/milk/>`_, `MDP
   <http://mdp-toolkit.sourceforge.net/>`_, `AstroML
   <http://www.astroml.org/>`_ et autres `modules d'intelligence
   artificielle
-  <http://wiki.python.org/moin/PythonForArtificialIntelligence>`_
+  <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_
 - Calcul symbolique: sympy_ (voir également ce `tutoriel sympy
-  <http://mattpap.github.com/scipy-2011-tutorial/html/>`_)
+  <https://mattpap.github.io/scipy-2011-tutorial/html/>`_)
 - `PyROOT <http://root.cern.ch/drupal/content/pyroot>`_
 - `Etc. <http://www.scipy.org/Topical_Software>`_
 

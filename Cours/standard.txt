@@ -4,7 +4,7 @@
 Bibliothèque standard
 #####################
 
-.. Time-stamp: <2014-09-03 22:00 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-09-17 23:55 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -19,7 +19,7 @@ données, interactions avec le système, gestion des fichiers et des
 processus, protocoles de communication (internet, mail, FTP, etc.),
 multimédia, etc.
 
-* `The Python Standard Library <http://docs.python.org/2/library/>`_
+* `The Python Standard Library <https://docs.python.org/2/library/>`_
   (v2.7)
 * `Python by Example! <http://www.lightbird.net/py-by-example/>`_
 
@@ -43,32 +43,34 @@ existe), etc.
    :end-before: end-sys
 
 .. index::
-   module: optparse
+   module: argparse
 
 Pour une gestion avancée des arguments et/ou options de la ligne de
-commande, il est préférable d'utiliser le module :mod:`optparse`.
+commande, il est préférable d'utiliser le module :mod:`argparse`.
 
 .. rubric:: Exemple:
 
 .. literalinclude:: circonscrit.py
-   :start-after: start-optparse
-   :end-before: end-optparse
+   :start-after: start-argparse
+   :end-before: end-argparse
 
 Cette solution génère automatiquement une aide en ligne, p.ex.::
   
   $ python circonscrit.py -h
-  Usage: circonscrit.py [-p/--plot] [-i/--input coordfile | x1,y1 x2,y2 x3,y3]
+  usage: circonscrit.py [-p/--plot] [-i/--input coordfile | x1,y1 x2,y2 x3,y3]
 
-  Calcul du cercle circonscrit à 3 points du plan.
+  Compute the circumscribed circle to 3 points in the plan.
 
-  Options:
-    --version             show program's version number and exit
+  positional arguments:
+    x,y                   Coordinates 'x,y' of point
+
+  optional arguments:
     -h, --help            show this help message and exit
-    -i INPUT, --input=INPUT
-                          Fichier de coordonnées (un 'x,y' par ligne)
-    -p, --plot            Trace le cercle circonscrit
+    -i [INPUT], --input [INPUT]
+                          Coordinate file (one 'x,y' per line)
+    -p, --plot            Draw the circumscribed circle
+    --version             show program's version number and exit
 
-.. argparse: >2.7
 
 .. _pickle:
 
@@ -126,7 +128,7 @@ True
 .. .. index::
 ..    module: re
 
-* `Expressions régulières <http://docs.python.org/2/howto/regex.html>`_:
+* `Expressions régulières <https://docs.python.org/2/howto/regex.html>`_:
   :mod:`re`
 
 .. .. index::
@@ -162,7 +164,7 @@ True
 .. .. index::
 ..    module: urllib2
 
-* `Lecture d'une URL <http://docs.python.org/2/howto/urllib2.html>`_
+* `Lecture d'une URL <https://docs.python.org/2/howto/urllib2.html>`_
   (p.ex. page web): :mod:`urllib2`
 
 

@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-09-03 22:03 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-09-18 00:33 ycopin@lyonovae03.in2p3.fr>
 
 Références supplémentaires
 ==========================
@@ -10,14 +10,14 @@ en français.
 Documentation générale
 ----------------------
 
-- `Python <http://www.python.org/>`_
-- `The Python Package Index <http://pypi.python.org/pypi>`_
+- `Python <https://www.python.org/>`_
+- `The Python Package Index <https://pypi.python.org/pypi>`_
 - `Python 2.7 Quick Reference
   <http://rgruet.free.fr/PQR27/PQR2.7.html>`_
 - `Python Documentation
-  <http://wiki.python.org/moin/PythonDocumentation>`_
+  <https://wiki.python.org/moin/PythonDocumentation>`_
 - `Python Frequently Asked Questions
-  <http://docs.python.org/faq/index.html>`_
+  <https://docs.python.org/faq/index.html>`_
 
 Forums de discussion
 --------------------
@@ -32,8 +32,8 @@ Listes de liens
 
 - `Python facile
   <http://pythonfacile.free.fr/python/ressources.html>`_ (2005) |fr|
-- `Python références et astuces:
-  <http://staff.umh.ac.be/Villers.Didier/python.html>`_ (2009) |fr|
+- `Python: quelques références, trucs et astuces:
+  <http://dvillers.umons.ac.be/wiki/floss:python>`_ (2014) |fr|
 
 .. rubric:: ipython
 
@@ -53,11 +53,11 @@ Livres libres
   * `Wikibook <http://en.wikibooks.org/wiki/Think_Python>`_
   * `Interactive edition <http://thinkcspy.appspot.com/build/index.html>`_
 
-- `Dive into Python <http://diveintopython.net/>`_
+- `Dive into Python <http://www.diveintopython.net/>`_
 - `Non-Programmer's Tutorial for Python 2.6
   <http://en.wikibooks.org/wiki/Non-Programmer's_Tutorial_for_Python_2.6>`_
 
-- `A Python Book <http://www.rexx.com/~dkuhlman/python_book_01.html>`_
+- `A Python Book <http://www.davekuhlman.org/python_book_01.html>`_
 - `Start Programming with Python <http://python-ebook.blogspot.fr/>`_
 - `Python for Informatics: Exploring Information
   <http://www.pythonlearn.com/>`_
@@ -91,7 +91,7 @@ Python
 Scientifique
 ............
 
-- `Python Scientific Lecture Notes <http://scipy-lectures.github.io/>`_
+- `Python Scientific Lecture Notes <https://scipy-lectures.github.io/>`_
 - `Handbook of the Physics Computing Course
   <http://pentangle.net/python/handbook/>`_ (2002)
 - `Practical Scientific Computing in Python
@@ -103,7 +103,7 @@ Scientifique
   <http://conference.scipy.org/scipy2011/tutorials.php>`_, `2012
   <http://conference.scipy.org/scipy2012/tutorials.php>`_, `2013
   <http://conference.scipy.org/scipy2013/tutorials.php>`_, 
-- `Practical Python for Astronomers <http://python4astronomers.github.io/>`_
+- `Practical Python for Astronomers <https://python4astronomers.github.io/>`_
 - `Lectures on Computational Economics <http://quant-econ.net/>`_
   (avec exercices)
 - `Scipy Central <scipy-central.org>`_ (*code snippets*)
@@ -117,7 +117,7 @@ Scientifique
 Autres
 ......
 
-- `Visualization <http://cs171.org/>`_
+- `Visualization <http://www.cs171.org/>`_
 
 .. - `Data Visualization <https://graphics.stanford.edu/wikis/cs448b-11-fall>`_
 
@@ -135,4 +135,3 @@ Sphinx & co.
    :alt: Fr
 .. |en| image:: ../Cours/uk_flag_icon.png
    :alt: En
-

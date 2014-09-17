@@ -1,13 +1,53 @@
-.. Time-stamp: <2014-09-03 22:00 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-09-17 19:27:02 ycopin>
 .. _exercices:
 
 Exercices
 #########
 
+Introduction
+============
+
+.. _integ:
+
+Intégration: méthode des rectangles
+-----------------------------------
+
+La `méthode des rectangles
+<http://fr.wikipedia.org/wiki/Méthode_du_point_médian>`_ permet
+d'approximer numériquement l'intégrale d'une fonction `f`:
+
+.. math::
+
+   \int_a^b f(x)\,\mathrm{d}x \approx h \sum_{i=0}^{n-1} f(x_{i})
+   \quad\text{avec}\quad
+   h = (b-a)/n
+   \quad\text{et}\quad
+   x_i = a + (i+1/2)h.
+
+On définit la fonction `sq` renvoyant le carré d'un nombre par
+(cf. :ref:`fonctions`)::
+
+  def sq(x) :
+      return x*x
+
+Écrire un programme calculant l'intégrale de cette fonction entre a=0
+et b=1, en utilisant une subdivision en n=100 pas dans un premier
+temps. Quelle est la précision de la méthode, et comment dépend-elle
+du nombre de pas?
+
+.. _pgcd:
+
+PGCD: algorithme d'Euclide
+--------------------------
+
+Écrire un programme calculant le :abbr:`PGCD (Plus Grand Commun
+Dénominateur)` de deux nombres (p.ex. 306 et 756) par l'`algorithme
+d'Euclide <http://fr.wikipedia.org/wiki/Algorithme_d'Euclide>`_.
+
 .. _tables:
 
 Tables de multiplication
-========================
+------------------------
 
 Écrire un programme affichant les tables de multiplication::
 
@@ -111,8 +151,8 @@ N.B.: Pour que l'affichage soit agréable à l'oeil, vous marquerez des
 pauses entre l'affichage de chaque itération grâce à la fonction
 `time.sleep`.
 
-Manipulation de tableaux (arrays)
-=================================
+Manipulation de tableaux (`arrays`)
+===================================
 
 .. _mad:
 
@@ -246,10 +286,11 @@ Méthodes numériques
 Quadrature & zéro d'une fonction
 --------------------------------
 
-* Calculer numériquement l'intégrale :math:`\int_0^\infty
-  \frac{x^3}{e^x-1}\mathrm{d}x = \frac{\pi^4}{15}`.
-* Résoudre numériquement l'équation :math:`\frac{x\,e^x}{e^x - 1} =
-  5`.
+À l'aide des algorithmes disponibles dans :mod:`scipy`,
+
+* calculer numériquement l'intégrale :math:`\int_0^\infty
+  \frac{x^3}{e^x-1}\mathrm{d}x = \pi^4/15`;
+* résoudre numériquement l'équation :math:`x\,e^x = 5(e^x - 1)`.
 
 .. _canon:
 
@@ -270,15 +311,15 @@ Utiliser les valeurs numériques pour un boulet de canon de `36 livres
 
 .. code-block:: python
 
-    g = 9.81 # Pesanteur [m/s2]
-    cx = 0.45 # Coefficient de frottement d'une sphère
-    rhoAir = 1.2 # Masse volumique de l'air [kg/m3]
+    g = 9.81       # Pesanteur [m/s2]
+    cx = 0.45      # Coefficient de frottement d'une sphère
+    rhoAir = 1.2   # Masse volumique de l'air [kg/m3]
     rad = 0.1748/2 # Rayon du boulet [m]
-    rho = 6.23e3 # Masse volumique du boulet [kg/m3]
-    mass = 4./3.*N.pi*rad**3 * rho # Masse du boulet [kg]
+    rho = 6.23e3   # Masse volumique du boulet [kg/m3]
+    mass = 4./3.*N.pi*rad**3 * rho           # Masse du boulet [kg]
     alpha = 0.5*cx*rhoAir*N.pi*rad**2 / mass # Coeff. de frottement / masse
-    v0 = 450. # Vitesse initiale [m/s]
-    alt = 45. # Inclinaison du canon [deg]
+    v0 = 450.      # Vitesse initiale [m/s]
+    alt = 45.      # Inclinaison du canon [deg]
 
 .. _romberg:
 

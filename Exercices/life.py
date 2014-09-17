@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2014-09-03 22:00 ycopin@lyonovae03.in2p3.fr>
+# Time-stamp: <2014-09-17 16:39:32 ycopin>
 
 import random
 
@@ -31,9 +31,9 @@ class Life(object):
         """
         
         if self.periodic:
-            return self.world[i%self.h][j%self.w] # Periodic conditions
+            return self.world[i % self.h][j % self.w] # Periodic conditions
         else:
-            if 0<=i<self.h and 0<=j<self.w:       # Inside grid
+            if (0 <= i < self.h) and (0 <= j < self.w): # Inside grid
                 return self.world[i][j]
             else:                       # Outside grid
                 return False            # There's nobody out there...
@@ -47,8 +47,10 @@ class Life(object):
                            for row in self.world ])
     
     def evolve_cell(self,i,j):
-        """Tells if cell (*i*,*j*) will survive during game iteration,
-        depending on the number of living neighboring cells."""
+        """
+        Tells if cell (*i*,*j*) will survive during game iteration,
+        depending on the number of living neighboring cells.
+        """
 
         alive = self.get(i,j)           # Current cell status
         # Count living cells *around* current one (excluding current one)

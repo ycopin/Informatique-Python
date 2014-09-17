@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2011-10-20 23:09 yannick@lyopc469>
+# Time-stamp: <2014-09-17 16:03:25 ycopin>
 
 import numpy as N
 import matplotlib.pyplot as P
 
 def passeBas(x, Q=1):
-    """Filtre passe-bas en pulsation réduite x=omega/omega0, facteur
-    de qualité Q."""
+    """
+    Filtre passe-bas en pulsation réduite x=omega/omega0, facteur de
+    qualité Q.
+    """
 
     return 1/(1-x**2 + x/Q*1j)
 
@@ -24,8 +26,10 @@ def coupeBande(x, Q=1):
     return (1-x**2)/(1-x**2 + x/Q*1j)
 
 def gainNphase(f, dB=True):
-    """Retourne le gain (éventuellement en dB) et la phase [rad] d'un
-    filtre de fonction de transfert complexe f."""
+    """
+    Retourne le gain (éventuellement en dB) et la phase [rad] d'un
+    filtre de fonction de transfert complexe f.
+    """
 
     g = N.abs(f)                        # Gain
     if dB:                              # [dB]
@@ -44,9 +48,11 @@ def asympPhase(x, phases=(0,-N.pi)):
     return N.where(x<1, phases[0], phases[1])
 
 def diagBode(x, fs, Qs, title='', plim=None, gAsymp=None, pAsymp=None):
-    """Trace le diagrame de Bode -- gain [dB] et phase [rad] -- du
-    filtre de fonction de transfert complexe f en fonction de la
-    pulsation réduite x."""
+    """
+    Trace le diagrame de Bode -- gain [dB] et phase [rad] -- du filtre
+    de fonction de transfert complexe f en fonction de la pulsation
+    réduite x.
+    """
 
     fig = P.figure()
     axg = fig.add_subplot(2,1,1,        # Axe des gains
@@ -54,7 +60,7 @@ def diagBode(x, fs, Qs, title='', plim=None, gAsymp=None, pAsymp=None):
                           ylabel='Gain [dB]')
     axp = fig.add_subplot(2,1,2,        # Axe des phases
                           sharex=axg, 
-                          xlabel='x = $\omega$/$\omega_0$', xscale='log',
+                          xlabel=r'x = $\omega$/$\omega_0$', xscale='log',
                           ylabel='Phase [rad]')
     
     lss=['--','-','-.',':']

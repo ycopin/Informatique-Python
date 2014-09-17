@@ -1,8 +1,10 @@
-.. % Time-stamp: <2014-01-12 23:42 ycopin@lyonovae03.in2p3.fr>
+.. % Time-stamp: <2014-09-17 23:03 ycopin@lyonovae03.in2p3.fr>
 
 Solutions aux exercices
 =======================
 
+* :ref:`integSol`
+* :ref:`pgcdSol`
 * :ref:`cribleSol`
 * :ref:`carreSol`
 * :ref:`kochSol`

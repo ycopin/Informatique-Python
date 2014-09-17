@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-09-03 21:39 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-09-17 23:05 ycopin@lyonovae03.in2p3.fr>
 
 Introduction
 ############
@@ -47,7 +47,8 @@ Organisation des TDs
 * :ref:`TD5 <td5>`: Numpy
 * :ref:`TD6 <td6>`: Scipy
 * :ref:`TD7 <td7>`: Zen du python, révisions
-* :ref:`Page projets <projets>`: Exemple de sujets de micro-projets
+
+.. * :ref:`Page projets <projets>`: Exemple de sujets de micro-projets
 
 .. Index
 .. =====

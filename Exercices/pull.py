@@ -4,16 +4,18 @@
 import numpy as N
 
 def pull(x, dx):
-    """Compute the pull from x, dx.
+    """
+    Compute the pull from x, dx.
 
-    * Input data: x = [x_i], error dx = [s_i]
-    * Optimal (variance-weighted) mean: E = sum(x_i/s_i²)/sum(1/s_i²)
-    * Variance on weighted mean: var(E) = 1/sum(1/s_i²)
-    * Pull: p_i = (x_i - E_i)/sqrt(var(E_i) + s_i²)
-      where E_i and var(E_i) are computed without point i.
+    * Input data: x = [x_i], error dx = [s_i] Optimal
+    * (variance-weighted) mean: E = sum(x_i/s_i²)/sum(1/s_i²) Variance
+    * on weighted mean: var(E) = 1/sum(1/s_i²) Pull: p_i = (x_i -
+    * E_i)/sqrt(var(E_i) + s_i²) where E_i and var(E_i) are computed
+    * without point i.
 
     If errors s_i are correct, the pull distribution is centered on 0
-    with standard deviation of 1."""
+    with standard deviation of 1.
+    """
 
     assert x.ndim==dx.ndim==1, "pull works on 1D-arrays only."
     assert len(x)==len(dx), "dx should be the same length as x."
@@ -30,7 +32,7 @@ def pull(x, dx):
     Ei = N.average(x[j], weights=w[j], axis=1) # Weighted mean (n,)
     vEi = 1/N.sum(w[j], axis=1)                # Variance of mean (n,)
 
-    p = (x - Ei)/N.sqrt(vEi + v)   # Pull (n,)
+    p = (x - Ei)/N.sqrt(vEi + v)               # Pull (n,)
 
     return p
 
@@ -46,4 +48,4 @@ if __name__=='__main__':
 
     p = pull(x, dx)                       # Pull computation
 
-    print "Pull: mean=%.2f, std=%.2f" % (p.mean(), p.std(ddof=1))
+    print "Pull: mean={:.2f}, std={:.2f}".format(p.mean(), p.std(ddof=1))

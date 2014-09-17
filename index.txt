@@ -1,8 +1,8 @@
 *********************************************************************
-                        Informatique & Python
+                  Outils numériques et programmation
 *********************************************************************
 
-.. Time-stamp: <2014-09-03 21:39 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-09-17 18:37:59 ycopin>
 
 .. highlight:: python
    :linenothreshold: 3
@@ -22,12 +22,12 @@
    Cours/references
    Cours/exemples
    Exercices/exo
-   Projets/projets
-   Projets/projets2013
 
 .. toctree::
    :hidden:
 
+   Exercices/integ
+   Exercices/pgcd
    Exercices/crible
    Exercices/carre
    Exercices/koch
@@ -38,3 +38,5 @@
    Exercices/logistique
    Exercices/julia
    Exercices/solutions
+   Projets/projets
+   Projets/projets2013

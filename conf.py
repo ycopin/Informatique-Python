@@ -29,7 +29,7 @@ extensions = ['sphinx.ext.autodoc', 'sphinx.ext.todo', 'sphinx.ext.mathjax', 'sp
 
 # Intersphinx configuration
 intersphinx_mapping = {
-    'python': ('http://docs.python.org/2', None),
+    'python': ('https://docs.python.org/2', None),
     'numpy': ('http://docs.scipy.org/doc/numpy/', None),
     'scipy': ('http://docs.scipy.org/doc/scipy/reference/', None),
     'matplotlib': ('http://matplotlib.org/', None),
@@ -48,8 +48,8 @@ source_suffix = '.txt'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Informatique et Python'
-copyright = u'2013, Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
+project = u'Outils numériques et programmation'
+copyright = u'2014, Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -186,7 +186,7 @@ html_show_copyright = True
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Informatique-Pythondoc'
+htmlhelp_basename = 'outilsNumeriquesEtProgrammation'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -205,8 +205,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Informatique-Python.tex',
-   u'Informatique et Python',
+  ('index', 'outilsNumeriquesEtProgrammation.tex',
+   u'Outils numériques et programmation',
    u'Yannick Copin', 'manual'),
 ]
 
@@ -236,8 +236,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'informatique-python',
-     u'Informatique et Python',
+    ('index', 'outilsNumeriquesEtProgrammation',
+     u'Outils numériques et programmation',
      [u'Yannick Copin'], 1)
 ]
 
@@ -251,9 +251,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'Informatique-Python',
-   u'Informatique et Python',
-   u'Yannick Copin', 'Informatique et Python', 'Cours de python.',
+  ('index', 'outilsNumeriquesEtProgrammation',
+   u'Outils numériques et programmation',
+   u'Yannick Copin', 'Outils numériques et programmation', 'Cours de python.',
    'Miscellaneous'),
 ]
 
@@ -270,10 +270,10 @@ texinfo_documents = [
 # -- Options for Epub output ---------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'Informatique et Python'
+epub_title = u'Outils numériques et programmation'
 epub_author = u'Yannick Copin'
 epub_publisher = u'Yannick Copin'
-epub_copyright = u'2013, Yannick Copin'
+epub_copyright = u'2014, Yannick Copin'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.
