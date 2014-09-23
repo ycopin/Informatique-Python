@@ -54,11 +54,11 @@ class Point(object): # *object* est la classe dont dérivent toutes les autres
         from math import hypot
 
         return hypot(self.x - other.x, self.y - other.y) # sqrt(dx**2 + dy**2)
-# end-classPoint
 
 
 # Définition du point origine O
 O = Point(0,0)
+# end-classPoint
 
 
 # Héritage de classe ==============================

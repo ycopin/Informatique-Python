@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-09-17 23:57 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-09-23 19:14:31 ycopin>
 .. _cours:
 
 Initiation à Python
@@ -305,10 +305,12 @@ Structures de programmation
      testant *en plus* sur un nombre maximal (raisonnable)
      d'itérations:
 
-     >>> niter = 0
-     >>> while (error > 1e-6) and (niter < 100):
-     ...     error = ...   # A priori, error va décroître, et la boucle s'interrompre
-     ...     niter ++      # Mais on n'est jamais assez prudent!
+     .. code-block:: python
+
+        niter = 0
+        while (error > 1e-6) and (niter < 100):
+            error = ...   # A priori, error va décroître, et la boucle s'interrompre
+            niter ++      # Mais on n'est jamais assez prudent!
 
 .. rubric:: Exercices: 
 
@@ -564,7 +566,7 @@ mot-clé `return`.
 .. Note:: Dans la définition d'une fonction, la première chaîne de
    charactères (appelé *docstring*) servira de documentation pour la
    fonction, accessible de l'interpréteur via p.ex. `help(temp_f2c)`,
-   ou `temp_f2c?` sous ipython.  Elle se doit d'être tout à la fois
+   ou `temp_f2c?` sous `ipython`.  Elle se doit d'être tout à la fois
    pertinente, concise *et* complète.
 
 .. code-block:: python
@@ -787,8 +789,8 @@ Au concept d'objet sont liées les notions de:
 
 .. rubric:: Études de cas
 
-- `turtle.Vec2D`
-- `fractions.Fraction`
+- :class:`turtle.Vec2D`
+- :class:`fractions.Fraction`
 
 .. rubric:: Exercice:
 
@@ -861,7 +863,17 @@ elles ne peuvent conclure leur action, à charge pour la procédure
 appelante de les gérer si besoin::
 
   def diff_sqr(x,y):
-      """Returns x**2 - y**2 for x >= y, raises ValueError if x < y."""
+      """
+      Returns x**2 - y**2 for x >= y, ValueError otherwise.
+
+      Exemples:
+      >>> diff_sqr(5, 3)
+      16
+      >>> diff_sqr(3, 5)
+      Traceback (most recent call last):
+      ...
+      ValueError: x=3 < y=5
+      """
   
       if x < y:
           raise ValueError("x={} < y={}".format(x,y))
@@ -875,8 +887,10 @@ tester la validité de certaines hypothèses fondamentales, soit par une
 structure `if ... raise`, ou plus facilement à l'aide d'`assert` (qui,
 si l'hypothèse n'est pas vérifiée, génère une `AssertionError`)::
 
-  def diffsqr(x,y):
-      """Returns x**2 - y**2 for x >= y."""
+  def diff_sqr(x,y):
+      """
+      Returns x**2 - y**2 for x >= y, AssertionError otherwise.
+      """
   
       assert x >= y, "x={} < y={}".format(x,y) # Test et msg d'erreur
       return x**2 - y**2

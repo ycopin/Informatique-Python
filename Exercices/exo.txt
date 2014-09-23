@@ -1,16 +1,19 @@
-.. Time-stamp: <2014-09-17 19:27:02 ycopin>
+.. Time-stamp: <2014-09-23 16:48:12 ycopin>
 .. _exercices:
 
 Exercices
 #########
+
+.. Note:: les exercices sont de difficulté variable, de ★ (simple) à
+          ★★★ (complexe).
 
 Introduction
 ============
 
 .. _integ:
 
-Intégration: méthode des rectangles
------------------------------------
+Intégration: méthode des rectangles ★
+-------------------------------------
 
 La `méthode des rectangles
 <http://fr.wikipedia.org/wiki/Méthode_du_point_médian>`_ permet
@@ -37,8 +40,8 @@ du nombre de pas?
 
 .. _pgcd:
 
-PGCD: algorithme d'Euclide
---------------------------
+PGCD: algorithme d'Euclide ★
+----------------------------
 
 Écrire un programme calculant le :abbr:`PGCD (Plus Grand Commun
 Dénominateur)` de deux nombres (p.ex. 306 et 756) par l'`algorithme
@@ -46,8 +49,8 @@ d'Euclide <http://fr.wikipedia.org/wiki/Algorithme_d'Euclide>`_.
 
 .. _tables:
 
-Tables de multiplication
-------------------------
+Tables de multiplication ★
+--------------------------
 
 Écrire un programme affichant les tables de multiplication::
 
@@ -62,8 +65,8 @@ Manipulation de listes
 
 .. _crible:
 
-Crible d'Ératosthène
---------------------
+Crible d'Ératosthène ★
+----------------------
 
 Implémenter le `crible d'Ératosthène
 <http://fr.wikipedia.org/wiki/Crible_d'Ératosthène>`_ pour afficher
@@ -74,8 +77,8 @@ les nombres premiers compris entre 1 et un entier fixe, p.ex.::
 
 .. _carre:
 
-Carré magique
--------------
+Carré magique ★★
+----------------
 
 Un carré magique d’ordre *n* est un tableau carré *n × n* dans lequel
 on écrit une et une seule fois les nombres entiers de 1 à *n²*, de
@@ -105,10 +108,14 @@ commençant à 1:
 Programmer cet algorithme pour pouvoir construire un carré magique
 d’ordre impair quelconque.
 
+
+Programmation
+=============
+
 .. _koch:
 
-Flocon de Koch
-==============
+Programmation récursive: le flocon de Koch ★★★
+----------------------------------------------
 
 .. index::
    module: turtle
@@ -125,8 +132,8 @@ bibliothèque graphique standard `turtle` dans une fonction
 
 .. _life:
 
-Jeu de la vie (POO)
-===================
+Programmation Orientée Objet: le jeu de la vie ★★
+-------------------------------------------------
 
 On se propose de programmer l'automate cellulaire le plus célèbre, `le
 Jeu de la vie <http://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
@@ -156,8 +163,8 @@ Manipulation de tableaux (`arrays`)
 
 .. _mad:
 
-*Median Absolute Deviation*
----------------------------
+*Median Absolute Deviation* ★
+-----------------------------
 
 En statistique, le *Median Absolute Deviation* (MAD) est un estimateur
 robuste de la dispersion d'un échantillon 1D: `MAD = median(| x -
@@ -169,8 +176,8 @@ axes.
 
 .. _pull:
 
-Distribution du *pull*
-----------------------
+Distribution du *pull* ★★★
+--------------------------
 
 Le *pull* est une quantité statistique permettant d'évaluer la
 conformité des erreurs par rapport à une distribution de valeurs
@@ -196,8 +203,8 @@ Visualisation (matplotlib)
 
 .. _anscombe:
 
-Quartet d'Anscombe
-------------------
+Quartet d'Anscombe ★
+--------------------
 
 Après chargement des données, calculer et afficher les propriétés
 statistiques des quatres jeux de données du :download:`Quartet
@@ -234,8 +241,8 @@ que la droite de régression linéaire.
 
 .. _logistique:
 
-Diagramme de bifurcation : la suite logistique
-----------------------------------------------
+Diagramme de bifurcation: la suite logistique ★★
+------------------------------------------------
 
 Écrivez une fonction qui calcule la valeur d'équilibre de la `suite
 logistique <http://fr.wikipedia.org/wiki/Suite_logistique>`_ pour un
@@ -256,8 +263,8 @@ résultats.
 
 .. _julia:
 
-Ensemble de Julia
------------------
+Ensemble de Julia ★★
+--------------------
 
 Représentez l'`ensemble de Julia
 <http://fr.wikipedia.org/wiki/Ensemble_de_Julia>`_ pour la constante
@@ -283,8 +290,8 @@ Méthodes numériques
 
 .. _numerique:
 
-Quadrature & zéro d'une fonction
---------------------------------
+Quadrature & zéro d'une fonction ★
+----------------------------------
 
 À l'aide des algorithmes disponibles dans :mod:`scipy`,
 
@@ -294,8 +301,8 @@ Quadrature & zéro d'une fonction
 
 .. _canon:
 
-Équation différentielle
------------------------
+Équation différentielle ★
+-------------------------
 
 À l'aide de la fonction `scipy.integrate.odeint
 <http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html>`_,
@@ -323,8 +330,8 @@ Utiliser les valeurs numériques pour un boulet de canon de `36 livres
 
 .. _romberg:
 
-Schéma de Romberg
------------------
+Schéma de Romberg ★★
+--------------------
 
 Écrire une fonction `integ_romberg(f, a, b, epsilon=1e-6)` permettant
 de calculer l'intégrale numérique de la fonction *f* entre les bornes
@@ -336,8 +343,8 @@ Tester sur des solutions analytiques et en comparant à
 
 .. _rk:
 
-Méthode de Runge-Kutta
-----------------------
+Méthode de Runge-Kutta ★★
+-------------------------
 
 Développer un algorithme permettant d'intégrer numériquement une
 équation différentielle du 1er ordre en utilisant la `méthode de

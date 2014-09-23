@@ -1,7 +1,7 @@
 Développer en python
 ####################
 
-.. Time-stamp: <2014-09-18 00:04 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-09-23 17:57:03 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -181,10 +181,11 @@ directement dans la documentation ou en écrivant du code spécifique:
    sa globalité.
 
 - `doctest <https://docs.python.org/2/library/doctest.html>`_: tests
-   unitaires inclus à la documentation
+  unitaires inclus à la documentation (librairie standard)
 - `unittest <https://docs.python.org/2/library/unittest.html>`_
-- `py.test <http://pytest.org/latest/>`_
+  (librairie standard)
 - `nose <http://nose.readthedocs.org/en/latest/>`_
+- `pytest <http://pytest.org/latest/>`_
 
 Débugage et optimisation
 ------------------------
