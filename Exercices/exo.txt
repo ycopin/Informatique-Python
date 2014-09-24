@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-09-24 17:16:14 ycopin>
+.. Time-stamp: <2014-09-24 18:24:35 ycopin>
 .. _exercices:
 
 Exercices
@@ -122,12 +122,14 @@ non-triviale de la) `suite de Syracuse
 <http://fr.wikipedia.org/wiki/Conjecture_de_Syracuse>`_ pour un entier
 *n*. Écrire une fonction `temps_syracuse(n, altitude=False)`
 retournant le temps de vol (éventuellement en altitude) correspondant
-à l'entier *n*. Tester ces fonctions sur *n=15*::
+à l'entier *n*. Tester ces fonctions sur *n=15*:
 
-  Suite de Syracuse pour n = 15
+  >>> suite_syracuse(15)
   [15, 46, 23, 70, 35, 106, 53, 160, 80, 40, 20, 10, 5, 16, 8, 4, 2, 1]
-  Temps de vol total:       17
-  Temps de vol en altitude: 10
+  >>> temps_syracuse(15)
+  17
+  >>> temps_syracuse(15, altitude=True)
+  10
 
 .. _koch:
 
