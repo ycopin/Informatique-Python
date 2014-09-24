@@ -1,0 +1,20 @@
+.. Time-stamp: <2014-09-24 17:36:42 ycopin>
+
+.. _syracuseSol:
+
+Fonctions: suite de Syracuse
+----------------------------
+
+.. literalinclude:: syracuse.py
+   :linenos:
+
+..
+
+  >>> suite_syracuse(15)
+  [15, 46, 23, 70, 35, 106, 53, 160, 80, 40, 20, 10, 5, 16, 8, 4, 2, 1]
+  >>> temps_syracuse(15)
+  17
+  >>> temps_syracuse(15, altitude=True)
+  10
+
+**Source:** :download:`syracuse.py`

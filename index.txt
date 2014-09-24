@@ -2,7 +2,7 @@
                   Outils numériques et programmation
 *********************************************************************
 
-.. Time-stamp: <2014-09-17 18:37:59 ycopin>
+.. Time-stamp: <2014-09-24 17:35:57 ycopin>
 
 .. highlight:: python
    :linenothreshold: 3
@@ -30,6 +30,7 @@
    Exercices/pgcd
    Exercices/crible
    Exercices/carre
+   Exercices/syracuse
    Exercices/koch
    Exercices/life
    Exercices/mad

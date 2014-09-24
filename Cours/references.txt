@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-09-18 00:33 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-09-24 10:36:42 ycopin>
 
 Références supplémentaires
 ==========================

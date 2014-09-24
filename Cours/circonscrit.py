@@ -2,7 +2,26 @@
 # -*- coding: utf-8 -*-
 
 """
-Compute the circumscribed circle to 3 points in the plan.
+Calcule le cercle circonscrit à 3 points du plan.
+
+Ce script sert d'illustration à plusieurs concepts indépendants:
+
+- un exemple de script (shebang, docstring, etc.) permettant une
+  utilisation en module (`import circonscrit`) et en exécutable
+  (`python circonscrit.py -h`);
+- des exemples de Programmation Orientée Objet: classe `Point` et la
+  classe héritière `Vector`;
+- un exemple d'utilisation du module `argparse` de la bibliothèque
+  standard, permettant la gestion des arguments de la ligne de
+  commande;
+- l'utilisation de tests unitaires sous la forme de `doctest` (tests
+  inclus dans les *docstrings* des éléments à tester).
+
+  Pour exécuter les tests unitaires du module:
+
+  - avec doctest: `python -m doctest -v circonscrit.py`
+  - avec pytests: `py.test --doctest-modules -v circonscrit.py`
+  - avec nose:    `nosetests --with-doctest -v circonscrit.py`
 """
 
 __author__ = "Yannick Copin <y.copin@ipnl.in2p3.fr>"
@@ -18,13 +37,22 @@ class Point(object): # *object* est la classe dont dérivent toutes les autres
     """
 
     def __init__(self, x, y):
-        """Méthode d'instanciation à partir de deux coordonnées."""
+        """
+        Méthode d'instanciation à partir de deux coordonnées réelles.
+
+        >>> Point(0,1)          # doctest: +ELLIPSIS
+        <circonscrit.Point object at 0x...>
+        >>> Point(1+3j)
+        Traceback (most recent call last):
+        ...
+        TypeError: __init__() takes exactly 3 arguments (2 given)
+        """
 
         try:                            # Convertit les coords en `float`
             self.x = float(x)
             self.y = float(y)
-        except ValueError:
-            raise ValueError("Coordonnées d'entrée invalides")
+        except (ValueError, TypeError):
+            raise TypeError("Invalid input coordinates ({},{})".format(x,y))
 
     def __str__(self):
         """
@@ -33,22 +61,40 @@ class Point(object): # *object* est la classe dont dérivent toutes les autres
         `self.__str__()`
 
         Retourne une chaîne de caractères.
+
+        >>> print Point(1,2)
+        Point (x=1.0, y=2.0)
         """
 
         return "Point (x={p.x}, y={p.y})".format(p=self)
 
-    def __nonzero__(self):
+    def isOrigin(self):
         """
-        Surcharge de la fonction `bool()`: `bool(self)` retourne vrai si le
-        point n'est pas à l'origine.
+        Test si le point est à l'origine en testant la nullité des deux
+        coordonnées.
+
+        Attention aux éventuelles erreurs d'arrondis: il faut tester
+        la nullité à la précision numérique près.
+
+        >>> Point(1,2).isOrigin()
+        False
+        >>> Point(0,0).isOrigin()
+        True
         """
 
-        return ((self.x != 0) and (self.y != 0))
+        import sys
+
+        eps = sys.float_info.epsilon # Le plus petit float non nul
+
+        return ((abs(self.x) <= eps) and (abs(self.y) <= eps))
 
     def distance(self, other):
         """
         Méthode de calcul de la distance du point (`self`) à un autre point
         (`other`).
+
+        >>> A = Point(1,0); B = Point(1,1); A.distance(B)
+        1.0
         """
 
         from math import hypot
@@ -67,13 +113,20 @@ O = Point(0,0)
 class Vector(Point):
     """
     Un `Vector` hérite de `Point` avec des méthodes additionnelles
-    (p.ex. l'addition de deux vecteurs, ou la rotation d'un vecteur).
+    (p.ex. la négation d'un vecteur, l'addition de deux vecteurs, ou
+    la rotation d'un vecteur).
     """
 
     def __init__(self, A, B):
         """
-        Définit le vecteur :math:`\vec{AB}` à partir des 2 points `A` et
-        `B`.
+        Définit le vecteur `AB` à partir des deux points `A` et `B`.
+
+        >>> Vector(Point(1,0), Point(1,1)) # doctest: +ELLIPSIS
+        <circonscrit.Vector object at 0x...>
+        >>> Vector(0, 1)
+        Traceback (most recent call last):
+        ...
+        AttributeError: 'int' object has no attribute 'x'
         """
 
         # Initialisation de la classe parente
@@ -84,36 +137,88 @@ class Vector(Point):
 
     def __str__(self):
         """
-        Surcharge de la fonction `str()`: ainsi, `print self` sera résolu
-        comme `Vector.__str__(self)` (et non pas comme
+        Surcharge de la fonction `str()`: `print self` sera résolu comme
+        `Vector.__str__(self)` (et non pas comme
         `Point.__str__(self)`)
+
+        >>> A = Point(1,0); B = Point(1,1); print Vector(A,B)
+        Vector (x=0.0, y=1.0)
         """
 
         return "Vector (x={v.x}, y={v.y})".format(v=self)
 
     def __add__(self, other):
         """
-        Surcharge de l'opérateur `+`: l'instruction `self + other` sera
-        résolue comme `self.__add__(other)`.
+        Surcharge de l'opérateur binaire `{self} + {other}`: l'instruction
+        sera résolue comme `self.__add__(other)`.
 
         On construit une nouvelle instance de `Vector` à partir des
-        coordonnées propres à l'objet `self`, et à l'autre opérande
+        coordonnées propres à l'objet `self` et à l'autre opérande
         `other`.
+
+        >>> A = Point(1,0); B = Point(1,1)
+        >>> print Vector(A,B) + Vector(B,O) # = Vector(A,O)
+        Vector (x=-1.0, y=0.0)
         """
 
         return Vector(O, Point(self.x + other.x, self.y + other.y))
 
-    def __abs__(self):
-        """Surcharge de la fonction `abs()`"""
+    def __sub__(self, other):
+        """
+        Surcharge de l'opérateur binaire `{self} - {other}`: l'instruction
+        sera résolue comme `self.__sub__(other)`.
 
-        # Il vaudrait utiliser sqrt(self.sqnorm), mais c'est pour
-        # l'exemple d'utilisation d'une méthode héritée...
+        Attention: ne surcharge pas l'opérateur unaire `-{self}`, géré
+        par `__neg__`.
+
+        >>> A = Point(1,0); B = Point(1,1)
+        >>> print Vector(A,B) - Vector(A,B) # Différence
+        Vector (x=0.0, y=0.0)
+        >>> -Vector(A,B)                    # Négation
+        Traceback (most recent call last):
+        ...
+        TypeError: bad operand type for unary -: 'Vector'
+        """
+
+        return Vector(O, Point(self.x - other.x, self.y - other.y))
+
+    def __eq__(self, other):
+        """
+        Surcharge du test d'égalité `{self}=={other}`: l'instruction sera
+        résolue comme `self.__eq__(other)`.
+
+        >>> Vector(O,Point(0,1)) == Vector(Point(1,0),Point(1,1))
+        True
+        """
+
+        # On teste ici la nullité de la différence des 2
+        # vecteurs. D'autres tests auraient été possibles -- égalité
+        # des coordonnées, nullité de la norme de la différence,
+        # etc. -- mais on tire profit de la méthode héritée
+        # `Point.isOrigin()` testant la nullité des coordonnées (à la
+        # précision numérique près).
+        return (self - other).isOrigin()
+
+    def __abs__(self):
+        """
+        Surcharge la fonction `abs()` pour retourner la norme du vecteur.
+
+        >>> abs(Vector(Point(1,0), Point(1,1)))
+        1.0
+        """
+
+        # On pourrait utiliser sqrt(self.sqnorm), mais c'est pour
+        # illustrer l'utilisation de la méthode héritée
+        # `Point.distance`...
         return Point.distance(self, O)
 
     def rotate(self, angle, deg=False):
         """
-        Rotation du vecteur par un `angle`, exprimé en radians ou en
-        degrés.
+        Rotation (dans le sens trigonométrique) du vecteur par un `angle`,
+        exprimé en radians ou en degrés.
+
+        >>> Vector(Point(1,0),Point(1,1)).rotate(90,deg=True) == Vector(O,Point(-1,0))
+        True
         """
 
         from cmath import rect # Bibliothèque de fonctions complexes
@@ -121,7 +226,7 @@ class Vector(Point):
         # On calcule la rotation en passant dans le plan complexe
         z = complex(self.x, self.y)
         phase = angle if not deg else angle/57.29577951308232 # [rad]
-        u = cmath.rect(1., phase)                             # exp(i*phase)
+        u = rect(1., phase)     # exp(i*phase)
         zu = z*u                # Rotation complexe
 
         return Vector(O, Point(zu.real, zu.imag))
@@ -137,6 +242,15 @@ def circumscribedCircle(M,N,P):
 
     Lève une exception `ValueError` si le rayon ou le centre du cercle
     circonscrit n'est pas défini.
+
+    >>> M = Point(-1,0); N = Point(1,0); P = Point(0,1)
+    >>> C,r = circumscribedCircle(M,N,P) # Centre O, rayon 1
+    >>> print C.distance(O), r
+    0.0 1.0
+    >>> circumscribedCircle(M,O,N)       # Indéfini
+    Traceback (most recent call last):
+    ...
+    ValueError: Undefined circumscribed circle radius.
     """
 
     from math import sqrt
@@ -183,8 +297,7 @@ if __name__=='__main__':
                         help="Coordinates of point")
     parser.add_argument('-i', '--input', nargs='?', type=file,
                         help="Coordinate file (one 'x,y' per line)")
-    parser.add_argument('-p', '--plot',
-                        action="store_true", default=False,
+    parser.add_argument('-p', '--plot', action="store_true", default=False,
                         help="Draw the circumscribed circle")
     parser.add_argument('--version', action='version', version=__version__)
 

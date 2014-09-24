@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2014-09-17 15:54:35 ycopin>
+# Time-stamp: <2014-09-24 16:55:12 ycopin>
 
 """
 Crible d'Ératosthène.
 
 Source: http://fr.wikibooks.org/wiki/Exemples_de_scripts_Python#Implémentation_du_crible_d'Ératosthène
 """
+
+__author__ = "Yannick Copin <y.copin@ipnl.in2p3.fr>"
 
 # start-sys
 # Gestion simplifiée d'un argument entier sur la ligne de commande
@@ -29,10 +31,10 @@ l[1] = 0                                # 1 n'est pas premier
 
 i = 2                                   # Entier à tester
 while i**2 <= n:                        # Inutile de tester jusqu'à n
-    if l[i]:                            # Si i n'est pas étiqueté (=0)...
+    if l[i] != 0:                       # Si i n'est pas étiqueté (=0)...
         l[2*i::i] = [0]*len(l[2*i::i])  # ...étiqueter tous les multiples de i
     i += 1                              # Passer à l'entier à tester suivant
 
 # Afficher la liste des entiers premiers (c-à-d non-étiquetés)
 print "Liste des entiers premiers <=", n
-print [ i for i in l if i ]
+print [ i for i in l if i!=0 ]

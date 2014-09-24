@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-09-23 19:14:31 ycopin>
+.. Time-stamp: <2014-09-24 17:38:26 ycopin>
 .. _cours:
 
 Initiation à Python
@@ -234,6 +234,12 @@ Types de base
   >>> isinstance(l, tuple)
   False
 
+.. rubric:: Liens:
+
+- `The Floating Point Guide <http://floating-point-gui.de/>`_
+- `What Every Computer Scientist Should Know About Floating-Point
+  Arithmetic
+  <http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>`_
 
 Structures de programmation
 ===========================
@@ -612,6 +618,9 @@ Il faut noter plusieurs choses importantes:
   `mean_power` ne connait rien d'autre que les variables explicitement
   définies dans la liste des arguments ou localement.
 
+.. rubric:: Exercice:
+
+:ref:`syracuse`
 
 Bibliothèques et scripts
 ========================
@@ -696,7 +705,7 @@ Un code Python peut donc être:
 Le code :ref:`circonscrit.py <circonscrit>` peut être importé comme
 une bibliothèque (p.ex. `import circonscrit`) dans un autre code
 python, ou bien être exécuté depuis la ligne de commande
-(p.ex. `./circonscrit.py`), auquel cas la partie `__main__` sera
+(p.ex. `python circonscrit.py`), auquel cas la partie `__main__` sera
 exécutée.
 
 - `#!` (`Sharp-bang <http://en.wikipedia.org/wiki/Shebang_(Unix)>`_):
