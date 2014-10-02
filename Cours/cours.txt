@@ -582,7 +582,7 @@ mot-clé `return`.
    
       python -m doctest -v monfichier.py
       
-   Toutes les fonctions de `monfichier.py` sont testées en même temps.
+   Toutes les fonctions de `monfichier.py` sont testées en même temps.  Voir :ref:`TDD`.
 
 .. literalinclude:: mean_power.py
    :pyobject: mean_power

@@ -204,9 +204,20 @@ En statistique, le *Median Absolute Deviation* (MAD) est un estimateur
 robuste de la dispersion d'un échantillon 1D: `MAD = median(| x -
 median(x) |)`
 
-À l'aide des fonctions `N.median` et `N.abs`, écrire une fonction
+À l'aide des fonctions `N.median`, `N.abs` et `N.expand_dims`, écrire une fonction
 `mad(x, axis=None)` calculant le MAD d'un tableau le long d'un de ses
 axes.
+
+Avant d'implémenter la fonction, on commencera par écrire quelques tests
+de cas simples, facilement calculables à la main. On les écrira sous un
+format compris par *py.test* :
+
+.. code-block:: python
+    :linenos:
+    
+    def test_1D():
+        assert mad(0) == 0
+        assert mad([1,2,6,9]) == 2.5
 
 .. _pull:
 

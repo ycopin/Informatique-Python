@@ -70,6 +70,7 @@ class Chien(Animal):
         if self.vivant: self.aboyer()
         return Animal.estVivant(self)
         
+# start-tests
         
 def test_empty_init():
     with pytest.raises(TypeError):
@@ -85,6 +86,8 @@ def test_init():
     assert bidule.vivant
     assert bidule.estVivant()
     assert not bidule.empoisonne
+    
+# end-tests
 
 def test_str():
     bidule = Animal('Bidule', 600)
