@@ -13,6 +13,16 @@ Mean Power (argparse)
 
 **Source:** :download:`mean_power.py`
 
+.. _formes:
+
+Formes (POO)
+----------------------------------
+
+.. literalinclude:: formes.py
+   :linenos:
+
+**Source:** :download:`formes.py`
+
 .. _circonscrit:
 
 Cercle circonscrit (POO, argparse)
