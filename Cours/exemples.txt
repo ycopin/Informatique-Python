@@ -3,6 +3,16 @@
 Exemples
 ========
 
+.. _mean_power:
+
+Mean Power (argparse)
+----------------------------------
+
+.. literalinclude:: mean_power.py
+   :linenos:
+
+**Source:** :download:`mean_power.py`
+
 .. _circonscrit:
 
 Cercle circonscrit (POO, argparse)

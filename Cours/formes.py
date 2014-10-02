@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# Définition d'une classe ==============================
 
 class Forme(object): # *object* est la classe dont dérivent toutes les autres
     """Une forme plane"""
@@ -19,7 +20,8 @@ class Forme(object): # *object* est la classe dont dérivent toutes les autres
         return self.aire() < other.aire()
 
 
-class Rectangle(Forme)
+
+class Rectangle(Forme):
     """Un Rectangle est une forme particulière"""
     # initialisation d’un objet
     # définition des attributs avec des valeurs par défaut
@@ -41,5 +43,4 @@ class Rectangle(Forme)
         self.longueur *= facteur
         
     #pas besoin de redéfinir __lt__, le méchanisme général de Forme est très bien
-        
-
+    

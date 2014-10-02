@@ -148,6 +148,21 @@ bibliothèque graphique standard `turtle` dans une fonction
    :align: center
 
    **Figure:** Flocon de Koch d'ordre 3.
+   
+.. _animaux:
+
+Programmation Orientée Objet: Animaux ★
+-------------------------------------------------
+
+Enregistrez :download:`ce fichier <animaux.py>` et complètez les classes Animal 
+et Chien pour qu'elles passent avec succès tous les tests. 
+On apellera les tests via la ligne de commande
+
+.. code-block:: console
+
+   py.test animaux.py
+   
+
 
 .. _life:
 

@@ -574,33 +574,20 @@ mot-clé `return`.
    fonction, accessible de l'interpréteur via p.ex. `help(temp_f2c)`,
    ou `temp_f2c?` sous `ipython`.  Elle se doit d'être tout à la fois
    pertinente, concise *et* complète.
+   
+.. Note:: Si vous incluez un exemple d'exécution dans la *docstring*, 
+   vous pouvez tester que cet exemple fonctionne bien via la ligne de commande
+   
+   .. code-block:: console
+   
+      python -m doctest -v monfichier.py
+      
+   Toutes les fonctions de `monfichier.py` sont testées en même temps.
 
-.. code-block:: python
+.. literalinclude:: mean_power.py
+   :pyobject: mean_power
    :linenos:
 
-   def mean_power(alist, power=1):
-     """Retourne la racine `power` de la moyenne des éléments de
-     `alist` à la puissance `power`: 
- 
-     .. math:: \mu = (\frac{1}{N}\sum_{i=0}^{N-1} x_i^p)^{1/p}
- 
-     `power=1` correspond à la moyenne arithmétique, `power=2` au
-     *Root Mean Squared*, etc.
- 
-     Exemples:
-     >>> mean_power([1,2,3])
-     2.0
-     >>> mean_power([1,2,3], power=2)
-     2.160246899469287
-     """
- 
-     s = 0.                  # Initialisation de la variable *s* comme *float*
-     for val in alist:       # Boucle sur les éléments de *alist*
-         s += val**power     # *s* est augmenté de *val* puissance *power*
-     s /= len(alist)         # = somme valeurs / nb valeurs
-     mean = s**(1./power)    # *mean* = (somme valeurs / nb valeurs)**(1/power)
- 
-     return mean
 
 Il faut noter plusieurs choses importantes:
 
@@ -702,10 +689,10 @@ Un code Python peut donc être:
 
 .. rubric:: Exemple:
 
-Le code :ref:`circonscrit.py <circonscrit>` peut être importé comme
-une bibliothèque (p.ex. `import circonscrit`) dans un autre code
+Le code :ref:`mean_power.py <mean_power>` peut être importé comme
+une bibliothèque (p.ex. `import mean_power`) dans un autre code
 python, ou bien être exécuté depuis la ligne de commande
-(p.ex. `python circonscrit.py`), auquel cas la partie `__main__` sera
+(p.ex. `python mean_power.py`), auquel cas la partie `__main__` sera
 exécutée.
 
 - `#!` (`Sharp-bang <http://en.wikipedia.org/wiki/Shebang_(Unix)>`_):
@@ -724,7 +711,7 @@ exécutée.
   langue anglaise (variables, commentaires, affichages).
 - `"""doc"""`: la chaîne de documentation de la bibliothèque
   (*docstring*, :pep:`257`), qui sera utilisée comme aide en ligne du
-  module (`help(circonscrit)`), doit être la *1ère* instruction du
+  module (`help(mean_power)`), doit être la *1ère* instruction du
   script.
 - `if __name__=='__main__':` permet de séparer le `__main__` (i.e. le
   corps du programme, à exécuter lors d'une utilisation en script) des
@@ -745,19 +732,18 @@ Un objet est une entité de programmation, disposant de ses propres
 Au concept d'objet sont liées les notions de:
 
 - **Classe:** il s'agit d'un *modèle* d'objet, dans lequel sont
-  définis ses propriétés usuelles.  P.ex. la classe `Point` peut
-  représenter un point dans le plan, caractérisé par ses coordonnées
-  `x,y`, et disposant de fonctionnalités propres (p.ex. `distance()`).
+  définis ses propriétés usuelles.  P.ex. la classe `Forme` peut
+  représenter une forme plane, caractérisé par sa couleur, et 
+  disposant de fonctionnalités propres (p.ex. `aire()`).
 - **Instantiation:** c'est le fait générer un objet concret (une
-  instance) à partir d'un modèle (une classe).  P.ex. `M = Point(2,3)`
-  crée l'instance *M* à partir de la classe `Point` et des coordonnées
-  *(2,3)*.
+  instance) à partir d'un modèle (une classe).  P.ex. `tete_a_toto = Forme('rose')`
+  crée l'instance *tete_a_toto* à partir de la classe `Forme` et de la chaine de charactères
+  *'rose'*.
 - **Attributs:** variables internes décrivant l'état de l'objet.
-  P.ex. `M.x` donne la coordonnée en *x* du point *M*.
+  P.ex. `tete_a_toto.couleur` donne la couleur de la Forme *tete_a_toto*.
 - **Méthodes:** fonctions internes, s'appliquant en premier lieu sur
   l'objet lui-même (`self`), décrivant le comportement de l'objet.
-  P.ex. `M.distance(N)` retourne la distance entre les points *M* et
-  *N*.
+  P.ex. `tete_a_toto.aire()` retourne l'aire de la Forme *tete_a_toto*.
 
   .. Attention:: Toutes les méthodes d'une classe doivent au moins
      prendre `self` -- représentant l'objet lui-même -- comme premier
@@ -766,7 +752,7 @@ Au concept d'objet sont liées les notions de:
 - **Surcharge d'opérateurs:** cela permet de redéfinir les opérateurs
   et fonctions usuels (`+`, `abs()`, `str()`, etc.), pour simplifier
   l'écriture d'opérations sur les objets.  Ainsi, on peut redéfinir
-  l'opérateur `+` dans la classe `Vector` pour que `v1 + v2` ait un
+  l'opérateur `<` dans la classe `Forme` pour que la comparaison `forme1 < forme2` ait un
   sens.
 
   `Liste des méthodes standard et des surcharges d'opérateur
@@ -774,27 +760,26 @@ Au concept d'objet sont liées les notions de:
 - **Héritage de classe:** il s'agit de définir une classe à partir
   d'une (ou plusieurs) classe(s) parente(s).  La nouvelle classe
   *hérite* des attributs et méthodes de sa (ses) parente(s), que l'on
-  peut alors modifier ou compléter.  P.ex. la classe `Vector` hérite
-  de la classe `Point` (elle partage la notion de coordonnées), et lui
-  ajoute des méthodes propres à la notion de vecteur (p.ex. l'addition
-  vectorielle).
+  peut alors modifier ou compléter.  P.ex. la classe `Rectangle` hérite
+  de la classe `Forme` (elle partage la notion d'aire), et lui
+  ajoute des méthodes propres à la notion de rectangle (p.ex. formule de l'aire, allongement).
 
   .. Attention:: Toutes les classes doivent au moins hériter de la
      classe principale `object`.
 
 .. rubric:: Exemple de définition
 
-.. literalinclude:: circonscrit.py
-   :start-after: start-classPoint
-   :end-before: end-classPoint
+.. literalinclude:: formes.py
+   :pyobject: Forme
    :linenos:
 
 .. rubric:: Exemple d'héritage
 
-.. literalinclude:: circonscrit.py
-   :start-after: start-classVector
-   :end-before: end-classVector
+.. literalinclude:: formes.py
+   :pyobject: Rectangle
    :linenos:
+   
+.. note:: On préfèrera commencer les noms de classes avec des majuscules (`Forme`), et les noms d'instances de classe (les variables) avec des minuscules (`tete_a_toto`)
 
 .. rubric:: Études de cas
 
@@ -802,6 +787,8 @@ Au concept d'objet sont liées les notions de:
 - :class:`fractions.Fraction`
 
 .. rubric:: Exercice:
+
+:ref:`animaux`
 
 :ref:`life`
 
