@@ -38,7 +38,7 @@ if __name__ == '__main__':
     #comme on n'utilise qu'une seule fonction, on se permet de reprendre la description 
     #de la fonction comme aide du script
     parser = argparse.ArgumentParser(description=mean_power.__doc__)
-    parser.add_argument('list', nargs='*', type=str, help="liste de nombre")
+    parser.add_argument('list', nargs='*', type=float, help="liste de nombre")
     parser.add_argument('-i', '--input', nargs='?', type=file,
                         help="fichier contenant la liste (un nombre par ligne)")
     parser.add_argument('-p', '--power', type=float, default=1.0,
@@ -49,15 +49,12 @@ if __name__ == '__main__':
     
     if args.input:              # Lecture des coordonnées du fichier d'entrée
         # Le fichier a déjà été ouvert en lecture par argparse (type=file)
-        args.list = [ x for x in args.input 
+        args.list = [ float(x) for x in args.input 
                         if not x.strip().startswith('#') ]
                         
     #verifie qu'il y a au moins un nombre
     if not args.list or len(args.list)==0:
         parser.error("La liste ou le fichier doit contenir au moins un nombre")
-                        
-    #transforme la liste de chaines de caractères en liste de nombres
-    alist = [float(x) for x in args.list]
     
     #calcul
     reponse = mean_power(alist, args.power)
