@@ -149,6 +149,36 @@ bibliothèque graphique standard `turtle` dans une fonction
 
    **Figure:** Flocon de Koch d'ordre 3.
 
+.. _particle:
+
+Programmation Orientée Objet: points matériels et ions ★
+--------------------------------------------------------
+
+Pour une simulation d'un problème physique, on peut construire
+des classes qui connaissent elles-mêmes leurs propriétés physiques
+et leurs lois d'évolution.
+La structure des classes est proposée dans le fichier suivant ; vous
+devrez compléter les définitions des classes Vector, Particle et Ion
+afin qu'elles passent tous les tests lancés automatiquement par le main.
+
+:download:`Ficher de travail <particle.py>`
+
+La sortie du terminal doit être ::
+
+  ***************** Test functions *****************
+  Testing Vector class... ok
+  Testing Particle class... ok
+  Testing Ion class... ok
+  ******************** Test end ******************** 
+
+  ************* Physical computations **************
+  ** Gravitationnal computation of central-force motion for a Particle with mass 1.00, position (1.00,0.00,0.00) and speed (0.00,1.00,0.00)
+	 => Final system : Particle with mass 1.00, position (-1.00,-0.00,0.00) and speed (0.00,-1.00,0.00)
+  ** Electrostatic computation of central-force motion for a Ion with mass 1.00, charge 4, position (0.00,0.00,1.00) and speed (0.00,0.00,-1.00)
+	 => Final system : Ion with mass 1.00, charge 4, position (0.00,0.00,7.69) and speed (0.00,0.00,2.82)
+  *********** Physical computations end ************
+  
+
 .. _life:
 
 Programmation Orientée Objet: le jeu de la vie ★★
