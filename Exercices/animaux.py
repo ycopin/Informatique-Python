@@ -36,8 +36,8 @@ class Animal(object): # *object* est la classe dont dérivent toutes les autres
         #pas besoin de retourner quoi que ce soit
         pass
 
-    def __lt__(self, other):
-        """Surcharge de l'opérateur '<', vrai si l'animal (`self`) est plus leger qu'un autre (`other`). L'instruction `self < other` sera résolue comme `self.__lt__(other)."""
+    def __cmp__(self, other):
+        """Surcharge de l'opérateur de comparaison, vrai si l'animal (`self`) est plus leger qu'un autre (`other`). L'instruction `self < other` sera résolue comme `self.__cmp__(other)."""
         return False
             
     def __call__(self, other):
