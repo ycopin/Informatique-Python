@@ -118,7 +118,11 @@ Le cycle préconisé par TDD comporte cinq étapes :
 5. puis refactoriser le code, c'est-à-dire l'améliorer (rapidité, lisibilité) tout en gardant les mêmes fonctionnalités.
 
 
-On divise pour mieux règner : chaque fonction, classe ou méthode est testée indépendemment. Ainsi, lorsqu'un nouveau morceau de code ne passe pas ses tests, on est sûr que l'erreur vient de lui et non des fonctions ou objets que ce morceau de code utilise.
+On divise pour mieux règner : chaque fonction, classe ou méthode est testée indépendemment. Ainsi, lorsqu'un nouveau morceau de code ne passe pas ses tests, on est sûr que l'erreur vient de lui et non des fonctions ou objets que ce morceau de code utilise. On distingue ainsi hierarchiquement :
+
+1. Les tests unitaires vérifient individuellement chacune des fonctions, méthodes, etc. 	
+2. Les tests d'intégration évaluent les interactions entre différentes unités du programmes. 	
+3. Les tests système assurent le bon fonctionnement du programme dans sa globalité.
 
 Il est essentiel de garder les tests, ça permet de les réutiliser lorsqu'on veut "améliorer" un bout de code, ou lui faire faire de nouvelles choses. Si le nouveau code passe toujours les anciens test, on est alors sûr de ne pas avoir cassé les fonctionnalité précédantes.
 
@@ -131,11 +135,11 @@ Nous avons déjà vu lors des TD précédants plusieurs façon de rédiger des t
         :emphasize-lines: 10-14
         :linenos:
     
-    On peut les exécuter
+    On peut les exécuter (voir ci-dessous)
     
-        - avec doctest: `python -m doctest -v mean_power.py`
-        - avec pytests: `py.test --doctest-modules -v mean_power.py`
-        - avec nose:    `nosetests --with-doctest -v mean_power.py`
+        - avec python seul: `python -m doctest -v mean_power.py`
+        - avec `pytest <http://pytest.org/latest/>`_: `py.test --doctest-modules -v mean_power.py`
+        - avec `nose <http://nose.readthedocs.org/en/latest/>`_:    `nosetests --with-doctest -v mean_power.py`
         
 * Les fonctions dont le nom commence par `test_` et contenant des `assert` sont automatiquement détectée par `pytest <http://pytest.org/latest/>`_. Cette méthode permet d'effectuer des tests plus poussés, éventuellement dans un fichier séparé du code à tester.
 
@@ -153,6 +157,7 @@ Nous avons déjà vu lors des TD précédants plusieurs façon de rédiger des t
     .. Note:: pytest n'est pas inclu dans la librairie standard, mais installé au CBP. Il vous faudra l'installer si vous voulez l'utiliser chez vous.
     
 * Le module `unittest <https://docs.python.org/2/library/unittest.html>`_, inclu dans la librairie standard permet à peu près la même chose que `pytest`, mais avec une syntaxe souvent beaucoup plus lourde. `unittest` est étendu par le module `nose <http://nose.readthedocs.org/en/latest/>`_ (non inclu dans la librairie standard).
+
 
     
 Outils de développement
