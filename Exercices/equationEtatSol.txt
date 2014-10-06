@@ -1,0 +1,13 @@
+.. Time-stamp: <2014-10-06 19:00 adrien.licari@ens-lyon.fr>
+
+.. _equationEtatSol:
+
+Équation d'état de l'eau
+------------------------
+
+.. literalinclude:: equationEtatSol.py
+   :linenos:
+
+Fichier pour les tests : :download:`equationEtat_simuTest.out`
+
+**Source:** :download:`equationEtatSol.py`

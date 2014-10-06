@@ -354,7 +354,7 @@ Quadrature & zéro d'une fonction ★
 -------------------------
 
 À l'aide de la fonction `scipy.integrate.odeint
-<http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html>`_,
+`<http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html>`_,
 intégrer les équations du mouvement d'un boulet de canon soumis à des
 forces de frottement « turbulentes » (en :math:`v^2`):
 
@@ -402,6 +402,55 @@ d'ordre quatre.
 
 Tester sur des solutions analytiques et en comparant à
 `scipy.integrate.odeint`.
+
+
+
+Mise en oeuvre de l'ensemble des connaissances acquises
+=======================================================
+
+Extraction d'une équation d'état à partir de la dynamique moléculaire ★★★
+-------------------------------------------------------------------------
+
+Afin de modéliser les planètes de type Jupiter, Saturne, ou même des
+exo-planètes très massives (dites super-Jupiters), la connaissance de
+l'équation d'état des composants est nécessaire. Ces équations d'état
+doivent être valables jusqu'à plusieurs centaines de méga-bar ; autrement
+dit, celles-ci ne sont en aucun cas accessibles expérimentalement.
+On peut cependant obtenir une équation d'état numériquement à partir d'une
+dynamique moléculaire.
+
+Le principe est le suivant : on place dans une boite un certain nombre de particules
+régies par les équations microscopiques (Newton par exemple, ou même par des
+équations prenant en considération la mécanique quantique) puis on laisse
+celles-ci évoluer dans la boite ; on calcule à chaque pas de temps l'énergie
+interne à partir des intéractions électrostatiques et la pression à partir
+du tenseur des contraintes. On obtient en sortie l'évolution du système pour
+une densité fixée (par le choix de taille de la boite) et une température
+fixée (par un algorithme de thermostat que nous ne détaillerons pas ici).
+
+On se propose d'analyser quelques fichiers de sortie de tels calculs pour
+l'équation d'état de l'eau à très haute pression. Les fichiers de sortie
+sont disponibles :download:`ici <outputs.tar.gz>`. Leur nom indique les
+conditions thermodynamiques correspondant au fichier. Le but est, pour
+chaque condition température-densité, d'extraire l'évolution de l'énergie
+et de la pression au cours du temps, puis d'en extraire la valeur moyenne
+ainsi que les fluctuations. Il arrive souvent que l'état initial choisi pour
+le système ne corresponde pas à son état d'équilibre, et qu'il faille donc
+"jeter" les quelques pas de temps en début de simulation qui correspondent
+à cette relaxation du système. Pour savoir combien de temps prend cette
+relaxation, il sera utile de tracer l'évolution au cours du temps de la
+pression et l'énergie pour quelques simulations.
+Une fois l'équation d'état :math:`P(\rho,T)` et :math:`E(\rho,T)`
+extraite, on pourra tracer le réseau d'isothermes.
+
+Aide:
+Vous écrirez une classe Simulation qui permet de charger un fichier de
+dynamique moléculaire, puis de tracer l'évolution de a température et de
+la densité, et enfin d'en extraire la valeur moyenne et les fluctuations.
+À partir de cette classe, vous construirez les tableaux contenant l'équation
+d'état. 
+
+
 
 Exercices supplémentaires
 =========================
