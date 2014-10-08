@@ -101,13 +101,16 @@ pygments_style = 'sphinx'
 
 # A string of reStructuredText that will be included at the start of
 # every source file that is read.
-# rst_prolog = u"""
-# .. Warning::
-#
-#    Le cours du lundi 7/11/2011 est **ANNULÉ**. Veuillez transmettre le
-#    message à vos collègues SVP !
-# """
-rst_prolog = u""
+rst_prolog = u"""
+.. admonition:: Information
+
+   La conférence `pycon.fr 2014 <http://www.pycon.fr/2014/>`_
+   aura lieu les 25 et 26 octobre 2014 à Lyon (bâtiment Thémis, campus de
+   la Doua). Elle est gratuite et libre d'accès, et ouverte à tout type
+   de public (de novice à hacker).
+
+"""
+#rst_prolog = u""
 
 # -- Options for HTML output ---------------------------------------------------
 

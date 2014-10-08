@@ -313,20 +313,19 @@ if __name__=='__main__':
         parser.error("Specify 3 points by their coordinates 'x,y' (got {})"
                      .format(len(args.coords)))
 
-    points = [None]*3                   # Génère la liste de 3 points
-    for i,arg in enumerate(args.coords):
-        try:                            # Déchiffrage de l'argument 'x,y'
+    points = []                 # Liste des points
+    for i,arg in enumerate(args.coords, start=1):
+        try:                    # Déchiffrage de l'argument 'x,y'
             x,y = ( float(t) for t in arg.split(',') )
         except ValueError:
-            parser.error("Cannot decipher coordinates #{}: '{}'"
-                         .format(i+1, arg))
+            parser.error("Cannot decipher coordinates #{}: '{}'".format(i, arg))
 
-        points[i] = Point(x,y)          # Création du point
-        print "#{:d}: {}".format(i+1,str(points[i]))
+        points.append(Point(x,y)) # Création du point et ajout à la liste
+        print "#{:d}: {}".format(i, points[-1]) # Affichage du dernier point
 
     # Calcul du cercle cisconscrit (lève une ValueError en cas de problème)
     center,radius = circumscribedCircle(*points) # Délistage
-    print "Circumscribed circle: {}, radius: {}".format(center,radius)
+    print "Circumscribed circle: {}, radius: {}".format(center, radius)
 
     if args.plot:                       # Figure
         import matplotlib.pyplot as P
@@ -335,8 +334,8 @@ if __name__=='__main__':
         ax = fig.add_subplot(1,1,1, aspect='equal')
         # Points
         ax.plot([ p.x for p in points ], [ p.y for p in points ], 'ko')
-        for i,p in enumerate(points):
-            ax.annotate("#{}".format(i+1), (p.x,p.y),
+        for i,p in enumerate(points, start=1):
+            ax.annotate("#{}".format(i), (p.x,p.y),
                         xytext=(5,5), textcoords='offset points')
         # Cercle circonscrit
         c = P.matplotlib.patches.Circle((center.x,center.y), radius=radius,
