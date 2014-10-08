@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2014-10-03 16:56:47 alicari>
+# Time-stamp: <2014-10-09 01:19 ycopin@lyonovae03.in2p3.fr>
 
 
 from __future__ import division  # division reelle de type python 3, admis
+
+import numpy as N
+import matplotlib.pyplot as P
+
 import pytest                    # pytest importe pour les tests unitaires
-import math
-import numpy as np
-from matplotlib import pyplot as plt
-from matplotlib import lines as mlines
 
 """
 Construction d'un système d'extraction et d'analyse de fichiers de sortie de
@@ -36,9 +36,9 @@ class Simulation(object):
     de temps en début de simulation.
     """
 
-    def __init__(self, temp, dens, path=""):
+    def __init__(self, temp, dens, path):
         """
-        Le construcuteur doit impérativement être appelé avec le chemin du
+        Le constructeur doit impérativement être appelé avec le chemin du
         fichier décrivant la simulation, ainsi que ses conditions
         thermodynamiques.
 
@@ -47,26 +47,16 @@ class Simulation(object):
                 path(string): Le chemin vers le fichier décrivant la simulation
 
         Raises :
-                TypeError si path n'est pas un objet string, ou si temp ou dens
-                        ne sont pas des réels, ou si moins de 3 arguments sont
-                        donnés
+                TypeError si temp ou dens ne sont pas des réels
                 IOError si le fichier n'existe pas
         """
-        try:
-            self.temp = float(temp)
-            self.dens = float(dens)
-        except (ValueError, TypeError):
-            raise TypeError("Temperature and density must be floats")
-        try:
-            assert isinstance(path, basestring)
-        except AssertionError:
-            raise TypeError("path must be a string object")
-        else:
-            tmp = np.loadtxt(path, skiprows=1).T
-            self.pot = tmp[0]
-            self.kin = tmp[1]
-            self.tot = self.pot+self.kin
-            self.press = tmp[2]
+        self.temp = float(temp)
+        self.dens = float(dens)
+        tmp = N.loadtxt(path, skiprows=1).T
+        self.pot = tmp[0]
+        self.kin = tmp[1]
+        self.tot = self.pot+self.kin
+        self.press = tmp[2]
 
     def __str__(self):
         """
@@ -81,28 +71,19 @@ class Simulation(object):
         Renvoie un dictionnaire.
 
         Args:
-                skipSteps(int): Pas de temps à enelevr en début de simulation.
+                skipSteps(int): Nb de pas à enlever en début de simulation.
 
         Returns:
                 {'T':temperature, 'rho':density,
                  'E':energy, 'P':pressure,
                  'dE':dEnergy, 'dP':dPressure}
-
-        Raises:
-                TypeError si skipSteps n'est pas un entier.
         """
-        try:
-            skip = int(skipSteps)
-            if skip < 0:
-                skip = 0
-        except (ValueError, TypeError, AttributeError):
-            raise TypeError("The given coordinates must be numbers")
         return {'T': self.temp,
                 'rho': self.dens,
-                'E': self.tot[skip:None].mean(),
-                'P': self.press[skip:None].mean(),
-                'dE': self.tot[skip:None].std(),
-                'dP': self.press[skip:None].std()}
+                'E': self.tot[skipSteps:].mean(),
+                'P': self.press[skipSteps:].mean(),
+                'dE': self.tot[skipSteps:].std(),
+                'dP': self.press[skipSteps:].std()}
 
     def plot(self, skipSteps=0):
         """
@@ -115,63 +96,50 @@ class Simulation(object):
         Raises:
                 TypeError si skipSteps n'est pas un entier.
         """
-        try:
-            skip = int(skipSteps)
-            if skip < 0:
-                skip = 0
-        except (ValueError, TypeError, AttributeError):
-            raise TypeError("The given coordinates must be numbers")
-        f, (en, press) = plt.subplots(2, sharex=True)
-        en.plot(range(skip, len(self.tot)), self.tot[skip:None], 'rd--')
-        en.set_title("Internal energy (Ha)")
-        press.plot(range(skip, len(self.press)), self.press[skip:None],
-                   'rd--')
-        press.set_title("Pressure (GPa)")
-        plt.xlabel("Timesteps")
-        plt.show()
+        fig, (axen, axpress) = P.subplots(2, sharex=True)
+        axen.plot(range(skipSteps,len(self.tot)), self.tot[skipSteps:],
+                  'rd--')
+        axen.set_title("Internal energy (Ha)")
+        axpress.plot(range(skipSteps,len(self.press)), self.press[skipSteps:],
+                     'rd--')
+        axpress.set_title("Pressure (GPa)")
+        axpress.set_xlabel("Timesteps")
 
+        P.show()
 
 ##### Tests pour Simulation #####
 
+def mimic_simulation(filename):
+    with open(filename,'w') as f:
+        f.write("""Potential energy (Ha)	Kinetic Energy (Ha)	Pressure (GPa)
+-668.2463567264        	0.7755612311   		9287.7370229824
+-668.2118514558        	0.7755612311		9286.1395903265
+-668.3119088218        	0.7755612311		9247.6604398856
+-668.4762735176        	0.7755612311		9191.8574820856
+-668.4762735176        	0.7755612311		9191.8574820856
+""")
+
 def test_Simulation_init():
-    with pytest.raises(TypeError):
-        Simulation(1, 1, path=32)
-        Simulation(1, 1, path=[])
-        Simulation(temp="", dens={})
-        Simulation([], 3, Simulation())
-    with pytest.raises(IOError):
-        Simulation(10, 10)
+    mimic_simulation("equationEtat_simuTest.out")
     s = Simulation(10, 10, "equationEtat_simuTest.out")
     assert len(s.kin) == 5
     assert abs(s.kin[2]-0.7755612311) < tolerance
     assert abs(s.pot[1]+668.2118514558) < tolerance
 
-
 def test_Simulation_str():
+    mimic_simulation("equationEtat_simuTest.out")
     s = Simulation(10, 20, "equationEtat_simuTest.out")
     assert str(s) == "Simulation at 20 g/cc and 10 K ; 5 timesteps"
 
-
 def test_Simulation_thermo():
+    mimic_simulation("equationEtat_simuTest.out")
     s = Simulation(10, 20, "equationEtat_simuTest.out")
-    with pytest.raises(TypeError):
-        s.thermo("test")
-        s.thermo([])
     assert abs(s.thermo()['T']-10) < tolerance
     assert abs(s.thermo()['rho']-20) < tolerance
     assert abs(s.thermo()['E']+667.56897157674) < tolerance
     assert abs(s.thermo()['P']-9241.0504034731) < tolerance
     assert abs(s.thermo(3)['E']+667.7007122865) < tolerance
     assert abs(s.thermo(3)['P']-9191.8574820856) < tolerance
-
-
-def test_Simulation_all():
-    print "Testing the Simulation class "
-    test_Simulation_init()
-    test_Simulation_str()
-    test_Simulation_thermo()
-    print "\t --> Simulation class tested : everything is ok"
-
 
 ###################
 ### Main script ###
@@ -195,37 +163,31 @@ if __name__ == '__main__':
     colors = {6000: 'r', 20000: 'b', 50000: 'k'}
     denss = [7, 15, 25, 30]  # define densities
     keys = ['T', 'rho', 'E', 'dE', 'P', 'dP']
-    eos = {k: v for k in keys for v in len(keys)*[np.zeros(0)]}
+    eos = dict.fromkeys(keys, N.zeros(0))   # {key:[]}
 
     ### Extract the EOS out of the source files ###
     for t, rho in [(t, rho) for t in temps for rho in denss]:
         filenm = "outputs/{}K_{:0>2d}gcc.out".format(t, rho)
         s = Simulation(t, rho, filenm)
-        for k in keys:
-            eos[k] = np.append(eos[k], s.thermo(nsteps)[k])
+        for key in keys:
+            eos[key] = N.append(eos[key], s.thermo(nsteps)[key])
 
     ### Plot isotherms ###
-    f, (en, press) = plt.subplots(2, sharex=True)
-    plt.title("High-pressure equation of state for water")
-    en.set_title("Energy")
-    en.set_ylabel("U / NkT")
-    press.set_title("Pressure")
-    press.set_ylabel("P / nkT")
-    plt.xlabel("rho (g/cc)")
-    legend_lines = []
-    legend_labels = []
+    fig, (axen, axpress) = P.subplots(2, sharex=True)
+    fig.suptitle("High-pressure equation of state for water", size='x-large')
+    axen.set_title("Energy")
+    axen.set_ylabel("U / NkT")
+    axpress.set_title("Pressure")
+    axpress.set_ylabel("P / nkT")
+    axpress.set_xlabel("rho (g/cc)")
     for t in temps:
-        en.errorbar(x=eos['rho'][eos['T'] == t],
-                    y=eos['E'][eos['T'] == t]/k_B/t,
-                    yerr=eos['dE'][eos['T'] == t]/k_B/t,
-                    fmt=colors[t]+'--')
-        press.errorbar(x=eos['rho'][eos['T'] == t],
-                       y=eos['P'][eos['T'] == t] /
-                       eos['rho'][eos['T'] == t]/nk_GPa/t,
-                       yerr=eos['dP'][eos['T'] == t] /
-                       eos['rho'][eos['T'] == t]/nk_GPa/t,
-                       fmt=colors[t]+'--')
-        legend_lines.append(mlines.Line2D([], [], color=colors[t]))
-        legend_labels.append("{} K".format(str(t)))
-    plt.legend(legend_lines, legend_labels, loc='best')
-    plt.show()
+        sel = eos['T'] == t
+        axen.errorbar(x=eos['rho'][sel], y=eos['E'][sel]/k_B/t,
+                      yerr=eos['dE'][sel]/k_B/t, fmt=colors[t]+'-')
+        axpress.errorbar(x=eos['rho'][sel],
+                         y=eos['P'][sel] / eos['rho'][sel]/nk_GPa/t,
+                         yerr=eos['dP'][sel] / eos['rho'][sel]/nk_GPa/t,
+                         fmt=colors[t]+'-',
+                         label="{} K".format(t))
+    axpress.legend(loc='best')
+    P.show()

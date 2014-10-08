@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-10-06 19:00 adrien.licari@ens-lyon.fr>
+.. Time-stamp: <2014-10-09 01:20 ycopin@lyonovae03.in2p3.fr>
 
 .. _equationEtatSol:
 
@@ -7,7 +7,5 @@
 
 .. literalinclude:: equationEtatSol.py
    :linenos:
-
-Fichier pour les tests : :download:`equationEtat_simuTest.out`
 
 **Source:** :download:`equationEtatSol.py`

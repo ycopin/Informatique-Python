@@ -1,9 +1,9 @@
-.. Time-stamp: <2014-10-02 10:00 adrien.licari@ens-lyon.fr>
+.. Time-stamp: <2014-10-09 00:02 ycopin@lyonovae03.in2p3.fr>
 
 .. _particleSol:
 
 Particules
----------
+----------
 
 .. literalinclude:: particleSol.py
    :linenos:

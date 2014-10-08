@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-09-24 18:24:35 ycopin>
+.. Time-stamp: <2014-10-09 01:23 ycopin@lyonovae03.in2p3.fr>
 .. _exercices:
 
 Exercices
@@ -140,7 +140,7 @@ Programmation récursive: le flocon de Koch ★★★
    module: turtle
 
 En utilisant les commandes `left`, `right` et `forward` de la
-bibliothèque graphique standard `turtle` dans une fonction
+bibliothèque graphique standard :mod:`turtle` dans une fonction
 *récursive*, générer à l'écran un `flocon de Koch
 <http://fr.wikipedia.org/wiki/Flocon_de_Koch>`_ d'ordre arbitraire.
 
@@ -154,16 +154,16 @@ bibliothèque graphique standard `turtle` dans une fonction
 Programmation Orientée Objet: points matériels et ions ★
 --------------------------------------------------------
 
-Pour une simulation d'un problème physique, on peut construire
-des classes qui connaissent elles-mêmes leurs propriétés physiques
-et leurs lois d'évolution.
-La structure des classes est proposée dans le fichier suivant ; vous
-devrez compléter les définitions des classes Vector, Particle et Ion
-afin qu'elles passent tous les tests lancés automatiquement par le main.
+Pour une simulation d'un problème physique, on peut construire des
+classes qui connaissent elles-mêmes leurs propriétés physiques et
+leurs lois d'évolution.
 
-:download:`Ficher de travail <particle.py>`
+La structure des classes est proposée dans ce :download:`squelette
+<particle.py>`; vous devrez *compléter* les définitions des classes
+`Vector`, `Particle` et `Ion` afin qu'elles passent toutes les tests
+lancés automatiquement par le programme principal `main`.
 
-La sortie du terminal doit être ::
+À l'exécution, la sortie du terminal doit être::
 
   ***************** Test functions *****************
   Testing Vector class... ok
@@ -190,8 +190,8 @@ Jeu de la vie <http://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
 Pour cela, vous créerez une classe `Life` qui contiendra la grille du
 jeu ainsi que les méthodes qui permettront son évolution.  Vous
 initialiserez la grille aléatoirement à l'aide de la fonction
-`random.choice([True,False])`, et vous afficherez l'évolution de
-l'automate dans la sortie standard du terminal, p.ex.::
+:func:`random.choice`, et vous afficherez l'évolution de l'automate
+dans la sortie standard du terminal, p.ex.::
 
   ...#..#.....##.......
   .....###.............
@@ -203,9 +203,9 @@ l'automate dans la sortie standard du terminal, p.ex.::
   ..............##.##..
   ................#....
 
-N.B.: Pour que l'affichage soit agréable à l'oeil, vous marquerez des
-pauses entre l'affichage de chaque itération grâce à la fonction
-`time.sleep`.
+.. tip:: Pour que l'affichage soit agréable à l'oeil, vous marquerez
+   des pauses entre l'affichage de chaque itération grâce à la
+   fonction :func:`time.sleep`.
 
 Manipulation de tableaux (`arrays`)
 ===================================
@@ -259,11 +259,12 @@ Après chargement des données, calculer et afficher les propriétés
 statistiques des quatres jeux de données du :download:`Quartet
 d'Anscombe <anscombe.dat>`:
 
-* Moyenne et variance des *x* (`N.mean` et `N.var`)
+* Moyenne et variance des *x* (:func:`numpy.mean` et
+  :func:`numpy.var`)
 * Moyenne et variance des *y*
-* Corrélation entre les *x* et les *y* (`scipy.stats.pearsonr`)
+* Corrélation entre les *x* et les *y* (:func:`scipy.stats.pearsonr`)
 * Équation de la droite de régression linéaire
-  (`scipy.stats.linregress`)
+  (:func:`scipy.stats.linregress`)
 
 .. table:: Quartet d'Anscombe
 
@@ -325,9 +326,9 @@ complexe :math:`c = 0.284 + 0.0122j`:
 
    **Figure:** Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
 
-N.B.: On utilisera la fonction `numpy.meshgrid` pour construire le
-plan complexe, et l'on affichera le résultat grâce à la fonction
-`matplotlib.pyplot.imshow`.
+N.B.: On utilisera la fonction :func:`numpy.meshgrid` pour construire
+le plan complexe, et l'on affichera le résultat grâce à la fonction
+:func:`matplotlib.pyplot.imshow`.
 
 Voir également: `Superposition d'ensembles de Julia
 <http://maths.wikidot.com/julia-superposition>`_
@@ -353,10 +354,9 @@ Quadrature & zéro d'une fonction ★
 Équation différentielle ★
 -------------------------
 
-À l'aide de la fonction `scipy.integrate.odeint
-`<http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html>`_,
-intégrer les équations du mouvement d'un boulet de canon soumis à des
-forces de frottement « turbulentes » (en :math:`v^2`):
+À l'aide de la fonction :func:`scipy.integrate.odeint`, intégrer les
+équations du mouvement d'un boulet de canon soumis à des forces de
+frottement « turbulentes » (en :math:`v^2`):
 
 .. math::
 
@@ -388,7 +388,7 @@ de calculer l'intégrale numérique de la fonction *f* entre les bornes
 <http://fr.wikipedia.org/wiki/Méthode_de_Romberg>`_.
 
 Tester sur des solutions analytiques et en comparant à
-`scipy.integrate.romberg`.
+:func:`scipy.integrate.romberg`.
 
 .. _rk:
 
@@ -401,59 +401,57 @@ Runge-Kutta <http://fr.wikipedia.org/wiki/Méthodes_de_Runge-Kutta>`_
 d'ordre quatre.
 
 Tester sur des solutions analytiques et en comparant à
-`scipy.integrate.odeint`.
-
-
+:func:`scipy.integrate.odeint`.
 
 Mise en oeuvre de l'ensemble des connaissances acquises
 =======================================================
 
-Extraction d'une équation d'état à partir de la dynamique moléculaire ★★★
--------------------------------------------------------------------------
+Équation d'état de l'eau à partir de la dynamique moléculaire ★★★
+-----------------------------------------------------------------
 
 Afin de modéliser les planètes de type Jupiter, Saturne, ou même des
-exo-planètes très massives (dites super-Jupiters), la connaissance de
-l'équation d'état des composants est nécessaire. Ces équations d'état
-doivent être valables jusqu'à plusieurs centaines de méga-bar ; autrement
-dit, celles-ci ne sont en aucun cas accessibles expérimentalement.
-On peut cependant obtenir une équation d'état numériquement à partir d'une
-dynamique moléculaire.
+exo-planètes très massives (dites « super-Jupiters »), la connaissance
+de l'équation d'état des composants est nécessaire.  Ces équations
+d'état doivent être valables jusqu'à plusieurs centaines de méga-bar ;
+autrement dit, celles-ci ne sont en aucun cas accessibles
+expérimentalement.  On peut cependant obtenir une équation d'état
+numériquement à partir d'une dynamique moléculaire.
 
-Le principe est le suivant : on place dans une boite un certain nombre de particules
-régies par les équations microscopiques (Newton par exemple, ou même par des
-équations prenant en considération la mécanique quantique) puis on laisse
-celles-ci évoluer dans la boite ; on calcule à chaque pas de temps l'énergie
-interne à partir des intéractions électrostatiques et la pression à partir
-du tenseur des contraintes. On obtient en sortie l'évolution du système pour
-une densité fixée (par le choix de taille de la boite) et une température
-fixée (par un algorithme de thermostat que nous ne détaillerons pas ici).
+Le principe est le suivant : on place dans une boite un certain nombre
+de particules régies par les équations microscopiques (Newton par
+exemple, ou même par des équations prenant en considération la
+mécanique quantique) puis on laisse celles-ci évoluer dans la boite ;
+on calcule à chaque pas de temps l'énergie interne à partir des
+intéractions électrostatiques et la pression à partir du tenseur des
+contraintes. On obtient en sortie l'évolution du système pour une
+densité fixée (par le choix de taille de la boite) et une température
+fixée (par un algorithme de thermostat que nous ne détaillerons pas
+ici).
 
-On se propose d'analyser quelques fichiers de sortie de tels calculs pour
-l'équation d'état de l'eau à très haute pression. Les fichiers de sortie
-sont disponibles :download:`ici <outputs.tar.gz>`. Leur nom indique les
-conditions thermodynamiques correspondant au fichier. Le but est, pour
-chaque condition température-densité, d'extraire l'évolution de l'énergie
-et de la pression au cours du temps, puis d'en extraire la valeur moyenne
-ainsi que les fluctuations. Il arrive souvent que l'état initial choisi pour
-le système ne corresponde pas à son état d'équilibre, et qu'il faille donc
-"jeter" les quelques pas de temps en début de simulation qui correspondent
-à cette relaxation du système. Pour savoir combien de temps prend cette
-relaxation, il sera utile de tracer l'évolution au cours du temps de la
-pression et l'énergie pour quelques simulations.
-Une fois l'équation d'état :math:`P(\rho,T)` et :math:`E(\rho,T)`
-extraite, on pourra tracer le réseau d'isothermes.
+On se propose d'analyser quelques fichiers de sortie de tels calculs
+pour l'équation d'état de l'eau à très haute pression. Les fichiers de
+sortie sont disponibles :download:`ici
+<equationEtat_outputs.tgz>`. Leur nom indique les conditions
+thermodynamiques correspondant au fichier. Le but est, pour chaque
+condition température-densité, d'extraire l'évolution de l'énergie et
+de la pression au cours du temps, puis d'en extraire la valeur moyenne
+ainsi que les fluctuations. Il arrive souvent que l'état initial
+choisi pour le système ne corresponde pas à son état d'équilibre, et
+qu'il faille donc « jeter » les quelques pas de temps en début de
+simulation qui correspondent à cette relaxation du système. Pour
+savoir combien de temps prend cette relaxation, il sera utile de
+tracer l'évolution au cours du temps de la pression et l'énergie pour
+quelques simulations.  Une fois l'équation d'état :math:`P(\rho,T)` et
+:math:`E(\rho,T)` extraite, on pourra tracer le réseau d'isothermes.
 
-Aide:
-Vous écrirez une classe Simulation qui permet de charger un fichier de
-dynamique moléculaire, puis de tracer l'évolution de a température et de
-la densité, et enfin d'en extraire la valeur moyenne et les fluctuations.
-À partir de cette classe, vous construirez les tableaux contenant l'équation
-d'état. 
+.. Hint:: Vous écrirez une classe `Simulation` qui permet de charger
+   un fichier de dynamique moléculaire, puis de tracer l'évolution de
+   a température et de la densité, et enfin d'en extraire la valeur
+   moyenne et les fluctuations.  À partir de cette classe, vous
+   construirez les tableaux contenant l'équation d'état.
 
-
-
-Exercices supplémentaires
-=========================
+Exercices en vrac
+=================
 
 * `Exercices de base
   <http://fr.wikibooks.org/wiki/Programmation_Python/Exercices_Base_du_langage>`_ |fr|
