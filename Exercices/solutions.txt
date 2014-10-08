@@ -8,6 +8,7 @@ Solutions aux exercices
 * :ref:`cribleSol`
 * :ref:`carreSol`
 * :ref:`kochSol`
+* :ref:`particleSol`
 * :ref:`lifeSol`
 * :ref:`madSol`
 * :ref:`pullSol`
@@ -20,3 +21,4 @@ Solutions aux exercices
 * `Trajectoire d'un boulet de canon
   <http://nbviewer.ipython.org/url/informatique-python.readthedocs.org/en/python-m2/_downloads/canon.ipynb>`_
   (:download:`canon.ipynb`)
+* :ref:`equationEtatSol`
