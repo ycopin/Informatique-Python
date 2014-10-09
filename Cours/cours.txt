@@ -316,7 +316,7 @@ Structures de programmation
         niter = 0
         while (error > 1e-6) and (niter < 100):
             error = ...   # A priori, error va décroître, et la boucle s'interrompre
-            niter ++      # Mais on n'est jamais assez prudent!
+            niter += 1    # Mais on n'est jamais assez prudent!
 
 .. rubric:: Exercices: 
 
