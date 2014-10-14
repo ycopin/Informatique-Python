@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-10-14 16:30:48 ycopin>
+.. Time-stamp: <2014-10-14 17:19:07 ycopin>
 .. _cours:
 
 Initiation à Python
@@ -895,7 +895,7 @@ Au concept d'objet sont liées les notions de:
 
 .. rubric:: Exercices:
 
-:ref:`particle`, :ref:`animaux`, :ref:`life`
+:ref:`animaux`, :ref:`particle`, :ref:`life`
 
 
 .. Espaces de noms et portée (*scope*)
