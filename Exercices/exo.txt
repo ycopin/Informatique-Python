@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-10-09 01:23 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-10-14 14:19:42 ycopin>
 .. _exercices:
 
 Exercices
@@ -6,6 +6,7 @@ Exercices
 
 .. Note:: Les exercices sont de difficulté variable, de ★ (simple) à
    ★★★ (complexe).
+
 
 Introduction
 ============
@@ -148,6 +149,17 @@ bibliothèque graphique standard :mod:`turtle` dans une fonction
    :align: center
 
    **Figure:** Flocon de Koch d'ordre 3.
+   
+.. _animaux:
+
+Programmation Orientée Objet: Animaux ★
+-------------------------------------------------
+
+Téléchargez :download:`animaux.py` et complétez les classes `Animal`
+et `Chien` pour qu'elles passent avec succès tous les tests.  On
+appellera les tests via la ligne de commande::
+
+  py.test animaux.py
 
 .. _particle:
 
@@ -159,11 +171,10 @@ classes qui connaissent elles-mêmes leurs propriétés physiques et
 leurs lois d'évolution.
 
 La structure des classes est proposée dans ce :download:`squelette
-<particle.py>`; vous devrez *compléter* les définitions des classes
+<particle.py>`.  Vous devrez *compléter* les définitions des classes
 `Vector`, `Particle` et `Ion` afin qu'elles passent toutes les tests
-lancés automatiquement par le programme principal `main`.
-
-À l'exécution, la sortie du terminal doit être::
+lancés automatiquement par le programme principal `main`.  À
+l'exécution, la sortie du terminal doit être::
 
   ***************** Test functions *****************
   Testing Vector class... ok
@@ -176,8 +187,7 @@ lancés automatiquement par le programme principal `main`.
 	 => Final system : Particle with mass 1.00, position (-1.00,-0.00,0.00) and speed (0.00,-1.00,0.00)
   ** Electrostatic computation of central-force motion for a Ion with mass 1.00, charge 4, position (0.00,0.00,1.00) and speed (0.00,0.00,-1.00)
 	 => Final system : Ion with mass 1.00, charge 4, position (0.00,0.00,7.69) and speed (0.00,0.00,2.82)
-  *********** Physical computations end ************
-  
+  *********** Physical computations end ************  
 
 .. _life:
 
@@ -203,9 +213,10 @@ dans la sortie standard du terminal, p.ex.::
   ..............##.##..
   ................#....
 
-.. tip:: Pour que l'affichage soit agréable à l'oeil, vous marquerez
+.. Tip:: Pour que l'affichage soit agréable à l'oeil, vous marquerez
    des pauses entre l'affichage de chaque itération grâce à la
    fonction :func:`time.sleep`.
+
 
 Manipulation de tableaux (`arrays`)
 ===================================
@@ -219,9 +230,20 @@ En statistique, le *Median Absolute Deviation* (MAD) est un estimateur
 robuste de la dispersion d'un échantillon 1D: `MAD = median(| x -
 median(x) |)`
 
-À l'aide des fonctions `N.median` et `N.abs`, écrire une fonction
+À l'aide des fonctions `N.median`, `N.abs` et `N.expand_dims`, écrire une fonction
 `mad(x, axis=None)` calculant le MAD d'un tableau le long d'un de ses
 axes.
+
+Avant d'implémenter la fonction, on commencera par écrire quelques tests
+de cas simples, facilement calculables à la main. On les écrira sous un
+format compris par *py.test* :
+
+.. code-block:: python
+    :linenos:
+    
+    def test_1D():
+        assert mad(0) == 0
+        assert mad([1,2,6,9]) == 2.5
 
 .. _pull:
 
@@ -246,6 +268,7 @@ Si les erreurs :math:`\sigma_i` sont correctes, la distribution du
 *pull* est centrée sur 0 avec une déviation standard de 1.
 
 Écrire une fonction `pull(x, dx)` calculant le *pull* de tableaux 1D.
+
 
 Visualisation (matplotlib)
 ==========================
@@ -333,6 +356,7 @@ le plan complexe, et l'on affichera le résultat grâce à la fonction
 Voir également: `Superposition d'ensembles de Julia
 <http://maths.wikidot.com/julia-superposition>`_
 
+
 .. _algo:
 
 Méthodes numériques
@@ -403,6 +427,7 @@ d'ordre quatre.
 Tester sur des solutions analytiques et en comparant à
 :func:`scipy.integrate.odeint`.
 
+
 Mise en oeuvre de l'ensemble des connaissances acquises
 =======================================================
 
@@ -449,6 +474,7 @@ quelques simulations.  Une fois l'équation d'état :math:`P(\rho,T)` et
    a température et de la densité, et enfin d'en extraire la valeur
    moyenne et les fluctuations.  À partir de cette classe, vous
    construirez les tableaux contenant l'équation d'état.
+
 
 Exercices en vrac
 =================

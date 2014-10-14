@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-09-23 16:20:28 ycopin>
+.. Time-stamp: <2014-10-14 14:30:09 ycopin>
 
 Introduction
 ############
@@ -42,7 +42,7 @@ Organisation des TDs
 
 * :ref:`TD1 <td1>`: Introduction, types de base, structures de programmation
 * :ref:`TD2 <td2>`: Chaînes de caractères, objets itérables, fonctions, bibliothèques
-* :ref:`TD3 <td3>`: Classes, exceptions, entrées-sorties
+* :ref:`TD3 <td3>`: Exceptions, classes, entrées-sorties
 * :ref:`TD4 <td4>`: Librairie standard, révisions
 * :ref:`TD5 <td5>`: Numpy
 * :ref:`TD6 <td6>`: Scipy

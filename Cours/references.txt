@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-10-12 21:44 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-10-14 16:48:55 ycopin>
 
 Références supplémentaires
 ==========================
@@ -17,7 +17,7 @@ Documentation générale
 - `Python Documentation
   <https://wiki.python.org/moin/PythonDocumentation>`_
 - `Python Frequently Asked Questions
-  <https://docs.python.org/faq/index.html>`_
+  <https://docs.python.org/faq/index.html>`_ 
 
 Forums de discussion
 --------------------
@@ -83,7 +83,8 @@ Python
 - `Cours Python 3 + exercices
   <http://www.iut-orsay.u-psud.fr/fr/departements/mesures_physiques/mphy_pedagogie.html>`_
   (voir également le cours d'algorithmique en C, et de `easygui`) |fr|
-- `DIY python workshop <http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
+- `DIY python workshop
+  <http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
 - `Exemples de scripts Python
   <http://fr.wikibooks.org/wiki/Exemples_de_scripts_Python>`_ |fr|
 - `Google's Python Class <https://developers.google.com/edu/python/>`_
