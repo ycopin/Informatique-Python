@@ -1,7 +1,27 @@
-.. Time-stamp: <2014-09-24 15:50:31 ycopin>
+.. Time-stamp: <2014-10-14 16:31:34 ycopin>
 
 Exemples
 ========
+
+.. _mean_power:
+
+Mean power (fonction, argparse)
+-------------------------------
+
+.. literalinclude:: mean_power.py
+   :linenos:
+
+**Source:** :download:`mean_power.py`
+
+.. _formes:
+
+Formes (POO)
+------------
+
+.. literalinclude:: formes.py
+   :linenos:
+
+**Source:** :download:`formes.py`
 
 .. _circonscrit:
 

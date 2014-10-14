@@ -1,20 +1,21 @@
 Développer en python
 ####################
 
-.. Time-stamp: <2014-09-23 17:57:03 ycopin>
+.. Time-stamp: <2014-10-14 16:18:39 ycopin>
 
 .. contents:: Table des matières
 ..
     1  Le zen du python
       1.1  Us et coutumes
-    2  Outils de développement
-      2.1  *Integrated Development Environment*
-      2.2  Vérification du code
-      2.3  Documentation
-      2.4  Les méthodes de tests
-      2.5  Débugage et optimisation
-      2.6  *Python packages*
-      2.7  Python 2 vs. python 3
+    2  Développement piloté par les tests
+    3  Outils de développement
+      3.1  *Integrated Development Environment*
+      3.2  Vérification du code
+      3.3  Documentation
+      3.4  Débugage et optimisation
+      3.5  *Python packages*
+      3.6  Python 2 vs. python 3
+
 
 .. _td7:
 
@@ -112,6 +113,85 @@ Us et coutumes
 - *Respectez* le zen du python, il vous le rendra.
 
 
+.. _TDD:
+
+Développement piloté par les tests
+==================================
+
+Le *Test Driven Development* (TDD, ou en français « développement
+piloté par les tests ») est une méthode de programmation qui permet
+d'éviter des bugs *a priori* plutôt que de les résoudre *a
+posteriori*. Ce n'est pas une méthode propre à Python, elle est
+utilisée très largement par les programmeurs professionnels.
+
+Le cycle préconisé par TDD comporte cinq étapes :
+
+1. écrire un premier test ;
+2. vérifier qu'il échoue (puisque le code qu'il teste n'existe pas
+   encore), afin de s'assurer que le test est valide et exécuté ;
+3. écrire un code minimal pour passer le test ;
+4. vérifier que le test passe correctement ;
+5. éventuellement « réusiner » le code (*refactoring*), c'est-à-dire
+   l'améliorer (rapidité, lisibilité) tout en gardant les mêmes
+   fonctionnalités.
+
+Diviser pour mieux régner: chaque fonction, classe ou méthode est
+testée indépendemment.  Ainsi, lorsqu'un nouveau morceau de code ne
+passe pas les tests qui y sont associés, il est certain que l'erreur
+provient de cette nouvelle partie et non des fonctions ou objets que
+ce morceau de code utilise. On distingue ainsi hiérarchiquement:
+
+1. Les tests unitaires vérifient individuellement chacune des
+   fonctions, méthodes, etc.
+2. Les tests d'intégration évaluent les interactions entre différentes
+   unités du programmes.
+3. Les tests système assurent le bon fonctionnement du programme dans
+   sa globalité.
+
+Il est essentiel de garder tous les tests au cours du développement,
+ce qui permet de les réutiliser lorsque l'on veut compléter ou
+améliorer une partie du code. Si le nouveau code passe toujours les
+anciens test, on est alors sûr de ne pas avoir cassé les
+fonctionnalités précédentes.
+
+Nous avons déjà vu aux TD précédents plusieurs façon de rédiger des
+tests unitaires:
+
+* Les `doctest <https://docs.python.org/2/library/doctest.html>`_ sont
+  des exemples (assez simples) d'exécution de code inclus dans les
+  *docstring* des classes ou fonctions:
+
+  .. literalinclude:: mean_power.py
+     :pyobject: mean_power
+     :emphasize-lines: 12-15
+     :linenos:
+
+  Les *doctests* peuvent être exécutés de différentes façons (voir
+  ci-dessous):
+
+  - avec le module standard :mod:`doctest`: `python -m doctest -v
+    mean_power.py`
+  - avec pytest_: `py.test --doctest-modules -v mean_power.py`
+  - avec nose_: `nosetests --with-doctest -v mean_power.py`
+
+* Les fonctions dont le nom commence par `test_` et contenant des
+  `assert` sont automatiquement détectées par pytest_ [#py.test]_.
+  Cette méthode permet d'effectuer des tests plus poussés que les
+  *doctests*, éventuellement dans un fichier séparé du code à
+  tester. P.ex.:
+
+  .. literalinclude:: ../Exercices/animaux.py
+     :start-after: start-tests
+     :end-before: end-tests
+     :linenos:
+
+  Les tests sont exécutés via :samp:`py.test {programme.py}`.
+
+* Le module :mod:`unittest` de la librairie standard permet à peu près
+  la même chose que pytest_, mais avec une syntaxe souvent plus
+  lourde. :mod:`unittest` est étendu par le module non-standard nose_.
+
+
 Outils de développement
 =======================
 
@@ -167,25 +247,6 @@ Documentation
   - `A Guide to NumPy/SciPy Documentation
     <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
 
-Les méthodes de tests
----------------------
-
-Le but est de tester chaque partie du code, en incluant des tests
-directement dans la documentation ou en écrivant du code spécifique:
-
-1. Les tests unitaires vérifient individuellement chacune des
-   fonctions, méthodes, etc.
-2. Les tests d'intégration évaluent les interactions entre différentes
-   unités du programmes.
-3. Les tests système assurent le bon fonctionnement du programme dans
-   sa globalité.
-
-- `doctest <https://docs.python.org/2/library/doctest.html>`_: tests
-  unitaires inclus à la documentation (librairie standard)
-- `unittest <https://docs.python.org/2/library/unittest.html>`_
-  (librairie standard)
-- `nose <http://nose.readthedocs.org/en/latest/>`_
-- `pytest <http://pytest.org/latest/>`_
 
 Débugage et optimisation
 ------------------------
@@ -203,7 +264,7 @@ d'exécution ou juste après une erreur (analyse post-mortem).
   1ère instruction::
 
     python -m pdb script.py
-    (Pdb) 
+    (Pdb)
 
 - Commandes :program:`ipython`: `%run`, `%debug`, `%timeit`
 
@@ -258,14 +319,13 @@ Python 2 vs. python 3
 .. rubric:: Notes de bas de page
 
 .. [#zen] Dont seulement 19 ont été écrits.
+.. [#py.test] pytest_ ne fait pas partie de la librairie standard.  Il
+   vous faudra donc l'installer indépendemment si vous voulez
+   l'utiliser.
 .. [#wheel] « *Don't reinvent the wheel, unless you plan on learning
    more about wheels* » -- Jeff Atwood
 .. [#opt] « *Premature optimization is the root of all evil* » --
    Donald Knuth
 
-.. Local Variables: ...
-.. mode: rst ...
-.. ispell-local-dictionary: "francais" ...
-.. mode: flyspell ...
-.. indent-tabs-mode: nil ...
-.. End: ...
+.. _pytest: http://pytest.org/latest/
+.. _nose:   http://nose.readthedocs.org/en/latest/

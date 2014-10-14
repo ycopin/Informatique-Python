@@ -1,58 +1,59 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2014-10-02 16:27:23 ycopin>
+# Time-stamp: <2014-10-14 15:20:42 ycopin>
 
 """
 Exemple de POO.
 """
 
-__author__ = "Yannick Copin <y.copin@ipnl.in2p3.fr>"
-__version__ = "Time-stamp: <2014-01-12 22:19 ycopin@lyonovae03.in2p3.fr>"
+__author__ = "Mathieu Leocmach <mathieu.leocmach@ens-lyon.fr>"
+__version__ = "Time-stamp: <2014-10-03 10:54 mathieu.leocmach@ens-lyon.fr>"
 
 
-class Shape(object): # *object* est la classe dont dérivent toutes les autres
+# Définition d'une classe ==============================
+
+class Forme(object):  # *object* est la classe dérivent toutes les autres
     """Une forme plane, avec éventuellement une couleur."""
-    
-    def __init__(self, color=None):
-        """Initialisation d'une Shape, sans couleur par défaut."""
 
-        if color is None:
-            self.color = 'undefined'
+    def __init__(self, couleur=None):
+        """Initialisation d'une Forme, sans couleur par défaut."""
+
+        if couleur is None:
+            self.couleur = 'indéfinie'
         else:
-            self.color = color
+            self.couleur = couleur
 
     def __str__(self):
         """
         Surcharge de la fonction `str()`: l'affichage *informel* de
-        l'objet dans l'interpréteur, p.ex. `print self` sera résolu
-        comme `self.__str__()`
+        l'objet dans l'interpréteur, p.ex. `print a` sera résolu comme
+        `a.__str__()`
 
         Retourne une chaîne de caractères.
         """
 
-        return "Undefined shape, with {} color".format(self.color)
+        return "Forme encore indéfinie de couleur {}".format(self.couleur)
 
-    def set_color(self, newcolor):
+    def change_couleur(self, newcolor):
+        """Change la couleur de la Forme."""
+
+        self.couleur = newcolor
+
+    def aire(self):
         """
-        Change la couleur de la Shape.
+        Renvoi l'aire de la Forme.
+
+        L'aire ne peut pas être calculée dans le cas où la forme n'est
+        pas encore spécifiée: c'est ce que l'on appelle une méthode
+        'abstraite', qui pourra être précisée dans les classes filles.
         """
 
-        self.color = newcolor
+        raise NotImplementedError(
+            "Impossible de calculer l'aire d'une forme indéfinie.")
 
-    def area(self):
-        """
-        Renvoi l'aire de la Shape.
-
-        Ne peut pas être calculé dans le cas où la forme n'est pas
-        spécifiée: c'est ce que l'on appelle une méthode 'abstraite',
-        qui pourra être précisée dans les classes filles.
-        """
-        
-        raise NotImplementedError("Undefined shape has no area.")
-        
     def __cmp__(self, other):
         """
-        Comparaison de deux Shapes sur la base de leur aire. 
+        Comparaison de deux Formes sur la base de leur aire.
 
         Surcharge des opérateurs de comparaison de type `{self} <
         {other}`: la comparaison sera résolue comme
@@ -60,77 +61,85 @@ class Shape(object): # *object* est la classe dont dérivent toutes les autres
         interprété.
         """
 
-        return cmp(self.area(),other.area()) # Opérateur de comparaison
+        return cmp(self.aire(), other.aire())  # Opérateur de comparaison
 
 
-class Rectangle(Shape):
+class Rectangle(Forme):
     """
-    Un Rectangle est une Shape particulière.
+    Un Rectangle est une Forme particulière.
 
     La classe-fille hérite des attributs et méthodes de la
     classe-mère, mais peut les surcharger (i.e. en changer la
     définition), ou en ajouter de nouveaux:
-    
-    - les méthodes `Rectangle.set_color()` et `Rectangle.__cmp__()`
-      dérivent directement de `Shape.set_color()` et
-      `Shape.__cmp__()`;
-    - `Rectangle.__str__()` surcharge `Shape.__str__()`;
-    - `Rectangle.area()` définit la méthode jusqu'alors abstraite
-      `Shape.area()`;
-    - `Rectangle.stretch()` est une nouvelle méthode propre à `Rectangle`.
+
+    - les méthodes `Rectangle.change_couleur()` et
+      `Rectangle.__cmp__()` dérivent directement de
+      `Forme.change_couleur()` et `Forme.__cmp__()`;
+    - `Rectangle.__str__()` surcharge `Forme.__str__()`;
+    - `Rectangle.aire()` définit la méthode jusqu'alors abstraite
+      `Forme.aire()`;
+    - `Rectangle.allonger()` est une nouvelle méthode propre à
+      `Rectangle`.
     """
 
-    def __init__(self, length, width, color=None):
+    def __init__(self, longueur, largeur, couleur=None):
+        """
+        Initialisation d'un Rectangle longueur × largeur, sans couleur par
+        défaut.
+        """
 
-        # Initialisation de la classe parente
-        Shape.__init__(self, color)
+        # Initialisation de la classe parente (nécessaire pour assurer
+        # l'héritage)
+        Forme.__init__(self, couleur)
 
-        # Attributs propres
-        self.length = length
-        self.width = width
-        
+        # Attributs propres à la classe Rectangle
+        self.longueur = longueur
+        self.largeur = largeur
+
     def __str__(self):
-        """Surcharge de `Shape.__str__()`."""
+        """Surcharge de `Forme.__str__()`."""
 
-        return "Rectangle {}x{}, with {} color".format(
-            self.length, self.width, self.color)
+        return "Rectangle {}x{}, de couleur {}".format(
+            self.longueur, self.largeur, self.couleur)
 
-    def area(self):
+    def aire(self):
         """
         Renvoi l'aire du Rectangle.
 
-        Cette méthode définit la méthode abstraite `Shape.area()`.
+        Cette méthode définit la méthode abstraite `Forme.area()`,
+        pour les Rectangles uniquement.
         """
 
-        return self.length * self.width
-        
-    def stretch(self, s):
-        """Multiplie la *longueur* du Rectangle par un facteur `s`."""
+        return self.longueur * self.largeur
 
-        self.length *= s
-        
-if __name__=='__main__':
+    def allonger(self, facteur):
+        """Multiplie la *longueur* du Rectangle par un facteur"""
 
-    s = Shape()                      # Forme indéfinie et sans couleur
-    print "s:", str(s)               # Interprété comme `s.__str__()`
-    s.set_color('red')               # On change la couleur
-    print "s after set_color:", str(s)
+        self.longueur *= facteur
+
+
+if __name__ == '__main__':
+
+    s = Forme()                       # Forme indéfinie et sans couleur
+    print "s:", str(s)                # Interprété comme `s.__str__()`
+    s.change_couleur('rouge')         # On change la couleur
+    print "s après change_couleur:", str(s)
     try:
-        print "Area of s:", s.area() # La méthode abstraite lève une exception
+        print "Aire de s:", s.aire()  # La méthode abstraite lève une exception
     except NotImplementedError as err:
         print err
 
-    q = Rectangle(1,4,'green')       # Rectangle 1×4 vert
+    q = Rectangle(1, 4, 'vert')       # Rectangle 1×4 vert
     print "q:", str(q)
-    print "Area of q:", q.area()
+    print "Aire de q:", q.aire()
 
-    r = Rectangle(2,1,'blue')        # Rectangle 2×1 bleu
+    r = Rectangle(2, 1, 'bleu')       # Rectangle 2×1 bleu
     print "r:", str(r)
-    print "Area of r:", r.area()
+    print "Aire de r:", r.aire()
 
-    print "q <= r:", (q <= r)        # Interprété comme q.__cmp__(r)
+    print "r >= q:", (r >= q)         # Interprété comme r.__cmp__(q)
 
-    r.stretch(2)                     # r devient un rectangle 4×1
-    print "Area of r after stretch x2:", r.area()
-    print "q <= r:", (q <= r)
+    r.allonger(2)                     # r devient un rectangle 4×1
+    print "Aire de r apres l'avoir allongé d'un facteur 2:", r.aire()
+    print "r >= q:", (r >= q)
 
