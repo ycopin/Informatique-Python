@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-09-24 10:36:42 ycopin>
+.. Time-stamp: <2014-10-12 21:44 ycopin@lyonovae03.in2p3.fr>
 
 Références supplémentaires
 ==========================
@@ -34,6 +34,8 @@ Listes de liens
   <http://pythonfacile.free.fr/python/ressources.html>`_ (2005) |fr|
 - `Python: quelques références, trucs et astuces:
   <http://dvillers.umons.ac.be/wiki/floss:python>`_ (2014) |fr|
+- `Improving your programming style in Python
+  <http://gael-varoquaux.info/programming/improving-your-programming-style-in-python.html>`_
 
 .. rubric:: ipython
 
