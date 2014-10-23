@@ -1,0 +1,21 @@
+.. Time-stamp: <2014-10-23 17:13:03 ycopin>
+
+.. _animauxSol:
+
+Animaux
+-------
+
+.. literalinclude:: animauxSol.py
+   :linenos:
+
+::
+
+  =========================== test session starts ============================
+  platform linux2 -- Python 2.7.6 -- py-1.4.24 -- pytest-2.6.2
+  collected 8 items 
+  
+  animauxSol.py ........
+  
+  ========================= 8 passed in 0.04 seconds =========================
+
+**Source:** :download:`animauxSol.py`

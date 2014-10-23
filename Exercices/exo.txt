@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-10-14 14:19:42 ycopin>
+.. Time-stamp: <2014-10-23 17:29:21 ycopin>
 .. _exercices:
 
 Exercices
@@ -115,7 +115,7 @@ Programmation
 
 .. _syracuse:
 
-Fonctions: suite de Syracuse ★
+Suite de Syracuse (fonction) ★
 ------------------------------
 
 Écrire une fonction `suite_syracuse(n)` retournant la (partie
@@ -134,8 +134,8 @@ retournant le temps de vol (éventuellement en altitude) correspondant
 
 .. _koch:
 
-Programmation récursive: le flocon de Koch ★★★
-----------------------------------------------
+Flocon de Koch (programmation récursive) ★★★
+--------------------------------------------
 
 .. index::
    module: turtle
@@ -152,8 +152,8 @@ bibliothèque graphique standard :mod:`turtle` dans une fonction
    
 .. _animaux:
 
-Programmation Orientée Objet: Animaux ★
--------------------------------------------------
+Animaux (POO) ★
+---------------
 
 Téléchargez :download:`animaux.py` et complétez les classes `Animal`
 et `Chien` pour qu'elles passent avec succès tous les tests.  On
@@ -163,8 +163,8 @@ appellera les tests via la ligne de commande::
 
 .. _particle:
 
-Programmation Orientée Objet: points matériels et ions ★
---------------------------------------------------------
+Points matériels et ions (POO) ★
+--------------------------------
 
 Pour une simulation d'un problème physique, on peut construire des
 classes qui connaissent elles-mêmes leurs propriétés physiques et
@@ -191,8 +191,8 @@ l'exécution, la sortie du terminal doit être::
 
 .. _life:
 
-Programmation Orientée Objet: le jeu de la vie ★★
--------------------------------------------------
+Jeu de la vie (POO) ★★
+----------------------
 
 On se propose de programmer l'automate cellulaire le plus célèbre, `le
 Jeu de la vie <http://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
@@ -230,8 +230,8 @@ En statistique, le *Median Absolute Deviation* (MAD) est un estimateur
 robuste de la dispersion d'un échantillon 1D: `MAD = median(| x -
 median(x) |)`
 
-À l'aide des fonctions `N.median`, `N.abs` et `N.expand_dims`, écrire une fonction
-`mad(x, axis=None)` calculant le MAD d'un tableau le long d'un de ses
+À l'aide des fonctions `N.median`, `N.abs` et `N.expand_dims`, écrire une
+fonction `mad(x, axis=None)` calculant le MAD d'un tableau le long d'un de ses
 axes.
 
 Avant d'implémenter la fonction, on commencera par écrire quelques tests

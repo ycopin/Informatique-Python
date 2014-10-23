@@ -16,8 +16,8 @@ class Animal(object):  # *object* est la classe dont dérivent toutes les autres
 
         # Ici, convertir les paramètres pour être sûr qu'il ont le bon
         # type. On utilisera `str` et `float`
-        self.nom = nom
-        self.masse = masse
+        self.nom = str(nom)
+        self.masse = float(masse)
 
         self.vivant = True       # Les animaux sont vivant à l'instantiation
         self.empoisonne = False  # Animal empoissoné?
@@ -31,17 +31,17 @@ class Animal(object):  # *object* est la classe dont dérivent toutes les autres
         Retourne une chaîne de caractères.
         """
 
-        return "{0}".format(self.nom)
+        return "{a.nom} ({a.masse:.1f} kg)".format(a=self)
 
     def estVivant(self):
         """Méthode booléenne, vraie si l'animal est vivant."""
 
-        return False
+        return self.vivant
 
     def mourir(self):
         """Change l'état interne de l'objet (ne retourne rien)."""
 
-        pass
+        self.vivant = False
 
     def __cmp__(self, other):
         """
@@ -49,7 +49,7 @@ class Animal(object):  # *object* est la classe dont dérivent toutes les autres
         des animaux.
         """
 
-        return False
+        return cmp(self.masse, other.masse)
 
     def __call__(self, other):
         """
@@ -62,7 +62,12 @@ class Animal(object):  # *object* est la classe dont dérivent toutes les autres
         `self.__call__(other).
         """
 
-        pass
+        other.mourir()
+        poids = min(other.masse, self.masse * 0.1)
+        self.masse += poids
+        other.masse -= poids
+        if other.empoisonne:
+            self.mourir()
 
 
 class Chien(Animal):
@@ -79,6 +84,10 @@ class Chien(Animal):
 
         # Attribut propre à la classe dérivée
         self.odorat = float(odorat)
+
+    def __str__(self):
+
+        return "{a.nom} (Chien, {a.masse:.1f} kg)".format(a=self)
 
     def aboyer(self):
         """Une méthode bien spécifique aux chiens."""
