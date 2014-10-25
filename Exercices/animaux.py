@@ -20,7 +20,7 @@ class Animal(object):  # *object* est la classe dont dérivent toutes les autres
         self.masse = masse
 
         self.vivant = True       # Les animaux sont vivant à l'instantiation
-        self.empoisonne = False  # Animal empoissoné?
+        self.empoisonne = False  # Animal empoisonné?
 
     def __str__(self):
         """
