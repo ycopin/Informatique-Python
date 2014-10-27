@@ -104,11 +104,10 @@ pygments_style = 'sphinx'
 rst_prolog = u"""
 .. admonition:: Information
 
-   La conférence `pycon.fr 2014 <http://www.pycon.fr/2014/>`_
-   aura lieu les 25 et 26 octobre 2014 à Lyon (bâtiment Thémis, campus de
-   la Doua). Elle est gratuite et libre d'accès, et ouverte à tout type
-   de public (de novice à hacker).
-
+   Un examen d'une heure est prévu le 13 novembre prochain, qui consistera en
+   la résolution d'un exercice simple inspiré d'une situation physique et pour
+   lequel un canevas vous sera fourni.  Le code sera envoyé par mail à la fin
+   de l'heure impartie.
 """
 #rst_prolog = u""
 
@@ -204,7 +203,7 @@ latex_elements = {
 
     # Additional stuff for the LaTeX preamble.
     'preamble': r"""
-    \DeclareUnicodeCharacter{2605}{*} 
+    \DeclareUnicodeCharacter{2605}{*}
     """,
 }
 
