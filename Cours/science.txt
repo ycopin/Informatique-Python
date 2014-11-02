@@ -3,7 +3,7 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2014-09-18 00:36 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-10-29 21:12:20 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -720,7 +720,8 @@ Dans les deux cas, le résultat est le même:
 
 - `Tutorial pyplot
   <http://matplotlib.org/users/pyplot_tutorial.html>`_
-- `Tutorial matplotlib <http://www.loria.fr/~rougier/teaching/matplotlib/>`_
+- `Tutorial matplotlib
+  <http://www.labri.fr/perso/nrougier/teaching/matplotlib/>`_
 - `Gallery <http://matplotlib.org/gallery.html>`_ 
 - `Examples <http://matplotlib.org/examples/>`_
 

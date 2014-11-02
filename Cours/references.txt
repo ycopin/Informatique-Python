@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-10-14 16:48:55 ycopin>
+.. Time-stamp: <2014-11-02 20:53 ycopin@lyonovae03.in2p3.fr>
 
 Références supplémentaires
 ==========================
@@ -53,7 +53,8 @@ Livres libres
   <http://www.greenteapress.com/thinkpython/thinkpython.html>`_
 
   * `Wikibook <http://en.wikibooks.org/wiki/Think_Python>`_
-  * `Interactive edition <http://thinkcspy.appspot.com/build/index.html>`_
+  * `Interactive edition
+    <http://interactivepython.org/runestone/static/thinkcspy/index.html>`_
 
 - `Dive into Python <http://www.diveintopython.net/>`_
 - `Non-Programmer's Tutorial for Python 2.6
@@ -90,6 +91,7 @@ Python
 - `Google's Python Class <https://developers.google.com/edu/python/>`_
 - `CheckIO <http://www.checkio.org/>`_, pour apprendre la
   programmation Python en s'amusant !
+- `Python Testing Tools <http://oddbird.net/python-testing-tools-preso/>`_
 
 Scientifique
 ............
@@ -102,10 +104,11 @@ Scientifique
 - `Computational Physics with Python
   <http://www-personal.umich.edu/~mejn/computational-physics/>`_ (avec
   exercices)
-- *SciPy tutorials* (numpy, scipy, matplotlib, ipython): `2011
+- *SciPy tutorials* (`numpy`, `scipy`, `matplotlib`, `ipython`): `2011
   <http://conference.scipy.org/scipy2011/tutorials.php>`_, `2012
   <http://conference.scipy.org/scipy2012/tutorials.php>`_, `2013
-  <http://conference.scipy.org/scipy2013/tutorials.php>`_, 
+  <http://conference.scipy.org/scipy2013/tutorials.php>`_, `2014
+  <http://conference.scipy.org/scipy2014/tutorials.php>`_,
 - `Practical Python for Astronomers <https://python4astronomers.github.io/>`_
 - `Lectures on Computational Economics <http://quant-econ.net/>`_
   (avec exercices)
@@ -117,8 +120,8 @@ Scientifique
   <http://fr.openclassrooms.com/informatique/cours/la-programmation-scientifique-avec-python>`_
   |fr|
 
-Autres
-......
+Visualisation
+.............
 
 - `Visualization <http://www.cs171.org/>`_
 

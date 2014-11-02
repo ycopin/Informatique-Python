@@ -107,11 +107,11 @@ class Chien(Animal):
 # start-tests
 def test_empty_init():
     with pytest.raises(TypeError):
-        youki = Animal()
+        Animal()
 
 def test_wrong_init():
     with pytest.raises(ValueError):
-        youki = Animal('Youki', 'lalala')
+        Animal('Youki', 'lalala')
 
 def test_init():
     youki = Animal('Youki', 600)
