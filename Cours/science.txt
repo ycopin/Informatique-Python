@@ -3,7 +3,7 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2014-11-07 19:14:29 ycopin>
+.. Time-stamp: <2014-11-12 21:07:14 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -443,7 +443,7 @@ calcul matriciel (inverse, déterminant, valeurs propres, etc.).
    pair: numpy; any
    pair: numpy; allclose
 
-:mod:`numpy` fournit les functions mathématiques de base (`exp`,
+:mod:`numpy` fournit les fonctions mathématiques de base (`exp`,
 `atan2`, etc.) qui s'appliquent sur les éléments des tableaux
 d'entrée:
 
@@ -540,8 +540,8 @@ Entrées/sorties
    pair: numpy; savetxt/loadtxt
    pair: numpy; genfromtxt
 
-:mod:`numpy` peut lire (:func:`numpy.loadtxt`) ou sauvegarder
-(:func:`numpy.savetxt`) des tableaux dans un simple fichier ASCII:
+:mod:`numpy` peut lire -- :func:`numpy.loadtxt` -- ou sauvegarder --
+:func:`numpy.savetxt` -- des tableaux dans un simple fichier ASCII:
 
 >>> x = N.linspace(-1,1,100)
 >>> N.savetxt('archive_x.dat', x)   # Sauvegarde dans le fichier 'archive_x.dat'
@@ -578,8 +578,8 @@ Sous-modules
 supplémentaires, parmis lesquelles les sous-modules suivants:
 
 - :mod:`numpy.fft`: *Discrete Fourier Transform* 
-- :mod:`numpy.lib.polynomial`: manipulation des polynômes (racines,
-  polynômes orthogonaux, etc.)
+- :mod:`numpy.polynomial`: manipulation des polynômes (racines, polynômes
+  orthogonaux, etc.)
 
 .. _td6:
 

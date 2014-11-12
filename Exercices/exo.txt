@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-10-23 17:29:21 ycopin>
+.. Time-stamp: <2014-11-12 21:16:22 ycopin>
 .. _exercices:
 
 Exercices
@@ -221,28 +221,35 @@ dans la sortie standard du terminal, p.ex.::
 Manipulation de tableaux (`arrays`)
 ===================================
 
+Manipulation de matrices ★
+--------------------------
+
+Créer une matrice carrée réelle :math:`\mathsf{r}` aléatoire, calculer la
+matrice hermitienne :math:`\mathsf{m} = \mathsf{r} \cdot \mathsf{r}^T`,
+l'inverser, et vérifier que :math:`\mathsf{m} \cdot \mathsf{m}^{-1} =
+\mathsf{m}^{-1} \cdot \mathsf{m} = \mathsf{1}`.
+
 .. _mad:
 
 *Median Absolute Deviation* ★
 -----------------------------
 
-En statistique, le *Median Absolute Deviation* (MAD) est un estimateur
-robuste de la dispersion d'un échantillon 1D: `MAD = median(| x -
-median(x) |)`
+En statistique, le *Median Absolute Deviation* (MAD) est un estimateur robuste
+de la dispersion d'un échantillon 1D: `MAD = median(| x - median(x) |)`.
 
 À l'aide des fonctions `N.median`, `N.abs` et `N.expand_dims`, écrire une
 fonction `mad(x, axis=None)` calculant le MAD d'un tableau le long d'un de ses
 axes.
 
-Avant d'implémenter la fonction, on commencera par écrire quelques tests
-de cas simples, facilement calculables à la main. On les écrira sous un
-format compris par *py.test* :
+Avant d'implémenter la fonction, on commencera par écrire quelques tests de cas
+simples, facilement calculables à la main. On les écrira sous un format compris
+par *py.test*, p.ex.:
 
 .. code-block:: python
-    :linenos:
     
     def test_1D():
-        assert mad(0) == 0
+        assert mad([0]) == 0
+        assert mad([1,2,3]) == 2
         assert mad([1,2,6,9]) == 2.5
 
 .. _pull:
