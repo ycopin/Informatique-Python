@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-11-02 20:53 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-11-07 19:23:39 ycopin>
 
 Références supplémentaires
 ==========================
@@ -81,6 +81,8 @@ Python
 - `Le site du zéro
   <http://fr.openclassrooms.com/informatique/cours/langage-python>`_
   |fr|
+- `Présentation de Python
+  <http://python.developpez.com/tutoriels/cours-intensif-scientifique/presentation-debuter/>`_ |fr|
 - `Cours Python 3 + exercices
   <http://www.iut-orsay.u-psud.fr/fr/departements/mesures_physiques/mphy_pedagogie.html>`_
   (voir également le cours d'algorithmique en C, et de `easygui`) |fr|
@@ -114,6 +116,9 @@ Scientifique
   (avec exercices)
 - `Scipy Central <scipy-central.org>`_ (*code snippets*)
 
+- `NumPy et SciPy
+  <http://python.developpez.com/tutoriels/cours-intensif-scientifique/module-numpy-scipy/>`_
+  |fr|
 - `L’informatique scientifique avec Python
   <http://www.dakarlug.org/pat/scientifique/html/>`_ |fr|
 - `La programmation scientifique avec Python
@@ -135,7 +140,7 @@ Sphinx & co.
 .. * `Dumping PowerPoint in Favor of Web Sites
 ..   <http://www.sal.ksu.edu/faculty/tim/prof-day/index.html>`_ (2011)
 
-* `Sample doc <http://matplotlib.org/sampledoc/>`_
+- `Sample doc <http://matplotlib.org/sampledoc/>`_
 
 .. |fr| image:: ../Cours/france_flag_icon.png
    :alt: Fr

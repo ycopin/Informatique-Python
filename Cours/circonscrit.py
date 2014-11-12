@@ -30,7 +30,7 @@ __version__ = "Time-stamp: <2014-01-12 22:19 ycopin@lyonovae03.in2p3.fr>"
 # Définition d'une classe ==============================
 
 # start-classPoint
-class Point(object): # *object* est la classe dont dérivent toutes les autres
+class Point(object):  # *object* est la classe dont dérivent toutes les autres
     """
     Classe définissant un `Point` du plan, caractérisé par ses
     coordonnées `x`,`y`.
@@ -48,11 +48,11 @@ class Point(object): # *object* est la classe dont dérivent toutes les autres
         TypeError: __init__() takes exactly 3 arguments (2 given)
         """
 
-        try:                            # Convertit les coords en `float`
+        try:  # Convertit les coords en `float`
             self.x = float(x)
             self.y = float(y)
         except (ValueError, TypeError):
-            raise TypeError("Invalid input coordinates ({},{})".format(x,y))
+            raise TypeError("Invalid input coordinates ({},{})".format(x, y))
 
     def __str__(self):
         """
@@ -84,7 +84,7 @@ class Point(object): # *object* est la classe dont dérivent toutes les autres
 
         import sys
 
-        eps = sys.float_info.epsilon # Le plus petit float non nul
+        eps = sys.float_info.epsilon  # Le plus petit float non nul
 
         return ((abs(self.x) <= eps) and (abs(self.y) <= eps))
 
@@ -99,11 +99,11 @@ class Point(object): # *object* est la classe dont dérivent toutes les autres
 
         from math import hypot
 
-        return hypot(self.x - other.x, self.y - other.y) # sqrt(dx**2 + dy**2)
+        return hypot(self.x - other.x, self.y - other.y)  # sqrt(dx**2 + dy**2)
 
 
 # Définition du point origine O
-O = Point(0,0)
+O = Point(0, 0)
 # end-classPoint
 
 
@@ -130,10 +130,10 @@ class Vector(Point):
         """
 
         # Initialisation de la classe parente
-        Point.__init__(self, B.x-A.x, B.y-A.y)
+        Point.__init__(self, B.x - A.x, B.y - A.y)
 
         # Attribut propre à la classe dérivée
-        self.sqnorm = self.x**2 + self.y**2 # Norme du vecteur au carré
+        self.sqnorm = self.x ** 2 + self.y ** 2  # Norme du vecteur au carré
 
     def __str__(self):
         """
@@ -221,19 +221,21 @@ class Vector(Point):
         True
         """
 
-        from cmath import rect # Bibliothèque de fonctions complexes
+        from cmath import rect  # Bibliothèque de fonctions complexes
 
         # On calcule la rotation en passant dans le plan complexe
         z = complex(self.x, self.y)
-        phase = angle if not deg else angle/57.29577951308232 # [rad]
-        u = rect(1., phase)     # exp(i*phase)
-        zu = z*u                # Rotation complexe
+        phase = angle if not deg else angle / 57.29577951308232  # [rad]
+        u = rect(1., phase)  # exp(i*phase)
+        zu = z * u  # Rotation complexe
 
         return Vector(O, Point(zu.real, zu.imag))
+
+
 # end-classVector
 
 
-def circumscribedCircle(M,N,P):
+def circumscribedCircle(M, N, P):
     """
     Calcule le centre et le rayon du cercle circonscrit aux points
     M,N,P.
@@ -255,37 +257,37 @@ def circumscribedCircle(M,N,P):
 
     from math import sqrt
 
-    MN = Vector(M,N)
-    NP = Vector(N,P)
-    PM = Vector(P,M)
+    MN = Vector(M, N)
+    NP = Vector(N, P)
+    PM = Vector(P, M)
 
     # Rayon du cercle circonscrit
-    m = abs(NP)                         # |NP|
-    n = abs(PM)                         # |PM|
-    p = abs(MN)                         # |MN|
+    m = abs(NP)  # |NP|
+    n = abs(PM)  # |PM|
+    p = abs(MN)  # |MN|
 
-    d = (m+n+p)*(-m+n+p)*(m-n+p)*(m+n-p)
-    if d>0:
-        rad = m*n*p / sqrt(d)
+    d = (m + n + p) * (-m + n + p) * (m - n + p) * (m + n - p)
+    if d > 0:
+        rad = m * n * p / sqrt(d)
     else:
         raise ValueError("Undefined circumscribed circle radius.")
 
     # Centre du cercle circonscrit
-    d = -2*( M.x*NP.y + N.x*PM.y + P.x*MN.y )
-    if d==0:
+    d = -2 * ( M.x * NP.y + N.x * PM.y + P.x * MN.y )
+    if d == 0:
         raise ValueError("Undefined circumscribed circle center.")
 
-    om2 = Vector(O,M).sqnorm            # |OM|**2
-    on2 = Vector(O,N).sqnorm            # |ON|**2
-    op2 = Vector(O,P).sqnorm            # |OP|**2
+    om2 = Vector(O, M).sqnorm  # |OM|**2
+    on2 = Vector(O, N).sqnorm  # |ON|**2
+    op2 = Vector(O, P).sqnorm  # |OP|**2
 
-    x0 = -( om2*NP.y + on2*PM.y + op2*MN.y ) / d
-    y0 =  ( om2*NP.x + on2*PM.x + op2*MN.x ) / d
-    
-    return (Point(x0,y0), rad)           # (centre [Point], R [float])
+    x0 = -( om2 * NP.y + on2 * PM.y + op2 * MN.y ) / d
+    y0 = ( om2 * NP.x + on2 * PM.x + op2 * MN.x ) / d
+
+    return (Point(x0, y0), rad)  # (centre [Point], R [float])
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
 
     # start-argparse
     import argparse
@@ -304,41 +306,41 @@ if __name__=='__main__':
     args = parser.parse_args()
     # end-argparse
 
-    if args.input:              # Lecture des coordonnées du fichier d'entrée
+    if args.input:  # Lecture des coordonnées du fichier d'entrée
         # Le fichier a déjà été ouvert en lecture par argparse (type=file)
-        args.coords = [ coords for coords in args.input 
-                        if not coords.strip().startswith('#') ]
+        args.coords = [coords for coords in args.input
+                       if not coords.strip().startswith('#')]
 
-    if len(args.coords) != 3:   # Vérifie le nb de points
+    if len(args.coords) != 3:  # Vérifie le nb de points
         parser.error("Specify 3 points by their coordinates 'x,y' (got {})"
                      .format(len(args.coords)))
 
-    points = []                 # Liste des points
-    for i,arg in enumerate(args.coords, start=1):
-        try:                    # Déchiffrage de l'argument 'x,y'
-            x,y = ( float(t) for t in arg.split(',') )
+    points = []  # Liste des points
+    for i, arg in enumerate(args.coords, start=1):
+        try:  # Déchiffrage de l'argument 'x,y'
+            x, y = (float(t) for t in arg.split(','))
         except ValueError:
             parser.error("Cannot decipher coordinates #{}: '{}'".format(i, arg))
 
-        points.append(Point(x,y)) # Création du point et ajout à la liste
-        print "#{:d}: {}".format(i, points[-1]) # Affichage du dernier point
+        points.append(Point(x, y))  # Création du point et ajout à la liste
+        print "#{:d}: {}".format(i, points[-1])  # Affichage du dernier point
 
     # Calcul du cercle cisconscrit (lève une ValueError en cas de problème)
-    center,radius = circumscribedCircle(*points) # Délistage
+    center, radius = circumscribedCircle(*points)  # Délistage
     print "Circumscribed circle: {}, radius: {}".format(center, radius)
 
-    if args.plot:                       # Figure
+    if args.plot:  # Figure
         import matplotlib.pyplot as P
 
         fig = P.figure()
-        ax = fig.add_subplot(1,1,1, aspect='equal')
+        ax = fig.add_subplot(1, 1, 1, aspect='equal')
         # Points
-        ax.plot([ p.x for p in points ], [ p.y for p in points ], 'ko')
-        for i,p in enumerate(points, start=1):
-            ax.annotate("#{}".format(i), (p.x,p.y),
-                        xytext=(5,5), textcoords='offset points')
+        ax.plot([p.x for p in points], [p.y for p in points], 'ko')
+        for i, p in enumerate(points, start=1):
+            ax.annotate("#{}".format(i), (p.x, p.y),
+                        xytext=(5, 5), textcoords='offset points')
         # Cercle circonscrit
-        c = P.matplotlib.patches.Circle((center.x,center.y), radius=radius,
+        c = P.matplotlib.patches.Circle((center.x, center.y), radius=radius,
                                         fc='none')
         ax.add_patch(c)
         ax.plot(center.x, center.y, 'r+')

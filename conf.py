@@ -104,10 +104,10 @@ pygments_style = 'sphinx'
 rst_prolog = u"""
 .. admonition:: Information
 
-   Un examen d'une heure est prévu le 13 novembre prochain, qui consistera en
+   Un examen d'une heure est prévu le *20* novembre prochain, qui consistera en
    la résolution d'un exercice simple inspiré d'une situation physique et pour
-   lequel un canevas vous sera fourni.  Le code sera envoyé par mail à la fin
-   de l'heure impartie.
+   lequel un canevas vous sera fourni.  Le code devra être envoyé par mail à la
+   fin de l'heure impartie.
 """
 #rst_prolog = u""
 

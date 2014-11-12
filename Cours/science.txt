@@ -3,7 +3,7 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2014-10-29 21:12:20 ycopin>
+.. Time-stamp: <2014-11-07 19:14:29 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -775,6 +775,8 @@ différents domaines de la physique/chimie:
 - Calcul symbolique: sympy_ (voir également ce `tutoriel sympy
   <https://mattpap.github.io/scipy-2011-tutorial/html/>`_)
 - `PyROOT <http://root.cern.ch/drupal/content/pyroot>`_
+- `High Performance Computing in Python
+  <http://byumcl.bitbucket.org/bootcamp2013/labs/perfomance.html>`_
 - `Etc. <http://www.scipy.org/Topical_Software>`_
 
 .. - `PyMC <http://code.google.com/p/pymc/>`_: *Monte Carlo Markov Chain*
