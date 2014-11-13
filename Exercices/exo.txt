@@ -227,7 +227,8 @@ Inversion de matrice ★
 Créer un tableau carré réel :math:`\mathsf{r}` aléatoire (:func:`numpy.random.randn`), calculer la
 matrice hermitienne :math:`\mathsf{m} = \mathsf{r} \cdot \mathsf{r}^T` (:func:`numpy.dot`),
 l'inverser (:func:`numpy.linalg.inv`), et vérifier que :math:`\mathsf{m} \cdot \mathsf{m}^{-1} =
-\mathsf{m}^{-1} \cdot \mathsf{m} = \mathsf{1}` (:func:`numpy.eye`).
+\mathsf{m}^{-1} \cdot \mathsf{m} = \mathsf{1}` (:func:`numpy.eye`) à la précision numérique près 
+(:func:`numpy.allclose()`).
 
 .. _mad:
 
