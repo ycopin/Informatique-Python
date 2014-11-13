@@ -238,7 +238,7 @@ l'inverser (:func:`numpy.linalg.inv`), et vérifier que :math:`\mathsf{m} \cdot 
 En statistique, le *Median Absolute Deviation* (MAD) est un estimateur robuste
 de la dispersion d'un échantillon 1D: `MAD = median(| x - median(x) |)`.
 
-À l'aide des fonctions `N.median`, `N.abs` et `N.expand_dims`, écrire une
+À l'aide des fonctions :func:`numpy.median`, :func:`numpy.abs` et :func:`numpy.expand_dims`, écrire une
 fonction `mad(x, axis=None)` calculant le MAD d'un tableau le long d'un de ses
 axes.
 
@@ -249,8 +249,7 @@ par *py.test*, p.ex.:
 .. code-block:: python
     
     def test_1D():
-        assert mad([0]) == 0
-        assert mad([1,2,3]) == 2
+        assert mad([0]) == 0.
         assert mad([1,2,6,9]) == 2.5
 
 .. _pull:
