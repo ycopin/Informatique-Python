@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-11-12 21:16:22 ycopin>
+.. Time-stamp: <2014-11-21 09:24 ycopin@lyonovae03.in2p3.fr>
 .. _exercices:
 
 Exercices
@@ -36,8 +36,8 @@ On définit la fonction `sq` renvoyant le carré d'un nombre par
 
 Écrire un programme calculant l'intégrale de cette fonction entre a=0
 et b=1, en utilisant une subdivision en n=100 pas dans un premier
-temps. Quelle est la précision de la méthode, et comment dépend-elle
-du nombre de pas?
+temps.  Quelle est la précision de la méthode, et comment dépend-elle
+du nombre de pas? 
 
 .. _pgcd:
 
@@ -84,7 +84,7 @@ Carré magique ★★
 Un carré magique d’ordre *n* est un tableau carré *n × n* dans lequel
 on écrit une et une seule fois les nombres entiers de 1 à *n²*, de
 sorte que la somme des *n* nombres de chaque ligne, colonne ou
-diagonale principale soit constante. P.ex. le carré magique d’ordre 5,
+diagonale principale soit constante.  P.ex. le carré magique d’ordre 5,
 où toutes les sommes sont égales à 65:
 
 ==  ==  ==  ==  ==
@@ -103,7 +103,7 @@ commençant à 1:
 1. la case *(n,(n+1)/2)* contient 1 ;
 2. si la case *(i,j)* contient la valeur *k*, alors on place la valeur
    *k+1* dans la case *(i+1,j+1)* si cette case est vide, ou dans la
-   case *(i-1,j)* sinon. On respecte la règle selon laquelle un indice
+   case *(i-1,j)* sinon.  On respecte la règle selon laquelle un indice
    supérieur à *n* est ramené a 1.
 
 Programmer cet algorithme pour pouvoir construire un carré magique
@@ -121,9 +121,9 @@ Suite de Syracuse (fonction) ★
 Écrire une fonction `suite_syracuse(n)` retournant la (partie
 non-triviale de la) `suite de Syracuse
 <http://fr.wikipedia.org/wiki/Conjecture_de_Syracuse>`_ pour un entier
-*n*. Écrire une fonction `temps_syracuse(n, altitude=False)`
+*n*.  Écrire une fonction `temps_syracuse(n, altitude=False)`
 retournant le temps de vol (éventuellement en altitude) correspondant
-à l'entier *n*. Tester ces fonctions sur *n=15*:
+à l'entier *n*.  Tester ces fonctions sur *n=15*:
 
   >>> suite_syracuse(15)
   [15, 46, 23, 70, 35, 106, 53, 160, 80, 40, 20, 10, 5, 16, 8, 4, 2, 1]
@@ -221,14 +221,17 @@ dans la sortie standard du terminal, p.ex.::
 Manipulation de tableaux (`arrays`)
 ===================================
 
+.. _matrice:
+
 Inversion de matrice ★
 ----------------------
 
-Créer un tableau carré réel :math:`\mathsf{r}` aléatoire (:func:`numpy.random.randn`), calculer la
-matrice hermitienne :math:`\mathsf{m} = \mathsf{r} \cdot \mathsf{r}^T` (:func:`numpy.dot`),
-l'inverser (:func:`numpy.linalg.inv`), et vérifier que :math:`\mathsf{m} \cdot \mathsf{m}^{-1} =
-\mathsf{m}^{-1} \cdot \mathsf{m} = \mathsf{1}` (:func:`numpy.eye`) à la précision numérique près 
-(:func:`numpy.allclose()`).
+Créer un tableau carré réel :math:`\mathsf{r}` aléatoire
+(:func:`numpy.random.randn`), calculer la matrice hermitienne :math:`\mathsf{m}
+= \mathsf{r} \cdot \mathsf{r}^T` (:func:`numpy.dot`), l'inverser
+(:func:`numpy.linalg.inv`), et vérifier que :math:`\mathsf{m} \cdot
+\mathsf{m}^{-1} = \mathsf{m}^{-1} \cdot \mathsf{m} = \mathsf{1}`
+(:func:`numpy.eye`) à la précision numérique près (:func:`numpy.allclose()`).
 
 .. _mad:
 
@@ -238,12 +241,12 @@ l'inverser (:func:`numpy.linalg.inv`), et vérifier que :math:`\mathsf{m} \cdot 
 En statistique, le *Median Absolute Deviation* (MAD) est un estimateur robuste
 de la dispersion d'un échantillon 1D: `MAD = median(| x - median(x) |)`.
 
-À l'aide des fonctions :func:`numpy.median`, :func:`numpy.abs` et :func:`numpy.expand_dims`, écrire une
-fonction `mad(x, axis=None)` calculant le MAD d'un tableau le long d'un de ses
-axes.
+À l'aide des fonctions :func:`numpy.median`, :func:`numpy.abs` et
+:func:`numpy.expand_dims`, écrire une fonction `mad(x, axis=None)` calculant le
+MAD d'un tableau, éventuellement le long d'un de ses axes.
 
 Avant d'implémenter la fonction, on commencera par écrire quelques tests de cas
-simples, facilement calculables à la main. On les écrira sous un format compris
+simples, facilement calculables à la main.  On les écrira sous un format compris
 par *py.test*, p.ex.:
 
 .. code-block:: python
@@ -275,6 +278,49 @@ Si les erreurs :math:`\sigma_i` sont correctes, la distribution du
 *pull* est centrée sur 0 avec une déviation standard de 1.
 
 Écrire une fonction `pull(x, dx)` calculant le *pull* de tableaux 1D.
+
+
+.. _algo:
+
+Méthodes numériques
+===================
+
+.. _numerique:
+
+Quadrature & zéro d'une fonction ★
+----------------------------------
+
+À l'aide des algorithmes disponibles dans :mod:`scipy`,
+
+* calculer numériquement l'intégrale :math:`\int_0^\infty
+  \frac{x^3}{e^x-1}\mathrm{d}x = \pi^4/15`;
+* résoudre numériquement l'équation :math:`x\,e^x = 5(e^x - 1)`.
+
+.. _romberg:
+
+Schéma de Romberg ★★
+--------------------
+
+Écrire une fonction `integ_romberg(f, a, b, epsilon=1e-6)` permettant
+de calculer l'intégrale numérique de la fonction *f* entre les bornes
+*a* et *b* avec une précision *epsilon* selon la `méthode de Romberg
+<http://fr.wikipedia.org/wiki/Méthode_de_Romberg>`_.
+
+Tester sur des solutions analytiques et en comparant à
+:func:`scipy.integrate.romberg`.
+
+.. _rk:
+
+Méthode de Runge-Kutta ★★
+-------------------------
+
+Développer un algorithme permettant d'intégrer numériquement une
+équation différentielle du 1er ordre en utilisant la `méthode de
+Runge-Kutta <http://fr.wikipedia.org/wiki/Méthodes_de_Runge-Kutta>`_
+d'ordre quatre.
+
+Tester sur des solutions analytiques et en comparant à
+:func:`scipy.integrate.odeint`.
 
 
 Visualisation (matplotlib)
@@ -356,29 +402,16 @@ complexe :math:`c = 0.284 + 0.0122j`:
 
    **Figure:** Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
 
-N.B.: On utilisera la fonction :func:`numpy.meshgrid` pour construire
-le plan complexe, et l'on affichera le résultat grâce à la fonction
+On utilisera la fonction :func:`numpy.meshgrid` pour construire le plan
+complexe, et l'on affichera le résultat grâce à la fonction
 :func:`matplotlib.pyplot.imshow`.
 
 Voir également: `Superposition d'ensembles de Julia
 <http://maths.wikidot.com/julia-superposition>`_
 
 
-.. _algo:
-
-Méthodes numériques
-===================
-
-.. _numerique:
-
-Quadrature & zéro d'une fonction ★
-----------------------------------
-
-À l'aide des algorithmes disponibles dans :mod:`scipy`,
-
-* calculer numériquement l'intégrale :math:`\int_0^\infty
-  \frac{x^3}{e^x-1}\mathrm{d}x = \pi^4/15`;
-* résoudre numériquement l'équation :math:`x\,e^x = 5(e^x - 1)`.
+Mise en oeuvre de l'ensemble des connaissances acquises
+=======================================================
 
 .. _canon:
 
@@ -408,36 +441,6 @@ Utiliser les valeurs numériques pour un boulet de canon de `36 livres
     v0 = 450.      # Vitesse initiale [m/s]
     alt = 45.      # Inclinaison du canon [deg]
 
-.. _romberg:
-
-Schéma de Romberg ★★
---------------------
-
-Écrire une fonction `integ_romberg(f, a, b, epsilon=1e-6)` permettant
-de calculer l'intégrale numérique de la fonction *f* entre les bornes
-*a* et *b* avec une précision *epsilon* selon la `méthode de Romberg
-<http://fr.wikipedia.org/wiki/Méthode_de_Romberg>`_.
-
-Tester sur des solutions analytiques et en comparant à
-:func:`scipy.integrate.romberg`.
-
-.. _rk:
-
-Méthode de Runge-Kutta ★★
--------------------------
-
-Développer un algorithme permettant d'intégrer numériquement une
-équation différentielle du 1er ordre en utilisant la `méthode de
-Runge-Kutta <http://fr.wikipedia.org/wiki/Méthodes_de_Runge-Kutta>`_
-d'ordre quatre.
-
-Tester sur des solutions analytiques et en comparant à
-:func:`scipy.integrate.odeint`.
-
-
-Mise en oeuvre de l'ensemble des connaissances acquises
-=======================================================
-
 Équation d'état de l'eau à partir de la dynamique moléculaire ★★★
 -----------------------------------------------------------------
 
@@ -455,25 +458,24 @@ exemple, ou même par des équations prenant en considération la
 mécanique quantique) puis on laisse celles-ci évoluer dans la boite ;
 on calcule à chaque pas de temps l'énergie interne à partir des
 intéractions électrostatiques et la pression à partir du tenseur des
-contraintes. On obtient en sortie l'évolution du système pour une
+contraintes.  On obtient en sortie l'évolution du système pour une
 densité fixée (par le choix de taille de la boite) et une température
 fixée (par un algorithme de thermostat que nous ne détaillerons pas
 ici).
 
-On se propose d'analyser quelques fichiers de sortie de tels calculs
-pour l'équation d'état de l'eau à très haute pression. Les fichiers de
-sortie sont disponibles :download:`ici
-<equationEtat_outputs.tgz>`. Leur nom indique les conditions
-thermodynamiques correspondant au fichier. Le but est, pour chaque
-condition température-densité, d'extraire l'évolution de l'énergie et
-de la pression au cours du temps, puis d'en extraire la valeur moyenne
-ainsi que les fluctuations. Il arrive souvent que l'état initial
-choisi pour le système ne corresponde pas à son état d'équilibre, et
-qu'il faille donc « jeter » les quelques pas de temps en début de
-simulation qui correspondent à cette relaxation du système. Pour
-savoir combien de temps prend cette relaxation, il sera utile de
-tracer l'évolution au cours du temps de la pression et l'énergie pour
-quelques simulations.  Une fois l'équation d'état :math:`P(\rho,T)` et
+On se propose d'analyser quelques fichiers de sortie de tels calculs pour
+l'équation d'état de l'eau à très haute pression.  Les fichiers de sortie sont
+disponibles :download:`ici <equationEtat_outputs.tgz>`; leur nom indique les
+conditions thermodynamiques correspondant au fichier, p.ex. `6000K_30gcc.out`
+pour :math:`T = 6000` K et :math:`\rho = 30` gcc.  Le but est, pour chaque
+condition température-densité, d'extraire l'évolution de l'énergie et de la
+pression au cours du temps, puis d'en extraire la valeur moyenne ainsi que les
+fluctuations.  Il arrive souvent que l'état initial choisi pour le système ne
+corresponde pas à son état d'équilibre, et qu'il faille donc « jeter » les
+quelques pas de temps en début de simulation qui correspondent à cette
+relaxation du système.  Pour savoir combien de temps prend cette relaxation, il
+sera utile de tracer l'évolution au cours du temps de la pression et l'énergie
+pour quelques simulations.  Une fois l'équation d'état :math:`P(\rho,T)` et
 :math:`E(\rho,T)` extraite, on pourra tracer le réseau d'isothermes.
 
 .. Hint:: Vous écrirez une classe `Simulation` qui permet de charger

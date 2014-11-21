@@ -3,7 +3,7 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2014-11-12 21:07:14 ycopin>
+.. Time-stamp: <2014-11-21 09:25 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -30,8 +30,7 @@ Bibliothèques numériques
 Numpy
 =====
 
-.. index::
-   module: numpy
+.. index:: module: numpy
 
 - `Réference Numpy <http://docs.scipy.org/doc/numpy/reference/>`_
 - `Tutoriel numpy <http://wiki.scipy.org/Tentative_NumPy_Tutorial>`_
@@ -108,8 +107,7 @@ Création de tableaux
   >>> N.ones((1,2), dtype=bool) # Shape (1,2): 1 ligne, 2 colonnes, type booléen
   array([[True, True]], dtype=bool)
 
-.. index:: 
-   pair: numpy; arange
+.. index:: pair: numpy; arange
 
 - :func:`numpy.arange`: crée une séquence de nombres, en spécifiant
   éventuellement le *start*, le *end* et le *step* (similaire à
@@ -120,8 +118,7 @@ Création de tableaux
   >>> N.arange(0.5, 2.1, 0.3) # Accepte des réels en argument, DANGER!
   array([ 0.5,  0.8,  1.1,  1.4,  1.7,  2. ])
 
-.. index:: 
-   pair: numpy; linspace
+.. index:: pair: numpy; linspace
 
 - :func:`numpy.linspace`: répartition uniforme d'un nombre fixe de
   points entre un *start* et un *end* (préférable à
@@ -131,8 +128,7 @@ Création de tableaux
   array([ 0.,  1.57079633,  3.14159265,  4.71238898,  6.28318531])
 
 
-.. index::
-   pair: numpy; meshgrid
+.. index:: pair: numpy; meshgrid
 
 - :func:`numpy.meshgrid` est similaire à :func:`numpy.linspace` en 2D:
 
@@ -145,8 +141,7 @@ Création de tableaux
           [ 0.5,  0.5,  0.5,  0.5,  0.5],
           [ 1. ,  1. ,  1. ,  1. ,  1. ]]))
 
-.. index:: 
-   pair: numpy; mgrid
+.. index:: pair: numpy; mgrid
 
 - :obj:`numpy.mgrid` permet de générer des rampes d'indices (entiers)
   ou de coordonnées (réels) de rang arbitraire avec une notation
@@ -178,8 +173,7 @@ Création de tableaux
      multidimensionnel, et aux différences entre `meshgrid` et
      `mgrid`.
 
-.. index:: 
-   module: numpy.random
+.. index:: module: numpy.random
 
 - :func:`numpy.random.rand` crée un tableau d'un format donné de réels
   aléatoires dans [0,1[; :func:`numpy.random.randn` génère un tableau
@@ -272,9 +266,14 @@ array([[0, 3],
 .. index:: 
    pair: numpy; squeeze
    pair: numpy; expand_dims
+   pair: numpy; newaxis
 
->>> y[...,0:1].squeeze()  # *squeeze* élimine les axes de dimension 1 (anton: *expand_dims*)
+>>> y[...,0:1].squeeze()  # Élimine *tous* les axes de dimension 1
 array([0, 3])
+>>> N.expand_dims(y[...,0], -1).shape  # Ajoute un axe de dimension 1 en dernière position
+(2, 1)
+>>> y[:, N.newaxis].shape  # Ajoute un axe de dimension 1 en 2nde position
+(2, 1, 3)
 
 .. index:: 
    pair: numpy; resize
@@ -460,7 +459,7 @@ True
 
 .. rubric:: Exercices:
 
-:ref:`mad`, :ref:`pull`
+:ref:`matrice`, :ref:`mad`, :ref:`pull`
 
 
 Tableaux évolués
@@ -494,8 +493,7 @@ chararray(['Calvin', 'Hobbes'], dtype='|S10')
 
 .. rubric:: Tableaux masqués
 
-.. index:: 
-   module: numpy.ma
+.. index:: module: numpy.ma
 
 Le sous-module :mod:`numpy.ma` ajoute le support des tableaux masqués
 (*Masked Arrays*). Imaginons un tableau (4,5) de réels (positifs ou
@@ -586,8 +584,7 @@ supplémentaires, parmis lesquelles les sous-modules suivants:
 Scipy
 =====
 
-.. index::
-   module: scipy
+.. index:: module: scipy
 
 :mod:`scipy` est une bibliothèque *numérique* [#sym]_ d'algorithmes et
 de fonctions mathématiques, basée sur les tableaux `ndarray`,
@@ -634,9 +631,9 @@ fonctionnalités de :mod:`numpy`. P.ex.:
 
 .. http://www.osc.edu/supercomputing/training/python/python_pt2_0702.pdf
 
-.. rubric:: Exercice:
+.. rubric:: Exercices:
 
-:ref:`anscombe`, :ref:`numerique`
+:ref:`numerique`, :ref:`romberg`, :ref:`kutta`
 
 
 Quelques exemples complets
@@ -669,15 +666,13 @@ Quelques exemples complets
   (variables aléatoires, distributions, tests)
 
 
-
 Bibliothèques graphiques
 ========================
 
 Matplotlib (2D/3D)
 ------------------
 
-.. index::
-   module: matplotlib
+.. index:: module: matplotlib
 
 `Matplotlib <http://matplotlib.org/>`_ est une
 bibliothèque graphique de visualisation 2D (et marginalement 3D), avec
@@ -731,13 +726,12 @@ Dans les deux cas, le résultat est le même:
 
 .. rubric:: Exercices:
 
-:ref:`julia`, :ref:`logistique`
+:ref:`anscombe`, :ref:`julia`, :ref:`logistique`
 
 Mayavi (3D)
 -----------
 
-.. index::
-   module: mayavi/mlab
+.. index:: module: mayavi/mlab
 
 `mayavi.mlab <http://docs.enthought.com/mayavi/mayavi/mlab.html>`_
 est une bibliothèque graphique de visualisation 3D s'appuyant sur
@@ -764,8 +758,8 @@ différents domaines de la physique/chimie:
   <http://www.astro.rug.nl/software/kapteyn/>`_ et autres `modules
   astronomiques
   <http://oneau.wordpress.com/2010/10/02/python-for-astronomy/>`_
-- *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, 
-  `SfePy <http://sfepy.org/doc-devel/index.html>`_
+- *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
+  <http://sfepy.org/doc-devel/>`_
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
   <https://packages.python.org/milk/>`_, `MDP
   <http://mdp-toolkit.sourceforge.net/>`_, `AstroML

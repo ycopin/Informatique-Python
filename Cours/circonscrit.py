@@ -30,7 +30,10 @@ __version__ = "Time-stamp: <2014-01-12 22:19 ycopin@lyonovae03.in2p3.fr>"
 # Définition d'une classe ==============================
 
 # start-classPoint
+
+
 class Point(object):  # *object* est la classe dont dérivent toutes les autres
+
     """
     Classe définissant un `Point` du plan, caractérisé par ses
     coordonnées `x`,`y`.
@@ -111,6 +114,7 @@ O = Point(0, 0)
 
 # start-classVector
 class Vector(Point):
+
     """
     Un `Vector` hérite de `Point` avec des méthodes additionnelles
     (p.ex. la négation d'un vecteur, l'addition de deux vecteurs, ou
@@ -273,7 +277,7 @@ def circumscribedCircle(M, N, P):
         raise ValueError("Undefined circumscribed circle radius.")
 
     # Centre du cercle circonscrit
-    d = -2 * ( M.x * NP.y + N.x * PM.y + P.x * MN.y )
+    d = -2 * (M.x * NP.y + N.x * PM.y + P.x * MN.y)
     if d == 0:
         raise ValueError("Undefined circumscribed circle center.")
 
@@ -281,8 +285,8 @@ def circumscribedCircle(M, N, P):
     on2 = Vector(O, N).sqnorm  # |ON|**2
     op2 = Vector(O, P).sqnorm  # |OP|**2
 
-    x0 = -( om2 * NP.y + on2 * PM.y + op2 * MN.y ) / d
-    y0 = ( om2 * NP.x + on2 * PM.x + op2 * MN.x ) / d
+    x0 = -(om2 * NP.y + on2 * PM.y + op2 * MN.y) / d
+    y0 = (om2 * NP.x + on2 * PM.x + op2 * MN.x) / d
 
     return (Point(x0, y0), rad)  # (centre [Point], R [float])
 
@@ -320,7 +324,8 @@ if __name__ == '__main__':
         try:  # Déchiffrage de l'argument 'x,y'
             x, y = (float(t) for t in arg.split(','))
         except ValueError:
-            parser.error("Cannot decipher coordinates #{}: '{}'".format(i, arg))
+            parser.error(
+                "Cannot decipher coordinates #{}: '{}'".format(i, arg))
 
         points.append(Point(x, y))  # Création du point et ajout à la liste
         print "#{:d}: {}".format(i, points[-1])  # Affichage du dernier point

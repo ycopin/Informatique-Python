@@ -4,6 +4,7 @@
 
 __author__ = "Adrien Licari <adrien.licari@ens-lyon.fr>; Yannick Copin <y.copin@ipnl.in2p3.fr>"
 
+
 def suite_syracuse(n):
     """
     Retourne la suite de Syracuse pour l'entier n.
@@ -13,13 +14,14 @@ def suite_syracuse(n):
     """
 
     seq = [n]                      # La suite de syracuse sera complétée...
-    while (seq[-1] != 1) :         # ...jusqu'à tomber sur 1
-        if seq[-1] % 2 == 0 :      # u_n est pair
-            seq.append(seq[-1]//2) # Division euclidienne par 2
-        else :                     # u_n est impair
-            seq.append(seq[-1]*3+1)
+    while (seq[-1] != 1):         # ...jusqu'à tomber sur 1
+        if seq[-1] % 2 == 0:      # u_n est pair
+            seq.append(seq[-1] // 2)  # Division euclidienne par 2
+        else:                     # u_n est impair
+            seq.append(seq[-1] * 3 + 1)
 
     return seq
+
 
 def temps_syracuse(n, altitude=False):
     """
@@ -34,7 +36,7 @@ def temps_syracuse(n, altitude=False):
 
     seq = suite_syracuse(n)
     if not altitude:            # Temps de vol total
-        return len(seq)-1
+        return len(seq) - 1
     else:                       # Temps de vol en altitude
         # Construction de la séquence en altitude
         alt = []
@@ -42,14 +44,13 @@ def temps_syracuse(n, altitude=False):
             if i >= n:
                 alt.append(i)
             else:
-                break;
-        return len(alt)-1
+                break
+        return len(alt) - 1
 
-if __name__=='__main__':
+if __name__ == '__main__':
 
     n = 15
     print "Suite de Syracuse pour n =", n
     print suite_syracuse(n)
     print "Temps de vol total:      ", temps_syracuse(n)
     print "Temps de vol en altitude:", temps_syracuse(n, altitude=True)
-

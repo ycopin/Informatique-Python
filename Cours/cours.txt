@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-10-23 17:27:03 ycopin>
+.. Time-stamp: <2014-11-21 09:18 ycopin@lyonovae03.in2p3.fr>
 .. _cours:
 
 Initiation à Python

@@ -13,6 +13,7 @@ __version__ = "Time-stamp: <2014-10-03 10:54 mathieu.leocmach@ens-lyon.fr>"
 # Définition d'une classe ==============================
 
 class Forme(object):  # *object* est la classe dérivent toutes les autres
+
     """Une forme plane, avec éventuellement une couleur."""
 
     def __init__(self, couleur=None):
@@ -65,6 +66,7 @@ class Forme(object):  # *object* est la classe dérivent toutes les autres
 
 
 class Rectangle(Forme):
+
     """
     Un Rectangle est une Forme particulière.
 
@@ -142,4 +144,3 @@ if __name__ == '__main__':
     r.allonger(2)                     # r devient un rectangle 4×1
     print "Aire de r apres l'avoir allongé d'un facteur 2:", r.aire()
     print "r >= q:", (r >= q)
-

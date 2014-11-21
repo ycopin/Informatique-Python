@@ -101,15 +101,15 @@ pygments_style = 'sphinx'
 
 # A string of reStructuredText that will be included at the start of
 # every source file that is read.
-rst_prolog = u"""
-.. admonition:: Information
+## rst_prolog = u"""
+## .. admonition:: Information
 
-   Un examen d'une heure est prévu le *20* novembre prochain, qui consistera en
-   la résolution d'un exercice simple inspiré d'une situation physique et pour
-   lequel un canevas vous sera fourni.  Le code devra être envoyé par mail à la
-   fin de l'heure impartie.
-"""
-#rst_prolog = u""
+##    Un examen d'une heure est prévu le *20* novembre prochain, qui consistera en
+##    la résolution d'un exercice simple inspiré d'une situation physique et pour
+##    lequel un canevas vous sera fourni.  Le code devra être envoyé par mail à la
+##    fin de l'heure impartie.
+## """
+rst_prolog = u""
 
 # -- Options for HTML output ---------------------------------------------------
 

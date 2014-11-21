@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from __future__ import division # Pas de division euclidienne par défaut
+from __future__ import division  # Pas de division euclidienne par défaut
 
 """
 Tracé (via 'turtle') d'un flocon de Koch d'ordre arbitraire.
@@ -23,6 +23,7 @@ __author__ = "Yannick Copin <y.copin@ipnl.in2p3.fr>"
 
 import turtle as T
 
+
 def koch(niveau=3, iter=0, taille=100, delta=0):
     """
     Tracé du flocon de Koch de niveau 'niveau', de taille 'taille'
@@ -33,25 +34,25 @@ def koch(niveau=3, iter=0, taille=100, delta=0):
     bien juste de tracer un segment (iter>niveau).
     """
 
-    if iter==0:                         # Dessine le triangle de niveau 0
+    if iter == 0:                         # Dessine le triangle de niveau 0
         T.title("Flocon de Koch - niveau {}".format(niveau))
         koch(iter=1, niveau=niveau, taille=taille, delta=delta)
         T.right(120)
         koch(iter=1, niveau=niveau, taille=taille, delta=delta)
         T.right(120)
         koch(iter=1, niveau=niveau, taille=taille, delta=delta)
-    elif iter<=niveau:                  # Trace une section _/\_ du flocon
-        koch(iter=iter+1, niveau=niveau, taille=taille, delta=delta)
+    elif iter <= niveau:                  # Trace une section _/\_ du flocon
+        koch(iter=iter + 1, niveau=niveau, taille=taille, delta=delta)
         T.left(60 + delta)
-        koch(iter=iter+1, niveau=niveau, taille=taille, delta=delta)
-        T.right(120 + 2*delta)
-        koch(iter=iter+1, niveau=niveau, taille=taille, delta=delta)
+        koch(iter=iter + 1, niveau=niveau, taille=taille, delta=delta)
+        T.right(120 + 2 * delta)
+        koch(iter=iter + 1, niveau=niveau, taille=taille, delta=delta)
         T.left(60 + delta)
-        koch(iter=iter+1, niveau=niveau, taille=taille, delta=delta)
+        koch(iter=iter + 1, niveau=niveau, taille=taille, delta=delta)
     else:                               # Trace le segment de dernier niveau
-        T.forward(taille/3**(niveau+1))
+        T.forward(taille / 3 ** (niveau + 1))
 
-if __name__=='__main__':
+if __name__ == '__main__':
 
     # start-argparse
     # Exemple d'utilisation de la librairie de gestion d'arguments 'argparse'
@@ -64,15 +65,15 @@ if __name__=='__main__':
     parser.add_argument('ordre', nargs='?', type=int,
                         help="Ordre du flocon, >0 [%(default)s]",
                         default=3)
-    parser.add_argument('-t', '--taille', type=int, 
+    parser.add_argument('-t', '--taille', type=int,
                         help="Taille de la figure, >0 [%(default)s px]",
                         default=500)
-    parser.add_argument('-d', '--delta', type=float, 
+    parser.add_argument('-d', '--delta', type=float,
                         help="Delta [%(default)s deg]",
                         default=0.)
     parser.add_argument('-f', '--figure', type=str,
                         help="Nom de la figure de sortie (format EPS)")
-    parser.add_argument('-T', '--turbo', 
+    parser.add_argument('-T', '--turbo',
                         action="store_true", default=False,
                         help="Mode Turbo")
 
@@ -97,5 +98,5 @@ if __name__=='__main__':
         # Sauvegarde de l'image
         print "Sauvegarde de la figure dans '{}'".format(args.figure)
         T.getscreen().getcanvas().postscript(file=args.figure)
-        
+
     T.exitonclick()

@@ -27,6 +27,7 @@ tolerance = 1e-8
 #############################################################################
 
 class Vector(object):
+
     """
     Une classe-structure simple contenant 3 coordonées.
     Une méthode est disponible pour en calculer la norme et
@@ -72,9 +73,9 @@ class Vector(object):
                 TypeError si other n'est pas un objet Vector
         """
         try:
-            return abs(self.x-other.x) < tolerance and \
-                abs(self.y-other.y) < tolerance and \
-                abs(self.z-other.z) < tolerance
+            return abs(self.x - other.x) < tolerance and \
+                abs(self.y - other.y) < tolerance and \
+                abs(self.z - other.z) < tolerance
         except (ValueError, TypeError, AttributeError):
             raise TypeError("Tried to compare Vector and non-Vector objects")
 
@@ -90,7 +91,7 @@ class Vector(object):
         Raises :
                 TypeError si other n'est pas un objet Vector
         """
-        raise NotImplementedError("You have to implement Vector.__ne__") 
+        raise NotImplementedError("You have to implement Vector.__ne__")
 
     def __add__(self, other):
         """
@@ -103,7 +104,7 @@ class Vector(object):
                 TypeError si other n'est pas un objet Vector
         """
         try:
-            return Vector(self.x+other.x, self.y+other.y, self.z+other.z)
+            return Vector(self.x + other.x, self.y + other.y, self.z + other.z)
         except (ValueError, TypeError, AttributeError):
             raise TypeError("Tried to add Vector and non-Vector objects")
 
@@ -133,7 +134,7 @@ class Vector(object):
                 TypeError si other n'est pas un nombre
         """
         raise NotImplementedError("You have to implement Vector.__mul__")
-        
+
     __rmul__ = __mul__  # Ligne pour autoriser la multiplication à droite
 
     ### À implémenter ###
@@ -144,7 +145,7 @@ class Vector(object):
         Returns :
                 sqrt(x**2 + y**2 + z**2)
         """
-        raise NotImplementedError("You have to implement Vector.norm")        
+        raise NotImplementedError("You have to implement Vector.norm")
 
     def clone(self):
         """
@@ -187,14 +188,14 @@ def test_VectorEq():  # teste aussi l'opérateur !=
 def test_VectorAdd():
     vec = Vector(2, 3, -5)
     vec2 = Vector(2, -50, 5)
-    assert (vec+vec2) == Vector(4, -47, 0)
+    assert (vec + vec2) == Vector(4, -47, 0)
 
 
 def test_VectorSub():
     vec = Vector(1, -7, 9)
     vec2 = Vector()
-    assert (vec-vec) == Vector()
-    assert (vec-vec2) == vec
+    assert (vec - vec) == Vector()
+    assert (vec - vec2) == vec
 
 
 def test_VectorMul():
@@ -207,7 +208,7 @@ def test_VectorMul():
 def test_VectorNorm():
     assert Vector().norm() == 0
     assert Vector(1, 0, 0).norm() == 1
-    assert Vector(2, -5, -4).norm() == 45**(1/2)
+    assert Vector(2, -5, -4).norm() == 45 ** (1 / 2)
 
 
 def test_VectorClone():
@@ -223,6 +224,7 @@ def test_VectorClone():
 ############################################################
 
 class Particle(object):
+
     """
     La classe Particle représente un point matériel doté d'une masse,
     d'une position et d'une vitesse. Elle possède également une méthode
@@ -274,7 +276,7 @@ class Particle(object):
         """
         try:
             r = self.position - other.position
-            self.force = -self.mass*other.mass/r.norm()**3 * r
+            self.force = -self.mass * other.mass / r.norm() ** 3 * r
         except AttributeError:
             raise TypeError("Tried to compute the force created by "
                             "a non-Particle object")
@@ -319,7 +321,7 @@ def test_ParticleForce():
     p.position = Vector(2, -3, 6)
     p.mass = 49
     p.computeForce(p2)
-    assert p.force == Vector(-2/7, 3/7, -6/7)
+    assert p.force == Vector(-2 / 7, 3 / 7, -6 / 7)
 
 
 def test_ParticleUpdate():
@@ -336,6 +338,7 @@ def test_ParticleUpdate():
 #######################################################
 
 class Ion (Particle):
+
     """
     Un Ion est une particle ayant une charge en plus de sa masse et
     intéragissant électrostatiquement plutôt que gravitationnellement.
@@ -418,7 +421,7 @@ def test_IonForce():
     assert ion.force == Vector(3, 0, 0)
     ion = Ion(charge=49, position=Vector(2, -3, 6))
     ion.computeForce(ion2)
-    assert ion.force == Vector(6/7, -9/7, 18/7)
+    assert ion.force == Vector(6 / 7, -9 / 7, 18 / 7)
 
 
 ###########################
@@ -457,7 +460,7 @@ if __name__ == '__main__':
     dt = 0.0001
 
     # problème à force centrale gravitationnel, cas circulaire
-    ntimesteps = int(10000*math.pi)  # durée pour parcourir pi
+    ntimesteps = int(10000 * math.pi)  # durée pour parcourir pi
     center = Particle()
     M = Particle(mass=1, position=Vector(1, 0, 0), speed=Vector(0, 1, 0))
     print "** Gravitationnal computation of central-force motion for a {}" \

@@ -27,6 +27,7 @@ tolerance = 1e-8  # Un seuil de tolérance pour les égalités sur réels
 ##############################
 
 class Simulation(object):
+
     """
     La classe Simulation représente une simulation de dynamique
     moléculaire, donc un point de l'équation d'état. Son constructeur
@@ -55,7 +56,7 @@ class Simulation(object):
         tmp = N.loadtxt(path, skiprows=1).T
         self.pot = tmp[0]
         self.kin = tmp[1]
-        self.tot = self.pot+self.kin
+        self.tot = self.pot + self.kin
         self.press = tmp[2]
 
     def __str__(self):
@@ -97,10 +98,10 @@ class Simulation(object):
                 TypeError si skipSteps n'est pas un entier.
         """
         fig, (axen, axpress) = P.subplots(2, sharex=True)
-        axen.plot(range(skipSteps,len(self.tot)), self.tot[skipSteps:],
+        axen.plot(range(skipSteps, len(self.tot)), self.tot[skipSteps:],
                   'rd--')
         axen.set_title("Internal energy (Ha)")
-        axpress.plot(range(skipSteps,len(self.press)), self.press[skipSteps:],
+        axpress.plot(range(skipSteps, len(self.press)), self.press[skipSteps:],
                      'rd--')
         axpress.set_title("Pressure (GPa)")
         axpress.set_xlabel("Timesteps")
@@ -109,8 +110,9 @@ class Simulation(object):
 
 ##### Tests pour Simulation #####
 
+
 def mimic_simulation(filename):
-    with open(filename,'w') as f:
+    with open(filename, 'w') as f:
         f.write("""Potential energy (Ha)	Kinetic Energy (Ha)	Pressure (GPa)
 -668.2463567264        	0.7755612311   		9287.7370229824
 -668.2118514558        	0.7755612311		9286.1395903265
@@ -119,27 +121,30 @@ def mimic_simulation(filename):
 -668.4762735176        	0.7755612311		9191.8574820856
 """)
 
+
 def test_Simulation_init():
     mimic_simulation("equationEtat_simuTest.out")
     s = Simulation(10, 10, "equationEtat_simuTest.out")
     assert len(s.kin) == 5
-    assert abs(s.kin[2]-0.7755612311) < tolerance
-    assert abs(s.pot[1]+668.2118514558) < tolerance
+    assert abs(s.kin[2] - 0.7755612311) < tolerance
+    assert abs(s.pot[1] + 668.2118514558) < tolerance
+
 
 def test_Simulation_str():
     mimic_simulation("equationEtat_simuTest.out")
     s = Simulation(10, 20, "equationEtat_simuTest.out")
     assert str(s) == "Simulation at 20 g/cc and 10 K ; 5 timesteps"
 
+
 def test_Simulation_thermo():
     mimic_simulation("equationEtat_simuTest.out")
     s = Simulation(10, 20, "equationEtat_simuTest.out")
-    assert abs(s.thermo()['T']-10) < tolerance
-    assert abs(s.thermo()['rho']-20) < tolerance
-    assert abs(s.thermo()['E']+667.56897157674) < tolerance
-    assert abs(s.thermo()['P']-9241.0504034731) < tolerance
-    assert abs(s.thermo(3)['E']+667.7007122865) < tolerance
-    assert abs(s.thermo(3)['P']-9191.8574820856) < tolerance
+    assert abs(s.thermo()['T'] - 10) < tolerance
+    assert abs(s.thermo()['rho'] - 20) < tolerance
+    assert abs(s.thermo()['E'] + 667.56897157674) < tolerance
+    assert abs(s.thermo()['P'] - 9241.0504034731) < tolerance
+    assert abs(s.thermo(3)['E'] + 667.7007122865) < tolerance
+    assert abs(s.thermo(3)['P'] - 9191.8574820856) < tolerance
 
 ###################
 ### Main script ###
@@ -156,9 +161,10 @@ if __name__ == '__main__':
     a0 = 0.52918      # Bohr radius in angstrom
     amu = 1.6605      # atomic mass unit in e-24 g
     k_B = 3.16681e-6  # Boltzmann's constant in Ha/K
-    nk_GPa = a0**3 * k_B * 2.942e4 / 6 / amu  # normalization factor for P/nkT
+    # normalization factor for P/nkT
+    nk_GPa = a0 ** 3 * k_B * 2.942e4 / 6 / amu
     nsteps = 200  # define skipped timesteps (should be done for
-                  # each simulation...)
+    # each simulation...)
     temps = [6000, 20000, 50000]    # define temperatures
     colors = {6000: 'r', 20000: 'b', 50000: 'k'}
     denss = [7, 15, 25, 30]  # define densities
@@ -182,12 +188,12 @@ if __name__ == '__main__':
     axpress.set_xlabel("rho (g/cc)")
     for t in temps:
         sel = eos['T'] == t
-        axen.errorbar(x=eos['rho'][sel], y=eos['E'][sel]/k_B/t,
-                      yerr=eos['dE'][sel]/k_B/t, fmt=colors[t]+'-')
+        axen.errorbar(x=eos['rho'][sel], y=eos['E'][sel] / k_B / t,
+                      yerr=eos['dE'][sel] / k_B / t, fmt=colors[t] + '-')
         axpress.errorbar(x=eos['rho'][sel],
-                         y=eos['P'][sel] / eos['rho'][sel]/nk_GPa/t,
-                         yerr=eos['dP'][sel] / eos['rho'][sel]/nk_GPa/t,
-                         fmt=colors[t]+'-',
+                         y=eos['P'][sel] / eos['rho'][sel] / nk_GPa / t,
+                         yerr=eos['dP'][sel] / eos['rho'][sel] / nk_GPa / t,
+                         fmt=colors[t] + '-',
                          label="{} K".format(t))
     axpress.legend(loc='best')
     P.show()

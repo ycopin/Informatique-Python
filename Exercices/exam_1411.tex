@@ -1,0 +1,67 @@
+\documentclass[11pt]{article} 
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{amsmath} % AMS Math Package
+\usepackage{amsthm} % Theorem Formatting
+\usepackage{amssymb}  % Math symbols such as \mathbb
+\usepackage{mathabx}  % Math integrals
+\usepackage{enumerate}
+
+\title{Outils informatiques pour la physique : examen partiel\\
+  Mise en place d'une simulation de chute libre}
+\date{13 novembre 2014}
+
+\geometry{top=4cm, bottom=4cm, left=3cm, right=3cm}
+
+\begin{document}
+
+\maketitle
+
+\paragraph{Objectif} On va simuler informatiquement un problème de balistique. Le principe est de donner les paramètres de la simulation (masse, vitesse initiale, c\oe fficient de frottements) et d'obtenir la trajectoire au cours du temps, la distance maximale ainsi que l'altitude maximale atteinte. On pourra également afficher l'historique des positions, des vitesses et de l'énergie.
+
+\paragraph{Définitions physiques} Les vecteurs sont écrits en caractères gras. On étudie un système de masse $m$ soumis à l'accélération de la pesanteur $\bf{g}$ et à une force de frottements de type $-k  \| \bf{v} \| \bf{v}$, $k$ étant le c\oe fficient de frottements.
+Le système $\bf{r}, \bf{v}$ est donc soumis aux équations suivantes:
+\begin{equation}
+  \frac{d \bf{r}}{dt} = \bf{v}
+\end{equation}
+\begin{equation}
+  \frac{d \bf{v}}{dt} = \bf{g} - \rm \frac{k}{m} \| \bf{v} \| \bf{v}
+\end{equation}
+Numériquement, on utilisera le schéma d'intégration suivant :
+\begin{equation}
+  \bf{r} \rm (t+dt) = \bf{r} \rm (t) + \bf{v} \rm (t) dt
+\end{equation}
+\begin{equation}
+  \bf{v} \rm (t+dt) = \bf{v} \rm (t) + \bf{g} \rm dt - \frac{k}{m} \| \bf{v} \rm (t) \| \bf{v} \rm (t) dt
+\end{equation}
+La position initiale choisie est au sol (origine des ordonnées) et définit l'origine des abscisses, soit $\bf r \rm (t = 0) = (0, 0)$. Le code sera écrit en système d'unités MKSA et prendra $\| \bf g \rm \| = 9.8 ~ m.s^{-2}$.
+
+\paragraph{Sujet de l'examen} L'interface des classes et fonctions est fournie. Le détail du comportement attendu de chaque fonction est décrit dans la docstring de chacune, il sera donc impératif de s'y conformer. Quelques tests unitaires vous sont fournis pour vous aider à détecter certaines erreurs, mais ceux-ci ne couvrent volontairement pas l'ensemble des erreurs possibles : passer ces tests est donc une condition nécessaire mais non suffisante pour réussir les questions.
+
+\begin{enumerate}[1.]
+  \item Définition d'une classe de vecteurs à 2 dimensions : Vector
+  \begin{enumerate}[a.]
+    \item Définir le constructeur de la classe. 
+    \item Définir la surcharge de l'opérateur str qui affiche les coordonnées.
+    \item Définir la surcharge des opérateurs addition et soustraction.
+    \item Définir la surcharge de l'opérateur multiplication par un réel.
+    \item Définir une méthode (fonction membre) \it{scal} \rm prenant en paramètre un autre objet de la classe Vector et calculant le produit scalaire $\bf u \rm \cdot \bf v \rm = u_xv_x + u_yv_y$.
+    \item Définir une méthode (fonction membre) \it{norm} \rm renvoyant la norme 2 du vecteur $\| \bf v \rm \| = \sqrt{v_x^2 + v_y^2}$.
+  \end{enumerate}
+  
+  \item Définition d'une classe Simulation
+  \begin{enumerate}[a.]
+    \item Définir le constructeur de la classe prenant en paramètre la masse du point matériel, le vecteur vitesse initiale $\bf v0$, le paramètre de frottements et le pas de temps d'intégration des équations de Newton. La classe comportera un historique de $\bf r$ et $\bf v$ en attribut (variable membre). Le nom des attributs (variables membres) seront self.m pour la masse, self.k pour le c\oe fficient de frottements, self.dt pour le pas de temps, self.r pour l'historique des positions et self.v pour l'historique des vitesses.
+    \item Définir une méthode (fonction membre) \it{step} \rm rajoutant le pas de temps suivant à l'historique de $\bf r$ et $\bf v$.
+    \item Définir une méthode (fonction membre) \it run \rm réalisant l'intégration du mouvement jusqu'à ce que le point matériel atteigne le sol (le dernier point de l'historique doit être le premier à satisfaire la condition d'arrêt $y \le 0$).
+    \item Définir une méthode (fonction membre) \it maxDistance \rm qui renvoie la distance maximale atteinte, c'est-à-dire l'abscisse du dernier point de l'historique.
+    \item Définir une méthode (fonction membre) \it maxAltitude \rm qui renvoie l'altitude maximale atteinte.
+    \item Définir une méthode (fonction membre) \it finalSpeed \rm qui renvoie la vitesse en fin de trajectoire (vitesse du dernier point de l'historique).
+    \item Définir une méthode (fonction membre) \it energy \rm qui renvoie l'historique de l'énergie mécanique $m \bf g \cdot r \rm + \frac{1}{2}m \| \bf v \rm \|^2$.
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}

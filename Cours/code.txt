@@ -1,7 +1,7 @@
 Développer en python
 ####################
 
-.. Time-stamp: <2014-10-14 16:18:39 ycopin>
+.. Time-stamp: <2014-11-21 09:32 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -219,14 +219,15 @@ Vérification du code
 
 Il s'agit d'outils permettant de vérifier *a priori* la validité
 syntaxique du code, de mettre en évidence des constructions
-dangereuses, les variables non-définies, etc. Ces outils ne testent
+dangereuses, les variables non-définies, etc.  Ces outils ne testent
 pas nécessairement la validité des algorithmes et de leur mise en
 oeuvre...
 
 - `pyflakes <https://pypi.python.org/pypi/pyflakes>`_
 - `pychecker <http://pychecker.sourceforge.net/>`_
 - `pylint <https://pypi.python.org/pypi/pylint>`_
-- `pep8 <https://github.com/jcrocholl/pep8>`_
+- `pep8 <https://github.com/jcrocholl/pep8>`_ et `autopep8
+  <https://github.com/hhatto/autopep8>`_
 
 Documentation
 -------------

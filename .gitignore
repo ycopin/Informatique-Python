@@ -3,3 +3,4 @@
 .ipynb_checkpoints
 /Cours/circonscrit.pyc
 /.idea/
+*/__pycache__/

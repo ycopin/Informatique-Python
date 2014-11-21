@@ -3,7 +3,9 @@
 
 import pytest                   # Module (non-standard) de tests
 
+
 class Animal(object):  # *object* est la classe dont dérivent toutes les autres
+
     """
     Classe définissant un `Animal`, caractérisé par son nom et son
     poids.
@@ -66,6 +68,7 @@ class Animal(object):  # *object* est la classe dont dérivent toutes les autres
 
 
 class Chien(Animal):
+
     """
     Un `Chien` hérite de `Animal` avec des méthodes additionnelles
     (p.ex. l'aboyement et l'odorat).
@@ -96,13 +99,17 @@ class Chien(Animal):
         return vivant
 
 # start-tests
+
+
 def test_empty_init():
     with pytest.raises(TypeError):
         youki = Animal()
 
+
 def test_wrong_init():
     with pytest.raises(ValueError):
         youki = Animal('Youki', 'lalala')
+
 
 def test_init():
     youki = Animal('Youki', 600)
@@ -112,9 +119,11 @@ def test_init():
     assert not youki.empoisonne
 # end-tests
 
+
 def test_str():
     youki = Animal('Youki', 600)
     assert str(youki) == 'Youki (600.0 kg)'
+
 
 def test_mort():
     youki = Animal('Youki', 600)
@@ -122,12 +131,14 @@ def test_mort():
     youki.mourir()
     assert not youki.estVivant()
 
+
 def test_lt():
     medor = Animal('Medor', 600)
     kiki = Animal('Kiki', 20)
     assert kiki < medor
     with pytest.raises(AttributeError):
         medor < 1
+
 
 def test_mange():
     medor = Animal('Medor', 600)
@@ -143,6 +154,7 @@ def test_mange():
     assert kiki.estVivant()
     assert kiki.masse == 22
     assert medor.masse == 618   # Médor a perdu du poids en se faisant manger!
+
 
 def test_init_chien():
     medor = Chien('Medor', 600)

@@ -2,7 +2,7 @@
                   Outils numériques et programmation
 *********************************************************************
 
-.. Time-stamp: <2014-10-23 17:13:26 ycopin>
+.. Time-stamp: <2014-11-21 08:58 ycopin@lyonovae03.in2p3.fr>
 
 .. highlight:: python
    :linenothreshold: 3
@@ -22,6 +22,7 @@
    Cours/references
    Cours/exemples
    Exercices/exo
+   Exercices/annales
 
 .. toctree::
    :hidden:
