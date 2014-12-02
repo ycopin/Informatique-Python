@@ -633,7 +633,7 @@ fonctionnalités de :mod:`numpy`. P.ex.:
 
 .. rubric:: Exercices:
 
-:ref:`numerique`, :ref:`romberg`, :ref:`kutta`
+:ref:`numerique`, :ref:`romberg`, :ref:`rk`
 
 
 Quelques exemples complets
