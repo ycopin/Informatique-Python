@@ -3,7 +3,7 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2014-12-15 12:48:22 ycopin>
+.. Time-stamp: <2014-12-15 16:03:14 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -726,6 +726,8 @@ Dans les deux cas, le résultat est le même:
   <http://www.labri.fr/perso/nrougier/teaching/matplotlib/>`_
 - `Gallery <http://matplotlib.org/gallery.html>`_ 
 - `Examples <http://matplotlib.org/examples/>`_
+- `Seaborn <http://web.stanford.edu/~mwaskom/software/seaborn/>`_ (une
+  surcouche à matplotlib)
 
 .. rubric:: Exemples:
 

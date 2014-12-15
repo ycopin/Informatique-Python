@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2014-12-15 12:44:04 ycopin>
+# Time-stamp: <2014-12-15 16:06:44 ycopin>
 
 """
 Exemple un peu plus compexe de figure, incluant 2 axes, légendes, axes, etc.
@@ -8,6 +8,10 @@ Exemple un peu plus compexe de figure, incluant 2 axes, légendes, axes, etc.
 
 import numpy as N
 import matplotlib.pyplot as P
+try:
+    import seaborn              # Amélioration de la charte graphique
+except ImportError:
+    print u"Seaborn n'est pas accessible, charte graphique par défaut."
 
 x = N.linspace(-N.pi, 3*N.pi, 2*360)
 

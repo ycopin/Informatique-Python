@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-12-15 12:52:06 ycopin>
+.. Time-stamp: <2014-12-15 16:06:50 ycopin>
 
 Exemples
 ========
@@ -44,6 +44,9 @@ Figure simple
 .. figure:: figure.*
    :align: center
    :width: 60%
+
+   **Figure:** exemple de figure (charte graphique: `seaborn
+    <http://web.stanford.edu/~mwaskom/software/seaborn/>`_)
 
 .. literalinclude:: figure.py
    :linenos:
