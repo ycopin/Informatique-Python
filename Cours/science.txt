@@ -3,7 +3,7 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2014-11-21 09:25 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2014-12-15 12:48:22 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -633,7 +633,7 @@ fonctionnalités de :mod:`numpy`. P.ex.:
 
 .. rubric:: Exercices:
 
-:ref:`numerique`, :ref:`romberg`, :ref:`kutta`
+:ref:`numerique`, :ref:`romberg`, :ref:`rk`
 
 
 Quelques exemples complets
@@ -688,8 +688,12 @@ Il existe deux interfaces pour deux types d'utilisation:
 
   >>> from pylab import *         # DÉCONSEILLÉ DANS UN SCRIPT!
   >>> x = linspace(-pi, pi, 100)  # pylab importe numpy dans l'espace courant
-  >>> plot(x, sin(x))             # Trace la courbe y = y(x)
-  >>> show()                      # Affiche le résultat
+  >>> y = sin(x)
+  >>> plot(x, y)                  # Trace la courbe y = y(x)
+  >>> xlabel("x [rad]")           # Ajoute le nom de l'axe des x
+  >>> ylabel("y")                 # Ajoute le nom de l'axe des y
+  >>> title("y = sin(x)")         # Ajoute le titre de la figure
+  >>> show()                      # Affiche la figure
 
 * :mod:`matplotlib.pyplot`: interface orientée objet, préférable pour
   les scripts::
@@ -702,6 +706,9 @@ Il existe deux interfaces pour deux types d'utilisation:
 
     fig,ax = P.subplots() # Création de la figure et de l'axe
     ax.plot(x, y)         # Tracé de la courbe dans l'axe
+    ax.set_xlabel("x [rad]")
+    ax.set_ylabel("y")
+    ax.set_title("y = sin(x)")
     P.show()              # Affichage de la figure
 
 Dans les deux cas, le résultat est le même:
@@ -720,9 +727,9 @@ Dans les deux cas, le résultat est le même:
 - `Gallery <http://matplotlib.org/gallery.html>`_ 
 - `Examples <http://matplotlib.org/examples/>`_
 
-.. rubric:: Exemple:
+.. rubric:: Exemples:
 
-:ref:`filtres2ndOrdre.py <filtres>`
+:ref:`figure.py <figure>`, :ref:`filtres2ndOrdre.py <filtres>`
 
 .. rubric:: Exercices:
 

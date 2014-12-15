@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-10-14 16:31:34 ycopin>
+.. Time-stamp: <2014-12-15 12:45:34 ycopin>
 
 Exemples
 ========
@@ -33,6 +33,20 @@ Cercle circonscrit (POO, argparse)
 
 **Source:** :download:`circonscrit.py`
 
+
+.. _figure:
+
+Figure (matplotlib)
+-------------------
+
+.. figure:: figure.*
+   :align: center
+   :width: 60%
+
+.. literalinclude:: figure.py
+   :linenos:
+
+**Source:** :download:`figure.py`
 
 .. _filtres:
 
