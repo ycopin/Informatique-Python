@@ -27,8 +27,8 @@ Exercice
 ========
 
 Un appareil de vélocimétrie a mesuré une vitesse à intervalle de temps
-régulier puis à sorti le fichier texte « :download:`sample.txt` »
-ci-joint (attention à l'entête).  Vous écrirez un script python
+régulier puis à sorti le fichier texte :download:`sample.txt`
+(attention à l'entête).  Vous écrirez un script python
 « `nom_prénom.py` » (sans accent) utilisant :mod:`matplotlib` qui
 générera, affichera et sauvegardera sous le nom « `nom_prénom.pdf` »
 une figure composée de trois sous-figures, l'une au dessus de l'autre:
@@ -46,7 +46,7 @@ une figure composée de trois sous-figures, l'une au dessus de l'autre:
    cette fonction est un tableau de taille *N*, sa sortie est un
    tableau de taille *N-1*.
 
-Le script doit lire le fichier :download:`sample.txt` dans le
+Le script doit lire le fichier :download:`sample.txt` stocké dans le
 répertoire courant.  On prendra soin des noms des axes et des unités
 physiques.  Si les trois axes des abscisses sont identiques, seul
 celui de la troisième sous-figure peut être nommé.
@@ -66,7 +66,7 @@ chercher à déterminer des solutions approchées.
 
 On va se placer ici dans le cas d'un livreur devant desservir une
 seule fois chacune des *n* destinations d'une ville américaine où les
-rues sont agencées en réseau carré (Fig. 1).  On utilise la « distance
+rues sont agencées en réseau carré (Fig.).  On utilise la « distance
 de Manhattan » (norme L1) entre deux points :math:`A(x_A, y_A)` et
 :math:`B (x_B, y_B)`:
 
@@ -91,16 +91,16 @@ compléter ce code progressivement, en suivant les instructions
 suivantes.
 
 Une ville-test de 20 destinations est fournie: :download:`ville.dat`
-(Fig. 1), sur laquelle des tests de lecture et d'optimisation seront
+(Fig.), sur laquelle des tests de lecture et d'optimisation seront
 réalisés.
 
 .. figure:: ville_L1.*
    :width: 12cm
 
-   Ville-test, avec 20 destinations et trois trajets de longueurs
-   différentes: un trajet aléatoire (*L=774*), un trajet *plus proche
-   voisins* (*L=288*), et un trajet après optimisation *opt-2*
-   (*L=276*).
+   **Figure:** Ville-test, avec 20 destinations et trois trajets de
+   longueurs différentes: un trajet aléatoire (*L=774*), un trajet
+   *plus proche voisins* (*L=288*), et un trajet après optimisation
+   *opt-2* (*L=276*).
 
 Classe `Ville`
 --------------
@@ -165,7 +165,7 @@ Questions hors-barême
 À l'aide de la librairie :mod:`matplotlib`:
 
 #. `Ville.figure()`: trace la figure représentant les destinations de
-   la ville (similaire à la Fig. 1).
+   la ville (similaire à la Fig.).
 #. `Ville.figure(trajet=None)`: compléter la méthode précédente pour
    ajouter un trajet au plan de la ville (utiliser
    :func:`matplotlib.step` pour des trajets de type « Manhattan »).
