@@ -9,12 +9,12 @@ import pytest
 class Vector (object):
 
     """
-    Classe représentant des vecteurs à deux dimensions. Celle-ci présente
-    un constructeur donnant par défaut le point (0,0), ainsi qu'une
-    surcharge des opérateurs addition, multiplication par un entier et
-    multiplication scalaire entre vecteurs.
+    Classe représentant des vecteurs à deux dimensions.
 
-    Elle propose également une méthode renvoyant la norme carré du vecteur.
+    Celle-ci présente un constructeur donnant par défaut le point (0,0), ainsi
+    qu'une surcharge des opérateurs addition, multiplication par un entier et
+    multiplication scalaire entre vecteurs.  Elle propose également une méthode
+    renvoyant la norme carré du vecteur.
     """
 
     def __init__(self, x=0, y=0):
@@ -48,7 +48,7 @@ class Vector (object):
         Args:
                 other: un autre vecteur
         Returns:
-                un objet Vector représentant la somme de self et other
+                un Vector représentant la somme de self et other
         """
 
         return Vector(self.x + other.x, self.y + other.y)
@@ -60,28 +60,28 @@ class Vector (object):
         Args:
                 other: un autre vecteur
         Returns:
-                un objet Vector représentant la différence de self et other
+                un Vector représentant la différence de self et other
         """
 
         return Vector(self.x - other.x, self.y - other.y)
 
-    def __mul__(self, p=1):
+    def __mul__(self, s):
         """
         Opérateur multiplication des composantes par un réel.
 
         Args:
-                p: le réel multiplicateur
+                s: le réel multiplicateur
         Returns:
-                un objet Vector représentant self*scal
+                un Vector représentant s*self
         """
 
         try:
-            p = float(p)
+            s = float(s)
         except ValueError:
             raise TypeError("Le multiplicateur doit"
                             "être convertible en nombre réel.")
 
-        return Vector(p * self.x, p * self.y)
+        return Vector(s * self.x, s * self.y)
 
     __rmul__ = __mul__  # multiplication à droite
 
@@ -189,26 +189,37 @@ class Simulation (object):
                         est négatif ou nul
         """
 
+        # Test du type des paramètres
         try:
             self.m = float(m)
             self.k = float(k)
             self.dt = float(dt)
         except ValueError:
-            raise TypeError("mass, k et dt doivent être convertibles en réels")
+            raise TypeError("Parametres m, k ou dt de type invalide")
+        ## if not isinstance(v0, Vector):
+        ##     raise TypeError(
+        ##         "Parametres v0 de type {} invalide".format(type(v0)))
 
-        if not (self.m > 0 and 0 <= self.k < 1 and self.dt > 0):
+        # Pour la correction automatique, le test ne peut pas se faire
+        # simplement par isinstance (comme ce devrait être le cas)
+        try:
+            Vector(v0.x, v0.y)
+        except Exception:
+            raise TypeError(
+                "Parametres v0 de type {} invalide".format(type(v0)))
+        
+        # Test de la validité des paramètres
+        if not (self.m > 0 and
+                0 <= self.k <= 1 and
+                v0.x > 0 and v0.y > 0 and
+                self.dt > 0):
             raise ValueError("m et dt doivent être strictement positifs,"
                              "k doit être compris dans [0,1[")
 
-        if not isinstance(v0, Vector):
-            raise TypeError("v0 doit être une instance de la classe Vector")
-
-        if not (v0.x > 0 and v0.y > 0):
-            raise ValueError("Les coordonnées de v0 doivent être"
-                             "strictement positives")
-
+        # Historique des positions et des vitesses
         self.r = [Vector()]               # Initialisation de la position à 0,0
         self.v = [v0]                     # Initialisation de la vitesse
+        
         self.g = Vector(0, -9.8)          # Accélération de la pesanteur [m/s2]
 
     def step(self):
@@ -216,16 +227,21 @@ class Simulation (object):
         Calcule un pas de temps et l'ajoute à l'historique.
         """
 
-        self.r.append(self.r[-1] + self.v[-1] * self.dt)
-        force = self.g - self.k / self.m * self.v[-1].norm() * self.v[-1]
-        self.v.append(self.v[-1] + force * self.dt)
+        # Position et vitesse courantes
+        r = self.r[-1]
+        v = self.v[-1]
+
+        # Nouvelles position et vitesse
+        self.r.append(r + v * self.dt)
+        force = self.g - self.k / self.m * v.norm() * v
+        self.v.append(v + force * self.dt)
 
     def run(self):
         """
         Calcule le mouvement complet.
         """
 
-        while self.r[-1].y >= 0:
+        while self.r[-1].y >= 0:  # Tant que l'on est en l'air (i.e. y>=0)
             self.step()
 
     def maxDistance(self):
@@ -257,8 +273,11 @@ class Simulation (object):
         du mouvement.
         """
 
-        return [-self.m * self.g.y * r.y + 0.5 * self.m * v.norm() ** 2
-                for r, v in zip(self.r, self.v)]
+        def Em(r, v):
+
+            return self.m*(-r.scal(self.g) + 0.5*v.scal(v))
+
+        return [ Em(r,v) for r,v in zip(self.r, self.v) ]
 
 
 # tests unitaires fournis pour Simulation
@@ -323,3 +342,26 @@ def test_Simulation_energy():
     en = s.energy()
     assert_floats(en[0], 1, tol)
     assert_floats(en[-1], 1, tol)
+
+if __name__ == '__main__':
+
+    m = 17.                               # Masse du boulet [kg]
+    k = 4e-4                              # Coeff. de frottement [MKS]
+    k = 0
+    v0 = 450.                             # Norme vitesse initiale [m/s]
+    dt = 1.0                              # Pas de temps [s]
+
+    sim = Simulation(m, k, Vector(v0/2.**0.5, v0/2.**0.5), dt)
+    sim.run()
+
+    import matplotlib.pyplot as P
+    fig = P.figure()
+    ax1 = fig.add_subplot(2,1,1,
+                          xlabel="x [m]", ylabel="y [m]", title="Trajectoire")
+    ax2 = fig.add_subplot(2,1,2,
+                          xlabel="t [s]", ylabel="Em [kJ]",
+                          title=u"Énergie mécanique")
+    ax1.plot([ r.x for r in sim.r ], [ r.y for r in sim.r ])
+    ax2.plot([ i*sim.dt for i in range(len(sim.r)) ],
+             [ e/1e3 for e in sim.energy() ])
+    P.show()
