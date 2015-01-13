@@ -1,7 +1,7 @@
 Développer en python
 ####################
 
-.. Time-stamp: <2014-11-21 09:32 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2015-01-13 10:47:41 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -198,9 +198,6 @@ Outils de développement
 Je fournis ici essentiellement des liens vers des outils pouvant être
 utiles pour développer en python.
 
-- `Best Practices, Development Methodologies and the Zen of Python
-  <http://python.g-node.org/wiki/best_practices>`_
-
 *Integrated Development Environment*
 ------------------------------------
 
@@ -286,9 +283,8 @@ sous-fonctions d'un code, afin d'y identifier les parties à optimiser.
   <https://wiki.python.org/moin/PythonSpeed/PerformanceTips>`_
 - `Tutoriel de profilage
   <http://scikit-learn.sourceforge.net/dev/developers/performance.html#profiling-python-code>`_
-- `cython <http://cython.org/>`_: *write C-extensions in python-like
-  language* (`Cython for NumPy users
-  <http://wiki.cython.org/tutorials/numpy>`_)
+- `cython <http://cython.org/>`_: *write C-extensions in python-like language*
+  (`Working with Numpy <http://docs.cython.org/src/tutorial/numpy.html>`_)
 
 .. - `Guppy <http://guppy-pe.sourceforge.net/>`_: *object and heap memory
 ..   sizing, profiling and analysis*
@@ -300,7 +296,7 @@ Comment installer/créer des modules externes:
 
 - `pip <https://pip.pypa.io/en/latest/>`_
 - `Hitchhiker’s Guide to Packaging
-  <http://guide.python-distribute.org/>`_
+  <http://the-hitchhikers-guide-to-packaging.readthedocs.org/en/latest/>`_
 
 Python 2 vs. python 3
 ---------------------

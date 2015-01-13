@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-09-03 22:00 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2015-01-13 12:50:50 ycopin>
 .. _projets:
 
 Micro-projets
@@ -158,7 +158,7 @@ une foule <http://www2.cnrs.fr/presse/communique/1852.htm>`_).
    :align: center
 
    **Figure:** Un obstacle aide à l'évacuation. `Source
-   <http://www.openabm.org/book/export/html/1955>`_.
+   <https://www.openabm.org/book/export/html/1955>`_.
 
 
 Densité d'états d'un nanotube
@@ -297,9 +297,9 @@ Références:
 * *A numerical method for quantum tunnelling*, Pang T., Computers un
   Physics, 9, p 602-605.
 * `Équation de Schrödinger 1D
-  <http://www.scipy.org/Cookbook/SchrodingerFDTD>`_
+  <http://wiki.scipy.org/Cookbook/SchrodingerFDTD>`_
 * `Quantum Python: Animating the Schrodinger Equation
-  <http://jakevdp.github.com/blog/2012/09/05/quantum-python/>`_
+  <http://jakevdp.github.io/blog/2012/09/05/quantum-python/>`_
 
 Percolation
 -----------

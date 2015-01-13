@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-11-21 09:24 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2015-01-13 12:35:23 ycopin>
 .. _exercices:
 
 Exercices
@@ -17,7 +17,7 @@ Intégration: méthode des rectangles ★
 -------------------------------------
 
 La `méthode des rectangles
-<http://fr.wikipedia.org/wiki/Méthode_du_point_médian>`_ permet
+<https://fr.wikipedia.org/wiki/M%C3%A9thode_du_point_m%C3%A9dian>`_ permet
 d'approximer numériquement l'intégrale d'une fonction `f`:
 
 .. math::
@@ -44,9 +44,9 @@ du nombre de pas?
 PGCD: algorithme d'Euclide ★
 ----------------------------
 
-Écrire un programme calculant le :abbr:`PGCD (Plus Grand Commun
-Dénominateur)` de deux nombres (p.ex. 306 et 756) par l'`algorithme
-d'Euclide <http://fr.wikipedia.org/wiki/Algorithme_d'Euclide>`_.
+Écrire un programme calculant le :abbr:`PGCD (Plus Grand Commun Dénominateur)`
+de deux nombres (p.ex. 306 et 756) par l'`algorithme d'Euclide
+<https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide>`_.
 
 .. _tables:
 
@@ -70,8 +70,8 @@ Crible d'Ératosthène ★
 ----------------------
 
 Implémenter le `crible d'Ératosthène
-<http://fr.wikipedia.org/wiki/Crible_d'Ératosthène>`_ pour afficher
-les nombres premiers compris entre 1 et un entier fixe, p.ex.::
+<https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne>`_ pour
+afficher les nombres premiers compris entre 1 et un entier fixe, p.ex.::
 
   Liste des entiers premiers <= 41
   [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]
@@ -150,6 +150,24 @@ bibliothèque graphique standard :mod:`turtle` dans une fonction
 
    **Figure:** Flocon de Koch d'ordre 3.
    
+.. _pm:
+
+Jeu du plus ou moins (exceptions) ★
+-----------------------------------
+
+Écrire un jeu de « plus ou moins »::
+
+  Vous devez deviner un nombre entre 1 et 100.
+  Votre proposition: 27
+  C'est plus.
+  [...]
+  Vous avez trouvé en 6 coups!
+
+La solution sera générée aléatoirement par la fonction
+:func:`random.randint()`.  Le programme devra être robuste aux entrées
+invalides (« toto », 120, etc.), et aux abandons par interruption
+(`KeyboardInterrupt`).
+
 .. _animaux:
 
 Animaux (POO) ★
@@ -301,10 +319,10 @@ Quadrature & zéro d'une fonction ★
 Schéma de Romberg ★★
 --------------------
 
-Écrire une fonction `integ_romberg(f, a, b, epsilon=1e-6)` permettant
-de calculer l'intégrale numérique de la fonction *f* entre les bornes
-*a* et *b* avec une précision *epsilon* selon la `méthode de Romberg
-<http://fr.wikipedia.org/wiki/Méthode_de_Romberg>`_.
+Écrire une fonction `integ_romberg(f, a, b, epsilon=1e-6)` permettant de
+calculer l'intégrale numérique de la fonction *f* entre les bornes *a* et *b*
+avec une précision *epsilon* selon la `méthode de Romberg
+<https://fr.wikipedia.org/wiki/M%C3%A9thode_de_Romberg>`_.
 
 Tester sur des solutions analytiques et en comparant à
 :func:`scipy.integrate.romberg`.
@@ -314,10 +332,9 @@ Tester sur des solutions analytiques et en comparant à
 Méthode de Runge-Kutta ★★
 -------------------------
 
-Développer un algorithme permettant d'intégrer numériquement une
-équation différentielle du 1er ordre en utilisant la `méthode de
-Runge-Kutta <http://fr.wikipedia.org/wiki/Méthodes_de_Runge-Kutta>`_
-d'ordre quatre.
+Développer un algorithme permettant d'intégrer numériquement une équation
+différentielle du 1er ordre en utilisant la `méthode de Runge-Kutta
+<https://fr.wikipedia.org/wiki/M%C3%A9thodes_de_Runge-Kutta>`_ d'ordre quatre.
 
 Tester sur des solutions analytiques et en comparant à
 :func:`scipy.integrate.odeint`.
@@ -491,7 +508,8 @@ Exercices en vrac
 * `Exercices de base
   <http://fr.wikibooks.org/wiki/Programmation_Python/Exercices_Base_du_langage>`_ |fr|
 * `Entraînez-vous !
-  <http://www.siteduzero.com/forum-83-537209-p1-entrainez-vous-sur-le-langage-python.html>`_ |fr|
+  <http://openclassrooms.com/forum/sujet/entrainez-vous-sur-le-langage-python-54161?page=3#message-85967089>`_
+  |fr|
 * `Learn Python The Hard Way <http://learnpythonthehardway.org/book/>`_
 * `Google Code Jam <http://code.google.com/codejam/>`_
 * `CheckIO <http://www.checkio.org/>`_

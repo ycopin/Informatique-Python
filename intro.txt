@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-10-14 14:30:09 ycopin>
+.. Time-stamp: <2015-01-13 12:51:15 ycopin>
 
 Introduction
 ############
@@ -33,8 +33,8 @@ programes les plus complexes (projets de plus de 100000 lignes).
 
 .. rubric:: Liens:
 
-* `About Python <http://www.python.org/about/>`_
-* `Python Advocacy <http://docs.python.org/howto/advocacy.html>`_
+* `About Python <https://www.python.org/about/>`_
+* `Python Advocacy <https://docs.python.org/2/howto/advocacy.html>`_
 
 
 Organisation des TDs

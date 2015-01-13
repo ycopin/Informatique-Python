@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-11-21 09:18 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2015-01-13 12:33:45 ycopin>
 .. _cours:
 
 Initiation à Python
@@ -47,7 +47,7 @@ Installation
 
 Cette introduction repose sur les outils suivants:
 
-- `Python 2.7 <https://www.python.org/download/>`_ (inclus
+- `Python 2.7 <https://www.python.org/downloads/>`_ (inclus
   l'interpréteur de base et la bibliothèque standard)
 - Bibliothèques scientifiques: `Numpy et Scipy
   <http://scipy.org/install.html>`_,
@@ -61,14 +61,14 @@ Cette introduction repose sur les outils suivants:
   <http://www.vim.org/>`_ ou `gedit
   <https://wiki.gnome.org/Apps/Gedit>`_.
 
-Ces logiciels peuvent être installés indépendamment, de préférence
-sous Linux (p.ex. `Ubuntu <http://ubuntu-fr.org/>`_, `Fedora
+Ces logiciels peuvent être installés indépendamment, de préférence sous Linux
+(p.ex. `Ubuntu <http://ubuntu-fr.org/>`_, `Fedora
 <http://fedoraproject.org/fr/>`_ ou `openSUSE
-<http://fr.opensuse.org/>`_), ou sous Windows ou MacOS.  Il existe
+<https://www.opensuse.org/fr/>`_), ou sous Windows ou MacOS.  Il existe
 également des distributions « clés en main »:
 
 - `Python(x,y) <http://code.google.com/p/pythonxy/>`_ (Windows)
-- `Enthought Canopy <http://www.enthought.com/products/canopy>`_
+- `Enthought Canopy <https://www.enthought.com/products/canopy>`_
   (Windows, MacOS, Linux, gratuite pour les étudiants du supérieur)
 
 Notions d'Unix
@@ -92,7 +92,7 @@ Les concepts suivants sont supposés connus:
   <http://snovae.in2p3.fr/ycopin/enseignements/docs/notions_unix.pdf>`_
   |fr|
 * `Introduction to Unix Study Guide
-  <http://www.sal.ksu.edu/faculty/tim/unix_sg/>`_
+  <http://faculty.salina.k-state.edu/tim/unix_sg/>`_
 
 L'invite de commande
 --------------------
@@ -820,6 +820,10 @@ si l'hypothèse n'est pas vérifiée, génère une `AssertionError`)::
 
 .. Note:: La règle générale à retenir concernant la gestion des
    erreurs: **Fail early, fail often, fail better!**
+
+.. rubric:: Exercice:
+
+:ref:`pm`
 
 
 Classes

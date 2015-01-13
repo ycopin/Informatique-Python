@@ -3,7 +3,7 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2014-12-15 16:03:14 ycopin>
+.. Time-stamp: <2015-01-13 11:48:09 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -611,8 +611,6 @@ fonctionnalités de :mod:`numpy`. P.ex.:
 
 - `Réference Scipy <http://docs.scipy.org/doc/scipy/reference/>`_
 - `Cookbook Scipy <http://wiki.scipy.org/Cookbook>`_
-- `Scipy Course Outline
-  <http://www.rexx.com/~dkuhlman/scipy_course_01.html>`_
 - `Calcul numérique haut-niveau
   <http://dakarlug.org/pat/scientifique/html/scipy.html>`_ |fr|
 
@@ -622,11 +620,11 @@ fonctionnalités de :mod:`numpy`. P.ex.:
 - `Scikits <http://scikits.appspot.com/scikits>`_: modules
   supplémentaires, parmi lesquels:
 
-  - `scikit-learn <http://scikit-learn.org/>`_: *machine learning*
+  - `scikit-learn <http://scikit-learn.org/stable/>`_: *machine learning*
   - `scikit-image <http://scikit-image.org/>`_: *image processing*
   - `statsmodel <http://statsmodels.sourceforge.net/>`_: modèles statistiques
     (`tutorial <http://jseabold.net/pages/talks>`_)
-- `Scipy Topical softwares <http://www.scipy.org/Topical_Software>`_
+- `Scipy Topical softwares <http://www.scipy.org/topical-software.html>`_
 - `Numpy/Scipy projects <http://wiki.scipy.org/Projects>`_
 
 .. http://www.osc.edu/supercomputing/training/python/python_pt2_0702.pdf
@@ -645,8 +643,8 @@ Quelques exemples complets
   <http://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html>`_
   (intégrales numériques, équations différentielles)
 
-  - `Résolution d'équations différentielles avec scipy
-    <http://ipt.mpsi2.info/scipy/odeint>`_
+  - `odeint notebook
+    <http://nbviewer.ipython.org/gist/dpsanders/d417c1ffbb76f13f678c>`_
   - `Oscillation amortie
     <http://www.dakarlug.org/pat/scientifique/html/scipy.html>`_
   - `Zombie Apocalypse
@@ -766,21 +764,21 @@ différents domaines de la physique/chimie:
 - Astronomie: `astropy <http://www.astropy.org/>`_, `Kapteyn
   <http://www.astro.rug.nl/software/kapteyn/>`_ et autres `modules
   astronomiques
-  <http://oneau.wordpress.com/2010/10/02/python-for-astronomy/>`_
+  <https://oneau.wordpress.com/2010/10/02/python-for-astronomy/>`_
 - *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
   <http://sfepy.org/doc-devel/>`_
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
-  <https://packages.python.org/milk/>`_, `MDP
+  <https://pythonhosted.org/milk/>`_, `MDP
   <http://mdp-toolkit.sourceforge.net/>`_, `AstroML
   <http://www.astroml.org/>`_ et autres `modules d'intelligence
   artificielle
   <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_
 - Calcul symbolique: sympy_ (voir également ce `tutoriel sympy
   <https://mattpap.github.io/scipy-2011-tutorial/html/>`_)
-- `PyROOT <http://root.cern.ch/drupal/content/pyroot>`_
+- `PyROOT <https://root.cern.ch/drupal/content/pyroot>`_
 - `High Performance Computing in Python
   <http://byumcl.bitbucket.org/bootcamp2013/labs/perfomance.html>`_
-- `Etc. <http://www.scipy.org/Topical_Software>`_
+- `Etc. <http://www.scipy.org/topical-software.html>`_
 
 .. - `PyMC <http://code.google.com/p/pymc/>`_: *Monte Carlo Markov Chain*
 
