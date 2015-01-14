@@ -14,12 +14,6 @@ import numpy as N
 import pytest
 
 import matplotlib.pyplot as P
-try:
-    import seaborn
-    seaborn.set_style("white")
-    seaborn.set_palette("cubehelix_r", 4)
-except ImportError:
-    pass
 
 N.random.seed(123)
 TAILLE = 50
@@ -237,6 +231,40 @@ class Trajet(object):
         return Trajet(self.ville, etapes)
 
 
+def fig_velocimetrie(nomfichier="velocimetrie.dat"):
+    """
+    Corrigé de l'exercice 1, en utilisant `pyplot`, l'API-OO de matplotlib.
+    """
+
+    # Lecture du fichier d'entrée, en sautant la 1ère ligne
+    t, vel = N.loadtxt(nomfichier, skiprows=1, unpack=True)
+
+    dt = t[1] - t[0]            # Pas de temps [ms]
+    assert N.allclose(N.diff(t), dt), "Échantillonage en temps non-uniforme"
+
+    fig = P.figure()
+
+    # 1er axe: v(t)
+    ax1 = fig.add_subplot(3, 1, 1,
+                          ylabel="Vitesse [mm/s]",
+                          title=nomfichier)
+    ax1.plot(t, vel)
+
+    # 2nd axe: x(t)
+    ax2 = fig.add_subplot(3, 1, 2,
+                          ylabel=u"Déplacement [µm]")
+    ax2.plot(t, N.cumsum(vel) * dt)
+
+    # 3ème axe: a(t)
+    ax3 = fig.add_subplot(3, 1, 3,
+                          xlabel="Temps [ms]",
+                          ylabel=u"Accélération [m/s²]")
+    tmid = 0.5 * (t[1:] + t[:-1])
+    ax3.plot(tmid, N.diff(vel) / dt)
+
+    return fig
+
+
 # TESTS ==============================
 
 def test_ville_aleatoire():
@@ -323,29 +351,51 @@ def test_ville_optimisation_trajet(ville_test, trajet_test):
 
 if __name__ == '__main__':
 
+    import os
+
+    # Exercice ==============================
+
+    fig = fig_velocimetrie("velocimetrie.dat")
+    fig.savefig("velocimetrie.png")
+
+    # Problème ==============================
+
+    # Utilisation optionnelle de la charte graphique seaborn
+    try:
+        import seaborn
+        seaborn.set_style("white")
+        seaborn.set_palette("cubehelix_r", 4)
+    except ImportError:
+        pass
+
     ville = Ville()
-    ville.aleatoire(n=20)
-    print ville
-    ville.ecriture()
+    if not os.path.exists("ville.dat"):
+        ville.aleatoire(n=20)
+        print ville
+        ville.ecriture("ville.dat")
+    else:
+        ville.lecture("ville.dat")
 
-    ville2 = Ville()
-    ville2.lecture()
-    assert (ville.destinations == ville2.destinations).all()
-
+    # Destinations dans la ville
     ax = ville.figure()
 
+    # Trajet aléatoire
     trajet = Trajet(ville)
     print trajet
     ville.figure(trajet, ax=ax, offset=-0.3)
 
+    # Trajet "plus proche voisins"
     trajet_voisins = ville.trajet_voisins(depart=0)
     print "Trajet PPV:", trajet_voisins
     ville.figure(trajet_voisins, ax=ax)
 
+    # Trajet "opt-2"
     trajet_opt2 = ville.trajet_opt2(trajet_voisins)
-    print "Trajet PPV + opt2:", trajet_opt2
+    print "Trajet PPV + opt-2:", trajet_opt2
     ville.figure(trajet_opt2, ax=ax, offset=0.3)
 
+    # Légende
     h, l = ax.get_legend_handles_labels()
     ax.figure.legend(h, l, fontsize='small', loc='upper right')
+
     P.show()
