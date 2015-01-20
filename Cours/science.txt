@@ -3,7 +3,7 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2015-01-13 11:48:09 ycopin>
+.. Time-stamp: <2015-01-20 12:26:51 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -81,7 +81,7 @@ array([[  0.,   1.,   2.],
 (4, 3)                   # 4 lignes, 3 colonnes
 >>> b.size               # Nb *total* d'éléments dans le tableau
 12                       # Par définition, size=prod(shape)
->>> b.dtype              
+>>> b.dtype
 dtype('float64')         # Python 'float' = numpy 'float64' = C 'double'
 
 Création de tableaux
@@ -91,7 +91,7 @@ Création de tableaux
 
 - :func:`numpy.array`: convertit une liste d'éléments homogènes ou
   coercitibles
-  
+
   >>> N.array([[1.,2.],[3,4]]) # Liste de listes d'entiers et de réels
   array([[ 1.,  2.],           # Tableau 2D de réels
          [ 3.,  4.]])
@@ -113,7 +113,7 @@ Création de tableaux
   éventuellement le *start*, le *end* et le *step* (similaire à
   :func:`range` pour les listes)
 
-  >>> N.arange(10, 30, 5)     # De 10 à 30 (exclu) par pas de 5, type entier par défaut
+  >>> N.arange(10, 30, 5) # De 10 à 30 (exclu) par pas de 5, type entier par défaut
   array([10, 15, 20, 25])
   >>> N.arange(0.5, 2.1, 0.3) # Accepte des réels en argument, DANGER!
   array([ 0.5,  0.8,  1.1,  1.4,  1.7,  2. ])
@@ -151,13 +151,13 @@ Création de tableaux
 
   >>> N.mgrid[0:4:2,1:5:3]  # Grille 2D d'indices (entiers)
   array([[[0, 0],           # 0:4:2=[0,2] selon l'axe 0
-          [2, 2]],  
+          [2, 2]],
          [[1, 4],           # 1:5:3=[1,4] selon l'axe 1
           [1, 4]]])
   >>> N.mgrid[0:2*N.pi:5j]  # Rampe de coordonnées (réels): 5 nb de 0 à 2π (inclus)
   array([ 0.,  1.57079633,  3.14159265,  4.71238898,  6.28318531])
   >>> # 3 points entre 0 et 1 selon l'axe 0, et 5 entre 0 et 2 selon l'axe 1
-  >>> z = N.mgrid[0:1:3j, 0:2:5j]; z 
+  >>> z = N.mgrid[0:1:3j, 0:2:5j]; z
   array([[[ 0. ,  0. ,  0. ,  0. ,  0. ],  # Axe 0 variable, axe 1 constant
           [ 0.5,  0.5,  0.5,  0.5,  0.5],
           [ 1. ,  1. ,  1. ,  1. ,  1. ]],
@@ -239,7 +239,7 @@ array([[[ 0],
 
 .. rubric:: Modification de format
 
-.. index:: 
+.. index::
    pair: numpy; reshape
    pair: numpy; ravel
 
@@ -247,14 +247,14 @@ array([[[ 0],
 >>> y = N.arange(6).reshape(2,3); y # Shape (6,) → (2,3) (*size* inchangé)
 array([[0, 1, 2],
        [3, 4, 5]])
->>> y.reshape(2,4)                  # Format incompatible (*size* serait modifié)
+>>> y.reshape(2,4)         # Format incompatible (*size* serait modifié)
 ValueError: total size of new array must be unchanged
 >>> y.ravel()              # *ravel* déroule tous les axes (*1st axis slowest*)
 array([ 0, 1, 2, 3, 4, 5]) # Shape (6,) = 2 × 3 = *size*
 >>> y.ravel('F')           # Ordre 'Fortran (*last axis slowest*)
 array([0, 3, 1, 4, 2, 5])
 
-.. index:: 
+.. index::
    pair: numpy; transpose
    pair: numpy; rollaxis
 
@@ -263,19 +263,19 @@ array([[0, 3],
        [1, 4],
        [2, 5]])
 
-.. index:: 
+.. index::
    pair: numpy; squeeze
    pair: numpy; expand_dims
    pair: numpy; newaxis
 
 >>> y[...,0:1].squeeze()  # Élimine *tous* les axes de dimension 1
 array([0, 3])
->>> N.expand_dims(y[...,0], -1).shape  # Ajoute un axe de dimension 1 en dernière position
+>>> N.expand_dims(y[...,0], -1).shape  # Ajoute un axe de dim. 1 en dernière position
 (2, 1)
->>> y[:, N.newaxis].shape  # Ajoute un axe de dimension 1 en 2nde position
+>>> y[:, N.newaxis].shape              # Ajoute un axe de dim. 1 en 2nde position
 (2, 1, 3)
 
-.. index:: 
+.. index::
    pair: numpy; resize
 
 >>> # *resize* modifie le format en modifiant le nb total d'éléments
@@ -293,7 +293,7 @@ array([[0, 1],
 
 .. rubric:: *Stacking*
 
-.. index:: 
+.. index::
    pair: numpy; hstack
    pair: numpy; vstack
    pair: numpy; dstack
@@ -314,7 +314,7 @@ array([[[0, 0],
 
 .. rubric:: *Broadcasting*
 
-.. index:: 
+.. index::
    pair: numpy; broadcasting
    pair: numpy; newaxis
 
@@ -358,19 +358,19 @@ Voir également cette `présentation
 
 .. rubric:: Indexation évoluée
 
-.. index:: 
+.. index::
    pair: numpy; nonzero
    pair: numpy; where
 
 >>> a = N.linspace(-1,1,5); a
 array([-1. , -0.5,  0. ,  0.5,  1. ])
->>> a>=0       # Test logique: tableau de booléens
+>>> a>=0             # Test logique: tableau de booléens
 array([False, False,  True,  True,  True], dtype=bool)
 >>> (a>=0).nonzero() # Indices des éléments ne s'évaluant pas à False
 (array([2, 3, 4]),)  # Indices des éléments >= 0
->>> a[(a>=0).nonzero()] # Indexation par un tableau d'indices, pas pythonique...
+>>> a[(a>=0).nonzero()] # Indexation par un tableau d'indices, pas pythonique :-(
 array([ 0. ,  0.5,  1. ])
->>> a[a>=0]             # Indexation par un tableau de booléens, **pythonique**
+>>> a[a>=0]  # Indexation par un tableau de booléens, **pythonique** :-D
 array([ 0. ,  0.5,  1. ])
 >>> a[a<0] -= 10; a # Soustrait 10 à toutes les valeurs <0 (= where(a<0, a-10, a)
 
@@ -392,7 +392,7 @@ array([ 1.,  2.,  3.])
 
 .. index:: pair: numpy; axis
 
->>> x = N.random.permutation(6).reshape(3,2); x # 3 lignes, 2 colonnes 
+>>> x = N.random.permutation(6).reshape(3,2); x # 3 lignes, 2 colonnes
 array([[3, 4],
        [5, 1],
        [0, 2]])
@@ -405,7 +405,7 @@ array([3, 1, 0])     # ce sont donc les minima par ligne (3)
 
 .. rubric:: Opérations matricielles
 
-.. index:: 
+.. index::
    pair: numpy; matrix
    pair: numpy; identity
    pair: numpy; dot
@@ -436,7 +436,7 @@ calcul matriciel (inverse, déterminant, valeurs propres, etc.).
 
 .. rubric:: *Ufuncs*
 
-.. index:: 
+.. index::
    pair: numpy; ufuncs
    pair: numpy; all
    pair: numpy; any
@@ -467,7 +467,7 @@ Tableaux évolués
 
 .. rubric:: Types composés
 
-.. index:: 
+.. index::
    pair: numpy; dtype
    pair: numpy; recarray
 
@@ -479,14 +479,14 @@ composés:
 ...               ('age','i'),       # 2ème élément: entier
 ...               ('taille','d')])   # 3ème élément: réel (double)
 >>> arr = N.array([('Calvin',6,1.20),('Hobbes',5,1.80)], dtype=dt); arr
-array([('Calvin', 6, 1.2), ('Hobbes', 6, 1.8)], 
+array([('Calvin', 6, 1.2), ('Hobbes', 6, 1.8)],
       dtype=[('nom', '|S10'), ('age', '<i4'), ('taille', '<f8')])
 >>> arr[0]                           # Accès par élément
 ('Calvin', 6, 1.2)
 >>> arr['nom']                       # Accès par sous-type
 array(['Calvin', 'Hobbes'], dtype='|S10')
 >>> rec = arr.view(N.recarray); arr  # Vue de type 'recarray'
-rec.array([('Calvin', 6, 1.2), ('Hobbes', 5, 1.8)], 
+rec.array([('Calvin', 6, 1.2), ('Hobbes', 5, 1.8)],
       dtype=[('nom', '|S10'), ('age', '<i4'), ('taille', '<f8')])
 >>> rec.nom                          # Accès direct par attribut
 chararray(['Calvin', 'Hobbes'], dtype='|S10')
@@ -533,7 +533,7 @@ array([ 0.35943269,  1.64455841, -1.        ,  1.48331773,  2.23438981])
 Entrées/sorties
 ---------------
 
-.. index:: 
+.. index::
    pair: numpy; save/load
    pair: numpy; savetxt/loadtxt
    pair: numpy; genfromtxt
@@ -568,14 +568,14 @@ bibliothèque standard :ref:`[c]Pickle <pickle>`.
 Sous-modules
 ------------
 
-.. index:: 
+.. index::
    module: numpy.polynomial
    module: numpy.fft
 
 :mod:`numpy` fournit en outre quelques fonctionnalités
 supplémentaires, parmis lesquelles les sous-modules suivants:
 
-- :mod:`numpy.fft`: *Discrete Fourier Transform* 
+- :mod:`numpy.fft`: *Discrete Fourier Transform*
 - :mod:`numpy.polynomial`: manipulation des polynômes (racines, polynômes
   orthogonaux, etc.)
 
@@ -722,7 +722,7 @@ Dans les deux cas, le résultat est le même:
   <http://matplotlib.org/users/pyplot_tutorial.html>`_
 - `Tutorial matplotlib
   <http://www.labri.fr/perso/nrougier/teaching/matplotlib/>`_
-- `Gallery <http://matplotlib.org/gallery.html>`_ 
+- `Gallery <http://matplotlib.org/gallery.html>`_
 - `Examples <http://matplotlib.org/examples/>`_
 - `Seaborn <http://web.stanford.edu/~mwaskom/software/seaborn/>`_ (une
   surcouche à matplotlib)

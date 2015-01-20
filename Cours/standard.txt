@@ -4,7 +4,7 @@
 Bibliothèque standard
 #####################
 
-.. Time-stamp: <2014-09-24 10:37:08 ycopin>
+.. Time-stamp: <2015-01-20 12:28:39 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -56,7 +56,7 @@ commande, il est préférable d'utiliser le module :mod:`argparse`.
    :end-before: end-argparse
 
 Cette solution génère automatiquement une aide en ligne, p.ex.::
-  
+
   $ python circonscrit.py -h
   usage: circonscrit.py [-p/--plot] [-i/--input coordfile | x1,y1 x2,y2 x3,y3]
 
@@ -89,7 +89,7 @@ pérenne d'objets python (« sérialisation »).
 >>> import cPickle as pickle         # 'cPickle' est + rapide que 'pickle'
 >>> pkl = open('archive.pkl', 'w')   # Overture du fichier en écriture
 >>> pickle.dump((d,l), pkl, protocol=-1) # Sérialisation du tuple (d,l)
->>> pkl.close()                      # *IMPORTANT!* Fermeture du fichier 
+>>> pkl.close()                      # *IMPORTANT!* Fermeture du fichier
 >>> d2,l2 = pickle.load(open('archive.pkl')) # Désérialisation (relecture)
 >>> d==d2
 True
@@ -172,7 +172,7 @@ True
 *Text/Graphical User Interfaces*
 ================================
 
-- :abbr:`TUI (Text User Interface)`: :mod:`curses` 
+- :abbr:`TUI (Text User Interface)`: :mod:`curses`
 - :abbr:`GUI (Graphical User Interface)`: :mod:`Tkinter` (voir
   également `easygui <http://easygui.sourceforge.net/>`_),
 - Librairies externes; `PyGTK <http://www.pygtk.org/>`_, `PyQt

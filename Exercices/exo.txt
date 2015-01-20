@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-01-13 12:35:23 ycopin>
+.. Time-stamp: <2015-01-20 12:22:55 ycopin>
 .. _exercices:
 
 Exercices
@@ -37,7 +37,7 @@ On définit la fonction `sq` renvoyant le carré d'un nombre par
 Écrire un programme calculant l'intégrale de cette fonction entre a=0
 et b=1, en utilisant une subdivision en n=100 pas dans un premier
 temps.  Quelle est la précision de la méthode, et comment dépend-elle
-du nombre de pas? 
+du nombre de pas?
 
 .. _pgcd:
 
@@ -149,7 +149,7 @@ bibliothèque graphique standard :mod:`turtle` dans une fonction
    :align: center
 
    **Figure:** Flocon de Koch d'ordre 3.
-   
+
 .. _pm:
 
 Jeu du plus ou moins (exceptions) ★
@@ -198,14 +198,14 @@ l'exécution, la sortie du terminal doit être::
   Testing Vector class... ok
   Testing Particle class... ok
   Testing Ion class... ok
-  ******************** Test end ******************** 
+  ******************** Test end ********************
 
   ************* Physical computations **************
   ** Gravitationnal computation of central-force motion for a Particle with mass 1.00, position (1.00,0.00,0.00) and speed (0.00,1.00,0.00)
-	 => Final system : Particle with mass 1.00, position (-1.00,-0.00,0.00) and speed (0.00,-1.00,0.00)
+  => Final system : Particle with mass 1.00, position (-1.00,-0.00,0.00) and speed (0.00,-1.00,0.00)
   ** Electrostatic computation of central-force motion for a Ion with mass 1.00, charge 4, position (0.00,0.00,1.00) and speed (0.00,0.00,-1.00)
-	 => Final system : Ion with mass 1.00, charge 4, position (0.00,0.00,7.69) and speed (0.00,0.00,2.82)
-  *********** Physical computations end ************  
+  => Final system : Ion with mass 1.00, charge 4, position (0.00,0.00,7.69) and speed (0.00,0.00,2.82)
+  *********** Physical computations end ************
 
 .. _life:
 
@@ -268,7 +268,7 @@ simples, facilement calculables à la main.  On les écrira sous un format compr
 par *py.test*, p.ex.:
 
 .. code-block:: python
-    
+
     def test_1D():
         assert mad([0]) == 0.
         assert mad([1,2,6,9]) == 2.5

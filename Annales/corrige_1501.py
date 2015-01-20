@@ -37,7 +37,7 @@ class Ville(object):
     def aleatoire(self, n=20):
         """Création de *n* destinations aléatoires."""
 
-        self.destinations = N.random.randint(TAILLE, size=2*n).reshape(n, 2)
+        self.destinations = N.random.randint(TAILLE, size=(n, 2))
 
     def lecture(self, nomfichier="ville.dat"):
         """

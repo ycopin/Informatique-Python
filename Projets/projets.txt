@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-01-13 12:50:50 ycopin>
+.. Time-stamp: <2015-01-20 12:16:04 ycopin>
 .. _projets:
 
 Micro-projets
@@ -81,7 +81,7 @@ transfert. La généralisation à 2 dimensions a été faite par Lars
 Onsager en 1944, mais la solution est assez compliquée. Il n'existe
 pas de solution analytique en 3D. On va ici considérer un système de
 spins sur réseau. Chaque spin :math:`\sigma_i` peut prendre 2 valeurs
-(« *up* » et « *down* »). L'hamiltonien du système, 
+(« *up* » et « *down* »). L'hamiltonien du système,
 
 .. math::
 
@@ -226,7 +226,7 @@ répondre à chacune d’entre elle):
   collisionner des solitons. Cette étude est très intéressante et
   pleine de surprises. Que se passe-t-il lors de la collision de deux
   solitons? Entre un soliton et un anti-soliton?
-  
+
 .. figure::  mascaret.jpg
    :width: 50%
    :align: center
@@ -292,7 +292,7 @@ Les objectifs de ce projet sont :
 * Écrire un programme qui résolve l’équation de Schrödinger.
 * En déduire les coefficients de transmission et de réflexion.
 
-Références: 
+Références:
 
 * *A numerical method for quantum tunnelling*, Pang T., Computers un
   Physics, 9, p 602-605.
@@ -331,7 +331,7 @@ d’étudier un cas particulier mais on prendra soin au contraire
 d’effectuer des moyennes sur un très grand nombre de tirages
 (plusieurs centaines).
 
-Sources: 
+Sources:
 
 * `Percolation theory <http://en.wikipedia.org/wiki/Percolation_theory>`_
 * `Concepts fondamentaux de la percolation

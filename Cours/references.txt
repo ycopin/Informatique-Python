@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-01-13 11:47:49 ycopin>
+.. Time-stamp: <2015-01-20 12:28:29 ycopin>
 
 Références supplémentaires
 ==========================
@@ -109,7 +109,7 @@ Scientifique
 - *SciPy tutorials* (`numpy`, `scipy`, `matplotlib`, `ipython`): `2011
   <http://conference.scipy.org/scipy2011/tutorials.php>`_, `2012
   <http://conference.scipy.org/scipy2012/tutorials.php>`_, `2013
-  <http://conference.scipy.org/scipy2013/tutorials.php>`_, 
+  <http://conference.scipy.org/scipy2013/tutorials.php>`_,
 - `Advance Scientific Programming in Python <https://python.g-node.org/wiki/>`_
 
 - `Practical Python for Astronomers <https://python4astronomers.github.io/>`_
