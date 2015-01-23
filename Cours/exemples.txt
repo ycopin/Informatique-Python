@@ -1,23 +1,62 @@
-.. Time-stamp: <2014-01-12 15:09 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2015-01-06 00:01 ycopin@lyonovae03.in2p3.fr>
 
 Exemples
 ========
 
+.. _mean_power:
+
+Mean power (fonction, argparse)
+-------------------------------
+
+.. literalinclude:: mean_power.py
+   :linenos:
+
+**Source:** :download:`mean_power.py`
+
+.. _formes:
+
+Formes (POO)
+------------
+
+.. literalinclude:: formes.py
+   :linenos:
+
+**Source:** :download:`formes.py`
+
 .. _circonscrit:
 
-Cercle circonscrit (POO)
-------------------------
+Cercle circonscrit (POO, argparse)
+----------------------------------
 
 .. literalinclude:: circonscrit.py
    :linenos:
 
 **Source:** :download:`circonscrit.py`
 
+Matplotlib
+----------
+
+.. _figure:
+
+Figure simple
+.............
+
+.. figure:: figure.*
+   :align: center
+   :width: 60%
+
+   **Figure:** exemple de figure (charte graphique: `seaborn
+   <http://web.stanford.edu/~mwaskom/software/seaborn/>`_)
+
+.. literalinclude:: figure.py
+   :linenos:
+
+**Source:** :download:`figure.py`
 
 .. _filtres:
 
-Filtres du 2nd ordre (matplotlib)
----------------------------------
+Filtres du 2nd ordre
+....................
 
 .. figure:: filtrePasseHaut.*
    :align: center

@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-14 21:22:16 ycopin>
+.. Time-stamp: <2015-01-23 18:39:42 ycopin>
 .. _cours:
 
 Initiation à Python
@@ -27,6 +27,8 @@ Initiation à Python
       10.1  Intéractif
       10.2  Fichiers
     11  Éléments passés sous silence
+      11.1  Python 3.x
+
 
 .. _td1:
 
@@ -35,17 +37,17 @@ Introduction
 
 .. rubric:: Liens:
 
-- `Python Tutorial <http://docs.python.org/2/tutorial/>`_ (v2.7)
+- `Python Tutorial <https://docs.python.org/2/tutorial/>`_ (v2.7)
 - `Tutoriel Python
   <http://python.developpez.com/cours/TutoVanRossum/>`_ (v2.4) |fr|
-- `Begginer's Guide <http://wiki.python.org/moin/BeginnersGuide>`_
+- `Begginer's Guide <https://wiki.python.org/moin/BeginnersGuide>`_
 
 Installation
 ------------
 
 Cette introduction repose sur les outils suivants:
 
-- `Python <http://python.org/download/>`_ p.ex. 2.7 [#p3k]_ (inclus
+- `Python 2.7 <https://www.python.org/downloads/>`_ (inclus
   l'interpréteur de base et la bibliothèque standard)
 - Bibliothèques scientifiques: `Numpy et Scipy
   <http://scipy.org/install.html>`_,
@@ -55,16 +57,18 @@ Cette introduction repose sur les outils suivants:
   <http://ipython.org/install.html>`_,
 - `Éditeur de texte évolué
   <http://en.wikipedia.org/wiki/Comparison_of_text_editors>`_,
-  p.ex. `emacs <http://www.gnu.org/software/emacs/#Obtaining>`_
+  p.ex. `emacs <http://www.gnu.org/software/emacs/>`_, `vi
+  <http://www.vim.org/>`_ ou `gedit
+  <https://wiki.gnome.org/Apps/Gedit>`_.
 
-Ces logiciels peuvent être installés indépendamment, de préférence
-sous Linux (p.ex. `Ubuntu <http://ubuntu-fr.org/>`_, `Fedora
+Ces logiciels peuvent être installés indépendamment, de préférence sous Linux
+(p.ex. `Ubuntu <http://ubuntu-fr.org/>`_, `Fedora
 <http://fedoraproject.org/fr/>`_ ou `openSUSE
-<http://fr.opensuse.org/>`_), ou sous Windows ou MacOS. Il existe
+<https://www.opensuse.org/fr/>`_), ou sous Windows ou MacOS.  Il existe
 également des distributions « clés en main »:
 
 - `Python(x,y) <http://code.google.com/p/pythonxy/>`_ (Windows)
-- `Enthought Canopy <http://www.enthought.com/products/canopy>`_
+- `Enthought Canopy <https://www.enthought.com/products/canopy>`_
   (Windows, MacOS, Linux, gratuite pour les étudiants du supérieur)
 
 Notions d'Unix
@@ -88,8 +92,8 @@ Les concepts suivants sont supposés connus:
   <http://snovae.in2p3.fr/ycopin/enseignements/docs/notions_unix.pdf>`_
   |fr|
 * `Introduction to Unix Study Guide
-  <http://www.sal.ksu.edu/faculty/tim/unix_sg/>`_
-  
+  <http://faculty.salina.k-state.edu/tim/unix_sg/>`_
+
 L'invite de commande
 --------------------
 
@@ -99,19 +103,19 @@ Python:
 .. index:: interpréteur; python
 
 * :program:`python`: l'`interpréteur de base
-  <http://docs.python.org/2/tutorial/interpreter.html>`_::
+  <https://docs.python.org/2/tutorial/interpreter.html>`_::
 
     $ python
-    Python 2.7.1+ (r271:86832, Apr 11 2011, 18:05:24) 
-    [GCC 4.5.2] on linux2
+    Python 2.7.6 (default, Mar 22 2014, 22:59:56)
+    [GCC 4.8.2] on linux2
     Type "help", "copyright", "credits" or "license" for more information.
-    >>> 
+    >>>
 
   - :kbd:`Control-d` pour sortir
   - :samp:`help({commande})` pour obtenir l'aide d'une commande
   - *A priori*, pas d'historique des commandes ni de complétion
-    automatique
-  
+    automatique.
+
   L'interpréteur de base permet également d'interpréter un « script »,
   càd un ensemble de commandes regroupées dans un fichier texte
   (généralement avec une extension `.py`): :samp:`python
@@ -123,16 +127,16 @@ Python:
   (avec historique et complétion automatique des commandes)::
 
     $ ipython
-    Python 2.7.1+ (r271:86832, Apr 11 2011, 18:05:24) 
+    Python 2.7.6 (default, Mar 22 2014, 22:59:56)
     Type "copyright", "credits" or "license" for more information.
-    
-    IPython 0.10.1 -- An enhanced Interactive Python.
+
+    IPython 2.2.0 -- An enhanced Interactive Python.
     ?         -> Introduction and overview of IPython's features.
     %quickref -> Quick reference.
     help      -> Python's own help system.
-    object?   -> Details about 'object'. ?object also works, ?? prints more.
-    
-    In [1]: 
+    object?   -> Details about 'object', use 'object??' for extra details.
+
+    In [1]:
 
   - :kbd:`Control-d` pour sortir
   - :kbd:`Tab` pour la complétion automatique
@@ -147,11 +151,12 @@ Python:
     * `%cpaste` pour coller et éxecuter un code pré-formaté
 
 .. rubric:: Liens:
-  
+
 - `Tutorial
   <http://ipython.org/ipython-doc/stable/interactive/tutorial.html>`_
 - `IPython Tip Sheet
   <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/ipython.html>`_
+
 
 Types de base
 =============
@@ -169,13 +174,13 @@ Types de base
     `"""'Why?' he asked."""`
   - Conversion: `str(3.2)`
 
-.. index:: 
+.. index::
    pair: type numérique; bool
    pair: type numérique; int
    pair: type numérique; float
    pair: type numérique; complex
 
-- **Types numériques**: 
+- **Types numériques**:
 
   - Booléens `bool` (vrai/faux): `True`, `False`, `bool(3)`
   - Entiers `int` (pas de valeur limite explicite, correspond *au
@@ -185,14 +190,18 @@ Types de base
   - Complexes `complex`: `1+2j`, `5.1j`, `complex(-3.14)`,
     `complex('j')`
 
-  >>> 3/2            # Attention! Division euclidienne par défaut
+  >>> 3/2           # ATTENTION! Division euclidienne par défaut dans Python 2.x
   1
-  >>> float(3)/2     # ou 'from __future__ import division'
+  >>> float(3)/2    # ou 'from __future__ import division'
   1.5
-  >>> (1+2j)**-0.5   # puissance entière, réelle ou complexe
+  >>> 6 // 2.5      # Division euclidienne
+  2.0
+  >>> 6 % 2.5       # Reste de la division euclidienne
+  1.0
+  >>> (1+2j)**-0.5  # Puissance entière, réelle ou complexe
   (0.5688644810057831-0.3515775842541429j)
 
-.. index:: 
+.. index::
    pair: itérables; list
    pair: itérables; tuple
    pair: itérables; set
@@ -201,54 +210,61 @@ Types de base
 .. index:: type
 .. index:: isinstance
 
-- **Objets itérables**: 
+- **Objets itérables**:
 
-  - Listes `list`: `['a', 3, [1,2], 'a']`
+  - Listes `list`: `['a', 3, [1, 2], 'a']`
   - Listes immuables `tuple`: `(2, 3.1, 'a', [])` (selon les
     conditions d'utilisation, les parenthèses ne sont pas toujours
     nécessaires)
-  - Listes à clés `dict`: `{'a':1, 'b':[1,2], 3:'c'}`
+  - Listes à clés `dict`: `{'a':1, 'b':[1, 2], 3:'c'}`
   - Ensembles non ordonnés `set`: `set([1, 2, 3, 2])`
 
-  >>> x,y = 1,2       # Affectations multiples via tuples (ici les parenthèses ne sont pas nécessaires)
-  >>> l1 = ['a','b']; l2=['c',]; l1+l2 # Concaténation de listes
-  ['a', 'b', 'c']
-  >>> range(5)        # liste de 5 entiers commençant par 0
+  >>> l = ['a', True] # Définition d'une liste
+  >>> x, y = 1, 2.5   # Affectations multiples via tuples (les parenthèses ne sont pas nécessaires)
+  >>> range(5)        # Liste de 5 entiers commençant par 0
   [0, 1, 2, 3, 4]
-  >>> set([2,1,3]) | set([1,2,'a']) # Union d'ensembles
+  >>> l + [x, y]      # Concaténation de listes
+  ['a', True, 1, 2.5]
+  >>> set([2, 1, 3]) | set([1, 2, 'a']) # Union d'ensembles
   set(['a', 1, 2, 3])
 
 - :samp:`type({obj})` retourne le type de l'objet,
-  :samp:`isinstance({obj},{type})` teste le type de l'objet.
+  :samp:`isinstance({obj}, {type})` teste le type de l'objet.
 
-  >>> l = [1,2,3]
   >>> type(l)
   <type 'list'>
-  >>> isinstance(l,tuple)
+  >>> isinstance(l, tuple)
   False
+
+.. rubric:: Liens:
+
+- `The Floating Point Guide <http://floating-point-gui.de/>`_
+- `What Every Computer Scientist Should Know About Floating-Point
+  Arithmetic
+  <http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>`_
 
 
 Structures de programmation
 ===========================
 
-- Une instruction par ligne en général (ou instructions séparées par
+- Les blocs sont définis par l'**indentation** (en général par pas de
+  4 espaces) [#braces]_.
+- Une instruction par ligne *en général* (ou instructions séparées par
   `;` en interactif).
-- Les blocs sont définis par l'**indentation** (en général par pas de 4
-  espaces).
 - Les commentaires commencent par `#`, et vont jusqu'à la fin de la
   ligne.
 
-.. index:: 
+.. index::
    pair: booléen; True/False
 
 - **Expression booléenne**: une condition est une expression
   s'évaluant à `True` ou `False`:
 
-  - `False`: test logique faux (p.ex. `3==4`), 0, `''`
-    (chaîne vide), `[]` (liste vide), etc.
-  - `True`: test logique vrai (p.ex. `3==3`), toute valeur/objet
+  - `False`: test logique faux (p.ex. `3 == 4`), valeur nulle, chaîne vide
+    (`''`) ou liste vide (`[]`), etc.
+  - `True`: test logique vrai (p.ex. `(2+2) == 4`), toute valeur ou objet
     non-nul (et donc s'évaluant par défaut à `True`)
-  - Tests logiques: `==`, `>`, `>=`, etc.
+  - Tests logiques: `==`, `!=`, `>`, `>=`, etc.
 
     .. Attention:: Ne pas confondre `=` (affectation d'une variable)
        et `==` (test logique d'égalité).
@@ -260,11 +276,11 @@ Structures de programmation
 
 - **Expression conditionnelle** `if/elif/else`::
 
-    if i>0:     # Condition principale
+    if (i > 0):    # Condition principale
         print "positif"
-    elif i<0:   # Condition secondaire (si nécéssaire)
+    elif (i < 0):  # Condition secondaire (si nécéssaire)
         print "négatif"
-    else:       # Cas final (si nécéssaire)
+    else:          # Cas final (si nécéssaire)
         print "nul"
 
 .. index:: for ... in
@@ -274,8 +290,8 @@ Structures de programmation
 - **Boucle for**: :samp:`for {element} in {iterable}:`, s'éxecute sur
   chacun des *éléments* d'un objet *itérable*:
 
-  >>> for i in range(1,10,2): # entiers de 1 (inclus) à 10 (exclu) par pas de 2
-  ...     print i**2          # Affichage de i**2
+  >>> for i in range(1, 10, 2): # entiers de 1 (inclus) à 10 (exclu) par pas de 2
+  ...     print i**2            # Affichage de i**2
   1
   9
   25
@@ -292,16 +308,22 @@ Structures de programmation
 - **Boucle while**: :samp:`while {condition}:` se répéte tant que la
   *condition* est vraie, ou après une sortie explicite avec `break`
 
-  .. Attention:: aux boucles infinies, dont la condition d'éxecution
+  .. Attention:: aux boucles infinies, dont la condition d'exécution
      reste invariablement vraie (typiquement un critère de convergence
-     qui n'est jamais atteint). On peut toujours s'en protéger en
+     qui n'est jamais atteint).  On peut toujours s'en protéger en
      testant *en plus* sur un nombre maximal (raisonnable)
      d'itérations:
 
-     >>> niter = 0
-     >>> while error>1e-6 and niter<100:
-     ...     error = ...   # A priori, error va décroître, et la boucle s'interrompre
-     ...     niter ++      # Mais on n'est jamais assez prudent!
+     .. code-block:: python
+
+        niter = 0
+        while (error > 1e-6) and (niter < 100):
+            error = ...   # A priori, error va décroître, et la boucle s'interrompre
+            niter += 1    # Mais on n'est jamais assez prudent!
+
+.. rubric:: Exercices:
+
+:ref:`integ`, :ref:`pgcd`
 
 
 .. _td2:
@@ -309,7 +331,7 @@ Structures de programmation
 Les chaînes de caractères
 =========================
 
-.. index:: 
+.. index::
    pair: itérables; str
    pair: itérables; len
    pair: itérables; slice
@@ -343,16 +365,17 @@ Méthodes
 
 .. index:: dir
 
-Les chaînes de caractères disposent de `nombreuses propriétés
-<http://docs.python.org/2/library/stdtypes.html#string-methods>`_ (des
-« méthodes ») facilitant leur manipulation:
+Les chaînes de caractères disposent de `nombreuses fonctionnalités
+<https://docs.python.org/2/library/stdtypes.html#string-methods>`_ --
+appelées « méthodes » en :abbr:`POO (Programmation Orientée Objet)` --
+facilitant leur manipulation:
 
->>> n,t = "Calvin",'Hobbes'
+>>> n, t = "Calvin", 'Hobbes'
 >>> titre = n + ' et ' + t; titre  # + = Concaténation de chaînes
 'Calvin et Hobbes'
->>> titre.replace('et','&')        # Remplacement de sous-chaînes
+>>> titre.replace('et', '&')       # Remplacement de sous-chaînes
 'Calvin & Hobbes'
->>> ' & '.join(titre.split(' et ')) # Découpage et jonction
+>>> ' & '.join(titre.split(' et ')) # Découpage (split) et jonction (join)
 'Calvin & Hobbes'
 >>> 'Hobbes' in titre              # in: Test d'inclusion
 True
@@ -363,21 +386,22 @@ True
 >>> dir(str)                       # Liste toutes les méthodes des chaînes
 
 .. _print:
-  
+
 Formatage
 ---------
 
 .. index:: print
 
 Le système de `formatage
-<http://docs.python.org/2/library/stdtypes.html#string-formatting-operations>`_
-des chaînes de caractères s'appuie sur l'opérateur `%`, et est très
-semblable au `sprintf` du C/C++:
+<https://docs.python.org/2/library/string.html#formatstrings>`_ permet
+un contrôle précis de la conversion de variables en chaînes de
+caractères.  Il s'appuie essentiellement sur la méthode
+:func:`str.format`:
 
->>> "%s a %d ans" % ('Calvin',6)                          # 'format' % (tuple)
+>>> "{} a {} ans".format('Calvin', 6)
 'Calvin a 6 ans'
 >>> pi = 3.1415926535897931
->>> "%(x)f  %(x).2f  %(y)f  %(y)g" % dict(x=pi, y=pi*1e9) # 'format' % {dict}
+>>> "{x:f}  {x:.2f}  {y:f}  {y:g}".format(x=pi, y=pi*1e9)
 '3.141593  3.14  3141592653.589793  3.14159e+09'
 
 :func:`print` affiche à l'écran (plus spécifiquement la sortie
@@ -386,21 +410,22 @@ standard) la conversion d'une variable en chaîne de caractères:
 >>> print "Calvin and Hobbes\nScientific progress goes 'boink'"
 Calvin and Hobbes
 Scientific progress goes 'boink'
->>> print "%d fois %d font %d" % (3, 4, 3*4) # Formatage et affichage
+>>> print "{0} fois {1} font {2}".format(3, 4, 3*4) # Formatage et affichage
 3 fois 4 font 12
 
 .. Python peut également gérer les caractères `Unicode
-.. <http://docs.python.org/2/howto/unicode.html>`_ (mais cela peut vite
+.. <https://docs.python.org/2/howto/unicode.html>`_ (mais cela peut vite
 .. devenir fastidieux...):
 
 .. >>> print "α² + β² = γ²"
 .. α² + β² = γ²
-.. >>> for i in range(945,970):
-.. ...     print i,unichr(i)
+.. >>> for i in range(945, 970):
+.. ...     print i, unichr(i)
 
-.. rubric:: Exercice: 
+.. rubric:: Exercice:
 
 :ref:`tables`
+
 
 Objets itérables
 ================
@@ -408,19 +433,19 @@ Objets itérables
 .. index:: itérables
 
 Les chaînes de caractères, listes, tuples et dictionnaires sont les
-objets itérables de base en Python. Les listes et dictionnaires sont
+objets itérables de base en Python.  Les listes et dictionnaires sont
 *mutables* -- leurs éléments constitutifs peuvent être changés à la
 volée -- tandis que chaînes de caractères et les tuples sont
 *immuables*.
 
 - Accès indexé: conforme à celui des chaînes de caractères
 
-  >>> l = range(1,6) # De 1 (inclus) à 6 (exclu) = [1,2,3,4,5]
-  >>> len(l)         # Nb d'éléments dans la liste (i varie de 0 à 4)
+  >>> l = range(1, 6) # De 1 (inclus) à 6 (exclu) = [1, 2, 3, 4, 5]
+  >>> len(l)          # Nb d'éléments dans la liste (i varie de 0 à 4)
   5
-  >>> l[0],l[-2]     # 1er et avant-dernier élément (l'indexation commençe à 0)
+  >>> l[0], l[-2]     # 1er et avant-dernier élément (l'indexation commençe à 0)
   (1, 4)
-  >>> l[5]           # Erreur: indice hors-bornes
+  >>> l[5]            # Erreur: indice hors-bornes
   IndexError: list index out of range
   >>> d = dict(a=1, b=2) # Création du dictionnaire {'a':1, 'b':2}
   >>> d['a']         # Accès à une entrée via sa clé
@@ -442,42 +467,42 @@ volée -- tandis que chaînes de caractères et les tuples sont
 - Modification d'éléments d'une liste (chaînes et tuples sont
   **immuables**):
 
-  >>> l[0]='a'; l            # Remplacement du 1er élément
+  >>> l[0] = 'a'; l            # Remplacement du 1er élément
   ['a', 2, 3, 4, 5]
-  >>> l[1::2]=['x','y']; l   # Remplacement d'éléments par /slices/
+  >>> l[1::2] = ['x', 'y']; l  # Remplacement d'éléments par /slices/
   ['a', 'x', 3, 'y', 5]
-  >>> l + [1,2]; l           # Concaténation (l reste inchangé)
+  >>> l + [1, 2]; l            # Concaténation (l reste inchangé)
   ['a', 'x', 3, 'y', 5, 1, 2]
   ['a', 'x', 3, 'y', 5]
-  >>> l += [1,2]; l          # Concaténation (modification de l)
+  >>> l += [1, 2]; l           # Concaténation (modification de l)
   ['a', 'x', 3, 'y', 5, 1, 2]
-  >>> del l[-3:]; l          # Efface les 3 derniers éléments de la liste
+  >>> del l[-3:]; l            # Efface les 3 derniers éléments de la liste
   ['a', 'x', 3, 'y']
 
   .. Attention:: à la modification des objets mutables:
 
-     >>> l = range(3)  # l pointe vers la liste [0,1,2]
+     >>> l = range(3)  # l pointe vers la liste [0, 1, 2]
      >>> m = l; m      # m est un *alias* de la liste l
      [0, 1, 2]
-     >>> id(l); id(m); m is l 
-     171573452         # id(/obj/) retourne le n° d'identification en mémoire
+     >>> id(l); id(m); m is l
+     171573452         # id({obj}) retourne le n° d'identification en mémoire
      171573452         # m et l ont le même id:
      True              # ils correspondent donc bien au même objet en mémoire
      >>> l[0] = 'a'; m # puisque l a été modifiée, il en est de même de m
      ['a', 1, 2]
      >>> m = l[:]      # copie des *éléments* de l dans une nouvelle liste m (clonage)
-     >>> id(l); id(m); m is l 
+     >>> id(l); id(m); m is l
      171573452
      171161228         # m a un id différent de l: il s'agit de 2 objets distincts
      False             # (contenant éventuellement la même chose!)
      >>> del l[-1]; m  # les éléments de m n'ont pas été modifiés
      ['a', 1, 2]
 
-- Liste en compréhension: 
+- Liste en compréhension:
 
-  >>> [ i**2 for i in range(5) ] # Carré de tous les éléments de [0,...,4]
+  >>> [ i**2 for i in range(5) ] # Carré de tous les éléments de [0, ..., 4]
   [0, 1, 4, 9, 16]
-  >>> [ 2*i for i in range(10) if i%3!=0 ]  # Compréhension conditionnelle ('%' = reste euclidien)
+  >>> [ 2*i for i in range(10) if (i%3 != 0) ]  # Compréhension conditionnelle
   [2, 4, 8, 10, 14, 16]
   >>> [ 10*i+j for i in range(3) for j in range(4) ]     # Double compréhension
   [0, 1, 2, 3, 10, 11, 12, 13, 20, 21, 22, 23]
@@ -488,112 +513,98 @@ volée -- tandis que chaînes de caractères et les tuples sont
 
 - Utilitaires sur les itérables:
 
-  >>> l1 = ['Calvin','Wallace','Boule']
+  >>> l1 = ['Calvin', 'Wallace', 'Boule']
   >>> for i in range(len(l1)):     # Boucle sur les indices de l1
-  ...     print i,l1[i]            # Accès explicite, pas pythonique :-(
+  ...     print i, l1[i]           # Accès explicite, pas pythonique :-(
   0 Calvin
   1 Wallace
   2 Boule
-  >>> for i,name in enumerate(l1): # Boucle sur indice,valeur de l1
-  ...     print i,name             # Pythonique! :-)
+  >>> for i, name in enumerate(l1): # Boucle sur indice,valeur de l1
+  ...     print i, name             # Pythonique! :-)
   0 Calvin
   1 Wallace
   2 Boule
-  >>> l2 = ['Hobbes','Gromit','Bill']
-  >>> for n1,n2 in zip(l1,l2):     # Boucle simultanée sur 2 listes (ou +)
-  ...     print n1,'et',n2
+  >>> l2 = ['Hobbes', 'Gromit', 'Bill']
+  >>> for n1, n2 in zip(l1, l2):   # Boucle simultanée sur 2 listes (ou +)
+  ...     print n1, 'et', n2
   Calvin et Hobbes
   Wallace et Gromit
   Boule et Bill
-  >>> sorted(zip(l1,l2)) # Tri, ici sur le 1er élément de chaque tuple de la liste
+  >>> sorted(zip(l1, l2)) # Tri, ici sur le 1er élément de chaque tuple de la liste
   [('Boule', 'Bill'), ('Calvin', 'Hobbes'), ('Wallace', 'Gromit')]
 
 
-.. rubric:: Exercices: 
+.. rubric:: Exercices:
 
 :ref:`crible`, :ref:`carre`
 
+
+.. _fonctions:
 
 Fonctions
 =========
 
 Une fonction est un regroupement d'instructions impératives --
 assignations, branchement, boucles -- s'appliquant sur des arguments
-d'entrée. C'est le concept central de la programmation *impérative*.
+d'entrée.  C'est le concept central de la programmation *impérative*.
 
 .. index:: def
 
-`def` permet de définir une fonction: :samp:`def {fonction}({arg1},
-{arg2}, ..., {option1}=valeur1, {option2}={valeur2}, ...):`. Les «
-*args* » sont des arguments nécéssaires (i.e. obligatoires), tandis
-que les « *kwargs* » -- arguments de type :samp:`{option}={valeur}` --
-sont optionnels, puisqu'ils possèdent une valeur par défaut. Si la
-fonction doit retourner une valeur, celle-ci est spécifiée par
-`return`.
+`def` permet de définir une fonction: :samp:`def {fonction}({arg1}, {arg2},
+..., {option1}={valeur1}, {option2}={valeur2}, ...):`.  Les « *args* » sont des
+arguments nécessaires (i.e. obligatoires), tandis que les « *kwargs* » --
+arguments de type :samp:`{option}={valeur}` -- sont optionnels, puisqu'ils
+possèdent une valeur par défaut.  Si la fonction doit retourner une valeur,
+celle-ci est spécifiée par le mot-clé `return`.
 
 .. rubric:: Exemples:
 
 .. code-block:: python
    :linenos:
 
-    def temp_f2c(tf):
-      """Conversion d'une température Fahrenheit `tf` en température Celsius.
+   def temp_f2c(tf):
+       """
+       Conversion d'une température Fahrenheit `tf` en température Celsius.
 
-      Exemple:
-      >>> temp_f2c(104)
-      40.0      
-      """
+       Exemple:
+       >>> temp_f2c(104)
+       40.0
+       """
 
-      tc = (tf - 32.)/1.8       # Conversion Fahrenheit → Celsius
+       tc = (tf - 32.)/1.8       # Conversion Fahrenheit vers Celsius
 
-      return tc
+       return tc
 
-.. Note:: Dans la définition d'une fonction, la première chaîne de
-   charactères (appelé *docstring*) servira de documentation pour la
-   fonction, accessible de l'interpréteur via p.ex. `help(temp_f2c)`,
-   ou `temp_f2c?` sous ipython. Elle se doit d'être tout à la fois
-   pertinente, concise *et* complète.
+Dans la définition d'une fonction, la première chaîne de charactères
+(appelé *docstring*) servira de documentation pour la fonction,
+accessible de l'interpréteur via p.ex. `help(temp_f2c)`, ou
+`temp_f2c?` sous `ipython`.  Elle se doit d'être tout à la fois
+pertinente, concise *et* complète.  Elle peut également inclure des
+exemples d'utilisation (*doctest*, voir :ref:`TDD`).
 
-.. code-block:: python
+.. literalinclude:: mean_power.py
+   :pyobject: mean_power
    :linenos:
-
-   def mean(alist, power=1):
-     """Retourne la racine `power` de la moyenne des éléments de
-     `alist` à la puissance `power`: 
- 
-     .. math:: \mu = (\frac{1}{N}\sum_{i=0}^{N-1} x_i^p)^{1/p}
- 
-     `power=1` correspond à la moyenne arithmétique, `power=2` au
-     *Root Mean Squared*, etc.
- 
-     Exemples:
-     >>> mean([1,2,3])
-     2.0
-     >>> mean([1,2,3], power=2)
-     2.160246899469287
-     """
- 
-     s = 0.                  # Initialisation de la variable *s* comme *float*
-     for val in alist:       # Boucle sur les éléments de *alist*
-         s += val**power     # *s* est augmenté de *val* puissance *power*
-     mean = (s / len(alist))**(1./power) # *mean* = (somme valeurs / nb valeurs)**(1/power)
- 
-     return mean
 
 Il faut noter plusieurs choses importantes:
 
 - Python est un langage à typage *dynamique*, p.ex., le type des
-  arguments d'une fonction n'est pas fixé *a priori*. Dans l'exemple
+  arguments d'une fonction n'est pas fixé *a priori*.  Dans l'exemple
   précédent, `alist` peut être une `list`, un `tuple` ou tout autre
   itérable contenant des éléments pour lesquels les opérations
   effectuées -- somme, exponentiation, division par un entier -- ont
-  été définies (p.ex. des entiers, des complexes, des matrices, etc.).
+  été préalablement définies (p.ex. des entiers, des complexes, des
+  matrices, etc.).
 - La définition d'une fonction se fait dans un « espace parallèle » où
-  les variables ont une portée (*scope*) locale [#scope]_. Ainsi, la
-  variable `s` définie *dans* la fonction `mean` n'interfère pas avec
-  le « monde extérieur » ; inversement, la définition de `mean` ne
-  connait rien d'autre que les variables explicitement définies dans
-  la liste des arguments.
+  les variables ont une portée (*scope*) locale [#scope]_.  Ainsi, la
+  variable `s` définie *dans* la fonction `mean_power` n'interfère pas
+  avec le « monde extérieur » ; inversement, la définition de
+  `mean_power` ne connait rien d'autre que les variables explicitement
+  définies dans la liste des arguments ou localement.
+
+.. rubric:: Exercice:
+
+:ref:`syracuse`
 
 
 Bibliothèques et scripts
@@ -606,24 +617,24 @@ Bibliothèques externes
 
 Une bibliothèque (ou module) est un code fournissant des
 fonctionnalités supplémentaires -- p.ex. des fonctions prédéfinies --
-à Python. Ainsi, le module :mod:`math` définit les fonctions et
+à Python.  Ainsi, le module :mod:`math` définit les fonctions et
 constantes mathématiques usuelles (`sqrt`, `pi`, etc.)
 
-Une bibliothèque « s'importe » avec la commande :samp:`import
-{module}`. Les fonctionnalités supplémentaires sont alors accessibles
+Une bibliothèque est « importée » avec la commande :samp:`import
+{module}`.  Les fonctionnalités supplémentaires sont alors accessibles
 dans l'*espace de noms* :samp:`{module}` via
 :samp:`{module}.{fonction}`:
 
 >>> sqrt(2)                   # sqrt n'est pas une fonction standard de python
 NameError: name 'sqrt' is not defined
->>> import math               # Importe tout le module 'math' 
+>>> import math               # Importe tout le module 'math'
 >>> dir(math)                 # Liste les fonctionnalités de 'math'
 ['__doc__', '__name__', '__package__', 'acos', 'acosh', 'asin',
-'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos',
-'cosh', 'degrees', 'e', 'exp', 'fabs', 'factorial', 'floor', 'fmod',
-'frexp', 'fsum', 'hypot', 'isinf', 'isnan', 'ldexp', 'log', 'log10',
-'log1p', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt',
-'tan', 'tanh', 'trunc']
+'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh',
+'degrees', 'e', 'exp', 'fabs', 'factorial', 'floor', 'fmod', 'frexp',
+'fsum', 'hypot', 'isinf', 'isnan', 'ldexp', 'log', 'log10', 'log1p',
+'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh',
+'trunc']
 >>> math.sqrt(math.pi)        # Les fonctionnalités sont disponibles sous 'math'
 1.7724538509055159
 >>> import math as M          # Importe 'math' dans l'espace 'M'
@@ -636,7 +647,7 @@ NameError: name 'sqrt' is not defined
 .. Attention:: Il est possible d'importer toutes les fonctionnalités
    d'une bibliothèque dans l'espace de noms courant:
 
-   >>> from math import *
+   >>> from math import *    # Argh! Pas pythonique :-(
    >>> sqrt(pi)
    1.7724538509055159
 
@@ -655,32 +666,31 @@ Bibliothèques personnelles et scripts
 -------------------------------------
 
 Vous pouvez définir vos propres bibliothèques en regroupant les
-fonctionnalités au sein d'un même fichier :samp:`{monfichier}.py`. Si
+fonctionnalités au sein d'un même fichier :samp:`{monfichier}.py`.  Si
 ce fichier est importé (p.ex. `import monfichier`), il agira comme une
 bibliothèque; si ce fichier est exécuté (p.ex. `python
 ./monfichier.py`), il agira comme un *script*.
 
 .. Attention:: Toutes les instructions d'un module qui ne sont pas
    encapsulées dans le `__main__` (voir plus bas) sont interprétées et
-   exécutées lors de l'`import` du module. Elles doivent donc en
+   exécutées lors de l'`import` du module.  Elles doivent donc en
    général se limiter à la définition de variables, de fonctions et de
    classes.
 
-   Un code Python peut donc être:
+Un code Python peut donc être:
 
-   - un module -- s'il n'inclu que des définitions mais pas
-     d'instruction exécutable en dehors d'un éventuel `main`,
-   - ou un exécutable -- s'il inclut un `main` ou des instructions
-     exécutables,
-   - ou les deux à la fois.
+- un module -- s'il n'inclu que des définitions mais pas d'instruction
+  exécutable en dehors d'un éventuel `__main__`,
+- ou un exécutable -- s'il inclut un `__main__` ou des instructions
+  exécutables,
+- ou les deux à la fois.
 
 .. rubric:: Exemple:
 
-Le code :ref:`circonscrit.py <circonscrit>` peut être importé comme
-une bibliothèque (p.ex. `import circonscrit`) dans un autre code
-python, ou bien être exécuté depuis la ligne de commande
-(p.ex. `./circonscrit.py`), auquel cas la partie `__main__` sera
-exécutée.
+Le code :ref:`mean_power.py <mean_power>` peut être importé comme une
+bibliothèque (p.ex. `import mean_power`) dans un autre code Python, ou
+bien être exécuté depuis la ligne de commande (p.ex. `python
+mean_power.py`), auquel cas la partie `__main__` sera exécutée.
 
 - `#!` (`Sharp-bang <http://en.wikipedia.org/wiki/Shebang_(Unix)>`_):
   la première ligne d'un script défini l'interpréteur à utiliser::
@@ -688,96 +698,25 @@ exécutée.
     #!/usr/bin/env python
 
 - Un fichier incluant des caractères non-ASCII (p.ex. caractères
-  accentués, ou symboles UTF tel que ±) *doit* définir le système
+  accentués, ou symboles UTF tel que `±`) *doit* définir le système
   d'encodage, généralement `utf-8`::
 
     # -*- coding: utf-8 -*-
 
   Notez que les noms de variables, fonctions, etc. doivent être
-  purement ASCII (`a-zA-Z0-9_`). De manière générale, favorisez la
+  purement ASCII (`a-zA-Z0-9_`).  De manière générale, favorisez la
   langue anglaise (variables, commentaires, affichages).
 - `"""doc"""`: la chaîne de documentation de la bibliothèque
   (*docstring*, :pep:`257`), qui sera utilisée comme aide en ligne du
-  module (`help(circonscrit)`), doit être la *1ère* instruction du
+  module (`help(mean_power)`), doit être la *1ère* instruction du
   script.
 - `if __name__=='__main__':` permet de séparer le `__main__` (i.e. le
   corps du programme, à exécuter lors d'une utilisation en script) des
   définitions de fonctions et classes, permettant une utilisation en
   module.
 
+
 .. _td3:
-
-Classes
-=======
-
-.. index:: class
-
-Un objet est une entité de programmation, disposant de ses propres
-états et fonctionnalités. C'est le concept central de la
-*programmation orientée objet*.
-
-Au concept d'objet sont liées les notions de:
-
-- **Classe:** il s'agit d'un modèle d'objet, dans lequel sont définis
-  ses propriétés usuelles. P.ex. la classe `Point` peut représenter un
-  point dans le plan, caractérisé par ses coordonnées `x,y`, et
-  disposant de fonctionnalités propres (p.ex. `distance`).
-- **Instantiation:** c'est le fait générer un objet concret (une
-  instance) à partir d'un modèle (une classe). P.ex. `M = Point(2,3)`
-  crée le point *M* à partir de la classe `Point` et des coordonnées
-  *(2,3)*.
-- **Attributs:** variables internes décrivant l'état de
-  l'objet. P.ex. `M.x` donne la coordonnée en *x* du point *M*.
-- **Méthodes:** fonctions internes, s'appliquant en premier lieu sur
-  l'objet lui-même (`self`), décrivant le comportement de
-  l'objet. P.ex. `M.distance(N)` retourne la distance entre les points
-  *M* et *N*.
-
-  .. Attention:: Toutes les méthodes d'une classe doivent au moins
-     prendre `self` -- représentant l'objet lui-même -- comme premier
-     argument.
-
-- **Surcharge d'opérateurs:** cela permet de redéfinir les opérateurs
-  et fonctions usuels (`+`, `abs()`, `str()`, etc.), pour simplifier
-  l'écriture d'opérations sur les objets. Ainsi, on peut redéfinir
-  l'opérateur `+` dans la classe `Vector` pour que `v1 + v2` ait un
-  sens.
-
-  `Liste des méthodes standard et des surcharges d'opérateur
-  <http://rgruet.free.fr/PQR26/PQR2.6.html#SpecialMethods>`_
-- **Héritage de classe:** il s'agit de définir une classe à partir
-  d'une (ou plusieurs) classe(s) parente(s). La nouvelle classe
-  *hérite* des attributs et méthodes de sa (ses) parente(s), que l'on
-  peut alors modifier ou compléter. P.ex. la classe `Vector` hérite de
-  la classe `Point` (elle partage la notion de coordonnées), et lui
-  ajoute des méthodes propres à la notion de vecteur (p.ex. l'addition
-  vectorielle).
-
-  .. Attention:: Toutes les classes doivent au moins hériter de la
-     classe principale `object`.
-
-.. rubric:: Exemple de définition
-
-.. literalinclude:: circonscrit.py
-   :start-after: start-classPoint
-   :end-before: end-classPoint
-   :linenos:
-
-.. rubric:: Exemple d'héritage
-
-.. literalinclude:: circonscrit.py
-   :start-after: start-classVector
-   :end-before: end-classVector
-   :linenos:
-
-.. rubric:: Études de cas
-
-- `turtle.Vec2D`
-- `fractions.Fraction`
-
-.. rubric:: Exercice:
-
-:ref:`life`
 
 Exceptions
 ==========
@@ -785,19 +724,19 @@ Exceptions
 .. index:: try ... except
 
 Lorsqu'il rencontre une erreur dans l'exécution d'une instruction,
-l'interpréteur génère (`raise`) une erreur (`Exception`), de `nature
-différente <http://rgruet.free.fr/PQR26/PQR2.6.html#BuiltInExc>`_
-selon la nature de l'erreur: `KeyError`, `ValueError`,
-`AttributeError`, `NameError`, `TypeError`, `IOError`,
-`NotImplementedError`, etc. La levée d'une erreur n'est cependant pas
-nécessairement fatale, puisque Python dispose d'un mécanisme de
-*gestion des erreurs*.
+l'interpréteur Python génère (`raise`) une erreur (`Exception`), de
+`nature différente
+<http://rgruet.free.fr/PQR26/PQR2.6.html#BuiltInExc>`_ selon la nature
+de l'erreur: `KeyError`, `ValueError`, `AttributeError`, `NameError`,
+`TypeError`, `IOError`, `NotImplementedError`, etc.  La levée d'une
+erreur n'est cependant pas nécessairement fatale, puisque Python
+dispose d'un mécanisme de *gestion des erreurs*.
 
 Il est d'usage en Python d'utiliser la philosophie :abbr:`EAFP (Easier
 to Ask for Forgiveness than Permission)` [#lbyl]_: plutôt que de
 tester explicitement toutes les conditions de validité d'une
 instruction, on « tente sa chance » d'abord, quitte à gérer les
-erreurs *a posteriori*. Cette gestion des `Exception` se fait par la
+erreurs *a posteriori*.  Cette gestion des `Exception` se fait par la
 construction `try ... except`.
 
 .. _raw_input:
@@ -811,7 +750,7 @@ construction `try ... except`.
               # La conversion en type entier lève `ValueError` si impossible
               return int(chaine)
           except ValueError:             # Gestion de l'exception ValueError
-              print "'%s' n'est pas un entier" % chaine
+              print "{!r} n'est pas un entier".format(chaine)
 
 >>> lireEntier()
 Entrez un entier: toto
@@ -826,7 +765,7 @@ Entrez un entier: 4
 Dans l'élaboration d'un programme, gérez explicitement les erreurs que
 vous auriez pu tester *a priori* et pour lesquels il existe une
 solution évidente, et laissez passer les autres (ce qui provoquera
-finalement l'interruption du programme)
+éventuellement l'interruption du programme)
 
 .. Attention:: Évitez à tout prix les `except` *nu*, càd ne spécifiant
    pas la ou les exceptions à gérer, car ils intercepteraient alors
@@ -843,14 +782,24 @@ finalement l'interruption du programme)
 Vos procédures doivent également générer des exceptions
 (*documentées*) -- avec l'instruction :samp:`raise {Exception}` -- si
 elles ne peuvent conclure leur action, à charge pour la procédure
-appelante de les gérer::
+appelante de les gérer si besoin::
 
-  def diffsqr(x,y):
-      """Returns x**2 - y**2 for x >= y, raises ValueError if x < y."""
-  
+  def diff_sqr(x, y):
+      """
+      Returns x**2 - y**2 for x >= y, ValueError otherwise.
+
+      Exemples:
+      >>> diff_sqr(5, 3)
+      16
+      >>> diff_sqr(3, 5)
+      Traceback (most recent call last):
+      ...
+      ValueError: x=3 < y=5
+      """
+
       if x < y:
-          raise ValueError("x=%f < y=%f" % (x,y))
-  
+          raise ValueError("x={} < y={}".format(x, y))
+
       return x**2 - y**2
 
 .. index:: assert
@@ -860,14 +809,100 @@ tester la validité de certaines hypothèses fondamentales, soit par une
 structure `if ... raise`, ou plus facilement à l'aide d'`assert` (qui,
 si l'hypothèse n'est pas vérifiée, génère une `AssertionError`)::
 
-  def diffsqr(x,y):
-      """Returns x**2 - y**2 for x >= y."""
-  
-      assert x >= y, "x=%f < y=%f" % (x,y) # Test et msg d'erreur
+  def diff_sqr(x, y):
+      """
+      Returns x**2 - y**2 for x >= y, AssertionError otherwise.
+      """
+
+      assert x >= y, "x={} < y={}".format(x, y) # Test et msg d'erreur
       return x**2 - y**2
 
 .. Note:: La règle générale à retenir concernant la gestion des
    erreurs: **Fail early, fail often, fail better!**
+
+.. rubric:: Exercice:
+
+:ref:`pm`
+
+
+Classes
+=======
+
+.. index:: class
+
+Un objet est une entité de programmation, disposant de ses propres
+états et fonctionnalités.  C'est le concept central de la
+*Programmation Orientée Objet*.
+
+Au concept d'objet sont liées les notions de:
+
+- **Classe:** il s'agit d'un *modèle* d'objet, dans lequel sont
+  définis ses propriétés usuelles.  P.ex. la classe `Forme` peut
+  représenter une forme plane caractérisée par sa couleur, et
+  disposant de fonctionnalités propres (p.ex. `change_couleur()`).
+- **Instantiation:** c'est le fait générer un objet concret (une
+  instance) à partir d'un modèle (une classe).  P.ex. `rosie =
+  Forme('rose')` crée l'instance *rosie* à partir de la classe `Forme`
+  et de la chaîne de caractères *'rose'*.
+- **Attributs:** variables internes décrivant l'état de l'objet.
+  P.ex., `rosie.couleur` donne la couleur de la `Forme` *rosie*.
+- **Méthodes:** fonctions internes, s'appliquant en premier lieu sur
+  l'objet lui-même (`self`), décrivant le comportement de l'objet.
+  P.ex. `rosie.change_couleur('bleu')` change la couleur de la `Forme`
+  *rosie*.
+
+  .. Attention:: Toutes les méthodes d'une classe doivent au moins
+     prendre `self` -- représentant l'objet lui-même -- comme premier
+     argument.
+
+- **Surcharge d'opérateurs:** cela permet de redéfinir les opérateurs
+  et fonctions usuels (`+`, `abs()`, `str()`, etc.), pour simplifier
+  l'écriture d'opérations sur les objets.  Ainsi, on peut redéfinir
+  les opérateurs de comparaison (`<`, `>=`, etc.) dans la classe
+  `Forme` pour que les opérations du genre `forme1 < forme2` aient un
+  sens.
+
+  `Liste des méthodes standard et des surcharges d'opérateur
+  <http://rgruet.free.fr/PQR26/PQR2.6.html#SpecialMethods>`_
+- **Héritage de classe:** il s'agit de définir une classe à partir
+  d'une (ou plusieurs) classe(s) parente(s).  La nouvelle classe
+  *hérite* des attributs et méthodes de sa (ses) parente(s), que l'on
+  peut alors modifier ou compléter.  P.ex. la classe `Rectangle`
+  hérite de la classe `Forme` (elle partage la notion de couleur et
+  d'aire), et lui ajoute des méthodes propres à la notion de rectangle
+  (p.ex. formule explicite de l'aire, étirement).
+
+  .. Attention:: Toutes les classes doivent au moins hériter de la
+     classe principale `object`.
+
+.. rubric:: Exemple de définition de classe
+
+.. literalinclude:: formes.py
+   :pyobject: Forme
+   :linenos:
+
+.. rubric:: Exemple d'héritage de classe
+
+.. literalinclude:: formes.py
+   :pyobject: Rectangle
+   :linenos:
+
+.. Note:: Il est traditionnel de commencer les noms de classes avec
+   des majuscules (`Forme`), et les noms d'instances de classe (les
+   variables) avec des minuscules (`rosie`).
+
+.. rubric:: Exemples
+
+:ref:`formes`, :ref:`circonscrit`
+
+.. rubric:: Études de cas
+
+- :class:`turtle.Vec2D`
+- :class:`fractions.Fraction`
+
+.. rubric:: Exercices:
+
+:ref:`animaux`, :ref:`particle`, :ref:`life`
 
 
 .. Espaces de noms et portée (*scope*)
@@ -894,12 +929,12 @@ Fichiers
 
 La gestion des fichiers (lecture et écriture) se fait à partir de la
 fonction :func:`open` retournant un objet `file
-<http://docs.python.org/2/library/stdtypes.html#bltin-file-objects>`_::
-  
+<https://docs.python.org/2/library/stdtypes.html#bltin-file-objects>`_::
+
   # ========== ÉCRITURE ==========
   outfile = open("carres.dat", 'w') # Ouverture du fichier "carres.dat" en écriture
-  for i in range(1,10):
-      outfile.write("%d  %d\n" % (i, i**2)) # Noter la présence du '\n' (non-automatique)
+  for i in range(1, 10):
+      outfile.write("{}  {}\n".format(i, i**2)) # Noter la présence du '\n' (non-automatique)
   outfile.close()                   # Fermeture du fichier (nécessaire)
 
   # ========== LECTURE ==========
@@ -908,29 +943,26 @@ fonction :func:`open` retournant un objet `file
       if line.strip().startswith('#'): # Ne pas considérer les lignes "commentées"
           continue
       try:                     # Essayons de lire 2 entiers sur cette ligne
-          x,x2 = [ int(tok) for tok in line.split() ]
+          x, x2 = [ int(tok) for tok in line.split() ]
       except ValueError:       # Gestion des erreurs
-          print "Cannot decipher line '%s'" % line
+          print "Cannot decipher line {!r}".format(line)
           continue
-      print "%d**3 = %d" % (x, x**3)
+      print "{}**3 = {}".format(x, x**3)
 
 
 Éléments passés sous silence
 ============================
 
 Cette (brève) introduction à Python se limite à des fonctionnalités
-relativement simples et anciennes -- disons 2.5 -- du langage. De
-nombreuses fonctionnalités du langage n'ont pas été abordées (y
-compris les développements introduits dans les dernières versions de
-la branche 2.x):
+relativement simples du langage.  De nombreuses fonctionnalités du
+langage n'ont pas été abordées:
 
 - `Variables globales
   <http://geekandpoke.typepad.com/geekandpoke/2012/04/simply-explained-gv.html>`_
 - Arguments anonymes: `*args` and `**kwargs`
-- Fonction anonyme: `lambda x,y: x+y`
+- Fonction anonyme: `lambda x, y: x + y`
 - Itérateurs et générateurs: `yield`
 - Gestion de contexte: `with ... as` (:pep:`243`)
-- Nouveau système de formatage de chaîne: `str.format`
 - Décorateurs: fonction sur une fonction ou une classe
   (`@staticmethod`, etc.)
 - Héritages multiples et méthodes de résolution
@@ -940,22 +972,36 @@ Ces fonctionnalités peuvent évidemment être très utiles, mais ne sont
 généralement pas strictement indispensables pour une utilisation «
 courante » de Python dans un contexte scientifique.
 
+Python 3.x
+----------
+
+Ce cours présente le langage Python dans sa version 2.7.  Pourtant, le
+développement actuel de Python se fait uniquement sur la branche 3.x, qui
+constitue une remise à plat *non-rétrocompatible* du langage.  Cependant, à
+moins d'être activement impliqué dans le développement de modules 3.x, il est
+encore `préférable <https://wiki.python.org/moin/Python2orPython3>`_ -- pour un
+utilisateur scientifique lambda -- de développer en Python 2.x, car certaines
+bibliothèques utiles n'ont pas encore été portées ou pleinement testées en 3.x.
+
+Python 3 apporte `quelques changements fondamentaux
+<https://docs.python.org/3/whatsnew/3.0.html>`_, notamment:
+
+- `print` n'est plus un mot-clé mais une fonction: :samp:`print({...})`
+- l'opérateur `/` ne réalise plus la division euclidienne entre les
+  entiers, mais toujours la division *réelle*
+
+L'interpréteur Python 2.7 dispose d'une option `-3` mettant en évidence dans un
+code les parties qui devront être modifiées pour un passage à Python 3.x.
+
 
 .. rubric:: Notes de bas de page
 
-.. [#p3k] Le développement actuel de Python se fait uniquement sur la
-   branche 3.x, qui constitue une remise à plat *non-rétrocompatible*
-   du langage. À moins d'être activement impliqué dans le
-   développement de modules 3.x, il est encore conseillé -- en 2011
-   pour un utilisateur scientifique lambda -- de développer en python
-   2.x, car certaines bibliothèques utiles n'ont pas encore été
-   portées ou pleinement testées en 3.x.
+.. [#braces] ou `from __future__ import braces` ...
 
 .. [#scope] La notion de « portée » est plus complexe, je simplifie...
 
 .. [#lbyl] Par opposition au :abbr:`LBYL (Look Before You Leap)` du
    C/C++, basé sur une série *exhaustive* de tests *a priori*.
-
 
 .. |DANGER| unicode:: 0x2620 .. ☠ = SKULL AND CROSSBONES
 .. |fr| image:: ../Cours/france_flag_icon.png

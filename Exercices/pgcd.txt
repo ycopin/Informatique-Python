@@ -1,0 +1,19 @@
+.. Time-stamp: <2014-09-17 18:42:23 ycopin>
+
+.. _pgcdSol:
+
+PGCD: algorithme d'Euclide
+--------------------------
+
+.. literalinclude:: pgcd.py
+   :linenos:
+
+::
+
+  $ python pgcd.py 
+
+  Le PGCD de 756 et 306 vaut 18
+  42 x 18 = 756
+  17 x 18 = 306
+
+**Source:** :download:`pgcd.py`

@@ -1,3 +1,7 @@
 /_build/
 *~
+*.pyc
 .ipynb_checkpoints
+/.idea/
+*/__pycache__/
+

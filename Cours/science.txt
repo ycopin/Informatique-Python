@@ -3,7 +3,7 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2014-01-14 21:13:47 ycopin>
+.. Time-stamp: <2015-01-23 18:50:22 ycopin>
 
 .. contents:: Table des matières
 ..
@@ -23,18 +23,17 @@ Bibliothèques numériques
     4  Autres librairies scientifiques
 
 * `Standard Numeric and Mathematical Modules
-  <http://docs.python.org/2/library/numeric.html>`_
+  <https://docs.python.org/2/library/numeric.html>`_
 
 .. _td5:
 
 Numpy
 =====
 
-.. index::
-   module: numpy
+.. index:: module: numpy
 
 - `Réference Numpy <http://docs.scipy.org/doc/numpy/reference/>`_
-- `Tutoriel numpy <http://www.scipy.org/Tentative_NumPy_Tutorial>`_
+- `Tutoriel numpy <http://wiki.scipy.org/Tentative_NumPy_Tutorial>`_
 - `Exemples annotés
   <http://wiki.scipy.org/Numpy_Example_List>`_
 
@@ -64,16 +63,16 @@ type, en général numérique. Les différentes dimensions sont appelées
 des *axes*, tandis que le nombre de dimensions -- 0 pour un scalaire,
 1 pour un vecteur, 2 pour une matrice, etc. -- est appelé le *rang*.
 
->>> import numpy as N    # Import de la bibliothèque numpy avec le surnom N
->>> a = N.array([1,2,3]) # Création d'un array 1D à partir d'une liste d'entiers
->>> a.ndim               # Rang du tableau
-1
->>> a.shape              # Format du tableau: par définition, len(shape)=ndim
-(3,)                     # Vecteur 1D de longueur 3
->>> a.dtype              # Type des données du tableau
-dtype('int32')           # Python 'int' = numpy 'int32' = C 'long'
+>>> import numpy as N       # Import de la bibliothèque numpy avec le surnom N
+>>> a = N.array([1, 2, 3])  # Création d'un array 1D à partir d'une liste d'entiers
+>>> a.ndim      # Rang du tableau
+1               # Vecteur (1D)
+>>> a.shape     # Format du tableau: par définition, len(shape)=ndim
+(3,)            # Vecteur 1D de longueur 3
+>>> a.dtype     # Type des données du tableau
+dtype('int32')  # Python 'int' = numpy 'int32' = C 'long'
 >>> # Création d'un tableau 2D de float (de 0. à 12.) de shape 4×3
->>> b = N.arange(12, dtype=float).reshape(4,3); b
+>>> b = N.arange(12, dtype=float).reshape(4, 3); b
 array([[  0.,   1.,   2.],
        [  3.,   4.,   5.],
        [  6.,   7.,   8.],
@@ -82,7 +81,7 @@ array([[  0.,   1.,   2.],
 (4, 3)                   # 4 lignes, 3 colonnes
 >>> b.size               # Nb *total* d'éléments dans le tableau
 12                       # Par définition, size=prod(shape)
->>> b.dtype              
+>>> b.dtype
 dtype('float64')         # Python 'float' = numpy 'float64' = C 'double'
 
 Création de tableaux
@@ -92,9 +91,9 @@ Création de tableaux
 
 - :func:`numpy.array`: convertit une liste d'éléments homogènes ou
   coercitibles
-  
-  >>> N.array([[1.,2.],[3,4]]) # Liste de listes d'entiers et de réels
-  array([[ 1.,  2.],           # Tableau 2D de réels
+
+  >>> N.array([[1., 2.],[3, 4]]) # Liste de listes d'entiers et de réels
+  array([[ 1.,  2.],             # Tableau 2D de réels
          [ 3.,  4.]])
 
 .. index:: pair: numpy; zeros/ones
@@ -102,26 +101,24 @@ Création de tableaux
 - :func:`numpy.zeros` (resp. :func:`numpy.ones`): crée un tableau de
   format donné rempli de zéros (resp. de uns)
 
-  >>> N.zeros((2,1))   # Shape (2,1): 2 lignes, 1 colonne, float par défaut
+  >>> N.zeros((2, 1))  # Shape (2, 1): 2 lignes, 1 colonne, float par défaut
   array([[ 0.],
          [ 0.]])
-  >>> N.ones((1,2), dtype=bool) # Shape (1,2): 1 ligne, 2 colonnes, type booléen
+  >>> N.ones((1, 2), dtype=bool) # Shape (1, 2): 1 ligne, 2 colonnes, type booléen
   array([[True, True]], dtype=bool)
 
-.. index:: 
-   pair: numpy; arange
+.. index:: pair: numpy; arange
 
 - :func:`numpy.arange`: crée une séquence de nombres, en spécifiant
   éventuellement le *start*, le *end* et le *step* (similaire à
   :func:`range` pour les listes)
 
-  >>> N.arange(10, 30, 5)     # De 10 à 30 (exclu) par pas de 5, type entier par défaut
+  >>> N.arange(10, 30, 5) # De 10 à 30 (exclu) par pas de 5, type entier par défaut
   array([10, 15, 20, 25])
   >>> N.arange(0.5, 2.1, 0.3) # Accepte des réels en argument, DANGER!
   array([ 0.5,  0.8,  1.1,  1.4,  1.7,  2. ])
 
-.. index:: 
-   pair: numpy; linspace
+.. index:: pair: numpy; linspace
 
 - :func:`numpy.linspace`: répartition uniforme d'un nombre fixe de
   points entre un *start* et un *end* (préférable à
@@ -131,13 +128,12 @@ Création de tableaux
   array([ 0.,  1.57079633,  3.14159265,  4.71238898,  6.28318531])
 
 
-.. index::
-   pair: numpy; meshgrid
+.. index:: pair: numpy; meshgrid
 
 - :func:`numpy.meshgrid` est similaire à :func:`numpy.linspace` en 2D:
 
   >>> # 5 points entre 0 et 2 en "x", et 3 entre 0 et 1 en "y"
-  >>> z = N.meshgrid(N.linspace(0,2,5), N.linspace(0,1,3)); z
+  >>> z = N.meshgrid(N.linspace(0, 2, 5), N.linspace(0, 1, 3)); z
   (array([[ 0. ,  0.5,  1. ,  1.5,  2. ],  # Tableau 2D des x
           [ 0. ,  0.5,  1. ,  1.5,  2. ],
           [ 0. ,  0.5,  1. ,  1.5,  2. ]]),
@@ -145,8 +141,7 @@ Création de tableaux
           [ 0.5,  0.5,  0.5,  0.5,  0.5],
           [ 1. ,  1. ,  1. ,  1. ,  1. ]]))
 
-.. index:: 
-   pair: numpy; mgrid
+.. index:: pair: numpy; mgrid
 
 - :obj:`numpy.mgrid` permet de générer des rampes d'indices (entiers)
   ou de coordonnées (réels) de rang arbitraire avec une notation
@@ -154,15 +149,15 @@ Création de tableaux
   :func:`numpy.linspace` en 1D et *similaire (mais différent)* à
   :func:`numpy.meshgrid` en 2D.
 
-  >>> N.mgrid[0:4:2,1:5:3]  # Grille 2D d'indices (entiers)
-  array([[[0, 0],           # 0:4:2=[0,2] selon l'axe 0
-          [2, 2]],  
-         [[1, 4],           # 1:5:3=[1,4] selon l'axe 1
+  >>> N.mgrid[0:4:2, 1:5:3]  # Grille 2D d'indices (entiers)
+  array([[[0, 0],            # 0:4:2 = [0, 2] selon l'axe 0
+          [2, 2]],
+         [[1, 4],            # 1:5:3 = [1, 4] selon l'axe 1
           [1, 4]]])
   >>> N.mgrid[0:2*N.pi:5j]  # Rampe de coordonnées (réels): 5 nb de 0 à 2π (inclus)
   array([ 0.,  1.57079633,  3.14159265,  4.71238898,  6.28318531])
   >>> # 3 points entre 0 et 1 selon l'axe 0, et 5 entre 0 et 2 selon l'axe 1
-  >>> z = N.mgrid[0:1:3j, 0:2:5j]; z 
+  >>> z = N.mgrid[0:1:3j, 0:2:5j]; z
   array([[[ 0. ,  0. ,  0. ,  0. ,  0. ],  # Axe 0 variable, axe 1 constant
           [ 0.5,  0.5,  0.5,  0.5,  0.5],
           [ 1. ,  1. ,  1. ,  1. ,  1. ]],
@@ -170,7 +165,7 @@ Création de tableaux
           [ 0. ,  0.5,  1. ,  1.5,  2. ],
           [ 0. ,  0.5,  1. ,  1.5,  2. ]]])
   >>> z.shape
-  (2,3,5)     # 2 plans 2D (x & y) × 3 lignes (y) × 5 colonnes (x)
+  (2, 3, 5)    # 2 plans 2D (x & y) × 3 lignes (y) × 5 colonnes (x)
   >>> N.mgrid[0:1:5j, 0:2:7j, 0:3:9j].shape
   (3, 5, 7, 9) # 3 volumes 3D (x, y, z) × 5 plans (z) × 7 lignes (y) × 9 colonnes (x)
 
@@ -178,11 +173,10 @@ Création de tableaux
      multidimensionnel, et aux différences entre `meshgrid` et
      `mgrid`.
 
-.. index:: 
-   module: numpy.random
+.. index:: module: numpy.random
 
 - :func:`numpy.random.rand` crée un tableau d'un format donné de réels
-  aléatoires dans [0,1[; :func:`numpy.random.randn` génère un tableau
+  aléatoires dans [0, 1[; :func:`numpy.random.randn` génère un tableau
   d'un format donné de réels tirés aléatoirement d'une distribution
   gaussienne (normale) standard (μ=0, σ=1).
 
@@ -209,58 +203,58 @@ Les « tranches » de rang < N d'un tableau de rang N sont appelées
 *slices*: le ou les axes selon lesquels la *slice* a été découpée,
 devenus de longueur 1, sont éliminés.
 
->>> y = N.arange(2*3*4).reshape(2,3,4); y    # 2 plans, 3 lignes, 4 colonnes
+>>> y = N.arange(2*3*4).reshape(2, 3, 4); y  # 2 plans, 3 lignes, 4 colonnes
 array([[[ 0,  1,  2,  3],
         [ 4,  5,  6,  7],
         [ 8,  9, 10, 11]],
        [[12, 13, 14, 15],
         [16, 17, 18, 19],
         [20, 21, 22, 23]]])
->>> y[0,1,2]   # 1er plan (axe 0), 2ème ligne (axe 1), 3ème colonne (axe 2)
-6              # Scalaire, shape *()*, ndim 0
->>> y[0,1]     # 1er plan (axe 0), 2ème ligne (axe 1) = y[0,1,:]
+>>> y[0, 1, 2]  # 1er plan (axe 0), 2ème ligne (axe 1), 3ème colonne (axe 2)
+6               # Scalaire, shape *()*, ndim 0
+>>> y[0, 1]     # 1er plan (axe 0), 2ème ligne (axe 1) = y[0, 1, :]
 array([4, 5, 6, 7]) # Shape (4,)
->>> y[0]       # 1ère slice (3,4) selon le 1er axe = y[0,:,:]
+>>> y[0]        # 1ère slice (3, 4) selon le 1er axe = y[0, :, :]
 array([[ 0,  1,  2,  3],
        [ 4,  5,  6,  7],
        [ 8,  9, 10, 11]])
->>> y[0][1][2] # 1er plan (axe 0), 2ème ligne (axe 1), 3ème colonne (axe 2)
+>>> y[0][1][2]  # 1er plan (axe 0), 2ème ligne (axe 1), 3ème colonne (axe 2)
 6
->>> y[:,-1]    # Dernière slice (2,4) selon le 2ème axe = y[:,2,:]
+>>> y[:, -1]    # Dernière slice (2, 4) selon le 2ème axe = y[:, 2, :]
 array([[ 8,  9, 10, 11],
        [20, 21, 22, 23]])
->>> y[:,:,0]   # 1ère slice (2,3) selon le 3ème axe = y[...,0]
+>>> y[:, :, 0]  # 1ère slice (2, 3) selon le 3ème axe = y[..., 0]
 array([[ 0,  4,  8],
        [12, 16, 20]])
 >>> # On peut vouloir garder explicitement la dimension "tranchée"
->>> y[:,:,0:1] # 1ère slice (2,3) selon le 3ème axe *en gardant le format originel*
+>>> y[:, :, 0:1] # 1ère slice (2, 3) selon le 3ème axe *en gardant le format originel*
 array([[[ 0],
         [ 4],
         [ 8]],
        [[12],
         [16],
         [20]]])
->>> y[:,:,0:1].shape
+>>> y[:, :, 0:1].shape
 (2, 3, 1)  # L'axe 2 a été conservé, il ne contient pourtant qu'un seul élément
 
 .. rubric:: Modification de format
 
-.. index:: 
+.. index::
    pair: numpy; reshape
    pair: numpy; ravel
 
 >>> # *reshape* modifie le format sans modifier le nb total d'éléments
->>> y = N.arange(6).reshape(2,3); y # Shape (6,) → (2,3) (*size* inchangé)
+>>> y = N.arange(6).reshape(2, 3); y # Shape (6,) → (2, 3) (*size* inchangé)
 array([[0, 1, 2],
        [3, 4, 5]])
->>> y.reshape(2,4)                  # Format incompatible (*size* serait modifié)
+>>> y.reshape(2, 4)        # Format incompatible (*size* serait modifié)
 ValueError: total size of new array must be unchanged
 >>> y.ravel()              # *ravel* déroule tous les axes (*1st axis slowest*)
 array([ 0, 1, 2, 3, 4, 5]) # Shape (6,) = 2 × 3 = *size*
 >>> y.ravel('F')           # Ordre 'Fortran (*last axis slowest*)
 array([0, 3, 1, 4, 2, 5])
 
-.. index:: 
+.. index::
    pair: numpy; transpose
    pair: numpy; rollaxis
 
@@ -269,21 +263,26 @@ array([[0, 3],
        [1, 4],
        [2, 5]])
 
-.. index:: 
+.. index::
    pair: numpy; squeeze
    pair: numpy; expand_dims
+   pair: numpy; newaxis
 
->>> y[...,0:1].squeeze()  # *squeeze* élimine les axes de dimension 1 (anton: *expand_dims*)
+>>> y[..., 0:1].squeeze()               # Élimine *tous* les axes de dimension 1
 array([0, 3])
+>>> N.expand_dims(y[..., 0], -1).shape  # Ajoute un axe de dim. 1 en dernière position
+(2, 1)
+>>> y[:, N.newaxis].shape               # Ajoute un axe de dim. 1 en 2nde position
+(2, 1, 3)
 
-.. index:: 
+.. index::
    pair: numpy; resize
 
 >>> # *resize* modifie le format en modifiant le nb total d'éléments
->>> N.resize(N.arange(4), (2,4)) # Complétion avec des copies du tableau
+>>> N.resize(N.arange(4), (2, 4)) # Complétion avec des copies du tableau
 array([[0, 1, 2, 3],
        [0, 1, 2, 3]])
->>> N.resize(N.arange(4), (4,2))
+>>> N.resize(N.arange(4), (4, 2))
 array([[0, 1],
        [2, 3],
        [0, 1],
@@ -294,19 +293,19 @@ array([[0, 1],
 
 .. rubric:: *Stacking*
 
-.. index:: 
+.. index::
    pair: numpy; hstack
    pair: numpy; vstack
    pair: numpy; dstack
 
 >>> a = N.arange(5); a
 array([0, 1, 2, 3, 4])
->>> N.hstack((a,a))  # Stack horizontal (le long des colonnes)
+>>> N.hstack((a, a))  # Stack horizontal (le long des colonnes)
 array([0, 1, 2, 3, 4, 0, 1, 2, 3, 4])
->>> N.vstack((a,a))  # Stack vertical (le long des lignes)
+>>> N.vstack((a, a))  # Stack vertical (le long des lignes)
 array([[0, 1, 2, 3, 4],
        [0, 1, 2, 3, 4]])
->>> N.dstack((a,a))  # Stack en profondeur (le long des plans)
+>>> N.dstack((a, a))  # Stack en profondeur (le long des plans)
 array([[[0, 0],
         [1, 1],
         [2, 2],
@@ -315,7 +314,7 @@ array([[[0, 0],
 
 .. rubric:: *Broadcasting*
 
-.. index:: 
+.. index::
    pair: numpy; broadcasting
    pair: numpy; newaxis
 
@@ -326,52 +325,52 @@ définit les régles selon lesquelles deux tableaux de formats
 
 1. Deux tableaux sont compatibles (*broadcastable*) si, pour chaque
    dimension (`axis`), soit les tailles sont égales, soit l'une
-   d'elles est exactement égale à 1. P.ex. (5,3) et (1,3) sont des
-   formats *broadcastable*, (5,3) et (5,1) également, mais (5,3) et
-   (3,1) ne le sont pas.
+   d'elles est exactement égale à 1. P.ex. (5, 3) et (1, 3) sont des
+   formats *broadcastable*, (5, 3) et (5, 1) également, mais (5, 3) et
+   (3, 1) ne le sont pas.
 2. Si un tableau a une dimension (`axis`) de taille 1, le tableau sera
    dupliqué à la volée autant de fois que nécessaire selon cette
    dimension pour attendre la taille de l'autre tableau dans cette
-   dimension. P.ex. un tableau (2,1,3) pourra être transformé en
-   tableau (2,5,3) en le dupliquant 5 fois le long du 2ème axe
+   dimension. P.ex. un tableau (2, 1, 3) pourra être transformé en
+   tableau (2, 5, 3) en le dupliquant 5 fois le long du 2ème axe
    (`axis=1`).
 3. La taille selon chaque dimension (`axis`) après *broadcast* est
    égale au maximum de toutes les tailles d'entrée le long de cette
-   dimension. P.ex. (5,3,1) × (1,3,4) → (5,3,4).
+   dimension. P.ex. (5, 3, 1) × (1, 3, 4) → (5, 3, 4).
 4. Si un des tableaux a un rang (`ndim`) inférieur à l'autre, alors
    son format (`shape`) est précédé d'autant de 1 que
-   nécessaire. P.ex. (5,3,1) × (4,) = (5,3,1) × (1,1,4) → (5,3,4).
+   nécessaire. P.ex. (5, 3, 1) × (4,) = (5, 3, 1) × (1, 1, 4) → (5, 3, 4).
 
->>> a = N.arange(6).reshape(2,3) # Shape (2,3)
->>> b = N.array([10,20,30])      # Shape (3,) ~ (1,3) → (2,3) = (1,3) copié 2 fois
+>>> a = N.arange(6).reshape(2, 3) # Shape (2, 3)
+>>> b = N.array([10, 20, 30])     # Shape (3,) ~ (1, 3) → (2, 3) = (1, 3) copié 2 fois
 >>> a+b
-array([[10, 21, 32],             # Shape (2,3)
+array([[10, 21, 32],             # Shape (2, 3)
        [13, 24, 35]])
->>> c = N.array([10,20])         # Shape (2,) ~ (1,2) incompatible avec (2,3)
+>>> c = N.array([10, 20])        # Shape (2,) ~ (1, 2) incompatible avec (2, 3)
 >>> a+c
 ValueError: shape mismatch: objects cannot be broadcast to a single shape
->>> a+c[:,N.newaxis]             # = c.reshape(-1,1) → (2,1) → (2,3) = (2,1) copié 3 fois
+>>> a+c[:, N.newaxis]            # = c.reshape(-1, 1) → (2, 1) → (2, 3) = (2, 1) copié 3 fois
 array([[10, 11, 12],
        [23, 24, 25]])
 
 Voir également cette `présentation
-<http://www.scipy.org/EricsBroadcastingDoc>`_.
+<http://wiki.scipy.org/EricsBroadcastingDoc>`_.
 
 .. rubric:: Indexation évoluée
 
-.. index:: 
+.. index::
    pair: numpy; nonzero
    pair: numpy; where
 
->>> a = N.linspace(-1,1,5); a
+>>> a = N.linspace(-1, 1, 5); a
 array([-1. , -0.5,  0. ,  0.5,  1. ])
->>> a>=0       # Test logique: tableau de booléens
+>>> a>=0             # Test logique: tableau de booléens
 array([False, False,  True,  True,  True], dtype=bool)
 >>> (a>=0).nonzero() # Indices des éléments ne s'évaluant pas à False
 (array([2, 3, 4]),)  # Indices des éléments >= 0
->>> a[(a>=0).nonzero()] # Indexation par un tableau d'indices
+>>> a[(a>=0).nonzero()] # Indexation par un tableau d'indices, pas pythonique :-(
 array([ 0. ,  0.5,  1. ])
->>> a[a>=0]             # Indexation par un tableau de booléens, **préférable**
+>>> a[a>=0]  # Indexation par un tableau de booléens, **pythonique** :-D
 array([ 0. ,  0.5,  1. ])
 >>> a[a<0] -= 10; a # Soustrait 10 à toutes les valeurs <0 (= where(a<0, a-10, a)
 
@@ -393,7 +392,7 @@ array([ 1.,  2.,  3.])
 
 .. index:: pair: numpy; axis
 
->>> x = N.random.permutation(6).reshape(3,2); x # 3 lignes, 2 colonnes 
+>>> x = N.random.permutation(6).reshape(3, 2); x # 3 lignes, 2 colonnes
 array([[3, 4],
        [5, 1],
        [0, 2]])
@@ -406,7 +405,7 @@ array([3, 1, 0])     # ce sont donc les minima par ligne (3)
 
 .. rubric:: Opérations matricielles
 
-.. index:: 
+.. index::
    pair: numpy; matrix
    pair: numpy; identity
    pair: numpy; dot
@@ -415,7 +414,7 @@ array([3, 1, 0])     # ce sont donc les minima par ligne (3)
 Les opérations de base s'appliquent sur les *éléments* des tableaux,
 et n'ont pas une signification matricielle par défaut:
 
->>> m = N.arange(4).reshape(2,2); m # Tableau de rang 2
+>>> m = N.arange(4).reshape(2, 2); m # Tableau de rang 2
 array([[0, 1],
        [2, 3]])
 >>> i = N.identity(2, dtype=int); i # Tableau "identité" de rang 2 ~ N.eye
@@ -424,7 +423,7 @@ array([[1, 0],
 >>> m*i               # Attention! opération * sur les éléments
 array([[0, 0],
        [0, 3]])
->>> N.dot(m,i)        # dot = multiplication matricielle sur des tableaux
+>>> N.dot(m, i)       # dot = multiplication matricielle sur des tableaux
 array([[0, 1],
        [2, 3]])
 >>> # Utiliser 'N.matrix' pour des opérations matricielles par défaut
@@ -437,30 +436,30 @@ calcul matriciel (inverse, déterminant, valeurs propres, etc.).
 
 .. rubric:: *Ufuncs*
 
-.. index:: 
+.. index::
    pair: numpy; ufuncs
    pair: numpy; all
    pair: numpy; any
    pair: numpy; allclose
 
-:mod:`numpy` fournit les functions mathématiques de base (`exp`,
+:mod:`numpy` fournit les fonctions mathématiques de base (`exp`,
 `atan2`, etc.) qui s'appliquent sur les éléments des tableaux
 d'entrée:
 
->>> x = N.linspace(0,2*N.pi,5) # [0, π/2, π, 3π/2, 2π]
->>> y = N.sin(x); y            # sin(x) = [0, 1, 0, -1, 0]
+>>> x = N.linspace(0, 2*N.pi, 5)  # [0, π/2, π, 3π/2, 2π]
+>>> y = N.sin(x); y               # sin(x) = [0, 1, 0, -1, 0]
 array([  0.00000000e+00,   1.00000000e+00,   1.22460635e-16,
         -1.00000000e+00,  -2.44921271e-16])
->>> y == [0,1,0,-1,0]          # Test d'égalité stricte (élément par élément)
+>>> y == [0, 1, 0, -1, 0]         # Test d'égalité stricte (élément par élément)
 array([ True,  True, False,  True, False], dtype=bool) # Attention! aux calculs en réels (float)
->>> N.all(N.sin(x)==[0,1,0,-1,0]) # Test d'égalité stricte de tous les éléments
+>>> N.all(N.sin(x)==[0, 1, 0, -1, 0]) # Test d'égalité stricte de tous les éléments
 False
->>> N.allclose(y, [0,1,0,-1,0])   # Test d'égalité numérique de tous les éléments
+>>> N.allclose(y, [0, 1, 0, -1, 0])   # Test d'égalité numérique de tous les éléments
 True
 
 .. rubric:: Exercices:
 
-:ref:`mad`, :ref:`pull`
+:ref:`matrice`, :ref:`mad`, :ref:`pull`
 
 
 Tableaux évolués
@@ -468,7 +467,7 @@ Tableaux évolués
 
 .. rubric:: Types composés
 
-.. index:: 
+.. index::
    pair: numpy; dtype
    pair: numpy; recarray
 
@@ -476,33 +475,32 @@ Outre les types scalaires élémentaires -- `bool`, `int`, `float`,
 `complex`, `str`, etc. -- :mod:`numpy` supporte les tableaux de types
 composés:
 
->>> dt = N.dtype([('nom','S10'),     # 1er  élément: chaîne de 10 caractères
-...               ('age','i'),       # 2ème élément: entier
-...               ('taille','d')])   # 3ème élément: réel (double)
->>> arr = N.array([('Calvin',6,1.20),('Hobbes',5,1.80)], dtype=dt); arr
-array([('Calvin', 6, 1.2), ('Hobbes', 6, 1.8)], 
+>>> dt = N.dtype([('nom', 'S10'),     # 1er  élément: chaîne de 10 caractères
+...               ('age', 'i'),       # 2ème élément: entier
+...               ('taille', 'd')])   # 3ème élément: réel (double)
+>>> arr = N.array([('Calvin', 6, 1.20), ('Hobbes', 5, 1.80)], dtype=dt); arr
+array([('Calvin', 6, 1.2), ('Hobbes', 6, 1.8)],
       dtype=[('nom', '|S10'), ('age', '<i4'), ('taille', '<f8')])
 >>> arr[0]                           # Accès par élément
 ('Calvin', 6, 1.2)
 >>> arr['nom']                       # Accès par sous-type
 array(['Calvin', 'Hobbes'], dtype='|S10')
 >>> rec = arr.view(N.recarray); arr  # Vue de type 'recarray'
-rec.array([('Calvin', 6, 1.2), ('Hobbes', 5, 1.8)], 
+rec.array([('Calvin', 6, 1.2), ('Hobbes', 5, 1.8)],
       dtype=[('nom', '|S10'), ('age', '<i4'), ('taille', '<f8')])
 >>> rec.nom                          # Accès direct par attribut
 chararray(['Calvin', 'Hobbes'], dtype='|S10')
 
 .. rubric:: Tableaux masqués
 
-.. index:: 
-   module: numpy.ma
+.. index:: module: numpy.ma
 
 Le sous-module :mod:`numpy.ma` ajoute le support des tableaux masqués
-(*Masked Arrays*). Imaginons un tableau (4,5) de réels (positifs ou
+(*Masked Arrays*). Imaginons un tableau (4, 5) de réels (positifs ou
 négatifs), sur lequel nous voulons calculer pour chaque colonne la
 moyenne des éléments *positifs* uniquement:
 
->>> x = N.random.randn(4,5); x
+>>> x = N.random.randn(4, 5); x
 array([[-0.55867715,  1.58863893, -1.4449145 ,  1.93265481, -0.17127422],
        [-0.86041806,  1.98317832, -0.32617721,  1.1358607 , -1.66150602],
        [-0.88966893,  1.36185799, -1.54673735, -0.09606195,  2.23438981],
@@ -510,7 +508,7 @@ array([[-0.55867715,  1.58863893, -1.4449145 ,  1.93265481, -0.17127422],
 >>> x[x>=0]          # Donne les éléments >0 du tableau, sans leurs indices
 array([ 1.58863893,  1.93265481,  1.98317832,  1.1358607 ,  1.36185799,
         2.23438981,  0.35943269,  1.38143768])
->>> (x>=0).nonzero() # Donne les indices ([i],[j]) des éléments >0
+>>> (x>=0).nonzero() # Donne les indices ([i], [j]) des éléments >0
 (array([0, 0, 1, 1, 2, 2, 3, 3]), array([1, 3, 1, 3, 1, 4, 0, 3]))
 >>> y = N.ma.masked_less(x, 0); y  # Tableau où les éléments <0 sont masqués
 masked_array(data =
@@ -535,15 +533,15 @@ array([ 0.35943269,  1.64455841, -1.        ,  1.48331773,  2.23438981])
 Entrées/sorties
 ---------------
 
-.. index:: 
+.. index::
    pair: numpy; save/load
    pair: numpy; savetxt/loadtxt
    pair: numpy; genfromtxt
 
-:mod:`numpy` peut lire (:func:`numpy.loadtxt`) ou sauvegarder
-(:func:`numpy.savetxt`) des tableaux dans un simple fichier ASCII:
+:mod:`numpy` peut lire -- :func:`numpy.loadtxt` -- ou sauvegarder --
+:func:`numpy.savetxt` -- des tableaux dans un simple fichier ASCII:
 
->>> x = N.linspace(-1,1,100)
+>>> x = N.linspace(-1, 1, 100)
 >>> N.savetxt('archive_x.dat', x)   # Sauvegarde dans le fichier 'archive_x.dat'
 >>> y = N.loadtxt("archive_x.dat")  # Relecture à partir du fichier 'archive_x.dat'
 >>> (x==y).all()
@@ -557,7 +555,7 @@ Le format ASCII n'est pas optimale pour de gros tableaux: il peut
 alors être avantageux d'utiliser le format binaire `.npy`, beaucoup
 plus compact (mais non *human readable*):
 
->>> x = N.linspace(-1,1,1e6)
+>>> x = N.linspace(-1, 1, 1e6)
 >>> N.save('archive_x.npy', x)   # Sauvegarde dans le fichier 'archive_x.npy'
 >>> y = N.load("archive_x.npy")  # Relecture à partir du fichier 'archive_x.npy'
 >>> (x==y).all()
@@ -570,24 +568,23 @@ bibliothèque standard :ref:`[c]Pickle <pickle>`.
 Sous-modules
 ------------
 
-.. index:: 
+.. index::
    module: numpy.polynomial
    module: numpy.fft
 
 :mod:`numpy` fournit en outre quelques fonctionnalités
 supplémentaires, parmis lesquelles les sous-modules suivants:
 
-- :mod:`numpy.fft`: *Discrete Fourier Transform* 
-- :mod:`numpy.lib.polynomial`: manipulation des polynômes (racines,
-  polynômes orthogonaux, etc.)
+- :mod:`numpy.fft`: *Discrete Fourier Transform*
+- :mod:`numpy.polynomial`: manipulation des polynômes (racines, polynômes
+  orthogonaux, etc.)
 
 .. _td6:
 
 Scipy
 =====
 
-.. index::
-   module: scipy
+.. index:: module: scipy
 
 :mod:`scipy` est une bibliothèque *numérique* [#sym]_ d'algorithmes et
 de fonctions mathématiques, basée sur les tableaux `ndarray`,
@@ -613,9 +610,7 @@ fonctionnalités de :mod:`numpy`. P.ex.:
 .. rubric:: Liens:
 
 - `Réference Scipy <http://docs.scipy.org/doc/scipy/reference/>`_
-- `Cookbook Scipy <http://www.scipy.org/Cookbook>`_
-- `Scipy Course Outline
-  <http://www.rexx.com/~dkuhlman/scipy_course_01.html>`_
+- `Cookbook Scipy <http://wiki.scipy.org/Cookbook>`_
 - `Calcul numérique haut-niveau
   <http://dakarlug.org/pat/scientifique/html/scipy.html>`_ |fr|
 
@@ -625,18 +620,18 @@ fonctionnalités de :mod:`numpy`. P.ex.:
 - `Scikits <http://scikits.appspot.com/scikits>`_: modules
   supplémentaires, parmi lesquels:
 
-  - `scikit-learn <http://scikit-learn.org/>`_: *machine learning*
+  - `scikit-learn <http://scikit-learn.org/stable/>`_: *machine learning*
   - `scikit-image <http://scikit-image.org/>`_: *image processing*
   - `statsmodel <http://statsmodels.sourceforge.net/>`_: modèles statistiques
     (`tutorial <http://jseabold.net/pages/talks>`_)
-- `Scipy Topical softwares <http://www.scipy.org/Topical_Software>`_
+- `Scipy Topical softwares <http://www.scipy.org/topical-software.html>`_
 - `Numpy/Scipy projects <http://wiki.scipy.org/Projects>`_
 
 .. http://www.osc.edu/supercomputing/training/python/python_pt2_0702.pdf
 
-.. rubric:: Exercice:
+.. rubric:: Exercices:
 
-:ref:`anscombe`, :ref:`numerique`
+:ref:`numerique`, :ref:`romberg`, :ref:`rk`
 
 
 Quelques exemples complets
@@ -648,12 +643,12 @@ Quelques exemples complets
   <http://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html>`_
   (intégrales numériques, équations différentielles)
 
-  - `Résolution d'équations différentielles avec scipy
-    <http://ipt.mpsi2.info/scipy/odeint>`_
+  - `odeint notebook
+    <http://nbviewer.ipython.org/gist/dpsanders/d417c1ffbb76f13f678c>`_
   - `Oscillation amortie
     <http://www.dakarlug.org/pat/scientifique/html/scipy.html>`_
   - `Zombie Apocalypse
-    <http://www.scipy.org/Cookbook/Zombie_Apocalypse_ODEINT>`_
+    <http://wiki.scipy.org/Cookbook/Zombie_Apocalypse_ODEINT>`_
 
 * `Optimisation
   <http://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html>`_
@@ -669,15 +664,13 @@ Quelques exemples complets
   (variables aléatoires, distributions, tests)
 
 
-
 Bibliothèques graphiques
 ========================
 
 Matplotlib (2D/3D)
 ------------------
 
-.. index::
-   module: matplotlib
+.. index:: module: matplotlib
 
 `Matplotlib <http://matplotlib.org/>`_ est une
 bibliothèque graphique de visualisation 2D (et marginalement 3D), avec
@@ -693,8 +686,12 @@ Il existe deux interfaces pour deux types d'utilisation:
 
   >>> from pylab import *         # DÉCONSEILLÉ DANS UN SCRIPT!
   >>> x = linspace(-pi, pi, 100)  # pylab importe numpy dans l'espace courant
-  >>> plot(x, sin(x))             # Trace la courbe y = y(x)
-  >>> show()                      # Affiche le résultat
+  >>> y = sin(x)
+  >>> plot(x, y)                  # Trace la courbe y = y(x)
+  >>> xlabel("x [rad]")           # Ajoute le nom de l'axe des x
+  >>> ylabel("y")                 # Ajoute le nom de l'axe des y
+  >>> title("y = sin(x)")         # Ajoute le titre de la figure
+  >>> show()                      # Affiche la figure
 
 * :mod:`matplotlib.pyplot`: interface orientée objet, préférable pour
   les scripts::
@@ -705,8 +702,11 @@ Il existe deux interfaces pour deux types d'utilisation:
     x = N.linspace(-N.pi, N.pi, 100)
     y = N.sin(x)
 
-    fig,ax = P.subplots() # Création de la figure et de l'axe
-    ax.plot(x, y)         # Tracé de la courbe dans l'axe
+    fig, ax = P.subplots() # Création de la figure et de l'axe
+    ax.plot(x, y)          # Tracé de la courbe dans l'axe
+    ax.set_xlabel("x [rad]")
+    ax.set_ylabel("y")
+    ax.set_title("y = sin(x)")
     P.show()              # Affichage de la figure
 
 Dans les deux cas, le résultat est le même:
@@ -720,23 +720,25 @@ Dans les deux cas, le résultat est le même:
 
 - `Tutorial pyplot
   <http://matplotlib.org/users/pyplot_tutorial.html>`_
-- `Tutorial matplotlib <http://www.loria.fr/~rougier/teaching/matplotlib/>`_
-- `Gallery <http://matplotlib.org/gallery.html>`_ 
+- `Tutorial matplotlib
+  <http://www.labri.fr/perso/nrougier/teaching/matplotlib/>`_
+- `Gallery <http://matplotlib.org/gallery.html>`_
 - `Examples <http://matplotlib.org/examples/>`_
+- `Seaborn <http://web.stanford.edu/~mwaskom/software/seaborn/>`_ (une
+  surcouche à matplotlib)
 
-.. rubric:: Exemple:
+.. rubric:: Exemples:
 
-:ref:`filtres2ndOrdre.py <filtres>`
+:ref:`figure.py <figure>`, :ref:`filtres2ndOrdre.py <filtres>`
 
 .. rubric:: Exercices:
 
-:ref:`julia`, :ref:`logistique`
+:ref:`anscombe`, :ref:`julia`, :ref:`logistique`
 
 Mayavi (3D)
 -----------
 
-.. index::
-   module: mayavi/mlab
+.. index:: module: mayavi/mlab
 
 `mayavi.mlab <http://docs.enthought.com/mayavi/mayavi/mlab.html>`_
 est une bibliothèque graphique de visualisation 3D s'appuyant sur
@@ -758,23 +760,25 @@ Une liste **non-exhaustive** de librairies scientifiques dans
 différents domaines de la physique/chimie:
 
 - Mécanique quantique: `QuTiP <http://code.google.com/p/qutip/>`_
-- Électromagnétisme: `EMpy <http://lbolla.github.com/EMpy/>`_
+- Électromagnétisme: `EMpy <https://lbolla.github.io/EMpy/>`_
 - Astronomie: `astropy <http://www.astropy.org/>`_, `Kapteyn
   <http://www.astro.rug.nl/software/kapteyn/>`_ et autres `modules
   astronomiques
-  <http://oneau.wordpress.com/2010/10/02/python-for-astronomy/>`_
-- *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, 
-  `SfePy <http://sfepy.org/doc-devel/index.html>`_
+  <https://oneau.wordpress.com/2010/10/02/python-for-astronomy/>`_
+- *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
+  <http://sfepy.org/doc-devel/>`_
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
-  <http://packages.python.org/milk/>`_, `MDP
+  <https://pythonhosted.org/milk/>`_, `MDP
   <http://mdp-toolkit.sourceforge.net/>`_, `AstroML
   <http://www.astroml.org/>`_ et autres `modules d'intelligence
   artificielle
-  <http://wiki.python.org/moin/PythonForArtificialIntelligence>`_
+  <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_
 - Calcul symbolique: sympy_ (voir également ce `tutoriel sympy
-  <http://mattpap.github.com/scipy-2011-tutorial/html/>`_)
-- `PyROOT <http://root.cern.ch/drupal/content/pyroot>`_
-- `Etc. <http://www.scipy.org/Topical_Software>`_
+  <https://mattpap.github.io/scipy-2011-tutorial/html/>`_)
+- `PyROOT <https://root.cern.ch/drupal/content/pyroot>`_
+- `High Performance Computing in Python
+  <http://byumcl.bitbucket.org/bootcamp2013/labs/perfomance.html>`_
+- `Etc. <http://www.scipy.org/topical-software.html>`_
 
 .. - `PyMC <http://code.google.com/p/pymc/>`_: *Monte Carlo Markov Chain*
 

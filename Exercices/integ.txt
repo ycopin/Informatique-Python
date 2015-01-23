@@ -1,0 +1,20 @@
+.. Time-stamp: <2014-09-17 18:42:37 ycopin>
+
+.. _integSol:
+
+Intégration: méthode des rectangles
+-----------------------------------
+
+.. literalinclude:: integ.py
+   :linenos:
+
+::
+
+  $ python integ.py 
+
+  Intégrale de x**2 entre a = 0 et b = 1 avec n = 100
+  Résultat numérique:  0.333325
+  Résultat analytique: 0.333333333333
+  Erreur relative: -2.49999999998e-05
+
+**Source:** :download:`integ.py`

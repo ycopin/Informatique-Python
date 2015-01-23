@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 
+
 class AbstractBuddy(object):
 
     genre = None
+
     def __init__(self, name):
         self.name = name
         if self.genre is None:
@@ -13,22 +15,23 @@ class AbstractBuddy(object):
         return "%s: %s (%s)" % \
                (self.__class__.__name__, self.name, self.genre)
 
+
 def friendFactory(genre=None):
 
     class Friend(AbstractBuddy):
         pass
 
     Friend.genre = genre
-    if genre=='male':
+    if genre == 'male':
         Friend.__name__ = 'Boyfriend'
-    elif genre=='female':
+    elif genre == 'female':
         Friend.__name__ = 'Girlfriend'
     else:
         Friend.__name__ = 'Pet'
 
     return Friend
 
-if __name__=='__main__':
+if __name__ == '__main__':
 
     calvin = friendFactory('male')('Calvin')
     susie = friendFactory('female')('Susie')

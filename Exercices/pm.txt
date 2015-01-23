@@ -1,0 +1,13 @@
+.. Time-stamp: <2015-01-13 12:12:55 ycopin>
+
+.. _pmSol:
+
+Jeu du plus ou moins
+--------------------
+
+.. literalinclude:: pm.py
+   :linenos:
+
+**Source:** :download:`pm.py`
+
+

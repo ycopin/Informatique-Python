@@ -1,13 +1,57 @@
-.. Time-stamp: <2014-01-14 16:07 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2015-01-20 12:22:55 ycopin>
 .. _exercices:
 
 Exercices
 #########
 
+.. Note:: Les exercices sont de difficulté variable, de ★ (simple) à
+   ★★★ (complexe).
+
+
+Introduction
+============
+
+.. _integ:
+
+Intégration: méthode des rectangles ★
+-------------------------------------
+
+La `méthode des rectangles
+<https://fr.wikipedia.org/wiki/M%C3%A9thode_du_point_m%C3%A9dian>`_ permet
+d'approximer numériquement l'intégrale d'une fonction `f`:
+
+.. math::
+
+   \int_a^b f(x)\,\mathrm{d}x \approx h \sum_{i=0}^{n-1} f(x_{i})
+   \quad\text{avec}\quad
+   h = (b-a)/n
+   \quad\text{et}\quad
+   x_i = a + (i+1/2)h.
+
+On définit la fonction `sq` renvoyant le carré d'un nombre par
+(cf. :ref:`fonctions`)::
+
+  def sq(x) :
+      return x*x
+
+Écrire un programme calculant l'intégrale de cette fonction entre a=0
+et b=1, en utilisant une subdivision en n=100 pas dans un premier
+temps.  Quelle est la précision de la méthode, et comment dépend-elle
+du nombre de pas?
+
+.. _pgcd:
+
+PGCD: algorithme d'Euclide ★
+----------------------------
+
+Écrire un programme calculant le :abbr:`PGCD (Plus Grand Commun Dénominateur)`
+de deux nombres (p.ex. 306 et 756) par l'`algorithme d'Euclide
+<https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide>`_.
+
 .. _tables:
 
-Tables de multiplication
-========================
+Tables de multiplication ★
+--------------------------
 
 Écrire un programme affichant les tables de multiplication::
 
@@ -22,25 +66,25 @@ Manipulation de listes
 
 .. _crible:
 
-Crible d'Ératosthène
---------------------
+Crible d'Ératosthène ★
+----------------------
 
 Implémenter le `crible d'Ératosthène
-<http://fr.wikipedia.org/wiki/Crible_d'Ératosthène>`_ pour afficher
-les nombres premiers compris entre 1 et un entier fixe, p.ex.::
+<https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne>`_ pour
+afficher les nombres premiers compris entre 1 et un entier fixe, p.ex.::
 
   Liste des entiers premiers <= 41
   [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]
 
 .. _carre:
 
-Carré magique
--------------
+Carré magique ★★
+----------------
 
 Un carré magique d’ordre *n* est un tableau carré *n × n* dans lequel
 on écrit une et une seule fois les nombres entiers de 1 à *n²*, de
 sorte que la somme des *n* nombres de chaque ligne, colonne ou
-diagonale principale soit constante. P.ex. le carré magique d’ordre 5,
+diagonale principale soit constante.  P.ex. le carré magique d’ordre 5,
 où toutes les sommes sont égales à 65:
 
 ==  ==  ==  ==  ==
@@ -59,22 +103,45 @@ commençant à 1:
 1. la case *(n,(n+1)/2)* contient 1 ;
 2. si la case *(i,j)* contient la valeur *k*, alors on place la valeur
    *k+1* dans la case *(i+1,j+1)* si cette case est vide, ou dans la
-   case *(i-1,j)* sinon. On respecte la règle selon laquelle un indice
+   case *(i-1,j)* sinon.  On respecte la règle selon laquelle un indice
    supérieur à *n* est ramené a 1.
 
 Programmer cet algorithme pour pouvoir construire un carré magique
 d’ordre impair quelconque.
 
+
+Programmation
+=============
+
+.. _syracuse:
+
+Suite de Syracuse (fonction) ★
+------------------------------
+
+Écrire une fonction `suite_syracuse(n)` retournant la (partie
+non-triviale de la) `suite de Syracuse
+<http://fr.wikipedia.org/wiki/Conjecture_de_Syracuse>`_ pour un entier
+*n*.  Écrire une fonction `temps_syracuse(n, altitude=False)`
+retournant le temps de vol (éventuellement en altitude) correspondant
+à l'entier *n*.  Tester ces fonctions sur *n=15*:
+
+  >>> suite_syracuse(15)
+  [15, 46, 23, 70, 35, 106, 53, 160, 80, 40, 20, 10, 5, 16, 8, 4, 2, 1]
+  >>> temps_syracuse(15)
+  17
+  >>> temps_syracuse(15, altitude=True)
+  10
+
 .. _koch:
 
-Flocon de Koch
-==============
+Flocon de Koch (programmation récursive) ★★★
+--------------------------------------------
 
 .. index::
    module: turtle
 
 En utilisant les commandes `left`, `right` et `forward` de la
-bibliothèque graphique standard `turtle` dans une fonction
+bibliothèque graphique standard :mod:`turtle` dans une fonction
 *récursive*, générer à l'écran un `flocon de Koch
 <http://fr.wikipedia.org/wiki/Flocon_de_Koch>`_ d'ordre arbitraire.
 
@@ -83,10 +150,67 @@ bibliothèque graphique standard `turtle` dans une fonction
 
    **Figure:** Flocon de Koch d'ordre 3.
 
+.. _pm:
+
+Jeu du plus ou moins (exceptions) ★
+-----------------------------------
+
+Écrire un jeu de « plus ou moins »::
+
+  Vous devez deviner un nombre entre 1 et 100.
+  Votre proposition: 27
+  C'est plus.
+  [...]
+  Vous avez trouvé en 6 coups!
+
+La solution sera générée aléatoirement par la fonction
+:func:`random.randint()`.  Le programme devra être robuste aux entrées
+invalides (« toto », 120, etc.), et aux abandons par interruption
+(`KeyboardInterrupt`).
+
+.. _animaux:
+
+Animaux (POO) ★
+---------------
+
+Téléchargez :download:`animaux.py` et complétez les classes `Animal`
+et `Chien` pour qu'elles passent avec succès tous les tests.  On
+appellera les tests via la ligne de commande::
+
+  py.test animaux.py
+
+.. _particle:
+
+Points matériels et ions (POO) ★
+--------------------------------
+
+Pour une simulation d'un problème physique, on peut construire des
+classes qui connaissent elles-mêmes leurs propriétés physiques et
+leurs lois d'évolution.
+
+La structure des classes est proposée dans ce :download:`squelette
+<particle.py>`.  Vous devrez *compléter* les définitions des classes
+`Vector`, `Particle` et `Ion` afin qu'elles passent toutes les tests
+lancés automatiquement par le programme principal `main`.  À
+l'exécution, la sortie du terminal doit être::
+
+  ***************** Test functions *****************
+  Testing Vector class... ok
+  Testing Particle class... ok
+  Testing Ion class... ok
+  ******************** Test end ********************
+
+  ************* Physical computations **************
+  ** Gravitationnal computation of central-force motion for a Particle with mass 1.00, position (1.00,0.00,0.00) and speed (0.00,1.00,0.00)
+  => Final system : Particle with mass 1.00, position (-1.00,-0.00,0.00) and speed (0.00,-1.00,0.00)
+  ** Electrostatic computation of central-force motion for a Ion with mass 1.00, charge 4, position (0.00,0.00,1.00) and speed (0.00,0.00,-1.00)
+  => Final system : Ion with mass 1.00, charge 4, position (0.00,0.00,7.69) and speed (0.00,0.00,2.82)
+  *********** Physical computations end ************
+
 .. _life:
 
-Jeu de la vie (POO)
-===================
+Jeu de la vie (POO) ★★
+----------------------
 
 On se propose de programmer l'automate cellulaire le plus célèbre, `le
 Jeu de la vie <http://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
@@ -94,8 +218,8 @@ Jeu de la vie <http://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
 Pour cela, vous créerez une classe `Life` qui contiendra la grille du
 jeu ainsi que les méthodes qui permettront son évolution.  Vous
 initialiserez la grille aléatoirement à l'aide de la fonction
-`random.choice([True,False])`, et vous afficherez l'évolution de
-l'automate dans la sortie standard du terminal, p.ex.::
+:func:`random.choice`, et vous afficherez l'évolution de l'automate
+dans la sortie standard du terminal, p.ex.::
 
   ...#..#.....##.......
   .....###.............
@@ -107,30 +231,52 @@ l'automate dans la sortie standard du terminal, p.ex.::
   ..............##.##..
   ................#....
 
-N.B.: Pour que l'affichage soit agréable à l'oeil, vous marquerez des
-pauses entre l'affichage de chaque itération grâce à la fonction
-`time.sleep`.
+.. Tip:: Pour que l'affichage soit agréable à l'oeil, vous marquerez
+   des pauses entre l'affichage de chaque itération grâce à la
+   fonction :func:`time.sleep`.
 
-Manipulation de tableaux (arrays)
-=================================
+
+Manipulation de tableaux (`arrays`)
+===================================
+
+.. _matrice:
+
+Inversion de matrice ★
+----------------------
+
+Créer un tableau carré réel :math:`\mathsf{r}` aléatoire
+(:func:`numpy.random.randn`), calculer la matrice hermitienne :math:`\mathsf{m}
+= \mathsf{r} \cdot \mathsf{r}^T` (:func:`numpy.dot`), l'inverser
+(:func:`numpy.linalg.inv`), et vérifier que :math:`\mathsf{m} \cdot
+\mathsf{m}^{-1} = \mathsf{m}^{-1} \cdot \mathsf{m} = \mathsf{1}`
+(:func:`numpy.eye`) à la précision numérique près (:func:`numpy.allclose()`).
 
 .. _mad:
 
-*Median Absolute Deviation*
----------------------------
+*Median Absolute Deviation* ★
+-----------------------------
 
-En statistique, le *Median Absolute Deviation* (MAD) est un estimateur
-robuste de la dispersion d'un échantillon 1D: `MAD = median(| x -
-median(x) |)`
+En statistique, le *Median Absolute Deviation* (MAD) est un estimateur robuste
+de la dispersion d'un échantillon 1D: `MAD = median(| x - median(x) |)`.
 
-À l'aide des fonctions `N.median` et `N.abs`, écrire une fonction
-`mad(x, axis=None)` calculant le MAD d'un tableau le long d'un de ses
-axes.
+À l'aide des fonctions :func:`numpy.median`, :func:`numpy.abs` et
+:func:`numpy.expand_dims`, écrire une fonction `mad(x, axis=None)` calculant le
+MAD d'un tableau, éventuellement le long d'un de ses axes.
+
+Avant d'implémenter la fonction, on commencera par écrire quelques tests de cas
+simples, facilement calculables à la main.  On les écrira sous un format compris
+par *py.test*, p.ex.:
+
+.. code-block:: python
+
+    def test_1D():
+        assert mad([0]) == 0.
+        assert mad([1,2,6,9]) == 2.5
 
 .. _pull:
 
-Distribution du *pull*
-----------------------
+Distribution du *pull* ★★★
+--------------------------
 
 Le *pull* est une quantité statistique permettant d'évaluer la
 conformité des erreurs par rapport à une distribution de valeurs
@@ -151,23 +297,67 @@ Si les erreurs :math:`\sigma_i` sont correctes, la distribution du
 
 Écrire une fonction `pull(x, dx)` calculant le *pull* de tableaux 1D.
 
+
+.. _algo:
+
+Méthodes numériques
+===================
+
+.. _numerique:
+
+Quadrature & zéro d'une fonction ★
+----------------------------------
+
+À l'aide des algorithmes disponibles dans :mod:`scipy`,
+
+* calculer numériquement l'intégrale :math:`\int_0^\infty
+  \frac{x^3}{e^x-1}\mathrm{d}x = \pi^4/15`;
+* résoudre numériquement l'équation :math:`x\,e^x = 5(e^x - 1)`.
+
+.. _romberg:
+
+Schéma de Romberg ★★
+--------------------
+
+Écrire une fonction `integ_romberg(f, a, b, epsilon=1e-6)` permettant de
+calculer l'intégrale numérique de la fonction *f* entre les bornes *a* et *b*
+avec une précision *epsilon* selon la `méthode de Romberg
+<https://fr.wikipedia.org/wiki/M%C3%A9thode_de_Romberg>`_.
+
+Tester sur des solutions analytiques et en comparant à
+:func:`scipy.integrate.romberg`.
+
+.. _rk:
+
+Méthode de Runge-Kutta ★★
+-------------------------
+
+Développer un algorithme permettant d'intégrer numériquement une équation
+différentielle du 1er ordre en utilisant la `méthode de Runge-Kutta
+<https://fr.wikipedia.org/wiki/M%C3%A9thodes_de_Runge-Kutta>`_ d'ordre quatre.
+
+Tester sur des solutions analytiques et en comparant à
+:func:`scipy.integrate.odeint`.
+
+
 Visualisation (matplotlib)
 ==========================
 
 .. _anscombe:
 
-Quartet d'Anscombe
-------------------
+Quartet d'Anscombe ★
+--------------------
 
 Après chargement des données, calculer et afficher les propriétés
 statistiques des quatres jeux de données du :download:`Quartet
 d'Anscombe <anscombe.dat>`:
 
-* Moyenne et variance des *x* (`N.mean` et `N.var`)
+* Moyenne et variance des *x* (:func:`numpy.mean` et
+  :func:`numpy.var`)
 * Moyenne et variance des *y*
-* Corrélation entre les *x* et les *y* (`scipy.stats.pearsonr`)
+* Corrélation entre les *x* et les *y* (:func:`scipy.stats.pearsonr`)
 * Équation de la droite de régression linéaire
-  (`scipy.stats.linregress`)
+  (:func:`scipy.stats.linregress`)
 
 .. table:: Quartet d'Anscombe
 
@@ -194,8 +384,8 @@ que la droite de régression linéaire.
 
 .. _logistique:
 
-Diagramme de bifurcation : la suite logistique
-----------------------------------------------
+Diagramme de bifurcation: la suite logistique ★★
+------------------------------------------------
 
 Écrivez une fonction qui calcule la valeur d'équilibre de la `suite
 logistique <http://fr.wikipedia.org/wiki/Suite_logistique>`_ pour un
@@ -216,8 +406,8 @@ résultats.
 
 .. _julia:
 
-Ensemble de Julia
------------------
+Ensemble de Julia ★★
+--------------------
 
 Représentez l'`ensemble de Julia
 <http://fr.wikipedia.org/wiki/Ensemble_de_Julia>`_ pour la constante
@@ -229,37 +419,25 @@ complexe :math:`c = 0.284 + 0.0122j`:
 
    **Figure:** Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
 
-N.B.: On utilisera la fonction `numpy.meshgrid` pour construire le
-plan complexe, et l'on affichera le résultat grâce à la fonction
-`matplotlib.pyplot.imshow`.
+On utilisera la fonction :func:`numpy.meshgrid` pour construire le plan
+complexe, et l'on affichera le résultat grâce à la fonction
+:func:`matplotlib.pyplot.imshow`.
 
 Voir également: `Superposition d'ensembles de Julia
 <http://maths.wikidot.com/julia-superposition>`_
 
-.. _algo:
 
-Méthodes numériques
-===================
-
-.. _numerique:
-
-Quadrature & zéro d'une fonction
---------------------------------
-
-* Calculer numériquement l'intégrale :math:`\int_0^\infty
-  \frac{x^3}{e^x-1}\mathrm{d}x = \frac{\pi^4}{15}`.
-* Résoudre numériquement l'équation :math:`\frac{x\,e^x}{e^x - 1} =
-  5`.
+Mise en oeuvre de l'ensemble des connaissances acquises
+=======================================================
 
 .. _canon:
 
-Équation différentielle
------------------------
+Équation différentielle ★
+-------------------------
 
-À l'aide de la fonction `scipy.integrate.odeint
-<http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html>`_,
-intégrer les équations du mouvement d'un boulet de canon soumis à des
-forces de frottement « turbulentes » (en :math:`v^2`):
+À l'aide de la fonction :func:`scipy.integrate.odeint`, intégrer les
+équations du mouvement d'un boulet de canon soumis à des forces de
+frottement « turbulentes » (en :math:`v^2`):
 
 .. math::
 
@@ -270,52 +448,101 @@ Utiliser les valeurs numériques pour un boulet de canon de `36 livres
 
 .. code-block:: python
 
-    g = 9.81 # Pesanteur [m/s2]
-    cx = 0.45 # Coefficient de frottement d'une sphère
-    rhoAir = 1.2 # Masse volumique de l'air [kg/m3]
+    g = 9.81       # Pesanteur [m/s2]
+    cx = 0.45      # Coefficient de frottement d'une sphère
+    rhoAir = 1.2   # Masse volumique de l'air [kg/m3]
     rad = 0.1748/2 # Rayon du boulet [m]
-    rho = 6.23e3 # Masse volumique du boulet [kg/m3]
-    mass = 4./3.*N.pi*rad**3 * rho # Masse du boulet [kg]
+    rho = 6.23e3   # Masse volumique du boulet [kg/m3]
+    mass = 4./3.*N.pi*rad**3 * rho           # Masse du boulet [kg]
     alpha = 0.5*cx*rhoAir*N.pi*rad**2 / mass # Coeff. de frottement / masse
-    v0 = 450. # Vitesse initiale [m/s]
-    alt = 45. # Inclinaison du canon [deg]
+    v0 = 450.      # Vitesse initiale [m/s]
+    alt = 45.      # Inclinaison du canon [deg]
 
-.. _romberg:
+Équation d'état de l'eau à partir de la dynamique moléculaire ★★★
+-----------------------------------------------------------------
 
-Schéma de Romberg
------------------
+Afin de modéliser les planètes de type Jupiter, Saturne, ou même des
+exo-planètes très massives (dites « super-Jupiters »), la connaissance
+de l'équation d'état des composants est nécessaire.  Ces équations
+d'état doivent être valables jusqu'à plusieurs centaines de méga-bar ;
+autrement dit, celles-ci ne sont en aucun cas accessibles
+expérimentalement.  On peut cependant obtenir une équation d'état
+numériquement à partir d'une dynamique moléculaire.
 
-Écrire une fonction `integ_romberg(f, a, b, epsilon=1e-6)` permettant
-de calculer l'intégrale numérique de la fonction *f* entre les bornes
-*a* et *b* avec une précision *epsilon* selon la `méthode de Romberg
-<http://fr.wikipedia.org/wiki/Méthode_de_Romberg>`_.
+Le principe est le suivant : on place dans une boite un certain nombre
+de particules régies par les équations microscopiques (Newton par
+exemple, ou même par des équations prenant en considération la
+mécanique quantique) puis on laisse celles-ci évoluer dans la boite ;
+on calcule à chaque pas de temps l'énergie interne à partir des
+intéractions électrostatiques et la pression à partir du tenseur des
+contraintes.  On obtient en sortie l'évolution du système pour une
+densité fixée (par le choix de taille de la boite) et une température
+fixée (par un algorithme de thermostat que nous ne détaillerons pas
+ici).
 
-Tester sur des solutions analytiques et en comparant à
-`scipy.integrate.romberg`.
+On se propose d'analyser quelques fichiers de sortie de tels calculs pour
+l'équation d'état de l'eau à très haute pression.  Les fichiers de sortie sont
+disponibles :download:`ici <equationEtat_outputs.tgz>`; leur nom indique les
+conditions thermodynamiques correspondant au fichier, p.ex. `6000K_30gcc.out`
+pour :math:`T = 6000` K et :math:`\rho = 30` gcc.  Le but est, pour chaque
+condition température-densité, d'extraire l'évolution de l'énergie et de la
+pression au cours du temps, puis d'en extraire la valeur moyenne ainsi que les
+fluctuations.  Il arrive souvent que l'état initial choisi pour le système ne
+corresponde pas à son état d'équilibre, et qu'il faille donc « jeter » les
+quelques pas de temps en début de simulation qui correspondent à cette
+relaxation du système.  Pour savoir combien de temps prend cette relaxation, il
+sera utile de tracer l'évolution au cours du temps de la pression et l'énergie
+pour quelques simulations.  Une fois l'équation d'état :math:`P(\rho,T)` et
+:math:`E(\rho,T)` extraite, on pourra tracer le réseau d'isothermes.
 
-.. _rk:
+.. Hint:: Vous écrirez une classe `Simulation` qui permet de charger
+   un fichier de dynamique moléculaire, puis de tracer l'évolution de
+   a température et de la densité, et enfin d'en extraire la valeur
+   moyenne et les fluctuations.  À partir de cette classe, vous
+   construirez les tableaux contenant l'équation d'état.
 
-Méthode de Runge-Kutta
-----------------------
 
-Développer un algorithme permettant d'intégrer numériquement une
-équation différentielle du 1er ordre en utilisant la `méthode de
-Runge-Kutta <http://fr.wikipedia.org/wiki/Méthodes_de_Runge-Kutta>`_
-d'ordre quatre.
-
-Tester sur des solutions analytiques et en comparant à
-`scipy.integrate.odeint`.
-
-Exercices supplémentaires
-=========================
+Exercices en vrac
+=================
 
 * `Exercices de base
   <http://fr.wikibooks.org/wiki/Programmation_Python/Exercices_Base_du_langage>`_ |fr|
 * `Entraînez-vous !
-  <http://www.siteduzero.com/forum-83-537209-p1-entrainez-vous-sur-le-langage-python.html>`_ |fr|
+  <http://openclassrooms.com/forum/sujet/entrainez-vous-sur-le-langage-python-54161?page=3#message-85967089>`_
+  |fr|
 * `Learn Python The Hard Way <http://learnpythonthehardway.org/book/>`_
 * `Google Code Jam <http://code.google.com/codejam/>`_
 * `CheckIO <http://www.checkio.org/>`_
+
+.. _PDB:
+
+*Protein Data Bank*
+-------------------
+
+On chercher a réaliser un script qui analyse un fichier de données de
+type `Protein Data Bank
+<http://fr.wikipedia.org/wiki/Protein_Data_Bank>`_.
+
+La banque de données `Worldwide Protein Data Bank
+<http://www.wwpdb.org/>`_ regroupe les structures obtenues par
+diffraction aux rayons X ou par RMN.  Le format est parfaitement
+defini et conventionnel (`Documentation
+<http://www.wwpdb.org/docs.html>`_).
+
+On propose d'assurer une lecture de ce fichier pour calculer notamment :
+
+- le barycentre de la biomolécule
+- le nombre d'acides aminés ou nucléobases
+- le nombre d'atomes
+- la masse moléculaire
+- les dimensions maximales de la protéine
+- etc.
+
+On propose de considerer par exemple la structure resolue pour la `GFP
+<http://www.rcsb.org/pdb/101/motm.do?momID=42>`_ (*Green Fluorescent
+Protein*, Prix Nobel 2008) (`Fichier PDB
+<http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)
+
 
 .. |fr| image:: ../Cours/france_flag_icon.png
    :alt: Fr

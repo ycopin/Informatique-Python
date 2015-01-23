@@ -1,0 +1,18 @@
+.. Time-stamp: <2014-09-24 18:24:22 ycopin>
+
+.. _syracuseSol:
+
+Fonctions: suite de Syracuse
+----------------------------
+
+.. literalinclude:: syracuse.py
+   :linenos:
+
+::
+
+  Suite de Syracuse pour n = 15
+  [15, 46, 23, 70, 35, 106, 53, 160, 80, 40, 20, 10, 5, 16, 8, 4, 2, 1]
+  Temps de vol total:       17
+  Temps de vol en altitude: 10
+
+**Source:** :download:`syracuse.py`

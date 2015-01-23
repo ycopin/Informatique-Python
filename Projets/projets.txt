@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-09 17:37:17 ycopin>
+.. Time-stamp: <2015-01-23 19:26:44 ycopin>
 .. _projets:
 
 Micro-projets
@@ -162,6 +162,81 @@ la température et du champ magnétique par simulation de Monte-Carlo.
    <http://cs.adelaide.edu.au/~paulc/physics/spinmodels.html>`_.
 
 
+Méthode de Hückel
+-----------------
+
+La spectroscopie et la réactivité des électrons :math:`\pi` est
+centrale en chimie. Un outil efficace pour les appréhender est
+l'approche développé par Hückel. Il vous est demande ici de mettre en
+oeuvre cette méthode pour l'analyse des orbitales et de l'énergie
+d'une famille de molécules répondant aux hypothèse sous-jacentes. On
+discutera notamment du choix de la paramétrisation du système.
+
+
+Évacuation d'une salle & déplacement d'une foule dans une rue
+-------------------------------------------------------------
+
+Le comportement d'une foule est un problème aux applications
+multiples: évacuation d'une salle, couloir du métro aux heures de
+pointes, manifestations...  On peut en imaginer des modèles simples.
+P. ex., on peut décrire chaque individu par sa position, sa vitesse,
+et comme étant soumis à des « forces »:
+
+* Une force qui spécifie la direction dans laquelle l'individu *veut*
+  se déplacer, :math:`\textbf{f}_{dir} = (\textbf{v}_0 -
+  \textbf{v}(t))/\tau`, où :math:`\textbf{v}_0` est la direction et la
+  vitesse que la personne veut atteindre, :math:`\textbf{v}` sa
+  vitesse actuelle, et :math:`\tau` un temps caractéristique
+  d'ajustement.
+
+* Une force qui l'oblige à éviter des obstacles qui peuvent être fixes
+  (un mur, un massif de fleurs, ...), ou qui peuvent être les autres
+  individus eux-mêmes. On pourra essayer :math:`f_{obs}(d) = a
+  \exp(-d/d_0)`, où :math:`d` est la distance entre le piéton et
+  l'obstacle, :math:`d_0` la « portée » de la force, et :math:`a` son
+  amplitude.
+
+On pourra varier les différents paramètres apparaissant ci-dessus,
+tout en leur donnant une interprétation physique réelle, et étudier
+leur influence dans des situations concrètes. P. ex., à quelle
+vitesse, en fonction de :math:`\textbf{v}_0` et de la densité de
+piétons, se déplace une foule contrainte à avancer dans un couloir si
+chaque individu veut maintenir une vitesse :math:`\textbf{v}_0` ?
+Comment s'organise l'évacuation d'une salle initialement uniformément
+peuplée, avec une ou plusieurs sorties, et en la présence éventuels
+d'obstacles ?
+
+Il est également possible d'essayer d'autres expressions pour les
+forces.
+
+Il existe une littérature conséquente sur le sujet, que l'on pourra
+explorer si besoin (p. ex: `Décrypter le mouvement des piétons dans
+une foule <http://www2.cnrs.fr/presse/communique/1852.htm>`_).
+
+.. figure::  6k-RoomExit4.png
+   :width: 50%
+   :align: center
+
+   **Figure:** Un obstacle aide à l'évacuation. Source: `Crowd Behavior
+   <https://www.openabm.org/book/export/html/1955>`_.
+
+
+Densité d'états d'un nanotube
+-----------------------------
+
+Les nanotubes de carbone ont été découverts bien avant celle du
+graphène. Ce sont des matériaux très résistants et durs qui possèdent
+une conductivité électrique et thermique élevées. Un nanotube de
+carbone monofeuillet consiste d’une couche de graphène enroulé selon
+un certain axe. L’axe d'enroulement détermine la chiralité du nanotube
+et, par la suite, les propriétés électroniques : selon la chiralité,
+le nanotube peut être soit semi-conducteur, soit métallique.
+L’objectif du projet sera de calculer la densité d'états de nanotubes
+de carbone de différentes chiralités et d'établir le lien entre la
+chiralité et le fait que le nanotube soit semiconducteur ou
+métallique.
+
+
 Solitons
 --------
 
@@ -228,6 +303,16 @@ répondre à chacune d’entre elle):
 
 .. include:: banc_poisson.txt
 
+.. Diagramme de phase du potentiel de Lennard-Jones
+.. ------------------------------------------------
+
+.. include:: lennard_jones.txt
+
+.. Suivi de particule(s)
+.. ---------------------
+
+.. include:: particle_tracking.txt
+
 
 Autres possibilités
 -------------------
@@ -272,9 +357,9 @@ Références:
 * *A numerical method for quantum tunnelling*, Pang T., Computers un
   Physics, 9, p 602-605.
 * `Équation de Schrödinger 1D
-  <http://www.scipy.org/Cookbook/SchrodingerFDTD>`_
+  <http://wiki.scipy.org/Cookbook/SchrodingerFDTD>`_
 * `Quantum Python: Animating the Schrodinger Equation
-  <http://jakevdp.github.com/blog/2012/09/05/quantum-python/>`_
+  <http://jakevdp.github.io/blog/2012/09/05/quantum-python/>`_
 
 Percolation
 ...........

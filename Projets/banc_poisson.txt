@@ -1,5 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2014-01-08 22:01:23 ycopin>
+.. Time-stamp: <2015-01-13 12:49:18 ycopin>
 
 :orphan:
 
@@ -9,12 +9,11 @@ Auto-organisation d'un banc de poissons
 .. sectionauthor:: Hanna Julienne <hanna.julienne@gmail.com>
 
 La coordination d'un `banc de poissons
-<http://www.youtube.com/watch?v=cIgHEhziUxU>`_ ou d'un `vol d'oiseaux
-<https://vimeo.com/31158841>`_ est tout à fait frappante: les milliers
-d'individus qui composent ces structures se meuvent comme un seul.  On
-observe aussi, dans les bancs de poisson, d'impressionnants
-comportements d'évitement des prédateurs (`flash expansion, fountain
-effect
+<https://www.youtube.com/watch?v=cIgHEhziUxU>`_ ou d'un `vol d'oiseaux
+<http://vimeo.com/31158841>`_ est tout à fait frappante: les milliers
+d'individus qui composent ces structures se meuvent comme un seul.  On observe
+aussi, dans les bancs de poisson, d'impressionnants comportements d'évitement
+des prédateurs (`flash expansion, fountain effect
 <http://www.colby.edu/biology/BI358j/Readings/Partridge%201982.pdf>`_).
 
 Pourtant ces mouvements harmonieusement coordonnés ne peuvent pas
@@ -87,5 +86,5 @@ Liens :
 * `Craig Reynolds Boids <http://www.red3d.com/cwr/boids/>`_
 * `Décrypter les interactions entre poissons au sein d'un banc
   <http://www.cnrs.fr/insb/recherche/parutions/articles2012/g-theraulaz2.htm>`_
-* `Nuées d’oiseaux <http://mpt2013.fr/nuees-doiseaux/>`_ et `bancs de
-  poissons <http://mpt2013.fr/bancs-de-poissons/>`_
+
+.. * `Nuées d’oiseaux <http://mpt2013.fr/nuees-doiseaux/>`_ et `bancs de poissons <http://mpt2013.fr/bancs-de-poissons/>`_

@@ -2,7 +2,7 @@
                    Analyse scientifique avec Python
 *********************************************************************
 
-.. Time-stamp: <2014-01-13 00:18 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2015-01-22 18:08 ycopin@lyonovae03.in2p3.fr>
 
 .. highlight:: python
    :linenothreshold: 3
@@ -22,18 +22,29 @@
    Cours/references
    Cours/exemples
    Exercices/exo
+   Annales/annales
    Projets/projets
 
 .. toctree::
    :hidden:
 
+   Exercices/integ
+   Exercices/pgcd
    Exercices/crible
    Exercices/carre
+   Exercices/syracuse
    Exercices/koch
+   Exercices/pm
+   Exercices/animaux
+   Exercices/particle
    Exercices/life
    Exercices/mad
    Exercices/pull
    Exercices/anscombe
    Exercices/logistique
    Exercices/julia
+   Exercices/equationEtat
    Exercices/solutions
+   Annales/exam_1501
+   Projets/projets
+   Projets/projets2013

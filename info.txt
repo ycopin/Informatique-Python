@@ -1,64 +1,31 @@
-.. Time-stamp: <2014-01-16 22:39 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2015-01-23 19:20:11 ycopin>
 
 :orphan:
 
 Informations pratiques
 ======================
 
-- Atelier "Analyse scientifique en Python"
+- Atelier "Modélisation de problèmes physiques en Python"
 - `Cours en ligne
-  <https://informatique-python.readthedocs.org/fr/python-m2//>`_
-- Responsable: Yannick Copin <@ipnl.in2p3.fr>, Bureau 420 de l'IPNL (4
-  rue Fermi)
+  <https://informatique-python.readthedocs.org/fr/python-m2/>`_
+- Responsable: Yannick Copin <@ipnl.in2p3.fr>, Bureau 420 de l'IPNL (4 rue
+  Fermi)
 
 .. rubric:: Calendrier
 
-Toutes les séances ont lieu en Ariane 02. 
+Toutes les séances ont lieu en `Ariane 13
+<http://oscar.univ-lyon1.fr/appli-externe/plan/plans/fiches_ucbl/751.html>`_.
 
-===========  =======  ======================
+===========  =======
 Date           TD  
-===========  =======  ======================
-Lundi 13/01   9h-12h  Python I
-Lundi 13/01  14h-17h  Python II
-Mardi 14/01   9h-12h  Python III
-Mardi 14/01  14h-17h  Méthodes numériques I
-Jeudi 16/01   9h-12h  Méthodes numériques II
-===========  =======  ======================
-
-.. rubric:: Participants
-
-==================  ===  ===  ===  ===  ===
-Étudiant            TD1  TD2  TD3  TD4  TD5
-==================  ===  ===  ===  ===  ===
-`Assia Bessaa`_      x         x
-`Thomas Brewer`_          x    x    x    x
-`Pierre Charlet`_    x    x    x    x    x
-`Benjamin Condon`_   x    x    x    x    x
-`Ludmilla Dirson`_   x    x    x    x
-`J.P. Fontaine`_     x    x    x    x    x
-`Shaoyou Lu`_        x    x    x    x    x
-`Florent Storme`_    x    x    x    x    x
-`Hadil Terroufi`_    x    x    x    x    x
-`Yang Yang`_         x    x    x    x    x
-==================  ===  ===  ===  ===  ===
-
-.. Autres
-.. -------------------------------------------
-.. Alex Juillard
-.. Sacha Davidson
-.. Quentin Arnaud
-.. Loup Balleyguier 
-
-.. _Florent Storme: florentstorme@gmail.com
-.. _J.P. Fontaine: jean-philippe.fontaine@etu.univ-lyon1.fr
-.. _Assia Bessaa: assia.bessaa@etu.univ-lyon1.fr
-.. _Hadil Terroufi: hadil.terroufi@etu.univ-lyon1.fr
-.. _Pierre Charlet: pierre.charlet@etu.univ-lyon1.fr
-.. _Ludmilla Dirson: ludmilla.dirson@etu.univ-lyon1.fr
-.. _Shaoyou Lu: lsyou110@hotmail.com
-.. _Benjamin Condon: benjamin.condon@etu.univ-lyon1.fr
-.. _Yang Yang: yang.yang@etu.univ-lyon1.fr
-.. _Thomas Brewer: thomas.brewer@etu.univ-lyon1.fr
+===========  =======
+Merc. 28/01   9h-12h
+Merc. 28/01  13h30-16h30
+Jeudi 29/01   9h-12h
+Jeudi 29/01  14h-17h
+Vend. 30/01   9h-12h
+Vend. 30/01  14h-17h
+===========  =======
 
 .. |+| image:: ./_static/smile.gif
    :alt: Bon

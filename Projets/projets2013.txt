@@ -1,0 +1,73 @@
+.. -*- mode: rst -*-
+.. Time-stamp: <2013-11-27 10:57 ycopin@lyonovae03.in2p3.fr>
+
+.. _projets2013:
+
+Projets 2013
+============
+
+.. WARNING:: Il s'agit ici d'informations **préliminaires**, qui
+   restent à confirmer.
+
+* Avant le 16 novembre : choix d'un sujet de projet et envoi d'un
+  email a votre chargé de TD
+* Novembre/décembre : 4 séances de discussion
+* 13 janvier 2014, 17:00 : envoi des codes (fichiers sources python)
+  et du rapport (fichier PDF) au chargé de TD sous forme
+  électronique. Une version imprimée (agrafée ou reliée) du rapport
+  sera également déposée au secrétariat.
+* Deuxième quinzaine de janvier : soutenance (15 mn + questions)
+
+Le rapport, redigé en `LaTeX <http://fr.wikipedia.org/wiki/LaTeX>`_
+(imposé pour validation ultérieure `C2i2e
+<http://c2i2e.ens-lyon.fr/aide/>`_) doit faire entre 10 et 15 pages,
+éventuellement avec quelques annexes (p.ex. version commentée du
+code). Il doit logiquement inclure une brève introduction à la
+problématique physique, une présentation du problème numérique et des
+algorithmes retenus pour sa résolution, une analyse détaillée des
+expérimentations numériques réalisées et des différents résultats
+obtenus (p.ex. vitesse de convergence, précision numérique, influence
+des différents paramètres de la simulation, comparaison avec la
+théorie, etc.), une conclusion et des perspectives de
+développement. Une section bibliographique est conseillée.
+
+.. list-table:: 
+   :header-rows: 1
+
+   * - Binôme
+     - Sujet
+   * - *Groupe du mercredi matin*
+     - ..
+   * - Guillaume Blot, Gabriel Rocheman
+     - Ising
+   * - Méril Reboud, Sami Jouabert
+     - Percolation
+   * - Nicolas Auvray, Samuel Boury
+     - Foule
+   * - Maxime Lombart, Sophie Michel
+     - Poissons
+   * - Louis Garbe
+     - Poissons
+   * - Juliette Monsel, Barbara Pascal
+     - Fourmis
+   * - Marion Teyssedre, Perceval Desforges
+     - Fourmis
+   * - *Groupe du jeudi matin*
+     - ..
+   * - Thibaut Coudarchet, Lilian Chabrol
+     - Potentiel de Lennard-Jones
+   * - Paul Haddad, David Germain
+     - Les solitons
+   * - Florine Dubourg, Raphaelle Taub
+     - Les fourmis
+   * - Mohamed Bekhtaoui, Pierre Martin-Dussaud
+     - Modèle d'Ising
+   * - Éric Beaucé, Céline Boucly
+     - Les solitons
+
+.. Local Variables: ...
+.. mode: rst ...
+.. ispell-local-dictionary: "francais" ...
+.. mode: flyspell ...
+.. indent-tabs-mode: nil ...
+.. End: ...

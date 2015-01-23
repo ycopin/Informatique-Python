@@ -1,0 +1,24 @@
+.. Time-stamp: <2015-01-23 18:04:51 ycopin>
+.. _annales:
+
+Annales d'examen
+################
+
+Simulation de chute libre (partiel nov. 2014)
+=============================================
+
+* :download:`Énoncé <exam_1411.pdf>` (PDF) et :download:`fichier
+  d'entrée <exam_1411.py>`
+* :download:`Corrigé <corrige_1411.py>`
+
+
+Examen janvier 2015
+===================
+
+* :download:`Énoncé <enonce_1501.pdf>` (PDF) ou :ref:`exam_1501`.
+
+  - Exercice: :download:`velocimetrie.dat`
+  - Problème: :download:`exam_1501.py`, :download:`ville.dat`
+
+* :download:`Corrigé <corrige_1501.py>`, :download:`figure <velocimetrie.png>`
+

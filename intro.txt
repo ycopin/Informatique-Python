@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-11 11:26 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2015-01-23 19:20:25 ycopin>
 
 Introduction
 ############
@@ -53,27 +53,33 @@ programes les plus complexes (projets de plus de 100000 lignes).
 
 .. rubric:: Liens:
 
-* `About Python <http://www.python.org/about/>`_
-* `Python Advocacy <http://docs.python.org/howto/advocacy.html>`_
+* `About Python <https://www.python.org/about/>`_
+* `Python Advocacy <https://docs.python.org/2/howto/advocacy.html>`_
 
 
 Organisation des TDs
 ====================
 
-Voici un exemple d'organisation possible des TDs de 2h:
-
 * :ref:`TD1 <td1>`: Introduction, types de base, structures de programmation
-* :ref:`TD2 <td2>`: Chaînes de caractères, objets itérables, fonctions, bibliothèques
-* :ref:`TD3 <td3>`: Classes, exceptions, entrées-sorties
+* :ref:`TD2 <td2>`: Chaînes de caractères, objets itérables, fonctions,
+  bibliothèques
+* :ref:`TD3 <td3>`: Exceptions, classes, entrées-sorties
 * :ref:`TD4 <td4>`: Librairie standard, révisions
 * :ref:`TD5 <td5>`: Numpy
 * :ref:`TD6 <td6>`: Scipy
 * :ref:`TD7 <td7>`: Zen du python, révisions
-* :ref:`Page projets <projets>`: Exemple de sujets de micro-projets
+
+.. * :ref:`Page projets <projets>`: Exemple de sujets de micro-projets
 
 
-.. Informations pratiques
-.. ======================
+Informations pratiques
+======================
 
 .. include:: info.txt
 
+.. Index
+.. =====
+
+.. * :ref:`genindex`
+.. * :ref:`search`
+.. * :ref:`modindex`

@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-01-08 22:01:23 ycopin>
+.. Time-stamp: <2014-09-03 22:00 ycopin@lyonovae03.in2p3.fr>
 
 .. _juliaSol:
 
