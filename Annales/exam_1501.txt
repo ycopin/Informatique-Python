@@ -166,6 +166,14 @@ Questions hors-barême
    ajouter un trajet au plan de la ville (utiliser
    :func:`matplotlib.step` pour des trajets de type « Manhattan »).
 
+Correction
+==========
+
+:download:`Corrigé <corrige_1501.py>`
+
+.. figure:: velocimetrie.png
+   :width: 12cm
+
 .. Local Variables: ...
 .. mode: rst ...
 .. ispell-local-dictionary: "francais" ...

@@ -1,8 +1,7 @@
 /_build/
 *~
+*.pyc
 .ipynb_checkpoints
-/Cours/circonscrit.pyc
 /.idea/
 */__pycache__/
-/Annales/corrige_1411.pyc
-/Annales/velocimetrie.png
+
