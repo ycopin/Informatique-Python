@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-01-20 12:16:04 ycopin>
+.. Time-stamp: <2015-01-23 19:10:44 ycopin>
 .. _projets:
 
 Micro-projets
@@ -331,7 +331,7 @@ d’étudier un cas particulier mais on prendra soin au contraire
 d’effectuer des moyennes sur un très grand nombre de tirages
 (plusieurs centaines).
 
-Sources:
+.. rubric:: Sources:
 
 * `Percolation theory <http://en.wikipedia.org/wiki/Percolation_theory>`_
 * `Concepts fondamentaux de la percolation
@@ -367,12 +367,7 @@ Jeux de paramètres à tester :
 - Ising en 3D avec Wolff
 - Potts (changer q=2 par q=3) en 3D avec Wolff
 
-**Références:** `Computational Studies of Pure and Dilute Spin Models
-<http://www.hermetic.ch/compsci/thesis/contents.htm>`_
+.. rubric:: Références:
 
-.. Local Variables: ...
-.. mode: rst ...
-.. ispell-local-dictionary: "francais" ...
-.. mode: flyspell ...
-.. indent-tabs-mode: nil ...
-.. End: ...
+`Computational Studies of Pure and Dilute Spin Models
+<http://www.hermetic.ch/compsci/thesis/contents.htm>`_
