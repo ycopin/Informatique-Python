@@ -4,7 +4,7 @@
 Bibliothèque standard
 #####################
 
-.. Time-stamp: <2015-01-20 12:28:39 ycopin>
+.. Time-stamp: <2015-01-27 18:23 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -29,31 +29,34 @@ multimédia, etc.
 Gestion des arguments/options de la ligne de commande
 =====================================================
 
+.. rubric:: Utilisation de `sys.argv`
+
 .. index::
    module: sys
 
 Le module :mod:`sys` permet un accès direct aux arguments de la ligne
 de commande, via la liste :obj:`sys.argv`: `sys.argv[0]` contient le
 nom du script executé, `sys.argv[1]` le nom du 1er argument (s'il
-existe), etc.
-
-.. rubric:: Exemple:
+existe), etc.  P.ex.:
 
 .. literalinclude:: ../Exercices/crible.py
    :start-after: start-sys
    :end-before: end-sys
+   :linenos:
+
+.. rubric:: Module `argparse`
 
 .. index::
    module: argparse
 
 Pour une gestion avancée des arguments et/ou options de la ligne de
 commande, il est préférable d'utiliser le module :mod:`argparse`.
-
-.. rubric:: Exemple:
+P.ex.:
 
 .. literalinclude:: circonscrit.py
    :start-after: start-argparse
    :end-before: end-argparse
+   :linenos:
 
 Cette solution génère automatiquement une aide en ligne, p.ex.::
 
@@ -82,18 +85,16 @@ Cette solution génère automatiquement une aide en ligne, p.ex.::
    module: pickle/cPickle
 
 Les modules :mod:`pickle`/:mod:`cPickle` permettent la sauvegarde
-pérenne d'objets python (« sérialisation »).
+pérenne d'objets python (« sérialisation »).
 
 >>> d = dict(a=1, b=2, c=3)
 >>> l = range(10000)
 >>> import cPickle as pickle         # 'cPickle' est + rapide que 'pickle'
 >>> pkl = open('archive.pkl', 'w')   # Overture du fichier en écriture
->>> pickle.dump((d,l), pkl, protocol=-1) # Sérialisation du tuple (d,l)
+>>> pickle.dump((d, l), pkl, protocol=-1) # Sérialisation du tuple (d,l)
 >>> pkl.close()                      # *IMPORTANT!* Fermeture du fichier
->>> d2,l2 = pickle.load(open('archive.pkl')) # Désérialisation (relecture)
->>> d==d2
-True
->>> l==l2
+>>> d2, l2 = pickle.load(open('archive.pkl')) # Désérialisation (relecture)
+>>> (d == d2) and (l == l2)
 True
 
 .. Attention:: les `pickles` ne sont pas un format d'échange de
@@ -107,6 +108,8 @@ True
 .. .. index::
 ..    module: math
 
+Quelques modules de la librairie standard qui peuvent être d'intérêt:
+
 * :mod:`math`: accès aux fonctions mathématiques (réelles)
 
   >>> math.asin(math.sqrt(2)/2)/math.pi*180
@@ -119,7 +122,7 @@ True
 ..    module: subprocess
 ..    module: glob
 
-* Interaction système
+* Interactions avec le système:
 
   - :mod:`sys`, :mod:`os`: interface système
   - :mod:`shutil`: opérations sur les fichiers (*copy*, *move*, etc.)
@@ -173,15 +176,7 @@ True
 ================================
 
 - :abbr:`TUI (Text User Interface)`: :mod:`curses`
-- :abbr:`GUI (Graphical User Interface)`: :mod:`Tkinter` (voir
-  également `easygui <http://easygui.sourceforge.net/>`_),
+- :abbr:`GUI (Graphical User Interface)`: :mod:`Tkinter`,
 - Librairies externes; `PyGTK <http://www.pygtk.org/>`_, `PyQt
   <http://www.riverbankcomputing.co.uk/software/pyqt/intro>`_,
   `wxPython <http://www.wxpython.org/>`_
-
-.. Local Variables: ...
-.. mode: rst ...
-.. ispell-local-dictionary: "francais" ...
-.. mode: flyspell ...
-.. indent-tabs-mode: nil ...
-.. End: ...

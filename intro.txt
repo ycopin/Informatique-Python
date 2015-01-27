@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-01-23 19:20:25 ycopin>
+.. Time-stamp: <2015-01-26 07:57 ycopin@lyonovae03.in2p3.fr>
 
 Introduction
 ############
@@ -22,7 +22,7 @@ Pourquoi un module d'analyse scientifique ?
   publier.
 
 Ce module s'addresse donc avant tout aux futurs expérimentateurs,
-phénoménologistes ou théoriciens voulant se frotter à la réalités des
+phénoménologistes ou théoriciens voulant se frotter à la réalité des
 observations.
 
 
@@ -72,8 +72,8 @@ Organisation des TDs
 .. * :ref:`Page projets <projets>`: Exemple de sujets de micro-projets
 
 
-Informations pratiques
-======================
+.. Informations pratiques
+.. ======================
 
 .. include:: info.txt
 

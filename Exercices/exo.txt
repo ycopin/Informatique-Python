@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-01-20 12:22:55 ycopin>
+.. Time-stamp: <2015-01-26 10:28 ycopin@lyonovae03.in2p3.fr>
 .. _exercices:
 
 Exercices
@@ -34,10 +34,10 @@ On définit la fonction `sq` renvoyant le carré d'un nombre par
   def sq(x) :
       return x*x
 
-Écrire un programme calculant l'intégrale de cette fonction entre a=0
-et b=1, en utilisant une subdivision en n=100 pas dans un premier
-temps.  Quelle est la précision de la méthode, et comment dépend-elle
-du nombre de pas?
+Écrire un programme calculant l'intégrale de cette fonction entre
+*a=0* et *b=1*, en utilisant une subdivision en *n=100* pas dans un
+premier temps.  Quelle est la précision de la méthode, et comment
+dépend-elle du nombre de pas?
 
 .. _pgcd:
 
@@ -165,8 +165,8 @@ Jeu du plus ou moins (exceptions) ★
 
 La solution sera générée aléatoirement par la fonction
 :func:`random.randint()`.  Le programme devra être robuste aux entrées
-invalides (« toto », 120, etc.), et aux abandons par interruption
-(`KeyboardInterrupt`).
+invalides (« toto », 120, etc.), et aux lâches abandons par
+interruption (`KeyboardInterrupt`).
 
 .. _animaux:
 

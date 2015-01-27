@@ -25,7 +25,11 @@ import sys, os
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.todo', 'sphinx.ext.mathjax', 'sphinx.ext.viewcode', 'sphinx.ext.intersphinx']
+extensions = ['sphinx.ext.autodoc',
+              'sphinx.ext.todo',
+              'sphinx.ext.mathjax',
+              'sphinx.ext.viewcode',
+              'sphinx.ext.intersphinx']
 
 # Intersphinx configuration
 intersphinx_mapping = {
@@ -117,8 +121,6 @@ rst_prolog = u""
 # http://sphinx.pocoo.org/theming.html
 # default, sphinxdoc, scrolls, agogo, traditional, nature, haiku
 html_theme = 'sphinxdoc'
-html_theme_options = {
-}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -137,7 +139,6 @@ html_theme_options = {
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-#html_logo = None
 html_logo = '_static/scipy2.png' # Ne pas utiliser avec thème agogo
 
 # The name of an image file (within the static path) to use as favicon of the
@@ -205,8 +206,8 @@ latex_elements = {
     'pointsize': '10pt',
 
     # Additional stuff for the LaTeX preamble.
-    'preamble': r"""
-    \DeclareUnicodeCharacter{2605}{*}
+    'preamble': ur"""
+    \DeclareUnicodeCharacter{2605}{*} % ★
     """,
 }
 

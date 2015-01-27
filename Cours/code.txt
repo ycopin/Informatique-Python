@@ -1,7 +1,7 @@
 Développer en python
 ####################
 
-.. Time-stamp: <2015-01-13 10:47:41 ycopin>
+.. Time-stamp: <2015-01-27 18:23 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -91,8 +91,8 @@ Us et coutumes
 
 .. rubric:: Quelques conseils supplémentaires:
 
-- « Ne réinventez pas la roue, sauf si vous souhaitez en savoir plus
-  sur les roues » (Jeff Atwood [#wheel]_): cherchez si ce que vous
+- « Ne réinventez pas la roue, sauf si vous souhaitez en savoir plus
+  sur les roues » (Jeff Atwood [#wheel]_): cherchez si ce que vous
   voulez faire n'a pas déjà été fait (éventuellement en mieux...),
   construisez dessus (en citant évidemment vos sources), et contribuez
   si possible!
@@ -101,7 +101,7 @@ Us et coutumes
 - Codez proprement *dès le début*: ne croyez pas que vous ne relirez
   jamais votre code (ou même que personne n'aura jamais à le lire), ou
   que vous aurez le temps de le refaire mieux plus tard...
-- « L'optimisation prématurée est la source de tous les maux » (Donald
+- « L'optimisation prématurée est la source de tous les maux » (Donald
   Knuth [#opt]_): mieux vaut un code lent mais juste et maintenable
   qu'un code rapide et faux ou incompréhensible. Dans l'ordre absolu
   des priorités:
@@ -118,8 +118,8 @@ Us et coutumes
 Développement piloté par les tests
 ==================================
 
-Le *Test Driven Development* (TDD, ou en français « développement
-piloté par les tests ») est une méthode de programmation qui permet
+Le *Test Driven Development* (TDD, ou en français « développement
+piloté par les tests ») est une méthode de programmation qui permet
 d'éviter des bugs *a priori* plutôt que de les résoudre *a
 posteriori*. Ce n'est pas une méthode propre à Python, elle est
 utilisée très largement par les programmeurs professionnels.
@@ -131,7 +131,7 @@ Le cycle préconisé par TDD comporte cinq étapes :
    encore), afin de s'assurer que le test est valide et exécuté ;
 3. écrire un code minimal pour passer le test ;
 4. vérifier que le test passe correctement ;
-5. éventuellement « réusiner » le code (*refactoring*), c'est-à-dire
+5. éventuellement « réusiner » le code (*refactoring*), c'est-à-dire
    l'améliorer (rapidité, lisibilité) tout en gardant les mêmes
    fonctionnalités.
 
@@ -251,7 +251,7 @@ Débugage et optimisation
 
 .. rubric:: Débogage
 
-Les débogueurs permettent de « plonger » dans un code au cours
+Les débogueurs permettent de « plonger » dans un code au cours
 d'exécution ou juste après une erreur (analyse post-mortem).
 
 - Modules de la bibliothèque standard: :mod:`pdb`, :mod:`timeit`
@@ -319,9 +319,9 @@ Python 2 vs. python 3
 .. [#py.test] pytest_ ne fait pas partie de la librairie standard.  Il
    vous faudra donc l'installer indépendemment si vous voulez
    l'utiliser.
-.. [#wheel] « *Don't reinvent the wheel, unless you plan on learning
-   more about wheels* » -- Jeff Atwood
-.. [#opt] « *Premature optimization is the root of all evil* » --
+.. [#wheel] « *Don't reinvent the wheel, unless you plan on learning
+   more about wheels* » -- Jeff Atwood
+.. [#opt] « *Premature optimization is the root of all evil* » --
    Donald Knuth
 
 .. _pytest: http://pytest.org/latest/

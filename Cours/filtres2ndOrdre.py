@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2014-09-17 16:03:25 ycopin>
+# Time-stamp: <2015-01-27 22:46 ycopin@lyonovae03.in2p3.fr>
 
 import numpy as N
 import matplotlib.pyplot as P
@@ -8,8 +8,8 @@ import matplotlib.pyplot as P
 
 def passeBas(x, Q=1):
     """
-    Filtre passe-bas en pulsation réduite x=omega/omega0, facteur de
-    qualité Q.
+    Filtre passe-bas en pulsation réduite *x* = omega/omega0, facteur de
+    qualité *Q*.
     """
 
     return 1 / (1 - x ** 2 + x / Q * 1j)
@@ -33,7 +33,7 @@ def coupeBande(x, Q=1):
 def gainNphase(f, dB=True):
     """
     Retourne le gain (éventuellement en dB) et la phase [rad] d'un
-    filtre de fonction de transfert complexe f.
+    filtre de fonction de transfert complexe *f*.
     """
 
     g = N.abs(f)                        # Gain
@@ -55,11 +55,12 @@ def asympPhase(x, phases=(0, -N.pi)):
     return N.where(x < 1, phases[0], phases[1])
 
 
-def diagBode(x, fs, Qs, title='', plim=None, gAsymp=None, pAsymp=None):
+def diagBode(x, filtres, labels,
+             title='', plim=None, gAsymp=None, pAsymp=None):
     """
-    Trace le diagrame de Bode -- gain [dB] et phase [rad] -- du filtre
-    de fonction de transfert complexe f en fonction de la pulsation
-    réduite x.
+    Trace le diagrame de Bode -- gain [dB] et phase [rad] -- des filtres
+    de fonction de transfert complexe *filtres* en fonction de la pulsation
+    réduite *x*.
     """
 
     fig = P.figure()
@@ -71,11 +72,11 @@ def diagBode(x, fs, Qs, title='', plim=None, gAsymp=None, pAsymp=None):
                           xlabel=r'x = $\omega$/$\omega_0$', xscale='log',
                           ylabel='Phase [rad]')
 
-    lss = ['--', '-', '-.', ':']
-    for f, Q, ls in zip(fs, Qs, lss):       # Tracé des différentes courbes
-        g, p = gainNphase(f, dB=True)
-        axg.plot(x, g, lw=2, ls=ls, label="Q=" + str(Q))  # Gain
-        axp.plot(x, p, lw=2, ls=ls)                    # Phase
+    lstyles = ['--', '-', '-.', ':']
+    for f, label, ls in zip(filtres, labels, lstyles):  # Tracé des courbes
+        g, p = gainNphase(f, dB=True)       # Calcul du gain et de la phase
+        axg.plot(x, g, lw=2, ls=ls, label="Q=" + str(label))  # Gain
+        axp.plot(x, p, lw=2, ls=ls)                           # Phase
 
     # Asymptotes
     if gAsymp is not None:              # Gain
@@ -96,9 +97,8 @@ def diagBode(x, fs, Qs, title='', plim=None, gAsymp=None, pAsymp=None):
 
     # Ajouter les grilles
     for ax in (axg, axp):
-        ax.grid()                       # x et y, majors
-        ax.xaxis.grid(True, which='minor')  # x, minors
-        ax.yaxis.grid(True, which='minor')  # y, minors
+        ax.grid()                           # x et y, majors
+        ax.grid(which='minor')              # x et y, minors
 
     # Ajustements fins
     gmin, gmax = axg.get_ylim()
@@ -115,29 +115,31 @@ def diagBode(x, fs, Qs, title='', plim=None, gAsymp=None, pAsymp=None):
 
 if __name__ == '__main__':
 
-    P.rc('mathtext', fontset='stixsans')
+    #P.rc('mathtext', fontset='stixsans')
 
-    x = N.logspace(-1, 1, 1000)           # de 0.1 à 10 en 1000 pas
+    x = N.logspace(-1, 1, 1000)              # de 0.1 à 10 en 1000 pas
 
-    qs = [0.25, 1 / N.sqrt(2), 5]           # Valeurs numériques
-    Qs = [0.25, r'$1/\sqrt{2}$', 5]       # Chaînes
+    # Facteurs de qualité
+    qs = [0.25, 1 / N.sqrt(2), 5]            # Valeurs numériques
+    labels = [0.25, r'$1/\sqrt{2}$', 5]      # Labels
+    
     # Calcul des fonctions de transfert complexes
-    pbs = [passeBas(x, Q=q) for q in qs]
-    phs = [passeHaut(x, Q=q) for q in qs]
-    pcs = [passeBande(x, Q=q) for q in qs]
-    cbs = [coupeBande(x, Q=q) for q in qs]
+    pbs = [ passeBas(x, Q=q) for q in qs ]
+    phs = [ passeHaut(x, Q=q) for q in qs ]
+    pcs = [ passeBande(x, Q=q) for q in qs ]
+    cbs = [ coupeBande(x, Q=q) for q in qs ]
 
     # Création des 4 diagrames de Bode
-    figPB = diagBode(x, pbs, Qs, title='Filtre passe-bas',
+    figPB = diagBode(x, pbs, labels, title='Filtre passe-bas',
                      plim=(-N.pi, 0),
                      gAsymp=(0, -40), pAsymp=(0, -N.pi))
-    figPH = diagBode(x, phs, Qs, title='Filtre passe-haut',
+    figPH = diagBode(x, phs, labels, title='Filtre passe-haut',
                      plim=(0, N.pi),
                      gAsymp=(40, 0), pAsymp=(N.pi, 0))
-    figPC = diagBode(x, pcs, Qs, title='Filtre passe-bande',
+    figPC = diagBode(x, pcs, labels, title='Filtre passe-bande',
                      plim=(-N.pi / 2, N.pi / 2),
                      gAsymp=(20, -20), pAsymp=(N.pi / 2, -N.pi / 2))
-    figCB = diagBode(x, cbs, Qs, title='Filtre coupe-bande',
+    figCB = diagBode(x, cbs, labels, title='Filtre coupe-bande',
                      plim=(-N.pi / 2, N.pi / 2),
                      gAsymp=(0, 0), pAsymp=(0, 0))
 
