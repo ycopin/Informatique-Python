@@ -1,4 +1,4 @@
-.. % Time-stamp: <2015-01-29 10:49 ycopin@lyonovae03.in2p3.fr>
+.. % Time-stamp: <2015-01-29 10:52 ycopin@lyonovae03.in2p3.fr>
 
 Solutions aux exercices
 =======================
@@ -9,6 +9,7 @@ Solutions aux exercices
 * :ref:`carreSol`
 * :ref:`syracuseSol`
 * :ref:`kochSol`
+* :ref:`pmSol`
 * :ref:`animauxSol`
 * :ref:`particleSol`
 * :ref:`lifeSol`
