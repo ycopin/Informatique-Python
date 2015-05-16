@@ -274,14 +274,16 @@ Structures de programmation
 
 .. index:: if ... elif ... else
 
-- **Expression conditionnelle** `if/elif/else`::
+- **Expression conditionnelle** `if/elif/else`:
 
-    if (i > 0):    # Condition principale
-        print "positif"
-    elif (i < 0):  # Condition secondaire (si nécéssaire)
-        print "négatif"
-    else:          # Cas final (si nécéssaire)
-        print "nul"
+  .. code-block:: python
+
+      if (i > 0):    # Condition principale
+          print "positif"
+      elif (i < 0):  # Condition secondaire (si nécéssaire)
+          print "négatif"
+      else:          # Cas final (si nécéssaire)
+          print "nul"
 
 .. index:: for ... in
 .. index:: continue
