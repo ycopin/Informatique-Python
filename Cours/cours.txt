@@ -929,7 +929,10 @@ Fichiers
 
 La gestion des fichiers (lecture et écriture) se fait à partir de la
 fonction :func:`open` retournant un objet `file
-<https://docs.python.org/2/library/stdtypes.html#bltin-file-objects>`_::
+<https://docs.python.org/2/library/stdtypes.html#bltin-file-objects>`_:
+
+.. code-block:: python
+  :linenos:
 
   # ========== ÉCRITURE ==========
   outfile = open("carres.dat", 'w') # Ouverture du fichier "carres.dat" en écriture
@@ -949,6 +952,16 @@ fonction :func:`open` retournant un objet `file
           continue
       print "{}**3 = {}".format(x, x**3)
 
+On peut aussi utiliser le mot-clé `with`, qui s’occupe de fermer le
+fichier à la fin du bloc (y compris s’il y a eu une exception):
+
+.. code-block:: python
+  :linenos:
+
+  with open("carres.dat", 'w') as outfile:
+      for i in range(1, 10):
+          outfile.write("{}  {}\n".format(i, i**2))
+
 
 Éléments passés sous silence
 ============================
@@ -962,7 +975,7 @@ langage n'ont pas été abordées:
 - Arguments anonymes: `*args` and `**kwargs`
 - Fonction anonyme: `lambda x, y: x + y`
 - Itérateurs et générateurs: `yield`
-- Gestion de contexte: `with ... as` (:pep:`243`)
+- Gestion de contexte dans le cas général: `with ... as` (:pep:`243`)
 - Décorateurs: fonction sur une fonction ou une classe
   (`@staticmethod`, etc.)
 - Héritages multiples et méthodes de résolution
