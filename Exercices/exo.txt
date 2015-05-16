@@ -544,7 +544,7 @@ Protein*, Prix Nobel 2008) (`Fichier PDB
 <http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)
 
 
-.. |fr| image:: ../Cours/france_flag_icon.png
+.. |fr| image:: ../_static/icone_francophonie.png
    :alt: Fr
 .. |en| image:: ../Cours/uk_flag_icon.png
    :alt: En

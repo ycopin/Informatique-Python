@@ -788,7 +788,7 @@ différents domaines de la physique/chimie:
    `sympy <http://www.sympy.org/>`_, et d'un environnement de calcul
    mathématique, `sage <http://www.sagemath.org/>`_.
 
-.. |fr| image:: ../Cours/france_flag_icon.png
+.. |fr| image:: ../_static/icone_francophonie.png
    :alt: Fr
 .. |en| image:: ../Cours/uk_flag_icon.png
    :alt: En

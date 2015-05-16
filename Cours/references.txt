@@ -143,7 +143,7 @@ Sphinx & co.
 
 - `Sample doc <http://matplotlib.org/sampledoc/>`_
 
-.. |fr| image:: ../Cours/france_flag_icon.png
+.. |fr| image:: ../_static/icone_francophonie.png
    :alt: Fr
 .. |en| image:: ../Cours/uk_flag_icon.png
    :alt: En
