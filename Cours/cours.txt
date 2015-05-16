@@ -1006,7 +1006,7 @@ code les parties qui devront être modifiées pour un passage à Python 3.x.
 .. |DANGER| unicode:: 0x2620 .. ☠ = SKULL AND CROSSBONES
 .. |fr| image:: ../_static/icone_francophonie.png
    :alt: Fr
-.. |en| image:: ../Cours/uk_flag_icon.png
+.. |en| image:: ../_static/uk_flag_icon.png
    :alt: En
 
 .. ①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳

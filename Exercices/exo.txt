@@ -546,7 +546,7 @@ Protein*, Prix Nobel 2008) (`Fichier PDB
 
 .. |fr| image:: ../_static/icone_francophonie.png
    :alt: Fr
-.. |en| image:: ../Cours/uk_flag_icon.png
+.. |en| image:: ../_static/uk_flag_icon.png
    :alt: En
 
 .. Local Variables: ...
