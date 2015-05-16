@@ -185,8 +185,8 @@ Types de base
   - Booléens `bool` (vrai/faux): `True`, `False`, `bool(3)`
   - Entiers `int` (pas de valeur limite explicite, correspond *au
     moins* au `long` du C): `-2`, `int(2.1)`, `int("4")`
-  - Réels `float` (entre ±1.7e±308, correspond au `double` du C):
-    `2.`, `3.5e-6`, `float(3)`
+  - Réels `float` (entre ±1.7e±308, correspond au `double` du C ;
+    ou l’infini): `2.`, `3.5e-6`, `float(3)`, `float('infinity')`
   - Complexes `complex`: `1+2j`, `5.1j`, `complex(-3.14)`,
     `complex('j')`
 
@@ -196,7 +196,7 @@ Types de base
   1.5
   >>> 6 // 2.5      # Division euclidienne
   2.0
-  >>> 6 % 2.5       # Reste de la division euclidienne
+  >>> 6 % 2.5       # Modulo (reste de la division euclidienne)
   1.0
   >>> (1+2j)**-0.5  # Puissance entière, réelle ou complexe
   (0.5688644810057831-0.3515775842541429j)
@@ -216,8 +216,9 @@ Types de base
   - Listes immuables `tuple`: `(2, 3.1, 'a', [])` (selon les
     conditions d'utilisation, les parenthèses ne sont pas toujours
     nécessaires)
-  - Listes à clés `dict`: `{'a':1, 'b':[1, 2], 3:'c'}`
-  - Ensembles non ordonnés `set`: `set([1, 2, 3, 2])`
+  - Listes à clés `dict`: `{'a': 1, 'b': [1, 2], 3: 'c'}`
+  - Ensembles non ordonnés `set`: `{1, 2, 3, 2}` (ou `set([1, 2, 3, 2])`
+    pour les anciennes versions de Python)
 
   >>> l = ['a', True] # Définition d'une liste
   >>> x, y = 1, 2.5   # Affectations multiples via tuples (les parenthèses ne sont pas nécessaires)
@@ -225,7 +226,7 @@ Types de base
   [0, 1, 2, 3, 4]
   >>> l + [x, y]      # Concaténation de listes
   ['a', True, 1, 2.5]
-  >>> set([2, 1, 3]) | set([1, 2, 'a']) # Union d'ensembles
+  >>> {2, 1, 3} | {1, 2, 'a'} # Union d'ensembles
   set(['a', 1, 2, 3])
 
 - :samp:`type({obj})` retourne le type de l'objet,
