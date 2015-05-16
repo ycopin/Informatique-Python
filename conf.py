@@ -56,7 +56,7 @@ copyright = u'2014, Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 # built documents.
 #
 # The short X.Y version.
-version = 'École Normale Supérieure de Lyon - DSM-L3'
+version = u'École Normale Supérieure de Lyon - DSM-L3'
 # The full version, including alpha/beta/rc tags.
 release = '2014'
 
