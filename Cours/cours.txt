@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-05-17 23:34 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2015-05-18 00:05 ycopin@lyonovae03.in2p3.fr>
 .. _cours:
 
 Initiation à Python
@@ -1050,9 +1050,9 @@ code les parties qui devront être modifiées pour un passage à Python 3.x.
 
 .. |DANGER| unicode:: 0x2620 .. ☠ = SKULL AND CROSSBONES
 .. |:-)| unicode:: 0x263a .. ☺ = WHITE SMILING FACE
-.. |fr| image:: ../Cours/france_flag_icon.png
+.. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr
-.. |en| image:: ../Cours/uk_flag_icon.png
+.. |en| image:: ../_static/uk_flag_icon.png
    :alt: En
 
 .. ①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳

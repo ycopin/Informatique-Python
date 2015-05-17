@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-05-17 23:44 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2015-05-18 00:08 ycopin@lyonovae03.in2p3.fr>
 .. _exercices:
 
 Exercices
@@ -544,12 +544,7 @@ Protein*, Prix Nobel 2008) (`Fichier PDB
 <http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)
 
 
-.. |fr| image:: ../Cours/france_flag_icon.png
+.. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr
-.. |en| image:: ../Cours/uk_flag_icon.png
+.. |en| image:: ../_static/uk_flag_icon.png
    :alt: En
-
-.. Local Variables: ...
-.. mode: rst ...
-.. ispell-local-dictionary: "francais" ...
-.. End: ...
