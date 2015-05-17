@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-01-23 18:39:42 ycopin>
+.. Time-stamp: <2015-05-17 23:34 ycopin@lyonovae03.in2p3.fr>
 .. _cours:
 
 Initiation à Python
@@ -14,15 +14,16 @@ Initiation à Python
     3   Structures de programmation
     4   Les chaînes de caractères
       4.1  Indexation
-      4.2  Méthodes
-      4.3  Formatage
+      4.2  Sous-liste (*slice*)
+      4.3  Méthodes
+      4.4  Formatage
     5   Objets itérables
     6   Fonctions
     7   Bibliothèques et scripts
       7.1  Bibliothèques externes
       7.2  Bibliothèques personnelles et scripts
-    8   Classes
-    9   Exceptions
+    8   Exceptions
+    9   Classes
     10  Entrées-sorties
       10.1  Intéractif
       10.2  Fichiers
@@ -65,7 +66,7 @@ Ces logiciels peuvent être installés indépendamment, de préférence sous Lin
 (p.ex. `Ubuntu <http://ubuntu-fr.org/>`_, `Fedora
 <http://fedoraproject.org/fr/>`_ ou `openSUSE
 <https://www.opensuse.org/fr/>`_), ou sous Windows ou MacOS.  Il existe
-également des distributions « clés en main »:
+également des distributions « clés en main »:
 
 - `Python(x,y) <http://code.google.com/p/pythonxy/>`_ (Windows)
 - `Enthought Canopy <https://www.enthought.com/products/canopy>`_
@@ -116,7 +117,7 @@ Python:
   - *A priori*, pas d'historique des commandes ni de complétion
     automatique.
 
-  L'interpréteur de base permet également d'interpréter un « script »,
+  L'interpréteur de base permet également d'interpréter un « script »,
   càd un ensemble de commandes regroupées dans un fichier texte
   (généralement avec une extension `.py`): :samp:`python
   {mon_script.py}`
@@ -206,9 +207,9 @@ Types de base
    pair: itérables; tuple
    pair: itérables; set
    pair: itérables; dict
-.. index:: range
-.. index:: type
-.. index:: isinstance
+   range
+   type
+   isinstance
 
 - **Objets itérables**:
 
@@ -217,7 +218,7 @@ Types de base
     conditions d'utilisation, les parenthèses ne sont pas toujours
     nécessaires)
   - Listes à clés `dict`: `{'a':1, 'b':[1, 2], 3:'c'}`
-  - Ensembles non ordonnés `set`: `set([1, 2, 3, 2])`
+  - Ensembles non ordonnés `set`: `{1, 2, 3, 2}`
 
   >>> l = ['a', True] # Définition d'une liste
   >>> x, y = 1, 2.5   # Affectations multiples via tuples (les parenthèses ne sont pas nécessaires)
@@ -225,8 +226,8 @@ Types de base
   [0, 1, 2, 3, 4]
   >>> l + [x, y]      # Concaténation de listes
   ['a', True, 1, 2.5]
-  >>> set([2, 1, 3]) | set([1, 2, 'a']) # Union d'ensembles
-  set(['a', 1, 2, 3])
+  >>> {2, 1, 3} | {1, 2, 'a'}  # Union d'ensembles
+  {'a', 1, 2, 3}
 
 - :samp:`type({obj})` retourne le type de l'objet,
   :samp:`isinstance({obj}, {type})` teste le type de l'objet.
@@ -249,32 +250,43 @@ Structures de programmation
 
 - Les blocs sont définis par l'**indentation** (en général par pas de
   4 espaces) [#braces]_.
-- Une instruction par ligne *en général* (ou instructions séparées par
-  `;` en interactif).
-- Les commentaires commencent par `#`, et vont jusqu'à la fin de la
+
+  .. Warning:: Évitez autant que possible les caractères de
+     tabulation, source de confusion.  Configurez votre éditeur de
+     texte en conséquence.
+
+- Une instruction par ligne *en général* (ou instructions séparées par `;`).
+- Les commentaires commencent par `#`, et vont jusqu'à la fin de la
   ligne.
 
-.. index::
-   pair: booléen; True/False
+.. index:: pair: booléen; True/False
 
 - **Expression booléenne**: une condition est une expression
   s'évaluant à `True` ou `False`:
 
-  - `False`: test logique faux (p.ex. `3 == 4`), valeur nulle, chaîne vide
-    (`''`) ou liste vide (`[]`), etc.
-  - `True`: test logique vrai (p.ex. `(2+2) == 4`), toute valeur ou objet
-    non-nul (et donc s'évaluant par défaut à `True`)
+  - `False`: test logique faux (p.ex. `3 == 4`), valeur nulle, chaîne
+    vide (`''`), liste vide (`[]`), etc.
+  - `True`: test logique vrai (p.ex. `2 + 2 == 4`), toute valeur ou
+    objet non-nul (et donc s'évaluant par défaut à `True`)
   - Tests logiques: `==`, `!=`, `>`, `>=`, etc.
 
-    .. Attention:: Ne pas confondre `=` (affectation d'une variable)
-       et `==` (test logique d'égalité).
+    .. Attention:: Ne pas confondre « `=` » (affectation d'une variable)
+       et « `==` » (test logique d'égalité).
 
   - Opérateurs logiques: `and`, `or`, `not`
-  - Opérateur ternaire: :samp:`{value} if {condition} else {altvalue}`
+
+    >>> (5 >= 6) or (not 3 > 4)
+    True
+
+  - Opérateur ternaire: :samp:`{value} if {condition} else
+    {altvalue}`, p.ex.
+
+    >>> y = x**0.5 if (x > 0) else 0  # Retourne sqrt(max(x, 0))
 
 .. index:: if ... elif ... else
 
-- **Expression conditionnelle** `if/elif/else`::
+- **Expression conditionnelle**: :samp:`if {condition}: ... [elif
+  {condition2}: ...] [else: ...]`, p.ex.::
 
     if (i > 0):    # Condition principale
         print "positif"
@@ -334,30 +346,45 @@ Les chaînes de caractères
 .. index::
    pair: itérables; str
    pair: itérables; len
-   pair: itérables; slice
 
 Indexation
 ----------
 
-Les chaînes sont des objets *itérables* -- i.e. constitués d'éléments
-(ici les caractères) sur lesquels il est possible de « boucler »
-(p.ex. avec `for`) -- et *immuables* -- i.e. dont les éléments
-individuels ne peuvent pas être modifiés.
+Les chaînes de caractères sont des objets *itérables* -- càd
+constitués d'éléments (ici les caractères) sur lesquels il est
+possible de « boucler » (p.ex. avec `for`) -- et *immuables* -- càd
+dont les éléments individuels ne peuvent pas être modifiés.
+
+.. Attention:: L'indexation en python commence à 0: le 1er élément
+   d'une liste est l'élément n°0, le 2nd est le n°1, etc.  Les *n* éléments
+   d'une liste sont donc indexés de 0 à *n-1*.
 
 >>> alpha = 'abcdefghijklmnopqrstuvwxyz'
 >>> len(alpha)
 26
->>> alpha[0]    # 1er élément (l'indexation commençe à 0)
+>>> alpha[0]    # 1er élément (l'indexation commence à 0)
 'a'
->>> alpha[-1]   # Dernier élément (-2: avant dernier, etc.)
+>>> alpha[-1]   # = alpha[25], dernier élément (-2: avant dernier, etc.)
 'z'
->>> alpha[5:10] # *Slice*, du 5ème élément (inclu) au 10ème élément (exclu)
-'fghij'
->>> alpha[:5]   # Slice, du 1er élément (par défaut) au 5ème élément (exclu)
-'abcde'
->>> alpha[20:]  # Slice, du 20ème élément (inclu) au dernier inclu (défaut)
-'uvwxyz'
->>> alpha[::5]  # Slice, du 1er au dernier élément (défauts), tous les 5 éléments
+
+Sous-liste (*slice*)
+--------------------
+
+.. index:: pair: itérables; slice
+
+Des portions d'une chaîne peuvent être extraites en utilisant des
+*slices* (« tranches »), de notation générique
+:samp:`{[start=0]}:{[stop=len]}{[:step=1]}`.  P.ex.
+
+>>> alpha[3:6]  # De l'élément n°3 (inclus) au n°6 (exclu), soit 6-3 = 3 éléments
+'def'
+>>> alpha[:3]   # Du n°0 (défaut) au n°3 (exclu), soit 3 éléments
+'abc'
+>>> alpha[-3:]  # Du n°26-3=23 (inclus) au dernier inclus (défaut)
+'xyz'
+>>> alpha[8:23:3] # Du n°8 (inclus) au n°23 (exclu), tous les 3 éléments
+'iloru'
+>>> alpha[::5]    # Du 1er au dernier élément (défauts), tous les 5 éléments
 'afkpuz'
 
 Méthodes
@@ -367,11 +394,11 @@ Méthodes
 
 Les chaînes de caractères disposent de `nombreuses fonctionnalités
 <https://docs.python.org/2/library/stdtypes.html#string-methods>`_ --
-appelées « méthodes » en :abbr:`POO (Programmation Orientée Objet)` --
+appelées « méthodes » en :abbr:`POO (Programmation Orientée Objet)` --
 facilitant leur manipulation:
 
->>> n, t = "Calvin", 'Hobbes'
->>> titre = n + ' et ' + t; titre  # + = Concaténation de chaînes
+>>> enfant, peluche = "Calvin", 'Hobbes'      # Affectation mutiple
+>>> titre = enfant + ' et ' + peluche; titre  # +: Concaténation de chaînes
 'Calvin et Hobbes'
 >>> titre.replace('et', '&')       # Remplacement de sous-chaînes
 'Calvin & Hobbes'
@@ -461,7 +488,7 @@ volée -- tandis que chaînes de caractères et les tuples sont
   [2, 3, 4]
   >>> l[1:-1:2]      # Idem, tous les 2 éléments
   [2, 4]
-  >>> l[::2]         # Tous les 2 éléments (avec /start/ et /stop/ par défaut)
+  >>> l[::2]         # Tous les 2 éléments (*start=0* et *stop=len* par défaut)
   [1, 3, 5]
 
 - Modification d'éléments d'une liste (chaînes et tuples sont
@@ -469,20 +496,24 @@ volée -- tandis que chaînes de caractères et les tuples sont
 
   >>> l[0] = 'a'; l            # Remplacement du 1er élément
   ['a', 2, 3, 4, 5]
-  >>> l[1::2] = ['x', 'y']; l  # Remplacement d'éléments par /slices/
+  >>> l[1::2] = ['x', 'y']; l  # Remplacement d'éléments par *slices*
   ['a', 'x', 3, 'y', 5]
   >>> l + [1, 2]; l            # Concaténation (l reste inchangé)
   ['a', 'x', 3, 'y', 5, 1, 2]
   ['a', 'x', 3, 'y', 5]
-  >>> l += [1, 2]; l           # Concaténation (modification de l)
+  >>> l += [1, 2]; l           # Concaténation sur place (modification de l)
   ['a', 'x', 3, 'y', 5, 1, 2]
-  >>> del l[-3:]; l            # Efface les 3 derniers éléments de la liste
+  >>> l.append('z'); l         # Ajout d'un *élément* en dernière position
+  ['a', 'x', 3, 'y', 5, 1, 2, 'z']
+  >>> l.extend([-1, -2]); l    # Extension par une liste
+  ['a', 'x', 3, 'y', 5, 1, 2, 'z', -1, -2]
+  >>> del l[-6:]; l            # Efface les 6 derniers éléments de la liste
   ['a', 'x', 3, 'y']
 
   .. Attention:: à la modification des objets mutables:
 
      >>> l = range(3)  # l pointe vers la liste [0, 1, 2]
-     >>> m = l; m      # m est un *alias* de la liste l
+     >>> m = l; m      # m est un *alias* de la liste l: c'est le même objet
      [0, 1, 2]
      >>> id(l); id(m); m is l
      171573452         # id({obj}) retourne le n° d'identification en mémoire
@@ -490,7 +521,7 @@ volée -- tandis que chaînes de caractères et les tuples sont
      True              # ils correspondent donc bien au même objet en mémoire
      >>> l[0] = 'a'; m # puisque l a été modifiée, il en est de même de m
      ['a', 1, 2]
-     >>> m = l[:]      # copie des *éléments* de l dans une nouvelle liste m (clonage)
+     >>> m = l[:]      # copie de tous les éléments de l dans une *nouvelle* liste m (clonage)
      >>> id(l); id(m); m is l
      171573452
      171161228         # m a un id différent de l: il s'agit de 2 objets distincts
@@ -498,7 +529,7 @@ volée -- tandis que chaînes de caractères et les tuples sont
      >>> del l[-1]; m  # les éléments de m n'ont pas été modifiés
      ['a', 1, 2]
 
-- Liste en compréhension:
+- Liste en compréhension: elle permet la construction d'une liste à la volée
 
   >>> [ i**2 for i in range(5) ] # Carré de tous les éléments de [0, ..., 4]
   [0, 1, 4, 9, 16]
@@ -519,13 +550,13 @@ volée -- tandis que chaînes de caractères et les tuples sont
   0 Calvin
   1 Wallace
   2 Boule
-  >>> for i, name in enumerate(l1): # Boucle sur indice,valeur de l1
-  ...     print i, name             # Pythonique! :-)
+  >>> for i, name in enumerate(l1): # Boucle sur (indice, valeur) de l1
+  ...     print i, name             # Pythonique :-D
   0 Calvin
   1 Wallace
   2 Boule
   >>> l2 = ['Hobbes', 'Gromit', 'Bill']
-  >>> for n1, n2 in zip(l1, l2):   # Boucle simultanée sur 2 listes (ou +)
+  >>> for n1, n2 in zip(l1, l2):    # Boucle simultanée sur 2 listes (ou +)
   ...     print n1, 'et', n2
   Calvin et Hobbes
   Wallace et Gromit
@@ -545,14 +576,14 @@ Fonctions
 =========
 
 Une fonction est un regroupement d'instructions impératives --
-assignations, branchement, boucles -- s'appliquant sur des arguments
+assignations, branchements, boucles -- s'appliquant sur des arguments
 d'entrée.  C'est le concept central de la programmation *impérative*.
 
 .. index:: def
 
 `def` permet de définir une fonction: :samp:`def {fonction}({arg1}, {arg2},
-..., {option1}={valeur1}, {option2}={valeur2}, ...):`.  Les « *args* » sont des
-arguments nécessaires (i.e. obligatoires), tandis que les « *kwargs* » --
+..., {option1}={valeur1}, {option2}={valeur2}, ...):`.  Les « *args* » sont des
+arguments nécessaires (càd obligatoires), tandis que les « *kwargs* » --
 arguments de type :samp:`{option}={valeur}` -- sont optionnels, puisqu'ils
 possèdent une valeur par défaut.  Si la fonction doit retourner une valeur,
 celle-ci est spécifiée par le mot-clé `return`.
@@ -580,7 +611,7 @@ Dans la définition d'une fonction, la première chaîne de charactères
 accessible de l'interpréteur via p.ex. `help(temp_f2c)`, ou
 `temp_f2c?` sous `ipython`.  Elle se doit d'être tout à la fois
 pertinente, concise *et* complète.  Elle peut également inclure des
-exemples d'utilisation (*doctest*, voir :ref:`TDD`).
+exemples d'utilisation (*doctests*, voir :ref:`TDD`).
 
 .. literalinclude:: mean_power.py
    :pyobject: mean_power
@@ -595,12 +626,16 @@ Il faut noter plusieurs choses importantes:
   effectuées -- somme, exponentiation, division par un entier -- ont
   été préalablement définies (p.ex. des entiers, des complexes, des
   matrices, etc.).
-- La définition d'une fonction se fait dans un « espace parallèle » où
+- Le typage est *fort*, càd que le type d'une variable ne peut pas
+  changer à la volée.  Ainsi, `"abra" + "cadabra"` a un sens
+  (concaténation de chaînes), mais pas `3 + "cochons"` (entier +
+  chaîne).
+- La définition d'une fonction se fait dans un « espace parallèle » où
   les variables ont une portée (*scope*) locale [#scope]_.  Ainsi, la
   variable `s` définie *dans* la fonction `mean_power` n'interfère pas
-  avec le « monde extérieur » ; inversement, la définition de
-  `mean_power` ne connait rien d'autre que les variables explicitement
-  définies dans la liste des arguments ou localement.
+  avec le « monde extérieur » ; inversement, la définition de
+  `mean_power` ne connaît *a priori* rien d'autre que les variables
+  explicitement définies dans la liste des arguments ou localement.
 
 .. rubric:: Exercice:
 
@@ -618,9 +653,9 @@ Bibliothèques externes
 Une bibliothèque (ou module) est un code fournissant des
 fonctionnalités supplémentaires -- p.ex. des fonctions prédéfinies --
 à Python.  Ainsi, le module :mod:`math` définit les fonctions et
-constantes mathématiques usuelles (`sqrt`, `pi`, etc.)
+constantes mathématiques usuelles (`sqrt()`, `pi`, etc.)
 
-Une bibliothèque est « importée » avec la commande :samp:`import
+Une bibliothèque est « importée » avec la commande :samp:`import
 {module}`.  Les fonctionnalités supplémentaires sont alors accessibles
 dans l'*espace de noms* :samp:`{module}` via
 :samp:`{module}.{fonction}`:
@@ -652,7 +687,7 @@ NameError: name 'sqrt' is not defined
    1.7724538509055159
 
    Cette pratique est cependant fortement *déconseillée*! (possibilité
-   de conflit dans les espaces de noms)
+   de conflit dans les espaces de noms).
 
 Nous verrons par la suite quelques exemples de modules de la
 :ref:`standard`, ainsi que des :ref:`science` orientées analyse
@@ -668,18 +703,18 @@ Bibliothèques personnelles et scripts
 Vous pouvez définir vos propres bibliothèques en regroupant les
 fonctionnalités au sein d'un même fichier :samp:`{monfichier}.py`.  Si
 ce fichier est importé (p.ex. `import monfichier`), il agira comme une
-bibliothèque; si ce fichier est exécuté (p.ex. `python
-./monfichier.py`), il agira comme un *script*.
+bibliothèque; si ce fichier est exécuté -- p.ex. `python
+./monfichier.py` -- il agira comme un *script*.
 
 .. Attention:: Toutes les instructions d'un module qui ne sont pas
    encapsulées dans le `__main__` (voir plus bas) sont interprétées et
    exécutées lors de l'`import` du module.  Elles doivent donc en
    général se limiter à la définition de variables, de fonctions et de
-   classes.
+   classes (en particulier, éviter les affichages).
 
 Un code Python peut donc être:
 
-- un module -- s'il n'inclu que des définitions mais pas d'instruction
+- un module -- s'il n'inclut que des définitions mais pas d'instruction
   exécutable en dehors d'un éventuel `__main__`,
 - ou un exécutable -- s'il inclut un `__main__` ou des instructions
   exécutables,
@@ -710,7 +745,7 @@ mean_power.py`), auquel cas la partie `__main__` sera exécutée.
   (*docstring*, :pep:`257`), qui sera utilisée comme aide en ligne du
   module (`help(mean_power)`), doit être la *1ère* instruction du
   script.
-- `if __name__=='__main__':` permet de séparer le `__main__` (i.e. le
+- `if __name__=='__main__':` permet de séparer le `__main__` (càd le
   corps du programme, à exécuter lors d'une utilisation en script) des
   définitions de fonctions et classes, permettant une utilisation en
   module.
@@ -725,32 +760,33 @@ Exceptions
 
 Lorsqu'il rencontre une erreur dans l'exécution d'une instruction,
 l'interpréteur Python génère (`raise`) une erreur (`Exception`), de
-`nature différente
-<http://rgruet.free.fr/PQR26/PQR2.6.html#BuiltInExc>`_ selon la nature
-de l'erreur: `KeyError`, `ValueError`, `AttributeError`, `NameError`,
-`TypeError`, `IOError`, `NotImplementedError`, etc.  La levée d'une
-erreur n'est cependant pas nécessairement fatale, puisque Python
-dispose d'un mécanisme de *gestion des erreurs*.
+`nature <http://rgruet.free.fr/PQR26/PQR2.6.html#BuiltInExc>`_
+différente selon la nature de l'erreur: `KeyError`, `ValueError`,
+`AttributeError`, `NameError`, `TypeError`, `IOError`,
+`NotImplementedError`, etc.  La levée d'une erreur n'est cependant pas
+nécessairement fatale, puisque Python dispose d'un mécanisme de
+*gestion des erreurs*.
 
 Il est d'usage en Python d'utiliser la philosophie :abbr:`EAFP (Easier
 to Ask for Forgiveness than Permission)` [#lbyl]_: plutôt que de
 tester explicitement toutes les conditions de validité d'une
-instruction, on « tente sa chance » d'abord, quitte à gérer les
+instruction, on « tente sa chance » d'abord, quitte à gérer les
 erreurs *a posteriori*.  Cette gestion des `Exception` se fait par la
 construction `try ... except`.
 
 .. _raw_input:
 
-::
+.. code-block:: python
+   :linenos:
 
-  def lireEntier():
-      while True:
-          try:
-              chaine = raw_input('Entrez un entier: ') # Lecture du clavier
-              # La conversion en type entier lève `ValueError` si impossible
-              return int(chaine)
-          except ValueError:             # Gestion de l'exception ValueError
-              print "{!r} n'est pas un entier".format(chaine)
+   def lireEntier():
+       while True:
+           try:
+               chaine = raw_input('Entrez un entier: ') # Lecture du clavier
+               # La conversion en type entier lève `ValueError` si impossible
+               return int(chaine)
+           except ValueError:             # Gestion de l'exception ValueError
+               print "{!r} n'est pas un entier".format(chaine)
 
 >>> lireEntier()
 Entrez un entier: toto
@@ -764,58 +800,64 @@ Entrez un entier: 4
 
 Dans l'élaboration d'un programme, gérez explicitement les erreurs que
 vous auriez pu tester *a priori* et pour lesquels il existe une
-solution évidente, et laissez passer les autres (ce qui provoquera
+solution de replis, et laissez passer les autres (ce qui provoquera
 éventuellement l'interruption du programme)
 
-.. Attention:: Évitez à tout prix les `except` *nu*, càd ne spécifiant
+.. Attention:: Évitez à tout prix les `except` *nus*, càd ne spécifiant
    pas la ou les exceptions à gérer, car ils intercepteraient alors
    *toutes* les exceptions, y compris celles que vous n'aviez pas
-   prévues!
+   prévues!  Trouvez l'erreur dans le code suivant::
 
-   >>> y = 2
-   >>> try:
-   ...    x = z                 # Copie y dans x
-   ...    print "Tout va bien"
-   ... except:
-   ...    print "Rien ne va plus"
+     y = 2
+     try:
+        x = z                 # Copie y dans x
+        print "Tout va bien"
+     except:
+        print "Rien ne va plus"
 
 Vos procédures doivent également générer des exceptions
 (*documentées*) -- avec l'instruction :samp:`raise {Exception}` -- si
 elles ne peuvent conclure leur action, à charge pour la procédure
-appelante de les gérer si besoin::
+appelante de les gérer si besoin:
 
-  def diff_sqr(x, y):
-      """
-      Returns x**2 - y**2 for x >= y, ValueError otherwise.
+.. code-block:: python
+   :linenos:
 
-      Exemples:
-      >>> diff_sqr(5, 3)
-      16
-      >>> diff_sqr(3, 5)
-      Traceback (most recent call last):
-      ...
-      ValueError: x=3 < y=5
-      """
+   def diff_sqr(x, y):
+       """
+       Return x**2 - y**2 for x >= y, raise ValueError otherwise.
 
-      if x < y:
-          raise ValueError("x={} < y={}".format(x, y))
+       Exemples:
+       >>> diff_sqr(5, 3)
+       16
+       >>> diff_sqr(3, 5)
+       Traceback (most recent call last):
+       ...
+       ValueError: x=3 < y=5
+       """
 
-      return x**2 - y**2
+       if x < y:
+           raise ValueError("x={} < y={}".format(x, y))
+
+       return x**2 - y**2
 
 .. index:: assert
 
 Avant de se lancer dans un calcul long et complexe, on peut vouloir
 tester la validité de certaines hypothèses fondamentales, soit par une
 structure `if ... raise`, ou plus facilement à l'aide d'`assert` (qui,
-si l'hypothèse n'est pas vérifiée, génère une `AssertionError`)::
+si l'hypothèse n'est pas vérifiée, génère une `AssertionError`):
 
-  def diff_sqr(x, y):
-      """
-      Returns x**2 - y**2 for x >= y, AssertionError otherwise.
-      """
+.. code-block:: python
+   :linenos:
 
-      assert x >= y, "x={} < y={}".format(x, y) # Test et msg d'erreur
-      return x**2 - y**2
+   def diff_sqr(x, y):
+       """
+       Returns x**2 - y**2 for x >= y, AssertionError otherwise.
+       """
+
+       assert x >= y, "x={} < y={}".format(x, y) # Test et msg d'erreur
+       return x**2 - y**2
 
 .. Note:: La règle générale à retenir concernant la gestion des
    erreurs: **Fail early, fail often, fail better!**
@@ -839,15 +881,15 @@ Au concept d'objet sont liées les notions de:
 - **Classe:** il s'agit d'un *modèle* d'objet, dans lequel sont
   définis ses propriétés usuelles.  P.ex. la classe `Forme` peut
   représenter une forme plane caractérisée par sa couleur, et
-  disposant de fonctionnalités propres (p.ex. `change_couleur()`).
+  disposant de fonctionnalités propres, p.ex. `change_couleur()`.
 - **Instantiation:** c'est le fait générer un objet concret (une
-  instance) à partir d'un modèle (une classe).  P.ex. `rosie =
-  Forme('rose')` crée l'instance *rosie* à partir de la classe `Forme`
-  et de la chaîne de caractères *'rose'*.
+  *instance*) à partir d'un modèle (une classe).  P.ex. `rosie =
+  Forme('rose')` crée une instance *rosie* à partir de la classe
+  `Forme` et d'une couleur (chaîne de caractères `'rose'`).
 - **Attributs:** variables internes décrivant l'état de l'objet.
   P.ex., `rosie.couleur` donne la couleur de la `Forme` *rosie*.
 - **Méthodes:** fonctions internes, s'appliquant en premier lieu sur
-  l'objet lui-même (`self`), décrivant le comportement de l'objet.
+  l'objet lui-même (`self`), décrivant les capacités de l'objet.
   P.ex. `rosie.change_couleur('bleu')` change la couleur de la `Forme`
   *rosie*.
 
@@ -860,7 +902,7 @@ Au concept d'objet sont liées les notions de:
   l'écriture d'opérations sur les objets.  Ainsi, on peut redéfinir
   les opérateurs de comparaison (`<`, `>=`, etc.) dans la classe
   `Forme` pour que les opérations du genre `forme1 < forme2` aient un
-  sens.
+  sens (p.ex. en comparant les aires).
 
   `Liste des méthodes standard et des surcharges d'opérateur
   <http://rgruet.free.fr/PQR26/PQR2.6.html#SpecialMethods>`_
@@ -929,25 +971,28 @@ Fichiers
 
 La gestion des fichiers (lecture et écriture) se fait à partir de la
 fonction :func:`open` retournant un objet `file
-<https://docs.python.org/2/library/stdtypes.html#bltin-file-objects>`_::
+<https://docs.python.org/2/library/stdtypes.html#bltin-file-objects>`_:
 
-  # ========== ÉCRITURE ==========
-  outfile = open("carres.dat", 'w') # Ouverture du fichier "carres.dat" en écriture
-  for i in range(1, 10):
-      outfile.write("{}  {}\n".format(i, i**2)) # Noter la présence du '\n' (non-automatique)
-  outfile.close()                   # Fermeture du fichier (nécessaire)
+.. code-block:: python
+   :linenos:
 
-  # ========== LECTURE ==========
-  infile = open("carres.dat")  # Ouverture du fichier "carres.dat" en lecture
-  for line in infile:          # Boucle sur les lignes du fichier
-      if line.strip().startswith('#'): # Ne pas considérer les lignes "commentées"
-          continue
-      try:                     # Essayons de lire 2 entiers sur cette ligne
-          x, x2 = [ int(tok) for tok in line.split() ]
-      except ValueError:       # Gestion des erreurs
-          print "Cannot decipher line {!r}".format(line)
-          continue
-      print "{}**3 = {}".format(x, x**3)
+   # ========== ÉCRITURE ==========
+   outfile = open("carres.dat", 'w') # Ouverture du fichier "carres.dat" en écriture
+   for i in range(1, 10):
+       outfile.write("{}  {}\n".format(i, i**2)) # Noter la présence du '\n' (non-automatique)
+   outfile.close()                   # Fermeture du fichier (nécessaire)
+ 
+   # ========== LECTURE ==========
+   infile = open("carres.dat")  # Ouverture du fichier "carres.dat" en lecture
+   for line in infile:          # Boucle sur les lignes du fichier
+       if line.strip().startswith('#'): # Ne pas considérer les lignes "commentées"
+           continue
+       try:                     # Essayons de lire 2 entiers sur cette ligne
+           x, x2 = [ int(tok) for tok in line.split() ]
+       except ValueError:       # Gestion des erreurs
+           print "Cannot decipher line {!r}".format(line)
+           continue
+       print "{}**3 = {}".format(x, x**3)
 
 
 Éléments passés sous silence
@@ -969,8 +1014,8 @@ langage n'ont pas été abordées:
 - Etc.
 
 Ces fonctionnalités peuvent évidemment être très utiles, mais ne sont
-généralement pas strictement indispensables pour une utilisation «
-courante » de Python dans un contexte scientifique.
+généralement pas strictement indispensables pour une utilisation
+« courante » de Python dans un contexte scientifique.
 
 Python 3.x
 ----------
@@ -996,14 +1041,15 @@ code les parties qui devront être modifiées pour un passage à Python 3.x.
 
 .. rubric:: Notes de bas de page
 
-.. [#braces] ou `from __future__ import braces` ...
+.. [#braces] ou `from __future__ import braces` :-)
 
-.. [#scope] La notion de « portée » est plus complexe, je simplifie...
+.. [#scope] La notion de « portée » est plus complexe, je simplifie...
 
 .. [#lbyl] Par opposition au :abbr:`LBYL (Look Before You Leap)` du
    C/C++, basé sur une série *exhaustive* de tests *a priori*.
 
 .. |DANGER| unicode:: 0x2620 .. ☠ = SKULL AND CROSSBONES
+.. |:-)| unicode:: 0x263a .. ☺ = WHITE SMILING FACE
 .. |fr| image:: ../Cours/france_flag_icon.png
    :alt: Fr
 .. |en| image:: ../Cours/uk_flag_icon.png
@@ -1012,10 +1058,3 @@ code les parties qui devront être modifiées pour un passage à Python 3.x.
 .. ①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳
 .. ↑↓→≡≠∈ℕℤℝℂ
 .. ☛☠☹☺⚡⚠
-
-.. Local Variables: ...
-.. mode: rst ...
-.. ispell-local-dictionary: "francais" ...
-.. mode: flyspell ...
-.. indent-tabs-mode: nil ...
-.. End: ...

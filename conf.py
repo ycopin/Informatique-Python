@@ -25,7 +25,11 @@ import sys, os
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.todo', 'sphinx.ext.mathjax', 'sphinx.ext.viewcode', 'sphinx.ext.intersphinx']
+extensions = ['sphinx.ext.autodoc',
+              'sphinx.ext.todo',
+              'sphinx.ext.mathjax',
+              'sphinx.ext.viewcode',
+              'sphinx.ext.intersphinx']
 
 # Intersphinx configuration
 intersphinx_mapping = {
@@ -56,7 +60,7 @@ copyright = u'2014, Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 # built documents.
 #
 # The short X.Y version.
-version = 'École Normale Supérieure de Lyon - DSM-L3'
+version = u'École Normale Supérieure de Lyon - DSM-L3'
 # The full version, including alpha/beta/rc tags.
 release = '2014'
 
@@ -202,8 +206,8 @@ latex_elements = {
     'pointsize': '10pt',
 
     # Additional stuff for the LaTeX preamble.
-    'preamble': r"""
-    \DeclareUnicodeCharacter{2605}{*}
+    'preamble': ur"""
+    \DeclareUnicodeCharacter{2605}{*} % ★
     """,
 }
 

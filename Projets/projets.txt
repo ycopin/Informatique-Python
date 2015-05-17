@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-01-23 19:10:44 ycopin>
+.. Time-stamp: <2015-05-17 23:44 ycopin@lyonovae03.in2p3.fr>
 .. _projets:
 
 Micro-projets
@@ -157,7 +157,7 @@ une foule <http://www2.cnrs.fr/presse/communique/1852.htm>`_).
    :width: 50%
    :align: center
 
-   **Figure:** Un obstacle aide à l'évacuation. `Source
+   **Figure:** Un obstacle aide à l'évacuation. Source: `Crowd Behavior
    <https://www.openabm.org/book/export/html/1955>`_.
 
 

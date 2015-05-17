@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-01-06 00:01 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2015-05-17 23:44 ycopin@lyonovae03.in2p3.fr>
 
 Exemples
 ========
@@ -38,8 +38,8 @@ Matplotlib
 
 .. _figure:
 
-Figure simple
-.............
+Figure (relativement) simple
+............................
 
 .. figure:: figure.*
    :align: center
