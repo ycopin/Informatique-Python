@@ -298,7 +298,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(
         usage="%(prog)s [-p/--plot] [-i/--input coordfile | x1,y1 x2,y2 x3,y3]",
-        description=__doc__)
+        description=__doc__) # __doc__ est la docstring du module courant
     parser.add_argument('coords', nargs='*', type=str, metavar='x,y',
                         help="Coordinates of point")
     parser.add_argument('-i', '--input', nargs='?', type=file,
