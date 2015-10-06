@@ -2,7 +2,7 @@
                   Outils numériques et programmation
 *********************************************************************
 
-.. Time-stamp: <2015-01-13 12:35:36 ycopin>
+.. Time-stamp: <2015-10-06 13:53:19 ycopin>
 
 .. highlight:: python
    :linenothreshold: 3
@@ -47,3 +47,7 @@
    Annales/exam_1501
    Projets/projets
    Projets/projets2013
+
+.. image:: _static/cc-by-nc.png
+   :alt: Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0
+   :target: http://creativecommons.org/licenses/by-nc/4.0/
