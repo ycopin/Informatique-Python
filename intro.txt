@@ -1,10 +1,11 @@
-.. Time-stamp: <2015-01-20 12:15:48 ycopin>
+.. Time-stamp: <2015-10-06 12:53:37 ycopin>
 
 Introduction
 ############
 
 :Version: |version| du |today|
 :Auteur: Yannick Copin <`(at)ipnl.in2p3.fr`>
+
 
 Pourquoi Python ?
 =================
@@ -58,3 +59,8 @@ Organisation des TDs
 .. * :ref:`genindex`
 .. * :ref:`search`
 .. * :ref:`modindex`
+
+.. image:: _static/cc-by-nc.png
+   :alt: Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0
+   :target: http://creativecommons.org/licenses/by-nc/4.0/
+
