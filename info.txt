@@ -1,30 +1,32 @@
-.. Time-stamp: <2015-01-23 19:20:11 ycopin>
+.. Time-stamp: <2016-01-17 23:48 ycopin@lyonovae03.in2p3.fr>
 
-:orphan:
+.. :orphan:
 
 Informations pratiques
 ======================
 
-- Atelier "Modélisation de problèmes physiques en Python"
+- Atelier "Analyse scientifique avec Python"
 - `Cours en ligne
   <https://informatique-python.readthedocs.org/fr/python-m2/>`_
-- Responsable: Yannick Copin <@ipnl.in2p3.fr>, Bureau 420 de l'IPNL (4 rue
-  Fermi)
+- Responsable: Yannick Copin <@ipnl.in2p3.fr>, Bureau 420 de l'`IPNL
+  <http://www.ipnl.in2p3.fr/>`_ (4 rue Fermi)
 
 .. rubric:: Calendrier
 
-Toutes les séances ont lieu en `Ariane 13
+Toutes les séances ont lieu en `Ariane 03
 <http://oscar.univ-lyon1.fr/appli-externe/plan/plans/fiches_ucbl/751.html>`_.
 
 ===========  =======
 Date           TD  
 ===========  =======
-Merc. 28/01   9h-12h
-Merc. 28/01  13h30-16h30
-Jeudi 29/01   9h-12h
-Jeudi 29/01  14h-17h
-Vend. 30/01   9h-12h
-Vend. 30/01  14h-17h
+Lun. 25/01   10h-12h
+Lun. 25/01   13h30-16h30
+Mar. 25/01   10h-12h
+Mar. 25/01   13h30-16h30
+Mer. 25/01   10h-12h
+Mer. 25/01   13h30-16h30
+Jeu. 25/01   10h-12h
+Jeu. 25/01   13h30-16h30
 ===========  =======
 
 .. |+| image:: ./_static/smile.gif

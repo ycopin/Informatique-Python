@@ -2,7 +2,7 @@
                    Analyse scientifique avec Python
 *********************************************************************
 
-.. Time-stamp: <2015-01-22 18:08 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2015-10-06 13:52:10 ycopin>
 
 .. highlight:: python
    :linenothreshold: 3
@@ -48,3 +48,7 @@
    Annales/exam_1501
    Projets/projets
    Projets/projets2013
+
+.. image:: _static/cc-by-nc.png
+   :alt: Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0
+   :target: http://creativecommons.org/licenses/by-nc/4.0/

@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-01-27 21:50 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2016-01-17 22:31 ycopin@lyonovae03.in2p3.fr>
 .. _cours:
 
 Initiation à Python
@@ -255,9 +255,8 @@ Structures de programmation
      tabulation, source de confusion.  Configurez votre éditeur de
      texte en conséquence.
 
-- Une instruction par ligne *en général* (ou instructions séparées par
-  `;`).
-- Les commentaires commencent par `#`, et vont jusqu'à la fin de la
+- Une instruction par ligne *en général* (ou instructions séparées par `;`).
+- Les commentaires commencent par `#`, et vont jusqu'à la fin de la
   ligne.
 
 .. index:: pair: booléen; True/False
@@ -1015,8 +1014,8 @@ langage n'ont pas été abordées:
 - Etc.
 
 Ces fonctionnalités peuvent évidemment être très utiles, mais ne sont
-généralement pas strictement indispensables pour une utilisation «
-courante » de Python dans un contexte scientifique.
+généralement pas strictement indispensables pour une utilisation
+« courante » de Python dans un contexte scientifique.
 
 Python 3.x
 ----------
@@ -1051,9 +1050,9 @@ code les parties qui devront être modifiées pour un passage à Python 3.x.
 
 .. |DANGER| unicode:: 0x2620 .. ☠ = SKULL AND CROSSBONES
 .. |:-)| unicode:: 0x263a .. ☺ = WHITE SMILING FACE
-.. |fr| image:: ../Cours/france_flag_icon.png
+.. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr
-.. |en| image:: ../Cours/uk_flag_icon.png
+.. |en| image:: ../_static/uk_flag_icon.png
    :alt: En
 
 .. ①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳

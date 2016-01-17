@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-01-20 12:28:29 ycopin>
+.. Time-stamp: <2016-01-17 22:41 ycopin@lyonovae03.in2p3.fr>
 
 Références supplémentaires
 ==========================
@@ -143,7 +143,7 @@ Sphinx & co.
 
 - `Sample doc <http://matplotlib.org/sampledoc/>`_
 
-.. |fr| image:: ../Cours/france_flag_icon.png
+.. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr
-.. |en| image:: ../Cours/uk_flag_icon.png
+.. |en| image:: ../_static/uk_flag_icon.png
    :alt: En

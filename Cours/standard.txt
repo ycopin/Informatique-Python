@@ -4,7 +4,7 @@
 Bibliothèque standard
 #####################
 
-.. Time-stamp: <2015-01-27 18:23 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2015-05-17 23:44 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -91,7 +91,7 @@ pérenne d'objets python (« sérialisation »).
 >>> l = range(10000)
 >>> import cPickle as pickle         # 'cPickle' est + rapide que 'pickle'
 >>> pkl = open('archive.pkl', 'w')   # Overture du fichier en écriture
->>> pickle.dump((d, l), pkl, protocol=-1) # Sérialisation du tuple (d,l)
+>>> pickle.dump((d, l), pkl, protocol=-1)  # Sérialisation du tuple (d, l)
 >>> pkl.close()                      # *IMPORTANT!* Fermeture du fichier
 >>> d2, l2 = pickle.load(open('archive.pkl')) # Désérialisation (relecture)
 >>> (d == d2) and (l == l2)

@@ -3,7 +3,7 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2015-01-27 22:10 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2016-01-17 22:31 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -481,7 +481,7 @@ calcul matriciel (inverse, déterminant, valeurs propres, etc.).
    pair: numpy; allclose
 
 :mod:`numpy` fournit de nombreuses fonctions mathématiques de base
-(:func:`numpy.exp`, func:`numpy.atan2`, etc.) s'appliquant directement
+(:func:`numpy.exp`, :func:`numpy.atan2`, etc.) s'appliquant directement
 sur les éléments des tableaux d'entrée:
 
 >>> x = N.linspace(0, 2*N.pi, 5)  # [0, π/2, π, 3π/2, 2π]
@@ -826,14 +826,7 @@ différents domaines de la physique/chimie:
    `sympy <http://www.sympy.org/>`_, et d'un environnement de calcul
    mathématique, `sage <http://www.sagemath.org/>`_.
 
-.. |fr| image:: ../Cours/france_flag_icon.png
+.. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr
-.. |en| image:: ../Cours/uk_flag_icon.png
+.. |en| image:: ../_static/uk_flag_icon.png
    :alt: En
-
-.. Local Variables: ...
-.. mode: rst ...
-.. ispell-local-dictionary: "francais" ...
-.. mode: flyspell ...
-.. indent-tabs-mode: nil ...
-.. End: ...
