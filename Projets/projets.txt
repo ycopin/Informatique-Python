@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-01-23 19:26:44 ycopin>
+.. Time-stamp: <2016-01-18 00:17 ycopin@lyonovae03.in2p3.fr>
 .. _projets:
 
 Micro-projets

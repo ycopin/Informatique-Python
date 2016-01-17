@@ -2,7 +2,7 @@
                    Analyse scientifique avec Python
 *********************************************************************
 
-.. Time-stamp: <2015-10-06 13:52:10 ycopin>
+.. Time-stamp: <2016-01-18 00:14 ycopin@lyonovae03.in2p3.fr>
 
 .. highlight:: python
    :linenothreshold: 3
