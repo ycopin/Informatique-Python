@@ -4,7 +4,7 @@
 Bibliothèque standard
 #####################
 
-.. Time-stamp: <2015-05-17 23:44 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2016-01-18 00:43 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -21,7 +21,6 @@ multimédia, etc.
 
 * `The Python Standard Library <https://docs.python.org/2/library/>`_
   (v2.7)
-* `Python by Example! <http://www.lightbird.net/py-by-example/>`_
 * `Python Module of the Week <http://pymotw.com/2/contents.html>`_
 
 .. _optparse:
