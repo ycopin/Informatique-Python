@@ -1,10 +1,10 @@
-.. Time-stamp: <2016-01-24 22:02 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2016-01-25 00:14 ycopin@lyonovae03.in2p3.fr>
 
 Introduction
 ############
 
 :Version: |version| du |today|
-:Auteur: :email:`Yannick Copin <y.copin@ipnl.in2p3.fr>`
+:Auteur: Yannick Copin `<@ipnl.in2p3.fr>`
 
 .. role:: python(code)
    :language: python

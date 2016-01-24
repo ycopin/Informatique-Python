@@ -4,7 +4,7 @@ Examen final, Janvier 2015
 ##########################
 
 .. source-enonce
-.. :email:`Yannick Copin <y.copin@ipnl.in2p3.fr>`
+.. Yannick Copin `<@ipnl.in2p3.fr>`
 
 **Consignes:** 
 
