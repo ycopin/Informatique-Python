@@ -1,4 +1,4 @@
-.. Time-stamp: <2016-01-18 00:40 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2016-01-24 20:52 ycopin@lyonovae03.in2p3.fr>
 
 Références supplémentaires
 ==========================
@@ -77,11 +77,19 @@ Cours en ligne
 Python
 ......
 
-- `Le site du zéro <http://openclassrooms.com/courses/langage-python>`_ |fr|
+- `Python Tutorial <https://docs.python.org/2/tutorial/>`_ (v2.7)
+- `Tutoriel Python
+  <http://python.developpez.com/cours/TutoVanRossum/>`_ (v2.4) |fr|
+- `Le site du zéro
+  <http://openclassrooms.com/courses/langage-python>`_ |fr|
+- `Apprenez à programmer en Python
+  <https://openclassrooms.com/courses/apprenez-a-programmer-en-python>`_
+- `Débuter avec Python au lycée <http://python.lycee.free.fr/>`_ |fr|
 - `Présentation de Python
   <http://python.developpez.com/tutoriels/cours-intensif-scientifique/presentation-debuter/>`_ |fr|
 - `Introduction à Python pour la programmation scientifique
   <http://www.courspython.com/sommaire.html>`_ |fr|
+- `Begginer's Guide <https://wiki.python.org/moin/BeginnersGuide>`_
 - `DIY python workshop
   <http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
 - `Google's Python Class <https://developers.google.com/edu/python/>`_

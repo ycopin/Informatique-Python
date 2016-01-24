@@ -1,11 +1,13 @@
-.. Time-stamp: <2016-01-17 23:39 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2016-01-24 22:02 ycopin@lyonovae03.in2p3.fr>
 
 Introduction
 ############
 
 :Version: |version| du |today|
-:Auteur: Yannick Copin <`(at)ipnl.in2p3.fr`>
+:Auteur: :email:`Yannick Copin <y.copin@ipnl.in2p3.fr>`
 
+.. role:: python(code)
+   :language: python
 
 Pourquoi un module d'analyse scientifique ?
 ===========================================
@@ -29,7 +31,8 @@ observations.
 Pourquoi Python ?
 =================
 
-Les principales caractéristiques du langage `python`:
+Les principales caractéristiques du langage `Python
+<https://www.python.org/>`_:
 
 - Syntaxe simple et lisible: langage pédagogique et facile à apprendre
   et à utiliser;
@@ -53,7 +56,7 @@ programes les plus complexes (projets de plus de 100000 lignes).
 
 .. rubric:: Liens:
 
-* `About Python <https://www.python.org/about/>`_
+* `Getting Started <https://www.python.org/about/gettingstarted/>`_
 * `Python Advocacy <https://docs.python.org/2/howto/advocacy.html>`_
 
 

@@ -4,7 +4,7 @@
 Bibliothèque standard
 #####################
 
-.. Time-stamp: <2016-01-18 00:43 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2016-01-24 23:50 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -176,6 +176,8 @@ Quelques modules de la librairie standard qui peuvent être d'intérêt:
 
 - :abbr:`TUI (Text User Interface)`: :mod:`curses`
 - :abbr:`GUI (Graphical User Interface)`: :mod:`Tkinter`,
-- Librairies externes; `PyGTK <http://www.pygtk.org/>`_, `PyQt
-  <http://www.riverbankcomputing.co.uk/software/pyqt/intro>`_,
-  `wxPython <http://www.wxpython.org/>`_
+- Librairies externes: `PyGI
+  <https://wiki.gnome.org/Projects/PyGObject>`_ (GTK3), `PyQt
+  <http://www.riverbankcomputing.co.uk/software/pyqt/intro>`_ /
+  `pySide <https://wiki.qt.io/PySide>`_ (Qt), `wxPython
+  <http://www.wxpython.org/>`_ (wxWidgets)

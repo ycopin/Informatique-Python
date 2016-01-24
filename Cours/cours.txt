@@ -1,4 +1,4 @@
-.. Time-stamp: <2016-01-18 00:33 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2016-01-24 23:32 ycopin@lyonovae03.in2p3.fr>
 .. _cours:
 
 Initiation à Python
@@ -35,13 +35,6 @@ Initiation à Python
 
 Introduction
 ============
-
-.. rubric:: Liens:
-
-- `Python Tutorial <https://docs.python.org/2/tutorial/>`_ (v2.7)
-- `Tutoriel Python
-  <http://python.developpez.com/cours/TutoVanRossum/>`_ (v2.4) |fr|
-- `Begginer's Guide <https://wiki.python.org/moin/BeginnersGuide>`_
 
 Installation
 ------------
@@ -151,13 +144,13 @@ Python:
     * `%debug` pour lancer le mode débuggage intéractif *post-mortem*
     * `%cpaste` pour coller et éxecuter un code pré-formaté
 
-.. rubric:: Liens:
-
-- `Tutorial
-  <http://ipython.org/ipython-doc/stable/interactive/tutorial.html>`_
-- `IPython Tip Sheet
-  <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/ipython.html>`_
-
+  .. rubric:: Liens:
+  
+  - `Tutorial
+    <http://ipython.org/ipython-doc/stable/interactive/tutorial.html>`_
+  - `IPython Tip Sheet
+    <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/ipython.html>`_
+  
 
 Types de base
 =============
@@ -171,8 +164,8 @@ Types de base
 - **Chaînes de caractères**: `str`
 
   - Entre (simples ou triples) apostrophes `'` ou guillemets `"`:
-    `'Calvin'`, `"Calvin'n'Hobbes"`, `'''Two\\\nlines'''`,
-    `"""'Why?' he asked."""`
+    `'Calvin'`, `"Calvin'n'Hobbes"`, `'''Deux\\\nlignes'''`,
+    `"""'Pourquoi?' demanda-t-il."""`
   - Conversion: `str(3.2)`
 
 .. index::
@@ -191,13 +184,13 @@ Types de base
   - Complexes `complex`: `1+2j`, `5.1j`, `complex(-3.14)`,
     `complex('j')`
 
-  >>> 3/2           # ATTENTION! Division euclidienne par défaut dans Python 2.x
-  1
-  >>> float(3)/2    # ou 'from __future__ import division'
-  1.5
-  >>> 6 // 2.5      # Division euclidienne
+  >>> 5 / 2       # ☠☠☠ Division euclidienne par défaut dans Python 2.x
+  2
+  >>> float(5)/2  # ou ajouter 'from __future__ import division' en début de script
+  2.5
+  >>> 6 // 2.5    # Division euclidienne explicite
   2.0
-  >>> 6 % 2.5       # Reste de la division euclidienne
+  >>> 6 % 2.5     # Reste de la division euclidienne
   1.0
   >>> (1+2j)**-0.5  # Puissance entière, réelle ou complexe
   (0.5688644810057831-0.3515775842541429j)
@@ -218,7 +211,7 @@ Types de base
     conditions d'utilisation, les parenthèses ne sont pas toujours
     nécessaires)
   - Listes à clés `dict`: `{'a':1, 'b':[1, 2], 3:'c'}`
-  - Ensembles non ordonnés `set`: `{1, 2, 3, 2}`
+  - Ensembles non ordonnés d'éléments uniques `set`: `{1, 2, 3, 2}`
 
   >>> l = ['a', True] # Définition d'une liste
   >>> x, y = 1, 2.5   # Affectations multiples via tuples (les parenthèses ne sont pas nécessaires)
@@ -267,7 +260,7 @@ Structures de programmation
   - `False`: test logique faux (p.ex. `3 == 4`), valeur nulle, chaîne
     vide (`''`), liste vide (`[]`), etc.
   - `True`: test logique vrai (p.ex. `2 + 2 == 4`), toute valeur ou
-    objet non-nul (et donc s'évaluant par défaut à `True`)
+    objet non-nul (et donc s'évaluant par défaut à `True` *sauf exception*)
   - Tests logiques: `==`, `!=`, `>`, `>=`, etc.
 
     .. Attention:: Ne pas confondre « `=` » (affectation d'une variable)
@@ -311,14 +304,14 @@ Structures de programmation
   81
 
   - `continue`: interrompt l'itération courante, et reprend la boucle
-    à l'itération suivante
-  - `break`: interrompt complètement la boucle
+    à l'itération suivante,
+  - `break`: interrompt complètement la boucle.
 
 .. index:: while
 .. index:: break
 
 - **Boucle while**: :samp:`while {condition}:` se répéte tant que la
-  *condition* est vraie, ou après une sortie explicite avec `break`
+  *condition* est vraie, ou après une sortie explicite avec `break`.
 
   .. Attention:: aux boucles infinies, dont la condition d'exécution
      reste invariablement vraie (typiquement un critère de convergence
@@ -376,8 +369,8 @@ Des portions d'une chaîne peuvent être extraites en utilisant des
 *slices* (« tranches »), de notation générique
 :samp:`{[start=0]}:{[stop=len]}{[:step=1]}`.  P.ex.
 
->>> alpha[3:6]  # De l'élément n°3 (inclus) au n°6 (exclu), soit 6-3 = 3 éléments
-'def'
+>>> alpha[3:7]  # De l'élément n°3 (inclus) au n°7 (exclu), soit 7-3=3 éléments
+'defg'
 >>> alpha[:3]   # Du n°0 (défaut) au n°3 (exclu), soit 3 éléments
 'abc'
 >>> alpha[-3:]  # Du n°26-3=23 (inclus) au dernier inclus (défaut)
@@ -400,17 +393,17 @@ facilitant leur manipulation:
 >>> enfant, peluche = "Calvin", 'Hobbes'      # Affectation mutiple
 >>> titre = enfant + ' et ' + peluche; titre  # +: Concaténation de chaînes
 'Calvin et Hobbes'
->>> titre.replace('et', '&')       # Remplacement de sous-chaînes
+>>> titre.replace('et', '&')        # Remplacement de sous-chaînes
 'Calvin & Hobbes'
 >>> ' & '.join(titre.split(' et ')) # Découpage (split) et jonction (join)
 'Calvin & Hobbes'
->>> 'Hobbes' in titre              # in: Test d'inclusion
+>>> 'Hobbes' in titre               # in: Test d'inclusion
 True
->>> titre.find("Hobbes")           # str.find: Recherche de sous-chaîne
+>>> titre.find("Hobbes")            # str.find: Recherche de sous-chaîne
 10
 >>> titre.center(30, '-')
 '-------Calvin et Hobbes-------'
->>> dir(str)                       # Liste toutes les méthodes des chaînes
+>>> dir(str)                        # Liste toutes les méthodes des chaînes
 
 .. _print:
 
@@ -453,8 +446,6 @@ Scientific progress goes 'boink'
 
 :ref:`tables`
 
-**Exercice:** tables de multiplications.
-
 
 Objets itérables
 ================
@@ -477,16 +468,17 @@ volée -- tandis que chaînes de caractères et les tuples sont
   >>> l[5]            # Erreur: indice hors-bornes
   IndexError: list index out of range
   >>> d = dict(a=1, b=2) # Création du dictionnaire {'a':1, 'b':2}
-  >>> d['a']         # Accès à une entrée via sa clé
+  >>> d['a']          # Accès à une entrée via sa clé
   1
-  >>> d['c']         # Erreur: clé inexistante!
+  >>> d['c']          # Erreur: clé inexistante!
   KeyError: 'c'
-  >>> d['c'] = 3; d  # Ajout d'une clé et sa valeur
-  {'a': 1, 'c': 3, 'b': 2} # Noter qu'un dictionnaire N'est PAS ordonné!
+  >>> d['c'] = 3; d   # Ajout d'une clé et sa valeur
+  {'a': 1, 'c': 3, 'b': 2}
+  >>> # Noter qu'un dictionnaire N'est PAS ordonné!
 
 - Sous-listes (*slices*):
 
-  >>> l[1:-1]        # Du 2ème (`1`) *inclus* au dernier (`-1`) *exclu*
+  >>> l[1:-1]        # Du 2ème ('1') *inclus* au dernier ('-1') *exclu*
   [2, 3, 4]
   >>> l[1:-1:2]      # Idem, tous les 2 éléments
   [2, 4]
@@ -503,9 +495,9 @@ volée -- tandis que chaînes de caractères et les tuples sont
   >>> l + [1, 2]; l            # Concaténation (l reste inchangé)
   ['a', 'x', 3, 'y', 5, 1, 2]
   ['a', 'x', 3, 'y', 5]
-  >>> l += [1, 2]; l           # Concaténation sur place (modification de l)
+  >>> l += [1, 2]; l           # Concaténation sur place (l est modifié)
   ['a', 'x', 3, 'y', 5, 1, 2]
-  >>> l.append('z'); l         # Ajout d'un *élément* en dernière position
+  >>> l.append('z'); l         # Ajout d'un élément en fin de liste
   ['a', 'x', 3, 'y', 5, 1, 2, 'z']
   >>> l.extend([-1, -2]); l    # Extension par une liste
   ['a', 'x', 3, 'y', 5, 1, 2, 'z', -1, -2]
@@ -729,8 +721,9 @@ bibliothèque (p.ex. `import mean_power`) dans un autre code Python, ou
 bien être exécuté depuis la ligne de commande (p.ex. `python
 mean_power.py`), auquel cas la partie `__main__` sera exécutée.
 
-- `#!` (`Sharp-bang <http://en.wikipedia.org/wiki/Shebang_(Unix)>`_):
-  la première ligne d'un script défini l'interpréteur à utiliser::
+- `#!` (`Hash-bang <http://en.wikipedia.org/wiki/Shebang_(Unix)>`_):
+  la première ligne d'un script défini l'interpréteur à utiliser
+  [#shebang]_::
 
     #!/usr/bin/env python
 
@@ -747,7 +740,9 @@ mean_power.py`), auquel cas la partie `__main__` sera exécutée.
   (*docstring*, :pep:`257`), qui sera utilisée comme aide en ligne du
   module (`help(mean_power)`), doit être la *1ère* instruction du
   script.
-- `if __name__=='__main__':` permet de séparer le `__main__` (càd le
+- `from __future__ import division`: permet de ne pas considérer les
+  divisions entre entiers comme euclidiennes par défaut.
+- `if __name__ == '__main__':` permet de séparer le `__main__` (càd le
   corps du programme, à exécuter lors d'une utilisation en script) des
   définitions de fonctions et classes, permettant une utilisation en
   module.
@@ -876,7 +871,8 @@ Classes
 
 Un objet est une entité de programmation, disposant de ses propres
 états et fonctionnalités.  C'est le concept central de la
-*Programmation Orientée Objet*.
+`Programmation Orientée Objet
+<https://fr.wikipedia.org/wiki/Programmation_orientée_objet>`_.
 
 Au concept d'objet sont liées les notions de:
 
@@ -1016,37 +1012,38 @@ langage n'ont pas été abordées:
 - Etc.
 
 Ces fonctionnalités peuvent évidemment être très utiles, mais ne sont
-généralement pas strictement indispensables pour une utilisation
-« courante » de Python dans un contexte scientifique.
+généralement pas strictement indispensables pour une première
+utilisation de Python dans un contexte scientifique.
 
 Python 3.x
 ----------
 
-Ce cours présente le langage Python dans sa version 2.7.  Pourtant, le
-développement actuel de Python se fait uniquement sur la branche 3.x, qui
-constitue une remise à plat *non-rétrocompatible* du langage.  Cependant, à
-moins d'être activement impliqué dans le développement de modules 3.x, il est
-encore `préférable <https://wiki.python.org/moin/Python2orPython3>`_ -- pour un
-utilisateur scientifique lambda -- de développer en Python 2.x, car certaines
-bibliothèques utiles n'ont pas encore été portées ou pleinement testées en 3.x.
+Pour des raisons historiques, ce cours présente le langage Python dans
+sa version 2.x.  Pourtant, le développement actuel de Python se fait
+uniquement sur la branche 3.x, qui constitue une remise à plat
+*non-rétrocompatible* du langage, et la branche 2.x ne sera *a priori*
+plus supporté au delà de 2020 (:pep:`466`).  Il est donc préférable,
+si vous vous lancez dans un développement substantiel, de passer aussi
+rapidement que possible à Python 3 (voir :ref:`python23`).
 
-Python 3 apporte `quelques changements fondamentaux
+Python 3 apporte `quelques changements fondamentaux
 <https://docs.python.org/3/whatsnew/3.0.html>`_, notamment:
 
 - `print` n'est plus un mot-clé mais une fonction: :samp:`print({...})`
 - l'opérateur `/` ne réalise plus la division euclidienne entre les
   entiers, mais toujours la division *réelle*
 
-L'interpréteur Python 2.7 dispose d'une option `-3` mettant en évidence dans un
-code les parties qui devront être modifiées pour un passage à Python 3.x.
+L'interpréteur Python 2.7 dispose d'une option `-3` mettant en
+évidence dans un code les parties qui devront être modifiées pour un
+passage à Python 3.
 
 
 .. rubric:: Notes de bas de page
 
 .. [#braces] ou `from __future__ import braces` :-)
-
 .. [#scope] La notion de « portée » est plus complexe, je simplifie...
-
+.. [#shebang] Il s'agit d'une fonctionnalité des *shells* d'Unix, pas
+              specifique à Python.
 .. [#lbyl] Par opposition au :abbr:`LBYL (Look Before You Leap)` du
    C/C++, basé sur une série *exhaustive* de tests *a priori*.
 

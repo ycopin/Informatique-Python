@@ -1,4 +1,4 @@
-.. Time-stamp: <2016-01-18 00:13 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2016-01-24 19:26 ycopin@lyonovae03.in2p3.fr>
 
 .. :orphan:
 
@@ -8,8 +8,8 @@ Informations pratiques
 - Atelier "Analyse scientifique avec Python"
 - `Cours en ligne
   <https://informatique-python.readthedocs.org/fr/python-m2/>`_
-- Responsable: Yannick Copin <@ipnl.in2p3.fr>, Bureau 420 de l'`IPNL
-  <http://www.ipnl.in2p3.fr/>`_ (4 rue Fermi)
+- Responsable: :email:`Yannick Copin <y.copin@ipnl.in2p3.fr>`, Bureau
+  420 de l'`IPNL <http://www.ipnl.in2p3.fr/>`_ (4 rue Fermi)
 
 .. rubric:: Calendrier
 
@@ -21,12 +21,12 @@ Date           TD
 ===========  =======
 Lun. 25/01   10h-12h
 Lun. 25/01   13h30-16h30
-Mar. 25/01   10h-12h
-Mar. 25/01   13h30-16h30
-Mer. 25/01   10h-12h
-Mer. 25/01   13h30-16h30
-Jeu. 25/01   10h-12h
-Jeu. 25/01   13h30-16h30
+Mar. 26/01   10h-12h
+Mar. 26/01   13h30-16h30
+Mer. 27/01   10h-12h
+Mer. 27/01   13h30-16h30
+Jeu. 28/01   10h-12h
+Jeu. 28/01   13h30-16h30
 ===========  =======
 
 .. |+| image:: ./_static/smile.gif

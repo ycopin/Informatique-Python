@@ -29,7 +29,9 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.todo',
               'sphinx.ext.mathjax',
               'sphinx.ext.viewcode',
-              'sphinx.ext.intersphinx']
+              'sphinx.ext.intersphinx',
+              'sphinxcontrib.email',      # Mail obfuscation
+            ]
 
 # Intersphinx configuration
 intersphinx_mapping = {
@@ -95,6 +97,14 @@ show_authors = True
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
+
+# # Make spaces visibles
+# def setup(sphinx):
+#     from pygments.lexers import PythonLexer
+#     from pygments.filters import VisibleWhitespaceFilter
+#     myLexer = PythonLexer()
+#     myLexer.add_filter(VisibleWhitespaceFilter(spaces=True))
+#     sphinx.add_lexer('python', myLexer);
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
