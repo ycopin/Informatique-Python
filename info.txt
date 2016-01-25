@@ -1,4 +1,4 @@
-.. Time-stamp: <2016-01-25 00:15 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2016-01-25 09:47 ycopin@lyonovae03.in2p3.fr>
 
 .. :orphan:
 
@@ -28,6 +28,31 @@ Mer. 27/01   13h30-16h30
 Jeu. 28/01   10h-12h
 Jeu. 28/01   13h30-16h30
 ===========  =======
+
+.. rubric:: Installations locales
+
+Si des programmes ou des librairies Python (p.ex. `ipython`) manquent
+sur votre ordinateur (p.ex. en salle Ariane 3), il est relativement
+aisé de les installer localement à l'aide du gestionnaire
+d'installation `pip <https://pip.pypa.io/>`_.
+
+* Installer `pip`::
+
+    wget https://bootstrap.pypa.io/get-pip.py
+    ./get-pip.py --user
+
+* Compléter votre `~/.bashrc`::
+
+    export PATH=$PATH:$HOME/.local/bin/
+    export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages/
+
+* Installer p.ex. `ipython <http://ipython.org/>`_::
+
+    pip install --user ipython
+
+Si vous avez le contrôle de votre ordinateur, il peut être préférable
+d'utiliser le gestionnaire de paquets du système (p.ex. `synaptic` sur
+Ubuntu).
 
 .. |+| image:: ./_static/smile.gif
    :alt: Bon
