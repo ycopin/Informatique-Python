@@ -2,8 +2,8 @@
 
 .. _integSol:
 
-Intégration: méthode des rectangles
------------------------------------
+Méthode des rectangles
+----------------------
 
 .. literalinclude:: integ.py
    :linenos:
