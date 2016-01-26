@@ -15,7 +15,7 @@ try:
         try:
             ntest = int(proposition)
             if not nmin <= ntest <= nmax:
-                raise ValueError
+                raise ValueError("Proposition invalide")
         except ValueError:
             print "Votre proposition {!r} n'est pas un entier " \
                 "compris entre {} et {}.".format(proposition, nmin, nmax)
