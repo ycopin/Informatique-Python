@@ -2,8 +2,8 @@
 
 .. _pgcdSol:
 
-PGCD: algorithme d'Euclide
---------------------------
+Algorithme d'Euclide
+--------------------
 
 .. literalinclude:: pgcd.py
    :linenos:
