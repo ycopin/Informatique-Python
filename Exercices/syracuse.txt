@@ -2,8 +2,8 @@
 
 .. _syracuseSol:
 
-Fonctions: suite de Syracuse
-----------------------------
+Suite de Syracuse
+-----------------
 
 .. literalinclude:: syracuse.py
    :linenos:
