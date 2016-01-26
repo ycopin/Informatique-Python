@@ -783,7 +783,7 @@ construction `try ... except`.
                # La conversion en type entier lève `ValueError` si impossible
                return int(chaine)
            except ValueError:             # Gestion de l'exception ValueError
-               print "{!r} n'est pas un entier".format(chaine)
+               print "'{}' n'est pas un entier".format(chaine)
 
 >>> lireEntier()
 Entrez un entier: toto
@@ -988,7 +988,7 @@ fonction :func:`open` retournant un objet `file
        try:                     # Essayons de lire 2 entiers sur cette ligne
            x, x2 = [ int(tok) for tok in line.split() ]
        except ValueError:       # Gestion des erreurs
-           print "Cannot decipher line {!r}".format(line)
+           print "Cannot decipher line '{}'".format(line)
            continue
        print "{}**3 = {}".format(x, x**3)
 
