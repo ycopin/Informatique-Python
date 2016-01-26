@@ -1,7 +1,7 @@
 Développer en python
 ####################
 
-.. Time-stamp: <2016-01-24 23:33 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2016-01-26 12:25 ycopin@lyonovae03.in2p3.fr>
 
 .. contents:: Table des matières
 ..
@@ -328,5 +328,5 @@ Python 2 vs. python 3
 .. [#opt] « *Premature optimization is the root of all evil* » --
    Donald Knuth
 
-.. _pytest: http://pytest.org/latest/
-.. _nose:   http://nose.readthedocs.org/en/latest/
+.. _pytest: http://pytest.org/
+.. _nose:   http://nose.readthedocs.org/

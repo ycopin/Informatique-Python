@@ -1,4 +1,4 @@
-.. Time-stamp: <2016-01-24 21:17 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2016-01-26 12:24 ycopin@lyonovae03.in2p3.fr>
 .. _exercices:
 
 Exercices
@@ -175,19 +175,19 @@ interruption (`KeyboardInterrupt`).
 
 .. _animaux:
 
-Animaux (POO) ★
----------------
+Animaux (POO/TDD) ★
+-------------------
 
 Téléchargez :download:`animaux.py` et complétez les classes `Animal`
-et `Chien` pour qu'elles passent avec succès tous les tests.  On
-appellera les tests via la ligne de commande::
+et `Chien` pour qu'elles passent avec succès tous les tests (voir
+:ref:`TDD`).  On appellera les tests via la ligne de commande::
 
   py.test animaux.py
 
 .. _particle:
 
-Points matériels et ions (POO) ★
---------------------------------
+Points matériels et ions (POO/TDD) ★
+------------------------------------
 
 Pour une simulation d'un problème physique, on peut construire des
 classes qui connaissent elles-mêmes leurs propriétés physiques et
@@ -549,7 +549,6 @@ On propose de considerer par exemple la structure resolue pour la `GFP
 <http://www.rcsb.org/pdb/101/motm.do?momID=42>`_ (*Green Fluorescent
 Protein*, Prix Nobel 2008) (`Fichier PDB
 <http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)
-
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr
