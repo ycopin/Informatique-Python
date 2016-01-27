@@ -1,4 +1,4 @@
-.. % Time-stamp: <2015-01-29 10:52 ycopin@lyonovae03.in2p3.fr>
+.. % Time-stamp: <2016-01-27 17:09 ycopin@lyonovae03.in2p3.fr>
 
 Solutions aux exercices
 =======================
@@ -15,12 +15,12 @@ Solutions aux exercices
 * :ref:`lifeSol`
 * :ref:`madSol`
 * :ref:`pullSol`
-* :ref:`anscombeSol`
-* :ref:`logistiqueSol`
-* :ref:`juliaSol`
 * `Calculs numériques
   <http://nbviewer.ipython.org/url/informatique-python.readthedocs.org/en/python-m2/_downloads/numerique.ipynb>`_
   (:download:`numerique.ipynb`)
+* :ref:`anscombeSol`
+* :ref:`logistiqueSol`
+* :ref:`juliaSol`
 * `Trajectoire d'un boulet de canon
   <http://nbviewer.ipython.org/url/informatique-python.readthedocs.org/en/python-m2/_downloads/canon.ipynb>`_
   (:download:`canon.ipynb`)
