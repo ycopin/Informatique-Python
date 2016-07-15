@@ -31,7 +31,7 @@ def mean_power(alist, power=1):
         s += val ** power   # *s* est augmenté de *val* puissance *power*
     s /= len(alist)         # = somme valeurs / nb valeurs
     # *mean* = (somme valeurs / nb valeurs)**(1/power)
-    mean = s ** (1 / power) 
+    mean = s ** (1 / power)
 
     return mean
 

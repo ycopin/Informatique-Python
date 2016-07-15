@@ -3,8 +3,6 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2016-01-27 17:27 ycopin@lyonovae03.in2p3.fr>
-
 .. contents:: Table des matières
 ..
     1  Numpy

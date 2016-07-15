@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2015-01-27 22:46 ycopin@lyonovae03.in2p3.fr>
 
 import numpy as N
 import matplotlib.pyplot as P
@@ -122,7 +121,7 @@ if __name__ == '__main__':
     # Facteurs de qualité
     qs = [0.25, 1 / N.sqrt(2), 5]            # Valeurs numériques
     labels = [0.25, r'$1/\sqrt{2}$', 5]      # Labels
-    
+
     # Calcul des fonctions de transfert complexes
     pbs = [ passeBas(x, Q=q) for q in qs ]
     phs = [ passeHaut(x, Q=q) for q in qs ]

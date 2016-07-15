@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2016-01-17 22:31 ycopin@lyonovae03.in2p3.fr>
 
 """
 Crible d'Ératosthène.

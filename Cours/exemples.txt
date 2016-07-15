@@ -1,5 +1,3 @@
-.. Time-stamp: <2016-01-24 21:18 ycopin@lyonovae03.in2p3.fr>
-
 Exemples
 ========
 

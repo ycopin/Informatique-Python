@@ -1,5 +1,3 @@
-.. Time-stamp: <2016-01-24 20:52 ycopin@lyonovae03.in2p3.fr>
-
 Références supplémentaires
 ==========================
 
@@ -47,6 +45,10 @@ Listes de liens
   <https://www.wakari.io/sharing/bundle/hugo/01_notebook_introduction>`_
 - `Starter Kit (py4science)
   <http://fperez.org/py4science/starter_kit.html>`_
+
+.. rubric:: Expressions rationnelles
+
+- `regex tester <https://regex101.com/#python>`_
 
 Livres libres
 -------------

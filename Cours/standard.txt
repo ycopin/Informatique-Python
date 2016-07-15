@@ -4,8 +4,6 @@
 Bibliothèque standard
 #####################
 
-.. Time-stamp: <2016-01-24 23:50 ycopin@lyonovae03.in2p3.fr>
-
 .. contents:: Table des matières
 ..
     1  Gestion des arguments/options de la ligne de commande
@@ -131,7 +129,7 @@ Quelques modules de la librairie standard qui peuvent être d'intérêt:
 .. .. index::
 ..    module: re
 
-* `Expressions régulières <https://docs.python.org/2/howto/regex.html>`_:
+* `Expressions rationnelles <https://docs.python.org/2/howto/regex.html>`_:
   :mod:`re`
 
 .. .. index::

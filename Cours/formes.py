@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2016-01-24 23:07 ycopin@lyonovae03.in2p3.fr>
 
 """
 Exemple de Programmation Orientée Objet.

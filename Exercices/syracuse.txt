@@ -1,5 +1,3 @@
-.. Time-stamp: <2014-09-24 18:24:22 ycopin>
-
 .. _syracuseSol:
 
 Suite de Syracuse

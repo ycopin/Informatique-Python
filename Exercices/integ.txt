@@ -1,5 +1,3 @@
-.. Time-stamp: <2014-09-17 18:42:37 ycopin>
-
 .. _integSol:
 
 Méthode des rectangles

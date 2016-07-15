@@ -1,4 +1,3 @@
-.. Time-stamp: <2016-01-24 23:32 ycopin@lyonovae03.in2p3.fr>
 .. _cours:
 
 Initiation à Python
@@ -83,7 +82,7 @@ Les concepts suivants sont supposés connus:
 .. rubric:: Liens:
 
 * `Quelques notions et commandes d'UNIX
-  <http://snovae.in2p3.fr/ycopin/_static/enseignements/notions_unix.pdf>`_
+  <http://www.ipnl.in2p3.fr/perso/ycopin/_static/enseignements/notions_unix.pdf>`_
   |fr|
 * `Introduction to Unix Study Guide
   <http://faculty.salina.k-state.edu/tim/unix_sg/>`_
@@ -369,7 +368,7 @@ Des portions d'une chaîne peuvent être extraites en utilisant des
 *slices* (« tranches »), de notation générique
 :samp:`{[start=0]}:{[stop=len]}{[:step=1]}`.  P.ex.
 
->>> alpha[3:7]  # De l'élément n°3 (inclus) au n°7 (exclu), soit 7-3=3 éléments
+>>> alpha[3:7]  # De l'élément n°3 (inclus) au n°7 (exclu), soit 7-3=4 éléments
 'defg'
 >>> alpha[:3]   # Du n°0 (défaut) au n°3 (exclu), soit 3 éléments
 'abc'

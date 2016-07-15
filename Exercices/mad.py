@@ -11,7 +11,7 @@ def mad(a, axis=None):
 
     # Median along given axis, but *keeping* the reduced axis so that
     # result can still broadcast against a.
-    med = N.median(a, axis=axis, keepdims=True) 
+    med = N.median(a, axis=axis, keepdims=True)
     mad = N.median(N.absolute(a - med), axis=axis)  # MAD along given axis
 
     return mad

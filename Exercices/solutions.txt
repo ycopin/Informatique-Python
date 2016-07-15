@@ -1,5 +1,3 @@
-.. % Time-stamp: <2016-01-27 17:09 ycopin@lyonovae03.in2p3.fr>
-
 Solutions aux exercices
 =======================
 

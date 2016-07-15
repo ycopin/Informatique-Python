@@ -1,8 +1,6 @@
 Développer en python
 ####################
 
-.. Time-stamp: <2016-01-26 12:25 ycopin@lyonovae03.in2p3.fr>
-
 .. contents:: Table des matières
 ..
     1  Le zen du python

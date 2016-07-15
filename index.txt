@@ -2,8 +2,6 @@
                    Analyse scientifique avec Python
 *********************************************************************
 
-.. Time-stamp: <2016-01-18 00:14 ycopin@lyonovae03.in2p3.fr>
-
 .. highlight:: python
    :linenothreshold: 3
 
