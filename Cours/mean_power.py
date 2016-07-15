@@ -7,6 +7,7 @@ utilisation en module (`import mean_power`) et en exécutable (`python
 mean_power.py -h`);
 """
 
+from __future__ import division  # Les divisions entre entiers ne sont pas euclidiennes
 
 def mean_power(alist, power=1):
     """
@@ -19,18 +20,18 @@ def mean_power(alist, power=1):
     Mean Squared*, etc.
 
     Exemples:
-    >>> mean_power([1,2,3])
+    >>> mean_power([1, 2, 3])
     2.0
-    >>> mean_power([1,2,3], power=2)
+    >>> mean_power([1, 2, 3], power=2)
     2.160246899469287
     """
 
     s = 0.                  # Initialisation de la variable *s* comme *float*
     for val in alist:       # Boucle sur les éléments de *alist*
-        s += val ** power     # *s* est augmenté de *val* puissance *power*
+        s += val ** power   # *s* est augmenté de *val* puissance *power*
     s /= len(alist)         # = somme valeurs / nb valeurs
     # *mean* = (somme valeurs / nb valeurs)**(1/power)
-    mean = s ** (1. / power)
+    mean = s ** (1 / power)
 
     return mean
 
@@ -51,7 +52,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     # end-argparse
 
-    if args.input:              # Lecture des coordonnées du fichier d'entrée
+    if args.input:       # Lecture des coordonnées du fichier d'entrée
         # Le fichier a déjà été ouvert en lecture par argparse (type=file)
         try:
             args.list = [float(x) for x in args.input

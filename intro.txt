@@ -1,16 +1,36 @@
-.. Time-stamp: <2015-10-06 13:53:32 ycopin>
-
 Introduction
 ############
 
 :Version: |version| du |today|
-:Auteur: Yannick Copin <`(at)ipnl.in2p3.fr`>
+:Auteur: Yannick Copin `<ipnl.in2p3.fr>`
+
+.. role:: python(code)
+   :language: python
+
+Pourquoi un module d'analyse scientifique ?
+===========================================
+
+* Pour *générer* ses données, p.ex. simulations numériques, contrôle
+  d'expériences;
+* Pour *traiter* ses données, i.e. supprimer les artefacts
+  observationnels;
+* Pour *analyser* ses données, i.e. extraire les quantités physiques
+  pertinentes, p.ex. en ajustant un modèle;
+* Pour *visualiser* ses données, et appréhender leur richesse
+  multi-dimensionnelle;
+* Pour *présenter* ses données, p.ex. générer des figures prêtes à
+  publier.
+
+Ce module s'addresse donc avant tout aux futurs expérimentateurs,
+phénoménologistes ou théoriciens voulant se frotter à la réalité des
+observations.
 
 
-Pourquoi Python ?
+Pourquoi Python ?
 =================
 
-Les principales caractéristiques du langage `python`:
+Les principales caractéristiques du langage `Python
+<https://www.python.org/>`_:
 
 - Syntaxe simple et lisible: langage pédagogique et facile à apprendre
   et à utiliser;
@@ -34,7 +54,7 @@ programes les plus complexes (projets de plus de 100000 lignes).
 
 .. rubric:: Liens:
 
-* `About Python <https://www.python.org/about/>`_
+* `Getting Started <https://www.python.org/about/gettingstarted/>`_
 * `Python Advocacy <https://docs.python.org/2/howto/advocacy.html>`_
 
 

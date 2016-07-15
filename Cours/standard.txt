@@ -4,8 +4,6 @@
 Bibliothèque standard
 #####################
 
-.. Time-stamp: <2015-05-17 23:44 ycopin@lyonovae03.in2p3.fr>
-
 .. contents:: Table des matières
 ..
     1  Gestion des arguments/options de la ligne de commande
@@ -21,7 +19,6 @@ multimédia, etc.
 
 * `The Python Standard Library <https://docs.python.org/2/library/>`_
   (v2.7)
-* `Python by Example! <http://www.lightbird.net/py-by-example/>`_
 * `Python Module of the Week <http://pymotw.com/2/contents.html>`_
 
 .. _optparse:
@@ -132,7 +129,7 @@ Quelques modules de la librairie standard qui peuvent être d'intérêt:
 .. .. index::
 ..    module: re
 
-* `Expressions régulières <https://docs.python.org/2/howto/regex.html>`_:
+* `Expressions rationnelles <https://docs.python.org/2/howto/regex.html>`_:
   :mod:`re`
 
 .. .. index::
@@ -177,6 +174,8 @@ Quelques modules de la librairie standard qui peuvent être d'intérêt:
 
 - :abbr:`TUI (Text User Interface)`: :mod:`curses`
 - :abbr:`GUI (Graphical User Interface)`: :mod:`Tkinter`,
-- Librairies externes; `PyGTK <http://www.pygtk.org/>`_, `PyQt
-  <http://www.riverbankcomputing.co.uk/software/pyqt/intro>`_,
-  `wxPython <http://www.wxpython.org/>`_
+- Librairies externes: `PyGI
+  <https://wiki.gnome.org/Projects/PyGObject>`_ (GTK3), `PyQt
+  <http://www.riverbankcomputing.co.uk/software/pyqt/intro>`_ /
+  `pySide <https://wiki.qt.io/PySide>`_ (Qt), `wxPython
+  <http://www.wxpython.org/>`_ (wxWidgets)

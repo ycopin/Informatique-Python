@@ -1,4 +1,3 @@
-.. Time-stamp: <2015-05-17 23:44 ycopin@lyonovae03.in2p3.fr>
 .. _projets:
 
 Micro-projets
@@ -23,8 +22,87 @@ sensés partir et évoluer.
 
 Les modalités pratiques sont disponibles sur la page :ref:`projets2013`.
 
+Projets de visualisation
+========================
+
+L'objectif premier de ces projets est de développer des outils de
+visualisation sous Python/Matplotlib.
+
+* `Coordonnées parallèles
+  <http://en.wikipedia.org/wiki/Parallel_coordinates>`_
+
+  - Sources éventuelles d'inspiration: `Parallel Coordinates plot in
+    Matplotlib
+    <http://stackoverflow.com/questions/8230638/parallel-coordinates-plot-in-matplotlib>`_,
+    `XDAT <http://www.xdat.org/>`_
+  - Exemples de jeu de données multi-variables: `Iris flower data set
+    <http://en.wikipedia.org/wiki/Iris_flower_data_set>`_,
+    :download:`Cars <./carsDataSet.dat>` (`source
+    <http://mbostock.github.com/protovis/ex/cars.html>`_)
+
+* `Andrew Curves
+  <http://www.jucs.org/jucs_11_11/visualization_of_high_dimensional/jucs_11_11_1806_1819_garc_a_osorio.pdf>`_
+  (voir également `Rip’s Applied Mathematics Blog
+  <http://rip94550.wordpress.com/2011/10/03/andrews-curves/>`_
+
+  - À appliquer sur les mêmes jeux de données que pour les coordonnées
+    parallèles.
+
+* `Stacked graphs <http://leebyron.com/else/streamgraph/>`_
+
+  - Source éventuelle d'inspiration: `Python recipe
+    <http://code.activestate.com/recipes/576633-stacked-graphs-using-matplotlib/>`_
+
+* `Diagramme de Hertzprung-Russel
+  <http://en.wikipedia.org/wiki/Hertzsprung-Russell_diagram>`_
+
+  L'objectif est de développer une classe permettant de tracer des
+  diagrammes HR à partir de diverses quantités observationnelles
+  (magnitudes apparentes ou absolues, couleurs) ou théoriques
+  (luminosité, températures effectives), ainsi que des isochrones.
+
+  - Source éventuelle d'inspiration: `Stellar evolutionary tracks
+    <http://en.wikipedia.org/wiki/File:Stellar_evolutionary_tracks-en.svg>`_
+  - Données photométriques: p.ex. :download:`M55 <./M55_BV.dat>`
+    (source: `BVI photometry in M55
+    <http://cdsarc.u-strasbg.fr/viz-bin/Cat?J/AJ/134/825>`_)
+  - Données théoriques: p.ex. `Padova database of stellar evolutionary
+    tracks and isochrones <http://pleiadi.pd.astro.it/>`_
+
+.. https://sites.google.com/site/roguewavesoftwarefrance/tutoriels/Python-Clustering-k-Means
+
+* `Treemaps <http://en.wikipedia.org/wiki/Treemap>`_
+
+  - Source éventuelle d'inspiration: `Treemaps under pylab
+    <http://www.scipy.org/Cookbook/Matplotlib/TreeMap>`_
+
+* De façon plus générale, l'ensemble des visualisations proposées
+  sous:
+
+  - `Flare <http://flare.prefuse.org/demo>`_
+  - `D3 <http://mbostock.github.com/d3/ex/>`_ (ex-`Protovis
+    <http://mbostock.github.com/protovis/ex/>`_)
+  - `Periodic Table of Vizualisation Methods
+    <http://www.visual-literacy.org/periodic_table/periodic_table.html>`_
+
+..  - `R <http://addictedtor.free.fr/graphiques/>`_
+
+
+Projets statistiques
+====================
+
+- Tests statistiques du `NIST/SEMATECH e-Handbook of Statistical
+  Methods <http://www.itl.nist.gov/div898/handbook/>`_,
+  p.ex. `Comparisons based on data from two processes
+  <http://www.itl.nist.gov/div898/handbook/prc/section3/prc3.htm>`_
+- Statistiques robustes, p.ex. `Beers et al. (1990)
+  <http://adsabs.harvard.edu/abs/1990AJ....100...32B>`_
+
+Projets de physique
+===================
+
 Formation de pistes de fourmis sur un pont à 2 branches
-=======================================================
+-------------------------------------------------------
 
 Si on propose à une colonie de fourmis de choisir entre 2 branches
 pour rejoindre une source de nourriture la branche finalement choisie
@@ -51,7 +129,7 @@ comparaison entre les deux types de modèle.
    Wikimedia Commons.
 
 Formation d'agrégats
-====================
+--------------------
 
 La formation d'agrégats est par essence un sujet interdisciplinaire,
 ou la modélisation joue un rôle certain comme « microscope
@@ -73,7 +151,7 @@ dans un contexte plus `biologique
    work) [Public domain], via Wikimedia Commons.
 
 Modèle d'Ising
-==============
+--------------
 
 Le modèle d'Ising est le modèle le plus simple du magnétisme. Le
 modèle 1D est exactement soluble par la méthode de la matrice de
@@ -81,7 +159,7 @@ transfert. La généralisation à 2 dimensions a été faite par Lars
 Onsager en 1944, mais la solution est assez compliquée. Il n'existe
 pas de solution analytique en 3D. On va ici considérer un système de
 spins sur réseau. Chaque spin :math:`\sigma_i` peut prendre 2 valeurs
-(« *up* » et « *down* »). L'hamiltonien du système,
+(« *up* » et « *down* »). L'hamiltonien du système, 
 
 .. math::
 
@@ -103,7 +181,7 @@ la température et du champ magnétique par simulation de Monte-Carlo.
 
 
 Méthode de Hückel
-=================
+-----------------
 
 La spectroscopie et la réactivité des électrons :math:`\pi` est
 centrale en chimie. Un outil efficace pour les appréhender est
@@ -114,7 +192,7 @@ discutera notamment du choix de la paramétrisation du système.
 
 
 Évacuation d'une salle & déplacement d'une foule dans une rue
-=============================================================
+-------------------------------------------------------------
 
 Le comportement d'une foule est un problème aux applications
 multiples: évacuation d'une salle, couloir du métro aux heures de
@@ -162,7 +240,7 @@ une foule <http://www2.cnrs.fr/presse/communique/1852.htm>`_).
 
 
 Densité d'états d'un nanotube
-=============================
+-----------------------------
 
 Les nanotubes de carbone ont été découverts bien avant celle du
 graphène. Ce sont des matériaux très résistants et durs qui possèdent
@@ -178,7 +256,7 @@ métallique.
 
 
 Solitons
-========
+--------
 
 On considère un câble sous tension auquel sont rigidement et
 régulièrement attachés des pendules. Les pendules sont couplés grâce
@@ -226,7 +304,7 @@ répondre à chacune d’entre elle):
   collisionner des solitons. Cette étude est très intéressante et
   pleine de surprises. Que se passe-t-il lors de la collision de deux
   solitons? Entre un soliton et un anti-soliton?
-
+  
 .. figure::  mascaret.jpg
    :width: 50%
    :align: center
@@ -239,27 +317,27 @@ répondre à chacune d’entre elle):
 
 
 .. Auto-organisation d'un banc de poisson
-.. ======================================
+.. --------------------------------------
 
 .. include:: banc_poisson.txt
 
 .. Diagramme de phase du potentiel de Lennard-Jones
-.. ================================================
+.. ------------------------------------------------
 
 .. include:: lennard_jones.txt
 
 .. Suivi de particule(s)
-.. =====================
+.. ---------------------
 
 .. include:: particle_tracking.txt
 
 
 Autres possibilités
-===================
+-------------------
 
-.. Attention:: ces sujets n'ont pas été validés. Discutez-en avec
-   votre enseignant avant de vous lancer.
-
+- Tesselation de Voronoi (exemple d'application en astrophysique:
+  `Voronoi binning: Optimal adaptive tessellations of
+  multi-dimensional data <http://arxiv.org/abs/0912.1303>`_)
 - `Reaction-Diffusion by the Gray-Scott Model
   <http://mrob.com/pub/comp/xmorphia/>`_
 - Équation de `Cahn–Hilliard
@@ -272,7 +350,7 @@ Autres possibilités
   <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/ComputerExercises.html>`_
 
 États de diffusion pour l’équation de Schrödinger 1D stationnaire
------------------------------------------------------------------
+.................................................................
 
 On s’intéresse à la diffusion d’une particule de masse m à travers un
 potentiel carré défini par :math:`V(x) = V_0` pour :math:`0 \leq x
@@ -292,7 +370,7 @@ Les objectifs de ce projet sont :
 * Écrire un programme qui résolve l’équation de Schrödinger.
 * En déduire les coefficients de transmission et de réflexion.
 
-Références:
+Références: 
 
 * *A numerical method for quantum tunnelling*, Pang T., Computers un
   Physics, 9, p 602-605.
@@ -302,7 +380,7 @@ Références:
   <http://jakevdp.github.io/blog/2012/09/05/quantum-python/>`_
 
 Percolation
------------
+...........
 
 Ce sujet propose d’étudier le phénomène de percolation. La percolation
 est un processus physique qui décrit pour un système, une transition
@@ -342,7 +420,7 @@ d’effectuer des moyennes sur un très grand nombre de tirages
   <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/ComputerExercises/Percolation/Percolation.html>`_
 
 Modèle de Potts 3D
-------------------
+..................
 
 `Modèle de Potts <http://en.wikipedia.org/wiki/Potts_model>`_ en 3D
 dans un univers carré à condition périodique. Le but est la mise en
@@ -371,3 +449,31 @@ Jeux de paramètres à tester :
 
 `Computational Studies of Pure and Dilute Spin Models
 <http://www.hermetic.ch/compsci/thesis/contents.htm>`_
+
+
+*Protein Data Bank*
+...................
+
+On chercher a réaliser un script qui analyse un fichier de données de
+type `PDB <http://fr.wikipedia.org/wiki/Protein_Data_Bank>`_ (*Protein
+Data Bank*).
+
+La banque de données `Worldwide Protein Data Bank
+<http://www.wwpdb.org/>`_ regroupe les structures obtenues par
+diffraction aux rayons X ou par RMN.  Le format est parfaitement
+defini et conventionnel (`Documentation
+<http://www.wwpdb.org/docs.html>`_).
+
+On propose d'assurer une lecture de ce fichier pour calculer notamment :
+
+- le barycentre de la biomolécule
+- le nombre d'acides aminés ou nucléobases
+- le nombre d'atomes
+- la masse moléculaire
+- les dimensions maximales de la protéine
+- etc.
+
+On propose de considerer par exemple la structure resolue pour la `GFP
+<http://www.rcsb.org/pdb/101/motm.do?momID=42>`_ (*Green Fluorescent
+Protein*, Prix Nobel 2008, `Fichier PDB
+<http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)

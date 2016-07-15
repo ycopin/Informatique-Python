@@ -29,8 +29,6 @@ __version__ = "Time-stamp: <2014-01-12 22:19 ycopin@lyonovae03.in2p3.fr>"
 
 # Définition d'une classe ==============================
 
-# start-classPoint
-
 
 class Point(object):  # *object* est la classe dont dérivent toutes les autres
 
@@ -107,12 +105,11 @@ class Point(object):  # *object* est la classe dont dérivent toutes les autres
 
 # Définition du point origine O
 O = Point(0, 0)
-# end-classPoint
 
 
 # Héritage de classe ==============================
 
-# start-classVector
+
 class Vector(Point):
 
     """
@@ -234,9 +231,6 @@ class Vector(Point):
         zu = z * u  # Rotation complexe
 
         return Vector(O, Point(zu.real, zu.imag))
-
-
-# end-classVector
 
 
 def circumscribedCircle(M, N, P):

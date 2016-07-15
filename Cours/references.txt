@@ -1,5 +1,3 @@
-.. Time-stamp: <2015-05-18 00:07 ycopin@lyonovae03.in2p3.fr>
-
 Références supplémentaires
 ==========================
 
@@ -48,15 +46,19 @@ Listes de liens
 - `Starter Kit (py4science)
   <http://fperez.org/py4science/starter_kit.html>`_
 
+.. rubric:: Expressions rationnelles
+
+- `regex tester <https://regex101.com/#python>`_
+
 Livres libres
 -------------
 
 - `How to Think Like a Computer Scientist
   <http://www.greenteapress.com/thinkpython/thinkpython.html>`_
 
-  * `Wikibook <http://en.wikibooks.org/wiki/Think_Python>`_
+  * `Wikibook <https://en.wikibooks.org/wiki/Think_Python>`_
   * `Interactive edition
-    <http://interactivepython.org/runestone/static/thinkcspy/>`_
+    <http://interactivepython.org/runestone/static/thinkcspy/index.html>`_
 
 - `Dive into Python <http://www.diveintopython.net/>`_
 - `10 Free Python Programming Books
@@ -68,7 +70,7 @@ Livres libres
 
 - `Apprendre à programmer avec Python <http://inforef.be/swi/python.htm>`_ |fr|
   (`Wikilivre
-  <http://fr.wikibooks.org/wiki/Apprendre_%C3%A0_programmer_avec_Python>`_)
+  <https://fr.wikibooks.org/wiki/Apprendre_%C3%A0_programmer_avec_Python>`_)
 - `Plongez au coeur de Python <http://diveintopython.adrahon.org/>`_ |fr|
 
 Cours en ligne
@@ -77,13 +79,19 @@ Cours en ligne
 Python
 ......
 
-- `Le site du zéro <http://openclassrooms.com/courses/langage-python>`_ |fr|
+- `Python Tutorial <https://docs.python.org/2/tutorial/>`_ (v2.7)
+- `Tutoriel Python
+  <http://python.developpez.com/cours/TutoVanRossum/>`_ (v2.4) |fr|
+- `Le site du zéro
+  <http://openclassrooms.com/courses/langage-python>`_ |fr|
+- `Apprenez à programmer en Python
+  <https://openclassrooms.com/courses/apprenez-a-programmer-en-python>`_
+- `Débuter avec Python au lycée <http://python.lycee.free.fr/>`_ |fr|
 - `Présentation de Python
   <http://python.developpez.com/tutoriels/cours-intensif-scientifique/presentation-debuter/>`_ |fr|
 - `Introduction à Python pour la programmation scientifique
   <http://www.courspython.com/sommaire.html>`_ |fr|
-- `Exemples de scripts Python
-  <http://fr.wikibooks.org/wiki/Exemples_de_scripts_Python>`_ |fr|
+- `Begginer's Guide <https://wiki.python.org/moin/BeginnersGuide>`_
 - `DIY python workshop
   <http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
 - `Google's Python Class <https://developers.google.com/edu/python/>`_
@@ -98,7 +106,7 @@ Scientifique
 ............
 
 - `Formation à Python scientifique <http://python-prepa.github.io/>`_ |fr|
-- `Python Scientific Lecture Notes <https://scipy-lectures.github.io/>`_
+- `Python Scientific Lecture Notes <http://www.scipy-lectures.org/>`_
 - `Handbook of the Physics Computing Course
   <http://pentangle.net/python/handbook/>`_ (2002)
 - `Practical Scientific Computing in Python
@@ -115,7 +123,7 @@ Scientifique
 - `Practical Python for Astronomers <https://python4astronomers.github.io/>`_
 - `Lectures on Computational Economics <http://quant-econ.net/>`_
   (avec exercices)
-- `Scipy Central <http://scipy-central.org>`_ (*code snippets*)
+- `Scipy Central <http://central.scipy.org/>`_ (*code snippets*)
 
 - `NumPy et SciPy
   <http://python.developpez.com/tutoriels/cours-intensif-scientifique/module-numpy-scipy/>`_

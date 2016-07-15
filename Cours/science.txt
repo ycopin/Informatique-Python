@@ -3,8 +3,6 @@
 Bibliothèques numériques
 ########################
 
-.. Time-stamp: <2015-05-18 00:06 ycopin@lyonovae03.in2p3.fr>
-
 .. contents:: Table des matières
 ..
     1  Numpy
@@ -290,7 +288,7 @@ array([[0, 3],
 
 :meth:`numpy.ndarray.squeeze` élimine tous les axes de dimension 1.
 :func:`numpy.expand_dims` ajoute un axe de dimension 1 en position
-arbitraire. Cela est également possible en utilisant notation *slice*
+arbitraire.  Cela est également possible en utilisant notation *slice*
 avec :data:`numpy.newaxis`.
 
 >>> y[..., 0:1].squeeze()               # Élimine *tous* les axes de dimension 1
@@ -317,6 +315,10 @@ array([[0, 1],
 
 .. .. Attention:: `N.resize(arr, shape)` (complétion avec des copies de
 ..    `arr`) est différent de `arr.resize(shape)` (complétion avec des 0).
+
+.. rubric:: Exercice:
+
+:ref:`matrice`
 
 .. rubric:: *Stacking*
 
@@ -430,12 +432,18 @@ array([ 1.,  2.,  3.])
 array([[3, 4],
        [5, 1],
        [0, 2]])
->>> x.min()          # Minimum global (comportement par défaut)
+>>> x.min()          # Minimum global (comportement par défaut: `axis=None`)
 0
 >>> x.min(axis=0)    # Minima le long de l'axe 0 (i.e. l'axe des lignes)
-array([0, 1])        # ce sont donc les minima par colonne (2,)
+array([0, 1])        # ce sont les minima colonne par colonne: (*3*, 2) → (2,)
 >>> x.min(axis=1)    # Minima le long de l'axe 1 (i.e. l'axe des colonnes)
-array([3, 1, 0])     # ce sont donc les minima par ligne (3,)
+array([3, 1, 0])     # ce sont les minima ligne par ligne (3, *2*) → (3,)
+>>> x.min(axis=1, keepdims=True) # Idem mais en *conservant* le format originel
+array([[3],
+       [1],
+       [0]])
+>>> x.min(axis=(0, 1)) # Minima le long des axes 0 *et* 1 (càd ici tous les axes)
+0
 
 .. rubric:: Opérations matricielles
 
@@ -497,7 +505,7 @@ True
 
 .. rubric:: Exercices:
 
-:ref:`matrice`, :ref:`mad`, :ref:`pull`
+:ref:`mad`, :ref:`pull`
 
 
 Tableaux évolués

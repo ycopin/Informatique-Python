@@ -1,8 +1,6 @@
 Développer en python
 ####################
 
-.. Time-stamp: <2015-05-17 23:44 ycopin@lyonovae03.in2p3.fr>
-
 .. contents:: Table des matières
 ..
     1  Le zen du python
@@ -298,6 +296,8 @@ Comment installer/créer des modules externes:
 - `Hitchhiker’s Guide to Packaging
   <http://the-hitchhikers-guide-to-packaging.readthedocs.org/en/latest/>`_
 
+.. _python23:
+
 Python 2 vs. python 3
 ---------------------
 
@@ -305,6 +305,8 @@ Python 2 vs. python 3
   <https://wiki.python.org/moin/Python2orPython3>`_
 - `Porting Python 2 Code to Python 3
   <http://python.readthedocs.org/en/latest/howto/pyporting.html>`_
+- `Python 2/3 compatibility <http://python-future.org/>`_
+- `2to3 <https://docs.python.org/3/library/2to3.html>`_
 
 .. Gestion de versions
 .. -------------------
@@ -324,5 +326,5 @@ Python 2 vs. python 3
 .. [#opt] « *Premature optimization is the root of all evil* » --
    Donald Knuth
 
-.. _pytest: http://pytest.org/latest/
-.. _nose:   http://nose.readthedocs.org/en/latest/
+.. _pytest: http://pytest.org/
+.. _nose:   http://nose.readthedocs.org/

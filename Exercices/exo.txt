@@ -1,4 +1,3 @@
-.. Time-stamp: <2015-05-18 00:08 ycopin@lyonovae03.in2p3.fr>
 .. _exercices:
 
 Exercices
@@ -43,6 +42,10 @@ dépend-elle du nombre de pas?
 
 PGCD: algorithme d'Euclide ★
 ----------------------------
+
+.. figure:: https://upload.wikimedia.org/wikipedia/commons/5/59/Algorithme_PGCD.png
+   :align: center
+   :alt: Algorithme d'Euclide.
 
 Écrire un programme calculant le :abbr:`PGCD (Plus Grand Commun Dénominateur)`
 de deux nombres (p.ex. 306 et 756) par l'`algorithme d'Euclide
@@ -147,6 +150,7 @@ bibliothèque graphique standard :mod:`turtle` dans une fonction
 
 .. figure:: koch_3.*
    :align: center
+   :alt: Flocon de Koch d'ordre 3.
 
    **Figure:** Flocon de Koch d'ordre 3.
 
@@ -170,19 +174,19 @@ interruption (`KeyboardInterrupt`).
 
 .. _animaux:
 
-Animaux (POO) ★
----------------
+Animaux (POO/TDD) ★
+-------------------
 
 Téléchargez :download:`animaux.py` et complétez les classes `Animal`
-et `Chien` pour qu'elles passent avec succès tous les tests.  On
-appellera les tests via la ligne de commande::
+et `Chien` pour qu'elles passent avec succès tous les tests (voir
+:ref:`TDD`).  On appellera les tests via la ligne de commande::
 
   py.test animaux.py
 
 .. _particle:
 
-Points matériels et ions (POO) ★
---------------------------------
+Points matériels et ions (POO/TDD) ★
+------------------------------------
 
 Pour une simulation d'un problème physique, on peut construire des
 classes qui connaissent elles-mêmes leurs propriétés physiques et
@@ -398,6 +402,7 @@ Générez l'ensemble de ces points d'équilibre pour des valeurs de
 .. figure:: logistique.*
    :align: center
    :width: 50%
+   :alt: Diagramme de bifurcation
 
    **Figure:** Diagramme de bifurcation.
 
@@ -416,6 +421,7 @@ complexe :math:`c = 0.284 + 0.0122j`:
 .. figure:: julia.*
    :align: center
    :width: 50%
+   :alt: Ensemble de Julia
 
    **Figure:** Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
 
@@ -542,7 +548,6 @@ On propose de considerer par exemple la structure resolue pour la `GFP
 <http://www.rcsb.org/pdb/101/motm.do?momID=42>`_ (*Green Fluorescent
 Protein*, Prix Nobel 2008) (`Fichier PDB
 <http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)
-
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr

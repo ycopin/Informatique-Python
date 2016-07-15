@@ -1,9 +1,7 @@
-.. Time-stamp: <2014-09-17 18:42:23 ycopin>
-
 .. _pgcdSol:
 
-PGCD: algorithme d'Euclide
---------------------------
+Algorithme d'Euclide
+--------------------
 
 .. literalinclude:: pgcd.py
    :linenos:

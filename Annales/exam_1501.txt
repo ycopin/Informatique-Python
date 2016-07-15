@@ -4,7 +4,7 @@ Examen final, Janvier 2015
 ##########################
 
 .. source-enonce
-.. Yannick Copin <y.copin@ipnl.in2p3.fr>
+.. Yannick Copin `<ipnl.in2p3.fr>`
 
 **Consignes:** 
 
@@ -16,8 +16,6 @@ Examen final, Janvier 2015
 * Respectez scrupuleusement les directives de l'énoncé (nom des
   variables, des méthodes, des fichiers, etc.), en particulier
   concernant le nom des fichiers à renvoyer aux correcteurs.
-* Envoyez vos codes aux *deux* adresses suivantes:
-  elise.dumont@ens-lyon.fr *et* ycopin@ipnl.in2p3.fr
 
 Exercice
 ========

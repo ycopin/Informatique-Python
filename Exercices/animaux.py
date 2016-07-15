@@ -99,8 +99,6 @@ class Chien(Animal):
         return vivant
 
 # start-tests
-
-
 def test_empty_init():
     with pytest.raises(TypeError):
         youki = Animal()

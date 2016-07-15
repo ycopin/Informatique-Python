@@ -2,8 +2,6 @@
                   Outils numériques et programmation
 *********************************************************************
 
-.. Time-stamp: <2015-10-06 13:53:19 ycopin>
-
 .. highlight:: python
    :linenothreshold: 3
 

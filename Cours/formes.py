@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2014-10-14 15:20:42 ycopin>
 
 """
-Exemple de POO.
+Exemple de Programmation Orientée Objet.
 """
 
 __author__ = "Mathieu Leocmach <mathieu.leocmach@ens-lyon.fr>"
@@ -12,7 +11,7 @@ __version__ = "Time-stamp: <2014-10-03 10:54 mathieu.leocmach@ens-lyon.fr>"
 
 # Définition d'une classe ==============================
 
-class Forme(object):  # *object* est la classe dérivent toutes les autres
+class Forme(object):  # *object* est la classe dont dérivent toutes les autres
 
     """Une forme plane, avec éventuellement une couleur."""
 
@@ -60,6 +59,8 @@ class Forme(object):  # *object* est la classe dérivent toutes les autres
         {other}`: la comparaison sera résolue comme
         `self.__cmp__(other)` et le résultat sera correctement
         interprété.
+
+        .. WARNING:: cette construction n'est plus supportée en Python3.
         """
 
         return cmp(self.aire(), other.aire())  # Opérateur de comparaison

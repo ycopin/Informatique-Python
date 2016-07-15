@@ -1,9 +1,7 @@
-.. Time-stamp: <2014-09-24 18:24:22 ycopin>
-
 .. _syracuseSol:
 
-Fonctions: suite de Syracuse
-----------------------------
+Suite de Syracuse
+-----------------
 
 .. literalinclude:: syracuse.py
    :linenos:

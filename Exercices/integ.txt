@@ -1,9 +1,7 @@
-.. Time-stamp: <2014-09-17 18:42:37 ycopin>
-
 .. _integSol:
 
-Intégration: méthode des rectangles
------------------------------------
+Méthode des rectangles
+----------------------
 
 .. literalinclude:: integ.py
    :linenos:

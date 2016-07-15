@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2014-09-24 16:55:12 ycopin>
 
 """
 Crible d'Ératosthène.
