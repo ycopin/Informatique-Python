@@ -21,7 +21,6 @@
    Cours/exemples
    Exercices/exo
    Annales/annales
-   Projets/projets
 
 .. toctree::
    :hidden:
