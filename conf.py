@@ -135,7 +135,20 @@ html_theme = 'alabaster'
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
+
+# Alabaster: see http://alabaster.readthedocs.io/en/latest/customization.html
+html_theme_options = {
+    #'logo': 'scipy2.png',        # Relative to $PROJECT/_static/
+    #'logo_name': project,
+    #'github_user': 'ycopin',
+    #'github_repo': 'Informatique-Python',
+    #'github_banner': True,
+    #'sidebar_collapse': True,
+    #'show_powered_by': True,
+    'page_width': '70%',
+    #'sidebar_width': '20%',
+    #'fixed_sidebar': True,
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
@@ -149,7 +162,7 @@ html_theme = 'alabaster'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = '_static/scipy2.png' # Ne pas utiliser avec thème agogo
+html_logo = '_static/scipy2.png'  # Ne pas utiliser avec thème agogo
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32

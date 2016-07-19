@@ -770,8 +770,12 @@ Dans les deux cas, le résultat est le même:
   <http://www.labri.fr/perso/nrougier/teaching/matplotlib/>`_
 - `Gallery <http://matplotlib.org/gallery.html>`_
 - `Examples <http://matplotlib.org/examples/>`_
-- `Seaborn <http://web.stanford.edu/~mwaskom/software/seaborn/>`_ (une
-  surcouche à matplotlib)
+- `Seaborn <http://web.stanford.edu/~mwaskom/software/seaborn/>`_, une
+  surcouche à matplotlib
+- `MPLD3 <http://mpld3.github.io/>`_, un *backend* matplotlib interactif basé
+  sur la librairie `3D.js <https://d3js.org/>`_
+- `Bokeh <http://bokeh.pydata.org/>`_, une bibliothèque graphique alternative à
+  matplotlib et orientée *web*
 
 .. rubric:: Exemples:
 
@@ -805,12 +809,12 @@ Autres librairies scientifiques
 Une liste **non-exhaustive** de librairies scientifiques dans
 différents domaines de la physique/chimie:
 
-- Mécanique quantique: `QuTiP <http://code.google.com/p/qutip/>`_
-- Électromagnétisme: `EMpy <https://lbolla.github.io/EMpy/>`_
 - Astronomie: `astropy <http://www.astropy.org/>`_, `Kapteyn
   <http://www.astro.rug.nl/software/kapteyn/>`_ et autres `modules
   astronomiques
   <https://oneau.wordpress.com/2010/10/02/python-for-astronomy/>`_
+- Mécanique quantique: `QuTiP <http://code.google.com/p/qutip/>`_
+- Électromagnétisme: `EMpy <https://lbolla.github.io/EMpy/>`_
 - *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
   <http://sfepy.org/doc-devel/>`_
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk

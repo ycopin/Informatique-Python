@@ -105,7 +105,6 @@ Python
 Scientifique
 ............
 
-- `Formation à Python scientifique <http://python-prepa.github.io/>`_ |fr|
 - `Python Scientific Lecture Notes <http://www.scipy-lectures.org/>`_
 - `Handbook of the Physics Computing Course
   <http://pentangle.net/python/handbook/>`_ (2002)
@@ -117,14 +116,17 @@ Scientifique
 - *SciPy tutorials* (`numpy`, `scipy`, `matplotlib`, `ipython`): `2011
   <http://conference.scipy.org/scipy2011/tutorials.php>`_, `2012
   <http://conference.scipy.org/scipy2012/tutorials.php>`_, `2013
-  <http://conference.scipy.org/scipy2013/tutorials.php>`_,
-- `Advance Scientific Programming in Python <https://python.g-node.org/wiki/>`_
-
-- `Practical Python for Astronomers <https://python4astronomers.github.io/>`_
-- `Lectures on Computational Economics <http://quant-econ.net/>`_
-  (avec exercices)
+  <http://conference.scipy.org/scipy2013/tutorials.php>`_, `2014
+  <http://conference.scipy.org/scipy2014/schedule/tutorials.php>`_,
 - `Scipy Central <http://central.scipy.org/>`_ (*code snippets*)
 
+- `Advance Scientific Programming in Python <https://python.g-node.org/wiki/>`_
+- `Lectures on Computational Economics <http://quant-econ.net/>`_
+  (avec exercices)
+
+.. rubric:: En français
+
+- `Formation à Python scientifique <http://python-prepa.github.io/>`_ |fr|
 - `NumPy et SciPy
   <http://python.developpez.com/tutoriels/cours-intensif-scientifique/module-numpy-scipy/>`_
   |fr|
@@ -133,6 +135,12 @@ Scientifique
 - `La programmation scientifique avec Python
   <http://openclassrooms.com/courses/la-programmation-scientifique-avec-python>`_
   |fr|
+
+.. rubric:: Astronomie
+
+- `Practical Python for Astronomers <https://python4astronomers.github.io/>`_
+- `Astropy tutorials <http://www.astropy.org/astropy-tutorials/>`_
+- `Python for Euclid 2016 <https://github.com/aboucaud/python-euclid2016>`_
 
 Visualisation
 .............

@@ -417,7 +417,9 @@ un contrôle précis de la conversion de variables en chaînes de
 caractères.  Il s'appuie essentiellement sur la méthode
 :func:`str.format`:
 
->>> "{} a {} ans".format('Calvin', 6)
+>>> "{nom} a {age} ans".format(nom='Calvin', age=6)
+'Calvin a 6 ans'
+>>> "{} a {} ans".format('Calvin', 6)  # Raccourci
 'Calvin a 6 ans'
 >>> pi = 3.1415926535897931
 >>> "{x:f}  {x:.2f}  {y:f}  {y:g}".format(x=pi, y=pi*1e9)
