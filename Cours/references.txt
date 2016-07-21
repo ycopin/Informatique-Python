@@ -82,8 +82,6 @@ Python
 - `Python Tutorial <https://docs.python.org/2/tutorial/>`_ (v2.7)
 - `Tutoriel Python
   <http://python.developpez.com/cours/TutoVanRossum/>`_ (v2.4) |fr|
-- `Le site du zéro
-  <http://openclassrooms.com/courses/langage-python>`_ |fr|
 - `Apprenez à programmer en Python
   <https://openclassrooms.com/courses/apprenez-a-programmer-en-python>`_
 - `Débuter avec Python au lycée <http://python.lycee.free.fr/>`_ |fr|
@@ -95,8 +93,8 @@ Python
 - `DIY python workshop
   <http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
 - `Google's Python Class <https://developers.google.com/edu/python/>`_
-- `CheckIO <http://www.checkio.org/>`_, pour apprendre la
-  programmation Python en s'amusant !
+- `CheckIO <https://checkio.org/>`_, pour apprendre la programmation Python en
+  s'amusant !
 - `Python Testing Tools <http://oddbird.net/python-testing-tools-preso/>`_
 
 .. - `Cours Python 3 + exercices <http://perso.limsi.fr/pointal/python:courspython3>`_ |fr|
@@ -109,15 +107,14 @@ Scientifique
 - `Handbook of the Physics Computing Course
   <http://pentangle.net/python/handbook/>`_ (2002)
 - `Practical Scientific Computing in Python
-  <http://www.scribd.com/doc/56265218/py4science>`_
+  <http://www.scribd.com/document/56265218/py4science>`_
 - `Computational Physics with Python
   <http://www-personal.umich.edu/~mejn/computational-physics/>`_ (avec
   exercices)
 - *SciPy tutorials* (`numpy`, `scipy`, `matplotlib`, `ipython`): `2011
   <http://conference.scipy.org/scipy2011/tutorials.php>`_, `2012
   <http://conference.scipy.org/scipy2012/tutorials.php>`_, `2013
-  <http://conference.scipy.org/scipy2013/tutorials.php>`_, `2014
-  <http://conference.scipy.org/scipy2014/schedule/tutorials.php>`_,
+  <http://conference.scipy.org/scipy2013/tutorials.php>`_,
 - `Scipy Central <http://central.scipy.org/>`_ (*code snippets*)
 
 - `Advance Scientific Programming in Python <https://python.g-node.org/wiki/>`_
@@ -133,7 +130,7 @@ Scientifique
 - `L’informatique scientifique avec Python
   <http://www.dakarlug.org/pat/scientifique/html/>`_ |fr|
 - `La programmation scientifique avec Python
-  <http://openclassrooms.com/courses/la-programmation-scientifique-avec-python>`_
+  <https://openclassrooms.com/courses/la-programmation-scientifique-avec-python>`_
   |fr|
 
 .. rubric:: Astronomie

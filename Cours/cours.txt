@@ -40,27 +40,24 @@ Installation
 
 Cette introduction repose sur les outils suivants:
 
-- `Python 2.7 <https://www.python.org/downloads/>`_ (inclus
-  l'interpréteur de base et la bibliothèque standard)
-- Bibliothèques scientifiques: `Numpy et Scipy
+- `Python 2.7 <https://www.python.org/downloads/>`_ (inclus l'interpréteur de
+  base et la bibliothèque standard)
+- les bibliothèques scientifiques `Numpy et Scipy
   <http://scipy.org/install.html>`_,
-- Bibliothèque graphique: `matplotlib
+- la bibliothèque graphique: `matplotlib
   <http://matplotlib.org/users/installing.html>`_,
-- Interpréteur évolué, p.ex. `ipython
-  <http://ipython.org/install.html>`_,
-- `Éditeur de texte évolué
-  <http://en.wikipedia.org/wiki/Comparison_of_text_editors>`_,
-  p.ex. `emacs <http://www.gnu.org/software/emacs/>`_, `vi
-  <http://www.vim.org/>`_ ou `gedit
-  <https://wiki.gnome.org/Apps/Gedit>`_.
+- un interpréteur évolué, p.ex. `ipython <http://ipython.org/install.html>`_,
+- un `éditeur de texte évolué
+  <https://en.wikipedia.org/wiki/Comparison_of_text_editors>`_, p.ex. `emacs
+  <http://www.gnu.org/software/emacs/>`_, `vi <http://www.vim.org/>`_, `gedit
+  <https://wiki.gnome.org/Apps/Gedit>`_ ou `Atom <https://atom.io/>`_.
 
-Ces logiciels peuvent être installés indépendamment, de préférence
-sous Linux (p.ex. `Ubuntu <http://ubuntu-fr.org/>`_, `Fedora
-<http://fedoraproject.org/fr/>`_ ou `openSUSE
-<https://fr.opensuse.org/>`_), ou sous Windows ou MacOS.  Il existe
-également des distributions « clés en main »:
+Ces logiciels peuvent être installés indépendamment, de préférence sous Linux
+(p.ex. `Ubuntu <http://ubuntu-fr.org/>`_ ou votre `distribution préférée
+<https://fr.wikipedia.org/wiki/Liste_des_distributions_Linux>`_), ou sous
+Windows ou MacOS.  Il existe également des distributions « clés en main »:
 
-- `Python(x,y) <http://code.google.com/p/pythonxy/>`_ (Windows)
+- `Python(x,y) <https://python-xy.github.io/>`_ (Windows)
 - `Enthought Canopy <https://www.enthought.com/products/canopy>`_
   (Windows, MacOS, Linux, gratuite pour les étudiants du supérieur)
 
@@ -722,7 +719,7 @@ bibliothèque (p.ex. `import mean_power`) dans un autre code Python, ou
 bien être exécuté depuis la ligne de commande (p.ex. `python
 mean_power.py`), auquel cas la partie `__main__` sera exécutée.
 
-- `#!` (`Hash-bang <http://en.wikipedia.org/wiki/Shebang_(Unix)>`_):
+- `#!` (`Hash-bang <https://en.wikipedia.org/wiki/Shebang_(Unix)>`_):
   la première ligne d'un script défini l'interpréteur à utiliser
   [#shebang]_::
 

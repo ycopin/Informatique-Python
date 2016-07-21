@@ -10,21 +10,21 @@ L'objectif premier de ces projets est de développer des outils de
 visualisation sous Python/Matplotlib.
 
 * `Coordonnées parallèles
-  <http://en.wikipedia.org/wiki/Parallel_coordinates>`_
+  <https://en.wikipedia.org/wiki/Parallel_coordinates>`_
 
   - Sources éventuelles d'inspiration: `Parallel Coordinates plot in
     Matplotlib
     <http://stackoverflow.com/questions/8230638/parallel-coordinates-plot-in-matplotlib>`_,
     `XDAT <http://www.xdat.org/>`_
   - Exemples de jeu de données multi-variables: `Iris flower data set
-    <http://en.wikipedia.org/wiki/Iris_flower_data_set>`_,
+    <https://en.wikipedia.org/wiki/Iris_flower_data_set>`_,
     :download:`Cars <./carsDataSet.dat>` (`source
-    <http://mbostock.github.com/protovis/ex/cars.html>`_)
+    <http://mbostock.github.io/protovis/ex/cars.html>`_)
 
 * `Andrew Curves
   <http://www.jucs.org/jucs_11_11/visualization_of_high_dimensional/jucs_11_11_1806_1819_garc_a_osorio.pdf>`_
   (voir également `Rip’s Applied Mathematics Blog
-  <http://rip94550.wordpress.com/2011/10/03/andrews-curves/>`_
+  <https://rip94550.wordpress.com/2011/10/03/andrews-curves/>`_
 
   - À appliquer sur les mêmes jeux de données que pour les coordonnées
     parallèles.
@@ -35,7 +35,7 @@ visualisation sous Python/Matplotlib.
     <http://code.activestate.com/recipes/576633-stacked-graphs-using-matplotlib/>`_
 
 * `Diagramme de Hertzprung-Russel
-  <http://en.wikipedia.org/wiki/Hertzsprung-Russell_diagram>`_
+  <https://en.wikipedia.org/wiki/Hertzsprung-Russell_diagram>`_
 
   L'objectif est de développer une classe permettant de tracer des
   diagrammes HR à partir de diverses quantités observationnelles
@@ -43,7 +43,7 @@ visualisation sous Python/Matplotlib.
   (luminosité, températures effectives), ainsi que des isochrones.
 
   - Source éventuelle d'inspiration: `Stellar evolutionary tracks
-    <http://en.wikipedia.org/wiki/File:Stellar_evolutionary_tracks-en.svg>`_
+    <https://en.wikipedia.org/wiki/File:Stellar_evolutionary_tracks-en.svg>`_
   - Données photométriques: p.ex. :download:`M55 <./M55_BV.dat>`
     (source: `BVI photometry in M55
     <http://cdsarc.u-strasbg.fr/viz-bin/Cat?J/AJ/134/825>`_)
@@ -52,21 +52,18 @@ visualisation sous Python/Matplotlib.
 
 .. https://sites.google.com/site/roguewavesoftwarefrance/tutoriels/Python-Clustering-k-Means
 
-* `Treemaps <http://en.wikipedia.org/wiki/Treemap>`_
+* `Treemaps <https://en.wikipedia.org/wiki/Treemap>`_
 
   - Source éventuelle d'inspiration: `Treemaps under pylab
-    <http://www.scipy.org/Cookbook/Matplotlib/TreeMap>`_
+    <scipy-cookbook.readthedocs.io/items/Matplotlib_TreeMap.html>`_
 
 * De façon plus générale, l'ensemble des visualisations proposées
   sous:
 
   - `Flare <http://flare.prefuse.org/demo>`_
-  - `D3 <http://mbostock.github.com/d3/ex/>`_ (ex-`Protovis
-    <http://mbostock.github.com/protovis/ex/>`_)
+  - `D3 <http://mbostock.github.io/d3/ex/>`_
   - `Periodic Table of Vizualisation Methods
     <http://www.visual-literacy.org/periodic_table/periodic_table.html>`_
-
-..  - `R <http://addictedtor.free.fr/graphiques/>`_
 
 
 Projets statistiques
@@ -106,7 +103,7 @@ comparaison entre les deux types de modèle.
    court. 3) les fourmis empruntent le chemin le plus court, les
    portions longues des autres chemins voient la piste de phéromones
    s'évaporer. Source: `Johann Dréo
-   <http://commons.wikimedia.org/wiki/File:Aco_branches.svg>`_ via
+   <https://commons.wikimedia.org/wiki/File:Aco_branches.svg>`_ via
    Wikimedia Commons.
 
 Formation d'agrégats
@@ -118,7 +115,7 @@ computationel ». Pour un projet en ce sens, un soin particulier sera
 donné à la contextualisation. P. ex., on pourra tester les limites de
 la règle de Wade pour la structure de clusters métalliques, ou bien
 dans un contexte plus `biologique
-<http://fr.wikipedia.org/wiki/Dictyostelium_discoideum>`_.
+<https://fr.wikipedia.org/wiki/Dictyostelium_discoideum>`_.
 
 .. figure:: DLA.jpg
    :width: 50%
@@ -128,7 +125,7 @@ dans un contexte plus `biologique
    d'environ 33 000 particules obtenue en permettant à des marcheurs
    aléatoires d'adhérer à une semence centrale. Les couleurs indiquent
    le temps d'arrivée des marcheurs. Source: `WingkLEE
-   <http://commons.wikimedia.org/wiki/File%3AOf7_p0001_15h.jpg>`_ (Own
+   <https://commons.wikimedia.org/wiki/File%3AOf7_p0001_15h.jpg>`_ (Own
    work) [Public domain], via Wikimedia Commons.
 
 Modèle d'Ising
@@ -290,11 +287,11 @@ répondre à chacune d’entre elle):
    :width: 50%
    :align: center
 
-   **Figure:** Un mascaret, une vague soliton, dans un estuaire de
-   Grande Bretagne. Source: `Arnold Price
-   <http://commons.wikimedia.org/wiki/File%3ATidal_Bore_-_geograph.org.uk_-_324581.jpg>`_
-   [`CC-BY-SA-2.0 <http://creativecommons.org/licenses/by-sa/2.0>`_],
-   via Wikimedia Commons.
+   **Figure:** Un mascaret, une vague soliton, dans un estuaire de Grande
+   Bretagne.  *Source*: `Arnold Price
+   <https://commons.wikimedia.org/wiki/File%3ATidal_Bore_-_geograph.org.uk_-_324581.jpg>`_
+   [`CC-BY-SA-2.0 <https://creativecommons.org/licenses/by-sa/2.0>`_], via
+   Wikimedia Commons.
 
 
 .. Auto-organisation d'un banc de poisson
@@ -322,7 +319,7 @@ Autres possibilités
 - `Reaction-Diffusion by the Gray-Scott Model
   <http://mrob.com/pub/comp/xmorphia/>`_
 - Équation de `Cahn–Hilliard
-  <http://en.wikipedia.org/wiki/Cahn%E2%80%93Hilliard_equation>`_
+  <https://en.wikipedia.org/wiki/Cahn%E2%80%93Hilliard_equation>`_
   (voir l'`exemple NIST
   <http://www.ctcms.nist.gov/fipy/examples/cahnHilliard/generated/examples.cahnHilliard.mesh2D.html>`_
   sous `FiPy: A Finite Volume PDE Solver Using Python
@@ -356,7 +353,7 @@ Références:
 * *A numerical method for quantum tunnelling*, Pang T., Computers un
   Physics, 9, p 602-605.
 * `Équation de Schrödinger 1D
-  <http://wiki.scipy.org/Cookbook/SchrodingerFDTD>`_
+  <http://scipy-cookbook.readthedocs.io/items/SchrodingerFDTD.html>`_
 * `Quantum Python: Animating the Schrodinger Equation
   <http://jakevdp.github.io/blog/2012/09/05/quantum-python/>`_
 
@@ -392,7 +389,7 @@ d’effectuer des moyennes sur un très grand nombre de tirages
 
 .. rubric:: Sources:
 
-* `Percolation theory <http://en.wikipedia.org/wiki/Percolation_theory>`_
+* `Percolation theory <https://en.wikipedia.org/wiki/Percolation_theory>`_
 * `Concepts fondamentaux de la percolation
   <http://percolation.free.fr/theseweb003.html>`_
 * Percolation exercises: `2006
@@ -403,7 +400,7 @@ d’effectuer des moyennes sur un très grand nombre de tirages
 Modèle de Potts 3D
 ..................
 
-`Modèle de Potts <http://en.wikipedia.org/wiki/Potts_model>`_ en 3D
+`Modèle de Potts <https://en.wikipedia.org/wiki/Potts_model>`_ en 3D
 dans un univers carré à condition périodique. Le but est la mise en
 évidence de la transition de phase pour plusieurs jeux de paramètres
 avec 3 types de spins différents.
@@ -417,12 +414,11 @@ avec 3 types de spins différents.
 
 Jeux de paramètres à tester :
 
-- `Ising en 2D
-  <http://en.wikipedia.org/wiki/Square-lattice_Ising_model>`_ (2 types
-  de spins, algorithme de Glauber): Transition de phase attendue à
-  T~227K pour un couplage J=100 et un champ externe nul
+- `Ising en 2D <https://en.wikipedia.org/wiki/Square-lattice_Ising_model>`_ (2
+  types de spins, algorithme de Glauber): Transition de phase attendue à T~227K
+  pour un couplage J=100 et un champ externe nul
 - Toujours Ising, mais avec l'`algorithme de Wolff
-  <http://en.wikipedia.org/wiki/Wolff_algorithm>`_
+  <https://en.wikipedia.org/wiki/Wolff_algorithm>`_
 - Ising en 3D avec Wolff
 - Potts (changer q=2 par q=3) en 3D avec Wolff
 
@@ -436,7 +432,7 @@ Jeux de paramètres à tester :
 ...................
 
 On chercher a réaliser un script qui analyse un fichier de données de
-type `PDB <http://fr.wikipedia.org/wiki/Protein_Data_Bank>`_ (*Protein
+type `PDB <https://fr.wikipedia.org/wiki/Protein_Data_Bank>`_ (*Protein
 Data Bank*).
 
 La banque de données `Worldwide Protein Data Bank
@@ -455,6 +451,5 @@ On propose d'assurer une lecture de ce fichier pour calculer notamment :
 - etc.
 
 On propose de considerer par exemple la structure resolue pour la `GFP
-<http://www.rcsb.org/pdb/101/motm.do?momID=42>`_ (*Green Fluorescent
-Protein*, Prix Nobel 2008, `Fichier PDB
-<http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)
+<http://pdb101.rcsb.org/motm/42>`_ (*Green Fluorescent Protein*, Prix Nobel
+2008, `Fichier PDB <http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)

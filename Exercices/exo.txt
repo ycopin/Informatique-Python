@@ -123,7 +123,7 @@ Suite de Syracuse (fonction) ★
 
 Écrire une fonction `suite_syracuse(n)` retournant la (partie
 non-triviale de la) `suite de Syracuse
-<http://fr.wikipedia.org/wiki/Conjecture_de_Syracuse>`_ pour un entier
+<https://fr.wikipedia.org/wiki/Conjecture_de_Syracuse>`_ pour un entier
 *n*.  Écrire une fonction `temps_syracuse(n, altitude=False)`
 retournant le temps de vol (éventuellement en altitude) correspondant
 à l'entier *n*.  Tester ces fonctions sur *n=15*:
@@ -146,7 +146,7 @@ Flocon de Koch (programmation récursive) ★★★
 En utilisant les commandes `left`, `right` et `forward` de la
 bibliothèque graphique standard :mod:`turtle` dans une fonction
 *récursive*, générer à l'écran un `flocon de Koch
-<http://fr.wikipedia.org/wiki/Flocon_de_Koch>`_ d'ordre arbitraire.
+<https://fr.wikipedia.org/wiki/Flocon_de_Koch>`_ d'ordre arbitraire.
 
 .. figure:: koch_3.*
    :align: center
@@ -217,7 +217,7 @@ Jeu de la vie (POO) ★★
 ----------------------
 
 On se propose de programmer l'automate cellulaire le plus célèbre, `le
-Jeu de la vie <http://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
+Jeu de la vie <https://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
 
 Pour cela, vous créerez une classe `Life` qui contiendra la grille du
 jeu ainsi que les méthodes qui permettront son évolution.  Vous
@@ -392,7 +392,7 @@ Diagramme de bifurcation: la suite logistique ★★
 ------------------------------------------------
 
 Écrivez une fonction qui calcule la valeur d'équilibre de la `suite
-logistique <http://fr.wikipedia.org/wiki/Suite_logistique>`_ pour un
+logistique <https://fr.wikipedia.org/wiki/Suite_logistique>`_ pour un
 :math:`x_0` (nécessairement compris entre 0 et 1) et un paramètre
 :math:`r` (parfois noté :math:`\mu`) donné.
 
@@ -415,7 +415,7 @@ Ensemble de Julia ★★
 --------------------
 
 Représentez l'`ensemble de Julia
-<http://fr.wikipedia.org/wiki/Ensemble_de_Julia>`_ pour la constante
+<https://fr.wikipedia.org/wiki/Ensemble_de_Julia>`_ pour la constante
 complexe :math:`c = 0.284 + 0.0122j`:
 
 .. figure:: julia.*
@@ -450,7 +450,7 @@ frottement « turbulentes » (en :math:`v^2`):
    \ddot{\mathbf{r}} = \mathbf{g} - \frac{\alpha}{m}v\times\mathbf{v}.
 
 Utiliser les valeurs numériques pour un boulet de canon de `36 livres
-<http://fr.wikipedia.org/wiki/Canon_de_36_livres>`_:
+<https://fr.wikipedia.org/wiki/Canon_de_36_livres>`_:
 
 .. code-block:: python
 
@@ -512,13 +512,13 @@ Exercices en vrac
 =================
 
 * `Exercices de base
-  <http://fr.wikibooks.org/wiki/Programmation_Python/Exercices_Base_du_langage>`_ |fr|
+  <https://fr.wikibooks.org/wiki/Programmation_Python/Exercices_Base_du_langage>`_ |fr|
 * `Entraînez-vous !
   <http://openclassrooms.com/forum/sujet/entrainez-vous-sur-le-langage-python-54161?page=3#message-85967089>`_
   |fr|
 * `Learn Python The Hard Way <http://learnpythonthehardway.org/book/>`_
 * `Google Code Jam <http://code.google.com/codejam/>`_
-* `CheckIO <http://www.checkio.org/>`_
+* `CheckIO <https://checkio.org/>`_
 
 .. _PDB:
 
@@ -527,7 +527,7 @@ Exercices en vrac
 
 On chercher a réaliser un script qui analyse un fichier de données de
 type `Protein Data Bank
-<http://fr.wikipedia.org/wiki/Protein_Data_Bank>`_.
+<https://fr.wikipedia.org/wiki/Protein_Data_Bank>`_.
 
 La banque de données `Worldwide Protein Data Bank
 <http://www.wwpdb.org/>`_ regroupe les structures obtenues par
@@ -545,8 +545,8 @@ On propose d'assurer une lecture de ce fichier pour calculer notamment :
 - etc.
 
 On propose de considerer par exemple la structure resolue pour la `GFP
-<http://www.rcsb.org/pdb/101/motm.do?momID=42>`_ (*Green Fluorescent
-Protein*, Prix Nobel 2008) (`Fichier PDB
+<http://pdb101.rcsb.org/motm/42>`_ (*Green Fluorescent Protein*, Prix
+Nobel 2008) (`Fichier PDB
 <http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)
 
 .. |fr| image:: ../_static/france_flag_icon.png

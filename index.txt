@@ -44,8 +44,8 @@
    Exercices/solutions
    Annales/exam_1501
    Projets/projets
-   Projets/projets2013
 
 .. image:: _static/cc-by-nc.png
+   :align: center
    :alt: Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0
-   :target: http://creativecommons.org/licenses/by-nc/4.0/
+   :target: https://creativecommons.org/licenses/by-nc/4.0/

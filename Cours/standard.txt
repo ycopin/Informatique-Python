@@ -19,7 +19,7 @@ multimédia, etc.
 
 * `The Python Standard Library <https://docs.python.org/2/library/>`_
   (v2.7)
-* `Python Module of the Week <http://pymotw.com/2/contents.html>`_
+* `Python Module of the Week <https://pymotw.com/2/contents.html>`_
 
 .. _optparse:
 
@@ -176,6 +176,6 @@ Quelques modules de la librairie standard qui peuvent être d'intérêt:
 - :abbr:`GUI (Graphical User Interface)`: :mod:`Tkinter`,
 - Librairies externes: `PyGI
   <https://wiki.gnome.org/Projects/PyGObject>`_ (GTK3), `PyQt
-  <http://www.riverbankcomputing.co.uk/software/pyqt/intro>`_ /
+  <https://riverbankcomputing.co.uk/software/pyqt/intro>`_ /
   `pySide <https://wiki.qt.io/PySide>`_ (Qt), `wxPython
-  <http://www.wxpython.org/>`_ (wxWidgets)
+  <https://www.wxpython.org/>`_ (wxWidgets)

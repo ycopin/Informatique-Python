@@ -85,7 +85,7 @@ Us et coutumes
 - `Code Like a Pythonista: Idiomatic Python
   <http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html>`_
 - `Google Python Style Guide
-  <http://google-styleguide.googlecode.com/svn/trunk/pyguide.html>`_
+  <https://google.github.io/styleguide/pyguide.html>`_
 
 .. rubric:: Quelques conseils supplémentaires:
 
@@ -203,11 +203,13 @@ utiles pour développer en python.
 - :program:`emacs` + `python-mode` + `ropemacs` pour l'édition, et
   :program:`ipython` pour l'execution de code (voir `Python
   Programming In Emacs
-  <http://www.emacswiki.org/emacs/PythonProgrammingInEmacs>`_)
-- `spyder <http://code.google.com/p/spyderlib/>`_
+  <https://www.emacswiki.org/emacs/PythonProgrammingInEmacs>`_)
+- `spyder <https://github.com/spyder-ide/spyder>`_
 - `PythonToolkit <http://pythontoolkit.sourceforge.net/>`_
+- `pyCharm <https://www.jetbrains.com/pycharm/>`_ (la version `community` est
+  gratuite)
 - `Etc.
-  <http://en.wikipedia.org/wiki/List_of_integrated_development_environments_for_Python#Python>`_
+  <https://en.wikipedia.org/wiki/List_of_integrated_development_environments_for_Python#Python>`_
 
 Vérification du code
 --------------------
@@ -221,8 +223,8 @@ oeuvre...
 - `pyflakes <https://pypi.python.org/pypi/pyflakes>`_
 - `pychecker <http://pychecker.sourceforge.net/>`_
 - `pylint <https://pypi.python.org/pypi/pylint>`_
-- `pep8 <https://github.com/jcrocholl/pep8>`_ et `autopep8
-  <https://github.com/hhatto/autopep8>`_
+- `pycodestyle <https://github.com/PyCQA/pycodestyle/>`_ (ex-`pep8`) et
+  `autopep8 <https://github.com/hhatto/autopep8>`_
 
 Documentation
 -------------
@@ -232,8 +234,8 @@ Documentation
 * Outils de documentation, ou comment transformer automagiquement un
   code-source bien documenté en une documentation fonctionnelle.
 
-  - `Sphinx <http://sphinx-doc.org/>`_
-  - `reStructuredText for Sphinx <http://sphinx-doc.org/rest.html>`_
+  - `Sphinx <http://sphinx-doc.org/en/stable/>`_
+  - `reStructuredText for Sphinx <http://sphinx-doc.org/en/stable/rest.html>`_
 
 * Conventions de documentation:
 
@@ -294,7 +296,7 @@ Comment installer/créer des modules externes:
 
 - `pip <https://pip.pypa.io/en/latest/>`_
 - `Hitchhiker’s Guide to Packaging
-  <http://the-hitchhikers-guide-to-packaging.readthedocs.org/en/latest/>`_
+  <http://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/>`_
 
 .. _python23:
 
@@ -304,7 +306,7 @@ Python 2 vs. python 3
 - `Python 2 or python 3?
   <https://wiki.python.org/moin/Python2orPython3>`_
 - `Porting Python 2 Code to Python 3
-  <http://python.readthedocs.org/en/latest/howto/pyporting.html>`_
+  <http://python.readthedocs.io/en/latest/howto/pyporting.html>`_
 - `Python 2/3 compatibility <http://python-future.org/>`_
 - `2to3 <https://docs.python.org/3/library/2to3.html>`_
 
@@ -326,5 +328,5 @@ Python 2 vs. python 3
 .. [#opt] « *Premature optimization is the root of all evil* » --
    Donald Knuth
 
-.. _pytest: http://pytest.org/
-.. _nose:   http://nose.readthedocs.org/
+.. _pytest: http://docs.pytest.org/en/latest/
+.. _nose:   http://nose.readthedocs.io/en/latest/

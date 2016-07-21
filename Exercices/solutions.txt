@@ -14,12 +14,12 @@ Solutions aux exercices
 * :ref:`madSol`
 * :ref:`pullSol`
 * `Calculs numériques
-  <http://nbviewer.ipython.org/url/informatique-python.readthedocs.org/en/python-m2/_downloads/numerique.ipynb>`_
+  <http://nbviewer.jupyter.org/url/informatique-python.readthedocs.org/fr/latest/_downloads/numerique.ipynb>`_
   (:download:`numerique.ipynb`)
 * :ref:`anscombeSol`
 * :ref:`logistiqueSol`
 * :ref:`juliaSol`
 * `Trajectoire d'un boulet de canon
-  <http://nbviewer.ipython.org/url/informatique-python.readthedocs.org/en/python-m2/_downloads/canon.ipynb>`_
+  <http://nbviewer.jupyter.org/url/informatique-python.readthedocs.org/fr/latest/_downloads/canon.ipynb>`_
   (:download:`canon.ipynb`)
 * :ref:`equationEtatSol`

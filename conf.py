@@ -37,6 +37,7 @@ intersphinx_mapping = {
     'numpy': ('http://docs.scipy.org/doc/numpy/', None),
     'scipy': ('http://docs.scipy.org/doc/scipy/reference/', None),
     'matplotlib': ('http://matplotlib.org/', None),
+    'astropy': ('http://docs.astropy.org/en/stable/', None),
 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -60,9 +61,9 @@ author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 # built documents.
 #
 # The short X.Y version.
-version = u'Master de Physique Fondamentale, Université Lyon 1'
+version = u"École d'été Euclid 2016"
 # The full version, including alpha/beta/rc tags.
-release = u'Janvier 2016'
+release = u'Août 2016'
 
 copyright = ', '.join((release, author))
 
@@ -137,18 +138,7 @@ html_theme = 'alabaster'
 # documentation.
 
 # Alabaster: see http://alabaster.readthedocs.io/en/latest/customization.html
-html_theme_options = {
-    #'logo': 'scipy2.png',        # Relative to $PROJECT/_static/
-    #'logo_name': project,
-    #'github_user': 'ycopin',
-    #'github_repo': 'Informatique-Python',
-    #'github_banner': True,
-    #'sidebar_collapse': True,
-    #'show_powered_by': True,
-    'page_width': '70%',
-    #'sidebar_width': '20%',
-    #'fixed_sidebar': True,
-}
+#html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
@@ -162,7 +152,7 @@ html_theme_options = {
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = '_static/scipy2.png'  # Ne pas utiliser avec thème agogo
+html_logo = '_static/logoEuclid_trans.png'  # Ne pas utiliser avec thème agogo
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32

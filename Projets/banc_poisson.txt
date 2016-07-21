@@ -1,5 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2015-01-13 12:49:18 ycopin>
+.. Time-stamp: <2016-07-21 15:28:41 ycopin>
 
 :orphan:
 
@@ -10,7 +10,7 @@ Auto-organisation d'un banc de poissons
 
 La coordination d'un `banc de poissons
 <https://www.youtube.com/watch?v=cIgHEhziUxU>`_ ou d'un `vol d'oiseaux
-<http://vimeo.com/31158841>`_ est tout à fait frappante: les milliers
+<https://vimeo.com/31158841>`_ est tout à fait frappante: les milliers
 d'individus qui composent ces structures se meuvent comme un seul.  On observe
 aussi, dans les bancs de poisson, d'impressionnants comportements d'évitement
 des prédateurs (`flash expansion, fountain effect

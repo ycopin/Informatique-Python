@@ -1,13 +1,13 @@
-.. Time-stamp: <2016-01-26 12:19 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2016-07-21 15:41:07 ycopin>
 
 .. :orphan:
 
 Informations pratiques
 ======================
 
-- Atelier "Analyse scientifique avec Python"
+- Atelier *Analyse scientifique avec Python*
 - `Cours en ligne
-  <https://informatique-python.readthedocs.org/fr/python-m2/>`_
+  <https://informatique-python.readthedocs.io/fr/python-m2/>`_
 - Responsable: Yannick Copin `<ipnl.in2p3.fr>`, Bureau
   420 de l'`IPNL <http://www.ipnl.in2p3.fr/>`_ (4 rue Fermi)
 
@@ -47,7 +47,7 @@ Vignolle Marvin       `marvinvgn+hotmail.com`          M2
 Si des programmes ou des librairies Python (p.ex. `ipython`) manquent
 sur votre ordinateur (p.ex. en salle Ariane 3), il est relativement
 aisé de les installer localement à l'aide du gestionnaire
-d'installation `pip <https://pip.pypa.io/>`_.
+d'installation `pip <https://pip.pypa.io/en/stable/>`_.
 
 * Installer `pip`::
 
