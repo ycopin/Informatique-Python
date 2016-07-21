@@ -107,7 +107,7 @@ Scientifique
 - `Handbook of the Physics Computing Course
   <http://pentangle.net/python/handbook/>`_ (2002)
 - `Practical Scientific Computing in Python
-  <http://www.scribd.com/document/56265218/py4science>`_
+  <https://www.scribd.com/document/56265218/py4science>`_
 - `Computational Physics with Python
   <http://www-personal.umich.edu/~mejn/computational-physics/>`_ (avec
   exercices)

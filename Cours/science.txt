@@ -30,8 +30,8 @@ Numpy
 
 .. index:: module: numpy
 
-- `User Guide <http://docs.scipy.org/doc/numpy/user/>`_
-- `Reference <http://docs.scipy.org/doc/numpy/reference/>`_
+- `Numpy User Guide <http://docs.scipy.org/doc/numpy/user/>`_
+- `Numpy Reference <http://docs.scipy.org/doc/numpy/reference/>`_
 
 :mod:`numpy` est une bibliothèque *numérique* apportant le support
 efficace de larges tableaux multidimensionnels, et de routines
@@ -616,6 +616,12 @@ supplémentaires, parmis lesquelles les sous-modules suivants:
 - :mod:`numpy.polynomial`: manipulation des polynômes (racines, polynômes
   orthogonaux, etc.)
 
+.. rubric:: Voir également:
+
+- `Pandas <http://pandas.pydata.org/>`_: structuration et analyse avancée de
+  données
+
+
 .. _td6:
 
 Scipy
@@ -623,10 +629,10 @@ Scipy
 
 .. index:: module: scipy
 
-:mod:`scipy` est une bibliothèque *numérique* [#sym]_ d'algorithmes et
-de fonctions mathématiques, basée sur les tableaux `ndarray`,
-complétant ou améliorant (en terme de performances) les
-fonctionnalités de :mod:`numpy`. P.ex.:
+:mod:`scipy` est une bibliothèque *numérique* [#sym]_ d'algorithmes et de
+fonctions mathématiques, basée sur les tableaux :class:`numpy.ndarray`,
+complétant ou améliorant (en terme de performances) les fonctionnalités de
+:mod:`numpy`. P.ex.:
 
 - Functions spéciales: :mod:`scipy.special` (fonctions de Bessel, erf,
   gamma, etc.)
@@ -646,13 +652,11 @@ fonctionnalités de :mod:`numpy`. P.ex.:
 
 .. rubric:: Liens:
 
-- `Reference <http://docs.scipy.org/doc/scipy/reference/>`_
-- `Cookbook <http://scipy-cookbook.readthedocs.io/>`_
+- `Scipy Reference <http://docs.scipy.org/doc/scipy/reference/>`_
+- `Scipy Cookbook <http://scipy-cookbook.readthedocs.io/>`_
 
 .. rubric:: Voir également:
 
-- `Pandas <http://pandas.pydata.org/>`_: structuration et analyse avancée de
-  données
 - `Scikits <http://scikits.appspot.com/scikits>`_: modules
   supplémentaires, parmi lesquels:
 
@@ -749,8 +753,7 @@ Dans les deux cas, le résultat est le même:
 
 .. rubric:: Liens:
 
-- `Tutorial pyplot
-  <http://matplotlib.org/users/pyplot_tutorial.html>`_
+- `Tutorial pyplot <http://matplotlib.org/users/pyplot_tutorial.html>`_
 - `Tutorial matplotlib
   <http://www.labri.fr/perso/nrougier/teaching/matplotlib/>`_
 - `Gallery <http://matplotlib.org/gallery.html>`_
@@ -758,9 +761,9 @@ Dans les deux cas, le résultat est le même:
 - `Seaborn <http://web.stanford.edu/~mwaskom/software/seaborn/>`_, une
   surcouche à matplotlib
 - `MPLD3 <http://mpld3.github.io/>`_, un *backend* matplotlib interactif basé
-  sur la librairie `3D.js <https://d3js.org/>`_
+  sur la librairie *web* `3D.js <https://d3js.org/>`_
 - `Bokeh <http://bokeh.pydata.org/en/latest/>`_, une bibliothèque graphique
-  alternative à matplotlib et orientée *web*
+  alternative à matplotlib plus orientée *web*/temps réel
 
 .. rubric:: Exemples:
 

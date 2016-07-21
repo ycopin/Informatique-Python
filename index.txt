@@ -16,6 +16,7 @@
    Cours/cours
    Cours/standard
    Cours/science
+   Cours/euclid
    Cours/code
    Cours/references
    Cours/exemples

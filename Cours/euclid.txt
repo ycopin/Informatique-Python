@@ -1,0 +1,101 @@
+.. _euclid:
+
+Spécificités Euclid
+###################
+
+.. contents:: Table des matières
+..
+    1  Librairies EDEN
+    2  Astropy
+
+Le `consortium Euclid <http://www.euclid-ec.org/>`_ a mis en place un
+référentiel de développement propre, :abbr:`EDEN (Euclid Development
+ENvironment)`, visant à standardiser les formats utilisés, les règles de codage
+en vigueur, les outils accessibles aux développeurs, etc.  Ce référentiel est
+incarné dans les environnements de développement :abbr:`LODEEN (LOcal
+DEvelopment ENvironment)` et de production :abbr:`CODEEN (COllaborative
+DEvelopment Environment)`.
+
+.. rubric:: Liens:
+
+- `Developers' Workshop #1
+  <http://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop1>`_
+  (nov. 2014)
+- `Developers' Workshop #2
+  <http://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop2>`_
+  (oct. 2015)
+- `C++ and Python Programming Sessions
+  <http://euclid.roe.ac.uk/projects/codeen-users/wiki/C++PythonProgrammingSessions>`_
+  (mai 2016)
+- `Developers' Workshop #3
+  <http://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop3>`_
+  (**oct. 2016**)
+
+.. Warning:: certains liens de cette page requièrent un accès à l'`Euclid
+   Redmine <http://euclid.roe.ac.uk/>`_.
+
+
+Librairies EDEN
+===============
+
+`EDEN <http://euclid.roe.ac.uk/projects/codeen-users/wiki/EDEN>`_ est un
+environnement contraint incluant un nombre très restreint de bibliothèques Python.
+La liste **exhaustive** pour EDEN v1.2 est la suivante:
+
+- pile numérique usuelle: `numpy`, `scipy` et `matplotlib`
+- entrées/sorties FITS: `fitsio <https://github.com/esheldon/fitsio>`_
+- librairies astronomiques: `healpy <http://healpy.readthedocs.io/en/latest/>`_
+  (une interface à `HEALPix <http://healpix.sourceforge.net/>`_, pour l'analyse
+  et la visualisation de données sur une sphère), `astropy
+  <http://astropy.readthedocs.io/en/stable/>`_ et `pyEphem
+  <http://rhodesmill.org/pyephem/>`_ (éphémérides)
+- :abbr:`GUI (Graphical User Interface)`: `PyQt
+  <https://riverbankcomputing.com/software/pyqt/intro>`_
+
+**Vous n'êtes donc pas censés développer de code dépendant d'autres
+bibliothèques que celles-ci.**
+
+Toutefois, si une librairie absolument cruciale manque, il est toujours
+possible de demander son inclusion via une procédure de `Change requests
+<http://euclid.roe.ac.uk/projects/ct_change_process/wiki/Change_Requests>`_,
+qui sera examinée et arbitrée par le *Change Control Board*.
+
+
+Astropy
+=======
+
+`Astropy <http://astropy.readthedocs.io/en/stable/>`_ est une librairie
+astronomique maintenue par la communauté et visant à fédérer les efforts jusque
+là disparates.  Elle offre en outre une interface unifiée à des `librairies
+affiliées <http://www.astropy.org/affiliated/>`_ plus spécifiques (mais
+non-inclues dans EDEN).
+
+- Structures de base:
+
+  - :mod:`astropy.constants`: constantes fondamentales (voir également
+    :mod:`scipy.constants`)
+  - :mod:`astropy.units`: unités et quantités dimensionnées
+  - :mod:`astropy.nddata`: extension des :class:`numpy.ndarray` (incluant
+    méta-données, masque, unité, incertitude, etc.)
+  - :mod:`astropy.table`: tableaux hétérogènes
+  - :mod:`astropy.time`: manipulation du temps et des dates
+  - :mod:`astropy.coordinates`: systèmes de coordonnées
+  - :mod:`astropy.wcs`: *World Coordinate System*
+  - :mod:`astropy.modeling`: modèles et ajustements
+  - :mod:`astropy.analytic_functions`: fonctions analytiques
+
+- Entrées/sorties:
+
+  - :mod:`astropy.io.fits`: fichiers FITS 
+  - :mod:`astropy.io.ascii`: tables ASCII
+  - :mod:`astropy.io.votable`: XML VO-tables
+  - :mod:`astropy.io.misc`: divers 
+  - :mod:`astropy.vo`: accès au *Virtual Observatory*
+
+- Calculs astronomiques:
+
+  - :mod:`astropy.cosmology`: calculs cosmologiques
+  - :mod:`astropy.convolution`: convolution and filtrage
+  - :mod:`astropy.visualization`: visualisation de données
+  - :mod:`astropy.stats`: méthodes astro-statistiques
+
