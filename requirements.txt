@@ -3,4 +3,3 @@ scipy
 matplotlib
 astropy
 nbsphinx
-sphinxcontrib.email

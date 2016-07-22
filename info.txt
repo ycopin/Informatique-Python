@@ -6,7 +6,7 @@ Informations pratiques
 - Atelier *Analyse scientifique avec Python*
 - `Cours en ligne
   <https://informatique-python.readthedocs.io/fr/python-m2/>`_
-- Responsable: :email:`Yannick Copin <y.copin@ipnl.in2p3.fr>`, Bureau
+- Responsable: Yannick Copin `<ipnl.in2p3.fr>`, Bureau
   420 de l'`IPNL <http://www.ipnl.in2p3.fr/>`_ (4 rue Fermi)
 
 .. rubric:: Calendrier

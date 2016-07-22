@@ -180,7 +180,7 @@ Types de base
   - Complexes `complex`: `1+2j`, `5.1j`, `complex(-3.14)`,
     `complex('j')`
 
-  >>> 5 / 2       # ☠☠☠ Division euclidienne par défaut dans Python 2.x
+  >>> 5 / 2       # !!! Division euclidienne par défaut dans Python 2.x !!!
   2
   >>> float(5)/2  # ou ajouter 'from __future__ import division' en début de script
   2.5

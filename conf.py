@@ -30,7 +30,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.intersphinx',
     # External extensions
-    'sphinxcontrib.email',      # Mail obfuscation
+    #'sphinxcontrib.email',      # Mail obfuscation (incompatible w/ RTFD)
     'nbsphinx',                 # Support for Ipython Notebooks
 ]
 
@@ -227,6 +227,7 @@ latex_elements = {
     'preamble': r"""
     \usepackage{lmodern}               % heavier typewriter font
     \DeclareUnicodeCharacter{2605}{*}  % star
+    \DeclareUnicodeCharacter{9760}{*}  % skull
     """,
 }
 
