@@ -7,6 +7,8 @@ Spécificités Euclid
 ..
     1  Librairies EDEN
     2  Astropy
+      2.1  Tour d'horizon
+      2.2  Démonstration
 
 Le `consortium Euclid <http://www.euclid-ec.org/>`_ a mis en place un
 référentiel de développement propre, :abbr:`EDEN (Euclid Development
@@ -70,6 +72,9 @@ là disparates.  Elle offre en outre une interface unifiée à des `librairies
 affiliées <http://www.astropy.org/affiliated/>`_ plus spécifiques (mais
 non-inclues dans EDEN).
 
+Tour d'horizon
+--------------
+
 - Structures de base:
 
   - :mod:`astropy.constants`: constantes fondamentales (voir également
@@ -99,3 +104,21 @@ non-inclues dans EDEN).
   - :mod:`astropy.visualization`: visualisation de données
   - :mod:`astropy.stats`: méthodes astro-statistiques
 
+Démonstration
+-------------
+
+`Astropy demo
+<http://nbviewer.jupyter.org/url/informatique-python.readthedocs.org/fr/euclid/_downloads/astropy.ipynb>`_
+(:download:`astropy.ipynb`)
+
+.. rubric:: Voir également:
+
+* `AstroBetter tutorials
+  <http://www.astrobetter.com/blog/2014/07/07/astropy-tutorials-learn-how-to-do-common-astro-tasks-with-astropy-and-python/>`_
+
+.. Note:: n'oubliez pas de citer [Astropy13]_ ou de `mentionner l'utilisation
+   <http://www.astropy.org/about.html#acknowledge>`_ d'astropy dans vos
+   publications et présentations.
+
+.. [Astropy13] `2013A&A...558A..33A
+               <http://adsabs.harvard.edu/abs/2013A%26A...558A..33A>`_

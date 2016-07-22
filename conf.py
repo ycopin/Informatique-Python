@@ -22,14 +22,17 @@ import sys
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc',
-              'sphinx.ext.todo',
-              'sphinx.ext.mathjax',
-              'sphinx.ext.viewcode',
-              'sphinx.ext.intersphinx',
-              # Mail obfuscation (incompatible w/ readthedocs.org)
-              # 'sphinxcontrib.email',
-            ]
+extensions = [
+    # Standard extensions
+    'sphinx.ext.autodoc',
+    'sphinx.ext.todo',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.intersphinx',
+    # External extensions
+    'sphinxcontrib.email',      # Mail obfuscation
+    'nbsphinx',                 # Support for Ipython Notebooks
+]
 
 # Intersphinx configuration
 intersphinx_mapping = {
@@ -80,7 +83,7 @@ today_fmt = '%d/%m/%y, %H:%M'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build',]
+exclude_patterns = ['_build', 'requirements.txt', '**.ipynb_checkpoints']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 default_role = 'literal'
@@ -221,8 +224,9 @@ latex_elements = {
     'pointsize': '10pt',
 
     # Additional stuff for the LaTeX preamble.
-    'preamble': ur"""
-    \DeclareUnicodeCharacter{2605}{*} % ★
+    'preamble': r"""
+    \usepackage{lmodern}               % heavier typewriter font
+    \DeclareUnicodeCharacter{2605}{*}  % star
     """,
 }
 

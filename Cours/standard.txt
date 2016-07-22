@@ -104,13 +104,32 @@ True
 
 .. .. index::
 ..    module: math
+..    module: cmath
 
 Quelques modules de la librairie standard qui peuvent être d'intérêt:
 
-* :mod:`math`: accès aux fonctions mathématiques (réelles)
+* :mod:`math`: accès aux fonctions mathématiques réelles
 
-  >>> math.asin(math.sqrt(2)/2)/math.pi*180
+  >>> math.asin(math.sqrt(2) / 2) / math.pi * 180
   45.00000000000001
+
+* :mod:`cmath`: accès aux fonctions mathématiques complexes
+
+  >>> cmath.exp(cmath.pi * 1j) + 1
+  1.2246467991473532e-16j
+
+.. .. index::
+..    module: collections
+..    module: itertools
+
+* :mod:`collections` définit de nouveaux types spécialisés, p.ex.
+  :class:`collections.OrderedDict`, un dictionnaire *ordonné*.
+
+* :mod:`itertools` fournit des générateurs de boucle (*itérateurs*) et de
+  combinatoire:
+
+  >>> [ ''.join(item) for item in itertools.combinations('ABCD', 2) ]
+  ['AB', 'AC', 'AD', 'BC', 'BD', 'CD']
 
 .. .. index::
 ..    module: sys
@@ -158,8 +177,8 @@ Quelques modules de la librairie standard qui peuvent être d'intérêt:
   - :mod:`csv`: lecture/sauvegarde de fichiers :abbr:`CSV (Comma
     Separated Values)`
   - :mod:`ConfigParser`: fichiers de configuration
+  - :mod:`json`: *lightweight data interchange format*
 
-.. - :mod:`json`: lightweight data interchange format
 .. - yaml: http://pyyaml.org/
 
 .. .. index::

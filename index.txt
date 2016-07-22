@@ -26,6 +26,7 @@
 .. toctree::
    :hidden:
 
+   Cours/astropy
    Exercices/integ
    Exercices/pgcd
    Exercices/crible
@@ -38,9 +39,11 @@
    Exercices/life
    Exercices/mad
    Exercices/pull
+   Exercices/numerique
    Exercices/anscombe
    Exercices/logistique
    Exercices/julia
+   Exercices/canon
    Exercices/equationEtat
    Exercices/solutions
    Annales/exam_1501

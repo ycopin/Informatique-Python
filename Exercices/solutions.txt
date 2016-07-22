@@ -16,10 +16,12 @@ Solutions aux exercices
 * `Calculs numériques
   <http://nbviewer.jupyter.org/url/informatique-python.readthedocs.org/fr/latest/_downloads/numerique.ipynb>`_
   (:download:`numerique.ipynb`)
+* :ref:`numerique.ipynb`
 * :ref:`anscombeSol`
 * :ref:`logistiqueSol`
 * :ref:`juliaSol`
 * `Trajectoire d'un boulet de canon
   <http://nbviewer.jupyter.org/url/informatique-python.readthedocs.org/fr/latest/_downloads/canon.ipynb>`_
   (:download:`canon.ipynb`)
+* :ref:`canon.ipynb`
 * :ref:`equationEtatSol`
