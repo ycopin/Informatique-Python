@@ -5,6 +5,7 @@ Développer en python
 ..
     1  Le zen du python
       1.1  Us et coutumes
+      1.2  Principes de conception logicielle
     2  Développement piloté par les tests
     3  Outils de développement
       3.1  *Integrated Development Environment*
@@ -109,6 +110,55 @@ Us et coutumes
   3. *Make it fast.*
 
 - *Respectez* le zen du python, il vous le rendra.
+
+Principes de conception logicielle
+----------------------------------
+
+La bonne conception d'un programme va permettre de gérer efficacement la
+complexité des algorithmes, de faciliter la maintenance (p.ex. correction des
+erreurs) et d'accroître les possibilités d'extension.
+
+**Modularité**
+  Le code est structuré en répertoires, fichiers, classes, méthodes et
+  fonctions.  Les blocs ne font pas plus de quelques dizaines de lignes, les
+  fonctions ne prennent que quelques arguments, la structure logique n'est pas
+  trop complexe, etc.
+
+  En particulier, le code doit respecter le *principe de responsabilité
+  unique*: chaque entité élémentaire (classe, méthode, fonction) ne doit avoir
+  qu'une unique raison d'exister, et ne pas tenter d'effectuer plusieurs tâches
+  sans rapport direct (p.ex. lecture d'un fichier de données *et* analyse des
+  données).
+
+**Flexibilité**
+  Une modification du comportement du code (p.ex. l'ajout d'une nouvelle
+  fonctionnalité) ne nécessite de changer le code qu'en un nombre restreint de
+  points.  
+
+  Un code *rigide* devient rapidement difficile à faire évoluer, puisque chaque
+  changement requiert un grand nombre de modifications.
+
+**Robustesse**
+  La modification du code en un point ne change pas de façon inopinée le
+  comportement dans une autre partie *a priori* non reliée.
+
+  Un code *fragile* est facile à modifier, mais chaque modification peut avoir
+  des conséquences inattendues et le code tend à devenir instable.
+
+**Réutilisabilité**
+  La réutilisation d'une portion de code ne demande pas de changement majeur,
+  n'introduit pas trop de dépendances, et ne conduit pas à une duplication du
+  code.
+
+L'application de ces principes de développement dépend évidemment de l'objectif
+final du code: 
+
+- une bibliothèque *centrale* (utilisée par de nombreux programmes) favorisera
+  la robustesse et la réutilisabilité au dépend de la flexibilité: elle devra
+  être particulièrement bien pensée, et ne pourra être modifiée qu'avec
+  parcimonie;
+- inversement, un script d'analyse de haut niveau, d'utilisation restreinte,
+  pourra être plus flexible mais plus fragile et peu réutilisable.
 
 
 .. _TDD:
