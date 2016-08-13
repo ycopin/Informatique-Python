@@ -650,6 +650,10 @@ complétant ou améliorant (en terme de performances) les fonctionnalités de
 - Traitement d'images multi-dimensionnelles: :mod:`scipy.ndimage`
 - Entrées/sorties: :mod:`scipy.io`
 
+.. Note:: n'oubliez pas de `citer scipy & co.
+   <http://scipy.org/citing.html>`_ dans vos publications et
+   présentations.
+
 .. rubric:: Liens:
 
 - `Scipy Reference <http://docs.scipy.org/doc/scipy/reference/>`_
@@ -750,6 +754,12 @@ Dans les deux cas, le résultat est le même:
    :align: center
    :width: 60%
 
+.. Note:: n'oubliez pas de `citer matplotlib
+   <http://matplotlib.org/citing.html>`_ (notamment [Matplotlib07]_)
+   dans vos publications et présentations.
+
+.. [Matplotlib07] `2007CSE.....9...90H
+                  <http://adsabs.harvard.edu/abs/2007CSE.....9...90H>`_
 
 .. rubric:: Liens:
 

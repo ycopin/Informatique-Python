@@ -142,7 +142,7 @@ html_theme = 'alabaster'
 
 # Alabaster: see http://alabaster.readthedocs.io/en/latest/customization.html
 html_theme_options = {
-    'page_width': '70%',
+    'page_width': '80%',
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
