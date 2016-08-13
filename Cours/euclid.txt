@@ -108,7 +108,7 @@ Démonstration
 -------------
 
 `Astropy demo
-<http://nbviewer.jupyter.org/url/informatique-python.readthedocs.org/fr/euclid/_downloads/astropy.ipynb>`_
+<http://nbviewer.jupyter.org/url/informatique-python.readthedocs.io/fr/euclid/_downloads/astropy.ipynb>`_
 (:download:`astropy.ipynb`)
 
 .. rubric:: Voir également:
