@@ -15,14 +15,6 @@ Documentation générale
   <http://rgruet.free.fr/PQR27/PQR2.7.html>`_
 - `The Python Package Index <https://pypi.python.org/pypi>`_
 
-Forums de discussion
---------------------
-
-- `numpy <http://news.gmane.org/gmane.comp.python.numeric.general>`_
-- `scipy <http://news.gmane.org/gmane.comp.python.scientific.user>`_
-- `matplotlib <http://news.gmane.org/gmane.comp.python.matplotlib.general/>`_
-- `Python recipes <http://code.activestate.com/recipes/langs/python/>`_
-
 Listes de liens
 ---------------
 
@@ -31,7 +23,13 @@ Listes de liens
 - `Python: quelques références, trucs et astuces:
   <http://dvillers.umons.ac.be/wiki/floss:python>`_ (2014) |fr|
 - `Improving your programming style in Python
-  <http://gael-varoquaux.info/programming/improving-your-programming-style-in-python.html>`_
+  <http://gael-varoquaux.info/programming/improving-your-programming-style-in-python.html>`_ (2014)
+- `Starter Kit (py4science)
+  <http://fperez.org/py4science/starter_kit.html>`_ (2010)
+- `Learning Python For Data Science
+  <https://pythontips.com/2016/02/27/learning-python-for-data-science/>`_ (2016)
+- `Awesome Python <https://awesome-python.com/>`_
+- `A curated list of courses on Python <http://bafflednerd.com/learn-python-online/>`_
 
 .. rubric:: ipython
 
@@ -41,14 +39,10 @@ Listes de liens
 - `IPython en ligne <https://www.pythonanywhere.com/try-ipython/>`_
 - `IPython quick refsheet
   <http://damontallen.github.io/IPython-quick-ref-sheets/>`_
-- `IPython notebook introduction
-  <https://www.wakari.io/sharing/bundle/hugo/01_notebook_introduction>`_
-- `Starter Kit (py4science)
-  <http://fperez.org/py4science/starter_kit.html>`_
 
 .. rubric:: Expressions rationnelles
 
-- `regex tester <https://regex101.com/#python>`_
+- `regex tester <https://regex101.com/>`_
 
 Livres libres
 -------------
@@ -66,12 +60,13 @@ Livres libres
 
 - `A Python Book <http://www.davekuhlman.org/python_book_01.html>`_
 - `Start Programming with Python <http://python-ebook.blogspot.fr/>`_
+- `Learn Python the Hard Way <https://learnpythonthehardway.org/>`_
 - `Python for Informatics: Exploring Information <http://www.pythonlearn.com/>`_
+- `Intermediate Python <http://book.pythontips.com/en/latest/>`_
 
 - `Apprendre à programmer avec Python <http://inforef.be/swi/python.htm>`_ |fr|
-  (`Wikilivre
-  <https://fr.wikibooks.org/wiki/Apprendre_%C3%A0_programmer_avec_Python>`_)
-- `Plongez au coeur de Python <http://diveintopython.adrahon.org/>`_ |fr|
+- `Programmation Python
+  <https://fr.wikibooks.org/wiki/Programmation_Python>`_ |fr|
 
 Cours en ligne
 --------------
@@ -89,6 +84,7 @@ Python
   <http://python.developpez.com/tutoriels/cours-intensif-scientifique/presentation-debuter/>`_ |fr|
 - `Introduction à Python pour la programmation scientifique
   <http://www.courspython.com/sommaire.html>`_ |fr|
+
 - `Begginer's Guide <https://wiki.python.org/moin/BeginnersGuide>`_
 - `DIY python workshop
   <http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
@@ -96,9 +92,9 @@ Python
 - `CheckIO <https://checkio.org/>`_, pour apprendre la programmation Python en
   s'amusant !
 - `Python Testing Tools <http://oddbird.net/python-testing-tools-preso/>`_
+- `Python Programming <https://www.codecademy.com/learn/python>`_ (Code Academy)
 
 .. - `Cours Python 3 + exercices <http://perso.limsi.fr/pointal/python:courspython3>`_ |fr|
-
 
 Scientifique
 ............
@@ -118,8 +114,17 @@ Scientifique
 - `Scipy Central <http://central.scipy.org/>`_ (*code snippets*)
 
 - `Advance Scientific Programming in Python <https://python.g-node.org/wiki/>`_
-- `Lectures on Computational Economics <http://quant-econ.net/>`_
+- `Lectures on Computational Economics <http://lectures.quantecon.org/>`_
   (avec exercices)
+- `Intro to Python for Data Science
+  <https://www.datacamp.com/courses/intro-to-python-for-data-science>`_
+  (DataCamp avec vidéos & exercices)
+- `Python for Data Science
+  <http://nbviewer.jupyter.org/github/gumption/Python_for_Data_Science/blob/master/Python_for_Data_Science_all.ipynb>`_
+- `Learning Python For Data Science
+  <https://pythontips.com/2016/02/27/learning-python-for-data-science/>`_
+- `Computational Statistics in Python
+  <https://people.duke.edu/~ccc14/sta-663/index.html>`_
 
 .. rubric:: En français
 
@@ -138,6 +143,12 @@ Scientifique
 - `Practical Python for Astronomers <https://python4astronomers.github.io/>`_
 - `Astropy tutorials <http://www.astropy.org/astropy-tutorials/>`_
 - `Python for Euclid 2016 <https://github.com/aboucaud/python-euclid2016>`_
+
+*Snippets*
+..........
+
+- `Python cheatsheets <https://www.pythonsheets.com/>`_
+- `Scipy Central <http://central.scipy.org/>`_ (*code snippets*)
 
 Visualisation
 .............

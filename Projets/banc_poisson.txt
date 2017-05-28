@@ -1,10 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2016-07-21 15:28:41 ycopin>
-
-:orphan:
-
-Auto-organisation d'un banc de poissons
----------------------------------------
+.. Time-stamp: <2017-05-29 00:50 ycopin@lyonovae03.in2p3.fr>
 
 .. sectionauthor:: Hanna Julienne <hanna.julienne@gmail.com>
 
@@ -72,16 +67,7 @@ Ce projet vise à :
   cohérence du comportment et éventuellement inventer des mesures pour
   rendre compte de manière quantifier de cette cohérence.
 
-Suggestions :
-
-.. Attention:: Les suggestions sont difficiles à réaliser. On
-   cherchera à obtenir des résultats sur le projet de base avant de
-   s'y risquer.
-
-* Passer le projet en 3D
-* modéliser la réponse des individus face à un prédateur
-
-Liens :
+.. rubric:: Liens :
 
 * `Craig Reynolds Boids <http://www.red3d.com/cwr/boids/>`_
 * `Décrypter les interactions entre poissons au sein d'un banc

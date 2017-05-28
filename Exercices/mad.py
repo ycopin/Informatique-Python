@@ -18,7 +18,7 @@ def mad(a, axis=None):
 
 if __name__ == '__main__':
 
-    x = N.arange(5 * 7, dtype=float).reshape(5, 7)
+    x = N.arange(4 * 5, dtype=float).reshape(4, 5)
 
     print "x =\n", x
     print "MAD(x, axis=None)   =", mad(x)

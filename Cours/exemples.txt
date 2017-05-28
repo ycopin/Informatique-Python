@@ -45,7 +45,7 @@ Figure (relativement) simple
    :alt: Exemple de figure simple.
 
    **Figure:** exemple de figure (charte graphique: `seaborn
-   <http://web.stanford.edu/~mwaskom/software/seaborn/>`_)
+   <http://seaborn.pydata.org/>`_)
 
 .. literalinclude:: figure.py
    :linenos:

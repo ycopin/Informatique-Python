@@ -2,4 +2,8 @@ numpy
 scipy
 matplotlib
 astropy
+pandas
+xarray
+sphinx>=1.4
+ipykernel
 nbsphinx

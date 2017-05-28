@@ -87,6 +87,8 @@ Us et coutumes
   <http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html>`_
 - `Google Python Style Guide
   <https://google.github.io/styleguide/pyguide.html>`_
+- `The Best of the Best Practices (BOBP) Guide for Python
+  <https://gist.github.com/sloria/7001839>`_
 
 .. rubric:: Quelques conseils supplémentaires:
 
@@ -133,7 +135,7 @@ erreurs) et d'accroître les possibilités d'extension.
 **Flexibilité**
   Une modification du comportement du code (p.ex. l'ajout d'une nouvelle
   fonctionnalité) ne nécessite de changer le code qu'en un nombre restreint de
-  points.  
+  points.
 
   Un code *rigide* devient rapidement difficile à faire évoluer, puisque chaque
   changement requiert un grand nombre de modifications.
@@ -151,7 +153,7 @@ erreurs) et d'accroître les possibilités d'extension.
   code.
 
 L'application de ces principes de développement dépend évidemment de l'objectif
-final du code: 
+final du code:
 
 - une bibliothèque *centrale* (utilisée par de nombreux programmes) favorisera
   la robustesse et la réutilisabilité au dépend de la flexibilité: elle devra
@@ -250,7 +252,7 @@ utiles pour développer en python.
 ------------------------------------
 
 - `idle <https://docs.python.org/2/library/idle.html>`_, l'IDE intégré à Python
-- :program:`emacs` + `python-mode` + `ropemacs` pour l'édition, et
+- :program:`emacs` + `python-mode` pour l'édition, et
   :program:`ipython` pour l'execution de code (voir `Python
   Programming In Emacs
   <https://www.emacswiki.org/emacs/PythonProgrammingInEmacs>`_)
@@ -284,8 +286,9 @@ Documentation
 * Outils de documentation, ou comment transformer automagiquement un
   code-source bien documenté en une documentation fonctionnelle.
 
-  - `Sphinx <http://sphinx-doc.org/en/stable/>`_
-  - `reStructuredText for Sphinx <http://sphinx-doc.org/en/stable/rest.html>`_
+  - `Sphinx <http://www.sphinx-doc.org/en/stable/>`_
+  - `reStructuredText for Sphinx
+    <http://www.sphinx-doc.org/en/stable/rest.html>`_
 
 * Conventions de documentation:
 
@@ -333,8 +336,9 @@ sous-fonctions d'un code, afin d'y identifier les parties à optimiser.
   <https://wiki.python.org/moin/PythonSpeed/PerformanceTips>`_
 - `Tutoriel de profilage
   <http://scikit-learn.sourceforge.net/dev/developers/performance.html#profiling-python-code>`_
-- `cython <http://cython.org/>`_: *write C-extensions in python-like language*
-  (`Working with Numpy <http://docs.cython.org/src/tutorial/numpy.html>`_)
+- `cython <http://cython.org/>`_: *write C-extensions in python-like
+  language* (`Working with Numpy
+  <http://docs.cython.org/en/latest/src/tutorial/numpy.html>`_)
 
 .. - `Guppy <http://guppy-pe.sourceforge.net/>`_: *object and heap memory
 ..   sizing, profiling and analysis*
@@ -347,6 +351,8 @@ Comment installer/créer des modules externes:
 - `pip <https://pip.pypa.io/en/latest/>`_
 - `Hitchhiker’s Guide to Packaging
   <http://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/>`_
+- `Packaging a python library
+  <https://blog.ionelmc.ro/2014/05/25/python-packaging/>`_
 
 .. _python23:
 
@@ -378,5 +384,5 @@ Python 2 vs. python 3
 .. [#opt] « *Premature optimization is the root of all evil* » --
    Donald Knuth
 
-.. _pytest: http://docs.pytest.org/en/latest/
+.. _pytest: https://docs.pytest.org/en/latest/
 .. _nose:   http://nose.readthedocs.io/en/latest/

@@ -8,7 +8,7 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
+# import sys
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -37,9 +37,11 @@ extensions = [
 # Intersphinx configuration
 intersphinx_mapping = {
     'python': ('https://docs.python.org/2', None),
-    'numpy': ('http://docs.scipy.org/doc/numpy/', None),
-    'scipy': ('http://docs.scipy.org/doc/scipy/reference/', None),
+    'numpy': ('https://docs.scipy.org/doc/numpy/', None),
+    'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None),
     'matplotlib': ('http://matplotlib.org/', None),
+    'pandas': ('http://pandas.pydata.org/pandas-docs/stable/', None),
+    'xarray': ('http://xarray.pydata.org/en/stable/', None),
     'astropy': ('http://docs.astropy.org/en/stable/', None),
 }
 
@@ -50,7 +52,7 @@ templates_path = ['_templates']
 source_suffix = '.txt'
 
 # The encoding of source files.
-#source_encoding = 'utf-8-sig'
+source_encoding = 'utf-8-sig'
 
 # The master toctree document.
 master_doc = 'index'
@@ -64,9 +66,9 @@ author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 # built documents.
 #
 # The short X.Y version.
-version = u"École d'été Euclid 2016"
+version = u"École d'été Euclid 2017"
 # The full version, including alpha/beta/rc tags.
-release = u'Août 2016'
+release = u'Juin 2017'
 
 copyright = ', '.join((release, author))
 
@@ -142,7 +144,16 @@ html_theme = 'alabaster'
 
 # Alabaster: see http://alabaster.readthedocs.io/en/latest/customization.html
 html_theme_options = {
+    #'logo': 'scipy2.png',        # Relative to $PROJECT/_static/
+    #'logo_name': project,
+    #'github_user': 'ycopin',
+    #'github_repo': 'Informatique-Python',
+    #'github_banner': True,
+    #'sidebar_collapse': True,
+    #'show_powered_by': True,
     'page_width': '80%',
+    #'sidebar_width': '20%',
+    #'fixed_sidebar': True,
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -175,7 +186,7 @@ html_static_path = ['_static']
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
-#html_use_smartypants = True
+# html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}

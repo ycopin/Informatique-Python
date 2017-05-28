@@ -38,12 +38,12 @@ Introduction
 Installation
 ------------
 
-Cette introduction repose sur les outils suivants:
+Cette introduction repose essentiellement sur les outils suivants:
 
-- `Python 2.7 <https://www.python.org/downloads/>`_ (inclus l'interpréteur de
-  base et la bibliothèque standard)
+- `Python 2.7 <https://www.python.org/downloads/>`_ (inclus
+  l'interpréteur de base et la bibliothèque standard)
 - les bibliothèques scientifiques `Numpy et Scipy
-  <http://scipy.org/install.html>`_,
+  <https://scipy.org/install.html>`_,
 - la bibliothèque graphique: `matplotlib
   <http://matplotlib.org/users/installing.html>`_,
 - un interpréteur évolué, p.ex. `ipython <http://ipython.org/install.html>`_,
@@ -79,7 +79,7 @@ Les concepts suivants sont supposés connus:
 .. rubric:: Liens:
 
 * `Quelques notions et commandes d'UNIX
-  <http://www.ipnl.in2p3.fr/perso/ycopin/_static/enseignements/notions_unix.pdf>`_
+  <https://www.ipnl.in2p3.fr/perso/ycopin/_static/enseignements/notions_unix.pdf>`_
   |fr|
 * `Introduction to Unix Study Guide
   <http://faculty.salina.k-state.edu/tim/unix_sg/>`_
@@ -92,7 +92,7 @@ Python:
 
 .. index:: interpréteur; python
 
-* :program:`python`: l'`interpréteur de base
+* :program:`python`: `interpréteur de base
   <https://docs.python.org/2/tutorial/interpreter.html>`_::
 
     $ python
@@ -113,14 +113,15 @@ Python:
 
 .. index:: interpréteur; ipython
 
-* :program:`ipython`: `interpréteur évolué <http://ipython.org/>`_
-  (avec historique et complétion automatique des commandes)::
+* :program:`ipython`: `interpréteur évolué
+  <http://ipython.readthedocs.io/en/5.x/index.html>`_ (avec historique
+  et complétion automatique des commandes)::
 
     $ ipython
-    Python 2.7.6 (default, Mar 22 2014, 22:59:56)
+    Python 2.7.12 (default, Nov 19 2016, 06:48:10)
     Type "copyright", "credits" or "license" for more information.
 
-    IPython 2.2.0 -- An enhanced Interactive Python.
+    IPython 5.3.0 -- An enhanced Interactive Python.
     ?         -> Introduction and overview of IPython's features.
     %quickref -> Quick reference.
     help      -> Python's own help system.
@@ -141,12 +142,12 @@ Python:
     * `%cpaste` pour coller et éxecuter un code pré-formaté
 
   .. rubric:: Liens:
-  
+
   - `Tutorial
-    <http://ipython.org/ipython-doc/stable/interactive/tutorial.html>`_
-  - `IPython Tip Sheet
-    <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/ipython.html>`_
-  
+    <http://ipython.readthedocs.io/en/5.x/interactive/tutorial.html>`_
+  - `IPython Tips & Tricks
+    <http://ipython.readthedocs.io/en/5.x/interactive/tips.html>`_
+
 
 Types de base
 =============
@@ -188,7 +189,7 @@ Types de base
   2.0
   >>> 6 % 2.5     # Reste de la division euclidienne
   1.0
-  >>> (1+2j)**-0.5  # Puissance entière, réelle ou complexe
+  >>> (1 + 2j)**-0.5  # Puissance entière, réelle ou complexe
   (0.5688644810057831-0.3515775842541429j)
 
 .. index::
@@ -242,7 +243,7 @@ Structures de programmation
 
   .. Warning:: Évitez autant que possible les caractères de
      tabulation, source de confusion.  Configurez votre éditeur de
-     texte en conséquence.
+     texte pour qu'il n'utilise que des espaces.
 
 - Une instruction par ligne *en général* (ou instructions séparées par `;`).
 - Les commentaires commencent par `#`, et vont jusqu'à la fin de la
@@ -267,8 +268,8 @@ Structures de programmation
     >>> (5 >= 6) or (not 3 > 4)
     True
 
-  - Opérateur ternaire: :samp:`{value} if {condition} else
-    {altvalue}`, p.ex.
+  - Opérateur ternaire (:pep:`308`): :samp:`{value} if {condition}
+    else {altvalue}`, p.ex.
 
     >>> y = x**0.5 if (x > 0) else 0  # Retourne sqrt(max(x, 0))
 
@@ -303,6 +304,10 @@ Structures de programmation
     à l'itération suivante,
   - `break`: interrompt complètement la boucle.
 
+  .. Note:: la logique des boucles Python est assez différente des
+            langages C[++]/fortran, pour lesquels l'itération porte
+            sur les *indices* plutôt que sur les éléments eux-mêmes.
+
 .. index:: while
 .. index:: break
 
@@ -312,7 +317,7 @@ Structures de programmation
   .. Attention:: aux boucles infinies, dont la condition d'exécution
      reste invariablement vraie (typiquement un critère de convergence
      qui n'est jamais atteint).  On peut toujours s'en protéger en
-     testant *en plus* sur un nombre maximal (raisonnable)
+     testant *en outre* sur un nombre maximal (raisonnable)
      d'itérations:
 
      .. code-block:: python
@@ -324,7 +329,7 @@ Structures de programmation
 
 .. rubric:: Exercices:
 
-:ref:`integ`, :ref:`pgcd`
+:ref:`integ`, :ref:`fizz`, :ref:`pgcd`
 
 
 .. _td2:
@@ -344,9 +349,9 @@ constitués d'éléments (ici les caractères) sur lesquels il est
 possible de « boucler » (p.ex. avec `for`) -- et *immuables* -- càd
 dont les éléments individuels ne peuvent pas être modifiés.
 
-.. Attention:: L'indexation en python commence à 0: le 1er élément
-   d'une liste est l'élément n°0, le 2nd est le n°1, etc.  Les *n* éléments
-   d'une liste sont donc indexés de 0 à *n-1*.
+.. Note:: Comme en C[++], l'indexation en Python commence à 0: le
+   1er élément d'une liste est l'élément n°0, le 2nd est le n°1, etc.
+   Les *n* éléments d'une liste sont donc indexés de 0 à *n-1*.
 
 >>> alpha = 'abcdefghijklmnopqrstuvwxyz'
 >>> len(alpha)
@@ -386,7 +391,7 @@ Les chaînes de caractères disposent de `nombreuses fonctionnalités
 appelées « méthodes » en :abbr:`POO (Programmation Orientée Objet)` --
 facilitant leur manipulation:
 
->>> enfant, peluche = "Calvin", 'Hobbes'      # Affectation mutiple
+>>> enfant, peluche = "Calvin", 'Hobbes'      # Affectations mutiples
 >>> titre = enfant + ' et ' + peluche; titre  # +: Concaténation de chaînes
 'Calvin et Hobbes'
 >>> titre.replace('et', '&')        # Remplacement de sous-chaînes
@@ -531,6 +536,8 @@ volée -- tandis que chaînes de caractères et les tuples sont
   [0, 1, 2, 3, 10, 11, 12, 13, 20, 21, 22, 23]
   >>> [ [ 10*i+j for i in range(3) ] for j in range(4) ] # Compréhensions imbriquées
   [[0, 10, 20], [1, 11, 21], [2, 12, 22], [3, 13, 23]]
+  >>> { i: i**2 for i in range(1, 5) }  # Dictionnaire en compréhension
+  {1: 1, 2: 4, 3: 9, 4: 16}
 
 .. - (générateurs)
 
@@ -671,7 +678,7 @@ NameError: name 'sqrt' is not defined
 >>> sqrt(pi)
 1.7724538509055159
 
-.. Attention:: Il est possible d'importer toutes les fonctionnalités
+.. Warning:: Il est possible d'importer toutes les fonctionnalités
    d'une bibliothèque dans l'espace de noms courant:
 
    >>> from math import *    # Argh! Pas pythonique :-(
@@ -755,7 +762,7 @@ Exceptions
 
 Lorsqu'il rencontre une erreur dans l'exécution d'une instruction,
 l'interpréteur Python génère (`raise`) une erreur (`Exception`), de
-`nature <http://rgruet.free.fr/PQR26/PQR2.6.html#BuiltInExc>`_
+`nature <http://rgruet.free.fr/PQR27/PQR2.7.html#BuiltInExc>`_
 différente selon la nature de l'erreur: `KeyError`, `ValueError`,
 `AttributeError`, `NameError`, `TypeError`, `IOError`,
 `NotImplementedError`, etc.  La levée d'une erreur n'est cependant pas
@@ -776,8 +783,8 @@ construction `try ... except`.
 
    def lireEntier():
        while True:
+           chaine = raw_input('Entrez un entier: ') # Lecture du clavier
            try:
-               chaine = raw_input('Entrez un entier: ') # Lecture du clavier
                # La conversion en type entier lève `ValueError` si impossible
                return int(chaine)
            except ValueError:             # Gestion de l'exception ValueError
@@ -798,7 +805,7 @@ vous auriez pu tester *a priori* et pour lesquels il existe une
 solution de replis, et laissez passer les autres (ce qui provoquera
 éventuellement l'interruption du programme)
 
-.. Attention:: Évitez à tout prix les `except` *nus*, càd ne spécifiant
+.. Danger:: Évitez à tout prix les `except` *nus*, càd ne spécifiant
    pas la ou les exceptions à gérer, car ils intercepteraient alors
    *toutes* les exceptions, y compris celles que vous n'aviez pas
    prévues!  Trouvez l'erreur dans le code suivant::
@@ -901,7 +908,7 @@ Au concept d'objet sont liées les notions de:
   sens (p.ex. en comparant les aires).
 
   `Liste des méthodes standard et des surcharges d'opérateur
-  <http://rgruet.free.fr/PQR26/PQR2.6.html#SpecialMethods>`_
+  <http://rgruet.free.fr/PQR27/PQR2.7.html#SpecialMethods>`_
 - **Héritage de classe:** il s'agit de définir une classe à partir
   d'une (ou plusieurs) classe(s) parente(s).  La nouvelle classe
   *hérite* des attributs et méthodes de sa (ses) parente(s), que l'on
@@ -940,7 +947,7 @@ Au concept d'objet sont liées les notions de:
 
 .. rubric:: Exercices:
 
-:ref:`animaux`, :ref:`particle`, :ref:`life`
+:ref:`animaux`, :ref:`life`
 
 
 .. Espaces de noms et portée (*scope*)
@@ -977,7 +984,7 @@ fonction :func:`open` retournant un objet `file
    for i in range(1, 10):
        outfile.write("{}  {}\n".format(i, i**2)) # Noter la présence du '\n' (non-automatique)
    outfile.close()                   # Fermeture du fichier (nécessaire)
- 
+
    # ========== LECTURE ==========
    infile = open("carres.dat")  # Ouverture du fichier "carres.dat" en lecture
    for line in infile:          # Boucle sur les lignes du fichier
@@ -1016,13 +1023,14 @@ utilisation de Python dans un contexte scientifique.
 Python 3.x
 ----------
 
-Pour des raisons historiques, ce cours présente le langage Python dans
-sa version 2.x.  Pourtant, le développement actuel de Python se fait
-uniquement sur la branche 3.x, qui constitue une remise à plat
-*non-rétrocompatible* du langage, et la branche 2.x ne sera *a priori*
-plus supporté au delà de 2020 (:pep:`466`).  Il est donc préférable,
-si vous vous lancez dans un développement substantiel, de passer aussi
-rapidement que possible à Python 3 (voir :ref:`python23`).
+Pour des raisons historiques autant que pratiques, ce cours présente
+le langage Python dans sa version 2.x.  Pourtant, le développement
+actuel de Python se fait uniquement sur la branche 3.x, qui constitue
+une remise à plat *non-rétrocompatible* du langage, et la branche 2.x
+ne sera *a priori* plus supporté au delà de 2020 (:pep:`466`).  Il est
+donc préférable, si vous vous lancez dans un développement
+substantiel, de passer aussi rapidement que possible à Python 3 (voir
+:ref:`python23`).
 
 Python 3 apporte `quelques changements fondamentaux
 <https://docs.python.org/3/whatsnew/3.0.html>`_, notamment:
@@ -1030,10 +1038,13 @@ Python 3 apporte `quelques changements fondamentaux
 - `print` n'est plus un mot-clé mais une fonction: :samp:`print({...})`
 - l'opérateur `/` ne réalise plus la division euclidienne entre les
   entiers, mais toujours la division *réelle*
+- un support complet (mais encore complexe) des chaînes Unicode
 
 L'interpréteur Python 2.7 dispose d'une option `-3` mettant en
 évidence dans un code les parties qui devront être modifiées pour un
-passage à Python 3.
+passage à Python 3.  Le script `2to3
+<https://docs.python.org/2.7/library/2to3.html>`_ permet également
+d'automatiser la conversion du code 2.x en 3.x.
 
 
 .. rubric:: Notes de bas de page

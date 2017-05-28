@@ -21,26 +21,26 @@ DEvelopment Environment)`.
 .. rubric:: Liens:
 
 - `Developers' Workshop #1
-  <http://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop1>`_
+  <https://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop1>`_
   (nov. 2014)
 - `Developers' Workshop #2
-  <http://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop2>`_
+  <https://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop2>`_
   (oct. 2015)
 - `C++ and Python Programming Sessions
-  <http://euclid.roe.ac.uk/projects/codeen-users/wiki/C++PythonProgrammingSessions>`_
+  <https://euclid.roe.ac.uk/projects/codeen-users/wiki/C++PythonProgrammingSessions>`_
   (mai 2016)
 - `Developers' Workshop #3
-  <http://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop3>`_
+  <https://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop3>`_
   (**oct. 2016**)
 
 .. Warning:: certains liens de cette page requièrent un accès à l'`Euclid
-   Redmine <http://euclid.roe.ac.uk/>`_.
+   Redmine <https://euclid.roe.ac.uk/>`_.
 
 
 Librairies EDEN
 ===============
 
-`EDEN <http://euclid.roe.ac.uk/projects/codeen-users/wiki/EDEN>`_ est un
+`EDEN <https://euclid.roe.ac.uk/projects/codeen-users/wiki/EDEN>`_ est un
 environnement contraint incluant un nombre très restreint de bibliothèques Python.
 La liste **exhaustive** pour EDEN v1.2 est la suivante:
 
@@ -59,66 +59,5 @@ bibliothèques que celles-ci.**
 
 Toutefois, si une librairie absolument cruciale manque, il est toujours
 possible de demander son inclusion via une procédure de `Change requests
-<http://euclid.roe.ac.uk/projects/ct_change_process/wiki/Change_Requests>`_,
+<https://euclid.roe.ac.uk/projects/ct_change_process/wiki/Change_Requests>`_,
 qui sera examinée et arbitrée par le *Change Control Board*.
-
-
-Astropy
-=======
-
-`Astropy <http://astropy.readthedocs.io/en/stable/>`_ est une librairie
-astronomique maintenue par la communauté et visant à fédérer les efforts jusque
-là disparates.  Elle offre en outre une interface unifiée à des `librairies
-affiliées <http://www.astropy.org/affiliated/>`_ plus spécifiques (mais
-non-inclues dans EDEN).
-
-Tour d'horizon
---------------
-
-- Structures de base:
-
-  - :mod:`astropy.constants`: constantes fondamentales (voir également
-    :mod:`scipy.constants`)
-  - :mod:`astropy.units`: unités et quantités dimensionnées
-  - :mod:`astropy.nddata`: extension des :class:`numpy.ndarray` (incluant
-    méta-données, masque, unité, incertitude, etc.)
-  - :mod:`astropy.table`: tableaux hétérogènes
-  - :mod:`astropy.time`: manipulation du temps et des dates
-  - :mod:`astropy.coordinates`: systèmes de coordonnées
-  - :mod:`astropy.wcs`: *World Coordinate System*
-  - :mod:`astropy.modeling`: modèles et ajustements
-  - :mod:`astropy.analytic_functions`: fonctions analytiques
-
-- Entrées/sorties:
-
-  - :mod:`astropy.io.fits`: fichiers FITS 
-  - :mod:`astropy.io.ascii`: tables ASCII
-  - :mod:`astropy.io.votable`: XML VO-tables
-  - :mod:`astropy.io.misc`: divers 
-  - :mod:`astropy.vo`: accès au *Virtual Observatory*
-
-- Calculs astronomiques:
-
-  - :mod:`astropy.cosmology`: calculs cosmologiques
-  - :mod:`astropy.convolution`: convolution and filtrage
-  - :mod:`astropy.visualization`: visualisation de données
-  - :mod:`astropy.stats`: méthodes astro-statistiques
-
-Démonstration
--------------
-
-`Astropy demo
-<http://nbviewer.jupyter.org/url/informatique-python.readthedocs.io/fr/euclid/_downloads/astropy.ipynb>`_
-(:download:`astropy.ipynb`)
-
-.. rubric:: Voir également:
-
-* `AstroBetter tutorials
-  <http://www.astrobetter.com/blog/2014/07/07/astropy-tutorials-learn-how-to-do-common-astro-tasks-with-astropy-and-python/>`_
-
-.. Note:: n'oubliez pas de citer [Astropy13]_ ou de `mentionner l'utilisation
-   <http://www.astropy.org/about.html#acknowledge>`_ d'astropy dans vos
-   publications et présentations.
-
-.. [Astropy13] `2013A&A...558A..33A
-               <http://adsabs.harvard.edu/abs/2013A%26A...558A..33A>`_

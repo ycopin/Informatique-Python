@@ -2,6 +2,7 @@ Solutions aux exercices
 =======================
 
 * :ref:`integSol`
+* :ref:`fizzSol`
 * :ref:`pgcdSol`
 * :ref:`cribleSol`
 * :ref:`carreSol`
@@ -13,15 +14,11 @@ Solutions aux exercices
 * :ref:`lifeSol`
 * :ref:`madSol`
 * :ref:`pullSol`
-* `Calculs numériques
-  <http://nbviewer.jupyter.org/url/informatique-python.readthedocs.org/fr/latest/_downloads/numerique.ipynb>`_
+* :ref:`Calculs numériques <Exercices/numerique.ipynb>`
   (:download:`numerique.ipynb`)
-* :ref:`numerique.ipynb`
 * :ref:`anscombeSol`
 * :ref:`logistiqueSol`
 * :ref:`juliaSol`
-* `Trajectoire d'un boulet de canon
-  <http://nbviewer.jupyter.org/url/informatique-python.readthedocs.org/fr/latest/_downloads/canon.ipynb>`_
+* :ref:`Trajectoire d'un boulet de canon <Exercices/canon.ipynb>`
   (:download:`canon.ipynb`)
-* :ref:`canon.ipynb`
 * :ref:`equationEtatSol`

@@ -118,6 +118,9 @@ Quelques modules de la librairie standard qui peuvent être d'intérêt:
   >>> cmath.exp(cmath.pi * 1j) + 1
   1.2246467991473532e-16j
 
+* `Autres modules numériques et mathématiques
+  <https://docs.python.org/2/library/numeric.html>`_
+
 .. .. index::
 ..    module: collections
 ..    module: itertools
@@ -194,7 +197,7 @@ Quelques modules de la librairie standard qui peuvent être d'intérêt:
 - :abbr:`TUI (Text User Interface)`: :mod:`curses`
 - :abbr:`GUI (Graphical User Interface)`: :mod:`Tkinter`,
 - Librairies externes: `PyGI
-  <https://wiki.gnome.org/Projects/PyGObject>`_ (GTK3), `PyQt
-  <https://riverbankcomputing.co.uk/software/pyqt/intro>`_ /
-  `pySide <https://wiki.qt.io/PySide>`_ (Qt), `wxPython
+  <https://pygobject.readthedocs.io/>`_ (GTK3), `PyQt
+  <https://riverbankcomputing.com/software/pyqt/intro>`_ / `pySide
+  <https://wiki.qt.io/PySide>`_ (Qt), `wxPython
   <https://www.wxpython.org/>`_ (wxWidgets)

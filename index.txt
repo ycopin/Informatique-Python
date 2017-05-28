@@ -16,18 +16,21 @@
    Cours/cours
    Cours/standard
    Cours/science
+   Cours/science2
    Cours/euclid
    Cours/code
    Cours/references
    Cours/exemples
    Exercices/exo
    Annales/annales
+   Projets/projets
 
 .. toctree::
    :hidden:
 
    Cours/astropy
    Exercices/integ
+   Exercices/fizz
    Exercices/pgcd
    Exercices/crible
    Exercices/carre

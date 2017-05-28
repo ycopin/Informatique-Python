@@ -1,7 +1,7 @@
 .. _science:
 
-Bibliothèques numériques
-########################
+Bibliothèques numériques standards
+##################################
 
 .. contents:: Table des matières
 ..
@@ -15,13 +15,8 @@ Bibliothèques numériques
       1.4  Sous-modules
     2  Scipy
       2.1  Quelques exemples complets
-    3  Bibliothèques graphiques
-      3.1  Matplotlib (2D/3D)
-      3.2  Mayavi (3D)
-    4  Autres librairies scientifiques
-
-* `Standard Numeric and Mathematical Modules
-  <https://docs.python.org/2/library/numeric.html>`_
+    3  Matplotlib
+      3.1  Mayavi (visualisation 3D)
 
 .. _td5:
 
@@ -30,9 +25,6 @@ Numpy
 
 .. index:: module: numpy
 
-- `Numpy User Guide <http://docs.scipy.org/doc/numpy/user/>`_
-- `Numpy Reference <http://docs.scipy.org/doc/numpy/reference/>`_
-
 :mod:`numpy` est une bibliothèque *numérique* apportant le support
 efficace de larges tableaux multidimensionnels, et de routines
 mathématiques de haut niveau (fonctions spéciales, algèbre linéaire,
@@ -40,6 +32,11 @@ statistiques, etc.).
 
 .. Note:: La convention d'import utilisé dans les exemples est
    « `import numpy as N` ».
+
+.. rubric:: Liens:
+
+- `Numpy User Guide <https://docs.scipy.org/doc/numpy/user/>`_
+- `Numpy Reference <https://docs.scipy.org/doc/numpy/reference/>`_
 
 Tableaux
 --------
@@ -165,9 +162,9 @@ Création de tableaux
           [ 0. ,  0.5,  1. ,  1.5,  2. ],
           [ 0. ,  0.5,  1. ,  1.5,  2. ]]])
   >>> z.shape
-  (2, 3, 5)    # 2 plans 2D (x & y) × 3 lignes (y) × 5 colonnes (x)
+  (2, 3, 5)    # 2 plans 2D (x, y) de 3 lignes (y) × 5 colonnes (x)
   >>> N.mgrid[0:1:5j, 0:2:7j, 0:3:9j].shape
-  (3, 5, 7, 9) # 3 volumes 3D (x, y, z) × 5 plans (z) × 7 lignes (y) × 9 colonnes (x)
+  (3, 5, 7, 9) # 3 volumes 3D (x, y, z) de 5 plans (z) × 7 lignes (y) × 9 colonnes (x)
 
   .. Attention:: à l'ordre de variation des indices dans les tableaux
      multidimensionnel, et aux différences entre
@@ -200,8 +197,8 @@ array([ 0, -1,  2,  3, -4,  5,  6, -7,  8,  9])
 .. index:: pair: numpy; slicing
 
 Les sous-tableaux de rang < *N* d'un tableau de rang *N* sont appelées
-*slices*: le ou les axes selon lesquels la *slice* a été découpée,
-devenus de longueur 1, sont éliminés.
+*slices*: le (ou les) axe(s) selon le(s)quel(s) la *slice* a été découpée,
+devenu(s) de longueur 1, est (sont) éliminé(s).
 
 >>> y = N.arange(2*3*4).reshape(2, 3, 4); y  # 2 plans, 3 lignes, 4 colonnes
 array([[[ 0,  1,  2,  3],
@@ -339,7 +336,7 @@ array([[[0, 0],
    pair: numpy; newaxis
 
 L'`array broadcasting
-<http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html>`_
+<https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html>`_
 définit les régles selon lesquelles deux tableaux de formats
 *différents* peuvent éventuellement s'apparier:
 
@@ -510,7 +507,7 @@ Tableaux évolués
 
 Outre les types scalaires élémentaires -- `bool`, `int`, `float`,
 `complex`, `str`, etc. -- :mod:`numpy` supporte les tableaux de types
-composés:
+*composés*:
 
 >>> dt = N.dtype([('nom', 'S10'),     # 1er  élément: chaîne de 10 caractères
 ...               ('age', 'i'),       # 2ème élément: entier
@@ -619,7 +616,9 @@ supplémentaires, parmis lesquelles les sous-modules suivants:
 .. rubric:: Voir également:
 
 - `Pandas <http://pandas.pydata.org/>`_: structuration et analyse avancée de
-  données
+  données non-homogènes;
+- `xarray <http://xarray.pydata.org/>`_: structuration de données
+  homogènes de dimension arbitraire.
 
 
 .. _td6:
@@ -651,24 +650,24 @@ complétant ou améliorant (en terme de performances) les fonctionnalités de
 - Entrées/sorties: :mod:`scipy.io`
 
 .. Note:: n'oubliez pas de `citer scipy & co.
-   <http://scipy.org/citing.html>`_ dans vos publications et
+   <https://scipy.org/citing.html>`_ dans vos publications et
    présentations.
 
 .. rubric:: Liens:
 
-- `Scipy Reference <http://docs.scipy.org/doc/scipy/reference/>`_
+- `Scipy Reference <https://docs.scipy.org/doc/scipy/reference/>`_
 - `Scipy Cookbook <http://scipy-cookbook.readthedocs.io/>`_
 
 .. rubric:: Voir également:
 
 - `Scikits <http://scikits.appspot.com/scikits>`_: modules
-  supplémentaires, parmi lesquels:
+  plus spécifiques, parmi lesquels:
 
   - `scikit-learn <http://scikit-learn.org/stable/>`_: *machine learning*
   - `scikit-image <http://scikit-image.org/>`_: *image processing*
-  - `statsmodel <http://statsmodels.sourceforge.net/>`_: modèles statistiques
+  - `statsmodel <http://www.statsmodels.org/>`_: modèles statistiques
     (`tutorial <http://jseabold.net/pages/talks>`_)
-- `Scipy Topical softwares <http://www.scipy.org/topical-software.html>`_
+- `Scipy Topical softwares <https://www.scipy.org/topical-software.html>`_
 
 .. rubric:: Exercices:
 
@@ -679,9 +678,9 @@ Quelques exemples complets
 --------------------------
 
 * `Interpolation
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/interpolate.html>`_
+  <https://docs.scipy.org/doc/scipy/reference/tutorial/interpolate.html>`_
 * `Integration
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html>`_
+  <https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html>`_
   (intégrales numériques, équations différentielles)
 
   - `odeint notebook
@@ -690,24 +689,21 @@ Quelques exemples complets
     <http://scipy-cookbook.readthedocs.io/items/Zombie_Apocalypse_ODEINT.html>`_
 
 * `Optimisation
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html>`_
+  <https://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html>`_
   (moindres carrés, ajustements, recherche de zéros)
 * `Traitement du signal
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/signal.html>`_
+  <https://docs.scipy.org/doc/scipy/reference/tutorial/signal.html>`_
   (splines, convolution, filtrage)
 * `Algèbre linéaire
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html>`_
+  <https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html>`_
   (systèmes linéaires, moindres carrés, décompositions)
 * `Statistiques
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/stats.html>`_
+  <https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html>`_
   (variables aléatoires, distributions, tests)
 
 
-Bibliothèques graphiques
-========================
-
-Matplotlib (2D/3D)
-------------------
+Matplotlib
+==========
 
 .. index:: module: matplotlib
 
@@ -753,6 +749,15 @@ Dans les deux cas, le résultat est le même:
 .. image:: simple.*
    :align: center
    :width: 60%
+   :alt: Figure simple.
+
+.. figure:: http://matplotlib.org/_images/anatomy.png
+   :align: center
+   :width: 60%
+   :target: http://matplotlib.org/examples/showcase/anatomy.html
+   :alt: Anatomie d'une figure.
+
+   **Figure:** Anatomie d'une figure.
 
 .. Note:: n'oubliez pas de `citer matplotlib
    <http://matplotlib.org/citing.html>`_ (notamment [Matplotlib07]_)
@@ -768,8 +773,8 @@ Dans les deux cas, le résultat est le même:
   <http://www.labri.fr/perso/nrougier/teaching/matplotlib/>`_
 - `Gallery <http://matplotlib.org/gallery.html>`_
 - `Examples <http://matplotlib.org/examples/>`_
-- `Seaborn <http://web.stanford.edu/~mwaskom/software/seaborn/>`_, une
-  surcouche à matplotlib
+- `Seaborn <http://seaborn.pydata.org/>`_, une
+  surcouche à matplotlib/pandas
 - `MPLD3 <http://mpld3.github.io/>`_, un *backend* matplotlib interactif basé
   sur la librairie *web* `3D.js <https://d3js.org/>`_
 - `Bokeh <http://bokeh.pydata.org/en/latest/>`_, une bibliothèque graphique
@@ -783,8 +788,8 @@ Dans les deux cas, le résultat est le même:
 
 :ref:`anscombe`, :ref:`julia`, :ref:`logistique`
 
-Mayavi (3D)
------------
+Mayavi (visualisation 3D)
+-------------------------
 
 .. index:: module: mayavi/mlab
 
@@ -799,37 +804,6 @@ est une bibliothèque graphique de visualisation 3D s'appuyant sur
 
 - `VPython <http://www.vpython.org/>`_: *3D Programming for Ordinary
   Mortals*
-
-
-Autres librairies scientifiques
-===============================
-
-Python est maintenant très largement utilisé par la communauté scientifique, et
-dispose d'innombrables librairies dédiées aux différents domaines de la
-physique, chimie, etc.:
-
-- Astronomie: `astropy <http://www.astropy.org/>`_, `Kapteyn
-  <http://www.astro.rug.nl/software/kapteyn/>`_ et autres `modules
-  astronomiques
-  <https://oneau.wordpress.com/2010/10/02/python-for-astronomy/>`_
-- Mécanique quantique: `QuTiP <http://qutip.org/>`_
-- Électromagnétisme: `EMpy <https://lbolla.github.io/EMpy/>`_
-- *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
-  <http://sfepy.org/doc-devel/>`_
-- *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
-  <https://pythonhosted.org/milk/>`_, `MDP
-  <http://mdp-toolkit.sourceforge.net/>`_, `AstroML
-  <http://www.astroml.org/>`_ et autres `modules d'intelligence
-  artificielle
-  <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_
-- Calcul symbolique: sympy_ (voir également ce `tutoriel sympy
-  <https://mattpap.github.io/scipy-2011-tutorial/html/>`_)
-- `PyROOT <https://root.cern.ch/pyroot>`_
-- `High Performance Computing in Python
-  <http://byumcl.bitbucket.org/bootcamp2013/labs/perfomance.html>`_
-- `Etc. <http://www.scipy.org/topical-software.html>`_
-
-.. - `PyMC <http://code.google.com/p/pymc/>`_: *Monte Carlo Markov Chain*
 
 .. rubric:: Notes de bas de page
 

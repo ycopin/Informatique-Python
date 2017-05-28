@@ -1,118 +1,42 @@
 .. _projets:
 
-Micro-projets
-#############
+Projets
+#######
 
-Projets de visualisation
-========================
+.. contents:: Table des matières
+..
+    1  Projets de physique
+      1.1   Formation d'agrégats
+      1.2   Modèle d'Ising
+      1.3   Modèle de Potts 3D
+      1.4   Méthode de Hückel
+      1.5   Densité d'états d'un nanotube
+      1.6   Solitons
+      1.7   Diagramme de phase du potentiel de Lennard-Jones
+      1.8   États de diffusion pour l’équation de Schrödinger 1D stationnaire
+      1.9   Percolation
+      1.10  Autres possibilités
+    2  Projets astrophysiques
+    3  Projets divers
+      3.1  Formation de pistes de fourmis sur un pont à 2 branches
+      3.2  Auto-organisation d'un banc de poisson
+      3.3  Évacuation d'une salle & déplacement d'une foule dans une rue
+      3.4  Suivi de particule(s)
+      3.5  Idées supplémentaires
+    4  Projets statistiques
+    5  Projets de visualisation
 
-L'objectif premier de ces projets est de développer des outils de
-visualisation sous Python/Matplotlib.
-
-* `Coordonnées parallèles
-  <https://en.wikipedia.org/wiki/Parallel_coordinates>`_
-
-  - Sources éventuelles d'inspiration: `Parallel Coordinates plot in
-    Matplotlib
-    <http://stackoverflow.com/questions/8230638/parallel-coordinates-plot-in-matplotlib>`_,
-    `XDAT <http://www.xdat.org/>`_
-  - Exemples de jeu de données multi-variables: `Iris flower data set
-    <https://en.wikipedia.org/wiki/Iris_flower_data_set>`_,
-    :download:`Cars <./carsDataSet.dat>` (`source
-    <http://mbostock.github.io/protovis/ex/cars.html>`_)
-
-* `Andrew Curves
-  <http://www.jucs.org/jucs_11_11/visualization_of_high_dimensional/jucs_11_11_1806_1819_garc_a_osorio.pdf>`_
-  (voir également `Rip’s Applied Mathematics Blog
-  <https://rip94550.wordpress.com/2011/10/03/andrews-curves/>`_
-
-  - À appliquer sur les mêmes jeux de données que pour les coordonnées
-    parallèles.
-
-* `Stacked graphs <http://leebyron.com/else/streamgraph/>`_
-
-  - Source éventuelle d'inspiration: `Python recipe
-    <http://code.activestate.com/recipes/576633-stacked-graphs-using-matplotlib/>`_
-
-* `Diagramme de Hertzprung-Russel
-  <https://en.wikipedia.org/wiki/Hertzsprung-Russell_diagram>`_
-
-  L'objectif est de développer une classe permettant de tracer des
-  diagrammes HR à partir de diverses quantités observationnelles
-  (magnitudes apparentes ou absolues, couleurs) ou théoriques
-  (luminosité, températures effectives), ainsi que des isochrones.
-
-  - Source éventuelle d'inspiration: `Stellar evolutionary tracks
-    <https://en.wikipedia.org/wiki/File:Stellar_evolutionary_tracks-en.svg>`_
-  - Données photométriques: p.ex. :download:`M55 <./M55_BV.dat>`
-    (source: `BVI photometry in M55
-    <http://cdsarc.u-strasbg.fr/viz-bin/Cat?J/AJ/134/825>`_)
-  - Données théoriques: p.ex. `Padova database of stellar evolutionary
-    tracks and isochrones <http://pleiadi.pd.astro.it/>`_
-
-.. https://sites.google.com/site/roguewavesoftwarefrance/tutoriels/Python-Clustering-k-Means
-
-* `Treemaps <https://en.wikipedia.org/wiki/Treemap>`_
-
-  - Source éventuelle d'inspiration: `Treemaps under pylab
-    <scipy-cookbook.readthedocs.io/items/Matplotlib_TreeMap.html>`_
-
-* De façon plus générale, l'ensemble des visualisations proposées
-  sous:
-
-  - `Flare <http://flare.prefuse.org/demo>`_
-  - `D3 <http://mbostock.github.io/d3/ex/>`_
-  - `Periodic Table of Vizualisation Methods
-    <http://www.visual-literacy.org/periodic_table/periodic_table.html>`_
-
-
-Projets statistiques
-====================
-
-- Tests statistiques du `NIST/SEMATECH e-Handbook of Statistical
-  Methods <http://www.itl.nist.gov/div898/handbook/>`_,
-  p.ex. `Comparisons based on data from two processes
-  <http://www.itl.nist.gov/div898/handbook/prc/section3/prc3.htm>`_
-- Statistiques robustes, p.ex. `Beers et al. (1990)
-  <http://adsabs.harvard.edu/abs/1990AJ....100...32B>`_
 
 Projets de physique
 ===================
-
-Formation de pistes de fourmis sur un pont à 2 branches
--------------------------------------------------------
-
-Si on propose à une colonie de fourmis de choisir entre 2 branches
-pour rejoindre une source de nourriture la branche finalement choisie
-est toujours la plus courte. Le projet consiste à modéliser et
-caractériser ce comportement.
-
-Indication: on peut étudier ce système avec des EDOs. Cela peut aussi
-donner lieu à une simulation individu centré et éventuellement une
-comparaison entre les deux types de modèle.
-
-.. figure:: Aco_branches.png
-   :width: 50%
-   :align: center
-
-   **Figure:** 1) la première fourmi trouve la source de nourriture
-   (F), via un chemin quelconque (a), puis revient au nid (N) en
-   laissant derrière elle une piste de phéromone (b). 2) les fourmis
-   empruntent indifféremment les 4 chemins possibles, mais le
-   renforcement de la piste rend plus attractif le chemin le plus
-   court. 3) les fourmis empruntent le chemin le plus court, les
-   portions longues des autres chemins voient la piste de phéromones
-   s'évaporer. Source: `Johann Dréo
-   <https://commons.wikimedia.org/wiki/File:Aco_branches.svg>`_ via
-   Wikimedia Commons.
 
 Formation d'agrégats
 --------------------
 
 La formation d'agrégats est par essence un sujet interdisciplinaire,
-ou la modélisation joue un rôle certain comme « microscope
-computationel ». Pour un projet en ce sens, un soin particulier sera
-donné à la contextualisation. P. ex., on pourra tester les limites de
+ou la modélisation joue un rôle certain comme « microscope
+computationel ». Pour un projet en ce sens, un soin particulier sera
+donné à la contextualisation.  P.ex., on pourra tester les limites de
 la règle de Wade pour la structure de clusters métalliques, ou bien
 dans un contexte plus `biologique
 <https://fr.wikipedia.org/wiki/Dictyostelium_discoideum>`_.
@@ -137,7 +61,7 @@ transfert. La généralisation à 2 dimensions a été faite par Lars
 Onsager en 1944, mais la solution est assez compliquée. Il n'existe
 pas de solution analytique en 3D. On va ici considérer un système de
 spins sur réseau. Chaque spin :math:`\sigma_i` peut prendre 2 valeurs
-(« *up* » et « *down* »). L'hamiltonien du système, 
+(« *up* » et « *down* »). L'hamiltonien du système,
 
 .. math::
 
@@ -157,6 +81,36 @@ la température et du champ magnétique par simulation de Monte-Carlo.
    Coddington
    <http://cs.adelaide.edu.au/~paulc/physics/spinmodels.html>`_.
 
+Modèle de Potts 3D
+------------------
+
+`Modèle de Potts <https://en.wikipedia.org/wiki/Potts_model>`_ en 3D
+dans un univers carré à condition périodique. Le but est la mise en
+évidence de la transition de phase pour plusieurs jeux de paramètres
+avec 3 types de spins différents.
+
+1. Reproduire des résultats connus du modèle d'Ising en 2D pour
+   valider le code.
+2. Passer à un algorithme en *cluster* pour évaluer la différence avec
+   un algorithme classique.
+3. Passer en 3D
+4. Changer le nombre de type de spins (de 2 à 3).
+
+Jeux de paramètres à tester :
+
+- `Ising en 2D
+  <https://en.wikipedia.org/wiki/Square-lattice_Ising_model>`_
+  (2 types de spins, algorithme de Glauber): Transition de phase
+  attendue à T~227K pour un couplage J=100 et un champ externe nul
+- Toujours Ising, mais avec l'`algorithme de Wolff
+  <https://en.wikipedia.org/wiki/Wolff_algorithm>`_
+- Ising en 3D avec Wolff
+- Potts (changer q=2 par q=3) en 3D avec Wolff
+
+.. rubric:: Références:
+
+`Computational Studies of Pure and Dilute Spin Models
+<http://www.hermetic.ch/compsci/thesis/contents.htm>`_
 
 Méthode de Hückel
 -----------------
@@ -167,55 +121,6 @@ l'approche développé par Hückel. Il vous est demande ici de mettre en
 oeuvre cette méthode pour l'analyse des orbitales et de l'énergie
 d'une famille de molécules répondant aux hypothèse sous-jacentes. On
 discutera notamment du choix de la paramétrisation du système.
-
-
-Évacuation d'une salle & déplacement d'une foule dans une rue
--------------------------------------------------------------
-
-Le comportement d'une foule est un problème aux applications
-multiples: évacuation d'une salle, couloir du métro aux heures de
-pointes, manifestations...  On peut en imaginer des modèles simples.
-P. ex., on peut décrire chaque individu par sa position, sa vitesse,
-et comme étant soumis à des « forces »:
-
-* Une force qui spécifie la direction dans laquelle l'individu *veut*
-  se déplacer, :math:`\textbf{f}_{dir} = (\textbf{v}_0 -
-  \textbf{v}(t))/\tau`, où :math:`\textbf{v}_0` est la direction et la
-  vitesse que la personne veut atteindre, :math:`\textbf{v}` sa
-  vitesse actuelle, et :math:`\tau` un temps caractéristique
-  d'ajustement.
-
-* Une force qui l'oblige à éviter des obstacles qui peuvent être fixes
-  (un mur, un massif de fleurs, ...), ou qui peuvent être les autres
-  individus eux-mêmes. On pourra essayer :math:`f_{obs}(d) = a
-  \exp(-d/d_0)`, où :math:`d` est la distance entre le piéton et
-  l'obstacle, :math:`d_0` la « portée » de la force, et :math:`a` son
-  amplitude.
-
-On pourra varier les différents paramètres apparaissant ci-dessus,
-tout en leur donnant une interprétation physique réelle, et étudier
-leur influence dans des situations concrètes. P. ex., à quelle
-vitesse, en fonction de :math:`\textbf{v}_0` et de la densité de
-piétons, se déplace une foule contrainte à avancer dans un couloir si
-chaque individu veut maintenir une vitesse :math:`\textbf{v}_0` ?
-Comment s'organise l'évacuation d'une salle initialement uniformément
-peuplée, avec une ou plusieurs sorties, et en la présence éventuels
-d'obstacles ?
-
-Il est également possible d'essayer d'autres expressions pour les
-forces.
-
-Il existe une littérature conséquente sur le sujet, que l'on pourra
-explorer si besoin (p. ex: `Décrypter le mouvement des piétons dans
-une foule <http://www2.cnrs.fr/presse/communique/1852.htm>`_).
-
-.. figure::  6k-RoomExit4.png
-   :width: 50%
-   :align: center
-
-   **Figure:** Un obstacle aide à l'évacuation. Source: `Crowd Behavior
-   <https://www.openabm.org/book/export/html/1955>`_.
-
 
 Densité d'états d'un nanotube
 -----------------------------
@@ -231,7 +136,6 @@ L’objectif du projet sera de calculer la densité d'états de nanotubes
 de carbone de différentes chiralités et d'établir le lien entre la
 chiralité et le fait que le nanotube soit semiconducteur ou
 métallique.
-
 
 Solitons
 --------
@@ -282,53 +186,24 @@ répondre à chacune d’entre elle):
   collisionner des solitons. Cette étude est très intéressante et
   pleine de surprises. Que se passe-t-il lors de la collision de deux
   solitons? Entre un soliton et un anti-soliton?
-  
+
 .. figure::  mascaret.jpg
    :width: 50%
    :align: center
 
-   **Figure:** Un mascaret, une vague soliton, dans un estuaire de Grande
-   Bretagne.  *Source*: `Arnold Price
+   **Figure:** Un mascaret, une vague soliton, dans un estuaire de
+   Grande Bretagne.  *Source*: `Arnold Price
    <https://commons.wikimedia.org/wiki/File%3ATidal_Bore_-_geograph.org.uk_-_324581.jpg>`_
-   [`CC-BY-SA-2.0 <https://creativecommons.org/licenses/by-sa/2.0>`_], via
-   Wikimedia Commons.
+   [`CC-BY-SA-2.0 <https://creativecommons.org/licenses/by-sa/2.0>`_],
+   via Wikimedia Commons.
 
-
-.. Auto-organisation d'un banc de poisson
-.. --------------------------------------
-
-.. include:: banc_poisson.txt
-
-.. Diagramme de phase du potentiel de Lennard-Jones
-.. ------------------------------------------------
+Diagramme de phase du potentiel de Lennard-Jones
+------------------------------------------------
 
 .. include:: lennard_jones.txt
 
-.. Suivi de particule(s)
-.. ---------------------
-
-.. include:: particle_tracking.txt
-
-
-Autres possibilités
--------------------
-
-- Tesselation de Voronoi (exemple d'application en astrophysique:
-  `Voronoi binning: Optimal adaptive tessellations of
-  multi-dimensional data <http://arxiv.org/abs/0912.1303>`_)
-- `Reaction-Diffusion by the Gray-Scott Model
-  <http://mrob.com/pub/comp/xmorphia/>`_
-- Équation de `Cahn–Hilliard
-  <https://en.wikipedia.org/wiki/Cahn%E2%80%93Hilliard_equation>`_
-  (voir l'`exemple NIST
-  <http://www.ctcms.nist.gov/fipy/examples/cahnHilliard/generated/examples.cahnHilliard.mesh2D.html>`_
-  sous `FiPy: A Finite Volume PDE Solver Using Python
-  <http://www.ctcms.nist.gov/fipy/>`_)
-- `Computational Methods for Nonlinear Systems
-  <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/ComputerExercises.html>`_
-
 États de diffusion pour l’équation de Schrödinger 1D stationnaire
-.................................................................
+-----------------------------------------------------------------
 
 On s’intéresse à la diffusion d’une particule de masse m à travers un
 potentiel carré défini par :math:`V(x) = V_0` pour :math:`0 \leq x
@@ -348,7 +223,7 @@ Les objectifs de ce projet sont :
 * Écrire un programme qui résolve l’équation de Schrödinger.
 * En déduire les coefficients de transmission et de réflexion.
 
-Références: 
+.. rubric:: Références:
 
 * *A numerical method for quantum tunnelling*, Pang T., Computers un
   Physics, 9, p 602-605.
@@ -358,7 +233,7 @@ Références:
   <http://jakevdp.github.io/blog/2012/09/05/quantum-python/>`_
 
 Percolation
-...........
+-----------
 
 Ce sujet propose d’étudier le phénomène de percolation. La percolation
 est un processus physique qui décrit pour un système, une transition
@@ -387,7 +262,7 @@ d’étudier un cas particulier mais on prendra soin au contraire
 d’effectuer des moyennes sur un très grand nombre de tirages
 (plusieurs centaines).
 
-.. rubric:: Sources:
+.. rubric:: Références:
 
 * `Percolation theory <https://en.wikipedia.org/wiki/Percolation_theory>`_
 * `Concepts fondamentaux de la percolation
@@ -397,59 +272,184 @@ d’effectuer des moyennes sur un très grand nombre de tirages
   `2012
   <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/ComputerExercises/Percolation/Percolation.html>`_
 
-Modèle de Potts 3D
-..................
+Autres possibilités
+-------------------
 
-`Modèle de Potts <https://en.wikipedia.org/wiki/Potts_model>`_ en 3D
-dans un univers carré à condition périodique. Le but est la mise en
-évidence de la transition de phase pour plusieurs jeux de paramètres
-avec 3 types de spins différents.
-
-1. Reproduire des résultats connus du modèle d'Ising en 2D pour
-   valider le code.
-2. Passer à un algorithme en *cluster* pour évaluer la différence avec
-   un algorithme classique.
-3. Passer en 3D
-4. Changer le nombre de type de spins (de 2 à 3).
-
-Jeux de paramètres à tester :
-
-- `Ising en 2D <https://en.wikipedia.org/wiki/Square-lattice_Ising_model>`_ (2
-  types de spins, algorithme de Glauber): Transition de phase attendue à T~227K
-  pour un couplage J=100 et un champ externe nul
-- Toujours Ising, mais avec l'`algorithme de Wolff
-  <https://en.wikipedia.org/wiki/Wolff_algorithm>`_
-- Ising en 3D avec Wolff
-- Potts (changer q=2 par q=3) en 3D avec Wolff
-
-.. rubric:: Références:
-
-`Computational Studies of Pure and Dilute Spin Models
-<http://www.hermetic.ch/compsci/thesis/contents.htm>`_
+- `Reaction-Diffusion by the Gray-Scott Model
+  <http://mrob.com/pub/comp/xmorphia/>`_
+- Équation de `Cahn–Hilliard
+  <https://en.wikipedia.org/wiki/Cahn%E2%80%93Hilliard_equation>`_
+  (voir l'`exemple NIST
+  <http://www.ctcms.nist.gov/fipy/examples/cahnHilliard/generated/examples.cahnHilliard.mesh2D.html>`_
+  sous `FiPy: A Finite Volume PDE Solver Using Python
+  <http://www.ctcms.nist.gov/fipy/>`_)
+- `Computational Methods for Nonlinear Systems
+  <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/ComputerExercises.html>`_
 
 
-*Protein Data Bank*
-...................
+Projets astrophysiques
+======================
 
-On chercher a réaliser un script qui analyse un fichier de données de
-type `PDB <https://fr.wikipedia.org/wiki/Protein_Data_Bank>`_ (*Protein
-Data Bank*).
+.. include:: astro.txt
 
-La banque de données `Worldwide Protein Data Bank
-<http://www.wwpdb.org/>`_ regroupe les structures obtenues par
-diffraction aux rayons X ou par RMN.  Le format est parfaitement
-defini et conventionnel (`Documentation
-<http://www.wwpdb.org/docs.html>`_).
 
-On propose d'assurer une lecture de ce fichier pour calculer notamment :
+Projets divers
+==============
 
-- le barycentre de la biomolécule
-- le nombre d'acides aminés ou nucléobases
-- le nombre d'atomes
-- la masse moléculaire
-- les dimensions maximales de la protéine
-- etc.
+Formation de pistes de fourmis sur un pont à 2 branches
+-------------------------------------------------------
 
-On propose de considerer par exemple la structure resolue pour la `GFP
-<http://pdb101.rcsb.org/motm/42>`_ (*Green Fluorescent Protein*, Prix Nobel
-2008, `Fichier PDB <http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)
+Si on propose à une colonie de fourmis de choisir entre 2 branches
+pour rejoindre une source de nourriture la branche finalement choisie
+est toujours la plus courte. Le projet consiste à modéliser et
+caractériser ce comportement.
+
+Indication: on peut étudier ce système avec des EDOs. Cela peut aussi
+donner lieu à une simulation individu centré et éventuellement une
+comparaison entre les deux types de modèle.
+
+.. figure:: Aco_branches.png
+   :width: 50%
+   :align: center
+
+   **Figure:** 1) la première fourmi trouve la source de nourriture
+   (F), via un chemin quelconque (a), puis revient au nid (N) en
+   laissant derrière elle une piste de phéromone (b). 2) les fourmis
+   empruntent indifféremment les 4 chemins possibles, mais le
+   renforcement de la piste rend plus attractif le chemin le plus
+   court. 3) les fourmis empruntent le chemin le plus court, les
+   portions longues des autres chemins voient la piste de phéromones
+   s'évaporer. Source: `Johann Dréo
+   <https://commons.wikimedia.org/wiki/File:Aco_branches.svg>`_ via
+   Wikimedia Commons.
+
+Auto-organisation d'un banc de poisson
+--------------------------------------
+
+.. include:: banc_poisson.txt
+
+Évacuation d'une salle & déplacement d'une foule dans une rue
+-------------------------------------------------------------
+
+Le comportement d'une foule est un problème aux applications
+multiples: évacuation d'une salle, couloir du métro aux heures de
+pointes, manifestations...  On peut en imaginer des modèles simples.
+P. ex., on peut décrire chaque individu par sa position, sa vitesse,
+et comme étant soumis à des « forces »:
+
+* Une force qui spécifie la direction dans laquelle l'individu *veut*
+  se déplacer, :math:`\textbf{f}_{dir} = (\textbf{v}_0 -
+  \textbf{v}(t))/\tau`, où :math:`\textbf{v}_0` est la direction et la
+  vitesse que la personne veut atteindre, :math:`\textbf{v}` sa
+  vitesse actuelle, et :math:`\tau` un temps caractéristique
+  d'ajustement.
+
+* Une force qui l'oblige à éviter des obstacles qui peuvent être fixes
+  (un mur, un massif de fleurs, ...), ou qui peuvent être les autres
+  individus eux-mêmes. On pourra essayer :math:`f_{obs}(d) = a
+  \exp(-d/d_0)`, où :math:`d` est la distance entre le piéton et
+  l'obstacle, :math:`d_0` la « portée » de la force, et :math:`a` son
+  amplitude.
+
+On pourra varier les différents paramètres apparaissant ci-dessus,
+tout en leur donnant une interprétation physique réelle, et étudier
+leur influence dans des situations concrètes. P. ex., à quelle
+vitesse, en fonction de :math:`\textbf{v}_0` et de la densité de
+piétons, se déplace une foule contrainte à avancer dans un couloir si
+chaque individu veut maintenir une vitesse :math:`\textbf{v}_0` ?
+Comment s'organise l'évacuation d'une salle initialement uniformément
+peuplée, avec une ou plusieurs sorties, et en la présence éventuels
+d'obstacles ?
+
+Il est également possible d'essayer d'autres expressions pour les
+forces.
+
+Il existe une littérature conséquente sur le sujet, que l'on pourra
+explorer si besoin (p. ex: `Décrypter le mouvement des piétons dans
+une foule <http://www2.cnrs.fr/presse/communique/1852.htm>`_).
+
+.. figure::  6k-RoomExit4.png
+   :width: 50%
+   :align: center
+
+   **Figure:** Un obstacle aide à l'évacuation. Source: `Crowd Behavior
+   <https://www.openabm.org/book/export/html/1955>`_.
+
+Suivi de particule(s)
+---------------------
+
+.. include:: particle_tracking.txt
+
+
+Projets statistiques
+====================
+
+- Tests statistiques du `NIST/SEMATECH e-Handbook of Statistical
+  Methods <http://www.itl.nist.gov/div898/handbook/>`_,
+  p.ex. `Comparisons based on data from two processes
+  <http://www.itl.nist.gov/div898/handbook/prc/section3/prc3.htm>`_
+- Statistiques robustes, p.ex. `Beers et al. (1990)
+  <http://adsabs.harvard.edu/abs/1990AJ....100...32B>`_
+
+
+Projets de visualisation
+========================
+
+L'objectif premier de ces projets est de développer des outils de
+visualisation sous Python/Matplotlib.
+
+* `Coordonnées parallèles
+  <https://en.wikipedia.org/wiki/Parallel_coordinates>`_
+
+  - Sources éventuelles d'inspiration: `Parallel Coordinates plot in
+    Matplotlib
+    <http://stackoverflow.com/questions/8230638/parallel-coordinates-plot-in-matplotlib>`_,
+    `XDAT <http://www.xdat.org/>`_
+  - Exemples de jeu de données multi-variables: `Iris flower data set
+    <https://en.wikipedia.org/wiki/Iris_flower_data_set>`_,
+    :download:`Cars <./carsDataSet.dat>` (`source
+    <http://mbostock.github.io/protovis/ex/cars.html>`_)
+
+* `Andrew Curves
+  <http://www.jucs.org/jucs_11_11/visualization_of_high_dimensional/jucs_11_11_1806_1819_garc_a_osorio.pdf>`_
+  (voir également `Rip’s Applied Mathematics Blog
+  <https://rip94550.wordpress.com/2011/10/03/andrews-curves/>`_)
+
+  - À appliquer sur les mêmes jeux de données que pour les coordonnées
+    parallèles.
+
+* `Stacked graphs <http://leebyron.com/else/streamgraph/>`_
+
+  - Source éventuelle d'inspiration: `Python recipe
+    <http://code.activestate.com/recipes/576633-stacked-graphs-using-matplotlib/>`_
+
+* `Diagramme de Hertzprung-Russel
+  <https://en.wikipedia.org/wiki/Hertzsprung-Russell_diagram>`_
+
+  L'objectif est de développer une classe permettant de tracer des
+  diagrammes HR à partir de diverses quantités observationnelles
+  (magnitudes apparentes ou absolues, couleurs) ou théoriques
+  (luminosité, températures effectives), ainsi que des isochrones.
+
+  - Source éventuelle d'inspiration: `Stellar evolutionary tracks
+    <https://en.wikipedia.org/wiki/File:Stellar_evolutionary_tracks-en.svg>`_
+  - Données photométriques: p.ex. :download:`M55 <./M55_BV.dat>`
+    (source: `BVI photometry in M55
+    <http://cdsarc.u-strasbg.fr/viz-bin/Cat?J/AJ/134/825>`_)
+  - Données théoriques: p.ex. `Padova database of stellar evolutionary
+    tracks and isochrones <http://pleiadi.pd.astro.it/>`_
+
+.. https://sites.google.com/site/roguewavesoftwarefrance/tutoriels/Python-Clustering-k-Means
+
+* `Treemaps <https://en.wikipedia.org/wiki/Treemap>`_
+
+  - Source éventuelle d'inspiration: `Treemaps under pylab
+    <scipy-cookbook.readthedocs.io/items/Matplotlib_TreeMap.html>`_
+
+* De façon plus générale, l'ensemble des visualisations proposées
+  sous:
+
+  - `Flare <http://flare.prefuse.org/demo>`_
+  - `D3 <http://mbostock.github.io/d3/ex/>`_
+  - `Periodic Table of Vizualisation Methods
+    <http://www.visual-literacy.org/periodic_table/periodic_table.html>`_

@@ -38,10 +38,20 @@ On définit la fonction `sq` renvoyant le carré d'un nombre par
 premier temps.  Quelle est la précision de la méthode, et comment
 dépend-elle du nombre de pas?
 
+.. _fizz:
+
+Fizz Buzz ★
+-----------
+
+Écrire un programme jouant au `Fizz Buzz
+<https://en.wikipedia.org/wiki/Fizz_buzz>`_ jusqu'à 99::
+
+  1 2 Fizz! 4 Buzz! Fizz! 7 8 Fizz! Buzz! 11 Fizz! 13 14 Fizz Buzz! 16...
+
 .. _pgcd:
 
-PGCD: algorithme d'Euclide ★
-----------------------------
+PGCD: algorithme d'Euclide ★★
+-----------------------------
 
 .. figure:: https://upload.wikimedia.org/wikipedia/commons/5/59/Algorithme_PGCD.png
    :align: center
@@ -152,7 +162,7 @@ bibliothèque graphique standard :mod:`turtle` dans une fonction
    :align: center
    :alt: Flocon de Koch d'ordre 3.
 
-   **Figure:** Flocon de Koch d'ordre 3.
+   Flocon de Koch d'ordre 3.
 
 .. _pm:
 
@@ -182,34 +192,6 @@ et `Chien` pour qu'elles passent avec succès tous les tests (voir
 :ref:`TDD`).  On appellera les tests via la ligne de commande::
 
   py.test animaux.py
-
-.. _particle:
-
-Points matériels et ions (POO/TDD) ★
-------------------------------------
-
-Pour une simulation d'un problème physique, on peut construire des
-classes qui connaissent elles-mêmes leurs propriétés physiques et
-leurs lois d'évolution.
-
-La structure des classes est proposée dans ce :download:`squelette
-<particle.py>`.  Vous devrez *compléter* les définitions des classes
-`Vector`, `Particle` et `Ion` afin qu'elles passent toutes les tests
-lancés automatiquement par le programme principal `main`.  À
-l'exécution, la sortie du terminal doit être::
-
-  ***************** Test functions *****************
-  Testing Vector class... ok
-  Testing Particle class... ok
-  Testing Ion class... ok
-  ******************** Test end ********************
-
-  ************* Physical computations **************
-  ** Gravitationnal computation of central-force motion for a Particle with mass 1.00, position (1.00,0.00,0.00) and speed (0.00,1.00,0.00)
-  => Final system : Particle with mass 1.00, position (-1.00,-0.00,0.00) and speed (0.00,-1.00,0.00)
-  ** Electrostatic computation of central-force motion for a Ion with mass 1.00, charge 4, position (0.00,0.00,1.00) and speed (0.00,0.00,-1.00)
-  => Final system : Ion with mass 1.00, charge 4, position (0.00,0.00,7.69) and speed (0.00,0.00,2.82)
-  *********** Physical computations end ************
 
 .. _life:
 
@@ -263,9 +245,9 @@ Créer un tableau carré réel :math:`\mathsf{r}` aléatoire
 En statistique, le *Median Absolute Deviation* (MAD) est un estimateur robuste
 de la dispersion d'un échantillon 1D: `MAD = median(| x - median(x) |)`.
 
-À l'aide des fonctions :func:`numpy.median`, :func:`numpy.abs` et
-:func:`numpy.expand_dims`, écrire une fonction `mad(x, axis=None)` calculant le
-MAD d'un tableau, éventuellement le long d'un de ses axes.
+À l'aide des fonctions :func:`numpy.median` et :func:`numpy.abs`,
+écrire une fonction `mad(x, axis=None)` calculant le MAD d'un tableau,
+éventuellement le long d'un ou plusieurs de ses axes.
 
 Avant d'implémenter la fonction, on commencera par écrire quelques tests de cas
 simples, facilement calculables à la main.  On les écrira sous un format compris
@@ -275,7 +257,7 @@ par *py.test*, p.ex.:
 
     def test_1D():
         assert mad([0]) == 0.
-        assert mad([1,2,6,9]) == 2.5
+        assert mad([1, 2, 6, 9]) == 2.5
 
 .. _pull:
 
@@ -404,7 +386,7 @@ Générez l'ensemble de ces points d'équilibre pour des valeurs de
    :width: 50%
    :alt: Diagramme de bifurcation
 
-   **Figure:** Diagramme de bifurcation.
+   Diagramme de bifurcation.
 
 N.B.: Vous utiliserez la bibliothèque `matplotlib` pour tracer vos
 résultats.
@@ -423,7 +405,7 @@ complexe :math:`c = 0.284 + 0.0122j`:
    :width: 50%
    :alt: Ensemble de Julia
 
-   **Figure:** Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
+   Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
 
 On utilisera la fonction :func:`numpy.meshgrid` pour construire le plan
 complexe, et l'on affichera le résultat grâce à la fonction
@@ -512,13 +494,42 @@ Exercices en vrac
 =================
 
 * `Exercices de base
-  <https://fr.wikibooks.org/wiki/Programmation_Python/Exercices_Base_du_langage>`_ |fr|
+  <https://fr.wikibooks.org/wiki/Programmation_Python/Exercices_sur_les_bases_du_langage>`_
+  |fr|
 * `Entraînez-vous !
   <http://openclassrooms.com/forum/sujet/entrainez-vous-sur-le-langage-python-54161?page=3#message-85967089>`_
   |fr|
 * `Learn Python The Hard Way <http://learnpythonthehardway.org/book/>`_
 * `Google Code Jam <http://code.google.com/codejam/>`_
 * `CheckIO <https://checkio.org/>`_
+
+.. _particle:
+
+Points matériels et ions (POO/TDD)
+----------------------------------
+
+Pour une simulation d'un problème physique, on peut construire des
+classes qui connaissent elles-mêmes leurs propriétés physiques et
+leurs lois d'évolution.
+
+La structure des classes est proposée dans ce :download:`squelette
+<particle.py>`.  Vous devrez *compléter* les définitions des classes
+`Vector`, `Particle` et `Ion` afin qu'elles passent toutes les tests
+lancés automatiquement par le programme principal `main`.  À
+l'exécution, la sortie du terminal doit être::
+
+  ***************** Test functions *****************
+  Testing Vector class... ok
+  Testing Particle class... ok
+  Testing Ion class... ok
+  ******************** Test end ********************
+
+  ************* Physical computations **************
+  ** Gravitationnal computation of central-force motion for a Particle with mass 1.00, position (1.00,0.00,0.00) and speed (0.00,1.00,0.00)
+  => Final system : Particle with mass 1.00, position (-1.00,-0.00,0.00) and speed (0.00,-1.00,0.00)
+  ** Electrostatic computation of central-force motion for a Ion with mass 1.00, charge 4, position (0.00,0.00,1.00) and speed (0.00,0.00,-1.00)
+  => Final system : Ion with mass 1.00, charge 4, position (0.00,0.00,7.69) and speed (0.00,0.00,2.82)
+  *********** Physical computations end ************
 
 .. _PDB:
 
@@ -532,8 +543,8 @@ type `Protein Data Bank
 La banque de données `Worldwide Protein Data Bank
 <http://www.wwpdb.org/>`_ regroupe les structures obtenues par
 diffraction aux rayons X ou par RMN.  Le format est parfaitement
-defini et conventionnel (`Documentation
-<http://www.wwpdb.org/docs.html>`_).
+defini et conventionnel (`documentation
+<http://www.wwpdb.org/documentation/file-format>`_).
 
 On propose d'assurer une lecture de ce fichier pour calculer notamment :
 

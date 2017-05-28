@@ -1,0 +1,186 @@
+.. -*- mode: rst -*-
+.. Time-stamp: <2017-05-29 00:52 ycopin@lyonovae03.in2p3.fr>
+
+.. sectionauthor:: Méthodes numériques pour la physique et les SPI
+
+Relation masse/rayon d'une naine blanche
+----------------------------------------
+
+D'après la théorie de l'évolution stellaire, les naines blanches sont
+l'un des états possibles d'une étoile (peu massive) à la fin de sa
+vie, lorsque les réactions de fusion thermonucléaire s'arrêtent.
+
+En première approximation un corps astrophysique est essentiellement
+soumis à la force de gravitation (qui tend à le contracter) et une
+force interne de pression qui vient équilibrer la première. Ainsi on
+peut approcher le problème par un équilibre hydrostatique caractérisé par :
+
+.. math::
+
+   \boldsymbol{\nabla} P(r) = - \rho(r) \frac{GM(r)}{r^2}\boldsymbol{e}_r
+
+où *G* est la constante de gravitation, :math:`P(r)`, :math:`\rho(r)`
+et :math:`M(r)` respectivement la pression, la densité à la distance
+*r* du centre et la masse dans une sphère de rayon *r*.
+
+Il s'agit d'étudier ici quelle force peut équilibrer la gravitation
+pour une naine blanche et mettre en évidence une masse limite en
+étudiant la relation rayon/masse.
+
+.. rubric:: Modélisation
+
+La masse et le rayon d'équilibre de ce système sont entièrement
+déterminés par l'équation d'état thermodynamique :math:`P = P(\rho)`
+et la densité centrale. En effet on montre facilement que :
+
+.. math::
+
+   \frac{d \rho}{dr} &=
+   - { \left( \frac{dP}{d \rho} \right) }^{-1} \frac{GM}{r^2} \rho \\
+   \frac{dM}{dr} &= 4\pi r^2\rho
+
+Une fois que les réactions thermonucléaires s'arrêtent, la première
+des forces empêchant l'étoile de s'effondrer vient de la pression due
+aux électrons. Le modèle que nous utiliserons sera donc un simple gaz
+d'électrons (masse :math:`m_e` et de nombre par unité de volume *n*) plongé
+dans un gaz de noyaux (on note :math:`Y_e` le nombre d'électrons par nucléon
+et :math:`M_n` la masse d'un nucléon) d'équation d'état :
+
+.. math::
+
+   \frac{E}{V} &= n_0 m_ec^2 x^3 \varepsilon (x), \\
+   \text{avec}\quad
+   x &= {\left( \frac {\rho}{\rho_0} \right) }^{\frac{1}{3}}, \\
+   n_0 &= \frac{{m_e^3c^3}}{3\hbar^3 \pi^2}, \\
+   \rho_0 &= \frac{M_n n_0}{Y_e} \\
+   \text{et}\quad
+   \varepsilon(x) &= \frac{3}{8 x^3} \left[
+   x(1 + 2x^2) \sqrt{1 + x^2} - \ln \left( x + \sqrt{1 + x^2}\right)
+   \right]
+
+Si tous les noyaux sont du :math:`^{12}C`,
+alors :math:`Y_e=1/2`.
+
+.. rubric Objectifs
+
+1. Montrer que le système d'équations à résoudre est
+
+   .. math::
+
+      \frac{d \rho}{dr} &= - { \left(
+      \frac{3M_n G}{Y_e m_ec^2}\frac{\sqrt{1+x^2}}{x^2}\right) }
+      \frac{M}{r^2} \rho \\
+      \frac{dM}{dr} &= 4\pi r^2\rho
+
+2. En fixant la densité centrale :math:`\rho(r=0)=\rho_c` tracer
+   :math:`\rho(r)` et en déduire une méthode pour calculer le rayon
+   *R* de l'étoile et sa masse *M*.
+
+3. En faisant varier la densité centrale tracer la relation :math:`M(R)`.
+
+4. Discuter la validité numérique et physique des résultats par
+   exemple en changeant la composition de l'étoile, la définition du
+   rayon de l'étoile, etc.
+
+
+Section de Poincaré
+-------------------
+
+.. rubric Introduction
+
+Les équations du mouvement [1]_ :math:`\boldsymbol{r}(t) = (x(t),y(t))` d’une
+particule de masse :math:`m` plongée dans un potentiel :math:`\Phi(x,y)`
+s’écrivent:
+
+.. math::
+
+   m\ddot{\boldsymbol{r}} = -\nabla\Phi.
+
+En coordonnées polaires :
+
+.. math::
+
+   a_r &= \ddot{r} - r\dot{\theta}^2
+   &= -\frac{1}{m}\frac{\partial\Phi}{\partial r} \\
+   a_{\theta} &= 2\dot{r}\dot{\theta}+r\ddot{\theta}
+   &= -\frac{1}{mr}\frac{\partial\Phi}{\partial \theta}
+
+Le système peut donc s’écrire :
+
+.. math::
+
+   \ddot{r} &= r\dot{\theta}^2 -\frac{1}{m}\frac{\partial\Phi}{\partial r} \\
+   \ddot{\theta} &=
+   -\frac{2}{r}\dot{r}\dot{\theta}-\frac{1}{mr^2}
+   \frac{\partial\Phi}{\partial\theta}
+
+ou en posant :math:`r_p=\dot{r}` et :math:`\theta_p=\dot{\theta}`:
+
+.. math::
+
+   \dot{r} &= r_p\\
+   \dot{\theta} &= \theta_p\\
+   \dot{r_p} &= r\theta_p^2 -\frac{1}{m}\frac{\partial\Phi}{\partial r} \\
+   \dot{\theta_p} &=
+   -\frac{2}{r}r_p\theta_p-\frac{1}{mr^2}\frac{\partial\Phi}{\partial\theta}
+
+L’intégration – analytique ou numérique – de ces équations pour des
+conditions initiales :math:`(\boldsymbol{r}(t=0),\dot{\boldsymbol{r}}(t=0))` particulières
+caractérise une *orbite*. Le tracé de l’ensemble des points
+d’intersection de différentes orbites de même énergie avec le plan,
+p.ex., :math:`(x,\dot{x})` (avec :math:`y=0` et :math:`\dot{y}>0`)
+constitue une *section de Poincaré*.
+
+Nous étudierons plus particulièrement le cas particulier :math:`m=1`
+et les deux potentiels:
+
+#. le potentiel intégrable de `Sridhar & Touma
+   <http://adsabs.harvard.edu/abs/1997MNRAS.287L...1S>`_ (1997; MNRAS,
+   **287**, L1) [2]_, qui s’exprime naturellement dans les coordonnées
+   polaires :math:`(r,\theta)`:
+
+   .. math::
+
+      \label{eq:spST}
+      \Phi(r,\theta) = r^{\alpha}\,
+      \left[(1+\cos\theta)^{1+\alpha} + (1-\cos\theta)^{1+\alpha}\right].
+
+   avec p.ex. :math:`\alpha = 1/2`;
+
+#. le potentiel de Hénon-Heiles:
+
+   .. math::
+
+      \label{eq:spHH}
+      \Phi(r,\theta) = \frac{1}{2}r^2 + \frac{1}{3}r^3\sin(3\theta).
+
+.. rubric:: Objectif
+
+#. Écrire un intégrateur numérique permettant de résoudre les équations
+   du mouvement pour un potentiel et des conditions initiales données.
+
+#. Les performances de cet intégrateur seront testées sur des potentiels
+   intégrables (p.ex. potentiel képlerien :math:`\Phi \propto
+   1/r`), ou en vérifiant la stabilité des constantes du mouvement
+   (l’énergie :math:`E = \frac{1}{2}\dot{\boldsymbol{r}}^{2} + \Phi`).
+
+#. Pour chacun des potentiels, intégrer et stocker une grande variété
+   d’orbites de même énergie, en prenant soin de bien résoudre la zone
+   d’intérêt autour de :math:`(y=0,\dot{y}>0)`.
+
+#. À l’aide de fonctions d’interpolation et de recherche de zéro,
+   déterminer pour chacune des orbites les coordonnées
+   :math:`(x,\dot{x})` de l’intersection avec le plan
+   :math:`(y=0,\dot{y}>0)`.
+
+#. Pour chacun des potentiels, regrouper ces points par orbite pour
+   construire la section de Poincaré de ce potentiel.
+
+.. [1]
+   On se place dans toute la suite du problème dans un espace à deux
+   dimensions.
+
+.. [2] Nous utiliserons toutefois les notations de l’appendice de
+   `Copin, Zhao & de Zeeuw
+   <http://adsabs.harvard.edu/abs/2000MNRAS.318..781C>`_ (2000; MNRAS,
+   **318**, 781).
