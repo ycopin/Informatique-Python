@@ -18,13 +18,24 @@ Pandas
 ------
 
 `Pandas <http://pandas.pydata.org/>`_ est une bibliothèque pour la
-structuration et analyse avancée de données non-homogènes.
+structuration et analyse avancée de données *hétérogènes*.
+
+.. rubric:: Exemples de visualisation de jeux de données complexes (utilisation
+            de pandas et seaborn)
+
+* `Iris Dataset <https://www.kaggle.com/benhamner/python-data-visualizations>`_
+* `Gotta Catch ‘Em All <https://elitedatascience.com/python-seaborn-tutorial>`_
+  (Pandas & Seaborn)
+* `Pokémon Stats
+  <https://www.kaggle.com/ndrewgele/visualizing-pok-mon-stats-with-seaborn>`_
+  (Pandas & Seaborn)
 
 xarray
 ------
 
 `xarray <http://xarray.pydata.org/>`_ est une bibliothèque pour la
-structuration de données homogènes de dimension arbitraire.
+structuration de données *homogènes* de dimension arbitraire.
+
 
 Astropy
 =======

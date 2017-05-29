@@ -162,7 +162,7 @@ bibliothèque graphique standard :mod:`turtle` dans une fonction
    :align: center
    :alt: Flocon de Koch d'ordre 3.
 
-   Flocon de Koch d'ordre 3.
+   **Figure:** Flocon de Koch d'ordre 3.
 
 .. _pm:
 
@@ -338,11 +338,10 @@ Après chargement des données, calculer et afficher les propriétés
 statistiques des quatres jeux de données du :download:`Quartet
 d'Anscombe <anscombe.dat>`:
 
-* Moyenne et variance des *x* (:func:`numpy.mean` et
+* Moyenne et variance des *x* et des *y* (:func:`numpy.mean` et
   :func:`numpy.var`)
-* Moyenne et variance des *y*
 * Corrélation entre les *x* et les *y* (:func:`scipy.stats.pearsonr`)
-* Équation de la droite de régression linéaire
+* Équation de la droite de régression linéaire *y = ax + b*
   (:func:`scipy.stats.linregress`)
 
 .. table:: Quartet d'Anscombe
@@ -386,9 +385,9 @@ Générez l'ensemble de ces points d'équilibre pour des valeurs de
    :width: 50%
    :alt: Diagramme de bifurcation
 
-   Diagramme de bifurcation.
+   **Figure:** Diagramme de bifurcation.
 
-N.B.: Vous utiliserez la bibliothèque `matplotlib` pour tracer vos
+**N.B.:** Vous utiliserez la bibliothèque :ref:`matplotlibSec` pour tracer vos
 résultats.
 
 .. _julia:
@@ -405,13 +404,13 @@ complexe :math:`c = 0.284 + 0.0122j`:
    :width: 50%
    :alt: Ensemble de Julia
 
-   Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
+   **Figure:** Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
 
 On utilisera la fonction :func:`numpy.meshgrid` pour construire le plan
 complexe, et l'on affichera le résultat grâce à la fonction
 :func:`matplotlib.pyplot.imshow`.
 
-Voir également: `Superposition d'ensembles de Julia
+**Voir également:** `Superposition d'ensembles de Julia
 <http://maths.wikidot.com/julia-superposition>`_
 
 

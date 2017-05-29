@@ -16,7 +16,11 @@ Bibliothèques numériques standards
     2  Scipy
       2.1  Quelques exemples complets
     3  Matplotlib
-      3.1  Mayavi (visualisation 3D)
+      3.1  `pylab` vs. `pyplot`
+      3.2  Figure et axes
+      3.3  Sauvegarde et affichage interactif
+      3.4  Anatomie d'une figure
+      3.5  Visualisation 3D
 
 .. _td5:
 
@@ -69,6 +73,7 @@ array([[  0.,   1.,   2.],
 12                       # Par définition, size = prod(shape)
 >>> b.dtype
 dtype('float64')         # Python 'float' = numpy 'float64' = C 'double'
+
 
 Création de tableaux
 ''''''''''''''''''''
@@ -610,13 +615,14 @@ Sous-modules
 supplémentaires, parmis lesquelles les sous-modules suivants:
 
 - :mod:`numpy.fft`: *Discrete Fourier Transform*
+- :mod:`numpy.random`: valeurs aléatoires
 - :mod:`numpy.polynomial`: manipulation des polynômes (racines, polynômes
   orthogonaux, etc.)
 
 .. rubric:: Voir également:
 
 - `Pandas <http://pandas.pydata.org/>`_: structuration et analyse avancée de
-  données non-homogènes;
+  données hétérogènes;
 - `xarray <http://xarray.pydata.org/>`_: structuration de données
   homogènes de dimension arbitraire.
 
@@ -633,25 +639,24 @@ fonctions mathématiques, basée sur les tableaux :class:`numpy.ndarray`,
 complétant ou améliorant (en terme de performances) les fonctionnalités de
 :mod:`numpy`. P.ex.:
 
-- Functions spéciales: :mod:`scipy.special` (fonctions de Bessel, erf,
-  gamma, etc.)
-- Intégration numérique: :mod:`scipy.integrate` (intégration numérique
-  ou d'équations différentielles)
-- Méthodes d'optimisation: :mod:`scipy.optimize` (minimisation,
+- :mod:`scipy.special`: fonctions spéciales (fonctions de Bessel, erf, gamma,
+  etc.)
+- :mod:`scipy.integrate`: intégration numérique (intégration numérique ou
+  d'équations différentielles)
+- :mod:`scipy.optimize`: méthodes d'optimisation (minimisation,
   moindres-carrés, zéros d'une fonction, etc.)
-- Interpolation: :mod:`scipy.interpolate` (interpolation, splines)
-- Transformées de Fourier: :mod:`scipy.fftpack`
-- Traitement du signal: :mod:`scipy.signal` (convolution, corrélation,
+- :mod:`scipy.interpolate`: interpolation (interpolation, splines)
+- :mod:`scipy.fftpack`: transformées de Fourier
+- :mod:`scipy.signal`: traitement du signal (convolution, corrélation,
   filtrage, ondelettes, etc.)
-- Algèbre linéaire: :mod:`scipy.linalg`
-- Statistiques: :mod:`scipy.stats` (fonctions et distributions
-  statistiques)
-- Traitement d'images multi-dimensionnelles: :mod:`scipy.ndimage`
-- Entrées/sorties: :mod:`scipy.io`
+- :mod:`scipy.linalg`: algèbre linéaire
+- :mod:`scipy.stats`: statistiques (fonctions et distributions statistiques)
+- :mod:`scipy.ndimage`: traitement d'images multi-dimensionnelles
+- :mod:`scipy.io`: entrées/sorties
 
-.. Note:: n'oubliez pas de `citer scipy & co.
-   <https://scipy.org/citing.html>`_ dans vos publications et
-   présentations.
+.. Note:: N'oubliez pas de `citer scipy & co.
+   <https://scipy.org/citing.html>`_ dans vos publications et présentations
+   utilisant cet outil.
 
 .. rubric:: Liens:
 
@@ -702,47 +707,61 @@ Quelques exemples complets
   (variables aléatoires, distributions, tests)
 
 
+.. _matplotlibSec:
+
 Matplotlib
 ==========
 
 .. index:: module: matplotlib
 
-`Matplotlib <http://matplotlib.org/>`_ est une
-bibliothèque graphique de visualisation 2D (et marginalement 3D), avec
-support intéractif et sorties de haute qualité.
+`Matplotlib <http://matplotlib.org/>`_ est une bibliothèque graphique de
+visualisation 2D (avec un support pour la 3D, l'animation et l'interactivité),
+permettant des sorties de haute qualité «~prêtes à publier~».  C'est à la fois
+une bibliothèque de *haut niveau*, fournissant des fonctions de visualisation
+«~clé en main~» (échelle logarithmique, histogramme, courbes de niveau, etc.,
+voir la `galerie <http://matplotlib.org/gallery.html>`_), et de *bas niveau*,
+permettant de modifier tous les éléments graphiques de la figure (titre, axes,
+couleurs et styles des lignes, etc., voir `Anatomie d'une figure`_).
 
-.. Note:: Utiliser :command:`ipython -pylab` pour l'utilisation
-   intéractive des figures.
+
+`pylab` vs. `pyplot`
+--------------------
+
+.. index::
+   pair: matplotlib; pylab
+   pair: matplotlib; pyplot
 
 Il existe deux interfaces pour deux types d'utilisation:
 
-* :mod:`pylab`: interface procédurale, très similaire à MATLAB et
-  généralement réservée à l'analyse interactive:
+* :mod:`pylab`: interface procédurale, originellement très similaire à MATLAB™
+  et généralement réservée à l'analyse interactive:
 
   >>> from pylab import *         # DÉCONSEILLÉ DANS UN SCRIPT!
   >>> x = linspace(-pi, pi, 100)  # pylab importe numpy dans l'espace courant
-  >>> y = sin(x)
-  >>> plot(x, y)                  # Trace la courbe y = y(x)
+  >>> plot(x, sin(x), 'b-', label="Sinus")     # Trace la courbe y = sin(x)
+  >>> plot(x, cos(x), 'r:', label="Cosinus")   # Trace la courbe y = cos(x)
   >>> xlabel("x [rad]")           # Ajoute le nom de l'axe des x
   >>> ylabel("y")                 # Ajoute le nom de l'axe des y
-  >>> title("y = sin(x)")         # Ajoute le titre de la figure
-  >>> show()                      # Affiche la figure
+  >>> title("Sinus et Cosinus")   # Ajoute le titre de la figure
+  >>> legend()                    # Ajoute une légende
+  >>> savefig("simple.png")       # Enregistre la figure en PNG
 
-* :mod:`matplotlib.pyplot`: interface orientée objet, préférable pour
-  les scripts::
+* :mod:`matplotlib.pyplot`: interface orientée objet, préférable pour les
+  scripts::
 
     import numpy as N
     import matplotlib.pyplot as P
 
     x = N.linspace(-N.pi, N.pi, 100)
-    y = N.sin(x)
 
-    fig, ax = P.subplots() # Création de la figure et de l'axe
-    ax.plot(x, y)          # Tracé de la courbe dans l'axe
-    ax.set_xlabel("x [rad]")
-    ax.set_ylabel("y")
-    ax.set_title("y = sin(x)")
-    P.show()              # Affichage de la figure
+    fig, ax = P.subplots()  # Création d'une figure contenant un seul système d'axes
+    ax.plot(x, N.sin(x), c='b', ls='-', label="Sinus")    # Courbe y = sin(x)
+    ax.plot(x, N.cos(x), c='r', ls=':', label="Cosinus")  # Courbe y = cos(x)
+    ax.set_xlabel("x [rad]")          # Nom de l'axe des x
+    ax.set_ylabel("y")                # Nom de l'axe des y
+    ax.set_title("Sinus et Cosinus")  # Titre de la figure
+    ax.legend()                       # Légende
+    fig.savefig("simple.png")         # Sauvegarde en PNG
 
 Dans les deux cas, le résultat est le même:
 
@@ -750,6 +769,112 @@ Dans les deux cas, le résultat est le même:
    :align: center
    :width: 60%
    :alt: Figure simple.
+
+Par la suite, nous nous concentrerons sur l'interface :abbr:`OO (Orientée
+Objet)` :mod:`matplotlib.pyplot`, plus puissante et flexible.
+
+
+Figure et axes
+--------------
+
+.. index::
+   pair: matplotlib; Axes
+   pair: matplotlib; Figure
+   
+L'élément de base est le système d'axes :obj:`matplotlib.axes.Axes`, qui
+définit et réalise la plupart des éléments graphiques (tracé de courbes,
+définition des axes, annotations, etc.).  Un ou plusieurs de ces systèmes
+d'axes sont regroupés au sein d'une :obj:`matplotlib.figure.Figure`.
+
+Ainsi, pour générer une figure contenant 2 (vertical) × 3 (horizontal) = 6
+systèmes d'axes (numérotés de 1 à 6)::
+
+    fig = P.figure()
+    for i in range(1, 7):
+        ax = fig.add_subplot(2, 3, i, xticks=[], yticks=[])
+        ax.text(0.5, 0.5, "subplot(2, 3, {})".format(i),
+                ha='center', va='center', size='large')
+
+.. image:: subplots.*
+   :align: center
+   :width: 60%
+   :alt: Axes et figure.
+
+.. index:: pair: matplotlib; GridSpec
+   
+Pour des mises en page plus complexes, il est possible d'utiliser le kit
+`gridspec <http://matplotlib.org/users/gridspec.html>`_, p.ex.::
+
+    from matplotlib.gridspec import GridSpec
+
+    fig = P.figure()
+    fig.suptitle("grid = GridSpec(2, 3)", fontsize='x-large')
+    
+    grid = GridSpec(2, 3)
+    ax1 = fig.add_subplot(grid[0, :-1], xticks=[], yticks=[])
+    ax1.text(0.5, 0.5, "grid[0, :-1]", ha='center', va='center', size='large')
+    ax2 = fig.add_subplot(grid[:, -1], xticks=[], yticks=[])
+    ax3.text(0.5, 0.5, "grid[:, -1]", ha='center', va='center', size='large')
+    ax3 = fig.add_subplot(grid[1, 0], xticks=[], yticks=[])
+    ax3.text(0.5, 0.5, "grid[1, 0]", ha='center', va='center', size='large')
+    ax4 = fig.add_subplot(grid[1, 1], xticks=[], yticks=[])
+    ax4.text(0.5, 0.5, "grid[1, 1]", ha='center', va='center', size='large')
+
+.. image:: gridspec.*
+   :align: center
+   :width: 60%
+   :alt: GridSpec.
+
+Enfin, il est toujours possible (mais peu pratique) de créer soi-même le
+système d'axes dans les coordonnées relatives à la figure::
+
+    fig = P.figure()
+    ax0 = fig.add_axes([0, 0, 1, 1], frameon=False,
+                       xticks=N.linspace(0, 1, 11), yticks=N.linspace(0, 1, 11))
+    ax0.grid(True, ls='--')
+    ax1 = fig.add_axes([0.1, 0.2, 0.8, 0.6], xticks=[], yticks=[], fc='0.9')
+    ax1.text(0.5, 0.5, "[0.1, 0.2, 0.8, 0.6]", ha='center', va='center', size='large')
+    ax2 = fig.add_axes([0.2, 0.3, 0.4, 0.1], xticks=[], yticks=[], fc='0.8')
+    ax2.text(0.5, 0.5, "[0.2, 0.3, 0.4, 0.1]", ha='center', va='center', size='large')
+         
+.. image:: axes.*
+   :align: center
+   :width: 60%
+   :alt: Axes.
+
+
+Sauvegarde et affichage interactif
+----------------------------------
+
+.. index::
+   pair: matplotlib; savefig
+   pair: matplotlib; show
+
+La méthode :meth:`matplotlib.figure.Figure.savefig` permet de sauvegarder la
+figure dans un fichier dont le format est automatiquement défini par son
+extension, `png` (*raster*), `[e]ps`, `pdf`, `svg` (*vector*), etc, via
+différents `backends
+<http://matplotlib.org/faq/usage_faq.html#what-is-a-backend>`_.
+
+Il est également possible d'afficher la figure dans une `fenêtre interactive
+<http://matplotlib.org/users/navigation_toolbar.html>`_ avec la commande
+:func:`matplotlib.pyplot.show`:
+
+.. image:: simpleShow.*
+   :align: center
+   :width: 60%
+   :alt: Figure simple (fenêtre interactive).
+
+.. Note:: Utiliser :command:`ipython --pylab` pour l'utilisation
+   intéractive des figures dans une session :program:`ipython`.
+
+
+Anatomie d'une figure
+---------------------
+
+L'interface :abbr:`OO (Orientée Objet)` :mod:`matplotlib.pyplot` donne accès à
+tous les éléments d'une figure (titre, axes, légende, etc.), qui peuvent alors
+être ajustés (couleur, police, taille, etc.).
 
 .. figure:: http://matplotlib.org/_images/anatomy.png
    :align: center
@@ -759,26 +884,35 @@ Dans les deux cas, le résultat est le même:
 
    **Figure:** Anatomie d'une figure.
 
-.. Note:: n'oubliez pas de `citer matplotlib
-   <http://matplotlib.org/citing.html>`_ (notamment [Matplotlib07]_)
-   dans vos publications et présentations.
-
-.. [Matplotlib07] `2007CSE.....9...90H
-                  <http://adsabs.harvard.edu/abs/2007CSE.....9...90H>`_
+.. Note:: N'oubliez pas de `citer matplotlib
+   <http://matplotlib.org/citing.html>`_ (notamment [Matplotlib07]_) dans vos
+   publications et présentations utilisant cet outil.
 
 .. rubric:: Liens:
 
-- `Tutorial pyplot <http://matplotlib.org/users/pyplot_tutorial.html>`_
+- `User's Guide <http://matplotlib.org/users/>`_
+- `Gallery <http://matplotlib.org/gallery.html>`_
 - `Tutorial matplotlib
   <http://www.labri.fr/perso/nrougier/teaching/matplotlib/>`_
-- `Gallery <http://matplotlib.org/gallery.html>`_
-- `Examples <http://matplotlib.org/examples/>`_
-- `Seaborn <http://seaborn.pydata.org/>`_, une
-  surcouche à matplotlib/pandas
+- `Tutoriel matplotlib
+  <https://python.developpez.com/tutoriels/graphique-2d/matplotlib/>`_ |fr|
+  
+.. rubric:: Voir également:
+
 - `MPLD3 <http://mpld3.github.io/>`_, un *backend* matplotlib interactif basé
-  sur la librairie *web* `3D.js <https://d3js.org/>`_
-- `Bokeh <http://bokeh.pydata.org/en/latest/>`_, une bibliothèque graphique
-  alternative à matplotlib plus orientée *web*/temps réel
+  sur la librairie *web* `3D.js <https://d3js.org/>`_;
+- `basemap <http://matplotlib.org/basemap/users/index.html>`_ et `cartopy
+  <http://scitools.org.uk/cartopy/docs/latest/gallery.html>`_, bibliothèques de
+  cartographie sphérique;
+- `Seaborn <http://seaborn.pydata.org/>`_, une surcouche de visualisation
+  statistique à matplotlib & pandas_;
+- `HoloViews <http://holoviews.org/>`_, une surcouche de visualisation et
+  d'analyse à matplotlib;
+- `ggplot <http://ggplot.yhathq.com/>`_, une surcouche orientée `Grammar of
+  Graphics <https://ramnathv.github.io/pycon2014-r/visualize/ggplot2.html>`_ à
+  matplotlib;
+- `Bokeh <http://bokeh.pydata.org/>`_, une bibliothèque graphique alternative à
+  matplotlib plus orientée *web*/temps réel.
 
 .. rubric:: Exemples:
 
@@ -788,23 +922,55 @@ Dans les deux cas, le résultat est le même:
 
 :ref:`anscombe`, :ref:`julia`, :ref:`logistique`
 
-Mayavi (visualisation 3D)
--------------------------
+
+Visualisation 3D
+----------------
+
+.. index:: pair: matplotlib; mplot3d
+
+Matplotlib fournit d'emblée une interface `mplot3d
+<http://matplotlib.org/gallery.html#mplot3d>`_ pour des figures 3D assez
+simples:
+
+.. figure:: http://matplotlib.org/_images/contourf3d_demo22.png
+   :align: center
+   :width: 60%
+   :target: http://matplotlib.org/examples/mplot3d/contourf3d_demo2.html
+   :alt: Exemple de figure matplotlib 3D.
+
+   **Figure:** Exemple de figure matplotlib 3D.
 
 .. index:: module: mayavi/mlab
 
-`mayavi.mlab <http://docs.enthought.com/mayavi/mayavi/mlab.html>`_
-est une bibliothèque graphique de visualisation 3D s'appuyant sur
-`Mayavi <http://docs.enthought.com/mayavi/mayavi/index.html>`_.
+Pour des visualisations plus complexes, `mayavi.mlab
+<http://docs.enthought.com/mayavi/mayavi/mlab.html>`_ est une bibliothèque
+graphique de visualisation 3D s'appuyant sur `Mayavi
+<http://docs.enthought.com/mayavi/mayavi/index.html>`_.
 
-.. Note:: Utiliser :command:`ipython -wthread` pour l'utilisation
-   intéractive des figures.
+.. figure:: http://docs.enthought.com/mayavi/mayavi/_images/example_mri.jpg
+   :align: center
+   :width: 40%
+   :target: http://docs.enthought.com/mayavi/mayavi/auto/example_mri.html
+   :alt: Imagerie par résonance magnétique.
 
+   **Figure:** Imagerie par résonance magnétique.
+
+.. Note:: N'oubliez pas de `citer mayavi
+   <http://docs.enthought.com/mayavi/mayavi/misc.html#citing-mayavi>`_ dans vos
+   publications et présentations utilisant cet outil.
+
+   
 .. rubric:: Voir également:
 
 - `VPython <http://www.vpython.org/>`_: *3D Programming for Ordinary
   Mortals*
+- `Glowscript <http://www.glowscript.org/>`_: VPython dans le navigateur
 
+.. rubric:: Références
+  
+.. [Matplotlib07] `2007CSE.....9...90H
+                  <http://adsabs.harvard.edu/abs/2007CSE.....9...90H>`_
+                  
 .. rubric:: Notes de bas de page
 
 .. [#sym] Python dispose également d'une librairie de calcul *formel*,
