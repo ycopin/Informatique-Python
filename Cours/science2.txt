@@ -5,31 +5,33 @@ Bibliothèques scientifiques avancées
 
 .. contents:: Table des matières
 ..
-    1  Pandas & xarray
+    1  Pandas
+      1.1  Démonstrations
+      1.2  xarray
     2  Astropy
       2.1  Tour d'horizon
       2.2  Démonstration
     3  Autres librairies scientifiques
 
-Pandas & xarray
-===============
-
 Pandas
-------
+======
 
 `Pandas <http://pandas.pydata.org/>`_ est une bibliothèque pour la
 structuration et analyse avancée de données *hétérogènes*.
 
-.. rubric:: Exemples de visualisation de jeux de données complexes (utilisation
-            de pandas et seaborn)
+Démonstrations
+--------------
+
+:ref:`Démonstration Pandas/Seaborn <Cours/pokemon.ipynb>` (notebook:
+:download:`pokemon.ipynb`, jeu de données: :download:`Pokemon.csv`)
+
+.. rubric:: Autres exemples de visualisation de jeux de données complexes
+            (utilisation de pandas et seaborn)
 
 * `Iris Dataset <https://www.kaggle.com/benhamner/python-data-visualizations>`_
-* `Gotta Catch ‘Em All <https://elitedatascience.com/python-seaborn-tutorial>`_
-  (Pandas & Seaborn)
-* `Pokémon Stats
-  <https://www.kaggle.com/ndrewgele/visualizing-pok-mon-stats-with-seaborn>`_
-  (Pandas & Seaborn)
-
+* `Histoire des sujets télévisés
+  <https://github.com/AlexisEidelman/journaux_televises/blob/gh-pages/JT_notebook.ipynb>`_ |fr|
+  
 xarray
 ------
 

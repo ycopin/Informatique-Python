@@ -1,7 +1,7 @@
 .. _science:
 
-Bibliothèques numériques standards
-##################################
+Bibliothèques numériques de base
+################################
 
 .. contents:: Table des matières
 ..

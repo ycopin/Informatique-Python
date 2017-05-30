@@ -29,6 +29,7 @@
    :hidden:
 
    Cours/astropy
+   Cours/pokemon
    Exercices/integ
    Exercices/fizz
    Exercices/pgcd
