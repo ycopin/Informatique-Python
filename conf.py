@@ -18,7 +18,7 @@
 # -- General configuration -----------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-#needs_sphinx = '1.0'
+needs_sphinx = '1.3'
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
@@ -144,11 +144,9 @@ html_theme = 'alabaster'
 
 # Alabaster: see http://alabaster.readthedocs.io/en/latest/customization.html
 html_theme_options = {
-    #'logo': 'scipy2.png',        # Relative to $PROJECT/_static/
-    #'logo_name': project,
-    #'github_user': 'ycopin',
-    #'github_repo': 'Informatique-Python',
-    #'github_banner': True,
+    #'logo': 'logoEuclid_trans.png',        # Relative to $PROJECT/_static/
+    #'logo_name': version,
+    #'description': version,
     #'sidebar_collapse': True,
     #'show_powered_by': True,
     'page_width': '80%',
@@ -189,7 +187,15 @@ html_static_path = ['_static']
 # html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
-#html_sidebars = {}
+# http://alabaster.readthedocs.io/en/latest/installation.html
+# html_sidebars = {
+#     '**': [
+#         'about.html',
+#         'navigation.html',
+#         #'relations.html',
+#         'searchbox.html',
+#         ]
+#     }
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.

@@ -367,7 +367,7 @@ Sous-liste (*slice*)
 .. index:: pair: itérables; slice
 
 Des portions d'une chaîne peuvent être extraites en utilisant des
-*slices* (« tranches »), de notation générique
+:class:`slice` (« tranches »), de notation générique
 :samp:`{[start=0]}:{[stop=len]}{[:step=1]}`.  P.ex.
 
 >>> alpha[3:7]  # De l'élément n°3 (inclus) au n°7 (exclu), soit 7-3=4 éléments

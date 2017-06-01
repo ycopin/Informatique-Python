@@ -6,8 +6,10 @@ Bibliothèques scientifiques avancées
 .. contents:: Table des matières
 ..
     1  Pandas
-      1.1  Démonstrations
-      1.2  xarray
+      1.1  Structures
+      1.2  Accès aux données
+      1.3  Visualisations
+      1.4  xarray
     2  Astropy
       2.1  Tour d'horizon
       2.2  Démonstration
@@ -16,14 +18,291 @@ Bibliothèques scientifiques avancées
 Pandas
 ======
 
-`Pandas <http://pandas.pydata.org/>`_ est une bibliothèque pour la
-structuration et analyse avancée de données *hétérogènes*.
+.. index:: module: pandas
 
-Démonstrations
+:mod:`pandas` (`PANel DAta`) est une bibliothèque pour la structuration et
+analyse avancée de données *hétérogènes*.  Elle fournit notamment:
+
+* des structures de données « labellisées », avec une indexation simple ou
+  hiérarchique (à plusieurs niveaux),  
+* des méthodes d'alignement et d'agrégation des données, avec gestion des
+  données manquantes,
+* un support performant des labels temporels (p.ex. dates, de par son origine
+  dans l'économétrie), et des statistiques « glissantes »,
+* de nombreuses fonctions d'entrée/sortie, d'analyse statistiques et de
+  visualisation.
+
+.. Attention:: Pandas est encore en phase de développement assez intense (nous
+               travaillons ici sur la version `0.20.x
+               <http://pandas.pydata.org/pandas-docs/version/0.20/whatsnew.html>`_).
+
+.. Note:: La convention d'import utilisé dans les exemples est « `import pandas
+          as PD` ».
+          
+.. rubric:: Liens
+
+* `Modern Pandas <http://tomaugspurger.github.io/modern-1.html>`_
+  
+
+Structures
+----------
+
+.. index:: 
+   pair: pandas; Series
+   pair: pandas; DataFrame
+
+**Références:** `Introduction to Data Structures
+<http://pandas.pydata.org/pandas-docs/stable/dsintro.html>`_
+   
+Pandas dispose de 2 grandes structures de données:
+
+==========================  ====  ===========
+Nom de la structure         Rang  Description
+==========================  ====  ===========
+:class:`pandas.Series`        1   Vecteur de données *homogènes* labellisées
+:class:`pandas.DataFrame`     2   Tableau structuré de colonnes *homogènes*
+==========================  ====  ===========
+
+>>> PD.Series(range(3))  # Série d'entiers sans indexation
+0    0
+1    1
+2    2
+dtype: int64
+>>> PD.Series(N.random.randn(3), index=list('abc'))  # Série de réels indexés
+a   -0.553480
+b    0.081297
+c   -1.845835
+dtype: float64
+>>> PD.DataFrame(N.random.randn(3, 4))
+          0         1         2         3
+0  1.570977 -0.677845  0.094364 -0.362031
+1 -0.136712  0.762300  0.068611  1.265816
+2 -0.697760  0.791288  0.449645 -1.105062
+>>> PD.DataFrame(N.random.randn(3, 4), index=list('abc'), columns=list('ABCD'))
+          A         B         C         D
+a  0.098533  0.842090 -2.491275  0.795383
+b  0.190612  0.082428  0.465439 -0.003476
+c -1.546712  0.205308 -0.600612  0.078055
+
+.. index:: pair: pandas; Panel
+   
+.. Attention:: Les :class:`pandas.Panel` (de rang 3) et :class:`pandas.Panel4D`
+               (de rang 4) sont considérées comme **dépréciées** et seront
+               retirées dans un futur proche.  Utiliser une indexation
+               hiérarchique ou les structures :mod:`xarray`.
+
+Pour mettre en évidence la puissance de Pandas, nous travaillerons sur le
+catalogue :abbr:`CSV (Comma Separated Values)` des objets de Messier
+:download:`Messier.csv`:
+
+.. literalinclude:: Messier.csv
+    :linenos:
+    :lines: 1-8
+
+Le fichier peut être importé à l'aide de la function :func:`pandas.read_csv`,
+et le dataframe résultant est labellisé *à la volée* par la colonne `M`
+(:meth:`pandas.DataFrame.set_index`) :
+
+>>> df = PD.read_csv("Messier.csv", comment='#')  # Lecture du fichier CSV
+>>> df.set_index('M', inplace=True)               # Indexation sur la colonne "M"
+>>> df.info()                                     # Informations générales
+<class 'pandas.core.frame.DataFrame'>
+Index: 110 entries, M1 to M110
+Data columns (total 10 columns):
+NGC         108 non-null object
+Type        110 non-null object
+Mag         110 non-null float64
+Size        110 non-null float64
+Distance    110 non-null float64
+RA          110 non-null float64
+Dec         110 non-null float64
+Con         110 non-null object
+Season      110 non-null object
+Name        31 non-null object
+dtypes: float64(5), object(5)
+memory usage: 9.5+ KB
+>>> df.head()  # Par défaut les 5 premières lignes
+     NGC Type  Mag  Size  Distance      RA     Dec  Con  Season         Name
+M                                                                           
+M1  1952   Sn  8.4   5.0    1930.0   5.575  22.017  Tau  winter  Crab Nebula
+M2  7089   Gc  6.5  12.9   11600.0  21.558   0.817  Aqr  autumn          NaN
+M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring          NaN
+M4  6121   Gc  5.6  26.3    2210.0  16.393 -26.533  Sco  summer          NaN
+M5  5904   Gc  5.6  17.4    7520.0  15.310   2.083  Ser  summer          NaN
+
+.. index:: pair: pandas; Index
+
+Un dataframe est caractérisé par son indexation (de type
+:class:`pandas.Index`), ses colonnes, et les valeurs des données:
+
+>>> df.index  # Retourne un pandas.Index
+Index([u'M1', u'M2', u'M3', u'M4', u'M5', u'M6', u'M7', u'M8', u'M9', u'M10',
+       ...
+       u'M101', u'M102', u'M103', u'M104', u'M105', u'M106', u'M107', u'M108',
+       u'M109', u'M110'],
+      dtype='object', name=u'M', length=110)
+>>> df.columns
+Index([u'NGC', u'Type', u'Mag', u'Size', u'Distance', u'RA', u'Dec', u'Con',
+       u'Season', u'Name'],
+      dtype='object')
+>>> df.dtypes   # Retourne une Series indexé sur le nom des colonnes
+NGC          object
+Type         object
+Mag         float64
+Size        float64
+Distance    float64
+RA          float64
+Dec         float64
+Con          object
+Season       object
+Name         object
+dtype: object
+>>> df.values
+array([['1952', 'Sn', 8.4, ..., 'Tau', 'winter', 'Crab Nebula'],
+       ['7089', 'Gc', 6.5, ..., 'Aqr', 'autumn', nan],
+       ['5272', 'Gc', 6.2, ..., 'CVn', 'spring', nan],
+       ..., 
+       ['3556', 'Sp', 10.0, ..., 'UMa', 'spring', nan],
+       ['3992', 'Ba', 9.8, ..., 'UMa', 'spring', nan],
+       ['205', 'El', 8.5, ..., 'And', 'autumn', nan]], dtype=object)
+
+Une description statistique sommaire des colonnes numériques est obtenue par
+:meth:`pandas.DataFrame.describe`:
+
+>>> df.drop(['RA', 'Dec'], axis=1).describe()
+              Mag        Size      Distance
+count  110.000000  110.000000  1.100000e+02
+mean     7.492727   17.719091  4.574883e+06
+std      1.755657   22.055100  7.141036e+06
+min      1.600000    0.800000  1.170000e+02
+25%      6.300000    6.425000  1.312500e+03
+50%      7.650000    9.900000  8.390000e+03
+75%      8.900000   17.300000  1.070000e+07
+max     10.200000  120.000000  1.840000e+07
+
+Accès aux données
+-----------------
+
+.. index:: 
+   pair: pandas; loc
+   pair: pandas; iloc
+   
+**Référence:** `Indexing and Selecting Data
+<http://pandas.pydata.org/pandas-docs/stable/indexing.html>`_
+
+L'accès par colonne(s) retourne une :class:`pandas.Series` (avec la même
+indexation) ou un nouveau :class:`pandas.DataFrame`:
+
+>>> df.NGC  # Équivalent à df['NGC']
+M
+M1      1952
+M2      7089
+M3      5272
+        ... 
+M108    3556
+M109    3992
+M110     205
+Name: NGC, Length: 110, dtype: object
+>>> df[['RA', 'Dec']]
+          RA     Dec
+M                   
+M1     5.575  22.017
+M2    21.558   0.817
+M3    13.703  28.383
+...      ...     ...
+M108  11.192  55.667
+M109  11.960  53.383
+M110   0.673  41.683
+[110 rows x 2 columns]
+
+L'accès par :class:`slice` retourne un nouveau :class:`pandas.DataFrame`:
+
+>>> df[:6:2]
+     NGC Type  Mag  Size  Distance      RA     Dec  Con  Season         Name
+M                                                                           
+M1  1952   Sn  8.4   5.0    1930.0   5.575  22.017  Tau  winter  Crab Nebula
+M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring          NaN
+M5  5904   Gc  5.6  17.4    7520.0  15.310   2.083  Ser  summer          NaN
+
+L'accès peut également se faire via le(s) label(s) de l'indexation par
+:attr:`pandas.DataFrame.loc`:
+
+>>> df.loc['M31']  # Retourne une Series indexée par les noms de colonne
+NGC                    224
+Type                    Sp
+Mag                    3.4
+                ...       
+Con                    And
+Season              autumn
+Name      Andromeda Galaxy
+Name: M31, Length: 10, dtype: object
+>>> df.loc['M31', ['Type', 'Name']]  # Uniquement les colonnes 'Type' & 'Name'
+Type                  Sp
+Name    Andromeda Galaxy
+Name: M31, dtype: object
+>>> df.loc[['M31', 'M51'], ['Type', 'Name']]  # Labels 'M31' & 'M51', col. 'Type' & 'Name'
+    Type              Name
+M                         
+M31   Sp  Andromeda Galaxy
+M51   Sp  Whirlpool Galaxy
+>>> df.loc['M31':'M33', ['Type', 'Name']]  # De M31 à M33 *inclu*
+    Type               Name
+M                          
+M31   Sp   Andromeda Galaxy
+M32   El                NaN
+M33   Sp  Triangulum Galaxy
+
+De façon symétrique, l'accès peut se faire via les n° de ligne/colonne par
+:attr:`pandas.DataFrame.iloc`, p.ex.:
+
+>>> df.iloc[30:33, [1, -1]]  # Cette fois-ci, l'indice 33 n'est *pas* inclu!
+    Type               Name
+M                          
+M31   Sp   Andromeda Galaxy
+M32   El                NaN
+M33   Sp  Triangulum Galaxy
+>>> df.iloc[30:33, df.columns.get_loc('Name')]
+M
+M31     Andromeda Galaxy
+M32                  NaN
+M33    Triangulum Galaxy
+Name: Name, dtype: object
+
+Enfin, comme pour :mod:`numpy`, il est possible d'opérer une sélection
+booléenne, p.ex. tous les objets de la constellation de la Grande Ourse (UMa):
+
+>>> df.loc[df['Con'] == 'UMa', ['NGC', 'Name']]  # = df[df['Con'] == 'UMa'][['NGC', 'Name']
+       NGC             Name
+M                          
+M40   Win4       Winnecke 4
+M81   3031    Bode's Galaxy
+M82   3034     Cigar Galaxy
+M97   3587       Owl Nebula
+M101  5457  Pinwheel Galaxy
+M108  3556              NaN
+M109  3992              NaN
+
+========================  =====================  =========
+Sélection                 Syntaxe                Résultat
+========================  =====================  =========
+Colonne unique            `df.col` or `df[col]`  :class:`pandas.Series`
+Liste de colonnes         `df[[c1, ...]]`        :class:`pandas.DataFrame`
+Lignes par tranche        `df[slice]`            :class:`pandas.DataFrame`
+Label unique              `df.loc[label]`        :class:`pandas.Series`
+Liste de labels           `df.loc[[lab1, ...]]`  :class:`pandas.DataFrame`
+Labels par tranche        `df.loc[lab1:lab2]`    :class:`pandas.DataFrame`
+Ligne par n°              `df.iloc[loc]`         :class:`pandas.Series`
+Ligne par sél. booléenne  `df[sel]`              :class:`pandas.DataFrame`
+========================  =====================  =========
+      
+          
+Visualisations
 --------------
 
+.. index:: module: seaborn
+
 :ref:`Démonstration Pandas/Seaborn <Cours/pokemon.ipynb>` (notebook:
-:download:`pokemon.ipynb`, jeu de données: :download:`Pokemon.csv`)
+:download:`pokemon.ipynb`) sur le jeu de données :download:`Pokemon.csv`.
 
 .. rubric:: Autres exemples de visualisation de jeux de données complexes
             (utilisation de pandas et seaborn)
@@ -35,12 +314,16 @@ Démonstrations
 xarray
 ------
 
+.. index:: module: xarray
+
 `xarray <http://xarray.pydata.org/>`_ est une bibliothèque pour la
 structuration de données *homogènes* de dimension arbitraire.
 
 
 Astropy
 =======
+
+.. index:: module: astropy
 
 `Astropy <http://astropy.readthedocs.io/en/stable/>`_ est une
 librairie astronomique maintenue par la communauté et visant à fédérer
