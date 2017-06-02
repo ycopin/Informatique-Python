@@ -24,7 +24,7 @@ Pandas
 analyse avancée de données *hétérogènes*.  Elle fournit notamment:
 
 * des structures de données « labellisées », avec une indexation simple ou
-  hiérarchique (à plusieurs niveaux),  
+  hiérarchique (à plusieurs niveaux),
 * des méthodes d'alignement et d'agrégation des données, avec gestion des
   données manquantes,
 * un support performant des labels temporels (p.ex. dates, de par son origine
@@ -32,28 +32,35 @@ analyse avancée de données *hétérogènes*.  Elle fournit notamment:
 * de nombreuses fonctions d'entrée/sortie, d'analyse statistiques et de
   visualisation.
 
+Les fonctionnalités de :mod:`pandas` sont *très* riches et couvrent de
+nombreux aspects (données manquantes, dates, analyse statistiques,
+etc.), et il n'est pas question de toutes les aborder ici.  Avant de
+vous lancer dans une manipulation qui vous semble complexe, bien
+inspecter la `documentation
+<http://pandas.pydata.org/pandas-docs/stable/>`_, très complète.
+
 .. Attention:: Pandas est encore en phase de développement assez intense (nous
-               travaillons ici sur la version `0.20.x
-               <http://pandas.pydata.org/pandas-docs/version/0.20/whatsnew.html>`_).
+   travaillons ici sur la version `0.20.x
+   <http://pandas.pydata.org/pandas-docs/version/0.20/whatsnew.html>`_).
 
 .. Note:: La convention d'import utilisé dans les exemples est « `import pandas
-          as PD` ».
-          
+   as PD` ».
+
 .. rubric:: Liens
 
 * `Modern Pandas <http://tomaugspurger.github.io/modern-1.html>`_
-  
+
 
 Structures
 ----------
 
-.. index:: 
+.. index::
    pair: pandas; Series
    pair: pandas; DataFrame
 
 **Références:** `Introduction to Data Structures
 <http://pandas.pydata.org/pandas-docs/stable/dsintro.html>`_
-   
+
 Pandas dispose de 2 grandes structures de données:
 
 ==========================  ====  ===========
@@ -85,19 +92,19 @@ b  0.190612  0.082428  0.465439 -0.003476
 c -1.546712  0.205308 -0.600612  0.078055
 
 .. index:: pair: pandas; Panel
-   
+
 .. Attention:: Les :class:`pandas.Panel` (de rang 3) et :class:`pandas.Panel4D`
-               (de rang 4) sont considérées comme **dépréciées** et seront
-               retirées dans un futur proche.  Utiliser une indexation
-               hiérarchique ou les structures :mod:`xarray`.
+   (de rang 4) sont considérées comme **dépréciées** et seront retirées dans un
+   futur proche.  Utiliser une indexation hiérarchique ou les structures
+   :mod:`xarray`.
 
 Pour mettre en évidence la puissance de Pandas, nous travaillerons sur le
 catalogue :abbr:`CSV (Comma Separated Values)` des objets de Messier
 :download:`Messier.csv`:
 
 .. literalinclude:: Messier.csv
-    :linenos:
-    :lines: 1-8
+   :linenos:
+   :lines: 1-8
 
 Le fichier peut être importé à l'aide de la function :func:`pandas.read_csv`,
 et le dataframe résultant est labellisé *à la volée* par la colonne `M`
@@ -121,27 +128,24 @@ Season      110 non-null object
 Name        31 non-null object
 dtypes: float64(5), object(5)
 memory usage: 9.5+ KB
->>> df.head()  # Par défaut les 5 premières lignes
+>>> df.head(3)  # Par défaut les 5 premières lignes
      NGC Type  Mag  Size  Distance      RA     Dec  Con  Season         Name
-M                                                                           
+M
 M1  1952   Sn  8.4   5.0    1930.0   5.575  22.017  Tau  winter  Crab Nebula
 M2  7089   Gc  6.5  12.9   11600.0  21.558   0.817  Aqr  autumn          NaN
 M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring          NaN
-M4  6121   Gc  5.6  26.3    2210.0  16.393 -26.533  Sco  summer          NaN
-M5  5904   Gc  5.6  17.4    7520.0  15.310   2.083  Ser  summer          NaN
 
 .. index:: pair: pandas; Index
 
 Un dataframe est caractérisé par son indexation (de type
 :class:`pandas.Index`), ses colonnes, et les valeurs des données:
 
->>> df.index  # Retourne un pandas.Index
+>>> df.index    # Retourne un pandas.Index
 Index([u'M1', u'M2', u'M3', u'M4', u'M5', u'M6', u'M7', u'M8', u'M9', u'M10',
        ...
-       u'M101', u'M102', u'M103', u'M104', u'M105', u'M106', u'M107', u'M108',
-       u'M109', u'M110'],
+       u'M103', u'M104', u'M105', u'M106', u'M107', u'M108', u'M109', u'M110'],
       dtype='object', name=u'M', length=110)
->>> df.columns
+>>> df.columns  # Retourne un pandas.Index
 Index([u'NGC', u'Type', u'Mag', u'Size', u'Distance', u'RA', u'Dec', u'Con',
        u'Season', u'Name'],
       dtype='object')
@@ -160,9 +164,7 @@ dtype: object
 >>> df.values
 array([['1952', 'Sn', 8.4, ..., 'Tau', 'winter', 'Crab Nebula'],
        ['7089', 'Gc', 6.5, ..., 'Aqr', 'autumn', nan],
-       ['5272', 'Gc', 6.2, ..., 'CVn', 'spring', nan],
-       ..., 
-       ['3556', 'Sp', 10.0, ..., 'UMa', 'spring', nan],
+       ...,
        ['3992', 'Ba', 9.8, ..., 'UMa', 'spring', nan],
        ['205', 'El', 8.5, ..., 'And', 'autumn', nan]], dtype=object)
 
@@ -183,10 +185,12 @@ max     10.200000  120.000000  1.840000e+07
 Accès aux données
 -----------------
 
-.. index:: 
+.. index::
    pair: pandas; loc
    pair: pandas; iloc
-   
+   pair: pandas; at
+   pair: pandas; iat
+
 **Référence:** `Indexing and Selecting Data
 <http://pandas.pydata.org/pandas-docs/stable/indexing.html>`_
 
@@ -197,20 +201,16 @@ indexation) ou un nouveau :class:`pandas.DataFrame`:
 M
 M1      1952
 M2      7089
-M3      5272
-        ... 
-M108    3556
+        ...
 M109    3992
 M110     205
 Name: NGC, Length: 110, dtype: object
 >>> df[['RA', 'Dec']]
           RA     Dec
-M                   
+M
 M1     5.575  22.017
 M2    21.558   0.817
-M3    13.703  28.383
 ...      ...     ...
-M108  11.192  55.667
 M109  11.960  53.383
 M110   0.673  41.683
 [110 rows x 2 columns]
@@ -219,7 +219,7 @@ L'accès par :class:`slice` retourne un nouveau :class:`pandas.DataFrame`:
 
 >>> df[:6:2]
      NGC Type  Mag  Size  Distance      RA     Dec  Con  Season         Name
-M                                                                           
+M
 M1  1952   Sn  8.4   5.0    1930.0   5.575  22.017  Tau  winter  Crab Nebula
 M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring          NaN
 M5  5904   Gc  5.6  17.4    7520.0  15.310   2.083  Ser  summer          NaN
@@ -230,9 +230,7 @@ L'accès peut également se faire via le(s) label(s) de l'indexation par
 >>> df.loc['M31']  # Retourne une Series indexée par les noms de colonne
 NGC                    224
 Type                    Sp
-Mag                    3.4
-                ...       
-Con                    And
+                ...
 Season              autumn
 Name      Andromeda Galaxy
 Name: M31, Length: 10, dtype: object
@@ -242,12 +240,12 @@ Name    Andromeda Galaxy
 Name: M31, dtype: object
 >>> df.loc[['M31', 'M51'], ['Type', 'Name']]  # Labels 'M31' & 'M51', col. 'Type' & 'Name'
     Type              Name
-M                         
+M
 M31   Sp  Andromeda Galaxy
 M51   Sp  Whirlpool Galaxy
 >>> df.loc['M31':'M33', ['Type', 'Name']]  # De M31 à M33 *inclu*
     Type               Name
-M                          
+M
 M31   Sp   Andromeda Galaxy
 M32   El                NaN
 M33   Sp  Triangulum Galaxy
@@ -257,23 +255,24 @@ De façon symétrique, l'accès peut se faire via les n° de ligne/colonne par
 
 >>> df.iloc[30:33, [1, -1]]  # Cette fois-ci, l'indice 33 n'est *pas* inclu!
     Type               Name
-M                          
+M
 M31   Sp   Andromeda Galaxy
 M32   El                NaN
 M33   Sp  Triangulum Galaxy
->>> df.iloc[30:33, df.columns.get_loc('Name')]
+>>> df.iloc[30:33, df.columns.get_loc('Name')]  # On peut mixer les 2 approches
 M
 M31     Andromeda Galaxy
 M32                  NaN
 M33    Triangulum Galaxy
 Name: Name, dtype: object
 
-Enfin, comme pour :mod:`numpy`, il est possible d'opérer une sélection
-booléenne, p.ex. tous les objets de la constellation de la Grande Ourse (UMa):
+Comme pour :mod:`numpy`, il est possible d'opérer une sélection
+booléenne, p.ex. tous les objets de la constellation de la Grande
+Ourse (UMa):
 
 >>> df.loc[df['Con'] == 'UMa', ['NGC', 'Name']]  # = df[df['Con'] == 'UMa'][['NGC', 'Name']
        NGC             Name
-M                          
+M
 M40   Win4       Winnecke 4
 M81   3031    Bode's Galaxy
 M82   3034     Cigar Galaxy
@@ -281,6 +280,15 @@ M97   3587       Owl Nebula
 M101  5457  Pinwheel Galaxy
 M108  3556              NaN
 M109  3992              NaN
+
+Enfin, les fonctions :attr:`pandas.DataFrame.at` et
+:attr:`pandas.DataFrame.iat` permettent d'accéder *rapidement* aux
+données individuelles:
+
+>>> df.at['M31', 'NGC']  # = df.loc['M31']['NGC'] mais 20× plus rapide
+'224'
+>>> df.iat[30, 0]        # = df.iloc[0][0] mais 20× plus rapide
+'224'
 
 ========================  =====================  =========
 Sélection                 Syntaxe                Résultat
@@ -291,15 +299,100 @@ Lignes par tranche        `df[slice]`            :class:`pandas.DataFrame`
 Label unique              `df.loc[label]`        :class:`pandas.Series`
 Liste de labels           `df.loc[[lab1, ...]]`  :class:`pandas.DataFrame`
 Labels par tranche        `df.loc[lab1:lab2]`    :class:`pandas.DataFrame`
-Ligne par n°              `df.iloc[loc]`         :class:`pandas.Series`
-Ligne par sél. booléenne  `df[sel]`              :class:`pandas.DataFrame`
+Ligne entière par n°      `df.iloc[i]`           :class:`pandas.Series`
+Ligne partielle par n°    `df.iloc[i, [j,...]]`  :class:`pandas.Series`
+Ligne par sél. booléenne  `df.loc[sel]`          :class:`pandas.DataFrame`
+Valeur par labels         `df.at[lab, col]`      Scalaire
+Valeur par n°             `df.iat[i, j]`         Scalaire
 ========================  =====================  =========
-      
-          
+
+Modifications
+-------------
+
+Comme dans :mod:`numpy`, mais encore plus facilement, il est possible de
+modifier les valeurs, ajouter/retirer des colonnes ou des lignes, tout en
+gérant les données manquantes.
+
+>>> N.random.seed(0)
+>>> df = PD.DataFrame(
+        {'one': PD.Series(N.random.randn(3), index=['a', 'b', 'c']),
+         'two': PD.Series(N.random.randn(4), index=['a', 'b', 'c', 'd']),
+         'three': PD.Series(N.random.randn(3), index=['b', 'c', 'd'])})
+>>> df
+        one     three       two
+a  1.764052       NaN  2.240893
+b  0.400157 -0.151357  1.867558
+c  0.978738 -0.103219 -0.977278
+d       NaN  0.410599  0.950088
+>>> df.isnull()
+     one  three    two
+a  False   True  False
+b  False  False  False
+c  False  False  False
+d   True  False  False
+>>> df.sub(df.loc['b'], axis='columns') # Soustraction d'une ligne à toutes les colonnes (axis=1)
+        one     three       two
+a  1.363895       NaN  0.373335
+b  0.000000  0.000000  0.000000
+c  0.578581  0.048138 -2.844836
+d       NaN  0.561956 -0.917470
+>>> df.sub(df['one'], axis='index') # Soustraction d'une colonne à toutes les lignes (axis=0 ou 'rows')
+   one     three       two
+a  0.0       NaN  0.476841
+b  0.0 -0.551514  1.467401
+c  0.0 -1.081957 -1.956016
+d  NaN       NaN       NaN
+
+>>> df.sort_values('a', axis=1) # Tri des colonnes selon les valeurs de la ligne 'a'
+        one       two     three
+a  1.764052  2.240893       NaN
+b  0.400157  1.867558 -0.151357
+c  0.978738 -0.977278 -0.103219
+d       NaN  0.950088  0.410599
+>>> df.min(axis=1) # Valeur minimale le long des colonnes
+a    1.764052
+b   -0.151357
+c   -0.977278
+d    0.410599
+dtype: float64
+>>> df.idxmin(axis=1) # Colonne des valeurs minimale le long des colonnes
+Out[346]: 
+a      one
+b    three
+c      two
+d    three
+dtype: object
+
+>>> df.mean(axis=0)  # Moyenne sur toutes les lignes (gestion des données manquantes)
+one      1.047649
+three    0.052007
+two      1.020315
+dtype: float64
+
+.. Attention:: par défaut, la plupart des opérations retourne une *copie* de la
+   structure, sauf si l'opération se fait « sur place » (`inplace=True`)
+
+.. Hint:: Certains calculs numériques peuvent être significativement accélérés
+   par l'utilisation de deux bibliothèques externes:
+
+   * `Bottleneck <https://github.com/kwgoodman/bottleneck>`_
+   * `NumExpr <https://github.com/pydata/numexpr>`_
+
+   Si ces bibliothèques sont installées, :mod:`pandas` les utilisera de façon
+   transparente.
+
+
 Visualisations
 --------------
 
 .. index:: module: seaborn
+
+.. rubric: Références:
+
+* `Visualization
+  <http://pandas.pydata.org/pandas-docs/stable/visualization.html>`_
+* `Seaborn: statistical data visualization
+  <http://seaborn.pydata.org/>`_
 
 :ref:`Démonstration Pandas/Seaborn <Cours/pokemon.ipynb>` (notebook:
 :download:`pokemon.ipynb`) sur le jeu de données :download:`Pokemon.csv`.
@@ -310,7 +403,7 @@ Visualisations
 * `Iris Dataset <https://www.kaggle.com/benhamner/python-data-visualizations>`_
 * `Histoire des sujets télévisés
   <https://github.com/AlexisEidelman/journaux_televises/blob/gh-pages/JT_notebook.ipynb>`_ |fr|
-  
+
 xarray
 ------
 
