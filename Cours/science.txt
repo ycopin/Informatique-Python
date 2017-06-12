@@ -780,7 +780,7 @@ Figure et axes
 .. index::
    pair: matplotlib; Axes
    pair: matplotlib; Figure
-   
+
 L'élément de base est le système d'axes :obj:`matplotlib.axes.Axes`, qui
 définit et réalise la plupart des éléments graphiques (tracé de courbes,
 définition des axes, annotations, etc.).  Un ou plusieurs de ces systèmes
@@ -801,7 +801,7 @@ systèmes d'axes (numérotés de 1 à 6)::
    :alt: Axes et figure.
 
 .. index:: pair: matplotlib; GridSpec
-   
+
 Pour des mises en page plus complexes, il est possible d'utiliser le kit
 `gridspec <http://matplotlib.org/users/gridspec.html>`_, p.ex.::
 
@@ -809,7 +809,7 @@ Pour des mises en page plus complexes, il est possible d'utiliser le kit
 
     fig = P.figure()
     fig.suptitle("grid = GridSpec(2, 3)", fontsize='x-large')
-    
+
     grid = GridSpec(2, 3)
     ax1 = fig.add_subplot(grid[0, :-1], xticks=[], yticks=[])
     ax1.text(0.5, 0.5, "grid[0, :-1]", ha='center', va='center', size='large')
@@ -836,7 +836,7 @@ système d'axes dans les coordonnées relatives à la figure::
     ax1.text(0.5, 0.5, "[0.1, 0.2, 0.8, 0.6]", ha='center', va='center', size='large')
     ax2 = fig.add_axes([0.2, 0.3, 0.4, 0.1], xticks=[], yticks=[], fc='0.8')
     ax2.text(0.5, 0.5, "[0.2, 0.3, 0.4, 0.1]", ha='center', va='center', size='large')
-         
+
 .. image:: axes.*
    :align: center
    :width: 60%
@@ -896,7 +896,7 @@ tous les éléments d'une figure (titre, axes, légende, etc.), qui peuvent alor
   <http://www.labri.fr/perso/nrougier/teaching/matplotlib/>`_
 - `Tutoriel matplotlib
   <https://python.developpez.com/tutoriels/graphique-2d/matplotlib/>`_ |fr|
-  
+
 .. rubric:: Voir également:
 
 - `MPLD3 <http://mpld3.github.io/>`_, un *backend* matplotlib interactif basé
@@ -959,7 +959,7 @@ graphique de visualisation 3D s'appuyant sur `Mayavi
    <http://docs.enthought.com/mayavi/mayavi/misc.html#citing-mayavi>`_ dans vos
    publications et présentations utilisant cet outil.
 
-   
+
 .. rubric:: Voir également:
 
 - `VPython <http://www.vpython.org/>`_: *3D Programming for Ordinary
@@ -967,10 +967,10 @@ graphique de visualisation 3D s'appuyant sur `Mayavi
 - `Glowscript <http://www.glowscript.org/>`_: VPython dans le navigateur
 
 .. rubric:: Références
-  
+
 .. [Matplotlib07] `2007CSE.....9...90H
                   <http://adsabs.harvard.edu/abs/2007CSE.....9...90H>`_
-                  
+
 .. rubric:: Notes de bas de page
 
 .. [#sym] Python dispose également d'une librairie de calcul *formel*,
