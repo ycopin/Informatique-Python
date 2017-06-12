@@ -27,7 +27,8 @@ Bibliothèques scientifiques avancées
      <http://pandas.pydata.org/pandas-docs/version/0.20/whatsnew.html>`_
    * `xarray <http://xarray.pydata.org/>`_ `0.9.6
      <http://xarray.pydata.org/en/0.9.6/whats-new.html>`_
-    
+
+
 .. _myPandas:
 
 Pandas
@@ -840,7 +841,6 @@ ValueError: operands could not be broadcast together with shapes (2,3) (3,4)
 <xarray.DataArray (z: 2, x: 2, y: 4)>
 array([[[ 1.764052,  0.400157,  0.978738,  2.240893],
         [ 2.867558,  0.022722,  1.950088,  0.848643]],
-
        [[ 4.764052,  3.400157,  3.978738,  5.240893],
         [ 5.867558,  3.022722,  4.950088,  3.848643]]])
 Coordinates:
