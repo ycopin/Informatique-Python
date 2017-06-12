@@ -621,10 +621,8 @@ supplémentaires, parmis lesquelles les sous-modules suivants:
 
 .. rubric:: Voir également:
 
-- `Pandas <http://pandas.pydata.org/>`_: structuration et analyse avancée de
-  données hétérogènes;
-- `xarray <http://xarray.pydata.org/>`_: structuration de données
-  homogènes de dimension arbitraire.
+- myPandas_: structuration et analyse de données hétérogènes;
+- myXarray_: structuration de données homogènes de dimension arbitraire.
 
 
 .. _td6:
@@ -656,7 +654,7 @@ complétant ou améliorant (en terme de performances) les fonctionnalités de
 
 .. Note:: N'oubliez pas de `citer scipy & co.
    <https://scipy.org/citing.html>`_ dans vos publications et présentations
-   utilisant cet outil.
+   utilisant ces outils.
 
 .. rubric:: Liens:
 
@@ -966,16 +964,14 @@ graphique de visualisation 3D s'appuyant sur `Mayavi
   Mortals*
 - `Glowscript <http://www.glowscript.org/>`_: VPython dans le navigateur
 
-.. rubric:: Références
-
-.. [Matplotlib07] `2007CSE.....9...90H
-                  <http://adsabs.harvard.edu/abs/2007CSE.....9...90H>`_
-
-.. rubric:: Notes de bas de page
+.. rubric:: Notes de bas de page et références bibliographiques
 
 .. [#sym] Python dispose également d'une librairie de calcul *formel*,
    `sympy <http://www.sympy.org/>`_, et d'un environnement de calcul
    mathématique, `sage <http://www.sagemath.org/>`_.
+
+.. [Matplotlib07] `2007CSE.....9...90H
+                  <http://adsabs.harvard.edu/abs/2007CSE.....9...90H>`_
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr

@@ -289,7 +289,10 @@ Documentation
   - `Sphinx <http://www.sphinx-doc.org/en/stable/>`_
   - `reStructuredText for Sphinx
     <http://www.sphinx-doc.org/en/stable/rest.html>`_
-
+  - `Awesome Sphinx <https://github.com/yoloseem/awesome-sphinxdoc>`_
+  - `apidoc <http://www.sphinx-doc.org/en/stable/man/sphinx-apidoc.html>`_
+    (documentation automatique)
+    
 * Conventions de documentation:
 
   - *Docstring convention*: :pep:`257`
@@ -297,6 +300,7 @@ Documentation
     <http://pythonhosted.org/an_example_pypi_project/sphinx.html>`_
   - `A Guide to NumPy/SciPy Documentation
     <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
+  - `Sample doc <http://matplotlib.org/sampledoc/>`_ (matplotlib)
 
 
 Débugage et optimisation

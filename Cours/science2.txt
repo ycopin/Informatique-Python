@@ -9,26 +9,38 @@ Bibliothèques scientifiques avancées
       1.1  Structures
       1.2  Accès aux données
       1.3  Manipulation des données
-      1.4  Regroupement & aggrégation de données
+      1.4  Regroupement & agrégation de données
       1.5  Visualisations
-      1.6  xarray
-    2  Astropy
-      2.1  Tour d'horizon
-      2.2  Démonstration
-    3  Autres librairies scientifiques
+    2  Xarray
+    3  Astropy
+      3.1  Tour d'horizon
+      3.2  Démonstration
+    4  Autres librairies scientifiques
+
+
+.. Attention:: Les bibliothèques pandas_ et xarray_ sont encore en phase de
+   développement assez intense, et vont probablement être amenées à évoluer
+   significativement, et pas nécessairement de manière rétro-compatible. Nous
+   travaillons ici sur les versions:
+
+   * `pandas <http://pandas.pydata.org/>`_ `0.20.x
+     <http://pandas.pydata.org/pandas-docs/version/0.20/whatsnew.html>`_
+   * `xarray <http://xarray.pydata.org/>`_ `0.9.6
+     <http://xarray.pydata.org/en/0.9.6/whats-new.html>`_
+    
+.. _myPandas:
 
 Pandas
 ======
 
 .. index:: module: pandas
 
-`Pandas <http://pandas.pydata.org/>`_ est une bibliothèque pour la
-structuration et l'analyse avancée de données *hétérogènes* (`PANel DAta`).
-Elle fournit notamment:
+pandas_ est une bibliothèque pour la structuration et l'analyse avancée de
+données *hétérogènes* (`PANel DAta`).  Elle fournit notamment:
 
 * des structures de données relationelles (« labellisées »), avec une
   indexation simple ou hiérarchique (càd à plusieurs niveaux),
-* des méthodes d'alignement et d'aggrégation des données, avec gestion des
+* des méthodes d'alignement et d'agrégation des données, avec gestion des
   données manquantes,
 * un support performant des labels temporels (p.ex. dates, de par son origine
   dans le domaine de l'économétrie), et des statistiques « glissantes »,
@@ -45,12 +57,7 @@ recettes du `cookbook
 qu'elle n'est pas déjà implémentée ou documentée, ou pour identifier l'approche
 la plus efficace.
 
-.. Attention:: Pandas_ est encore en phase de développement assez intense (nous
-   travaillons ici sur la version `0.20.x
-   <http://pandas.pydata.org/pandas-docs/version/0.20/whatsnew.html>`_).
-
-.. Note:: La convention d'import utilisé dans les exemples est
-   « `import pandas as PD` ».
+.. Note:: La convention utilisée ici est « `import pandas as PD` ».
 
 Structures
 ----------
@@ -62,7 +69,7 @@ Structures
 **Références:** `Introduction to Data Structures
 <http://pandas.pydata.org/pandas-docs/stable/dsintro.html>`_
 
-Pandas dispose de 2 grandes structures de données [#panels]_:
+Pandas dispose de deux grandes structures de données [#panels]_:
 
 ==========================  ====  ===========
 Nom de la structure         Rang  Description
@@ -227,8 +234,7 @@ M1  1952   Sn  8.4   5.0    1930.0   5.575  22.017  Tau  winter  Crab Nebula
 M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring          NaN
 M5  5904   Gc  5.6  17.4    7520.0  15.310   2.083  Ser  summer          NaN
 
-L'accès peut également se faire via le(s) label(s) de l'indexation par
-:attr:`pandas.DataFrame.loc`:
+L'accès peut également se faire par labels via :attr:`pandas.DataFrame.loc`:
 
 >>> messier.loc['M31']  # Retourne une Series indexée par les noms de colonne
 NGC                    224
@@ -253,8 +259,8 @@ M31   Sp   Andromeda Galaxy
 M32   El                NaN
 M33   Sp  Triangulum Galaxy
 
-De façon symétrique, l'accès peut se faire via les n° de ligne/colonne
-par :attr:`pandas.DataFrame.iloc`, p.ex.:
+De façon symétrique, l'accès peut se faire par indices (n° de ligne/colonne)
+via :attr:`pandas.DataFrame.iloc`, p.ex.:
 
 >>> messier.iloc[30:33, [1, -1]]  # Ici, l'indice 33 n'est PAS inclu!
     Type               Name
@@ -269,9 +275,8 @@ M32                  NaN
 M33    Triangulum Galaxy
 Name: Name, dtype: object
 
-Les fonctions :attr:`pandas.DataFrame.at` et
-:attr:`pandas.DataFrame.iat` permettent d'accéder *rapidement* aux
-données individuelles:
+Les fonctions :attr:`pandas.DataFrame.at` et :attr:`pandas.DataFrame.iat`
+permettent d'accéder *rapidement* aux données individuelles:
 
 >>> messier.at['M31', 'NGC']  # 20× plus rapide que messier.loc['M31']['NGC']
 '224'
@@ -360,10 +365,29 @@ M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring
 **Référence:** `Working with missing data
 <http://pandas.pydata.org/pandas-docs/stable/missing_data.html>`_
 
-.. Attention:: par défaut, la plupart des opérations retourne une
-   *copie* de la structure, sauf si l'opération se fait « sur place »
-   (`inplace=True`).
+.. Attention:: par défaut, beaucoup d'opérations retournent une *copie* de la
+   structure, sauf si l'opération se fait « sur place » (`inplace=True`).
+   D'autres opérations d'accès retournent seulement une *nouvelle vue* des
+   mêmes données.
 
+   >>> df = PD.DataFrame(N.arange(12).reshape(3, 4),
+   ...                   index=list('abc'), columns=list('ABCD')); df
+      A  B   C   D
+   a  0  1   2   3
+   b  4  5   6   7
+   c  8  9  10  11
+   >>> df.drop('a', axis=0)
+      A  B   C   D
+   b  4  5   6   7
+   c  8  9  10  11
+   >>> colA = df['A']  # Nouvelle vue de la colonne 'A'
+   >>> colA += 1       # Opération sur place
+   >>> df              # la ligne 'a' est tjs là, la colonne 'A' a été modifiée
+      A  B   C   D
+   a  1  1   2   3
+   b  5  5   6   7
+   c  9  9  10  11
+   
 .. rubric:: Indéxation hiérarchique
 
 **Références:** `Multi-index / Advanced Indexing
@@ -379,8 +403,8 @@ M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring
 permettant de stocker et manipuler des données avec un nombre
 arbitraire de dimensions dans des structures plus simples.
 
->>> saisons = messier.reset_index()  # Élimine l'indexation en place
->>> saisons.set_index(['Season', 'Type'], inplace=True)  # MultiIndex
+>>> saisons = messier.reset_index()                     # Élimine l'indexation actuelle
+>>> saisons.set_index(['Season', 'Type'], inplace=True) # MultiIndex
 >>> saisons.head(3)
               M   NGC  Mag  Size  Distance      RA     Dec  Con         Name
 Season Type
@@ -405,7 +429,7 @@ spring El    M49  4472  8.4   8.2  18400000.0  12.497   8.00  Vir
        El    M60  4649  8.8   6.5  18400000.0  12.728  11.55  Vir
 
 La fonction :meth:`pandas.DataFrame.xs` permet des sélections sur les
-différents niveaux de l'indexation:
+différents niveaux d'indexation:
 
 >>> saisons.xs('spring', level='Season').head(3) # = saisons.loc['spring']
         M   NGC  Mag  Size    Distance      RA     Dec  Con        Name
@@ -420,7 +444,8 @@ autumn  M32   221  8.1   7.0    920000.0   0.713  40.867  And
 spring  M49  4472  8.4   8.2  18400000.0  12.497   8.000  Vir
 spring  M59  4621  9.6   4.2  18400000.0  12.700  11.650  Vir
 
-Le multi-index n'est pas nécessairement trié à sa création:
+Le (multi-)index n'est pas nécessairement trié à sa création,
+:meth:`pandas.sort_index` permet d'y remédier:
 
 >>> saisons[['M', 'NGC', 'Name']].head()
               M   NGC         Name
@@ -523,15 +548,15 @@ dtype: float64
 .. Hint:: Certains calculs numériques peuvent être significativement accélérés
    par l'utilisation de deux bibliothèques externes:
 
-   * `Bottleneck <https://github.com/kwgoodman/bottleneck>`_
-   * `NumExpr <https://github.com/pydata/numexpr>`_
+   - `Bottleneck <https://github.com/kwgoodman/bottleneck>`_
+   - `NumExpr <https://github.com/pydata/numexpr>`_
 
    Si ces bibliothèques sont installées, :mod:`pandas` en bénéficiera
    de façon transparente.
 
 
-Regroupement & aggrégation de données
--------------------------------------
+Regroupement & agrégation de données
+------------------------------------
 
 .. rubric:: Histogramme et discrétisation
 
@@ -575,7 +600,7 @@ Name: Mag, dtype: int64
 <http://pandas.pydata.org/pandas-docs/stable/groupby.html>`_
 
 Pandas offre la possibilité de regrouper les données selon divers
-critères (:meth:`pandas.DataFrame.groupby`), de les aggréger au sein
+critères (:meth:`pandas.DataFrame.groupby`), de les agréger au sein
 de ces groupes et de stocker les résultats dans une structure avec
 indéxation hiérarchique (:meth:`pandas.DataFrame.agg`).
 
@@ -675,15 +700,8 @@ Visualisations
 
 * `Iris Dataset <https://www.kaggle.com/benhamner/python-data-visualizations>`_
 * `Histoire des sujets télévisés
-  <https://github.com/AlexisEidelman/journaux_televises/blob/gh-pages/JT_notebook.ipynb>`_ |fr|
-
-xarray
-------
-
-.. index:: module: xarray
-
-`xarray <http://xarray.pydata.org/>`_ est une bibliothèque pour la
-structuration de données *homogènes* de dimension arbitraire.
+  <https://github.com/AlexisEidelman/journaux_televises/blob/gh-pages/JT_notebook.ipynb>`_
+  |fr|
 
 .. rubric:: Liens
 
@@ -702,16 +720,170 @@ structuration de données *homogènes* de dimension arbitraire.
 * `Exercices for New Users <https://github.com/guipsamora/pandas_exercises>`_
 
 
+.. _myXarray:
+
+Xarray
+======
+
+.. index:: module: xarray
+
+xarray_ est une bibliothèque pour la structuration de données *homogènes* de
+dimension arbitraire.  Suivant la philosophie de la bibliothèque Pandas_ dont
+elle est issue (et dont elle dépend), elle permet notamment de nommer les
+différentes dimensions (*axes*) des tableaux (p.ex. `x.sum(axis='time')`),
+d'indexer les données (p.ex. `x.loc['M31']`), de naturellement gérer les
+opérations de *broadcasting*, des opérations de regroupement et d'agrégation
+(p.ex. `x.groupby(time.dayofyear).mean()`), une gestion plus facile des données
+manquantes et d'alignement des tableaux indexés (p.ex. `align(x, y,
+join='outer')`).
+
+  *pandas excels at working with tabular data. That suffices for many 
+  statistical analyses, but physical scientists rely on N-dimensional arrays –
+  which is where xarray comes in.*
+
+.. index::
+   pair: xarray; DataArray
+   pair: xarray; DataSet
+   pair: xarray; loc
+   pair: xarray; sel
+           
+:mod:`xarray` fournit deux structures principales, héritées du format `netCDF
+<http://www.unidata.ucar.edu/software/netcdf/>`_ :
+
+* :class:`xarray.DataArray`, un tableau N-D indexé généralisant le
+  :class:`pandas.Series`,
+* :class:`xarray.DataSet`, un dictionnaire regroupant plusieurs `DataArray`
+  alignés selon une ou plusieurs dimensions, et similaire au
+  :class:`pandas.DataFrame`.
+
+.. Note:: La convention utilisée ici est « `import xarray as X` ».
+
+>>> N.random.seed(0)
+>>> data = X.DataArray(N.random.randn(3, 4),       # Tableau de données
+...                    dims=('x', 'y'),            # Nom des dimensions
+...                    coords={'x': list('abc')},  # Indexation des coordonnées en 'x'
+...                    name='mesures',             # Nom du tableau
+...                    attrs=dict(author='Y. Copin'))  # Méta-données
+>>> data
+<xarray.DataArray 'mesures' (x: 3, y: 4)>
+array([[ 1.764052,  0.400157,  0.978738,  2.240893],
+       [ 1.867558, -0.977278,  0.950088, -0.151357],
+       [-0.103219,  0.410599,  0.144044,  1.454274]])
+Coordinates:
+  * x        (x) |S1 'a' 'b' 'c'
+Dimensions without coordinates: y
+Attributes:
+    author:     Y. Copin
+>>> data.to_pandas()     # Conversion en DataFrame à indexation simple
+y         0         1         2         3
+x                                        
+a  1.764052  0.400157  0.978738  2.240893
+b  1.867558 -0.977278  0.950088 -0.151357
+c -0.103219  0.410599  0.144044  1.454274
+>>> data.to_dataframe()  # Conversion en DataFrame multi-indexé (hiérarchique)
+      mesures
+x y          
+a 0  1.764052
+  1  0.400157
+  2  0.978738
+  3  2.240893
+..        ...
+c 0 -0.103219
+  1  0.410599
+  2  0.144044
+  3  1.454274
+[12 rows x 1 columns]
+
+>>> data.dims
+('x', 'y')
+>>> data.coords
+Coordinates:
+  * x        (x) |S1 'a' 'b' 'c'
+>>> data.values
+array([[ 1.76405235,  0.40015721,  0.97873798,  2.2408932 ],
+       [ 1.86755799, -0.97727788,  0.95008842, -0.15135721],
+       [-0.10321885,  0.4105985 ,  0.14404357,  1.45427351]])
+>>> data.attrs
+OrderedDict([('author', 'Y. Copin')])
+
+>>> data[:, 1]             # Accès par indices
+<xarray.DataArray 'mesures' (x: 3)>
+array([ 0.400157, -0.977278,  0.410599])
+Coordinates:
+  * x        (x) |S1 'a' 'b' 'c'
+>>> data.loc['a':'b', -1]  # Accès par labels
+<xarray.DataArray 'mesures' (x: 2)>
+array([ 2.240893, -0.151357])
+Coordinates:
+  * x        (x) |S1 'a' 'b'
+>>> data.sel(x=['a', 'c'], y=2)
+<xarray.DataArray 'mesures' (x: 2)>
+array([ 0.978738,  0.144044])
+Coordinates:
+  * x        (x) |S1 'a' 'c'
+
+>>> data.mean(dim='x')  # Moyenne le long de la dimension 'x' = data.mean(axis=0)
+<xarray.DataArray 'mesures' (y: 4)>
+array([ 1.17613 , -0.055507,  0.690957,  1.18127 ])
+Dimensions without coordinates: y
+
+>>> data2 = X.DataArray(N.arange(6).reshape(2, 3),
+...                     dims=('z', 'x'), coords={'x': list('abd')})
+>>> data2.to_pandas()
+x  a  b  d
+z         
+0  0  1  2
+1  3  4  5
+>>> data2.values + data.values  # Opération sur des tableaux numpy incompatibles
+ValueError: operands could not be broadcast together with shapes (2,3) (3,4) 
+>>> data2 + data                # Alignement automatique sur les coord. communes!
+<xarray.DataArray (z: 2, x: 2, y: 4)>
+array([[[ 1.764052,  0.400157,  0.978738,  2.240893],
+        [ 2.867558,  0.022722,  1.950088,  0.848643]],
+
+       [[ 4.764052,  3.400157,  3.978738,  5.240893],
+        [ 5.867558,  3.022722,  4.950088,  3.848643]]])
+Coordinates:
+  * x        (x) object 'a' 'b'
+Dimensions without coordinates: z, y
+
+>>> data['hasNeg'] = (data < 0).any(dim='y'); data  # Au moins 1 val. de la ligne < 0
+<xarray.DataArray 'mesures' (x: 3, y: 4)>
+array([[ 1.764052,  0.400157,  0.978738,  2.240893],
+       [ 1.867558, -0.977278,  0.950088, -0.151357],
+       [-0.103219,  0.410599,  0.144044,  1.454274]])
+Coordinates:
+  * x        (x) |S1 'a' 'b' 'c'
+    hasNeg   (x) bool False True True
+Dimensions without coordinates: y
+>>> data.groupby('hasNeg').mean(dim='x')  # Regroupement et agrégation
+<xarray.DataArray 'mesures' (hasNeg: 2, y: 4)>
+array([[ 1.764052,  0.400157,  0.978738,  2.240893],
+       [ 0.88217 , -0.28334 ,  0.547066,  0.651458]])
+Coordinates:
+  * hasNeg   (hasNeg) object False True
+Dimensions without coordinates: y
+
+.. rubric:: Exemples plus complexes:
+
+* `Examples Data <http://xarray.pydata.org/en/stable/examples/>`_
+         
+.. Note:: N'oubliez pas de `citer xarray
+   <http://xarray.pydata.org/en/stable/faq.html#how-should-i-cite-xarray>`_
+   dans vos publications et présentations.
+
+
+.. _myAstropy:
+   
 Astropy
 =======
 
 .. index:: module: astropy
 
-`Astropy <http://astropy.readthedocs.io/en/stable/>`_ est une
-librairie astronomique maintenue par la communauté et visant à fédérer
-les efforts jusque là disparates.  Elle offre en outre une interface
-unifiée à des `librairies affiliées
-<http://www.astropy.org/affiliated/>`_ plus spécifiques.
+`Astropy <http://astropy.readthedocs.io/>`_ est une librairie astronomique
+maintenue par la communauté et visant à fédérer les efforts jusque là
+disparates.  Elle offre en outre une interface unifiée à des `librairies
+affiliées <http://www.astropy.org/affiliated/>`_ plus spécifiques.
 
 Tour d'horizon
 --------------
@@ -759,8 +931,6 @@ Démonstration
    <http://www.astropy.org/about.html#acknowledge>`_ d'astropy dans vos
    publications et présentations.
 
-.. [Astropy13] `2013A&A...558A..33A
-               <http://adsabs.harvard.edu/abs/2013A%26A...558A..33A>`_
 
 
 Autres librairies scientifiques
@@ -795,13 +965,15 @@ différents domaines de la physique, chimie, etc.:
   <https://byumcl.bitbucket.io/bootcamp2013/labs/perfomance.html>`_
 - `Etc. <http://www.scipy.org/topical-software.html>`_
 
-.. rubric:: Notes de bas de page
+.. rubric:: Notes de bas de page et références bibliographiques
 
 .. [#panels] Les structures :class:`pandas.Panel` (de rang 3),
    :class:`pandas.Panel4D` (de rang 4) et :class:`pandas.PanelND` (de rang
    arbitraire) sont considérées comme **dépréciées** et seront retirées dans
    une version ultérieure.  Utiliser une indexation hiérarchique ou
    :mod:`xarray`.
+.. [Astropy13] `2013A&A...558A..33A
+               <http://adsabs.harvard.edu/abs/2013A%26A...558A..33A>`_
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr

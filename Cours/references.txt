@@ -154,23 +154,6 @@ Scientifique
 - `Python cheatsheets <https://www.pythonsheets.com/>`_
 - `Scipy Central <http://central.scipy.org/>`_ (*code snippets*)
 
-Visualisation
-.............
-
-- `Visualization <http://www.cs171.org/>`_
-
-.. - `Data Visualization <https://graphics.stanford.edu/wikis/cs448b-11-fall>`_
-
-.. - http://francois.brucker.perso.centrale-marseille.fr/cours/courant/python.html
-
-Sphinx & co.
-------------
-
-.. * `Dumping PowerPoint in Favor of Web Sites
-..  <http://www.sal.ksu.edu/faculty/tim/prof-day/>`_ (2011)
-
-- `Sample doc <http://matplotlib.org/sampledoc/>`_
-
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr
 .. |en| image:: ../_static/uk_flag_icon.png
