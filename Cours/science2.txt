@@ -866,7 +866,7 @@ Dimensions without coordinates: y
 
 .. rubric:: Exemples plus complexes:
 
-* `Examples Data <http://xarray.pydata.org/en/stable/examples/>`_
+* `Examples Data <http://xarray.pydata.org/en/stable/examples.html>`_
          
 .. Note:: N'oubliez pas de `citer xarray
    <http://xarray.pydata.org/en/stable/faq.html#how-should-i-cite-xarray>`_
