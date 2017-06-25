@@ -87,16 +87,23 @@ Création de tableaux
   array([[ 1.,  2.],             # Tableau 2D de réels
          [ 3.,  4.]])
 
-.. index:: pair: numpy; zeros/ones
+.. index::
+   pair: numpy; zeros
+   pair: numpy; ones
+   pair: numpy; full
 
-- :func:`numpy.zeros` (resp. :func:`numpy.ones`): crée un tableau de
-  format donné rempli de zéros (resp. de uns)
+- :func:`numpy.zeros` (resp. :func:`numpy.ones` et
+  :func:`numpy.full`): crée un tableau de format donné rempli de zéros
+  (resp. de uns et d'une valeur fixe)
 
   >>> N.zeros((2, 1))  # Shape (2, 1): 2 lignes, 1 colonne, float par défaut
   array([[ 0.],
          [ 0.]])
   >>> N.ones((1, 2), dtype=bool) # Shape (1, 2): 1 ligne, 2 colonnes, type booléen
   array([[True, True]], dtype=bool)
+  >>> N.full((2, 2), N.NaN)
+  array([[ nan,  nan],
+         [ nan,  nan]])
 
 .. index:: pair: numpy; arange
 
@@ -180,7 +187,8 @@ Création de tableaux
 - :func:`numpy.random.rand` crée un tableau d'un format donné de réels
   aléatoires dans [0, 1[; :func:`numpy.random.randn` génère un tableau
   d'un format donné de réels tirés aléatoirement d'une distribution
-  gaussienne (normale) standard (μ=0, σ=1).
+  gaussienne (normale) standard :math:`\mathcal{N}(\mu=0, \sigma^2=1)`.
+  .. (μ=0, σ²=1).
 
   Le sous-module :mod:`numpy.random` fournit des générateurs de
   nombres aléatoires pour de nombreuses distributions discrètes et
@@ -220,7 +228,7 @@ array([4, 5, 6, 7])        # Shape (4,)
 array([[ 0,  1,  2,  3],
        [ 4,  5,  6,  7],
        [ 8,  9, 10, 11]])  # Shape (3, 4)
->>> y[0][1][2]  # = y[0, 1, 2] en moins efficace (slices successives)
+>>> y[0][1][2]  # = y[0, 1, 2] en ~4× plus lent (slices successives)
 6
 >>> y[:, -1]    # = y[:, 2, :] Dernière slice selon le 2ème axe
 array([[ 8,  9, 10, 11],
@@ -509,14 +517,17 @@ Tableaux évolués
 .. index::
    pair: numpy; dtype
    pair: numpy; recarray
+   pair: numpy; genfromtxt
 
-Outre les types scalaires élémentaires -- `bool`, `int`, `float`,
-`complex`, `str`, etc. -- :mod:`numpy` supporte les tableaux de types
-*composés*:
+Par définition, tous les éléments d'un tableau *homogène* doivent être
+du même type.  Cependant, outre les types scalaires élémentaires --
+`bool`, `int`, `float`, `complex`, `str`, etc. -- :mod:`numpy`
+supporte les types *composés*, càd incluant plusieurs sous-éléments de
+types différents:
 
->>> dt = N.dtype([('nom', 'S10'),     # 1er  élément: chaîne de 10 caractères
-...               ('age', 'i'),       # 2ème élément: entier
-...               ('taille', 'd')])   # 3ème élément: réel (double)
+>>> dt = N.dtype([('nom', 'S10'),    # 1er  élément: une chaîne de 10 caractères
+...               ('age', 'i'),      # 2ème élément: un entier
+...               ('taille', 'd')])  # 3ème élément: un réel (double)
 >>> arr = N.array([('Calvin', 6, 1.20), ('Hobbes', 5, 1.80)], dtype=dt); arr
 array([('Calvin', 6, 1.2), ('Hobbes', 6, 1.8)],
       dtype=[('nom', '|S10'), ('age', '<i4'), ('taille', '<f8')])
@@ -529,6 +540,26 @@ rec.array([('Calvin', 6, 1.2), ('Hobbes', 5, 1.8)],
       dtype=[('nom', '|S10'), ('age', '<i4'), ('taille', '<f8')])
 >>> rec.nom                          # Accès direct par attribut
 chararray(['Calvin', 'Hobbes'], dtype='|S10')
+
+Les tableaux structurés sont très puissants pour manipuler des données
+(semi-)hétérogènes, p.ex. les entrées d'un catalogue):
+
+>>> dt = N.dtype([('M', 'S3'),        # N° catalogue Messier
+...               ('NGC', 'i'),       # N° New General Catalogue
+...               ('Type', 'S2'),     # Code type
+...               ('Mag', 'f'),       # Magnitude
+...               ('Size', 'f'),      # Taille [arcmin]
+...               ('Distance', 'f'),  # Distance [pc]
+...               ('RA', 'f'),        # Ascension droite [h]
+...               ('Dec', 'f'),       # Déclinaison [deg]
+...               ('Con', 'S3'),      # Code constellation
+...               ('Season', 'S6'),   # Saison
+...               ('Name', 'S30')])   # Nom alternatif
+>>> messier = N.genfromtxt("Messier.csv", dtype=dt, delimiter=',', comments='#')
+>>> messier[1]
+('M1', 1952, 'Sn',  8.39999962,  5.,  1930.,  5.57499981,  22.0170002, 'Tau', 'winter', 'Crab Nebula')
+>>> N.nanmean(messier['Mag'])
+7.4927273
 
 .. rubric:: Tableaux masqués
 
@@ -568,6 +599,12 @@ masked_array(data = [0.359432688656 1.64455841211 -- 1.48331773108 2.23438980788
 >>> m0.filled(-1)                          # Conversion en tableau normal
 array([ 0.35943269,  1.64455841, -1.        ,  1.48331773,  2.23438981])
 
+.. Note:: Les tableaux *évolués* de :mod:`numpy` sont parfois
+          suffisants, mais pour une utilisation avancée, il peut être
+          plus pertinent d'invoquer les bibliothèque dédiées
+          :ref:`myPandas` (structuration et analyse de données
+          hétérogènes) ou :ref:`myXarray` (structuration de données
+          homogènes de dimension arbitraire).
 
 Entrées/sorties
 ---------------
@@ -587,8 +624,9 @@ Entrées/sorties
 True
 
 .. Attention:: :func:`numpy.loadtxt` supporte les types composés, mais
-   ne supporte pas les données manquantes; utiliser la fonction
-   :func:`numpy.genfromtxt` dans ce cas.
+               ne supporte pas les données manquantes; utiliser alors
+               la fonction :func:`numpy.genfromtxt`, plus robuste mais
+               plus lente.
 
 Le format texte n'est pas optimal pour de gros tableaux: il peut alors
 être avantageux d'utiliser le format binaire `.npy`, beaucoup plus
@@ -618,11 +656,6 @@ supplémentaires, parmis lesquelles les sous-modules suivants:
 - :mod:`numpy.random`: valeurs aléatoires
 - :mod:`numpy.polynomial`: manipulation des polynômes (racines, polynômes
   orthogonaux, etc.)
-
-.. rubric:: Voir également:
-
-- myPandas_: structuration et analyse de données hétérogènes;
-- myXarray_: structuration de données homogènes de dimension arbitraire.
 
 
 .. _td6:
@@ -848,10 +881,10 @@ Sauvegarde et affichage interactif
    pair: matplotlib; savefig
    pair: matplotlib; show
 
-La méthode :meth:`matplotlib.figure.Figure.savefig` permet de sauvegarder la
-figure dans un fichier dont le format est automatiquement défini par son
-extension, `png` (*raster*), `[e]ps`, `pdf`, `svg` (*vector*), etc, via
-différents `backends
+La méthode :meth:`matplotlib.figure.Figure.savefig` permet de
+sauvegarder la figure dans un fichier dont le format est
+automatiquement défini par son extension, `png` (*raster*), `[e]ps`,
+`pdf`, `svg` (*vector*), etc., via différents `backends
 <http://matplotlib.org/faq/usage_faq.html#what-is-a-backend>`_.
 
 Il est également possible d'afficher la figure dans une `fenêtre interactive
@@ -903,7 +936,7 @@ tous les éléments d'une figure (titre, axes, légende, etc.), qui peuvent alor
   <http://scitools.org.uk/cartopy/docs/latest/gallery.html>`_, bibliothèques de
   cartographie sphérique;
 - `Seaborn <http://seaborn.pydata.org/>`_, une surcouche de visualisation
-  statistique à matplotlib & pandas_;
+  statistique à matplotlib & :ref:`myPandas`;
 - `HoloViews <http://holoviews.org/>`_, une surcouche de visualisation et
   d'analyse à matplotlib;
 - `ggplot <http://ggplot.yhathq.com/>`_, une surcouche orientée `Grammar of

@@ -173,12 +173,12 @@ Types de base
 
 - **Types numériques**:
 
-  - Booléens `bool` (vrai/faux): `True`, `False`, `bool(3)`
-  - Entiers `int` (pas de valeur limite explicite, correspond *au
+  - *Booléens* `bool` (vrai/faux): `True`, `False`, `bool(3)`
+  - *Entiers* `int` (pas de valeur limite explicite, correspond *au
     moins* au `long` du C): `-2`, `int(2.1)`, `int("4")`
-  - Réels `float` (entre ±1.7e±308, correspond au `double` du C):
+  - *Réels* `float` (entre ±1.7e±308, correspond au `double` du C):
     `2.`, `3.5e-6`, `float(3)`
-  - Complexes `complex`: `1+2j`, `5.1j`, `complex(-3.14)`,
+  - *Complexes* `complex`: `1+2j`, `5.1j`, `complex(-3.14)`,
     `complex('j')`
 
   >>> 5 / 2       # !!! Division euclidienne par défaut dans Python 2.x !!!
@@ -203,12 +203,12 @@ Types de base
 
 - **Objets itérables**:
 
-  - Listes `list`: `['a', 3, [1, 2], 'a']`
-  - Listes immuables `tuple`: `(2, 3.1, 'a', [])` (selon les
+  - *Listes* `list`: `['a', 3, [1, 2], 'a']`
+  - *Listes immuables* `tuple`: `(2, 3.1, 'a', [])` (selon les
     conditions d'utilisation, les parenthèses ne sont pas toujours
     nécessaires)
-  - Listes à clés `dict`: `{'a':1, 'b':[1, 2], 3:'c'}`
-  - Ensembles non ordonnés d'éléments uniques `set`: `{1, 2, 3, 2}`
+  - *Listes à clés* `dict`: `{'a':1, 'b':[1, 2], 3:'c'}`
+  - *Ensembles* non ordonnés d'éléments uniques `set`: `{1, 2, 3, 2}`
 
   >>> l = ['a', True] # Définition d'une liste
   >>> x, y = 1, 2.5   # Affectations multiples via tuples (les parenthèses ne sont pas nécessaires)
@@ -246,7 +246,7 @@ Structures de programmation
      texte pour qu'il n'utilise que des espaces.
 
 - Une instruction par ligne *en général* (ou instructions séparées par `;`).
-- Les commentaires commencent par `#`, et vont jusqu'à la fin de la
+- Les commentaires commencent par `#`, et s'étendent jusqu'à la fin de la
   ligne.
 
 .. index:: pair: booléen; True/False
@@ -292,13 +292,11 @@ Structures de programmation
 - **Boucle for**: :samp:`for {element} in {iterable}:`, s'éxecute sur
   chacun des *éléments* d'un objet *itérable*:
 
-  >>> for i in range(1, 10, 2): # entiers de 1 (inclus) à 10 (exclu) par pas de 2
-  ...     print i**2            # Affichage de i**2
-  1
-  9
-  25
-  49
-  81
+  >>> for val in ['un', (2, 3), 4]:  # Itération sur une liste de 3 éléments
+  ...     print val
+  un
+  (2, 3)
+  4
 
   - `continue`: interrompt l'itération courante, et reprend la boucle
     à l'itération suivante,
@@ -347,7 +345,8 @@ Indexation
 Les chaînes de caractères sont des objets *itérables* -- càd
 constitués d'éléments (ici les caractères) sur lesquels il est
 possible de « boucler » (p.ex. avec `for`) -- et *immuables* -- càd
-dont les éléments individuels ne peuvent pas être modifiés.
+dont les éléments individuels ne peuvent pas être modifiés
+intrinsèquement.
 
 .. Note:: Comme en C[++], l'indexation en Python commence à 0: le
    1er élément d'une liste est l'élément n°0, le 2nd est le n°1, etc.
@@ -358,7 +357,7 @@ dont les éléments individuels ne peuvent pas être modifiés.
 26
 >>> alpha[0]    # 1er élément (l'indexation commence à 0)
 'a'
->>> alpha[-1]   # = alpha[25], dernier élément (-2: avant dernier, etc.)
+>>> alpha[-1]   # = alpha[26-1=25], dernier élément (-2: avant dernier, etc.)
 'z'
 
 Sous-liste (*slice*)
@@ -394,8 +393,10 @@ facilitant leur manipulation:
 >>> enfant, peluche = "Calvin", 'Hobbes'      # Affectations mutiples
 >>> titre = enfant + ' et ' + peluche; titre  # +: Concaténation de chaînes
 'Calvin et Hobbes'
->>> titre.replace('et', '&')        # Remplacement de sous-chaînes
+>>> titre.replace('et', '&')  # Remplacement de sous-chaînes (→ nouvelle chaîne)
 'Calvin & Hobbes'
+>>> titre                     # titre est immuable et reste inchangée
+'Calvin et Hobbes'
 >>> ' & '.join(titre.split(' et ')) # Découpage (split) et jonction (join)
 'Calvin & Hobbes'
 >>> 'Hobbes' in titre               # in: Test d'inclusion
@@ -419,12 +420,14 @@ un contrôle précis de la conversion de variables en chaînes de
 caractères.  Il s'appuie essentiellement sur la méthode
 :func:`str.format`:
 
->>> "{nom} a {age} ans".format(nom='Calvin', age=6)
+>>> "{0} a {1} ans".format('Calvin', 6)  # args
 'Calvin a 6 ans'
->>> "{} a {} ans".format('Calvin', 6)  # Raccourci
+>>> "{} a {} ans".format('Calvin', 6)    # Raccourci
+'Calvin a 6 ans'
+>>> "{nom} a {age} ans".format(nom='Calvin', age=6)  # kwargs
 'Calvin a 6 ans'
 >>> pi = 3.1415926535897931
->>> "{x:f}  {x:.2f}  {y:f}  {y:g}".format(x=pi, y=pi*1e9)
+>>> "{x:f}  {x:.2f}  {y:f}  {y:g}".format(x=pi, y=pi*1e9)  # Options de formatage
 '3.141593  3.14  3141592653.589793  3.14159e+09'
 
 :func:`print` affiche à l'écran (plus spécifiquement la sortie
@@ -433,8 +436,8 @@ standard) la conversion d'une variable en chaîne de caractères:
 >>> print "Calvin and Hobbes\nScientific progress goes 'boink'"
 Calvin and Hobbes
 Scientific progress goes 'boink'
->>> print "{0} fois {1} font {2}".format(3, 4, 3*4) # Formatage et affichage
-3 fois 4 font 12
+>>> print "{0:2d} fois {1:2d} font {2}".format(3, 4, 3*4) # Formatage et affichage
+ 3 fois  4 font 12
 
 .. Python peut également gérer les caractères `Unicode
 .. <https://docs.python.org/2/howto/unicode.html>`_ (mais cela peut vite
@@ -457,17 +460,18 @@ Objets itérables
 
 Les chaînes de caractères, listes, tuples et dictionnaires sont les
 objets itérables de base en Python.  Les listes et dictionnaires sont
-*mutables* -- leurs éléments constitutifs peuvent être changés à la
-volée -- tandis que chaînes de caractères et les tuples sont
-*immuables*.
+*modifiables* (« *mutables* ») -- leurs éléments constitutifs peuvent
+être changés à la volée -- tandis que chaînes de caractères et les
+tuples sont *immuables*.
 
 - Accès indexé: conforme à celui des chaînes de caractères
 
-  >>> l = range(1, 6) # De 1 (inclus) à 6 (exclu) = [1, 2, 3, 4, 5]
+  >>> l = range(1, 10, 2); l  # De 1 (inclus) à 10 (exclu) par pas de 2
+  [1, 3, 5, 7, 9]
   >>> len(l)          # Nb d'éléments dans la liste (i varie de 0 à 4)
   5
   >>> l[0], l[-2]     # 1er et avant-dernier élément (l'indexation commençe à 0)
-  (1, 4)
+  (1, 7)
   >>> l[5]            # Erreur: indice hors-bornes
   IndexError: list index out of range
   >>> d = dict(a=1, b=2) # Création du dictionnaire {'a':1, 'b':2}
@@ -482,32 +486,32 @@ volée -- tandis que chaînes de caractères et les tuples sont
 - Sous-listes (*slices*):
 
   >>> l[1:-1]        # Du 2ème ('1') *inclus* au dernier ('-1') *exclu*
-  [2, 3, 4]
+  [3, 5, 7]
   >>> l[1:-1:2]      # Idem, tous les 2 éléments
-  [2, 4]
+  [3, 7]
   >>> l[::2]         # Tous les 2 éléments (*start=0* et *stop=len* par défaut)
-  [1, 3, 5]
+  [1, 5, 9]
 
 - Modification d'éléments d'une liste (chaînes et tuples sont
   **immuables**):
 
   >>> l[0] = 'a'; l            # Remplacement du 1er élément
-  ['a', 2, 3, 4, 5]
+  ['a', 3, 5, 7, 9]
   >>> l[1::2] = ['x', 'y']; l  # Remplacement d'éléments par *slices*
-  ['a', 'x', 3, 'y', 5]
+  ['a', 'x', 5, 'y', 9]
   >>> l + [1, 2]; l            # Concaténation (l reste inchangé)
-  ['a', 'x', 3, 'y', 5, 1, 2]
-  ['a', 'x', 3, 'y', 5]
+  ['a', 'x', 5, 'y', 9, 1, 2]
+  ['a', 'x', 5, 'y', 9]
   >>> l += [1, 2]; l           # Concaténation sur place (l est modifié)
-  ['a', 'x', 3, 'y', 5, 1, 2]
+  ['a', 'x', 5, 'y', 9, 1, 2]
   >>> l.append('z'); l         # Ajout d'un élément en fin de liste
-  ['a', 'x', 3, 'y', 5, 1, 2, 'z']
+  ['a', 'x', 5, 'y', 9, 1, 2, 'z']
   >>> l.extend([-1, -2]); l    # Extension par une liste
-  ['a', 'x', 3, 'y', 5, 1, 2, 'z', -1, -2]
+  ['a', 'x', 5, 'y', 9, 1, 2, 'z', -1, -2]
   >>> del l[-6:]; l            # Efface les 6 derniers éléments de la liste
-  ['a', 'x', 3, 'y']
+  ['a', 'x', 5, 'y']
 
-  .. Attention:: à la modification des objets mutables:
+  .. Attention:: à la modification des objets *mutables*:
 
      >>> l = range(3)  # l pointe vers la liste [0, 1, 2]
      >>> m = l; m      # m est un *alias* de la liste l: c'est le même objet
@@ -543,24 +547,24 @@ volée -- tandis que chaînes de caractères et les tuples sont
 
 - Utilitaires sur les itérables:
 
-  >>> l1 = ['Calvin', 'Wallace', 'Boule']
-  >>> for i in range(len(l1)):     # Boucle sur les indices de l1
-  ...     print i, l1[i]           # Accès explicite, pas pythonique :-(
+  >>> humans = ['Calvin', 'Wallace', 'Boule']
+  >>> for i in range(len(humans)):  # Boucle sur les indices de humans
+  ...     print i, humans[i]        # Accès explicite, pas pythonique :-(
   0 Calvin
   1 Wallace
   2 Boule
-  >>> for i, name in enumerate(l1): # Boucle sur (indice, valeur) de l1
-  ...     print i, name             # Pythonique :-D
+  >>> for i, name in enumerate(humans):  # Boucle sur (indice, valeur) de humans
+  ...     print i, name                  # Pythonique :-D
   0 Calvin
   1 Wallace
   2 Boule
-  >>> l2 = ['Hobbes', 'Gromit', 'Bill']
-  >>> for n1, n2 in zip(l1, l2):    # Boucle simultanée sur 2 listes (ou +)
-  ...     print n1, 'et', n2
+  >>> animals = ['Hobbes', 'Gromit', 'Bill']
+  >>> for boy, dog in zip(humans, animals):  # Boucle simultanée sur 2 listes (ou +)
+  ...     print boy, 'et', dog
   Calvin et Hobbes
   Wallace et Gromit
   Boule et Bill
-  >>> sorted(zip(l1, l2)) # Tri, ici sur le 1er élément de chaque tuple de la liste
+  >>> sorted(zip(humans, animals))  # Tri, ici sur le 1er élément de chaque tuple de la liste
   [('Boule', 'Bill'), ('Calvin', 'Hobbes'), ('Wallace', 'Gromit')]
 
 
@@ -575,8 +579,9 @@ Fonctions
 =========
 
 Une fonction est un regroupement d'instructions impératives --
-assignations, branchements, boucles -- s'appliquant sur des arguments
-d'entrée.  C'est le concept central de la programmation *impérative*.
+assignations, branchements, boucles, etc. -- s'appliquant sur des
+arguments d'entrée.  C'est le concept central de la programmation
+*impérative*.
 
 .. index:: def
 
@@ -594,14 +599,14 @@ celle-ci est spécifiée par le mot-clé `return`.
 
    def temp_f2c(tf):
        """
-       Conversion d'une température Fahrenheit `tf` en température Celsius.
+       Convertit une température en d° Fahrenheit `tf` en d° Celsius.
 
        Exemple:
        >>> temp_f2c(104)
        40.0
        """
 
-       tc = (tf - 32.)/1.8       # Conversion Fahrenheit vers Celsius
+       tc = (tf - 32.)/1.8       # Fahrenheit → Celsius
 
        return tc
 
@@ -685,8 +690,11 @@ NameError: name 'sqrt' is not defined
    >>> sqrt(pi)
    1.7724538509055159
 
-   Cette pratique est cependant fortement *déconseillée*! (possibilité
-   de conflit dans les espaces de noms).
+   Cette pratique est cependant fortement *déconseillée* du fait des
+   confusions dans les espaces de noms qu'elle peut entraîner:
+
+   >>> from cmath import *
+   >>> sqrt(-1)   # Quel sqrt: le réel ou le complexe?
 
 Nous verrons par la suite quelques exemples de modules de la
 :ref:`standard`, ainsi que des :ref:`science` orientées analyse
@@ -700,16 +708,18 @@ Bibliothèques personnelles et scripts
 -------------------------------------
 
 Vous pouvez définir vos propres bibliothèques en regroupant les
-fonctionnalités au sein d'un même fichier :samp:`{monfichier}.py`.  Si
-ce fichier est importé (p.ex. `import monfichier`), il agira comme une
-bibliothèque; si ce fichier est exécuté -- p.ex. `python
-./monfichier.py` -- il agira comme un *script*.
+fonctionnalités au sein d'un même fichier :samp:`{monfichier}.py`.
+
+* Si ce fichier est importé (p.ex. `import monfichier`), il agira
+  comme une bibliothèque;
+* si ce fichier est exécuté -- p.ex. `python ./monfichier.py` -- il
+  agira comme un *script*.
 
 .. Attention:: Toutes les instructions d'un module qui ne sont pas
    encapsulées dans le `__main__` (voir plus bas) sont interprétées et
    exécutées lors de l'`import` du module.  Elles doivent donc en
    général se limiter à la définition de variables, de fonctions et de
-   classes (en particulier, éviter les affichages).
+   classes (en particulier, éviter les affichages ou les calculs longs).
 
 Un code Python peut donc être:
 
@@ -785,7 +795,7 @@ construction `try ... except`.
        while True:
            chaine = raw_input('Entrez un entier: ') # Lecture du clavier
            try:
-               # La conversion en type entier lève `ValueError` si impossible
+               # La conversion en type entier génère `ValueError` si nécessaire
                return int(chaine)
            except ValueError:             # Gestion de l'exception ValueError
                print "'{}' n'est pas un entier".format(chaine)
@@ -803,7 +813,7 @@ Entrez un entier: 4
 Dans l'élaboration d'un programme, gérez explicitement les erreurs que
 vous auriez pu tester *a priori* et pour lesquels il existe une
 solution de replis, et laissez passer les autres (ce qui provoquera
-éventuellement l'interruption du programme)
+éventuellement l'interruption du programme).
 
 .. Danger:: Évitez à tout prix les `except` *nus*, càd ne spécifiant
    pas la ou les exceptions à gérer, car ils intercepteraient alors
@@ -862,7 +872,9 @@ si l'hypothèse n'est pas vérifiée, génère une `AssertionError`):
        return x**2 - y**2
 
 .. Note:: La règle générale à retenir concernant la gestion des
-   erreurs: **Fail early, fail often, fail better!**
+          erreurs:
+
+              **Fail early, fail often, fail better!**
 
 .. rubric:: Exercice:
 
@@ -973,7 +985,7 @@ Fichiers
 .. index:: file
 
 La gestion des fichiers (lecture et écriture) se fait à partir de la
-fonction :func:`open` retournant un objet `file
+fonction :func:`open` retournant un objet de type `file
 <https://docs.python.org/2/library/stdtypes.html#bltin-file-objects>`_:
 
 .. code-block:: python
@@ -1023,14 +1035,14 @@ utilisation de Python dans un contexte scientifique.
 Python 3.x
 ----------
 
-Pour des raisons historiques autant que pratiques, ce cours présente
-le langage Python dans sa version 2.x.  Pourtant, le développement
-actuel de Python se fait uniquement sur la branche 3.x, qui constitue
-une remise à plat *non-rétrocompatible* du langage, et la branche 2.x
-ne sera *a priori* plus supporté au delà de 2020 (:pep:`466`).  Il est
-donc préférable, si vous vous lancez dans un développement
-substantiel, de passer aussi rapidement que possible à Python 3 (voir
-:ref:`python23`).
+Pour des raisons historiques autant que pratiques [#py3]_, ce cours
+présente le langage Python dans sa version 2.x.  Pourtant, le
+développement actuel de Python se fait uniquement sur la branche 3.x,
+qui constitue une remise à plat *non-rétrocompatible* du langage, et
+la branche 2.x ne sera *a priori* plus supporté au delà de 2020
+(:pep:`466`).  Il est donc préférable, si vous vous lancez dans un
+développement substantiel, de passer aussi rapidement que possible à
+Python 3 (voir :ref:`python23`).
 
 Python 3 apporte `quelques changements fondamentaux
 <https://docs.python.org/3/whatsnew/3.0.html>`_, notamment:
@@ -1039,6 +1051,8 @@ Python 3 apporte `quelques changements fondamentaux
 - l'opérateur `/` ne réalise plus la division euclidienne entre les
   entiers, mais toujours la division *réelle*
 - un support complet (mais encore complexe) des chaînes Unicode
+- un nouveau système de formatage des chaînes de caractères
+  (:pep:`xxx` à partir de Python 3.6)
 
 L'interpréteur Python 2.7 dispose d'une option `-3` mettant en
 évidence dans un code les parties qui devront être modifiées pour un
@@ -1054,7 +1068,9 @@ d'automatiser la conversion du code 2.x en 3.x.
 .. [#shebang] Il s'agit d'une fonctionnalité des *shells* d'Unix, pas
               specifique à Python.
 .. [#lbyl] Par opposition au :abbr:`LBYL (Look Before You Leap)` du
-   C/C++, basé sur une série *exhaustive* de tests *a priori*.
+           C/C++, basé sur une série *exhaustive* de tests *a priori*.
+.. [#py3] De nombreuses distributions Linux sont encore basées sur
+          Python 2.7 par défaut.
 
 .. |DANGER| unicode:: 0x2620 .. ☠ = SKULL AND CROSSBONES
 .. |:-)| unicode:: 0x263a .. ☺ = WHITE SMILING FACE
