@@ -102,14 +102,8 @@ b  2   7.389056   deux
 c  3  20.085537  trois
 
 Pour mettre en évidence la puissance de Pandas, nous utiliserons le
-catalogue :abbr:`CSV (Comma Separated Values)` des objets de Messier
-:download:`Messier.csv`:
-
-.. literalinclude:: Messier.csv
-   :linenos:
-   :lines: 1-8
-
-Le fichier peut être importé à l'aide de la function
+:ref:`catalogue des objets Messier <messier>` vu précédemment.  Le
+fichier peut être importé à l'aide de la function
 :func:`pandas.read_csv`, et le *dataframe* résultant est labellisé *à
 la volée* par la colonne `M` (:meth:`pandas.DataFrame.set_index`) :
 
@@ -199,6 +193,7 @@ Accès aux données
    pair: pandas; iloc
    pair: pandas; at
    pair: pandas; iat
+   pair: pandas; filter
    pair: pandas; query
 
 **Référence:** `Indexing and Selecting Data
@@ -216,7 +211,7 @@ M2      7089
 M109    3992
 M110     205
 Name: NGC, Length: 110, dtype: object
->>> messier[['RA', 'Dec']]
+>>> messier[['RA', 'Dec']]  # = messier.filter(items=('RA', 'Dec'))
           RA     Dec
 M
 M1     5.575  22.017
@@ -228,7 +223,7 @@ M110   0.673  41.683
 
 L'accès par :class:`slice` retourne un nouveau *dataframe*:
 
->>> messier[:6:2]
+>>> messier[:6:2]       # Lignes 0 (inclus) à 6 (exclu) par pas de 2
      NGC Type  Mag  Size  Distance      RA     Dec  Con  Season         Name
 M
 M1  1952   Sn  8.4   5.0    1930.0   5.575  22.017  Tau  winter  Crab Nebula
@@ -253,14 +248,14 @@ Name: M31, dtype: object
 M
 M31   Sp  Andromeda Galaxy
 M51   Sp  Whirlpool Galaxy
->>> messier.loc['M31':'M33', ['Type', 'Name']]     # De M31 à M33 *inclu*
+>>> messier.loc['M31':'M33', ['Type', 'Name']]     # De M31 à M33 inclu
     Type               Name
 M
 M31   Sp   Andromeda Galaxy
 M32   El                NaN
 M33   Sp  Triangulum Galaxy
 
-De façon symétrique, l'accès peut se faire par indices (n° de ligne/colonne)
+De façon symétrique, l'accès peut se faire par position (n° de ligne/colonne)
 via :attr:`pandas.DataFrame.iloc`, p.ex.:
 
 >>> messier.iloc[30:33, [1, -1]]  # Ici, l'indice 33 n'est PAS inclu!
@@ -284,7 +279,23 @@ permettent d'accéder *rapidement* aux données individuelles:
 >>> messier.iat[30, 0]        # 20× plus rapide que messier.iloc[0][0]
 '224'
 
-Enfin, comme pour :mod:`numpy`, il est possible d'opérer une sélection
+Noter qu'il existe une façon de filtrer les données sur les colonnes
+ou les labels:
+
+>>> messier.filter(regex='M.7', axis='index').filter('RA Dec'.split())
+         RA     Dec
+M
+M17  18.347 -16.183
+M27  19.993  22.717
+M37   5.873  32.550
+M47   7.610 -14.500
+M57  18.893  33.033
+M67   8.840  11.817
+M77   2.712   0.033
+M87  12.513  12.400
+M97  11.247  55.017
+
+Comme pour :mod:`numpy`, il est possible d'opérer une sélection
 booléenne:
 
 >>> messier.loc[messier['Con'] == 'UMa', ['NGC', 'Name']]
@@ -303,15 +314,25 @@ M
 M1   1952   Sn  8.4   5.0    1930.0   5.575  22.017  Tau  winter  Crab Nebula
 M3   5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring          NaN
 M35  2168   Oc  5.3  28.0     859.0   6.148  24.333  Gem  winter          NaN
->>> messier.query("(Mag < 5) & (Size > 60)")[['Season', 'Name']]  # Syntaxe à la Numpy
-     Season                    Name
+>>> messier.loc[lambda df: N.radians(df.Size / 60) * df.Distance < 1].Name
 M
-M7   summer       Ptolemy's Cluster
-M24  summer  Sagittarius Star Cloud
-M31  autumn        Andromeda Galaxy
-M42  winter   Great Nebula in Orion
-M44  winter         Beehive Cluster
-M45  winter                Pleiades
+M27           Dumbbell Nebula
+M40                Winnecke 4
+M57               Ring Nebula
+M73                       NaN
+M76    Little Dumbbell Nebula
+M78                       NaN
+M97                Owl Nebula
+Name: Name, dtype: object
+>>> messier.query("(Mag < 5) & (Size > 60)").Name
+M
+M7          Ptolemy's Cluster
+M24    Sagittarius Star Cloud
+M31          Andromeda Galaxy
+M42     Great Nebula in Orion
+M44           Beehive Cluster
+M45                  Pleiades
+Name: Name, dtype: object
 
 ========================  =====================  =========
 Sélection                 Syntaxe                Résultat
@@ -366,10 +387,10 @@ M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring
 **Référence:** `Working with missing data
 <http://pandas.pydata.org/pandas-docs/stable/missing_data.html>`_
 
-.. Attention:: par défaut, beaucoup d'opérations retournent une *copie* de la
-   structure, sauf si l'opération se fait « sur place » (`inplace=True`).
-   D'autres opérations d'accès retournent seulement une *nouvelle vue* des
-   mêmes données.
+.. Attention:: par défaut, beaucoup d'opérations retournent une
+   *copie* de la structure, sauf si l'opération se fait « sur place »
+   (`inplace=True`).  D'autres opérations d'accès retournent seulement
+   une *nouvelle vue* des mêmes données.
 
    >>> df = PD.DataFrame(N.arange(12).reshape(3, 4),
    ...                   index=list('abc'), columns=list('ABCD')); df
@@ -388,7 +409,11 @@ M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring
    a  1  1   2   3
    b  5  5   6   7
    c  9  9  10  11
-   
+
+   Lien: `Returning a view versus a copy
+   <http://pandas.pydata.org/pandas-docs/stable/indexing.html#returning-a-view-versus-a-copy>`_
+
+
 .. rubric:: Indéxation hiérarchique
 
 **Références:** `Multi-index / Advanced Indexing
@@ -479,7 +504,7 @@ manquantes.
    totale, toutes les fonctions Numpy peuvent prendre une structure
    Pandas en entrée, et s'appliquer aux colonnes appropriées:
 
-   >>> N.mean(messier)
+   >>> N.mean(messier, axis=0)  # Moyenne sur les lignes → Series indexée sur les colonnes
    Mag         7.492727e+00
    Size        1.771909e+01
    Distance    4.574883e+06
@@ -738,7 +763,7 @@ opérations de *broadcasting*, des opérations de regroupement et d'agrégation
 manquantes et d'alignement des tableaux indexés (p.ex. `align(x, y,
 join='outer')`).
 
-  *pandas excels at working with tabular data. That suffices for many 
+  *pandas excels at working with tabular data. That suffices for many
   statistical analyses, but physical scientists rely on N-dimensional arrays –
   which is where xarray comes in.*
 
@@ -747,7 +772,7 @@ join='outer')`).
    pair: xarray; DataSet
    pair: xarray; loc
    pair: xarray; sel
-           
+
 :mod:`xarray` fournit deux structures principales, héritées du format `netCDF
 <http://www.unidata.ucar.edu/software/netcdf/>`_ :
 
@@ -777,13 +802,13 @@ Attributes:
     author:     Y. Copin
 >>> data.to_pandas()     # Conversion en DataFrame à indexation simple
 y         0         1         2         3
-x                                        
+x
 a  1.764052  0.400157  0.978738  2.240893
 b  1.867558 -0.977278  0.950088 -0.151357
 c -0.103219  0.410599  0.144044  1.454274
 >>> data.to_dataframe()  # Conversion en DataFrame multi-indexé (hiérarchique)
       mesures
-x y          
+x y
 a 0  1.764052
   1  0.400157
   2  0.978738
@@ -832,11 +857,11 @@ Dimensions without coordinates: y
 ...                     dims=('z', 'x'), coords={'x': list('abd')})
 >>> data2.to_pandas()
 x  a  b  d
-z         
+z
 0  0  1  2
 1  3  4  5
 >>> data2.values + data.values  # Opération sur des tableaux numpy incompatibles
-ValueError: operands could not be broadcast together with shapes (2,3) (3,4) 
+ValueError: operands could not be broadcast together with shapes (2,3) (3,4)
 >>> data2 + data                # Alignement automatique sur les coord. communes!
 <xarray.DataArray (z: 2, x: 2, y: 4)>
 array([[[ 1.764052,  0.400157,  0.978738,  2.240893],
@@ -867,14 +892,14 @@ Dimensions without coordinates: y
 .. rubric:: Exemples plus complexes:
 
 * `Examples Data <http://xarray.pydata.org/en/stable/examples.html>`_
-         
+
 .. Note:: N'oubliez pas de `citer xarray
    <http://xarray.pydata.org/en/stable/faq.html#how-should-i-cite-xarray>`_
    dans vos publications et présentations.
 
 
 .. _myAstropy:
-   
+
 Astropy
 =======
 

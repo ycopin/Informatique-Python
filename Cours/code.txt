@@ -292,7 +292,7 @@ Documentation
   - `Awesome Sphinx <https://github.com/yoloseem/awesome-sphinxdoc>`_
   - `apidoc <http://www.sphinx-doc.org/en/stable/man/sphinx-apidoc.html>`_
     (documentation automatique)
-    
+
 * Conventions de documentation:
 
   - *Docstring convention*: :pep:`257`
@@ -363,12 +363,38 @@ Comment installer/créer des modules externes:
 Python 2 vs. python 3
 ---------------------
 
+Il existe de nombreux outils permettant de faciliter la transition 2.x
+→ 3.x:
+
+* L'interpréteur Python 2.7 dispose d'une option `-3` mettant en
+  évidence dans un code les parties qui devront être modifiées pour un
+  passage à Python 3.
+* Le script `2to3 <https://docs.python.org/2.7/library/2to3.html>`_
+  permet également d'automatiser la conversion du code 2.x en 3.x.
+* La bibliothèque standard :mod:`__future__` permet d'utiliser
+  nativement des constructions 3.x dans un code 2.x, p.ex.::
+
+    from __future__ import print_function  # Fonction print()
+    from __future__ import division        # Division non-euclidienne
+
+    print(1/2)                             # Affichera '0.5'
+
+* La librairie *non* standard `six <http://pythonhosted.org/six/>`_
+  fournit une couche de compatibilité 2.x-3.x, permettant de produire
+  de façon transparente un code compatible simultanément avec les 2
+  versions.
+
+.. Avertissement:: Si vous vous lancez dans un nouveau développement,
+   il est dorénavant nettement préférable d'utiliser exclusivement
+   Python 3.
+
+.. rubric:: Liens
+
 - `Python 2 or python 3?
   <https://wiki.python.org/moin/Python2orPython3>`_
 - `Porting Python 2 Code to Python 3
   <http://python.readthedocs.io/en/latest/howto/pyporting.html>`_
 - `Python 2/3 compatibility <http://python-future.org/>`_
-- `2to3 <https://docs.python.org/3/library/2to3.html>`_
 
 .. Gestion de versions
 .. -------------------

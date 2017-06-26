@@ -541,8 +541,15 @@ rec.array([('Calvin', 6, 1.2), ('Hobbes', 5, 1.8)],
 >>> rec.nom                          # Accès direct par attribut
 chararray(['Calvin', 'Hobbes'], dtype='|S10')
 
+.. _messier:
+
 Les tableaux structurés sont très puissants pour manipuler des données
-(semi-)hétérogènes, p.ex. les entrées d'un catalogue):
+(semi-)hétérogènes, p.ex. les entrées du catalogue :abbr:`CSV (Comma
+Separated Values)` des objets de Messier :download:`Messier.csv`:
+
+.. literalinclude:: Messier.csv
+   :linenos:
+   :lines: 1-8
 
 >>> dt = N.dtype([('M', 'S3'),        # N° catalogue Messier
 ...               ('NGC', 'i'),       # N° New General Catalogue
@@ -600,11 +607,11 @@ masked_array(data = [0.359432688656 1.64455841211 -- 1.48331773108 2.23438980788
 array([ 0.35943269,  1.64455841, -1.        ,  1.48331773,  2.23438981])
 
 .. Note:: Les tableaux *évolués* de :mod:`numpy` sont parfois
-          suffisants, mais pour une utilisation avancée, il peut être
-          plus pertinent d'invoquer les bibliothèque dédiées
-          :ref:`myPandas` (structuration et analyse de données
-          hétérogènes) ou :ref:`myXarray` (structuration de données
-          homogènes de dimension arbitraire).
+   suffisants, mais pour une utilisation avancée, il peut être plus
+   pertinent d'invoquer les bibliothèque dédiées :ref:`myPandas`
+   (structuration et analyse de données hétérogènes) ou
+   :ref:`myXarray` (structuration de données homogènes de dimension
+   arbitraire).
 
 Entrées/sorties
 ---------------
@@ -624,9 +631,8 @@ Entrées/sorties
 True
 
 .. Attention:: :func:`numpy.loadtxt` supporte les types composés, mais
-               ne supporte pas les données manquantes; utiliser alors
-               la fonction :func:`numpy.genfromtxt`, plus robuste mais
-               plus lente.
+   ne supporte pas les données manquantes; utiliser alors la fonction
+   :func:`numpy.genfromtxt`, plus robuste mais plus lente.
 
 Le format texte n'est pas optimal pour de gros tableaux: il peut alors
 être avantageux d'utiliser le format binaire `.npy`, beaucoup plus

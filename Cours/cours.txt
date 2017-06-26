@@ -303,8 +303,8 @@ Structures de programmation
   - `break`: interrompt complètement la boucle.
 
   .. Note:: la logique des boucles Python est assez différente des
-            langages C[++]/fortran, pour lesquels l'itération porte
-            sur les *indices* plutôt que sur les éléments eux-mêmes.
+     langages C[++]/fortran, pour lesquels l'itération porte sur les
+     *indices* plutôt que sur les éléments eux-mêmes.
 
 .. index:: while
 .. index:: break
@@ -1052,14 +1052,7 @@ Python 3 apporte `quelques changements fondamentaux
   entiers, mais toujours la division *réelle*
 - un support complet (mais encore complexe) des chaînes Unicode
 - un nouveau système de formatage des chaînes de caractères
-  (:pep:`xxx` à partir de Python 3.6)
-
-L'interpréteur Python 2.7 dispose d'une option `-3` mettant en
-évidence dans un code les parties qui devront être modifiées pour un
-passage à Python 3.  Le script `2to3
-<https://docs.python.org/2.7/library/2to3.html>`_ permet également
-d'automatiser la conversion du code 2.x en 3.x.
-
+  (`f-string` du :pep:`498` à partir de Python 3.6)
 
 .. rubric:: Notes de bas de page
 
