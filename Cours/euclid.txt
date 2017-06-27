@@ -5,8 +5,9 @@ Spécificités Euclid
 
 .. contents:: Table des matières
 ..
-    1  Librairies EDEN
-    2  Git et GitLab
+    1  Developers' Workshops
+    2  Librairies EDEN
+    3  Git et GitLab
 
 Le `consortium Euclid <http://www.euclid-ec.org/>`_ a mis en place un
 référentiel de développement propre, :abbr:`EDEN (Euclid Development
@@ -21,7 +22,13 @@ machine virtuelle.
 .. Note:: Python est avec C++ l'un des deux langages de programmation
    officiels d'Euclid.
 
-.. rubric:: Liens:
+.. Attention:: les contraintes de développement imposées par Euclid ne
+   s'appliquent qu'aux codes développés dans le cadre du SGS. Un code
+   d'analyse post-SGS n'est pas tenu de s'y plier, mais il peut gagner
+   à s'en inspirer.
+
+Developers' Workshops
+=====================
 
 - `Developers' Workshop #1
   <https://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop1>`_

@@ -328,11 +328,42 @@ d'exécution ou juste après une erreur (analyse post-mortem).
     python -m pdb script.py
     (Pdb)
 
-- Commandes :program:`ipython`: `%run`, `%debug`
+  Commandes:
 
-  Si un script exécuté sous `ipython` (commande `%run`) génère une
-  exception, il est possible d'inspecter l'état de la mémoire au
-  moment de l'erreur avec la commande `%debug`.
+  * `h[elp] [command]`: aide en ligne
+  * `q[uit]`: quitter
+  * `r[un] [args]`: exécuter le programme avec les arguments
+  * `d[own]/u[p]`: monter/descendre dans le stack
+    (empilement des appels de fonction)
+  * `p expression`: afficher le résultat de l'expression (`pp`:
+    *pretty-print*)
+  * `l[ist] [first[,last]]`: afficher le code source autour de
+    l'instruction courante (`ll`: *long list*)
+  * `n[ext]/s[tep]`: exécuter l'instruction suivante (sans s'y
+    attarder/en s'y attardant)
+  * `unt[il]`: continuer l'exécution jusqu'à la ligne suivante (utile
+    pour les boucles)
+  * `c[ont[inue]]`: continuer l'exécution (jusqu'à la prochaine
+    interruption ou la fin du programme)
+  * `r[eturn]`: continuer l'exécution jusqu'à la sortie de la fonction
+  * `b[reak] [[filename:]lineno | function[, condition]]`: mettre en
+    place un point d'arrêt (`tbreak` pour un point d'arrêt
+    *temporaire*). Sans argument, afficher les points d'arrêts déjà
+    définis.
+  * `disable/enable [bpnumber]`: désactiver/réactiver un point
+    d'arrêt
+  * `cl[ear] [bpnumber]`: éliminer un point d'arrêt (ou tous)
+  * `ignore bpnumber [count]`: ignorer un point d'arrêt (une ou
+    plusieurs fois)
+  * `condition bpnumber`: ajouter une condition à un point d'arrêt
+  * `commands [bpnumber]`: ajouter des instructions à un point d'arrêt
+
+- Commandes :program:`ipython`: `%run`, `%debug`, `%pdb`
+
+  Si un script exécuté sous :program:`ipython` (commande `%run`)
+  génère une exception, il est possible d'inspecter l'état de la
+  mémoire au moment de l'erreur avec la commande `%debug`, qui lance
+  une session :mod:`pdb` au point d'arrêt.
 
 Profilage et optimisation
 -------------------------

@@ -15,7 +15,8 @@ Bibliothèques numériques de base
       1.4  Sous-modules
       1.5  Performances
     2  Scipy
-      2.1  Quelques exemples complets
+      2.1  Tour d'horizon
+      2.2  Quelques exemples complets
     3  Matplotlib
       3.1  `pylab` vs. `pyplot`
       3.2  Figure et axes
@@ -708,7 +709,14 @@ Scipy
 :mod:`scipy` est une bibliothèque *numérique* [#sym]_ d'algorithmes et de
 fonctions mathématiques, basée sur les tableaux :class:`numpy.ndarray`,
 complétant ou améliorant (en terme de performances) les fonctionnalités de
-:mod:`numpy`. P.ex.:
+:mod:`numpy`.
+
+.. Note:: N'oubliez pas de `citer scipy & co.
+   <https://scipy.org/citing.html>`_ dans vos publications et présentations
+   utilisant ces outils.
+
+Tour d'horizon
+--------------
 
 - :mod:`scipy.special`: fonctions spéciales (fonctions de Bessel, erf, gamma,
   etc.)
@@ -725,10 +733,6 @@ complétant ou améliorant (en terme de performances) les fonctionnalités de
 - :mod:`scipy.ndimage`: traitement d'images multi-dimensionnelles
 - :mod:`scipy.io`: entrées/sorties
 
-.. Note:: N'oubliez pas de `citer scipy & co.
-   <https://scipy.org/citing.html>`_ dans vos publications et présentations
-   utilisant ces outils.
-
 .. rubric:: Liens:
 
 - `Scipy Reference <https://docs.scipy.org/doc/scipy/reference/>`_
@@ -736,8 +740,8 @@ complétant ou améliorant (en terme de performances) les fonctionnalités de
 
 .. rubric:: Voir également:
 
-- `Scikits <http://scikits.appspot.com/scikits>`_: modules
-  plus spécifiques, parmi lesquels:
+- `Scikits <http://scikits.appspot.com/scikits>`_: modules plus
+  spécifiques étroitement liés à :mod:`scipy`, parmi lesquels:
 
   - `scikit-learn <http://scikit-learn.org/stable/>`_: *machine learning*
   - `scikit-image <http://scikit-image.org/>`_: *image processing*
@@ -1044,7 +1048,7 @@ graphique de visualisation 3D s'appuyant sur `Mayavi
    mathématique, `sage <http://www.sagemath.org/>`_.
 
 .. [Matplotlib07] `2007CSE.....9...90H
-                  <http://adsabs.harvard.edu/abs/2007CSE.....9...90H>`_
+   <http://adsabs.harvard.edu/abs/2007CSE.....9...90H>`_
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr
