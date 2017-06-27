@@ -13,9 +13,10 @@ Développer en python
       3.3  Documentation
       3.4  Débogage
       3.5  Profilage et optimisation
-      3.6  *Python packages*
-      3.7  Python 2 vs. python 3
-      3.8  Système de gestion de versions
+      3.6  Cython
+      3.7  *Python packages*
+      3.8  Python 2 vs. python 3
+      3.9  Système de gestion de versions
 
 
 .. _td7:
@@ -314,22 +315,22 @@ Documentation
 Débogage
 --------
 
-Les débogueurs permettent de « plonger » dans un code au cours
+Les débogueurs permettent de se « plonger » dans un code en cours
 d'exécution ou juste après une erreur (analyse post-mortem).
 
 - Modules de la bibliothèque standard: :mod:`pdb`
 
   Ainsi, pour déboguer un script, il est possible de l'exécuter sous
   le contrôle du débogueur `pdb
-  <https://docs.python.org/2/library/pdb.html>`_ en s'interrompant dès la
-  1ère instruction::
+  <https://docs.python.org/2/library/pdb.html>`_ en s'interrompant dès
+  la 1ère instruction::
 
     python -m pdb script.py
     (Pdb)
 
 - Commandes :program:`ipython`: `%run`, `%debug`
 
-  Si un script exécuté sous `ipython` (commande `%run`) lève une
+  Si un script exécuté sous `ipython` (commande `%run`) génère une
   exception, il est possible d'inspecter l'état de la mémoire au
   moment de l'erreur avec la commande `%debug`.
 
@@ -348,12 +349,11 @@ sous-fonctions d'un code, afin d'y identifier les parties à optimiser.
   <https://wiki.python.org/moin/PythonSpeed/PerformanceTips>`_
 - `Tutoriel de profilage
   <http://scikit-learn.sourceforge.net/dev/developers/performance.html#profiling-python-code>`_
-- `cython <http://cython.org/>`_: *write C-extensions in python-like
-  language* (`Working with Numpy
+- `cython <http://cython.org/>`_ est un langage de programmation
+  **compilé** très similaire à Python.  Il permet d'écrire des
+  extensions en C avec la facilité de python (voir notamment `Working
+  with Numpy
   <http://docs.cython.org/en/latest/src/tutorial/numpy.html>`_)
-
-.. - `Guppy <http://guppy-pe.sourceforge.net/>`_: *object and heap memory
-..   sizing, profiling and analysis*
 
 *Python packages*
 -----------------
@@ -365,6 +365,9 @@ Comment installer/créer des modules externes:
   <http://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/>`_
 - `Packaging a python library
   <https://blog.ionelmc.ro/2014/05/25/python-packaging/>`_
+- `Cookiecutter <http://cookiecutter.readthedocs.io/>`_ est un
+  générateur de squelettes de projet via des *templates* (pas
+  uniquement pour python).
 
 .. _python23:
 
@@ -412,7 +415,7 @@ l'historique des modifications du code (ou de tout autre projet), de
 retrouver les changements critiques, de développer des branches
 alternatives, de faciliter le travail collaboratif, etc.
 
-`Git <http://git-scm.com/>`_ est un :abbr:`VCS (Version Controling
+`Git <https://git-scm.com/>`_ est un :abbr:`VCS (Version Controling
 System)` particulièrement performant (p.ex. utilisé pour le
 développement du `noyau Linux <https://git.kernel.org/>`_ [#gitW]_).
 Il est souvent couplé à un dépôt en ligne faisant office de dépôt de

@@ -117,7 +117,7 @@ pygments_style = 'sphinx'
 
 # A string of reStructuredText that will be included at the end of
 # every source file that is read.
-#rst_epilog = ""
+rst_epilog = u""
 
 # A string of reStructuredText that will be included at the start of
 # every source file that is read.

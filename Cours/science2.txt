@@ -5,7 +5,7 @@ Bibliothèques scientifiques avancées
 
 .. contents:: Table des matières
 ..
-    1  Pandas
+    1  Pandas & xarray
       1.1  Structures
       1.2  Accès aux données
       1.3  Manipulation des données
@@ -20,8 +20,8 @@ Bibliothèques scientifiques avancées
 
 .. _myPandas:
 
-Pandas
-======
+Pandas & xarray
+===============
 
 .. index:: module: pandas
 
@@ -56,8 +56,8 @@ identifier l'approche la plus efficace.
 
    * `pandas <http://pandas.pydata.org/>`_ `0.20.x
      <http://pandas.pydata.org/pandas-docs/version/0.20/whatsnew.html>`_
-   * `xarray <http://xarray.pydata.org/>`_ `0.9.6
-     <http://xarray.pydata.org/en/0.9.6/whats-new.html>`_
+   * `xarray <http://xarray.pydata.org/>`_ `0.9.x
+     <http://xarray.pydata.org/en/v0.9.6/whats-new.html>`_
 
 Structures
 ----------
@@ -958,9 +958,10 @@ Démonstration
 * `AstroBetter tutorials
   <http://www.astrobetter.com/blog/2014/07/07/astropy-tutorials-learn-how-to-do-common-astro-tasks-with-astropy-and-python/>`_
 
-.. Note:: n'oubliez pas de citer [Astropy13]_ ou de `mentionner l'utilisation
-   <http://www.astropy.org/about.html#acknowledge>`_ d'astropy dans vos
-   publications et présentations.
+.. Note:: n'oubliez pas de citer [Astropy13]_ ou de `mentionner
+   l'utilisation
+   <https://github.com/astropy/astropy/blob/master/CITATION>`_
+   d'astropy dans vos publications et présentations.
 
 
 

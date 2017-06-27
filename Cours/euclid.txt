@@ -18,6 +18,9 @@ est incarné dans les environnements de production :abbr:`CODEEN
 :abbr:`LODEEN (LOcal DEvelopment ENvironment)`, livrés sous forme de
 machine virtuelle.
 
+.. Note:: Python est avec C++ l'un des deux langages de programmation
+   officiels d'Euclid.
+
 .. rubric:: Liens:
 
 - `Developers' Workshop #1
@@ -31,7 +34,10 @@ machine virtuelle.
   (mai 2016)
 - `Developers' Workshop #3
   <https://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop3>`_
-  (**oct. 2016**)
+  (oct. 2016)
+- `Developers' Workshop #4
+  <https://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop3>`_
+  (**oct. 2017, Trieste**)
 
 .. Warning:: certains liens de cette page requièrent un accès à l'`Euclid
    Redmine <https://euclid.roe.ac.uk/>`_.
@@ -40,18 +46,21 @@ machine virtuelle.
 Librairies EDEN
 ===============
 
-Python est avec C++ l'un des deux langages de programmation officiels
-d'Euclid.  `EDEN
-<https://euclid.roe.ac.uk/projects/codeen-users/wiki/EDEN>`_ est un
-environnement contraint incluant un nombre très restreint de
-bibliothèques Python.  La liste **exhaustive** pour EDEN v1.2 est la
-suivante:
+`EDEN <https://euclid.roe.ac.uk/projects/codeen-users/wiki/EDEN>`_ est
+un environnement contraint incluant un nombre très restreint de
+bibliothèques Python.  La liste **exhaustive** pour EDEN v2.0
+(automne 2017) est la suivante:
 
 - pile numérique usuelle: `numpy`, `scipy` et `matplotlib`
+- les bibliothèques spécialisées `pyFFTW
+  <https://pypi.python.org/pypi/pyFFTW>`_ (*Fastest Fourier Transform
+  in the West*) et `scikit-learn <http://scikit-learn.org/>`_
+  (*machine learning*)
 - entrées/sorties FITS: `fitsio <https://github.com/esheldon/fitsio>`_
-- librairies astronomiques: `healpy <http://healpy.readthedocs.io/en/latest/>`_
-  (une interface à `HEALPix <http://healpix.sourceforge.net/>`_, pour l'analyse
-  et la visualisation de données sur une sphère), `astropy
+- librairies astronomiques: `healpy
+  <http://healpy.readthedocs.io/en/latest/>`_ (une interface à
+  `HEALPix <http://healpix.sourceforge.net/>`_, pour l'analyse et la
+  visualisation de données sur une sphère), `astropy
   <http://astropy.readthedocs.io/en/stable/>`_ et `pyEphem
   <http://rhodesmill.org/pyephem/>`_ (éphémérides)
 - :abbr:`GUI (Graphical User Interface)`: `PyQt
