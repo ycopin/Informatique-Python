@@ -11,22 +11,11 @@ Bibliothèques scientifiques avancées
       1.3  Manipulation des données
       1.4  Regroupement & agrégation de données
       1.5  Visualisations
-    2  Xarray
-    3  Astropy
-      3.1  Tour d'horizon
-      3.2  Démonstration
-    4  Autres librairies scientifiques
-
-
-.. Attention:: Les bibliothèques pandas_ et xarray_ sont encore en phase de
-   développement assez intense, et vont probablement être amenées à évoluer
-   significativement, et pas nécessairement de manière rétro-compatible. Nous
-   travaillons ici sur les versions:
-
-   * `pandas <http://pandas.pydata.org/>`_ `0.20.x
-     <http://pandas.pydata.org/pandas-docs/version/0.20/whatsnew.html>`_
-   * `xarray <http://xarray.pydata.org/>`_ `0.9.6
-     <http://xarray.pydata.org/en/0.9.6/whats-new.html>`_
+      1.6  Xarray
+    2  Astropy
+      2.1  Tour d'horizon
+      2.2  Démonstration
+    3  Autres librairies scientifiques
 
 
 .. _myPandas:
@@ -48,17 +37,27 @@ données *hétérogènes* (`PANel DAta`).  Elle fournit notamment:
 * de nombreuses fonctions d'entrée/sortie, d'analyse statistiques et de
   visualisation.
 
-Les fonctionnalités de :mod:`pandas` sont *très* riches et couvrent de nombreux
-aspects (données manquantes, dates, analyse statistiques, etc.): il n'est pas
-question de toutes les aborder ici.  Avant de vous lancer dans une manipulation
-qui vous semble complexe, bien inspecter la `documentation
-<http://pandas.pydata.org/pandas-docs/stable/>`_, très complète (p.ex. les
-recettes du `cookbook
-<http://pandas.pydata.org/pandas-docs/stable/cookbook.html>`_), pour vérifier
-qu'elle n'est pas déjà implémentée ou documentée, ou pour identifier l'approche
-la plus efficace.
+Les fonctionnalités de :mod:`pandas` sont *très* riches et couvrent de
+nombreux aspects (données manquantes, dates, analyse statistiques,
+etc.): il n'est pas question de toutes les aborder ici.  Avant de vous
+lancer dans une manipulation qui vous semble complexe, bien inspecter
+la `documentation <http://pandas.pydata.org/pandas-docs/stable/>`_,
+très complète (p.ex. les recettes du `cookbook
+<http://pandas.pydata.org/pandas-docs/stable/cookbook.html>`_), pour
+vérifier qu'elle n'est pas déjà implémentée ou documentée, ou pour
+identifier l'approche la plus efficace.
 
 .. Note:: La convention utilisée ici est « `import pandas as PD` ».
+
+.. Attention:: Les bibliothèques pandas_ et xarray_ sont encore en phase de
+   développement assez intense, et vont probablement être amenées à évoluer
+   significativement, et pas nécessairement de manière rétro-compatible. Nous
+   travaillons ici sur les versions:
+
+   * `pandas <http://pandas.pydata.org/>`_ `0.20.x
+     <http://pandas.pydata.org/pandas-docs/version/0.20/whatsnew.html>`_
+   * `xarray <http://xarray.pydata.org/>`_ `0.9.6
+     <http://xarray.pydata.org/en/0.9.6/whats-new.html>`_
 
 Structures
 ----------
@@ -571,14 +570,10 @@ three    0.052007
 two      1.020315
 dtype: float64
 
-.. Hint:: Certains calculs numériques peuvent être significativement accélérés
-   par l'utilisation de deux bibliothèques externes:
-
-   - `Bottleneck <https://github.com/kwgoodman/bottleneck>`_
-   - `NumExpr <https://github.com/pydata/numexpr>`_
-
-   Si ces bibliothèques sont installées, :mod:`pandas` en bénéficiera
-   de façon transparente.
+.. Note:: Si les bibliothèques d'optimisation de performances
+   `Bottleneck <https://github.com/kwgoodman/bottleneck>`_ et `NumExpr
+   <https://github.com/pydata/numexpr>`_ sont installées,
+   :mod:`pandas` en bénéficiera de façon transparente.
 
 
 Regroupement & agrégation de données
@@ -711,8 +706,11 @@ Visualisations
 
 .. index:: module: seaborn
 
+.. rubric:: Exemple:
+
 :ref:`Démonstration Pandas/Seaborn <Cours/pokemon.ipynb>` (notebook:
-:download:`pokemon.ipynb`) sur le jeu de données :download:`Pokemon.csv`.
+:download:`pokemon.ipynb`) sur le jeu de données
+::download:`Pokemon.csv`.
 
 .. rubric:: Références:
 
@@ -749,19 +747,20 @@ Visualisations
 .. _myXarray:
 
 Xarray
-======
+------
 
 .. index:: module: xarray
 
-xarray_ est une bibliothèque pour la structuration de données *homogènes* de
-dimension arbitraire.  Suivant la philosophie de la bibliothèque Pandas_ dont
-elle est issue (et dont elle dépend), elle permet notamment de nommer les
-différentes dimensions (*axes*) des tableaux (p.ex. `x.sum(axis='time')`),
-d'indexer les données (p.ex. `x.loc['M31']`), de naturellement gérer les
-opérations de *broadcasting*, des opérations de regroupement et d'agrégation
-(p.ex. `x.groupby(time.dayofyear).mean()`), une gestion plus facile des données
-manquantes et d'alignement des tableaux indexés (p.ex. `align(x, y,
-join='outer')`).
+xarray_ est une bibliothèque pour la structuration de données
+*homogènes* de dimension arbitraire.  Suivant la philosophie de la
+bibliothèque Pandas_ dont elle est issue (et dont elle dépend), elle
+permet notamment de nommer les différentes dimensions (*axes*) des
+tableaux (p.ex. `x.sum(axis='time')`), d'indexer les données
+(p.ex. `x.loc['M31']`), de naturellement gérer les opérations de
+*broadcasting*, des opérations de regroupement et d'agrégation
+(p.ex. `x.groupby(time.dayofyear).mean()`), une gestion plus facile
+des données manquantes et d'alignement des tableaux indexés
+(p.ex. `align(x, y, join='outer')`).
 
   *pandas excels at working with tabular data. That suffices for many
   statistical analyses, but physical scientists rely on N-dimensional arrays –
@@ -785,108 +784,115 @@ join='outer')`).
 .. Note:: La convention utilisée ici est « `import xarray as X` ».
 
 >>> N.random.seed(0)
->>> data = X.DataArray(N.random.randn(3, 4),       # Tableau de données
+>>> data = X.DataArray(N.arange(3*4, dtype=float).reshape((3, 4)), # Tableau de données
 ...                    dims=('x', 'y'),            # Nom des dimensions
 ...                    coords={'x': list('abc')},  # Indexation des coordonnées en 'x'
 ...                    name='mesures',             # Nom du tableau
 ...                    attrs=dict(author='Y. Copin'))  # Méta-données
 >>> data
 <xarray.DataArray 'mesures' (x: 3, y: 4)>
-array([[ 1.764052,  0.400157,  0.978738,  2.240893],
-       [ 1.867558, -0.977278,  0.950088, -0.151357],
-       [-0.103219,  0.410599,  0.144044,  1.454274]])
+array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.]])
 Coordinates:
   * x        (x) |S1 'a' 'b' 'c'
 Dimensions without coordinates: y
 Attributes:
     author:     Y. Copin
 >>> data.to_pandas()     # Conversion en DataFrame à indexation simple
-y         0         1         2         3
+y    0    1     2     3
 x
-a  1.764052  0.400157  0.978738  2.240893
-b  1.867558 -0.977278  0.950088 -0.151357
-c -0.103219  0.410599  0.144044  1.454274
+a  0.0  1.0   2.0   3.0
+b  4.0  5.0   6.0   7.0
+c  8.0  9.0  10.0  11.0
 >>> data.to_dataframe()  # Conversion en DataFrame multi-indexé (hiérarchique)
-      mesures
+     mesures
 x y
-a 0  1.764052
-  1  0.400157
-  2  0.978738
-  3  2.240893
-..        ...
-c 0 -0.103219
-  1  0.410599
-  2  0.144044
-  3  1.454274
-[12 rows x 1 columns]
-
+a 0      0.0
+  1      1.0
+  2      2.0
+  3      3.0
+b 0      4.0
+  1      5.0
+  2      6.0
+  3      7.0
+c 0      8.0
+  1      9.0
+  2     10.0
+  3     11.0
 >>> data.dims
 ('x', 'y')
 >>> data.coords
 Coordinates:
   * x        (x) |S1 'a' 'b' 'c'
 >>> data.values
-array([[ 1.76405235,  0.40015721,  0.97873798,  2.2408932 ],
-       [ 1.86755799, -0.97727788,  0.95008842, -0.15135721],
-       [-0.10321885,  0.4105985 ,  0.14404357,  1.45427351]])
+array([[  0.,   1.,   2.,   3.],
+       [  4.,   5.,   6.,   7.],
+       [  8.,   9.,  10.,  11.]])
 >>> data.attrs
 OrderedDict([('author', 'Y. Copin')])
 
 >>> data[:, 1]             # Accès par indices
 <xarray.DataArray 'mesures' (x: 3)>
-array([ 0.400157, -0.977278,  0.410599])
+array([ 1.,  5.,  9.])
 Coordinates:
   * x        (x) |S1 'a' 'b' 'c'
 >>> data.loc['a':'b', -1]  # Accès par labels
 <xarray.DataArray 'mesures' (x: 2)>
-array([ 2.240893, -0.151357])
+array([ 3.,  7.])
 Coordinates:
   * x        (x) |S1 'a' 'b'
 >>> data.sel(x=['a', 'c'], y=2)
 <xarray.DataArray 'mesures' (x: 2)>
-array([ 0.978738,  0.144044])
+array([  2.,  10.])
 Coordinates:
   * x        (x) |S1 'a' 'c'
 
 >>> data.mean(dim='x')  # Moyenne le long de la dimension 'x' = data.mean(axis=0)
 <xarray.DataArray 'mesures' (y: 4)>
-array([ 1.17613 , -0.055507,  0.690957,  1.18127 ])
+array([ 4.,  5.,  6.,  7.])
 Dimensions without coordinates: y
 
->>> data2 = X.DataArray(N.arange(6).reshape(2, 3),
+>>> data2 = X.DataArray(N.arange(6).reshape(2, 3) * 10,
 ...                     dims=('z', 'x'), coords={'x': list('abd')})
 >>> data2.to_pandas()
-x  a  b  d
+x   a   b   d
 z
-0  0  1  2
-1  3  4  5
+0   0  10  20
+1  30  40  50
+>>> data.to_pandas()  # REMINDER
+y    0    1     2     3
+x
+a  0.0  1.0   2.0   3.0
+b  4.0  5.0   6.0   7.0
+c  8.0  9.0  10.0  11.0
 >>> data2.values + data.values  # Opération sur des tableaux numpy incompatibles
 ValueError: operands could not be broadcast together with shapes (2,3) (3,4)
 >>> data2 + data                # Alignement automatique sur les coord. communes!
 <xarray.DataArray (z: 2, x: 2, y: 4)>
-array([[[ 1.764052,  0.400157,  0.978738,  2.240893],
-        [ 2.867558,  0.022722,  1.950088,  0.848643]],
-       [[ 4.764052,  3.400157,  3.978738,  5.240893],
-        [ 5.867558,  3.022722,  4.950088,  3.848643]]])
+array([[[  0.,   1.,   2.,   3.],
+        [ 14.,  15.,  16.,  17.]],
+       [[ 30.,  31.,  32.,  33.],
+        [ 44.,  45.,  46.,  47.]]])
 Coordinates:
   * x        (x) object 'a' 'b'
 Dimensions without coordinates: z, y
 
->>> data['hasNeg'] = (data < 0).any(dim='y'); data  # Au moins 1 val. de la ligne < 0
+>>> data['isSmall'] = data.sum(dim='y') < 10; data  # Booléen "Somme sur y < 10"
 <xarray.DataArray 'mesures' (x: 3, y: 4)>
-array([[ 1.764052,  0.400157,  0.978738,  2.240893],
-       [ 1.867558, -0.977278,  0.950088, -0.151357],
-       [-0.103219,  0.410599,  0.144044,  1.454274]])
+array([[  0.,   1.,   2.,   3.],
+       [  4.,   5.,   6.,   7.],
+       [  8.,   9.,  10.,  11.]])
 Coordinates:
   * x        (x) |S1 'a' 'b' 'c'
-    hasNeg   (x) bool False True True
+    isSmall  (x) bool True False False
 Dimensions without coordinates: y
->>> data.groupby('hasNeg').mean(dim='x')  # Regroupement et agrégation
-<xarray.DataArray 'mesures' (hasNeg: 2, y: 4)>
-array([[ 1.764052,  0.400157,  0.978738,  2.240893],
-       [ 0.88217 , -0.28334 ,  0.547066,  0.651458]])
+>>> data.groupby('isSmall').mean(dim='x')  # Regroupement et agrégation
+<xarray.DataArray 'mesures' (isSmall: 2, y: 4)>
+array([[ 6.,  7.,  8.,  9.],
+       [ 0.,  1.,  2.,  3.]])
 Coordinates:
-  * hasNeg   (hasNeg) object False True
+  * isSmall  (isSmall) object False True
 Dimensions without coordinates: y
 
 .. rubric:: Exemples plus complexes:
@@ -984,7 +990,8 @@ différents domaines de la physique, chimie, etc.:
   <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_
 - Calcul symbolique: `sympy <http://www.sympy.org/>`_ (voir également
   ce `tutoriel sympy
-  <https://mattpap.github.io/scipy-2011-tutorial/html/>`_)
+  <https://mattpap.github.io/scipy-2011-tutorial/html/>`_) et `sage
+  <http://www.sagemath.org/>`_
 - `PyROOT <https://root.cern.ch/pyroot>`_
 - `High Performance Computing in Python
   <https://byumcl.bitbucket.io/bootcamp2013/labs/perfomance.html>`_

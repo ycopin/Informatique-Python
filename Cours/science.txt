@@ -13,6 +13,7 @@ Bibliothèques numériques de base
       1.2  Tableaux évolués
       1.3  Entrées/sorties
       1.4  Sous-modules
+      1.5  Performances
     2  Scipy
       2.1  Quelques exemples complets
     3  Matplotlib
@@ -663,6 +664,39 @@ supplémentaires, parmis lesquelles les sous-modules suivants:
 - :mod:`numpy.polynomial`: manipulation des polynômes (racines, polynômes
   orthogonaux, etc.)
 
+Performances
+------------
+
+.. Warning:: *Premature optimization is the root of all evil* --
+   Donald Knuth
+
+Même si :mod:`numpy` apporte un gain significatif en performance par
+rapport à du Python standard, il peut être possible d'améliorer la
+vitesse d'exécution par l'utilisation de librairies externes dédiées,
+p.ex.
+
+* `NumExpr <https://github.com/pydata/numexpr>`_ est un évaluateur
+  optimisé d'expressions numériques:
+
+  >>> a = N.arange(1e6)
+  >>> b = N.arange(1e6)
+  >>> %timeit a*b - 4.1*a > 2.5*b
+  100 loops, best of 3: 11.4 ms per loop
+  >>> %timeit numexpr.evaluate("a*b - 4.1*a > 2.5*b")
+  100 loops, best of 3: 1.97 ms per loop
+  >>> %timeit N.exp(-a)
+  10 loops, best of 3: 60.1 ms per loop
+  >>> timeit numexpr.evaluate("exp(-a)") # Multi-threaded
+  10 loops, best of 3: 19.3 ms per loop
+
+* `Bottleneck <https://github.com/kwgoodman/bottleneck>`_ est une
+  collection de fonctions accélérées, notamment pour des tableaux
+  contenant des `NaN <https://en.wikipedia.org/wiki/NaN>`_ ou pour des
+  statistiques glissantes.
+* `theano <http://deeplearning.net/software/theano/>`_, pour optimiser
+  l'évaluation des expressions mathématiques sur les tableaux
+  :mod:`numpy`, notamment par l'utilisation des :abbr:`GPU (Graphics
+  Processing Unit)` et de code C généré à la volée.
 
 .. _td6:
 

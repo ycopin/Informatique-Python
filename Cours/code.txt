@@ -11,9 +11,11 @@ Développer en python
       3.1  *Integrated Development Environment*
       3.2  Vérification du code
       3.3  Documentation
-      3.4  Débugage et optimisation
-      3.5  *Python packages*
-      3.6  Python 2 vs. python 3
+      3.4  Débogage
+      3.5  Profilage et optimisation
+      3.6  *Python packages*
+      3.7  Python 2 vs. python 3
+      3.8  Système de gestion de versions
 
 
 .. _td7:
@@ -78,8 +80,8 @@ Une traduction libre en français:
 Us et coutumes
 --------------
 
-- *Easier to Ask for Forgiveness than Permission* (`try ... except`)
 - *Fail early, fail often, fail better!* (`raise`)
+- *Easier to Ask for Forgiveness than Permission* (`try ... except`)
 - le *Style Guide for Python Code* (:pep:`8`)
 - `Idioms and Anti-Idioms in Python
   <https://docs.python.org/2/howto/doanddont.html>`_
@@ -94,11 +96,14 @@ Us et coutumes
 
 - « Ne réinventez pas la roue, sauf si vous souhaitez en savoir plus
   sur les roues » (Jeff Atwood [#wheel]_): cherchez si ce que vous
-  voulez faire n'a pas déjà été fait (éventuellement en mieux...),
-  construisez dessus (en citant évidemment vos sources), et contribuez
-  si possible!
-- Codez *proprement*: commentez votre code, utilisez des noms de
-  variable qui ont un sens, créez des objets si nécessaire, etc.
+  voulez faire n'a pas déjà été fait (éventuellement en mieux...) pour
+  vous concentrer sur *votre* valeur ajoutée, réutilisez le code (en
+  citant évidemment vos sources), améliorez le, et contribuez en
+  retour si possible!
+- Écrivez des programmes pour les humains, pas pour les ordinateurs:
+  codez *proprement*, structurez vos algorithmes, commentez votre
+  code, utilisez des noms de variable qui ont un sens, soignez le
+  style et le formatage, etc.
 - Codez proprement *dès le début*: ne croyez pas que vous ne relirez
   jamais votre code (ou même que personne n'aura jamais à le lire), ou
   que vous aurez le temps de le refaire mieux plus tard...
@@ -189,7 +194,7 @@ Diviser pour mieux régner: chaque fonction, classe ou méthode est
 testée indépendemment.  Ainsi, lorsqu'un nouveau morceau de code ne
 passe pas les tests qui y sont associés, il est certain que l'erreur
 provient de cette nouvelle partie et non des fonctions ou objets que
-ce morceau de code utilise. On distingue ainsi hiérarchiquement:
+ce morceau de code utilise.  On distingue ainsi hiérarchiquement:
 
 1. Les tests unitaires vérifient individuellement chacune des
    fonctions, méthodes, etc.
@@ -198,11 +203,12 @@ ce morceau de code utilise. On distingue ainsi hiérarchiquement:
 3. Les tests système assurent le bon fonctionnement du programme dans
    sa globalité.
 
-Il est essentiel de garder tous les tests au cours du développement,
-ce qui permet de les réutiliser lorsque l'on veut compléter ou
-améliorer une partie du code. Si le nouveau code passe toujours les
-anciens test, on est alors sûr de ne pas avoir cassé les
-fonctionnalités précédentes.
+Il est très utile de transformer toutes les vérifications réalisées au
+cours du développement et du débuggage sous forme de tests, ce qui
+permet de les réutiliser lorsque l'on veut compléter ou améliorer une
+partie du code.  Si le nouveau code passe toujours les anciens test,
+on est alors sûr de ne pas avoir cassé les fonctionnalités précédentes
+(régréssions).
 
 Nous avons déjà vu aux TD précédents plusieurs façon de rédiger des
 tests unitaires:
@@ -239,7 +245,7 @@ tests unitaires:
 
 * Le module :mod:`unittest` de la librairie standard permet à peu près
   la même chose que pytest_, mais avec une syntaxe souvent plus
-  lourde. :mod:`unittest` est étendu par le module non-standard nose_.
+  lourde.  :mod:`unittest` est étendu par le module non-standard nose_.
 
 
 Outils de développement
@@ -267,23 +273,21 @@ Vérification du code
 --------------------
 
 Il s'agit d'outils permettant de vérifier *a priori* la validité
-syntaxique du code, de mettre en évidence des constructions
-dangereuses, les variables non-définies, etc.  Ces outils ne testent
-pas nécessairement la validité des algorithmes et de leur mise en
-oeuvre...
+stylistique et syntaxique du code, de mettre en évidence des
+constructions dangereuses, les variables non-définies, etc.  Ces
+outils ne testent pas nécessairement la validité des algorithmes et de
+leur mise en oeuvre...
 
+- `pycodestyle <https://github.com/PyCQA/pycodestyle/>`_ (ex-`pep8`) et
+  `autopep8 <https://github.com/hhatto/autopep8>`_
 - `pyflakes <https://pypi.python.org/pypi/pyflakes>`_
 - `pychecker <http://pychecker.sourceforge.net/>`_
 - `pylint <https://pypi.python.org/pypi/pylint>`_
-- `pycodestyle <https://github.com/PyCQA/pycodestyle/>`_ (ex-`pep8`) et
-  `autopep8 <https://github.com/hhatto/autopep8>`_
 
 Documentation
 -------------
 
-.. https://wiki.python.org/moin/DocumentationTools
-
-* Outils de documentation, ou comment transformer automagiquement un
+* Outils de documentation, ou comment transformer *automagiquement* un
   code-source bien documenté en une documentation fonctionnelle.
 
   - `Sphinx <http://www.sphinx-doc.org/en/stable/>`_
@@ -302,16 +306,18 @@ Documentation
     <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
   - `Sample doc <http://matplotlib.org/sampledoc/>`_ (matplotlib)
 
+.. rubric:: Lien:
 
-Débugage et optimisation
-------------------------
+`Documentation Tools
+<https://wiki.python.org/moin/DocumentationTools>`_
 
-.. rubric:: Débogage
+Débogage
+--------
 
 Les débogueurs permettent de « plonger » dans un code au cours
 d'exécution ou juste après une erreur (analyse post-mortem).
 
-- Modules de la bibliothèque standard: :mod:`pdb`, :mod:`timeit`
+- Modules de la bibliothèque standard: :mod:`pdb`
 
   Ainsi, pour déboguer un script, il est possible de l'exécuter sous
   le contrôle du débogueur `pdb
@@ -321,13 +327,14 @@ d'exécution ou juste après une erreur (analyse post-mortem).
     python -m pdb script.py
     (Pdb)
 
-- Commandes :program:`ipython`: `%run`, `%debug`, `%timeit`
+- Commandes :program:`ipython`: `%run`, `%debug`
 
   Si un script exécuté sous `ipython` (commande `%run`) lève une
   exception, il est possible d'inspecter l'état de la mémoire au
   moment de l'erreur avec la commande `%debug`.
 
-.. rubric:: Profilage et optimisation
+Profilage et optimisation
+-------------------------
 
 .. Warning:: *Premature optimization is the root of all evil* --
    Donald Knuth
@@ -336,6 +343,7 @@ Le profilage permet de déterminer le temps passé dans chacune des
 sous-fonctions d'un code, afin d'y identifier les parties à optimiser.
 
 - `python -O`, `__debug__`, `assert`
+- :mod:`timeit` et `%timeit` sous :program:`ipython`
 - `Performance tips
   <https://wiki.python.org/moin/PythonSpeed/PerformanceTips>`_
 - `Tutoriel de profilage
@@ -396,12 +404,36 @@ Il existe de nombreux outils permettant de faciliter la transition 2.x
   <http://python.readthedocs.io/en/latest/howto/pyporting.html>`_
 - `Python 2/3 compatibility <http://python-future.org/>`_
 
-.. Gestion de versions
-.. -------------------
+Système de gestion de versions
+------------------------------
 
-.. - `git <http://git-scm.com/>`_
-.. - `git@py4science <http://fperez.org/py4science/git.html>`_
+La gestion des versions du code permet de suivre avec précision
+l'historique des modifications du code (ou de tout autre projet), de
+retrouver les changements critiques, de développer des branches
+alternatives, de faciliter le travail collaboratif, etc.
 
+`Git <http://git-scm.com/>`_ est un :abbr:`VCS (Version Controling
+System)` particulièrement performant (p.ex. utilisé pour le
+développement du `noyau Linux <https://git.kernel.org/>`_ [#gitW]_).
+Il est souvent couplé à un dépôt en ligne faisant office de dépôt de
+référence et de solution de sauvegarde, et offrant généralement des
+solutions d'intégration continue, p.ex.
+
+* Les très célèbres `GitHub <https://github.com/>`_ et `GitLab
+  <https://gitlab.com/>`_, gratuits pour les projets libres
+* Pour des projets liés à votre travail, je conseille plutôt des
+  dépôts directement gérés par votre institution, p.ex. `GitLab-IN2P3
+  <https://gitlab.in2p3.fr/>`_
+
+Git_ mérite un cours en soi, et devrait être utilisé très largement
+pour l'ensemble de vos projets (p.ex. rédaction d'articles, de thèse
+de cours, fichiers de configuration, tests numériques, etc.)
+
+Quelques liens d'introduction:
+
+- `Pro-Git book <https://git-scm.com/book/en/v2>`_, le livre « officiel »
+- `Git Immersion <http://gitimmersion.com/>`_
+- `Git Magic <http://www-cs-students.stanford.edu/~blynn/gitmagic/>`_
 
 .. rubric:: Notes de bas de page
 
@@ -413,6 +445,8 @@ Il existe de nombreux outils permettant de faciliter la transition 2.x
    more about wheels* » -- Jeff Atwood
 .. [#opt] « *Premature optimization is the root of all evil* » --
    Donald Knuth
+.. [#gitW] Et maintenant du `code Windows
+   <https://arstechnica.com/information-technology/2017/05/90-of-windows-devs-now-using-git-creating-1760-windows-builds-per-day/>`_!
 
 .. _pytest: https://docs.pytest.org/en/latest/
 .. _nose:   http://nose.readthedocs.io/en/latest/
