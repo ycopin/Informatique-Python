@@ -138,7 +138,7 @@ Python:
 
     * :samp:`%run {mon_script.py}` pour éxecuter un script *dans*
       l'interpréteur
-    * `%debug` pour lancer le mode débuggage intéractif *post-mortem*
+    * `%debug` pour lancer le mode débogage intéractif *post-mortem*
     * `%cpaste` pour coller et éxecuter un code pré-formaté
 
   .. rubric:: Liens:

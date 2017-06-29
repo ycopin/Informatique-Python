@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2014-09-17 16:39:32 ycopin>
+# Time-stamp: <2017-06-27 18:59 ycopin@lyonovae03.in2p3.fr>
 
 import random
 
@@ -87,12 +87,11 @@ if __name__ == "__main__":
     import time
 
     h, w = (20, 60)                       # (nrows,ncolumns)
-    n = 100                             # Nb of iterations
 
     # Instantiation (including initialization)
     life = Life(h, w, periodic=True)
 
-    for i in range(n):                  # Iterations
+    while True:                         # Infinite loop! (Ctrl-C to break)
         print life                      # Print current world
         print "\n"
         time.sleep(0.1)                 # Pause a bit

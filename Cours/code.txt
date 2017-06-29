@@ -205,7 +205,7 @@ ce morceau de code utilise.  On distingue ainsi hiérarchiquement:
    sa globalité.
 
 Il est très utile de transformer toutes les vérifications réalisées au
-cours du développement et du débuggage sous forme de tests, ce qui
+cours du développement et du débogage sous forme de tests, ce qui
 permet de les réutiliser lorsque l'on veut compléter ou améliorer une
 partie du code.  Si le nouveau code passe toujours les anciens test,
 on est alors sûr de ne pas avoir cassé les fonctionnalités précédentes
@@ -285,6 +285,152 @@ leur mise en oeuvre...
 - `pychecker <http://pychecker.sourceforge.net/>`_
 - `pylint <https://pypi.python.org/pypi/pylint>`_
 
+Débogage
+--------
+
+Les débogueurs permettent de se « plonger » dans un code en cours
+d'exécution ou juste après une erreur (analyse post-mortem).
+
+- Module de la bibliothèque standard: :mod:`pdb`
+
+  Pour déboguer un script, il est possible de l'exécuter sous le
+  contrôle du débogueur `pdb
+  <https://docs.python.org/2/library/pdb.html>`_ en s'interrompant dès
+  la 1ère instruction::
+
+    python -m pdb script.py
+    (Pdb)
+
+  Commandes (très similaires à `gdb
+  <http://sourceware.org/gdb/current/onlinedocs/gdb/>`_):
+
+  * :samp:`h[elp] {[command]}`: aide en ligne
+  * :samp:`q[uit]`: quitter
+  * :samp:`r[un] {[args]}`: exécuter le programme avec les arguments
+  * :samp:`d[own]/u[p]`: monter/descendre dans le stack (empilement
+    des appels de fonction)
+  * :samp:`p {expression}`: afficher le résultat de l'expression (`pp`:
+    *pretty-print*)
+  * :samp:`l[ist] {[first[,last]]}`: afficher le code source autour de
+    l'instruction courante (`ll`: *long list*)
+  * :samp:`n[ext]/s[tep]`: exécuter l'instruction suivante (sans y entrer/en
+    y entrant)
+  * :samp:`unt[il]`: continuer l'exécution jusqu'à la ligne suivante (utile
+    pour les boucles)
+  * :samp:`c[ont[inue]]`: continuer l'exécution (jusqu'à la prochaine
+    interruption ou la fin du programme)
+  * :samp:`r[eturn]`: continuer l'exécution jusqu'à la sortie de la fonction
+  * :samp:`b[reak] {[[filename:]lineno | function[, condition]]}`:
+    mettre en place un point d'arrêt (`tbreak` pour un point d'arrêt
+    *temporaire*). Sans argument, afficher les points d'arrêts déjà
+    définis.
+  * :samp:`disable/enable {[bpnumber]}`: désactiver/réactiver tous ou
+    un point d'arrêt
+  * :samp:`cl[ear] {[bpnumber]}`: éliminer tous ou un point d'arrêt
+  * :samp:`ignore {bpnumber [count]}`: ignorer un point d'arrêt une ou
+    plusieurs fois
+  * :samp:`condition {bpnumber}`: ajouter une condition à un point d'arrêt
+  * :samp:`commands {[bpnumber]}`: ajouter des instructions à un point
+    d'arrêt
+
+- Commandes :program:`ipython`: :samp:`%run {monScript.py}`, `%debug`,
+  `%pdb`
+
+  Si un script exécuté sous :program:`ipython` (commande `%run`)
+  génère une exception, il est possible d'inspecter l'état de la
+  mémoire au moment de l'erreur avec la commande `%debug`, qui lance
+  une session :mod:`pdb` au point d'arrêt.  `%pdb on` lance
+  systématiquement le débogueur à chaque exception.
+
+.. _ProfOpt:
+
+Profilage et optimisation
+-------------------------
+
+.. Warning:: *Premature optimization is the root of all evil* --
+   Donald Knuth
+
+Avant toute optimisation, s'assurer extensivement que le code
+fonctionne et produit les bons résultats dans tous les cas.  S'il
+reste trop lent ou gourmand en mémoire *pour vos besoins*, il peut
+être nécessaire de l'optimiser.
+
+Le `profilage <https://docs.python.org/2/library/profile.html>`_
+permet de déterminer le temps passé dans chacune des sous-fonctions
+d'un code (ou ligne par ligne: `line profiler
+<https://github.com/rkern/line_profiler>`_, ou selon l'utilisation de
+la mémoire: `memory profiler
+<https://pypi.python.org/pypi/memory_profiler>`_), afin d'y identifier
+les parties qui gagneront à être optimisées.
+
+- `python -O`, `__debug__`, `assert`
+
+  Il existe un mode « optimisé » de python (option `-O`), qui pour
+  l'instant ne fait pas grand chose (et n'est donc guère utilisé....):
+
+  * la variable interne `__debug__` passe de `True` à `False`,
+  * les instructions `assert` ne sont pas exécutés.
+
+- :mod:`timeit` et :samp:`%timeit {statement}` sous
+  :program:`ipython`::
+
+     In [1]: def t1(n):
+     ...:     l = []
+     ...:     for i in range(n):
+     ...:         l.append(i**2)
+     ...:     return l
+     ...:
+     ...: def t2(n):
+     ...:     return [ i**2 for i in xrange(n) ]
+     ...:
+     ...: def t3(n):
+     ...:     return N.arange(n)**2
+     ...:
+     In [2]: %timeit t1(10000)
+     1000 loops, best of 3: 950 µs per loop
+     In [3]: %timeit t2(10000)
+     1000 loops, best of 3: 599 µs per loop
+     In [4]: %timeit t3(10000)
+     10000 loops, best of 3: 18.1 µs per loop
+
+- :mod:`cProfile` & :mod:`pstats`, et :samp:`%prun {statement}` sous
+  :program:`ipython`::
+
+    $ python -m cProfile -o output.pstats monScript.py
+    $ python -m pstats output.pstats
+
+- `Tutoriel de profilage
+  <http://scikit-learn.sourceforge.net/dev/developers/performance.html#profiling-python-code>`_
+
+Une fois identifiée la partie du code à optimiser, quelques conseils
+généraux:
+
+* utiliser des opérations sur les tableaux, plutôt que sur des
+  éléments individuels (*vectorization*): listes en compréhension,
+  tableaux :mod:`numpy` (qui ont eux-mêmes été optimisés)
+* `cython <http://cython.org/>`_ est un langage de programmation
+  **compilé** très similaire à Python.  Il permet d'écrire des
+  extensions en C avec la facilité de python (voir notamment `Working
+  with Numpy
+  <http://docs.cython.org/en/latest/src/tutorial/numpy.html>`_)
+* `numba <http://numba.pydata.org/>`_ permet *automagiquement* de
+  compiler *à la volée* (:abbr:`JIT(Just In Time)`) du pur code Python
+  via le compilateur `LLVM <http://llvm.org/>`_, avec une optimisation
+  selon le CPU et le GPU utilisés, p.ex.::
+
+    from numba import guvectorize
+
+    @guvectorize(['void(float64[:], intp[:], float64[:])'], '(n),()->(n)')
+    def move_mean(a, window_arr, out):
+        ...
+
+* À l'avenir, l'interpréteur CPython actuel sera éventuellement
+  remplacé par `pypy <http://pypy.org/>`_, basé sur une compilation
+  :abbr:`JIT(Just In Time)`.
+
+**Lien:** `Performance tips
+<https://wiki.python.org/moin/PythonSpeed/PerformanceTips>`_
+
 Documentation
 -------------
 
@@ -311,80 +457,6 @@ Documentation
 
 `Documentation Tools
 <https://wiki.python.org/moin/DocumentationTools>`_
-
-Débogage
---------
-
-Les débogueurs permettent de se « plonger » dans un code en cours
-d'exécution ou juste après une erreur (analyse post-mortem).
-
-- Modules de la bibliothèque standard: :mod:`pdb`
-
-  Ainsi, pour déboguer un script, il est possible de l'exécuter sous
-  le contrôle du débogueur `pdb
-  <https://docs.python.org/2/library/pdb.html>`_ en s'interrompant dès
-  la 1ère instruction::
-
-    python -m pdb script.py
-    (Pdb)
-
-  Commandes:
-
-  * `h[elp] [command]`: aide en ligne
-  * `q[uit]`: quitter
-  * `r[un] [args]`: exécuter le programme avec les arguments
-  * `d[own]/u[p]`: monter/descendre dans le stack
-    (empilement des appels de fonction)
-  * `p expression`: afficher le résultat de l'expression (`pp`:
-    *pretty-print*)
-  * `l[ist] [first[,last]]`: afficher le code source autour de
-    l'instruction courante (`ll`: *long list*)
-  * `n[ext]/s[tep]`: exécuter l'instruction suivante (sans s'y
-    attarder/en s'y attardant)
-  * `unt[il]`: continuer l'exécution jusqu'à la ligne suivante (utile
-    pour les boucles)
-  * `c[ont[inue]]`: continuer l'exécution (jusqu'à la prochaine
-    interruption ou la fin du programme)
-  * `r[eturn]`: continuer l'exécution jusqu'à la sortie de la fonction
-  * `b[reak] [[filename:]lineno | function[, condition]]`: mettre en
-    place un point d'arrêt (`tbreak` pour un point d'arrêt
-    *temporaire*). Sans argument, afficher les points d'arrêts déjà
-    définis.
-  * `disable/enable [bpnumber]`: désactiver/réactiver un point
-    d'arrêt
-  * `cl[ear] [bpnumber]`: éliminer un point d'arrêt (ou tous)
-  * `ignore bpnumber [count]`: ignorer un point d'arrêt (une ou
-    plusieurs fois)
-  * `condition bpnumber`: ajouter une condition à un point d'arrêt
-  * `commands [bpnumber]`: ajouter des instructions à un point d'arrêt
-
-- Commandes :program:`ipython`: `%run`, `%debug`, `%pdb`
-
-  Si un script exécuté sous :program:`ipython` (commande `%run`)
-  génère une exception, il est possible d'inspecter l'état de la
-  mémoire au moment de l'erreur avec la commande `%debug`, qui lance
-  une session :mod:`pdb` au point d'arrêt.
-
-Profilage et optimisation
--------------------------
-
-.. Warning:: *Premature optimization is the root of all evil* --
-   Donald Knuth
-
-Le profilage permet de déterminer le temps passé dans chacune des
-sous-fonctions d'un code, afin d'y identifier les parties à optimiser.
-
-- `python -O`, `__debug__`, `assert`
-- :mod:`timeit` et `%timeit` sous :program:`ipython`
-- `Performance tips
-  <https://wiki.python.org/moin/PythonSpeed/PerformanceTips>`_
-- `Tutoriel de profilage
-  <http://scikit-learn.sourceforge.net/dev/developers/performance.html#profiling-python-code>`_
-- `cython <http://cython.org/>`_ est un langage de programmation
-  **compilé** très similaire à Python.  Il permet d'écrire des
-  extensions en C avec la facilité de python (voir notamment `Working
-  with Numpy
-  <http://docs.cython.org/en/latest/src/tutorial/numpy.html>`_)
 
 *Python packages*
 -----------------

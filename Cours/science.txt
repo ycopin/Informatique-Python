@@ -699,6 +699,8 @@ p.ex.
   :mod:`numpy`, notamment par l'utilisation des :abbr:`GPU (Graphics
   Processing Unit)` et de code C généré à la volée.
 
+Voir également :ref:`ProfOpt`.
+
 .. _td6:
 
 Scipy
