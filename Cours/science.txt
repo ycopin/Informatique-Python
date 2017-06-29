@@ -610,10 +610,7 @@ array([ 0.35943269,  1.64455841, -1.        ,  1.48331773,  2.23438981])
 
 .. Note:: Les tableaux *évolués* de :mod:`numpy` sont parfois
    suffisants, mais pour une utilisation avancée, il peut être plus
-   pertinent d'invoquer les bibliothèque dédiées :ref:`myPandas`
-   (structuration et analyse de données hétérogènes) ou
-   :ref:`myXarray` (structuration de données homogènes de dimension
-   arbitraire).
+   pertinent d'invoquer les bibliothèque dédiées :ref:`myPandas`.
 
 Entrées/sorties
 ---------------
