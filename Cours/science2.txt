@@ -959,8 +959,7 @@ Démonstration
   <http://www.astrobetter.com/blog/2014/07/07/astropy-tutorials-learn-how-to-do-common-astro-tasks-with-astropy-and-python/>`_
 
 .. Note:: n'oubliez pas de citer [Astropy13]_ ou de `mentionner
-   l'utilisation
-   <https://github.com/astropy/astropy/blob/master/CITATION>`_
+   l'utilisation <http://www.astropy.org/acknowledging.html>`_
    d'astropy dans vos publications et présentations.
 
 

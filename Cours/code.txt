@@ -10,11 +10,11 @@ Développer en python
     3  Outils de développement
       3.1  *Integrated Development Environment*
       3.2  Vérification du code
-      3.3  Documentation
-      3.4  Débogage
-      3.5  Profilage et optimisation
-      3.6  Cython
-      3.7  *Python packages*
+      3.3  Débogage
+      3.4  Profilage et optimisation
+      3.5  Documentation
+      3.6  *Python packages*
+      3.7  Intégration continue
       3.8  Python 2 vs. python 3
       3.9  Système de gestion de versions
 
@@ -405,16 +405,17 @@ les parties qui gagneront à être optimisées.
 Une fois identifiée la partie du code à optimiser, quelques conseils
 généraux:
 
-* utiliser des opérations sur les tableaux, plutôt que sur des
+* En cas de doute, favoriser la lisibilité aux performances
+* Utiliser des opérations sur les tableaux, plutôt que sur des
   éléments individuels (*vectorization*): listes en compréhension,
   tableaux :mod:`numpy` (qui ont eux-mêmes été optimisés)
 * `cython <http://cython.org/>`_ est un langage de programmation
-  **compilé** très similaire à Python.  Il permet d'écrire des
+  **compilé** très similaire à python.  Il permet d'écrire des
   extensions en C avec la facilité de python (voir notamment `Working
   with Numpy
   <http://docs.cython.org/en/latest/src/tutorial/numpy.html>`_)
 * `numba <http://numba.pydata.org/>`_ permet *automagiquement* de
-  compiler *à la volée* (:abbr:`JIT(Just In Time)`) du pur code Python
+  compiler *à la volée* (:abbr:`JIT(Just In Time)`) du pur code python
   via le compilateur `LLVM <http://llvm.org/>`_, avec une optimisation
   selon le CPU et le GPU utilisés, p.ex.::
 
@@ -540,6 +541,33 @@ Quelques liens d'introduction:
 - `Pro-Git book <https://git-scm.com/book/en/v2>`_, le livre « officiel »
 - `Git Immersion <http://gitimmersion.com/>`_
 - `Git Magic <http://www-cs-students.stanford.edu/~blynn/gitmagic/>`_
+
+Intégration continue
+--------------------
+
+L'intégration continue est un ensemble de pratiques de développement
+logiciel visant à s'assurer de façon systématique que chaque
+modification du code n'induit aucune *régression*, et passe l'ensemble
+des tests.  Cela passe généralement par la mise en place d'un système
+de gestion des sources, auquel est accolé un mécanisme automatique de
+compilation (*build*), de déploiement sur les différentes
+infrastructures, d'éxecution des tests (unitaires, intégration,
+fonctionnels, etc.) et de mise à disposition des résultats, de mise en
+ligne de la documentation, etc.
+
+La plupart des développements des logiciels *open source* majeurs se
+fait maintenant sous intégration continue en utilisant des services en
+ligne directement connectés au dépôt source. Exemple sur astropy_:
+
+* `Travis CI <https://travis-ci.org/astropy/astropy>`_ intégration
+  continue
+* `Coveralls <https://coveralls.io/github/astropy/astropy>`_ taux de
+  couverture des tests unitaires
+* `Readthedocs <https://readthedocs.org/projects/astropy/>`_
+  documentation en ligne
+* `Depsy <http://depsy.org/package/python/astropy>`_ mise en valeur du
+  développement logiciel dans le monde académique (*measure the value
+  of software that powers science*)
 
 .. rubric:: Notes de bas de page
 
