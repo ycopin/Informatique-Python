@@ -40,14 +40,28 @@ def pull(x, dx):
 
 if __name__ == '__main__':
 
-    n = 100
+    import matplotlib.pyplot as P
+    import scipy.stats as SS
+
+    n = 1000
     mu = 1.
     sig = 2.
 
     # Normally distributed random sample of size n, with mean=mu and std=sig
     x = N.random.normal(loc=mu, scale=sig, size=n)
-    dx = N.ones_like(x) * sig               # Formal (true) errors
+    dx = N.full_like(x, sig)              # Formal (true) errors
 
     p = pull(x, dx)                       # Pull computation
 
+    m, s = p.mean(), p.std(ddof=1)
     print "Pull: mean={:.2f}, std={:.2f}".format(p.mean(), p.std(ddof=1))
+
+    fig, ax = P.subplots()
+    _, bins, _ = ax.hist(p, bins='auto', normed=True,
+                         histtype='stepfilled')
+    y = N.linspace(-3, 3)
+    ax.plot(y, SS.norm.pdf(y), label=ur"$\mathcal{N}$(µ=0, σ²=1)")
+    ax.set(title='Pull distribution', xlabel='Pull')
+    ax.legend()
+
+    P.show()
