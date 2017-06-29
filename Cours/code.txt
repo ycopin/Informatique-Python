@@ -342,6 +342,16 @@ d'exécution ou juste après une erreur (analyse post-mortem).
   une session :mod:`pdb` au point d'arrêt.  `%pdb on` lance
   systématiquement le débogueur à chaque exception.
 
+L'activité de débogage s'intégre naturellement à la nécessité d'écrire
+des tests unitaires:
+
+1. trouver un bug
+2. écrire un test qui aurait du être validé en l'absence du bug
+3. corriger le code jusqu'à validation du test
+
+Vous aurez alors au final corrigé le bug, *et* écrit un test
+s'assurant que ce bug ne réapparaîtra pas inopinément.
+
 .. _ProfOpt:
 
 Profilage et optimisation
@@ -417,7 +427,7 @@ généraux:
 * `numba <http://numba.pydata.org/>`_ permet *automagiquement* de
   compiler *à la volée* (:abbr:`JIT(Just In Time)`) du pur code python
   via le compilateur `LLVM <http://llvm.org/>`_, avec une optimisation
-  selon le CPU et le GPU utilisés, p.ex.::
+  selon le CPU (éventuellement le GPU) utilisé, p.ex.::
 
     from numba import guvectorize
 
