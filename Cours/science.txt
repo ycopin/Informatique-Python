@@ -790,9 +790,9 @@ Matplotlib
 
 `Matplotlib <http://matplotlib.org/>`_ est une bibliothèque graphique de
 visualisation 2D (avec un support pour la 3D, l'animation et l'interactivité),
-permettant des sorties de haute qualité «~prêtes à publier~».  C'est à la fois
+permettant des sorties de haute qualité « prêtes à publier ».  C'est à la fois
 une bibliothèque de *haut niveau*, fournissant des fonctions de visualisation
-«~clé en main~» (échelle logarithmique, histogramme, courbes de niveau, etc.,
+« clé en main » (échelle logarithmique, histogramme, courbes de niveau, etc.,
 voir la `galerie <http://matplotlib.org/gallery.html>`_), et de *bas niveau*,
 permettant de modifier tous les éléments graphiques de la figure (titre, axes,
 couleurs et styles des lignes, etc., voir `Anatomie d'une figure`_).
@@ -864,9 +864,13 @@ Ainsi, pour générer une figure contenant 2 (vertical) × 3 (horizontal) = 6
 systèmes d'axes (numérotés de 1 à 6)::
 
     fig = P.figure()
-    for i in range(1, 7):
+    for i in range(1, 4):
         ax = fig.add_subplot(2, 3, i, xticks=[], yticks=[])
         ax.text(0.5, 0.5, "subplot(2, 3, {})".format(i),
+                ha='center', va='center', size='large')
+    for i in range(3, 5):
+        ax = fig.add_subplot(2, 2, i, xticks=[], yticks=[])
+        ax.text(0.5, 0.5, "subplot(2, 2, {})".format(i),
                 ha='center', va='center', size='large')
 
 .. image:: subplots.*
