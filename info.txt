@@ -1,0 +1,30 @@
+.. :orphan:
+
+Informations pratiques 2017
+===========================
+
+- Formation CNRS *Analyse scientifique avec Python*
+- `Cours en ligne
+  <https://informatique-python.readthedocs.io/fr/>`_
+- Responsable: Yannick Copin `<ipnl.in2p3.fr>`, Bureau
+  420 de l'`IPNL <http://www.ipnl.in2p3.fr/>`_ (4 rue Fermi)
+
+.. rubric:: Calendrier
+
+Les séances ont lieu du lundi 10 au jeudi 13 Juillet 2017, 9h-12h et
+14h-17h, au bâtiment `Dirac de l'IPNL
+<https://www.ipnl.in2p3.fr/spip.php?rubrique252&lang=fr>`_.
+
+.. rubric:: Installations locales
+
+* Compléter votre `~/.bashrc`::
+
+    export PATH=$PATH:$HOME/.local/bin/
+    export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages/
+
+.. |+| image:: ./_static/smile.gif
+   :alt: Bon
+.. |~| image:: ./_static/err.gif
+   :alt: Moyen
+.. |-| image:: ./_static/frown.gif
+   :alt: Faible
