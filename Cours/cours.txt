@@ -44,7 +44,7 @@ Cette introduction repose essentiellement sur les outils suivants:
   l'interpréteur de base et la bibliothèque standard)
 - les bibliothèques scientifiques `Numpy et Scipy
   <https://scipy.org/install.html>`_,
-- la bibliothèque graphique: `Matplotlib
+- la bibliothèque graphique `Matplotlib
   <http://matplotlib.org/users/installing.html>`_,
 - un interpréteur évolué, p.ex. `ipython <http://ipython.org/install.html>`_,
 - un `éditeur de texte évolué
@@ -57,6 +57,7 @@ Ces logiciels peuvent être installés indépendamment, de préférence sous Lin
 <https://fr.wikipedia.org/wiki/Liste_des_distributions_Linux>`_), ou sous
 Windows ou MacOS.  Il existe également des distributions « clés en main »:
 
+- `Anaconda <https://www.continuum.io/>`_ (multi-plateforme)
 - `Python(x,y) <https://python-xy.github.io/>`_ (Windows)
 - `Enthought Canopy <https://www.enthought.com/products/canopy>`_
   (Windows, MacOS, Linux, gratuite pour les étudiants du supérieur)
@@ -204,7 +205,7 @@ Types de base
 - **Objets itérables**:
 
   - *Listes* `list`: `['a', 3, [1, 2], 'a']`
-  - *Listes immuables* `tuple`: `(2, 3.1, 'a', [])` (selon les
+  - *Listes immuables* `tuple`: `(2, 3.1, [1+0j], 'a')` (selon les
     conditions d'utilisation, les parenthèses ne sont pas toujours
     nécessaires)
   - *Listes à clés* `dict`: `{'a':1, 'b':[1, 2], 3:'c'}`
@@ -959,7 +960,7 @@ Au concept d'objet sont liées les notions de:
 
 .. rubric:: Exercices:
 
-:ref:`animaux`, :ref:`particle`, :ref:`life`
+:ref:`animaux`, :ref:`life`
 
 
 .. Espaces de noms et portée (*scope*)

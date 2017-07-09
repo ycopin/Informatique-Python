@@ -66,7 +66,7 @@ author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 # built documents.
 #
 # The short X.Y version.
-version = u"Formation Python - 24h"
+version = u"Formation Python"
 # The full version, including alpha/beta/rc tags.
 release = u'2017'
 

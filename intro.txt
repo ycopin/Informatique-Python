@@ -58,21 +58,7 @@ programes les plus complexes (projets de plus de 100000 lignes).
 * `Getting Started <https://www.python.org/about/gettingstarted/>`_
 * `Python Advocacy <https://docs.python.org/2/howto/advocacy.html>`_
 
-
-Organisation des TDs
-====================
-
-* :ref:`TD1 <td1>`: Introduction, types de base, structures de programmation
-* :ref:`TD2 <td2>`: Chaînes de caractères, objets itérables, fonctions,
-  bibliothèques
-* :ref:`TD3 <td3>`: Exceptions, classes, entrées-sorties
-* :ref:`TD4 <td4>`: Librairie standard, révisions
-* :ref:`TD5 <td5>`: Numpy
-* :ref:`TD6 <td6>`: Scipy & Co.
-* :ref:`TD7 <td7>`: Zen du python, révisions
-* TD8 et TD9: application à des exemples concrets
-
-.. * :ref:`Page projets <projets>`: Exemple de sujets de micro-projets
+.. include:: info.txt
 
 Index
 =====

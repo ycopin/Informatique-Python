@@ -529,7 +529,8 @@ ligne de la documentation, etc.
 
 La plupart des développements des logiciels *open source* majeurs se
 fait maintenant sous intégration continue en utilisant des services en
-ligne directement connectés au dépôt source. Exemple sur astropy_:
+ligne directement connectés au dépôt source. Exemple sur
+:ref:`myAstropy`:
 
 * `Travis CI <https://travis-ci.org/astropy/astropy>`_ intégration
   continue
