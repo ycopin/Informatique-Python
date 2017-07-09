@@ -8,7 +8,7 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
+# import sys
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -18,25 +18,31 @@ import sys
 # -- General configuration -----------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-#needs_sphinx = '1.0'
+needs_sphinx = '1.3'
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc',
-              'sphinx.ext.todo',
-              'sphinx.ext.mathjax',
-              'sphinx.ext.viewcode',
-              'sphinx.ext.intersphinx',
-              # Mail obfuscation (incompatible w/ readthedocs.org)
-              # 'sphinxcontrib.email',
-            ]
+extensions = [
+    # Standard extensions
+    'sphinx.ext.autodoc',
+    'sphinx.ext.todo',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.intersphinx',
+    # External extensions
+    #'sphinxcontrib.email',      # Mail obfuscation (incompatible w/ RTFD)
+    'nbsphinx',                 # Support for Ipython Notebooks
+]
 
 # Intersphinx configuration
 intersphinx_mapping = {
     'python': ('https://docs.python.org/2', None),
-    'numpy': ('http://docs.scipy.org/doc/numpy/', None),
-    'scipy': ('http://docs.scipy.org/doc/scipy/reference/', None),
+    'numpy': ('https://docs.scipy.org/doc/numpy/', None),
+    'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None),
     'matplotlib': ('http://matplotlib.org/', None),
+    'pandas': ('http://pandas.pydata.org/pandas-docs/stable/', None),
+    'xarray': ('http://xarray.pydata.org/en/stable/', None),
+    'astropy': ('http://docs.astropy.org/en/stable/', None),
 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -46,13 +52,13 @@ templates_path = ['_templates']
 source_suffix = '.txt'
 
 # The encoding of source files.
-#source_encoding = 'utf-8-sig'
+source_encoding = 'utf-8-sig'
 
 # The master toctree document.
 master_doc = 'index'
 
 # General information about the project.
-project = u'Outils numériques et programmation'
+project = u'Analyse scientifique avec Python'
 author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -60,9 +66,9 @@ author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 # built documents.
 #
 # The short X.Y version.
-version = u'École Normale Supérieure de Lyon - DSM-L3'
+version = u"Formation Python - 24h"
 # The full version, including alpha/beta/rc tags.
-release = '2014'
+release = u'2017'
 
 copyright = ', '.join((release, author))
 
@@ -79,7 +85,7 @@ today_fmt = '%d/%m/%y, %H:%M'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build',]
+exclude_patterns = ['_build', 'requirements.txt', '**.ipynb_checkpoints']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 default_role = 'literal'
@@ -111,7 +117,7 @@ pygments_style = 'sphinx'
 
 # A string of reStructuredText that will be included at the end of
 # every source file that is read.
-#rst_epilog = ""
+rst_epilog = u""
 
 # A string of reStructuredText that will be included at the start of
 # every source file that is read.
@@ -129,13 +135,26 @@ rst_prolog = u""
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'nature'
+#html_theme = 'default'
+# http://sphinx.pocoo.org/theming.html
+# default, sphinxdoc, scrolls, agogo, traditional, nature, haiku
 html_theme = 'pyramid'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
+
+# Alabaster: see http://alabaster.readthedocs.io/en/latest/customization.html
+html_theme_options = {
+    #'logo': 'logoEuclid_trans.png',        # Relative to $PROJECT/_static/
+    #'logo_name': version,
+    #'description': version,
+    #'sidebar_collapse': True,
+    #'show_powered_by': True,
+    'page_width': '80%',
+    #'sidebar_width': '20%',
+    #'fixed_sidebar': True,
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
@@ -149,7 +168,7 @@ html_theme = 'pyramid'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-#html_logo = None
+html_logo = '_static/logoEuclid_trans.png'  # Ne pas utiliser avec thème agogo
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -167,10 +186,18 @@ html_static_path = ['_static']
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
-#html_use_smartypants = True
+# html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
-#html_sidebars = {}
+# http://alabaster.readthedocs.io/en/latest/installation.html
+# html_sidebars = {
+#     '**': [
+#         'about.html',
+#         'navigation.html',
+#         #'relations.html',
+#         'searchbox.html',
+#         ]
+#     }
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
@@ -203,7 +230,7 @@ html_show_copyright = True
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'outilsNumeriquesEtProgrammation'
+htmlhelp_basename = 'AnalyseScientifiquePython'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -216,16 +243,18 @@ latex_elements = {
     'pointsize': '10pt',
 
     # Additional stuff for the LaTeX preamble.
-    'preamble': ur"""
-    \DeclareUnicodeCharacter{2605}{*} % ★
+    'preamble': r"""
+    \usepackage{lmodern}               % heavier typewriter font
+    \DeclareUnicodeCharacter{2605}{*}  % star
+    \DeclareUnicodeCharacter{9760}{*}  % skull
     """,
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'outilsNumeriquesEtProgrammation.tex',
-   u'Outils numériques et programmation',
+  ('index', 'analyseScientifiquePython.tex',
+   u'Analyse scientifique avec Python',
    u'Yannick Copin', 'manual'),
 ]
 

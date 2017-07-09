@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 .. Time-stamp: <2014-09-03 22:00 ycopin@lyonovae03.in2p3.fr>
+=======
+.. Time-stamp: <2017-06-30 07:27 ycopin@lyonovae03.in2p3.fr>
+>>>>>>> euclid
 
 .. _pullSol:
 
@@ -7,5 +11,9 @@ Distribution du *pull*
 
 .. literalinclude:: pull.py
    :linenos:
+
+.. figure:: pull.*
+   :align: center
+   :width: 60%
 
 **Source:** :download:`pull.py`

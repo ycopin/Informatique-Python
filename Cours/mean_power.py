@@ -29,9 +29,8 @@ def mean_power(alist, power=1):
     s = 0.                  # Initialisation de la variable *s* comme *float*
     for val in alist:       # Boucle sur les éléments de *alist*
         s += val ** power   # *s* est augmenté de *val* puissance *power*
-    s /= len(alist)         # = somme valeurs / nb valeurs
     # *mean* = (somme valeurs / nb valeurs)**(1/power)
-    mean = s ** (1 / power)
+    mean = (s / len(alist)) ** (1 / power)  # ATTENTION aux divisions euclidiennes!
 
     return mean
 

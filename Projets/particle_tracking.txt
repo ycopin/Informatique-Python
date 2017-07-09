@@ -1,10 +1,14 @@
 .. -*- mode: rst -*-
+<<<<<<< HEAD
 .. Time-stamp: <2013-11-05 18:48:23 ycopin>
 
 :orphan:
 
 Suivi de particule(s)
 =====================
+=======
+.. Time-stamp: <2017-05-29 00:49 ycopin@lyonovae03.in2p3.fr>
+>>>>>>> euclid
 
 .. sectionauthor:: Mathieu Leocmach <mathieu.leocmach@ens-lyon.fr>
 
@@ -43,6 +47,7 @@ expérimentales de particules Browniennes.
 
    **Figure:** Exemple d'image test où on voudra localiser les
    particules.
+<<<<<<< HEAD
 
 .. Local Variables: ...
 .. mode: rst ...
@@ -50,3 +55,5 @@ expérimentales de particules Browniennes.
 .. mode: flyspell ...
 .. indent-tabs-mode: nil ...
 .. End: ...
+=======
+>>>>>>> euclid

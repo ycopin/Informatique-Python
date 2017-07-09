@@ -7,6 +7,7 @@ Introduction
 .. role:: python(code)
    :language: python
 
+
 Pourquoi un module d'analyse scientifique ?
 ===========================================
 
@@ -73,9 +74,8 @@ Organisation des TDs
 
 .. * :ref:`Page projets <projets>`: Exemple de sujets de micro-projets
 
-.. Index
-.. =====
+Index
+=====
 
-.. * :ref:`genindex`
-.. * :ref:`search`
-.. * :ref:`modindex`
+* :ref:`genindex`
+* :ref:`search`

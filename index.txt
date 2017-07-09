@@ -1,5 +1,5 @@
 *********************************************************************
-                  Outils numériques et programmation
+                   Analyse scientifique avec Python
 *********************************************************************
 
 .. highlight:: python
@@ -16,16 +16,22 @@
    Cours/cours
    Cours/standard
    Cours/science
+   Cours/science2
+..   Cours/euclid
    Cours/code
    Cours/references
    Cours/exemples
    Exercices/exo
    Annales/annales
+   Projets/projets
 
 .. toctree::
    :hidden:
 
+   Cours/astropy
+   Cours/pokemon
    Exercices/integ
+   Exercices/fizz
    Exercices/pgcd
    Exercices/crible
    Exercices/carre
@@ -37,15 +43,17 @@
    Exercices/life
    Exercices/mad
    Exercices/pull
+   Exercices/numerique
    Exercices/anscombe
    Exercices/logistique
    Exercices/julia
+   Exercices/canon
    Exercices/equationEtat
    Exercices/solutions
    Annales/exam_1501
    Projets/projets
-   Projets/projets2013
 
 .. image:: _static/cc-by-nc.png
+   :align: center
    :alt: Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0
-   :target: http://creativecommons.org/licenses/by-nc/4.0/
+   :target: https://creativecommons.org/licenses/by-nc/4.0/

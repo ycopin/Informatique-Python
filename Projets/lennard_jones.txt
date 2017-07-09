@@ -1,10 +1,14 @@
 .. -*- mode: rst -*-
+<<<<<<< HEAD
 .. Time-stamp: <2013-11-05 18:48:44 ycopin>
 
 :orphan:
 
 Diagramme de phase du potentiel de Lennard-Jones
 ================================================
+=======
+.. Time-stamp: <2017-05-29 00:48 ycopin@lyonovae03.in2p3.fr>
+>>>>>>> euclid
 
 .. sectionauthor:: Mathieu Leocmach <mathieu.leocmach@ens-lyon.fr>
 
@@ -15,7 +19,11 @@ deux noyaux atomiques est :
 
 .. math::
 
+<<<<<<< HEAD
    E_p(r) = 4 E_0 \left[ \left( \frac{r_0}{r} \right)^{12} 
+=======
+   E_p(r) = 4 E_0 \left[ \left( \frac{r_0}{r} \right)^{12}
+>>>>>>> euclid
    - \left( \frac{r_0}{r} \right)^{6} \right]
 
 avec :math:`r_0` la distance pour laquelle :math:`E_p(r_0) = 0`.

@@ -5,14 +5,18 @@ Développer en python
 ..
     1  Le zen du python
       1.1  Us et coutumes
+      1.2  Principes de conception logicielle
     2  Développement piloté par les tests
     3  Outils de développement
       3.1  *Integrated Development Environment*
       3.2  Vérification du code
-      3.3  Documentation
-      3.4  Débugage et optimisation
-      3.5  *Python packages*
-      3.6  Python 2 vs. python 3
+      3.3  Débogage
+      3.4  Profilage et optimisation
+      3.5  Documentation
+      3.6  *Python packages*
+      3.7  Système de gestion de versions
+      3.8  Intégration continue
+    4  Python 2 vs. python 3
 
 
 .. _td7:
@@ -77,25 +81,30 @@ Une traduction libre en français:
 Us et coutumes
 --------------
 
-- *Easier to Ask for Forgiveness than Permission* (`try ... except`)
 - *Fail early, fail often, fail better!* (`raise`)
+- *Easier to Ask for Forgiveness than Permission* (`try ... except`)
 - le *Style Guide for Python Code* (:pep:`8`)
 - `Idioms and Anti-Idioms in Python
   <https://docs.python.org/2/howto/doanddont.html>`_
 - `Code Like a Pythonista: Idiomatic Python
   <http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html>`_
 - `Google Python Style Guide
-  <http://google-styleguide.googlecode.com/svn/trunk/pyguide.html>`_
+  <https://google.github.io/styleguide/pyguide.html>`_
+- `The Best of the Best Practices (BOBP) Guide for Python
+  <https://gist.github.com/sloria/7001839>`_
 
 .. rubric:: Quelques conseils supplémentaires:
 
 - « Ne réinventez pas la roue, sauf si vous souhaitez en savoir plus
   sur les roues » (Jeff Atwood [#wheel]_): cherchez si ce que vous
-  voulez faire n'a pas déjà été fait (éventuellement en mieux...),
-  construisez dessus (en citant évidemment vos sources), et contribuez
-  si possible!
-- Codez *proprement*: commentez votre code, utilisez des noms de
-  variable qui ont un sens, créez des objets si nécessaire, etc.
+  voulez faire n'a pas déjà été fait (éventuellement en mieux...) pour
+  vous concentrer sur *votre* valeur ajoutée, réutilisez le code (en
+  citant évidemment vos sources), améliorez le, et contribuez en
+  retour si possible!
+- Écrivez des programmes pour les humains, pas pour les ordinateurs:
+  codez *proprement*, structurez vos algorithmes, commentez votre
+  code, utilisez des noms de variable qui ont un sens, soignez le
+  style et le formatage, etc.
 - Codez proprement *dès le début*: ne croyez pas que vous ne relirez
   jamais votre code (ou même que personne n'aura jamais à le lire), ou
   que vous aurez le temps de le refaire mieux plus tard...
@@ -109,6 +118,55 @@ Us et coutumes
   3. *Make it fast.*
 
 - *Respectez* le zen du python, il vous le rendra.
+
+Principes de conception logicielle
+----------------------------------
+
+La bonne conception d'un programme va permettre de gérer efficacement la
+complexité des algorithmes, de faciliter la maintenance (p.ex. correction des
+erreurs) et d'accroître les possibilités d'extension.
+
+**Modularité**
+  Le code est structuré en répertoires, fichiers, classes, méthodes et
+  fonctions.  Les blocs ne font pas plus de quelques dizaines de lignes, les
+  fonctions ne prennent que quelques arguments, la structure logique n'est pas
+  trop complexe, etc.
+
+  En particulier, le code doit respecter le *principe de responsabilité
+  unique*: chaque entité élémentaire (classe, méthode, fonction) ne doit avoir
+  qu'une unique raison d'exister, et ne pas tenter d'effectuer plusieurs tâches
+  sans rapport direct (p.ex. lecture d'un fichier de données *et* analyse des
+  données).
+
+**Flexibilité**
+  Une modification du comportement du code (p.ex. l'ajout d'une nouvelle
+  fonctionnalité) ne nécessite de changer le code qu'en un nombre restreint de
+  points.
+
+  Un code *rigide* devient rapidement difficile à faire évoluer, puisque chaque
+  changement requiert un grand nombre de modifications.
+
+**Robustesse**
+  La modification du code en un point ne change pas de façon inopinée le
+  comportement dans une autre partie *a priori* non reliée.
+
+  Un code *fragile* est facile à modifier, mais chaque modification peut avoir
+  des conséquences inattendues et le code tend à devenir instable.
+
+**Réutilisabilité**
+  La réutilisation d'une portion de code ne demande pas de changement majeur,
+  n'introduit pas trop de dépendances, et ne conduit pas à une duplication du
+  code.
+
+L'application de ces principes de développement dépend évidemment de l'objectif
+final du code:
+
+- une bibliothèque *centrale* (utilisée par de nombreux programmes) favorisera
+  la robustesse et la réutilisabilité au dépend de la flexibilité: elle devra
+  être particulièrement bien pensée, et ne pourra être modifiée qu'avec
+  parcimonie;
+- inversement, un script d'analyse de haut niveau, d'utilisation restreinte,
+  pourra être plus flexible mais plus fragile et peu réutilisable.
 
 
 .. _TDD:
@@ -137,7 +195,7 @@ Diviser pour mieux régner: chaque fonction, classe ou méthode est
 testée indépendemment.  Ainsi, lorsqu'un nouveau morceau de code ne
 passe pas les tests qui y sont associés, il est certain que l'erreur
 provient de cette nouvelle partie et non des fonctions ou objets que
-ce morceau de code utilise. On distingue ainsi hiérarchiquement:
+ce morceau de code utilise.  On distingue ainsi hiérarchiquement:
 
 1. Les tests unitaires vérifient individuellement chacune des
    fonctions, méthodes, etc.
@@ -146,11 +204,12 @@ ce morceau de code utilise. On distingue ainsi hiérarchiquement:
 3. Les tests système assurent le bon fonctionnement du programme dans
    sa globalité.
 
-Il est essentiel de garder tous les tests au cours du développement,
-ce qui permet de les réutiliser lorsque l'on veut compléter ou
-améliorer une partie du code. Si le nouveau code passe toujours les
-anciens test, on est alors sûr de ne pas avoir cassé les
-fonctionnalités précédentes.
+Il est très utile de transformer toutes les vérifications réalisées au
+cours du développement et du débogage sous forme de tests, ce qui
+permet de les réutiliser lorsque l'on veut compléter ou améliorer une
+partie du code.  Si le nouveau code passe toujours les anciens test,
+on est alors sûr de ne pas avoir cassé les fonctionnalités précédentes
+(régréssions).
 
 Nous avons déjà vu aux TD précédents plusieurs façon de rédiger des
 tests unitaires:
@@ -187,7 +246,7 @@ tests unitaires:
 
 * Le module :mod:`unittest` de la librairie standard permet à peu près
   la même chose que pytest_, mais avec une syntaxe souvent plus
-  lourde. :mod:`unittest` est étendu par le module non-standard nose_.
+  lourde.  :mod:`unittest` est étendu par le module non-standard nose_.
 
 
 Outils de développement
@@ -200,40 +259,201 @@ utiles pour développer en python.
 ------------------------------------
 
 - `idle <https://docs.python.org/2/library/idle.html>`_, l'IDE intégré à Python
-- :program:`emacs` + `python-mode` + `ropemacs` pour l'édition, et
+- :program:`emacs` + `python-mode` pour l'édition, et
   :program:`ipython` pour l'execution de code (voir `Python
   Programming In Emacs
-  <http://www.emacswiki.org/emacs/PythonProgrammingInEmacs>`_)
-- `spyder <http://code.google.com/p/spyderlib/>`_
+  <https://www.emacswiki.org/emacs/PythonProgrammingInEmacs>`_)
+- `spyder <https://github.com/spyder-ide/spyder>`_
 - `PythonToolkit <http://pythontoolkit.sourceforge.net/>`_
+- `pyCharm <https://www.jetbrains.com/pycharm/>`_ (la version `community` est
+  gratuite)
 - `Etc.
-  <http://en.wikipedia.org/wiki/List_of_integrated_development_environments_for_Python#Python>`_
+  <https://en.wikipedia.org/wiki/List_of_integrated_development_environments_for_Python#Python>`_
 
 Vérification du code
 --------------------
 
 Il s'agit d'outils permettant de vérifier *a priori* la validité
-syntaxique du code, de mettre en évidence des constructions
-dangereuses, les variables non-définies, etc.  Ces outils ne testent
-pas nécessairement la validité des algorithmes et de leur mise en
-oeuvre...
+stylistique et syntaxique du code, de mettre en évidence des
+constructions dangereuses, les variables non-définies, etc.  Ces
+outils ne testent pas nécessairement la validité des algorithmes et de
+leur mise en oeuvre...
 
+- `pycodestyle <https://github.com/PyCQA/pycodestyle/>`_ (ex-`pep8`) et
+  `autopep8 <https://github.com/hhatto/autopep8>`_
 - `pyflakes <https://pypi.python.org/pypi/pyflakes>`_
 - `pychecker <http://pychecker.sourceforge.net/>`_
 - `pylint <https://pypi.python.org/pypi/pylint>`_
-- `pep8 <https://github.com/jcrocholl/pep8>`_ et `autopep8
-  <https://github.com/hhatto/autopep8>`_
+
+Débogage
+--------
+
+Les débogueurs permettent de se « plonger » dans un code en cours
+d'exécution ou juste après une erreur (analyse post-mortem).
+
+- Module de la bibliothèque standard: :mod:`pdb`
+
+  Pour déboguer un script, il est possible de l'exécuter sous le
+  contrôle du débogueur `pdb
+  <https://docs.python.org/2/library/pdb.html>`_ en s'interrompant dès
+  la 1ère instruction::
+
+    python -m pdb script.py
+    (Pdb)
+
+  Commandes (très similaires à `gdb
+  <http://sourceware.org/gdb/current/onlinedocs/gdb/>`_):
+
+  * :samp:`h[elp] {[command]}`: aide en ligne
+  * :samp:`q[uit]`: quitter
+  * :samp:`r[un] {[args]}`: exécuter le programme avec les arguments
+  * :samp:`d[own]/u[p]`: monter/descendre dans le stack (empilement
+    des appels de fonction)
+  * :samp:`p {expression}`: afficher le résultat de l'expression (`pp`:
+    *pretty-print*)
+  * :samp:`l[ist] {[first[,last]]}`: afficher le code source autour de
+    l'instruction courante (`ll`: *long list*)
+  * :samp:`n[ext]/s[tep]`: exécuter l'instruction suivante (sans y entrer/en
+    y entrant)
+  * :samp:`unt[il]`: continuer l'exécution jusqu'à la ligne suivante (utile
+    pour les boucles)
+  * :samp:`c[ont[inue]]`: continuer l'exécution (jusqu'à la prochaine
+    interruption ou la fin du programme)
+  * :samp:`r[eturn]`: continuer l'exécution jusqu'à la sortie de la fonction
+  * :samp:`b[reak] {[[filename:]lineno | function[, condition]]}`:
+    mettre en place un point d'arrêt (`tbreak` pour un point d'arrêt
+    *temporaire*). Sans argument, afficher les points d'arrêts déjà
+    définis.
+  * :samp:`disable/enable {[bpnumber]}`: désactiver/réactiver tous ou
+    un point d'arrêt
+  * :samp:`cl[ear] {[bpnumber]}`: éliminer tous ou un point d'arrêt
+  * :samp:`ignore {bpnumber [count]}`: ignorer un point d'arrêt une ou
+    plusieurs fois
+  * :samp:`condition {bpnumber}`: ajouter une condition à un point d'arrêt
+  * :samp:`commands {[bpnumber]}`: ajouter des instructions à un point
+    d'arrêt
+
+- Commandes :program:`ipython`: :samp:`%run {monScript.py}`, `%debug`,
+  `%pdb`
+
+  Si un script exécuté sous :program:`ipython` (commande `%run`)
+  génère une exception, il est possible d'inspecter l'état de la
+  mémoire au moment de l'erreur avec la commande `%debug`, qui lance
+  une session :mod:`pdb` au point d'arrêt.  `%pdb on` lance
+  systématiquement le débogueur à chaque exception.
+
+L'activité de débogage s'intégre naturellement à la nécessité d'écrire
+des tests unitaires:
+
+1. trouver un bug
+2. écrire un test qui aurait du être validé en l'absence du bug
+3. corriger le code jusqu'à validation du test
+
+Vous aurez alors au final corrigé le bug, *et* écrit un test
+s'assurant que ce bug ne réapparaîtra pas inopinément.
+
+.. _ProfOpt:
+
+Profilage et optimisation
+-------------------------
+
+.. Warning:: *Premature optimization is the root of all evil* --
+   Donald Knuth
+
+Avant toute optimisation, s'assurer extensivement que le code
+fonctionne et produit les bons résultats dans tous les cas.  S'il
+reste trop lent ou gourmand en mémoire *pour vos besoins*, il peut
+être nécessaire de l'optimiser.
+
+Le `profilage <https://docs.python.org/2/library/profile.html>`_
+permet de déterminer le temps passé dans chacune des sous-fonctions
+d'un code (ou ligne par ligne: `line profiler
+<https://github.com/rkern/line_profiler>`_, ou selon l'utilisation de
+la mémoire: `memory profiler
+<https://pypi.python.org/pypi/memory_profiler>`_), afin d'y identifier
+les parties qui gagneront à être optimisées.
+
+- `python -O`, `__debug__`, `assert`
+
+  Il existe un mode « optimisé » de python (option `-O`), qui pour
+  l'instant ne fait pas grand chose (et n'est donc guère utilisé....):
+
+  * la variable interne `__debug__` passe de `True` à `False`,
+  * les instructions `assert` ne sont pas exécutés.
+
+- :mod:`timeit` et :samp:`%timeit {statement}` sous
+  :program:`ipython`::
+
+     In [1]: def t1(n):
+     ...:     l = []
+     ...:     for i in range(n):
+     ...:         l.append(i**2)
+     ...:     return l
+     ...:
+     ...: def t2(n):
+     ...:     return [ i**2 for i in xrange(n) ]
+     ...:
+     ...: def t3(n):
+     ...:     return N.arange(n)**2
+     ...:
+     In [2]: %timeit t1(10000)
+     1000 loops, best of 3: 950 µs per loop
+     In [3]: %timeit t2(10000)
+     1000 loops, best of 3: 599 µs per loop
+     In [4]: %timeit t3(10000)
+     10000 loops, best of 3: 18.1 µs per loop
+
+- :mod:`cProfile` & :mod:`pstats`, et :samp:`%prun {statement}` sous
+  :program:`ipython`::
+
+    $ python -m cProfile -o output.pstats monScript.py
+    $ python -m pstats output.pstats
+
+- `Tutoriel de profilage
+  <http://scikit-learn.sourceforge.net/dev/developers/performance.html#profiling-python-code>`_
+
+Une fois identifiée la partie du code à optimiser, quelques conseils
+généraux:
+
+* En cas de doute, favoriser la lisibilité aux performances
+* Utiliser des opérations sur les tableaux, plutôt que sur des
+  éléments individuels (*vectorization*): listes en compréhension,
+  tableaux :mod:`numpy` (qui ont eux-mêmes été optimisés)
+* `cython <http://cython.org/>`_ est un langage de programmation
+  **compilé** très similaire à python.  Il permet d'écrire des
+  extensions en C avec la facilité de python (voir notamment `Working
+  with Numpy
+  <http://docs.cython.org/en/latest/src/tutorial/numpy.html>`_)
+* `numba <http://numba.pydata.org/>`_ permet *automagiquement* de
+  compiler *à la volée* (:abbr:`JIT(Just In Time)`) du pur code python
+  via le compilateur `LLVM <http://llvm.org/>`_, avec une optimisation
+  selon le CPU (éventuellement le GPU) utilisé, p.ex.::
+
+    from numba import guvectorize
+
+    @guvectorize(['void(float64[:], intp[:], float64[:])'], '(n),()->(n)')
+    def move_mean(a, window_arr, out):
+        ...
+
+* À l'avenir, l'interpréteur CPython actuel sera éventuellement
+  remplacé par `pypy <http://pypy.org/>`_, basé sur une compilation
+  :abbr:`JIT(Just In Time)`.
+
+**Lien:** `Performance tips
+<https://wiki.python.org/moin/PythonSpeed/PerformanceTips>`_
 
 Documentation
 -------------
 
-.. https://wiki.python.org/moin/DocumentationTools
-
-* Outils de documentation, ou comment transformer automagiquement un
+* Outils de documentation, ou comment transformer *automagiquement* un
   code-source bien documenté en une documentation fonctionnelle.
 
-  - `Sphinx <http://sphinx-doc.org/>`_
-  - `reStructuredText for Sphinx <http://sphinx-doc.org/rest.html>`_
+  - `Sphinx <http://www.sphinx-doc.org/en/stable/>`_
+  - `reStructuredText for Sphinx
+    <http://www.sphinx-doc.org/en/stable/rest.html>`_
+  - `Awesome Sphinx <https://github.com/yoloseem/awesome-sphinxdoc>`_
+  - `apidoc <http://www.sphinx-doc.org/en/stable/man/sphinx-apidoc.html>`_
+    (documentation automatique)
 
 * Conventions de documentation:
 
@@ -242,50 +462,12 @@ Documentation
     <http://pythonhosted.org/an_example_pypi_project/sphinx.html>`_
   - `A Guide to NumPy/SciPy Documentation
     <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
+  - `Sample doc <http://matplotlib.org/sampledoc/>`_ (matplotlib)
 
+.. rubric:: Lien:
 
-Débugage et optimisation
-------------------------
-
-.. rubric:: Débogage
-
-Les débogueurs permettent de « plonger » dans un code au cours
-d'exécution ou juste après une erreur (analyse post-mortem).
-
-- Modules de la bibliothèque standard: :mod:`pdb`, :mod:`timeit`
-
-  Ainsi, pour déboguer un script, il est possible de l'exécuter sous
-  le contrôle du débogueur `pdb
-  <https://docs.python.org/2/library/pdb.html>`_ en s'interrompant dès la
-  1ère instruction::
-
-    python -m pdb script.py
-    (Pdb)
-
-- Commandes :program:`ipython`: `%run`, `%debug`, `%timeit`
-
-  Si un script exécuté sous `ipython` (commande `%run`) lève une
-  exception, il est possible d'inspecter l'état de la mémoire au
-  moment de l'erreur avec la commande `%debug`.
-
-.. rubric:: Profilage et optimisation
-
-.. Warning:: *Premature optimization is the root of all evil* --
-   Donald Knuth
-
-Le profilage permet de déterminer le temps passé dans chacune des
-sous-fonctions d'un code, afin d'y identifier les parties à optimiser.
-
-- `python -O`, `__debug__`, `assert`
-- `Performance tips
-  <https://wiki.python.org/moin/PythonSpeed/PerformanceTips>`_
-- `Tutoriel de profilage
-  <http://scikit-learn.sourceforge.net/dev/developers/performance.html#profiling-python-code>`_
-- `cython <http://cython.org/>`_: *write C-extensions in python-like language*
-  (`Working with Numpy <http://docs.cython.org/src/tutorial/numpy.html>`_)
-
-.. - `Guppy <http://guppy-pe.sourceforge.net/>`_: *object and heap memory
-..   sizing, profiling and analysis*
+`Documentation Tools
+<https://wiki.python.org/moin/DocumentationTools>`_
 
 *Python packages*
 -----------------
@@ -294,26 +476,108 @@ Comment installer/créer des modules externes:
 
 - `pip <https://pip.pypa.io/en/latest/>`_
 - `Hitchhiker’s Guide to Packaging
-  <http://the-hitchhikers-guide-to-packaging.readthedocs.org/en/latest/>`_
+  <http://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/>`_
+- `Packaging a python library
+  <https://blog.ionelmc.ro/2014/05/25/python-packaging/>`_
+- `Cookiecutter <http://cookiecutter.readthedocs.io/>`_ est un
+  générateur de squelettes de projet via des *templates* (pas
+  uniquement pour python).
+
+Système de gestion de versions
+------------------------------
+
+La gestion des versions du code permet de suivre avec précision
+l'historique des modifications du code (ou de tout autre projet), de
+retrouver les changements critiques, de développer des branches
+alternatives, de faciliter le travail collaboratif, etc.
+
+`Git <https://git-scm.com/>`_ est un :abbr:`VCS (Version Controling
+System)` particulièrement performant (p.ex. utilisé pour le
+développement du `noyau Linux <https://git.kernel.org/>`_ [#gitW]_).
+Il est souvent couplé à un dépôt en ligne faisant office de dépôt de
+référence et de solution de sauvegarde, et offrant généralement des
+solutions d'intégration continue, p.ex.
+
+* Les très célèbres `GitHub <https://github.com/>`_ et `GitLab
+  <https://gitlab.com/>`_, gratuits pour les projets libres
+* Pour des projets liés à votre travail, je conseille plutôt des
+  dépôts directement gérés par votre institution, p.ex. `GitLab-IN2P3
+  <https://gitlab.in2p3.fr/>`_
+
+Git_ mérite un cours en soi, et devrait être utilisé très largement
+pour l'ensemble de vos projets (p.ex. rédaction d'articles, de thèse
+de cours, fichiers de configuration, tests numériques, etc.)
+
+Quelques liens d'introduction:
+
+- `Pro-Git book <https://git-scm.com/book/en/v2>`_, le livre « officiel »
+- `Git Immersion <http://gitimmersion.com/>`_
+- `Git Magic <http://www-cs-students.stanford.edu/~blynn/gitmagic/>`_
+
+Intégration continue
+--------------------
+
+L'intégration continue est un ensemble de pratiques de développement
+logiciel visant à s'assurer de façon systématique que chaque
+modification du code n'induit aucune *régression*, et passe l'ensemble
+des tests.  Cela passe généralement par la mise en place d'un système
+de gestion des sources, auquel est accolé un mécanisme automatique de
+compilation (*build*), de déploiement sur les différentes
+infrastructures, d'éxecution des tests (unitaires, intégration,
+fonctionnels, etc.) et de mise à disposition des résultats, de mise en
+ligne de la documentation, etc.
+
+La plupart des développements des logiciels *open source* majeurs se
+fait maintenant sous intégration continue en utilisant des services en
+ligne directement connectés au dépôt source. Exemple sur astropy_:
+
+* `Travis CI <https://travis-ci.org/astropy/astropy>`_ intégration
+  continue
+* `Coveralls <https://coveralls.io/github/astropy/astropy>`_ taux de
+  couverture des tests unitaires
+* `Readthedocs <https://readthedocs.org/projects/astropy/>`_
+  documentation en ligne
+* `Depsy <http://depsy.org/package/python/astropy>`_ mise en valeur du
+  développement logiciel dans le monde académique (*measure the value
+  of software that powers science*)
 
 .. _python23:
 
 Python 2 vs. python 3
----------------------
+=====================
+
+Il existe de nombreux outils permettant de faciliter la transition 2.x
+→ 3.x:
+
+* L'interpréteur Python 2.7 dispose d'une option `-3` mettant en
+  évidence dans un code les parties qui devront être modifiées pour un
+  passage à Python 3.
+* Le script `2to3 <https://docs.python.org/2.7/library/2to3.html>`_
+  permet également d'automatiser la conversion du code 2.x en 3.x.
+* La bibliothèque standard :mod:`__future__` permet d'utiliser
+  nativement des constructions 3.x dans un code 2.x, p.ex.::
+
+    from __future__ import print_function  # Fonction print()
+    from __future__ import division        # Division non-euclidienne
+
+    print(1/2)                             # Affichera '0.5'
+
+* La librairie *non* standard `six <http://pythonhosted.org/six/>`_
+  fournit une couche de compatibilité 2.x-3.x, permettant de produire
+  de façon transparente un code compatible simultanément avec les 2
+  versions.
+
+.. Avertissement:: Si vous vous lancez dans un nouveau développement,
+   il est dorénavant nettement préférable d'utiliser exclusivement
+   Python 3.
+
+.. rubric:: Liens
 
 - `Python 2 or python 3?
   <https://wiki.python.org/moin/Python2orPython3>`_
 - `Porting Python 2 Code to Python 3
-  <http://python.readthedocs.org/en/latest/howto/pyporting.html>`_
+  <http://python.readthedocs.io/en/latest/howto/pyporting.html>`_
 - `Python 2/3 compatibility <http://python-future.org/>`_
-- `2to3 <https://docs.python.org/3/library/2to3.html>`_
-
-.. Gestion de versions
-.. -------------------
-
-.. - `git <http://git-scm.com/>`_
-.. - `git@py4science <http://fperez.org/py4science/git.html>`_
-
 
 .. rubric:: Notes de bas de page
 
@@ -325,6 +589,8 @@ Python 2 vs. python 3
    more about wheels* » -- Jeff Atwood
 .. [#opt] « *Premature optimization is the root of all evil* » --
    Donald Knuth
+.. [#gitW] Et maintenant du `code Windows
+   <https://arstechnica.com/information-technology/2017/05/90-of-windows-devs-now-using-git-creating-1760-windows-builds-per-day/>`_!
 
-.. _pytest: http://pytest.org/
-.. _nose:   http://nose.readthedocs.org/
+.. _pytest: https://docs.pytest.org/en/latest/
+.. _nose:   http://nose.readthedocs.io/en/latest/

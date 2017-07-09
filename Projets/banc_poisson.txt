@@ -1,16 +1,24 @@
 .. -*- mode: rst -*-
+<<<<<<< HEAD
 .. Time-stamp: <2015-01-13 12:49:18 ycopin>
 
 :orphan:
 
 Auto-organisation d'un banc de poissons
 ---------------------------------------
+=======
+.. Time-stamp: <2017-05-29 00:50 ycopin@lyonovae03.in2p3.fr>
+>>>>>>> euclid
 
 .. sectionauthor:: Hanna Julienne <hanna.julienne@gmail.com>
 
 La coordination d'un `banc de poissons
 <https://www.youtube.com/watch?v=cIgHEhziUxU>`_ ou d'un `vol d'oiseaux
+<<<<<<< HEAD
 <http://vimeo.com/31158841>`_ est tout à fait frappante: les milliers
+=======
+<https://vimeo.com/31158841>`_ est tout à fait frappante: les milliers
+>>>>>>> euclid
 d'individus qui composent ces structures se meuvent comme un seul.  On observe
 aussi, dans les bancs de poisson, d'impressionnants comportements d'évitement
 des prédateurs (`flash expansion, fountain effect
@@ -72,6 +80,7 @@ Ce projet vise à :
   cohérence du comportment et éventuellement inventer des mesures pour
   rendre compte de manière quantifier de cette cohérence.
 
+<<<<<<< HEAD
 Suggestions :
 
 .. Attention:: Les suggestions sont difficiles à réaliser. On
@@ -82,6 +91,9 @@ Suggestions :
 * modéliser la réponse des individus face à un prédateur
 
 Liens :
+=======
+.. rubric:: Liens :
+>>>>>>> euclid
 
 * `Craig Reynolds Boids <http://www.red3d.com/cwr/boids/>`_
 * `Décrypter les interactions entre poissons au sein d'un banc

@@ -1,0 +1,1013 @@
+.. _science2:
+
+Bibliothèques scientifiques avancées
+####################################
+
+.. contents:: Table des matières
+..
+    1  Pandas & xarray
+      1.1  Structures
+      1.2  Accès aux données
+      1.3  Manipulation des données
+      1.4  Regroupement & agrégation de données
+      1.5  Visualisations
+      1.6  Xarray
+    2  Astropy
+      2.1  Tour d'horizon
+      2.2  Démonstration
+    3  Autres librairies scientifiques
+
+
+.. _myPandas:
+
+Pandas & xarray
+===============
+
+.. index:: module: pandas
+
+pandas_ est une bibliothèque pour la structuration et l'analyse avancée de
+données *hétérogènes* (`PANel DAta`).  Elle fournit notamment:
+
+* des structures de données relationelles (« labellisées »), avec une
+  indexation simple ou hiérarchique (càd à plusieurs niveaux),
+* des méthodes d'alignement et d'agrégation des données, avec gestion des
+  données manquantes,
+* un support performant des labels temporels (p.ex. dates, de par son origine
+  dans le domaine de l'économétrie), et des statistiques « glissantes »,
+* de nombreuses fonctions d'entrée/sortie, d'analyse statistiques et de
+  visualisation.
+
+Les fonctionnalités de :mod:`pandas` sont *très* riches et couvrent de
+nombreux aspects (données manquantes, dates, analyse statistiques,
+etc.): il n'est pas question de toutes les aborder ici.  Avant de vous
+lancer dans une manipulation qui vous semble complexe, bien inspecter
+la `documentation <http://pandas.pydata.org/pandas-docs/stable/>`_,
+très complète (p.ex. les recettes du `cookbook
+<http://pandas.pydata.org/pandas-docs/stable/cookbook.html>`_), pour
+vérifier qu'elle n'est pas déjà implémentée ou documentée, ou pour
+identifier l'approche la plus efficace.
+
+.. Note:: La convention utilisée ici est « `import pandas as PD` ».
+
+.. Attention:: Les bibliothèques pandas_ et xarray_ sont encore en phase de
+   développement assez intense, et vont probablement être amenées à évoluer
+   significativement, et pas nécessairement de manière rétro-compatible. Nous
+   travaillons ici sur les versions:
+
+   * `pandas <http://pandas.pydata.org/>`_ `0.20.x
+     <http://pandas.pydata.org/pandas-docs/version/0.20/whatsnew.html>`_
+   * `xarray <http://xarray.pydata.org/>`_ `0.9.x
+     <http://xarray.pydata.org/en/v0.9.6/whats-new.html>`_
+
+Structures
+----------
+
+.. index::
+   pair: pandas; Series
+   pair: pandas; DataFrame
+
+**Références:** `Introduction to Data Structures
+<http://pandas.pydata.org/pandas-docs/stable/dsintro.html>`_
+
+Pandas dispose de deux grandes structures de données [#panels]_:
+
+==========================  ====  ===========
+Nom de la structure         Rang  Description
+==========================  ====  ===========
+:class:`pandas.Series`        1   Vecteur de données *homogènes* labellisées
+:class:`pandas.DataFrame`     2   Tableau structuré de colonnes *homogènes*
+==========================  ====  ===========
+
+>>> PD.Series(range(3))  # Série d'entiers sans indexation
+0    0
+1    1
+2    2
+dtype: int64
+>>> PD.Series(N.random.randn(3), index=list('abc'))  # Série de réels indexés
+a   -0.553480
+b    0.081297
+c   -1.845835
+dtype: float64
+>>> PD.DataFrame(N.random.randn(3, 4))
+          0         1         2         3
+0  1.570977 -0.677845  0.094364 -0.362031
+1 -0.136712  0.762300  0.068611  1.265816
+2 -0.697760  0.791288  0.449645 -1.105062
+>>> PD.DataFrame([(1, N.exp(1), 'un'), (2, N.exp(2), 'deux'), (3, N.exp(3), 'trois')],
+...              index=list('abc'), columns='i val nom'.split())
+   i        val    nom
+a  1   2.718282     un
+b  2   7.389056   deux
+c  3  20.085537  trois
+
+Pour mettre en évidence la puissance de Pandas, nous utiliserons le
+:ref:`catalogue des objets Messier <messier>` vu précédemment.  Le
+fichier peut être importé à l'aide de la function
+:func:`pandas.read_csv`, et le *dataframe* résultant est labellisé *à
+la volée* par la colonne `M` (:meth:`pandas.DataFrame.set_index`) :
+
+>>> messier = PD.read_csv("Messier.csv", comment='#')  # Lecture du fichier CSV
+>>> messier.set_index('M', inplace=True)  # Indexation sur la colonne "M"
+>>> messier.info()                        # Informations générales
+<class 'pandas.core.frame.DataFrame'>
+Index: 110 entries, M1 to M110
+Data columns (total 10 columns):
+NGC         108 non-null object
+Type        110 non-null object
+Mag         110 non-null float64
+Size        110 non-null float64
+Distance    110 non-null float64
+RA          110 non-null float64
+Dec         110 non-null float64
+Con         110 non-null object
+Season      110 non-null object
+Name        31 non-null object
+dtypes: float64(5), object(5)
+memory usage: 9.5+ KB
+>>> messier.head(3)  # Par défaut les 5 premières lignes
+     NGC Type  Mag  Size  Distance      RA     Dec  Con  Season         Name
+M
+M1  1952   Sn  8.4   5.0    1930.0   5.575  22.017  Tau  winter  Crab Nebula
+M2  7089   Gc  6.5  12.9   11600.0  21.558   0.817  Aqr  autumn          NaN
+M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring          NaN
+
+.. index::
+   pair: pandas; Index
+   pair: pandas; index
+   pair: pandas; columns
+   pair: pandas; values
+
+Un *dataframe* est caractérisé par son indexation
+:attr:`pandas.DataFrame.index` et ses colonnes
+:attr:`pandas.DataFrame.columns` (de type :class:`pandas.Index` ou
+:class:`pandas.MultiIndex`), et les valeurs des données
+:attr:`pandas.DataFrame.values`:
+
+>>> messier.index    # Retourne un Index
+Index([u'M1', u'M2', u'M3', ..., u'M108', u'M109', u'M110'],
+      dtype='object', name=u'M', length=110)
+>>> messier.columns  # Retourne un Index
+Index([u'NGC', u'Type', u'Mag', ..., u'Con', u'Season', u'Name'],
+      dtype='object')
+>>> messier.dtypes   # Retourne une Series indexée sur le nom des colonnes
+NGC          object
+Type         object
+Mag         float64
+Size        float64
+Distance    float64
+RA          float64
+Dec         float64
+Con          object
+Season       object
+Name         object
+dtype: object
+>>> messier.values
+array([['1952', 'Sn', 8.4, ..., 'Tau', 'winter', 'Crab Nebula'],
+       ['7089', 'Gc', 6.5, ..., 'Aqr', 'autumn', nan],
+       ...,
+       ['3992', 'Ba', 9.8, ..., 'UMa', 'spring', nan],
+       ['205', 'El', 8.5, ..., 'And', 'autumn', nan]], dtype=object)
+>>> messier.shape
+(110, 10)
+
+Une description statistique sommaire des colonnes numériques est
+obtenue par :meth:`pandas.DataFrame.describe`:
+
+>>> messier.drop(['RA', 'Dec'], axis=1).describe()
+              Mag        Size      Distance
+count  110.000000  110.000000  1.100000e+02
+mean     7.492727   17.719091  4.574883e+06
+std      1.755657   22.055100  7.141036e+06
+min      1.600000    0.800000  1.170000e+02
+25%      6.300000    6.425000  1.312500e+03
+50%      7.650000    9.900000  8.390000e+03
+75%      8.900000   17.300000  1.070000e+07
+max     10.200000  120.000000  1.840000e+07
+
+Accès aux données
+-----------------
+
+.. index::
+   pair: pandas; loc
+   pair: pandas; iloc
+   pair: pandas; at
+   pair: pandas; iat
+   pair: pandas; filter
+   pair: pandas; query
+
+**Référence:** `Indexing and Selecting Data
+<http://pandas.pydata.org/pandas-docs/stable/indexing.html>`_
+
+L'accès par colonne retourne une :class:`pandas.Series` (avec la même
+indexation) pour une colonne unique, ou un nouveau
+:class:`pandas.DataFrame` pour plusieurs colonnes:
+
+>>> messier.NGC  # Équivalent à messier['NGC']
+M
+M1      1952
+M2      7089
+        ...
+M109    3992
+M110     205
+Name: NGC, Length: 110, dtype: object
+>>> messier[['RA', 'Dec']]  # = messier.filter(items=('RA', 'Dec'))
+          RA     Dec
+M
+M1     5.575  22.017
+M2    21.558   0.817
+...      ...     ...
+M109  11.960  53.383
+M110   0.673  41.683
+[110 rows x 2 columns]
+
+L'accès par :class:`slice` retourne un nouveau *dataframe*:
+
+>>> messier[:6:2]       # Lignes 0 (inclus) à 6 (exclu) par pas de 2
+     NGC Type  Mag  Size  Distance      RA     Dec  Con  Season         Name
+M
+M1  1952   Sn  8.4   5.0    1930.0   5.575  22.017  Tau  winter  Crab Nebula
+M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring          NaN
+M5  5904   Gc  5.6  17.4    7520.0  15.310   2.083  Ser  summer          NaN
+
+L'accès peut également se faire par labels via :attr:`pandas.DataFrame.loc`:
+
+>>> messier.loc['M31']  # Retourne une Series indexée par les noms de colonne
+NGC                    224
+Type                    Sp
+                ...
+Season              autumn
+Name      Andromeda Galaxy
+Name: M31, Length: 10, dtype: object
+>>> messier.loc['M31', ['Type', 'Name']]           # Retourne une Series
+Type                  Sp
+Name    Andromeda Galaxy
+Name: M31, dtype: object
+>>> messier.loc[['M31', 'M51'], ['Type', 'Name']]  # Retourne un DataFrame
+    Type              Name
+M
+M31   Sp  Andromeda Galaxy
+M51   Sp  Whirlpool Galaxy
+>>> messier.loc['M31':'M33', ['Type', 'Name']]     # De M31 à M33 inclu
+    Type               Name
+M
+M31   Sp   Andromeda Galaxy
+M32   El                NaN
+M33   Sp  Triangulum Galaxy
+
+De façon symétrique, l'accès peut se faire par position (n° de ligne/colonne)
+via :attr:`pandas.DataFrame.iloc`, p.ex.:
+
+>>> messier.iloc[30:33, [1, -1]]  # Ici, l'indice 33 n'est PAS inclu!
+    Type               Name
+M
+M31   Sp   Andromeda Galaxy
+M32   El                NaN
+M33   Sp  Triangulum Galaxy
+>>> messier.iloc[30:33, messier.columns.get_loc('Name')]  # Mix des 2 approches
+M
+M31     Andromeda Galaxy
+M32                  NaN
+M33    Triangulum Galaxy
+Name: Name, dtype: object
+
+Les fonctions :attr:`pandas.DataFrame.at` et :attr:`pandas.DataFrame.iat`
+permettent d'accéder *rapidement* aux données individuelles:
+
+>>> messier.at['M31', 'NGC']  # 20× plus rapide que messier.loc['M31']['NGC']
+'224'
+>>> messier.iat[30, 0]        # 20× plus rapide que messier.iloc[0][0]
+'224'
+
+Noter qu'il existe une façon de filtrer les données sur les colonnes
+ou les labels:
+
+>>> messier.filter(regex='M.7', axis='index').filter('RA Dec'.split())
+         RA     Dec
+M
+M17  18.347 -16.183
+M27  19.993  22.717
+M37   5.873  32.550
+M47   7.610 -14.500
+M57  18.893  33.033
+M67   8.840  11.817
+M77   2.712   0.033
+M87  12.513  12.400
+M97  11.247  55.017
+
+Comme pour :mod:`numpy`, il est possible d'opérer une sélection
+booléenne:
+
+>>> messier.loc[messier['Con'] == 'UMa', ['NGC', 'Name']]
+       NGC             Name
+M
+M40   Win4       Winnecke 4
+M81   3031    Bode's Galaxy
+M82   3034     Cigar Galaxy
+M97   3587       Owl Nebula
+M101  5457  Pinwheel Galaxy
+M108  3556              NaN
+M109  3992              NaN
+>>> messier[messier['Season'].isin('winter spring'.split())].head(3)
+      NGC Type  Mag  Size  Distance      RA     Dec  Con  Season         Name
+M
+M1   1952   Sn  8.4   5.0    1930.0   5.575  22.017  Tau  winter  Crab Nebula
+M3   5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring          NaN
+M35  2168   Oc  5.3  28.0     859.0   6.148  24.333  Gem  winter          NaN
+>>> messier.loc[lambda df: N.radians(df.Size / 60) * df.Distance < 1].Name
+M
+M27           Dumbbell Nebula
+M40                Winnecke 4
+M57               Ring Nebula
+M73                       NaN
+M76    Little Dumbbell Nebula
+M78                       NaN
+M97                Owl Nebula
+Name: Name, dtype: object
+>>> messier.query("(Mag < 5) & (Size > 60)").Name
+M
+M7          Ptolemy's Cluster
+M24    Sagittarius Star Cloud
+M31          Andromeda Galaxy
+M42     Great Nebula in Orion
+M44           Beehive Cluster
+M45                  Pleiades
+Name: Name, dtype: object
+
+========================  =====================  =========
+Sélection                 Syntaxe                Résultat
+========================  =====================  =========
+Colonne unique            `df.col` or `df[col]`  :class:`pandas.Series`
+Liste de colonnes         `df[[c1, ...]]`        :class:`pandas.DataFrame`
+Lignes par tranche        `df[slice]`            :class:`pandas.DataFrame`
+Label unique              `df.loc[label]`        :class:`pandas.Series`
+Liste de labels           `df.loc[[lab1, ...]]`  :class:`pandas.DataFrame`
+Labels par tranche        `df.loc[lab1:lab2]`    :class:`pandas.DataFrame`
+Ligne entière par n°      `df.iloc[i]`           :class:`pandas.Series`
+Ligne partielle par n°    `df.iloc[i, [j,...]]`  :class:`pandas.Series`
+Valeur par labels         `df.at[lab, col]`      Scalaire
+Valeur par n°             `df.iat[i, j]`         Scalaire
+Ligne par sél. booléenne  `df.loc[sel]` or       :class:`pandas.DataFrame`
+                          `df[sel]` or
+                          `df.query("sel")`
+========================  =====================  =========
+
+.. index::
+   pair: pandas; drop
+   pair: pandas; dropna
+   pair: pandas; fillna
+
+:meth:`pandas.DataFrame.drop` permet d'éliminer une ou plusieurs
+colonnes d'un *dataframe*:
+
+>>> messier.drop(['RA', 'Dec'], axis=1).head(3)  # Élimination de colonnes
+     NGC Type  Mag  Size  Distance  Con  Season  Name
+M
+M1  1952   Sn  8.4   5.0    1930.0  Tau  winter  Crab Nebula
+M2  7089   Gc  6.5  12.9   11600.0  Aqr  autumn          NaN
+M3  5272   Gc  6.2  16.2   10400.0  CVn  spring          NaN
+
+:meth:`pandas.DataFrame.dropna` et :meth:`pandas.DataFrame.fillna`
+permettent de gérer les données manquantes (*NaN*):
+
+>>> messier.dropna(axis=0, how='any', subset=['NGC', 'Name']).head(3)
+     NGC Type  Mag  Size  Distance      RA     Dec  Con  Season               Name
+M
+M1  1952   Sn  8.4   5.0    1930.0   5.575  22.017  Tau  winter        Crab Nebula
+M6  6405   Oc  4.2  25.0     491.0  17.668 -32.217  Sco  summer  Butterfly Cluster
+M7  6475   Oc  3.3  80.0     245.0  17.898 -34.817  Sco  summer  Ptolemy's Cluster
+>>> messier.fillna('', inplace=True)  # Remplace les NaN à la volée
+>>> messier.head(3)
+     NGC Type  Mag  Size  Distance      RA     Dec  Con  Season         Name
+M
+M1  1952   Sn  8.4   5.0    1930.0   5.575  22.017  Tau  winter  Crab Nebula
+M2  7089   Gc  6.5  12.9   11600.0  21.558   0.817  Aqr  autumn
+M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring
+
+**Référence:** `Working with missing data
+<http://pandas.pydata.org/pandas-docs/stable/missing_data.html>`_
+
+.. Attention:: par défaut, beaucoup d'opérations retournent une
+   *copie* de la structure, sauf si l'opération se fait « sur place »
+   (`inplace=True`).  D'autres opérations d'accès retournent seulement
+   une *nouvelle vue* des mêmes données.
+
+   >>> df = PD.DataFrame(N.arange(12).reshape(3, 4),
+   ...                   index=list('abc'), columns=list('ABCD')); df
+      A  B   C   D
+   a  0  1   2   3
+   b  4  5   6   7
+   c  8  9  10  11
+   >>> df.drop('a', axis=0)
+      A  B   C   D
+   b  4  5   6   7
+   c  8  9  10  11
+   >>> colA = df['A']  # Nouvelle vue de la colonne 'A'
+   >>> colA += 1       # Opération sur place
+   >>> df              # la ligne 'a' est tjs là, la colonne 'A' a été modifiée
+      A  B   C   D
+   a  1  1   2   3
+   b  5  5   6   7
+   c  9  9  10  11
+
+   Lien: `Returning a view versus a copy
+   <http://pandas.pydata.org/pandas-docs/stable/indexing.html#returning-a-view-versus-a-copy>`_
+
+
+.. rubric:: Indéxation hiérarchique
+
+**Références:** `Multi-index / Advanced Indexing
+<http://pandas.pydata.org/pandas-docs/stable/advanced.html>`_
+
+.. index::
+   pair: pandas; reset_index
+   pair: pandas; set_index
+   pair: pandas; xs
+   pair: pandas; sort_index
+
+:class:`pandas.MultiIndex` offre une indexation *hiérarchique*,
+permettant de stocker et manipuler des données avec un nombre
+arbitraire de dimensions dans des structures plus simples.
+
+>>> saisons = messier.reset_index()                     # Élimine l'indexation actuelle
+>>> saisons.set_index(['Season', 'Type'], inplace=True) # MultiIndex
+>>> saisons.head(3)
+              M   NGC  Mag  Size  Distance      RA     Dec  Con         Name
+Season Type
+winter Sn    M1  1952  8.4   5.0    1930.0   5.575  22.017  Tau  Crab Nebula
+autumn Gc    M2  7089  6.5  12.9   11600.0  21.558   0.817  Aqr
+spring Gc    M3  5272  6.2  16.2   10400.0  13.703  28.383  CVn
+
+Les informations contenues sont toujours les mêmes, mais structurées
+différemment:
+
+>>> saisons.loc['spring'].head(3)  # Utilisation du 1er label
+        M   NGC  Mag  Size    Distance      RA     Dec  Con        Name
+Type
+Gc     M3  5272  6.2  16.2     10400.0  13.703  28.383  CVn
+Ds    M40  Win4  8.4   0.8       156.0  12.373  58.083  UMa  Winnecke 4
+El    M49  4472  8.4   8.2  18400000.0  12.497   8.000  Vir
+>>> saisons.loc['spring', 'El'].head(3)  # Utilisation des 2 labels
+               M   NGC  Mag  Size    Distance      RA    Dec  Con Name
+Season Type
+spring El    M49  4472  8.4   8.2  18400000.0  12.497   8.00  Vir
+       El    M59  4621  9.6   4.2  18400000.0  12.700  11.65  Vir
+       El    M60  4649  8.8   6.5  18400000.0  12.728  11.55  Vir
+
+La fonction :meth:`pandas.DataFrame.xs` permet des sélections sur les
+différents niveaux d'indexation:
+
+>>> saisons.xs('spring', level='Season').head(3) # = saisons.loc['spring']
+        M   NGC  Mag  Size    Distance      RA     Dec  Con        Name
+Type
+Gc     M3  5272  6.2  16.2     10400.0  13.703  28.383  CVn
+Ds    M40  Win4  8.4   0.8       156.0  12.373  58.083  UMa  Winnecke 4
+El    M49  4472  8.4   8.2  18400000.0  12.497   8.000  Vir
+>>> saisons.xs('El', level='Type').head(3) # Sélection sur le 2eme niveau
+          M   NGC  Mag  Size    Distance      RA     Dec  Con Name
+Season
+autumn  M32   221  8.1   7.0    920000.0   0.713  40.867  And
+spring  M49  4472  8.4   8.2  18400000.0  12.497   8.000  Vir
+spring  M59  4621  9.6   4.2  18400000.0  12.700  11.650  Vir
+
+Le (multi-)index n'est pas nécessairement trié à sa création,
+:meth:`pandas.sort_index` permet d'y remédier:
+
+>>> saisons[['M', 'NGC', 'Name']].head()
+              M   NGC         Name
+Season Type
+winter Sn    M1  1952  Crab Nebula
+autumn Gc    M2  7089
+spring Gc    M3  5272
+summer Gc    M4  6121
+Gc    M5  5904
+>>> saisons[['M', 'NGC', 'Name']].sort_index().head()
+                M   NGC                    Name
+Season Type
+autumn El     M32   221
+       El    M110   205
+       Gc      M2  7089
+       Gc     M15  7078  Great Pegasus Globular
+       Gc     M30  7099
+
+Manipulation des données
+------------------------
+
+**Références:** `Essential Basic Functionality
+<http://pandas.pydata.org/pandas-docs/stable/basics.html>`_
+
+Comme dans :mod:`numpy`, il est possible de modifier les valeurs,
+ajouter/retirer des colonnes ou des lignes, tout en gérant les données
+manquantes.
+
+.. Note:: l'interopérabilité entre :mod:`pandas` et :mod:`numpy` est
+   totale, toutes les fonctions Numpy peuvent prendre une structure
+   Pandas en entrée, et s'appliquer aux colonnes appropriées:
+
+   >>> N.mean(messier, axis=0)  # Moyenne sur les lignes → Series indexée sur les colonnes
+   Mag         7.492727e+00
+   Size        1.771909e+01
+   Distance    4.574883e+06
+   RA          1.303774e+01
+   Dec         9.281782e+00
+   dtype: float64
+
+>>> N.random.seed(0)
+>>> df = PD.DataFrame(
+        {'one': PD.Series(N.random.randn(3), index=['a', 'b', 'c']),
+         'two': PD.Series(N.random.randn(4), index=['a', 'b', 'c', 'd']),
+         'three': PD.Series(N.random.randn(3), index=['b', 'c', 'd'])})
+>>> df
+        one     three       two
+a  1.764052       NaN  2.240893
+b  0.400157 -0.151357  1.867558
+c  0.978738 -0.103219 -0.977278
+d       NaN  0.410599  0.950088
+>>> df['four'] = df['one'] + df['two']; df  # Création d'une nouvelle colonne
+        one     three       two      four
+a  1.764052       NaN  2.240893  4.004946
+b  0.400157 -0.151357  1.867558  2.267715
+c  0.978738 -0.103219 -0.977278  0.001460
+d       NaN  0.410599  0.950088       NaN
+>>> df.sub(df.loc['b'], axis='columns') # Soustraction d'une ligne à toutes les colonnes (axis=1)
+        one     three       two      four
+a  1.363895       NaN  0.373335  1.737230
+b  0.000000  0.000000  0.000000  0.000000
+c  0.578581  0.048138 -2.844836 -2.266255
+d       NaN  0.561956 -0.917470       NaN
+>>> df.sub(df['one'], axis='index') # Soustraction d'une colonne à toutes les lignes (axis=0 ou 'rows')
+   one     three       two      four
+a  0.0       NaN  0.476841  2.240893
+b  0.0 -0.551514  1.467401  1.867558
+c  0.0 -1.081957 -1.956016 -0.977278
+d  NaN       NaN       NaN       NaN
+
+.. index::
+   pair: pandas; sort_values
+   pair: pandas; idxmin
+
+>>> df.sort_values(by='a', axis=1) # Tri des colonnes selon les valeurs de la ligne 'a'
+        one       two     three
+a  1.764052  2.240893       NaN
+b  0.400157  1.867558 -0.151357
+c  0.978738 -0.977278 -0.103219
+d       NaN  0.950088  0.410599
+>>> df.min(axis=1) # Valeur minimale le long des colonnes
+a    1.764052
+b   -0.151357
+c   -0.977278
+d    0.410599
+dtype: float64
+>>> df.idxmin(axis=1) # Colonne des valeurs minimale le long des colonnes
+a      one
+b    three
+c      two
+d    three
+dtype: object
+
+>>> df.mean(axis=0)  # Moyenne sur toutes les lignes (gestion des données manquantes)
+one      1.047649
+three    0.052007
+two      1.020315
+dtype: float64
+
+.. Note:: Si les bibliothèques d'optimisation de performances
+   `Bottleneck <https://github.com/kwgoodman/bottleneck>`_ et `NumExpr
+   <https://github.com/pydata/numexpr>`_ sont installées,
+   :mod:`pandas` en bénéficiera de façon transparente.
+
+
+Regroupement & agrégation de données
+------------------------------------
+
+.. rubric:: Histogramme et discrétisation
+
+.. index::
+   pair: pandas; value_counts
+   pair: pandas; cut
+   pair: pandas; qcut
+   pair: pandas; sort_index
+
+Compter les objets Messier par constellation avec
+:func:`pandas.value_counts`:
+
+>>> PD.value_counts(messier['Con']).head(3)
+Sgr    15
+Vir    11
+Com     8
+Name: Con, dtype: int64
+
+Partitionner les objets en 3 groupes de magnitude (par valeurs:
+:func:`pandas.cut`, par quantiles: :func:`pandas.qcut`), et les
+compter:
+
+>>> PD.value_counts(PD.cut(messier['Mag'], 3)).sort_index() # Par valeurs
+(1.591, 4.467]     6
+(4.467, 7.333]    40
+(7.333, 10.2]     64
+Name: Mag, dtype: int64
+>>> PD.value_counts(PD.qcut(messier['Mag'], [0, .3, .6, 1])).sort_index()  # Par quantiles
+(1.599, 6.697]    36
+(6.697, 8.4]      38
+(8.4, 10.2]       36
+Name: Mag, dtype: int64
+
+.. rubric:: *Group-by*
+
+.. index::
+   pair: pandas; groupby
+   pair: pandas; agg
+
+**Référence:** `Group By: split-apply-combine
+<http://pandas.pydata.org/pandas-docs/stable/groupby.html>`_
+
+Pandas offre la possibilité de regrouper les données selon divers
+critères (:meth:`pandas.DataFrame.groupby`), de les agréger au sein
+de ces groupes et de stocker les résultats dans une structure avec
+indéxation hiérarchique (:meth:`pandas.DataFrame.agg`).
+
+>>> seasonGr = messier.groupby('Season')  # Retourne un DataFrameGroupBy
+>>> seasonGr.groups
+{'autumn': Index([u'M2', u'M15', ..., u'M103', u'M110'],
+       dtype='object', name=u'M'),
+ 'spring': Index([u'M3', u'M40', ..., u'M108', u'M109'],
+       dtype='object', name=u'M'),
+ 'summer': Index([u'M4', u'M5', ..., u'M102', u'M107'],
+       dtype='object', name=u'M'),
+ 'winter': Index([u'M1', u'M35', ..., u'M79', u'M93'],
+       dtype='object', name=u'M')}
+>>> seasonGr.size()
+Season
+autumn    14
+spring    38
+summer    40
+winter    18
+dtype: int64
+>>> seasonGr.get_group('winter').head(3)
+     Con     Dec  Distance  Mag   NGC         Name     RA  Size Type
+M
+M1   Tau  22.017    1930.0  8.4  1952  Crab Nebula  5.575   5.0   Sn
+M35  Gem  24.333     859.0  5.3  2168               6.148  28.0   Oc
+M36  Aur  34.133    1260.0  6.3  1960               5.602  12.0   Oc
+>>> seasonGr['Size'].agg([N.mean, N.std])  # Taille moyenne et stddev par groupe
+             mean        std
+Season
+autumn  24.307143  31.472588
+spring   7.197368   4.183848
+summer  17.965000  19.322400
+winter  34.261111  29.894779
+>>> seasonGr.agg({'Size': N.max, 'Mag': N.min})
+        Mag   Size
+Season
+autumn  3.4  120.0
+spring  6.2   22.0
+summer  3.3   90.0
+winter  1.6  110.0
+
+>>> magGr = messier.groupby(
+...     [PD.qcut(messier['Mag'], [0, .3, .6, 1],
+...              labels='Bright Medium Faint'.split()),
+...     "Season"])
+>>> magGr['Mag', 'Size'].agg({'Mag': ['count', 'mean'],
+...                           'Size': [N.mean, N.std]})
+                Mag                 Size
+              count      mean       mean        std
+Mag    Season
+Bright autumn     6  5.316667  45.200000  40.470878
+       spring     1  6.200000  16.200000        NaN
+       summer    15  5.673333  30.840000  26.225228
+       winter    13  5.138462  42.923077  30.944740
+Faint  autumn     4  9.225000   8.025000   4.768910
+       spring    30  9.236667   5.756667   2.272578
+       summer     7  8.971429   7.814286   9.135540
+       winter     3  8.566667   9.666667   6.429101
+Medium autumn     4  7.500000   9.250000   3.304038
+       spring     7  7.714286  12.085714   5.587316
+       summer    18  7.366667  11.183333   4.825453
+       winter     2  7.550000  14.850000   8.697413
+
+.. rubric:: Tableau croisé (*Pivot table*)
+
+.. index::
+   pair: pandas; pivot_table
+
+**Référence:** `Reshaping and Pivot Tables
+<http://pandas.pydata.org/pandas-docs/stable/reshaping.html>`_
+
+Calculer la magnitude et la taille moyennes des objets Messier selon
+leur type avec :meth:`pandas.DataFrame.pivot_table`:
+
+>>> messier['Mag Size Type'.split()].pivot_table(columns='Type')
+Type   As    Ba         Di  ...     Pl   Sn         Sp
+Mag   9.0  9.85   7.216667  ...  9.050  8.4   8.495652
+Size  2.8  4.80  33.333333  ...  3.425  5.0  15.160870
+
+Visualisations
+--------------
+
+.. index:: module: seaborn
+
+.. rubric:: Exemple:
+
+:ref:`Démonstration Pandas/Seaborn <Cours/pokemon.ipynb>` (notebook:
+:download:`pokemon.ipynb`) sur le jeu de données
+::download:`Pokemon.csv`.
+
+.. rubric:: Références:
+
+* `Visualization
+  <http://pandas.pydata.org/pandas-docs/stable/visualization.html>`_
+* `Seaborn: statistical data visualization
+  <http://seaborn.pydata.org/>`_
+
+.. rubric:: Autres exemples de visualisation de jeux de données complexes
+            (utilisation de pandas et seaborn)
+
+* `Iris Dataset <https://www.kaggle.com/benhamner/python-data-visualizations>`_
+* `Histoire des sujets télévisés
+  <https://github.com/AlexisEidelman/journaux_televises/blob/gh-pages/JT_notebook.ipynb>`_
+  |fr|
+
+.. rubric:: Liens
+
+* `Pandas Tutorial
+  <http://pandas.pydata.org/pandas-docs/stable/tutorials.html>`_
+* `Pandas Cookbook
+  <github.com/jvns/pandas-cookbook>`_
+* `Pandas Lessons for New Users <https://bitbucket.org/hrojas/learn-pandas>`_
+* `Practical Data Analysis <http://wavedatalab.github.io/datawithpython/>`_
+* `Modern Pandas <http://tomaugspurger.github.io/modern-1.html>`_
+* `Various tutorials
+  <http://pandas.pydata.org/pandas-docs/stable/tutorials.html#various-tutorials>`_
+
+.. rubric:: Exercices:
+
+* `Exercices for New Users <https://github.com/guipsamora/pandas_exercises>`_
+
+
+.. _myXarray:
+
+Xarray
+------
+
+.. index:: module: xarray
+
+xarray_ est une bibliothèque pour la structuration de données
+*homogènes* de dimension arbitraire.  Suivant la philosophie de la
+bibliothèque Pandas_ dont elle est issue (et dont elle dépend), elle
+permet notamment de nommer les différentes dimensions (*axes*) des
+tableaux (p.ex. `x.sum(axis='time')`), d'indexer les données
+(p.ex. `x.loc['M31']`), de naturellement gérer les opérations de
+*broadcasting*, des opérations de regroupement et d'agrégation
+(p.ex. `x.groupby(time.dayofyear).mean()`), une gestion plus facile
+des données manquantes et d'alignement des tableaux indexés
+(p.ex. `align(x, y, join='outer')`).
+
+  *pandas excels at working with tabular data. That suffices for many
+  statistical analyses, but physical scientists rely on N-dimensional arrays –
+  which is where xarray comes in.*
+
+.. index::
+   pair: xarray; DataArray
+   pair: xarray; DataSet
+   pair: xarray; loc
+   pair: xarray; sel
+
+:mod:`xarray` fournit deux structures principales, héritées du format `netCDF
+<http://www.unidata.ucar.edu/software/netcdf/>`_ :
+
+* :class:`xarray.DataArray`, un tableau N-D indexé généralisant le
+  :class:`pandas.Series`,
+* :class:`xarray.DataSet`, un dictionnaire regroupant plusieurs `DataArray`
+  alignés selon une ou plusieurs dimensions, et similaire au
+  :class:`pandas.DataFrame`.
+
+.. Note:: La convention utilisée ici est « `import xarray as X` ».
+
+>>> N.random.seed(0)
+>>> data = X.DataArray(N.arange(3*4, dtype=float).reshape((3, 4)), # Tableau de données
+...                    dims=('x', 'y'),            # Nom des dimensions
+...                    coords={'x': list('abc')},  # Indexation des coordonnées en 'x'
+...                    name='mesures',             # Nom du tableau
+...                    attrs=dict(author='Y. Copin'))  # Méta-données
+>>> data
+<xarray.DataArray 'mesures' (x: 3, y: 4)>
+array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.]])
+Coordinates:
+  * x        (x) |S1 'a' 'b' 'c'
+Dimensions without coordinates: y
+Attributes:
+    author:     Y. Copin
+>>> data.to_pandas()     # Conversion en DataFrame à indexation simple
+y    0    1     2     3
+x
+a  0.0  1.0   2.0   3.0
+b  4.0  5.0   6.0   7.0
+c  8.0  9.0  10.0  11.0
+>>> data.to_dataframe()  # Conversion en DataFrame multi-indexé (hiérarchique)
+     mesures
+x y
+a 0      0.0
+  1      1.0
+  2      2.0
+  3      3.0
+b 0      4.0
+  1      5.0
+  2      6.0
+  3      7.0
+c 0      8.0
+  1      9.0
+  2     10.0
+  3     11.0
+>>> data.dims
+('x', 'y')
+>>> data.coords
+Coordinates:
+  * x        (x) |S1 'a' 'b' 'c'
+>>> data.values
+array([[  0.,   1.,   2.,   3.],
+       [  4.,   5.,   6.,   7.],
+       [  8.,   9.,  10.,  11.]])
+>>> data.attrs
+OrderedDict([('author', 'Y. Copin')])
+
+>>> data[:, 1]             # Accès par indices
+<xarray.DataArray 'mesures' (x: 3)>
+array([ 1.,  5.,  9.])
+Coordinates:
+  * x        (x) |S1 'a' 'b' 'c'
+>>> data.loc['a':'b', -1]  # Accès par labels
+<xarray.DataArray 'mesures' (x: 2)>
+array([ 3.,  7.])
+Coordinates:
+  * x        (x) |S1 'a' 'b'
+>>> data.sel(x=['a', 'c'], y=2)
+<xarray.DataArray 'mesures' (x: 2)>
+array([  2.,  10.])
+Coordinates:
+  * x        (x) |S1 'a' 'c'
+
+>>> data.mean(dim='x')  # Moyenne le long de la dimension 'x' = data.mean(axis=0)
+<xarray.DataArray 'mesures' (y: 4)>
+array([ 4.,  5.,  6.,  7.])
+Dimensions without coordinates: y
+
+>>> data2 = X.DataArray(N.arange(6).reshape(2, 3) * 10,
+...                     dims=('z', 'x'), coords={'x': list('abd')})
+>>> data2.to_pandas()
+x   a   b   d
+z
+0   0  10  20
+1  30  40  50
+>>> data.to_pandas()  # REMINDER
+y    0    1     2     3
+x
+a  0.0  1.0   2.0   3.0
+b  4.0  5.0   6.0   7.0
+c  8.0  9.0  10.0  11.0
+>>> data2.values + data.values  # Opération sur des tableaux numpy incompatibles
+ValueError: operands could not be broadcast together with shapes (2,3) (3,4)
+>>> data2 + data                # Alignement automatique sur les coord. communes!
+<xarray.DataArray (z: 2, x: 2, y: 4)>
+array([[[  0.,   1.,   2.,   3.],
+        [ 14.,  15.,  16.,  17.]],
+       [[ 30.,  31.,  32.,  33.],
+        [ 44.,  45.,  46.,  47.]]])
+Coordinates:
+  * x        (x) object 'a' 'b'
+Dimensions without coordinates: z, y
+
+>>> data['isSmall'] = data.sum(dim='y') < 10; data  # Booléen "Somme sur y < 10"
+<xarray.DataArray 'mesures' (x: 3, y: 4)>
+array([[  0.,   1.,   2.,   3.],
+       [  4.,   5.,   6.,   7.],
+       [  8.,   9.,  10.,  11.]])
+Coordinates:
+  * x        (x) |S1 'a' 'b' 'c'
+    isSmall  (x) bool True False False
+Dimensions without coordinates: y
+>>> data.groupby('isSmall').mean(dim='x')  # Regroupement et agrégation
+<xarray.DataArray 'mesures' (isSmall: 2, y: 4)>
+array([[ 6.,  7.,  8.,  9.],
+       [ 0.,  1.,  2.,  3.]])
+Coordinates:
+  * isSmall  (isSmall) object False True
+Dimensions without coordinates: y
+
+.. rubric:: Exemples plus complexes:
+
+* `Examples Data <http://xarray.pydata.org/en/stable/examples.html>`_
+
+.. Note:: N'oubliez pas de `citer xarray
+   <http://xarray.pydata.org/en/stable/faq.html#how-should-i-cite-xarray>`_
+   dans vos publications et présentations.
+
+
+.. _myAstropy:
+
+Astropy
+=======
+
+.. index:: module: astropy
+
+`Astropy <http://astropy.readthedocs.io/>`_ est une librairie astronomique
+maintenue par la communauté et visant à fédérer les efforts jusque là
+disparates.  Elle offre en outre une interface unifiée à des `librairies
+affiliées <http://www.astropy.org/affiliated/>`_ plus spécifiques.
+
+Tour d'horizon
+--------------
+
+- Structures de base:
+
+  - :mod:`astropy.constants`: constantes fondamentales (voir également
+    :mod:`scipy.constants`)
+  - :mod:`astropy.units`: unités et quantités dimensionnées
+  - :mod:`astropy.nddata`: extension des :class:`numpy.ndarray` (incluant
+    méta-données, masque, unité, incertitude, etc.)
+  - :mod:`astropy.table`: tableaux hétérogènes
+  - :mod:`astropy.time`: manipulation du temps et des dates
+  - :mod:`astropy.coordinates`: systèmes de coordonnées
+  - :mod:`astropy.wcs`: *World Coordinate System*
+  - :mod:`astropy.modeling`: modèles et ajustements
+  - :mod:`astropy.analytic_functions`: fonctions analytiques
+
+- Entrées/sorties:
+
+  - :mod:`astropy.io.fits`: fichiers FITS
+  - :mod:`astropy.io.ascii`: tables ASCII
+  - :mod:`astropy.io.votable`: XML VO-tables
+  - :mod:`astropy.io.misc`: divers
+  - :mod:`astropy.vo`: accès au *Virtual Observatory*
+
+- Calculs astronomiques:
+
+  - :mod:`astropy.cosmology`: calculs cosmologiques
+  - :mod:`astropy.convolution`: convolution and filtrage
+  - :mod:`astropy.visualization`: visualisation de données
+  - :mod:`astropy.stats`: méthodes astro-statistiques
+
+Démonstration
+-------------
+
+:ref:`Démonstration Astropy <Cours/astropy.ipynb>` (:download:`astropy.ipynb`)
+
+.. rubric:: Voir également:
+
+* `AstroBetter tutorials
+  <http://www.astrobetter.com/blog/2014/07/07/astropy-tutorials-learn-how-to-do-common-astro-tasks-with-astropy-and-python/>`_
+
+.. Note:: n'oubliez pas de citer [Astropy13]_ ou de `mentionner
+   l'utilisation <http://www.astropy.org/acknowledging.html>`_
+   d'astropy dans vos publications et présentations.
+
+
+
+Autres librairies scientifiques
+===============================
+
+Python est maintenant très largement utilisé par la communauté
+scientifique, et dispose d'innombrables librairies dédiées aux
+différents domaines de la physique, chimie, etc.:
+
+- Astronomie: `Kapteyn <http://www.astro.rug.nl/software/kapteyn/>`_,
+  `AstroML <http://www.astroml.org/>`_, `HyperSpy
+  <http://hyperspy.org/>`_
+- Mécanique quantique: `QuTiP <http://qutip.org/>`_
+- Électromagnétisme: `EMpy <https://lbolla.github.io/EMpy/>`_
+- *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
+  <http://sfepy.org/doc-devel/>`_
+- Analyse statistique bayesienne: `PyStan
+  <http://mc-stan.org/interfaces/pystan.html>`_
+- *Markov Chain Monte-Carlo*: `emcee
+  <http://dan.iel.fm/emcee/current/>`_, `PyMC3
+  <https://pymc-devs.github.io/pymc3/>`_,
+- *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
+  <https://pythonhosted.org/milk/>`_, `MDP
+  <http://mdp-toolkit.sourceforge.net/>`_, et autres `modules d'intelligence
+  artificielle
+  <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_
+- Calcul symbolique: `sympy <http://www.sympy.org/>`_ (voir également
+  ce `tutoriel sympy
+  <https://mattpap.github.io/scipy-2011-tutorial/html/>`_) et `sage
+  <http://www.sagemath.org/>`_
+- `PyROOT <https://root.cern.ch/pyroot>`_
+- `High Performance Computing in Python
+  <https://byumcl.bitbucket.io/bootcamp2013/labs/perfomance.html>`_
+- `Etc. <http://www.scipy.org/topical-software.html>`_
+
+.. rubric:: Notes de bas de page et références bibliographiques
+
+.. [#panels] Les structures :class:`pandas.Panel` (de rang 3),
+   :class:`pandas.Panel4D` (de rang 4) et :class:`pandas.PanelND` (de rang
+   arbitraire) sont considérées comme **dépréciées** et seront retirées dans
+   une version ultérieure.  Utiliser une indexation hiérarchique ou
+   :mod:`xarray`.
+.. [Astropy13] `2013A&A...558A..33A
+               <http://adsabs.harvard.edu/abs/2013A%26A...558A..33A>`_
+
+.. |fr| image:: ../_static/france_flag_icon.png
+   :alt: Fr
+.. |en| image:: ../_static/uk_flag_icon.png
+   :alt: En
