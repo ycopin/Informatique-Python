@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-<<<<<<< HEAD
-# Time-stamp: <2014-09-17 16:39:32 ycopin>
-=======
-# Time-stamp: <2017-06-27 18:59 ycopin@lyonovae03.in2p3.fr>
->>>>>>> euclid
+# Time-stamp: <2017-07-09 19:14 ycopin@lyonovae03.in2p3.fr>
 
 import random
 
@@ -91,19 +87,11 @@ if __name__ == "__main__":
     import time
 
     h, w = (20, 60)                       # (nrows,ncolumns)
-<<<<<<< HEAD
-    n = 100                             # Nb of iterations
-=======
->>>>>>> euclid
 
     # Instantiation (including initialization)
     life = Life(h, w, periodic=True)
 
-<<<<<<< HEAD
-    for i in range(n):                  # Iterations
-=======
     while True:                         # Infinite loop! (Ctrl-C to break)
->>>>>>> euclid
         print life                      # Print current world
         print "\n"
         time.sleep(0.1)                 # Pause a bit

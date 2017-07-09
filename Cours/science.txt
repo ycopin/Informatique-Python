@@ -752,40 +752,6 @@ Tour d'horizon
 
 :ref:`numerique`, :ref:`romberg`, :ref:`rk`
 
-.. rubric:: Exercices:
-
-:ref:`numerique`, :ref:`romberg`, :ref:`rk`
-
-
-Quelques exemples complets
---------------------------
-
-* `Interpolation
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/interpolate.html>`_
-* `Integration
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html>`_
-  (intégrales numériques, équations différentielles)
-
-  - `odeint notebook
-    <http://nbviewer.ipython.org/gist/dpsanders/d417c1ffbb76f13f678c>`_
-  - `Oscillation amortie
-    <http://www.dakarlug.org/pat/scientifique/html/scipy.html>`_
-  - `Zombie Apocalypse
-    <http://wiki.scipy.org/Cookbook/Zombie_Apocalypse_ODEINT>`_
-
-* `Optimisation
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html>`_
-  (moindres carrés, ajustements, recherche de zéros)
-* `Traitement du signal
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/signal.html>`_
-  (splines, convolution, filtrage)
-* `Algèbre linéaire
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html>`_
-  (systèmes linéaires, moindres carrés, décompositions)
-* `Statistiques
-  <http://docs.scipy.org/doc/scipy/reference/tutorial/stats.html>`_
-  (variables aléatoires, distributions, tests)
-
 
 Quelques exemples complets
 --------------------------

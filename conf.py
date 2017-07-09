@@ -135,26 +135,13 @@ rst_prolog = u""
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#html_theme = 'default'
 # http://sphinx.pocoo.org/theming.html
 # default, sphinxdoc, scrolls, agogo, traditional, nature, haiku
-html_theme = 'pyramid'
+html_theme = 'bizstyle'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-
-# Alabaster: see http://alabaster.readthedocs.io/en/latest/customization.html
-html_theme_options = {
-    #'logo': 'logoEuclid_trans.png',        # Relative to $PROJECT/_static/
-    #'logo_name': version,
-    #'description': version,
-    #'sidebar_collapse': True,
-    #'show_powered_by': True,
-    'page_width': '80%',
-    #'sidebar_width': '20%',
-    #'fixed_sidebar': True,
-}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
@@ -168,7 +155,7 @@ html_theme_options = {
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = '_static/logoEuclid_trans.png'  # Ne pas utiliser avec thème agogo
+#html_logo = ''
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32

@@ -38,12 +38,6 @@ On définit la fonction `sq` renvoyant le carré d'un nombre par
 premier temps.  Quelle est la précision de la méthode, et comment
 dépend-elle du nombre de pas?
 
-<<<<<<< HEAD
-.. _pgcd:
-
-PGCD: algorithme d'Euclide ★
-----------------------------
-=======
 .. _fizz:
 
 Fizz Buzz ★
@@ -58,7 +52,6 @@ Fizz Buzz ★
 
 PGCD: algorithme d'Euclide ★★
 -----------------------------
->>>>>>> euclid
 
 .. figure:: https://upload.wikimedia.org/wikipedia/commons/5/59/Algorithme_PGCD.png
    :align: center
@@ -140,12 +133,8 @@ Suite de Syracuse (fonction) ★
 
 Écrire une fonction `suite_syracuse(n)` retournant la (partie
 non-triviale de la) `suite de Syracuse
-<<<<<<< HEAD
-<http://fr.wikipedia.org/wiki/Conjecture_de_Syracuse>`_ pour un entier
-=======
-<https://fr.wikipedia.org/wiki/Conjecture_de_Syracuse>`_ pour un entier
->>>>>>> euclid
-*n*.  Écrire une fonction `temps_syracuse(n, altitude=False)`
+<https://fr.wikipedia.org/wiki/Conjecture_de_Syracuse>`_ pour un
+entier *n*.  Écrire une fonction `temps_syracuse(n, altitude=False)`
 retournant le temps de vol (éventuellement en altitude) correspondant
 à l'entier *n*.  Tester ces fonctions sur *n=15*:
 
@@ -167,11 +156,7 @@ Flocon de Koch (programmation récursive) ★★★
 En utilisant les commandes `left`, `right` et `forward` de la
 bibliothèque graphique standard :mod:`turtle` dans une fonction
 *récursive*, générer à l'écran un `flocon de Koch
-<<<<<<< HEAD
-<http://fr.wikipedia.org/wiki/Flocon_de_Koch>`_ d'ordre arbitraire.
-=======
 <https://fr.wikipedia.org/wiki/Flocon_de_Koch>`_ d'ordre arbitraire.
->>>>>>> euclid
 
 .. figure:: koch_3.*
    :align: center
@@ -208,73 +193,6 @@ et `Chien` pour qu'elles passent avec succès tous les tests (voir
 
   py.test animaux.py
 
-<<<<<<< HEAD
-.. _particle:
-
-Points matériels et ions (POO/TDD) ★
-------------------------------------
-
-Pour une simulation d'un problème physique, on peut construire des
-classes qui connaissent elles-mêmes leurs propriétés physiques et
-leurs lois d'évolution.
-
-La structure des classes est proposée dans ce :download:`squelette
-<particle.py>`.  Vous devrez *compléter* les définitions des classes
-`Vector`, `Particle` et `Ion` afin qu'elles passent toutes les tests
-lancés automatiquement par le programme principal `main`.  À
-l'exécution, la sortie du terminal doit être::
-
-  ***************** Test functions *****************
-  Testing Vector class... ok
-  Testing Particle class... ok
-  Testing Ion class... ok
-  ******************** Test end ********************
-
-  ************* Physical computations **************
-  ** Gravitationnal computation of central-force motion for a Particle with mass 1.00, position (1.00,0.00,0.00) and speed (0.00,1.00,0.00)
-  => Final system : Particle with mass 1.00, position (-1.00,-0.00,0.00) and speed (0.00,-1.00,0.00)
-  ** Electrostatic computation of central-force motion for a Ion with mass 1.00, charge 4, position (0.00,0.00,1.00) and speed (0.00,0.00,-1.00)
-  => Final system : Ion with mass 1.00, charge 4, position (0.00,0.00,7.69) and speed (0.00,0.00,2.82)
-  *********** Physical computations end ************
-
-.. _life:
-
-Jeu de la vie (POO) ★★
-----------------------
-
-On se propose de programmer l'automate cellulaire le plus célèbre, `le
-Jeu de la vie <http://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
-
-Pour cela, vous créerez une classe `Life` qui contiendra la grille du
-jeu ainsi que les méthodes qui permettront son évolution.  Vous
-initialiserez la grille aléatoirement à l'aide de la fonction
-:func:`random.choice`, et vous afficherez l'évolution de l'automate
-dans la sortie standard du terminal, p.ex.::
-
-  ...#..#.....##.......
-  .....###.............
-  #........#...........
-  .....#...#...........
-  ................##...
-  .....#.#......##..#..
-  ..............##.##..
-  ..............##.##..
-  ................#....
-
-.. Tip:: Pour que l'affichage soit agréable à l'oeil, vous marquerez
-   des pauses entre l'affichage de chaque itération grâce à la
-   fonction :func:`time.sleep`.
-
-
-Manipulation de tableaux (`arrays`)
-===================================
-
-.. _matrice:
-
-Inversion de matrice ★
-----------------------
-
-=======
 .. _life:
 
 Jeu de la vie (POO) ★★
@@ -312,7 +230,6 @@ Manipulation de tableaux (`arrays`)
 Inversion de matrice ★
 ----------------------
 
->>>>>>> euclid
 Créer un tableau carré réel :math:`\mathsf{r}` aléatoire
 (:func:`numpy.random.randn`), calculer la matrice hermitienne :math:`\mathsf{m}
 = \mathsf{r} \cdot \mathsf{r}^T` (:func:`numpy.dot`), l'inverser
@@ -324,16 +241,6 @@ Créer un tableau carré réel :math:`\mathsf{r}` aléatoire
 
 *Median Absolute Deviation* ★
 -----------------------------
-<<<<<<< HEAD
-
-En statistique, le *Median Absolute Deviation* (MAD) est un estimateur robuste
-de la dispersion d'un échantillon 1D: `MAD = median(| x - median(x) |)`.
-
-À l'aide des fonctions :func:`numpy.median`, :func:`numpy.abs` et
-:func:`numpy.expand_dims`, écrire une fonction `mad(x, axis=None)` calculant le
-MAD d'un tableau, éventuellement le long d'un de ses axes.
-
-=======
 
 En statistique, le *Median Absolute Deviation* (MAD) est un estimateur robuste
 de la dispersion d'un échantillon 1D: `MAD = median(| x - median(x) |)`.
@@ -342,7 +249,6 @@ de la dispersion d'un échantillon 1D: `MAD = median(| x - median(x) |)`.
 écrire une fonction `mad(x, axis=None)` calculant le MAD d'un tableau,
 éventuellement le long d'un ou plusieurs de ses axes.
 
->>>>>>> euclid
 Avant d'implémenter la fonction, on commencera par écrire quelques tests de cas
 simples, facilement calculables à la main.  On les écrira sous un format compris
 par *py.test*, p.ex.:
@@ -351,11 +257,7 @@ par *py.test*, p.ex.:
 
     def test_1D():
         assert mad([0]) == 0.
-<<<<<<< HEAD
-        assert mad([1,2,6,9]) == 2.5
-=======
         assert mad([1, 2, 6, 9]) == 2.5
->>>>>>> euclid
 
 .. _pull:
 
@@ -436,18 +338,10 @@ Après chargement des données, calculer et afficher les propriétés
 statistiques des quatres jeux de données du :download:`Quartet
 d'Anscombe <anscombe.dat>`:
 
-<<<<<<< HEAD
-* Moyenne et variance des *x* (:func:`numpy.mean` et
-  :func:`numpy.var`)
-* Moyenne et variance des *y*
-* Corrélation entre les *x* et les *y* (:func:`scipy.stats.pearsonr`)
-* Équation de la droite de régression linéaire
-=======
 * Moyenne et variance des *x* et des *y* (:func:`numpy.mean` et
   :func:`numpy.var`)
 * Corrélation entre les *x* et les *y* (:func:`scipy.stats.pearsonr`)
 * Équation de la droite de régression linéaire *y = ax + b*
->>>>>>> euclid
   (:func:`scipy.stats.linregress`)
 
 .. table:: Quartet d'Anscombe
@@ -479,11 +373,7 @@ Diagramme de bifurcation: la suite logistique ★★
 ------------------------------------------------
 
 Écrivez une fonction qui calcule la valeur d'équilibre de la `suite
-<<<<<<< HEAD
-logistique <http://fr.wikipedia.org/wiki/Suite_logistique>`_ pour un
-=======
 logistique <https://fr.wikipedia.org/wiki/Suite_logistique>`_ pour un
->>>>>>> euclid
 :math:`x_0` (nécessairement compris entre 0 et 1) et un paramètre
 :math:`r` (parfois noté :math:`\mu`) donné.
 
@@ -497,11 +387,7 @@ Générez l'ensemble de ces points d'équilibre pour des valeurs de
 
    **Figure:** Diagramme de bifurcation.
 
-<<<<<<< HEAD
-N.B.: Vous utiliserez la bibliothèque `matplotlib` pour tracer vos
-=======
 **N.B.:** Vous utiliserez la bibliothèque :ref:`matplotlibSec` pour tracer vos
->>>>>>> euclid
 résultats.
 
 .. _julia:
@@ -510,29 +396,13 @@ Ensemble de Julia ★★
 --------------------
 
 Représentez l'`ensemble de Julia
-<<<<<<< HEAD
-<http://fr.wikipedia.org/wiki/Ensemble_de_Julia>`_ pour la constante
-=======
 <https://fr.wikipedia.org/wiki/Ensemble_de_Julia>`_ pour la constante
->>>>>>> euclid
 complexe :math:`c = 0.284 + 0.0122j`:
 
 .. figure:: julia.*
    :align: center
    :width: 50%
    :alt: Ensemble de Julia
-<<<<<<< HEAD
-
-   **Figure:** Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
-
-On utilisera la fonction :func:`numpy.meshgrid` pour construire le plan
-complexe, et l'on affichera le résultat grâce à la fonction
-:func:`matplotlib.pyplot.imshow`.
-
-Voir également: `Superposition d'ensembles de Julia
-<http://maths.wikidot.com/julia-superposition>`_
-
-=======
 
    **Figure:** Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
 
@@ -543,7 +413,6 @@ complexe, et l'on affichera le résultat grâce à la fonction
 **Voir également:** `Superposition d'ensembles de Julia
 <http://maths.wikidot.com/julia-superposition>`_
 
->>>>>>> euclid
 
 Mise en oeuvre de l'ensemble des connaissances acquises
 =======================================================
@@ -562,11 +431,7 @@ frottement « turbulentes » (en :math:`v^2`):
    \ddot{\mathbf{r}} = \mathbf{g} - \frac{\alpha}{m}v\times\mathbf{v}.
 
 Utiliser les valeurs numériques pour un boulet de canon de `36 livres
-<<<<<<< HEAD
-<http://fr.wikipedia.org/wiki/Canon_de_36_livres>`_:
-=======
 <https://fr.wikipedia.org/wiki/Canon_de_36_livres>`_:
->>>>>>> euclid
 
 .. code-block:: python
 
@@ -628,20 +493,13 @@ Exercices en vrac
 =================
 
 * `Exercices de base
-<<<<<<< HEAD
-  <http://fr.wikibooks.org/wiki/Programmation_Python/Exercices_Base_du_langage>`_ |fr|
-=======
   <https://fr.wikibooks.org/wiki/Programmation_Python/Exercices_sur_les_bases_du_langage>`_
   |fr|
->>>>>>> euclid
 * `Entraînez-vous !
   <http://openclassrooms.com/forum/sujet/entrainez-vous-sur-le-langage-python-54161?page=3#message-85967089>`_
   |fr|
 * `Learn Python The Hard Way <http://learnpythonthehardway.org/book/>`_
 * `Google Code Jam <http://code.google.com/codejam/>`_
-<<<<<<< HEAD
-* `CheckIO <http://www.checkio.org/>`_
-=======
 * `CheckIO <https://checkio.org/>`_
 
 .. _particle:
@@ -671,7 +529,6 @@ l'exécution, la sortie du terminal doit être::
   ** Electrostatic computation of central-force motion for a Ion with mass 1.00, charge 4, position (0.00,0.00,1.00) and speed (0.00,0.00,-1.00)
   => Final system : Ion with mass 1.00, charge 4, position (0.00,0.00,7.69) and speed (0.00,0.00,2.82)
   *********** Physical computations end ************
->>>>>>> euclid
 
 .. _PDB:
 
@@ -680,28 +537,6 @@ l'exécution, la sortie du terminal doit être::
 
 On chercher a réaliser un script qui analyse un fichier de données de
 type `Protein Data Bank
-<<<<<<< HEAD
-<http://fr.wikipedia.org/wiki/Protein_Data_Bank>`_.
-
-La banque de données `Worldwide Protein Data Bank
-<http://www.wwpdb.org/>`_ regroupe les structures obtenues par
-diffraction aux rayons X ou par RMN.  Le format est parfaitement
-defini et conventionnel (`Documentation
-<http://www.wwpdb.org/docs.html>`_).
-
-On propose d'assurer une lecture de ce fichier pour calculer notamment :
-
-- le barycentre de la biomolécule
-- le nombre d'acides aminés ou nucléobases
-- le nombre d'atomes
-- la masse moléculaire
-- les dimensions maximales de la protéine
-- etc.
-
-On propose de considerer par exemple la structure resolue pour la `GFP
-<http://www.rcsb.org/pdb/101/motm.do?momID=42>`_ (*Green Fluorescent
-Protein*, Prix Nobel 2008) (`Fichier PDB
-=======
 <https://fr.wikipedia.org/wiki/Protein_Data_Bank>`_.
 
 La banque de données `Worldwide Protein Data Bank
@@ -722,7 +557,6 @@ On propose d'assurer une lecture de ce fichier pour calculer notamment :
 On propose de considerer par exemple la structure resolue pour la `GFP
 <http://pdb101.rcsb.org/motm/42>`_ (*Green Fluorescent Protein*, Prix
 Nobel 2008) (`Fichier PDB
->>>>>>> euclid
 <http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)
 
 .. |fr| image:: ../_static/france_flag_icon.png

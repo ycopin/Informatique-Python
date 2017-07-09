@@ -575,8 +575,6 @@ tuples sont *immuables*.
 
 .. _fonctions:
 
-.. _fonctions:
-
 Fonctions
 =========
 
@@ -922,91 +920,6 @@ Au concept d'objet sont liées les notions de:
   sens (p.ex. en comparant les aires).
 
   `Liste des méthodes standard et des surcharges d'opérateur
-  <http://rgruet.free.fr/PQR27/PQR2.7.html#SpecialMethods>`_
-- **Héritage de classe:** il s'agit de définir une classe à partir
-  d'une (ou plusieurs) classe(s) parente(s).  La nouvelle classe
-  *hérite* des attributs et méthodes de sa (ses) parente(s), que l'on
-  peut alors modifier ou compléter.  P.ex. la classe `Rectangle`
-  hérite de la classe `Forme` (elle partage la notion de couleur et
-  d'aire), et lui ajoute des méthodes propres à la notion de rectangle
-  (p.ex. formule explicite de l'aire, étirement).
-
-  .. Attention:: Toutes les classes doivent au moins hériter de la
-     classe principale `object`.
-
-.. rubric:: Exemple de définition de classe
-
-.. literalinclude:: formes.py
-   :pyobject: Forme
-   :linenos:
-
-.. rubric:: Exemple d'héritage de classe
-
-.. literalinclude:: formes.py
-   :pyobject: Rectangle
-   :linenos:
-
-.. Note:: Il est traditionnel de commencer les noms de classes avec
-   des majuscules (`Forme`), et les noms d'instances de classe (les
-   variables) avec des minuscules (`rosie`).
-
-.. rubric:: Exemples
-
-:ref:`formes`, :ref:`circonscrit`
-
-.. rubric:: Études de cas
-
-- :class:`turtle.Vec2D`
-- :class:`fractions.Fraction`
-
-.. rubric:: Exercices:
-
-:ref:`animaux`, :ref:`life`
-
-.. rubric:: Exercice:
-
-:ref:`pm`
-
-
-Classes
-=======
-
-.. index:: class
-
-Un objet est une entité de programmation, disposant de ses propres
-états et fonctionnalités.  C'est le concept central de la
-`Programmation Orientée Objet
-<https://fr.wikipedia.org/wiki/Programmation_orientée_objet>`_.
-
-Au concept d'objet sont liées les notions de:
-
-- **Classe:** il s'agit d'un *modèle* d'objet, dans lequel sont
-  définis ses propriétés usuelles.  P.ex. la classe `Forme` peut
-  représenter une forme plane caractérisée par sa couleur, et
-  disposant de fonctionnalités propres, p.ex. `change_couleur()`.
-- **Instantiation:** c'est le fait générer un objet concret (une
-  *instance*) à partir d'un modèle (une classe).  P.ex. `rosie =
-  Forme('rose')` crée une instance *rosie* à partir de la classe
-  `Forme` et d'une couleur (chaîne de caractères `'rose'`).
-- **Attributs:** variables internes décrivant l'état de l'objet.
-  P.ex., `rosie.couleur` donne la couleur de la `Forme` *rosie*.
-- **Méthodes:** fonctions internes, s'appliquant en premier lieu sur
-  l'objet lui-même (`self`), décrivant les capacités de l'objet.
-  P.ex. `rosie.change_couleur('bleu')` change la couleur de la `Forme`
-  *rosie*.
-
-  .. Attention:: Toutes les méthodes d'une classe doivent au moins
-     prendre `self` -- représentant l'objet lui-même -- comme premier
-     argument.
-
-- **Surcharge d'opérateurs:** cela permet de redéfinir les opérateurs
-  et fonctions usuels (`+`, `abs()`, `str()`, etc.), pour simplifier
-  l'écriture d'opérations sur les objets.  Ainsi, on peut redéfinir
-  les opérateurs de comparaison (`<`, `>=`, etc.) dans la classe
-  `Forme` pour que les opérations du genre `forme1 < forme2` aient un
-  sens (p.ex. en comparant les aires).
-
-  `Liste des méthodes standard et des surcharges d'opérateur
   <http://rgruet.free.fr/PQR26/PQR2.6.html#SpecialMethods>`_
 - **Héritage de classe:** il s'agit de définir une classe à partir
   d'une (ou plusieurs) classe(s) parente(s).  La nouvelle classe
@@ -1146,20 +1059,11 @@ Python 3 apporte `quelques changements fondamentaux
 .. [#braces] ou `from __future__ import braces` :-)
 .. [#scope] La notion de « portée » est plus complexe, je simplifie...
 .. [#shebang] Il s'agit d'une fonctionnalité des *shells* d'Unix, pas
-              specifique à Python.
-.. [#lbyl] Par opposition au :abbr:`LBYL (Look Before You Leap)` du
-           C/C++, basé sur une série *exhaustive* de tests *a priori*.
-.. [#py3] De nombreuses distributions Linux sont encore basées sur
-          Python 2.7 par défaut.
-
-.. rubric:: Notes de bas de page
-
-.. [#braces] ou `from __future__ import braces` :-)
-.. [#scope] La notion de « portée » est plus complexe, je simplifie...
-.. [#shebang] Il s'agit d'une fonctionnalité des *shells* d'Unix, pas
-              specifique à Python.
+   specifique à Python.
 .. [#lbyl] Par opposition au :abbr:`LBYL (Look Before You Leap)` du
    C/C++, basé sur une série *exhaustive* de tests *a priori*.
+.. [#py3] De nombreuses distributions Linux sont encore basées sur
+   Python 2.7 par défaut.
 
 .. |DANGER| unicode:: 0x2620 .. ☠ = SKULL AND CROSSBONES
 .. |:-)| unicode:: 0x263a .. ☺ = WHITE SMILING FACE

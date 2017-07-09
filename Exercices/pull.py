@@ -39,12 +39,9 @@ def pull(x, dx):
     return p
 
 if __name__ == '__main__':
-<<<<<<< HEAD
-=======
 
     import matplotlib.pyplot as P
     import scipy.stats as SS
->>>>>>> euclid
 
     n = 1000
     mu = 1.
@@ -52,13 +49,6 @@ if __name__ == '__main__':
 
     # Normally distributed random sample of size n, with mean=mu and std=sig
     x = N.random.normal(loc=mu, scale=sig, size=n)
-<<<<<<< HEAD
-    dx = N.ones_like(x) * sig               # Formal (true) errors
-
-    p = pull(x, dx)                       # Pull computation
-
-    print "Pull: mean={:.2f}, std={:.2f}".format(p.mean(), p.std(ddof=1))
-=======
     dx = N.full_like(x, sig)              # Formal (true) errors
 
     p = pull(x, dx)                       # Pull computation
@@ -76,4 +66,3 @@ if __name__ == '__main__':
     ax.legend(loc='upper left')
 
     P.show()
->>>>>>> euclid
