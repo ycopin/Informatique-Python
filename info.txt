@@ -19,8 +19,11 @@ Les séances ont lieu du lundi 10 au jeudi 13 Juillet 2017, 9h-12h et
 
 * Compléter votre `~/.bashrc`::
 
-    export PATH=$PATH:$HOME/.local/bin/
-    export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages/
+    if [ -d "/group/python" ] ; then
+        export PATH="/group/python/bin:$PATH"
+        export PYTHONPATH="/group/python/lib/python2.7/site-packages:$PYTHONPATH"
+        export PYTHONSTARTUP="/group/python/etc/pystartup"
+    fi
 
 .. |+| image:: ./_static/smile.gif
    :alt: Bon
