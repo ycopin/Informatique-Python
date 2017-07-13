@@ -249,16 +249,6 @@ de la dispersion d'un échantillon 1D: `MAD = median(| x - median(x) |)`.
 écrire une fonction `mad(x, axis=None)` calculant le MAD d'un tableau,
 éventuellement le long d'un ou plusieurs de ses axes.
 
-Avant d'implémenter la fonction, on commencera par écrire quelques tests de cas
-simples, facilement calculables à la main.  On les écrira sous un format compris
-par *py.test*, p.ex.:
-
-.. code-block:: python
-
-    def test_1D():
-        assert mad([0]) == 0.
-        assert mad([1, 2, 6, 9]) == 2.5
-
 .. _pull:
 
 Distribution du *pull* ★★★

@@ -1,4 +1,4 @@
-.. Time-stamp: <2013-11-05 17:17:45 ycopin>
+.. Time-stamp: <2017-07-13 14:27 ycopin@lyonovae03.in2p3.fr>
 
 .. _carreSol:
 
@@ -22,4 +22,3 @@ Carré magique
   65  65  65  65  65
 
 **Source:** :download:`carre.py`
-
