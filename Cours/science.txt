@@ -410,7 +410,8 @@ array([False, False,  True,  True,  True], dtype=bool)
 array([ 0. ,  0.5,  1. ])
 >>> a[a >= 0]             # Indexation par un tableau de booléens, pythonique :-D
 array([ 0. ,  0.5,  1. ])
->>> a[a < 0] -= 10; a     # Soustrait 10 à toutes les valeurs <0 = N.where(a < 0, a - 10, a)
+>>> a[a < 0] -= 10; a     # = N.where(a < 0, a - 10, a)
+array([-11. , -10.5,   0. ,   0.5,   1. ])
 
 
 Opérations de base

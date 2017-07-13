@@ -7,6 +7,10 @@ import matplotlib.pyplot as P
 
 
 def printStats(x, y):
+    """
+    Print out means and variances for x and y, as well as correlation
+    coeff. (Pearson) and linear regression for y vs. x.
+    """
 
     assert N.shape(x) == N.shape(y), "Incompatible input arrays"
 
@@ -14,43 +18,49 @@ def printStats(x, y):
     print "y: mean={:.2f}, variance={:.2f}".format(N.mean(y), N.var(y))
     print "y vs. x: corrcoeff={:.2f}".format(SS.pearsonr(x, y)[0])
     # slope, intercept, r_value, p_value, std_err
-    a, b, r, p, s = SS.linregress(x, y)
+    a, b, _, _, _ = SS.linregress(x, y)
     print "y vs. x: y = {:.2f} x + {:.2f}".format(a, b)
 
 
-def plotStats(ax, x, y, title=''):
+def plotStats(ax, x, y, title='', fancy=True):
+    """
+    Plot y vs. x, and linear regression.
+    """
 
     assert N.shape(x) == N.shape(y), "Incompatible input arrays"
 
     # slope, intercept, r_value, p_value, std_err
-    a, b, r, p, s = SS.linregress(x, y)
+    a, b, r, _, _ = SS.linregress(x, y)
 
     # Data + corrcoeff
     ax.plot(x, y, 'bo', label="r = {:.2f}".format(r))
-
-    # Add mean line ± stddev
-    m = N.mean(x)
-    s = N.std(x, ddof=1)
-    ax.axvline(m, color='g', ls='--', label='_')  # Mean
-    ax.axvspan(m - s, m + s, color='g', alpha=0.2, label='_')  # Std-dev
-
-    m = N.mean(y)
-    s = N.std(y, ddof=1)
-    ax.axhline(m, color='g', ls='--', label='_')  # Mean
-    ax.axhspan(m - s, m + s, color='g', alpha=0.2, label='_')  # Std-dev
 
     # Linear regression
     xx = N.array([0, 20])
     yy = a * xx + b
     ax.plot(xx, yy, 'r-', label="y = {:.2f} x + {:.2f}".format(a, b))
 
-    # Title and labels
-    ax.set_title(title)
-    if ax.is_last_row():
-        ax.set_xlabel("x")
-    if ax.is_first_col():
-        ax.set_ylabel("y")
     leg = ax.legend(loc='upper left', fontsize='small')
+
+    if fancy:                   # Additional stuff
+        # Add mean line ± stddev
+        m = N.mean(x)
+        s = N.std(x, ddof=1)
+        ax.axvline(m, color='g', ls='--', label='_')  # Mean
+        ax.axvspan(m - s, m + s, color='g', alpha=0.2, label='_')  # Std-dev
+
+        m = N.mean(y)
+        s = N.std(y, ddof=1)
+        ax.axhline(m, color='g', ls='--', label='_')  # Mean
+        ax.axhspan(m - s, m + s, color='g', alpha=0.2, label='_')  # Std-dev
+
+        # Title and labels
+        ax.set_title(title)
+        if ax.is_last_row():
+            ax.set_xlabel("x")
+        if ax.is_first_col():
+            ax.set_ylabel("y")
+
 
 if __name__ == '__main__':
 

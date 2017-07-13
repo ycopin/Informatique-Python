@@ -340,7 +340,7 @@ if __name__ == '__main__':
                         xytext=(5, 5), textcoords='offset points')
         # Cercle circonscrit
         c = P.matplotlib.patches.Circle((center.x, center.y), radius=radius,
-                                        fc='none')
+                                        fc='none', ec='k')
         ax.add_patch(c)
         ax.plot(center.x, center.y, 'r+')
 

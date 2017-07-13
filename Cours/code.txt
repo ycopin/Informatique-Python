@@ -481,7 +481,9 @@ Comment installer/créer des modules externes:
   <https://blog.ionelmc.ro/2014/05/25/python-packaging/>`_
 - `Cookiecutter <http://cookiecutter.readthedocs.io/>`_ est un
   générateur de squelettes de projet via des *templates* (pas
-  uniquement pour python).
+  uniquement pour python)
+- `cx-freeze <http://cx-freeze.readthedocs.io/>`, pour générer un
+  exécutable à partir d'un script
 
 Système de gestion de versions
 ------------------------------

@@ -29,6 +29,28 @@ Cercle circonscrit (POO, argparse)
 .. literalinclude:: circonscrit.py
    :linenos:
 
+::
+
+  $ ./circonscrit.py -h
+  usage: circonscrit.py [-p/--plot] [-i/--input coordfile | x1,y1 x2,y2 x3,y3]
+
+  positional arguments:
+    x,y                   Coordinates of point
+
+  optional arguments:
+    -h, --help            show this help message and exit
+    -i [INPUT], --input [INPUT]
+                          Coordinate file (one 'x,y' per line)
+    -p, --plot            Draw the circumscribed circle
+    --version             show program's version number and exit
+
+  $ ./circonscrit.py -p 0,0 1,0 1,1
+
+.. figure:: circonscrit.*
+   :align: center
+   :width: 60%
+   :alt: Cercle circonscrit.
+
 **Source:** :download:`circonscrit.py`
 
 Matplotlib
