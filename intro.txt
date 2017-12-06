@@ -51,7 +51,7 @@ Les principales caractéristiques du langage `Python
 L'objectif est bien d'apprendre *un seul* langage de haut niveau,
 permettant tout aussi bien des analyses rapides dans la vie de tous
 les jours -- quelques lignes de code en intéractif -- que des
-programes les plus complexes (projets de plus de 100 000 lignes).
+programes les plus complexes (projets de plus de 100 000 lignes).
 
 .. rubric:: Liens:
 

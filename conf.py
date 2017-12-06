@@ -231,9 +231,9 @@ latex_elements = {
 
     # Additional stuff for the LaTeX preamble.
     'preamble': r"""
-    \usepackage{lmodern}               % heavier typewriter font
-    \DeclareUnicodeCharacter{2605}{*}  % star
-    \DeclareUnicodeCharacter{9760}{*}  % skull
+    \usepackage{lmodern}                % heavier typewriter font
+    \DeclareUnicodeCharacter{2605}{*}   % star
+    \DeclareUnicodeCharacter{9760}{*}   % skull
     """,
 }
 
