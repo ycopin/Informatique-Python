@@ -117,7 +117,7 @@ commençant à 1:
 2. si la case *(i,j)* contient la valeur *k*, alors on place la valeur
    *k+1* dans la case *(i+1,j+1)* si cette case est vide, ou dans la
    case *(i-1,j)* sinon.  On respecte la règle selon laquelle un indice
-   supérieur à *n* est ramené a 1.
+   supérieur à *n* est ramené à 1.
 
 Programmer cet algorithme pour pouvoir construire un carré magique
 d’ordre impair quelconque.
@@ -260,11 +260,11 @@ conformité des erreurs par rapport à une distribution de valeurs
 :math:`\mathbf{x} = [x_i]` et les erreurs associées
 :math:`\mathrm{d}\mathbf{x} = [\sigma_i]`, le *pull* est défini par:
 
-* Moyenne optimale (pondérée par la variance): :math:`E = (\sum_{i}
-  x_i/\sigma_i^2)/(\sum_i 1/\sigma_i^2)`
-* Erreur sur la moyenne pondérée: :math:`\sigma_E^2 =
-  1/\sum(1/\sigma_i^2)`
-* Définition du *pull*: :math:`p_i = (x_i - E_i)/(\sigma_{E_i}^2 +
+* moyenne optimale (pondérée par la variance): :math:`E = (\sum_{i}
+  x_i/\sigma_i^2)/(\sum_i 1/\sigma_i^2)`;
+* erreur sur la moyenne pondérée: :math:`\sigma_E^2 =
+  1/\sum(1/\sigma_i^2)`;
+* définition du *pull*: :math:`p_i = (x_i - E_i)/(\sigma_{E_i}^2 +
   \sigma_i^2)^{1/2}`, où :math:`E_i` et :math:`\sigma_{E_i}` sont
   calculées *sans* le point *i*.
 
@@ -281,10 +281,10 @@ Méthodes numériques
 
 .. _numerique:
 
-Quadrature & zéro d'une fonction ★
-----------------------------------
+Quadrature et zéro d'une fonction ★
+-----------------------------------
 
-À l'aide des algorithmes disponibles dans :mod:`scipy`,
+À l'aide des algorithmes disponibles dans :mod:`scipy`:
 
 * calculer numériquement l'intégrale :math:`\int_0^\infty
   \frac{x^3}{e^x-1}\mathrm{d}x = \pi^4/15`;
@@ -328,11 +328,11 @@ Après chargement des données, calculer et afficher les propriétés
 statistiques des quatres jeux de données du :download:`Quartet
 d'Anscombe <anscombe.dat>`:
 
-* Moyenne et variance des *x* et des *y* (:func:`numpy.mean` et
-  :func:`numpy.var`)
-* Corrélation entre les *x* et les *y* (:func:`scipy.stats.pearsonr`)
-* Équation de la droite de régression linéaire *y = ax + b*
-  (:func:`scipy.stats.linregress`)
+* moyenne et variance des *x* et des *y* (:func:`numpy.mean` et
+  :func:`numpy.var`);
+* corrélation entre les *x* et les *y* (:func:`scipy.stats.pearsonr`);
+* équation de la droite de régression linéaire *y = ax + b*
+  (:func:`scipy.stats.linregress`).
 
 .. table:: Quartet d'Anscombe
 
@@ -377,7 +377,7 @@ Générez l'ensemble de ces points d'équilibre pour des valeurs de
 
    **Figure:** Diagramme de bifurcation.
 
-**N.B.:** Vous utiliserez la bibliothèque :ref:`matplotlibSec` pour tracer vos
+**N.B.** Vous utiliserez la bibliothèque :ref:`matplotlibSec` pour tracer vos
 résultats.
 
 .. _julia:

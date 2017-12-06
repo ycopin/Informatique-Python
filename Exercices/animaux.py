@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import pytest                   # Module (non-standard) de tests
+import pytest                   # Module (non standard) de tests
 
 
 class Animal(object):  # *object* est la classe dont dérivent toutes les autres
@@ -21,8 +21,8 @@ class Animal(object):  # *object* est la classe dont dérivent toutes les autres
         self.nom = nom
         self.masse = masse
 
-        self.vivant = True       # Les animaux sont vivant à l'instantiation
-        self.empoisonne = False  # Animal empoisonné?
+        self.vivant = True       # Les animaux sont vivants à l'instanciation
+        self.empoisonne = False  # Animal empoisonné ?
 
     def __str__(self):
         """
@@ -57,8 +57,8 @@ class Animal(object):  # *object* est la classe dont dérivent toutes les autres
         """
         Surcharge de l'opérateur '()' pour manger un autre animal (qui
         meurt s'il est vivant) et prendre du poids (mais pas plus que
-        la masse de l'autre ou 10% de son propre poids).  Attention aux
-        animaux empoisonnés!
+        la masse de l'autre ou 10 % de son propre poids).  Attention aux
+        animaux empoisonnés !
 
         L'instruction `self(other)` sera résolue comme
         `self.__call__(other).
@@ -71,7 +71,7 @@ class Chien(Animal):
 
     """
     Un `Chien` hérite de `Animal` avec des méthodes additionnelles
-    (p.ex. l'aboyement et l'odorat).
+    (p.ex. l'aboiement et l'odorat).
     """
 
     def __init__(self, nom, masse=20, odorat=0.5):

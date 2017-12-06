@@ -41,7 +41,7 @@ class Forme(object):  # *object* est la classe dont dérivent toutes les autres
 
     def aire(self):
         """
-        Renvoi l'aire de la Forme.
+        Renvoie l'aire de la Forme.
 
         L'aire ne peut pas être calculée dans le cas où la forme n'est
         pas encore spécifiée: c'est ce que l'on appelle une méthode
@@ -143,5 +143,5 @@ if __name__ == '__main__':
     print "r >= q:", (r >= q)         # Interprété comme r.__cmp__(q)
 
     r.allonger(2)                     # r devient un rectangle 4×1
-    print "Aire de r apres l'avoir allongé d'un facteur 2:", r.aire()
+    print "Aire de r après l'avoir allongé d'un facteur 2:", r.aire()
     print "r >= q:", (r >= q)

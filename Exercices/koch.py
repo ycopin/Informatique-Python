@@ -55,7 +55,7 @@ def koch(niveau=3, iter=0, taille=100, delta=0):
 if __name__ == '__main__':
 
     # start-argparse
-    # Exemple d'utilisation de la librairie de gestion d'arguments 'argparse'
+    # Exemple d'utilisation de la bibliothèque de gestion d'arguments 'argparse'
     import argparse
 
     desc = u"Tracé (via 'turtle') d'un flocon de Koch d'ordre arbitraire."

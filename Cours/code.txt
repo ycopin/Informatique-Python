@@ -1,4 +1,4 @@
-Développer en python
+Développer en Python
 ####################
 
 .. contents:: Table des matières
@@ -21,10 +21,10 @@ Développer en python
 
 .. _td7:
 
-Le zen du python
+Le zen du Python
 ================
 
-.. index:: Zen du python
+.. index:: Zen du Python
 
 Le *zen du Python* (:pep:`20`) est une série de 20 aphorismes [#zen]_
 donnant les grands principes du Python::
@@ -162,7 +162,7 @@ L'application de ces principes de développement dépend évidemment de l'object
 final du code:
 
 - une bibliothèque *centrale* (utilisée par de nombreux programmes) favorisera
-  la robustesse et la réutilisabilité au dépend de la flexibilité: elle devra
+  la robustesse et la réutilisabilité aux dépends de la flexibilité: elle devra
   être particulièrement bien pensée, et ne pourra être modifiée qu'avec
   parcimonie;
 - inversement, un script d'analyse de haut niveau, d'utilisation restreinte,
@@ -176,18 +176,18 @@ Développement piloté par les tests
 
 Le *Test Driven Development* (TDD, ou en français « développement
 piloté par les tests ») est une méthode de programmation qui permet
-d'éviter des bugs *a priori* plutôt que de les résoudre *a
+d'éviter des bogues *a priori* plutôt que de les résoudre *a
 posteriori*. Ce n'est pas une méthode propre à Python, elle est
 utilisée très largement par les programmeurs professionnels.
 
 Le cycle préconisé par TDD comporte cinq étapes :
 
-1. écrire un premier test ;
-2. vérifier qu'il échoue (puisque le code qu'il teste n'existe pas
+1. Écrire un premier test ;
+2. Vérifier qu'il échoue (puisque le code qu'il teste n'existe pas
    encore), afin de s'assurer que le test est valide et exécuté ;
-3. écrire un code minimal pour passer le test ;
-4. vérifier que le test passe correctement ;
-5. éventuellement « réusiner » le code (*refactoring*), c'est-à-dire
+3. Écrire un code minimal pour passer le test ;
+4. Vérifier que le test passe correctement ;
+5. Éventuellement « réusiner » le code (*refactoring*), c'est-à-dire
    l'améliorer (rapidité, lisibilité) tout en gardant les mêmes
    fonctionnalités.
 
@@ -198,21 +198,21 @@ provient de cette nouvelle partie et non des fonctions ou objets que
 ce morceau de code utilise.  On distingue ainsi hiérarchiquement:
 
 1. Les tests unitaires vérifient individuellement chacune des
-   fonctions, méthodes, etc.
+   fonctions, méthodes, etc.;
 2. Les tests d'intégration évaluent les interactions entre différentes
-   unités du programmes.
+   unités du programmes;
 3. Les tests système assurent le bon fonctionnement du programme dans
    sa globalité.
 
 Il est très utile de transformer toutes les vérifications réalisées au
 cours du développement et du débogage sous forme de tests, ce qui
 permet de les réutiliser lorsque l'on veut compléter ou améliorer une
-partie du code.  Si le nouveau code passe toujours les anciens test,
+partie du code.  Si le nouveau code passe toujours les anciens tests,
 on est alors sûr de ne pas avoir cassé les fonctionnalités précédentes
 (régréssions).
 
-Nous avons déjà vu aux TD précédents plusieurs façon de rédiger des
-tests unitaires:
+Nous avons déjà vu aux TD précédents plusieurs façons de rédiger des
+tests unitaires.
 
 * Les `doctest <https://docs.python.org/2/library/doctest.html>`_ sont
   des exemples (assez simples) d'exécution de code inclus dans les
@@ -244,7 +244,7 @@ tests unitaires:
 
   Les tests sont exécutés via :samp:`py.test {programme.py}`.
 
-* Le module :mod:`unittest` de la librairie standard permet à peu près
+* Le module :mod:`unittest` de la bibliothèque standard permet à peu près
   la même chose que pytest_, mais avec une syntaxe souvent plus
   lourde.  :mod:`unittest` est étendu par le module non-standard nose_.
 
@@ -253,7 +253,7 @@ Outils de développement
 =======================
 
 Je fournis ici essentiellement des liens vers des outils pouvant être
-utiles pour développer en python.
+utiles pour développer en Python.
 
 *Integrated Development Environment*
 ------------------------------------
@@ -296,7 +296,7 @@ d'exécution ou juste après une erreur (analyse post-mortem).
   Pour déboguer un script, il est possible de l'exécuter sous le
   contrôle du débogueur `pdb
   <https://docs.python.org/2/library/pdb.html>`_ en s'interrompant dès
-  la 1ère instruction::
+  la 1re instruction::
 
     python -m pdb script.py
     (Pdb)
@@ -304,34 +304,34 @@ d'exécution ou juste après une erreur (analyse post-mortem).
   Commandes (très similaires à `gdb
   <http://sourceware.org/gdb/current/onlinedocs/gdb/>`_):
 
-  * :samp:`h[elp] {[command]}`: aide en ligne
-  * :samp:`q[uit]`: quitter
-  * :samp:`r[un] {[args]}`: exécuter le programme avec les arguments
+  * :samp:`h[elp] {[command]}`: aide en ligne;
+  * :samp:`q[uit]`: quitter;
+  * :samp:`r[un] {[args]}`: exécuter le programme avec les arguments;
   * :samp:`d[own]/u[p]`: monter/descendre dans le stack (empilement
-    des appels de fonction)
+    des appels de fonction);
   * :samp:`p {expression}`: afficher le résultat de l'expression (`pp`:
-    *pretty-print*)
+    *pretty-print*);
   * :samp:`l[ist] {[first[,last]]}`: afficher le code source autour de
-    l'instruction courante (`ll`: *long list*)
+    l'instruction courante (`ll`: *long list*);
   * :samp:`n[ext]/s[tep]`: exécuter l'instruction suivante (sans y entrer/en
-    y entrant)
+    y entrant);
   * :samp:`unt[il]`: continuer l'exécution jusqu'à la ligne suivante (utile
-    pour les boucles)
+    pour les boucles);
   * :samp:`c[ont[inue]]`: continuer l'exécution (jusqu'à la prochaine
-    interruption ou la fin du programme)
-  * :samp:`r[eturn]`: continuer l'exécution jusqu'à la sortie de la fonction
+    interruption ou la fin du programme);
+  * :samp:`r[eturn]`: continuer l'exécution jusqu'à la sortie de la fonction;
   * :samp:`b[reak] {[[filename:]lineno | function[, condition]]}`:
     mettre en place un point d'arrêt (`tbreak` pour un point d'arrêt
     *temporaire*). Sans argument, afficher les points d'arrêts déjà
-    définis.
+    définis;
   * :samp:`disable/enable {[bpnumber]}`: désactiver/réactiver tous ou
-    un point d'arrêt
-  * :samp:`cl[ear] {[bpnumber]}`: éliminer tous ou un point d'arrêt
+    un point d'arrêt;
+  * :samp:`cl[ear] {[bpnumber]}`: éliminer tous ou un point d'arrêt;
   * :samp:`ignore {bpnumber [count]}`: ignorer un point d'arrêt une ou
-    plusieurs fois
-  * :samp:`condition {bpnumber}`: ajouter une condition à un point d'arrêt
+    plusieurs fois;
+  * :samp:`condition {bpnumber}`: ajouter une condition à un point d'arrêt;
   * :samp:`commands {[bpnumber]}`: ajouter des instructions à un point
-    d'arrêt
+    d'arrêt.
 
 - Commandes :program:`ipython`: :samp:`%run {monScript.py}`, `%debug`,
   `%pdb`
@@ -345,12 +345,12 @@ d'exécution ou juste après une erreur (analyse post-mortem).
 L'activité de débogage s'intégre naturellement à la nécessité d'écrire
 des tests unitaires:
 
-1. trouver un bug
-2. écrire un test qui aurait du être validé en l'absence du bug
-3. corriger le code jusqu'à validation du test
+1. trouver un bogue;
+2. écrire un test qui aurait du être validé en l'absence du bogue;
+3. corriger le code jusqu'à validation du test.
 
-Vous aurez alors au final corrigé le bug, *et* écrit un test
-s'assurant que ce bug ne réapparaîtra pas inopinément.
+Vous aurez alors au final corrigé le bug, *et* écrit un test s'assurant que ce
+bogue ne réapparaîtra pas inopinément.
 
 .. _ProfOpt:
 
@@ -378,8 +378,8 @@ les parties qui gagneront à être optimisées.
   Il existe un mode « optimisé » de python (option `-O`), qui pour
   l'instant ne fait pas grand chose (et n'est donc guère utilisé....):
 
-  * la variable interne `__debug__` passe de `True` à `False`,
-  * les instructions `assert` ne sont pas exécutés.
+  * la variable interne `__debug__` passe de `True` à `False`;
+  * les instructions `assert` ne sont pas évaluées.
 
 - :mod:`timeit` et :samp:`%timeit {statement}` sous
   :program:`ipython`::
@@ -403,7 +403,7 @@ les parties qui gagneront à être optimisées.
      In [4]: %timeit t3(10000)
      10000 loops, best of 3: 18.1 µs per loop
 
-- :mod:`cProfile` & :mod:`pstats`, et :samp:`%prun {statement}` sous
+- :mod:`cProfile` et :mod:`pstats`, et :samp:`%prun {statement}` sous
   :program:`ipython`::
 
     $ python -m cProfile -o output.pstats monScript.py
@@ -415,15 +415,15 @@ les parties qui gagneront à être optimisées.
 Une fois identifiée la partie du code à optimiser, quelques conseils
 généraux:
 
-* En cas de doute, favoriser la lisibilité aux performances
-* Utiliser des opérations sur les tableaux, plutôt que sur des
+* en cas de doute, favoriser la lisibilité aux performances;
+* utiliser des opérations sur les tableaux, plutôt que sur des
   éléments individuels (*vectorization*): listes en compréhension,
-  tableaux :mod:`numpy` (qui ont eux-mêmes été optimisés)
+  tableaux :mod:`numpy` (qui ont eux-mêmes été optimisés);
 * `cython <http://cython.org/>`_ est un langage de programmation
   **compilé** très similaire à python.  Il permet d'écrire des
   extensions en C avec la facilité de python (voir notamment `Working
   with Numpy
-  <http://docs.cython.org/en/latest/src/tutorial/numpy.html>`_)
+  <http://docs.cython.org/en/latest/src/tutorial/numpy.html>`_);
 * `numba <http://numba.pydata.org/>`_ permet *automagiquement* de
   compiler *à la volée* (:abbr:`JIT(Just In Time)`) du pur code python
   via le compilateur `LLVM <http://llvm.org/>`_, avec une optimisation
@@ -435,12 +435,13 @@ généraux:
     def move_mean(a, window_arr, out):
         ...
 
-* À l'avenir, l'interpréteur CPython actuel sera éventuellement
+* à l'avenir, l'interpréteur CPython actuel sera éventuellement
   remplacé par `pypy <http://pypy.org/>`_, basé sur une compilation
   :abbr:`JIT(Just In Time)`.
 
-**Lien:** `Performance tips
-<https://wiki.python.org/moin/PythonSpeed/PerformanceTips>`_
+.. rubric:: Lien:
+
+`Performance tips <https://wiki.python.org/moin/PythonSpeed/PerformanceTips>`_
 
 Documentation
 -------------
@@ -448,42 +449,41 @@ Documentation
 * Outils de documentation, ou comment transformer *automagiquement* un
   code-source bien documenté en une documentation fonctionnelle.
 
-  - `Sphinx <http://www.sphinx-doc.org/en/stable/>`_
+  - `Sphinx <http://www.sphinx-doc.org/en/stable/>`_;
   - `reStructuredText for Sphinx
-    <http://www.sphinx-doc.org/en/stable/rest.html>`_
-  - `Awesome Sphinx <https://github.com/yoloseem/awesome-sphinxdoc>`_
+    <http://www.sphinx-doc.org/en/stable/rest.html>`_;
+  - `Awesome Sphinx <https://github.com/yoloseem/awesome-sphinxdoc>`_;
   - `apidoc <http://www.sphinx-doc.org/en/stable/man/sphinx-apidoc.html>`_
-    (documentation automatique)
+    (documentation automatique).
 
 * Conventions de documentation:
 
-  - *Docstring convention*: :pep:`257`
+  - *Docstring convention*: :pep:`257`;
   - `Documenting Your Project Using Sphinx
-    <http://pythonhosted.org/an_example_pypi_project/sphinx.html>`_
+    <http://pythonhosted.org/an_example_pypi_project/sphinx.html>`_;
   - `A Guide to NumPy/SciPy Documentation
-    <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
-  - `Sample doc <http://matplotlib.org/sampledoc/>`_ (matplotlib)
+    <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_;
+  - `Sample doc <http://matplotlib.org/sampledoc/>`_ (matplotlib).
 
 .. rubric:: Lien:
 
-`Documentation Tools
-<https://wiki.python.org/moin/DocumentationTools>`_
+`Documentation Tools <https://wiki.python.org/moin/DocumentationTools>`_
 
 *Python packages*
 -----------------
 
 Comment installer/créer des modules externes:
 
-- `pip <https://pip.pypa.io/en/latest/>`_
+- `pip <https://pip.pypa.io/en/latest/>`_;
 - `Hitchhiker’s Guide to Packaging
-  <http://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/>`_
+  <http://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/>`_;
 - `Packaging a python library
-  <https://blog.ionelmc.ro/2014/05/25/python-packaging/>`_
+  <https://blog.ionelmc.ro/2014/05/25/python-packaging/>`_;
 - `Cookiecutter <http://cookiecutter.readthedocs.io/>`_ est un
   générateur de squelettes de projet via des *templates* (pas
-  uniquement pour python)
+  uniquement pour Python);
 - `cx-freeze <http://cx-freeze.readthedocs.io/>`, pour générer un
-  exécutable à partir d'un script
+  exécutable à partir d'un script.
 
 Système de gestion de versions
 ------------------------------
@@ -498,23 +498,23 @@ System)` particulièrement performant (p.ex. utilisé pour le
 développement du `noyau Linux <https://git.kernel.org/>`_ [#gitW]_).
 Il est souvent couplé à un dépôt en ligne faisant office de dépôt de
 référence et de solution de sauvegarde, et offrant généralement des
-solutions d'intégration continue, p.ex.
+solutions d'intégration continue, p.ex.:
 
-* Les très célèbres `GitHub <https://github.com/>`_ et `GitLab
-  <https://gitlab.com/>`_, gratuits pour les projets libres
-* Pour des projets liés à votre travail, je conseille plutôt des
+* les très célèbres `GitHub <https://github.com/>`_ et `GitLab
+  <https://gitlab.com/>`_, gratuits pour les projets libres;
+* pour des projets liés à votre travail, je conseille plutôt des
   dépôts directement gérés par votre institution, p.ex. `GitLab-IN2P3
-  <https://gitlab.in2p3.fr/>`_
+  <https://gitlab.in2p3.fr/>`_.
 
 Git_ mérite un cours en soi, et devrait être utilisé très largement
 pour l'ensemble de vos projets (p.ex. rédaction d'articles, de thèse
-de cours, fichiers de configuration, tests numériques, etc.)
+de cours, fichiers de configuration, tests numériques, etc.).
 
 Quelques liens d'introduction:
 
-- `Pro-Git book <https://git-scm.com/book/en/v2>`_, le livre « officiel »
-- `Git Immersion <http://gitimmersion.com/>`_
-- `Git Magic <http://www-cs-students.stanford.edu/~blynn/gitmagic/>`_
+- `Pro-Git book <https://git-scm.com/book/en/v2>`_, le livre « officiel »;
+- `Git Immersion <http://gitimmersion.com/>`_;
+- `Git Magic <http://www-cs-students.stanford.edu/~blynn/gitmagic/>`_.
 
 Intégration continue
 --------------------
@@ -535,18 +535,18 @@ ligne directement connectés au dépôt source. Exemple sur
 :ref:`myAstropy`:
 
 * `Travis CI <https://travis-ci.org/astropy/astropy>`_ intégration
-  continue
+  continue;
 * `Coveralls <https://coveralls.io/github/astropy/astropy>`_ taux de
-  couverture des tests unitaires
+  couverture des tests unitaires;
 * `Readthedocs <https://readthedocs.org/projects/astropy/>`_
-  documentation en ligne
+  documentation en ligne;
 * `Depsy <http://depsy.org/package/python/astropy>`_ mise en valeur du
   développement logiciel dans le monde académique (*measure the value
-  of software that powers science*)
+  of software that powers science*).
 
 .. _python23:
 
-Python 2 vs. python 3
+Python 2 vs. Python 3
 =====================
 
 Il existe de nombreux outils permettant de faciliter la transition 2.x
@@ -565,9 +565,9 @@ Il existe de nombreux outils permettant de faciliter la transition 2.x
 
     print(1/2)                             # Affichera '0.5'
 
-* La librairie *non* standard `six <http://pythonhosted.org/six/>`_
+* La bibliothèque *non* standard `six <http://pythonhosted.org/six/>`_
   fournit une couche de compatibilité 2.x-3.x, permettant de produire
-  de façon transparente un code compatible simultanément avec les 2
+  de façon transparente un code compatible simultanément avec les deux
   versions.
 
 .. Avertissement:: Si vous vous lancez dans un nouveau développement,
@@ -576,9 +576,9 @@ Il existe de nombreux outils permettant de faciliter la transition 2.x
 
 .. rubric:: Liens
 
-- `Python 2 or python 3?
+- `Python 2 or Python 3?
   <https://wiki.python.org/moin/Python2orPython3>`_
-- `Py3 Readiness <http://py3readiness.org/>`_: liste (réduite) des librairies
+- `Py3 Readiness <http://py3readiness.org/>`_: liste (réduite) des bibliothèques
   encore non-compatibles avec Python 3
 - `Porting Python 2 Code to Python 3
   <http://python.readthedocs.io/en/latest/howto/pyporting.html>`_
@@ -588,11 +588,10 @@ Il existe de nombreux outils permettant de faciliter la transition 2.x
 .. rubric:: Notes de bas de page
 
 .. [#zen] Dont seulement 19 ont été écrits.
-.. [#py.test] pytest_ ne fait pas partie de la librairie standard.  Il
-   vous faudra donc l'installer indépendemment si vous voulez
-   l'utiliser.
-.. [#wheel] « *Don't reinvent the wheel, unless you plan on learning
-   more about wheels* » -- Jeff Atwood
+.. [#py.test] pytest_ ne fait pas partie de la bibliothèque standard.  Il vous
+   faudra donc l'installer indépendemment si vous voulez l'utiliser.
+.. [#wheel] « *Don't reinvent the wheel, unless you plan on learning more about
+   wheels* » -- Jeff Atwood
 .. [#opt] « *Premature optimization is the root of all evil* » --
    Donald Knuth
 .. [#gitW] Et maintenant du `code Windows

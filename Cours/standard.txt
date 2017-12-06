@@ -106,7 +106,7 @@ True
 ..    module: math
 ..    module: cmath
 
-Quelques modules de la librairie standard qui peuvent être d'intérêt:
+Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 
 * :mod:`math`: accès aux fonctions mathématiques réelles
 
@@ -118,15 +118,15 @@ Quelques modules de la librairie standard qui peuvent être d'intérêt:
   >>> cmath.exp(cmath.pi * 1j) + 1
   1.2246467991473532e-16j
 
-* `Autres modules numériques et mathématiques
-  <https://docs.python.org/2/library/numeric.html>`_
+* `autres modules numériques et mathématiques
+  <https://docs.python.org/2/library/numeric.html>`_;
 
 .. .. index::
 ..    module: collections
 ..    module: itertools
 
 * :mod:`collections` définit de nouveaux types spécialisés, p.ex.
-  :class:`collections.OrderedDict`, un dictionnaire *ordonné*.
+  :class:`collections.OrderedDict`, un dictionnaire *ordonné*;
 
 * :mod:`itertools` fournit des générateurs de boucle (*itérateurs*) et de
   combinatoire:
@@ -141,25 +141,25 @@ Quelques modules de la librairie standard qui peuvent être d'intérêt:
 ..    module: subprocess
 ..    module: glob
 
-* Interactions avec le système:
+* interactions avec le système:
 
-  - :mod:`sys`, :mod:`os`: interface système
-  - :mod:`shutil`: opérations sur les fichiers (*copy*, *move*, etc.)
-  - :mod:`subprocess`: éxécution de commandes système
-  - :mod:`glob`: méta-caractères du *shell* (p.ex. `toto?.*`)
+  - :mod:`sys`, :mod:`os`: interface système,
+  - :mod:`shutil`: opérations sur les fichiers (*copy*, *move*, etc.),
+  - :mod:`subprocess`: éxécution de commandes système,
+  - :mod:`glob`: métacaractères du *shell* (p.ex. `toto?.*`);
 
 .. .. index::
 ..    module: re
 
-* `Expressions rationnelles <https://docs.python.org/2/howto/regex.html>`_:
-  :mod:`re`
+* `expressions rationnelles <https://docs.python.org/2/howto/regex.html>`_:
+  :mod:`re`;
 
 .. .. index::
 ..    module: time
 ..    module: datetime
 
-* Gestion du temps (:mod:`time`) et des dates (:mod:`datetime`,
-  :mod:`calendar`)
+* gestion du temps (:mod:`time`) et des dates (:mod:`datetime`,
+  :mod:`calendar`);
 
 .. .. index::
 ..    module: gzip
@@ -167,28 +167,28 @@ Quelques modules de la librairie standard qui peuvent être d'intérêt:
 ..    module: zipfile
 ..    module: tarfile
 
-* Fichiers compressés et archives: :mod:`gzip`, :mod:`bz2`,
-  :mod:`zipfile`, :mod:`tarfile`
+* fichiers compressés et archives: :mod:`gzip`, :mod:`bz2`,
+  :mod:`zipfile`, :mod:`tarfile`;
 
 .. .. index::
 ..    module: cvs
 ..    module: pickle/cPickle
 ..    module: ConfigParser
 
-* Lecture & sauvegarde des données (outre :mod:`pickle`/:mod:`cPickle`)
+* lecture et sauvegarde des données (outre :mod:`pickle`/:mod:`cPickle`):
 
   - :mod:`csv`: lecture/sauvegarde de fichiers :abbr:`CSV (Comma
-    Separated Values)`
-  - :mod:`ConfigParser`: fichiers de configuration
-  - :mod:`json`: *lightweight data interchange format*
+    Separated Values)`,
+  - :mod:`ConfigParser`: fichiers de configuration,
+  - :mod:`json`: *lightweight data interchange format*;
 
 .. - yaml: http://pyyaml.org/
 
 .. .. index::
 ..    module: urllib2
 
-* `Lecture d'une URL <https://docs.python.org/2/howto/urllib2.html>`_
-  (p.ex. page web): :mod:`urllib2`
+* `lecture d'une URL <https://docs.python.org/2/howto/urllib2.html>`_
+  (p.ex. page web): :mod:`urllib2`.
 
 
 *Text/Graphical User Interfaces*
@@ -197,10 +197,10 @@ Quelques modules de la librairie standard qui peuvent être d'intérêt:
 - :abbr:`TUI (Text User Interface)`: :mod:`curses`
 - :abbr:`GUI (Graphical User Interface)`: :mod:`Tkinter`,
 
-.. rubric:: Librairies externes:
+.. rubric:: Bibliothèques externes:
 
 - TUI: `termcolor <https://pypi.python.org/pypi/termcolor>`_ (texte
-  coloré ANSII), `blessings <https://pypi.python.org/pypi/blessings>`_
+  coloré ANSII), `blessed <https://pypi.python.org/pypi/blessed>`_
   (mise en page)
 - GUI: `PyGI <https://pygobject.readthedocs.io/>`_ (GTK3), `PyQt
   <https://riverbankcomputing.com/software/pyqt/intro>`_ / `pySide

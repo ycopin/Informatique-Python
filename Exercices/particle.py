@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2014-09-04 16:56:47 alicari>
+# Time-stamp: <2017-12-06 18:35:00 ycopin>
 
 
 from __future__ import division  # division réelle de type python 3, admis
@@ -8,11 +8,11 @@ import pytest                    # pytest importé pour les tests unitaires
 import math
 
 """
-Définition d'une classe point matériel, avec sa masse,
-sa position et sa vitesse, et des méthodes pour le déplacer.
-Le main test applique cela à un problème à force centrale
-gravitationnel ou électrostatique.
-Remarque : toutes les unités ont été choisies adimensionnées.
+Définition d'une classe point matériel, avec sa masse, sa position et sa
+vitesse, et des méthodes pour le déplacer.  Le main test applique cela à un
+problème à force centrale gravitationnel ou électrostatique.
+
+Remarque : Toutes les unités ont été choisies adimensionnées.
 """
 
 __author__ = "Adrien Licari <adrien.licari@ens-lyon.fr>"
@@ -27,9 +27,8 @@ tolerance = 1e-8
 #############################################################################
 
 class Vector(object):
-
     """
-    Une classe-structure simple contenant 3 coordonées.
+    Une classe-structure simple contenant 3 coordonnées.
     Une méthode est disponible pour en calculer la norme et
     une surcharge des opérateurs ==, !=, +, - et * est proposée.
     """
@@ -298,7 +297,7 @@ class Particle(object):
 def test_ParticleInit():
     with pytest.raises(TypeError):
         p = Particle("blabla")
-        p = Particle(2, position='hum')  # on vérifie less erreurs sur Vector
+        p = Particle(2, position='hum')  # on vérifie les erreurs sur Vector
         p = Particle([])
     p = Particle(3, Vector(2, 1, 4), Vector(-1, -1, -1))
     assert p.mass == 3
@@ -338,13 +337,12 @@ def test_ParticleUpdate():
 #######################################################
 
 class Ion (Particle):
-
     """
-    Un Ion est une particle ayant une charge en plus de sa masse et
+    Un Ion est une particule ayant une charge en plus de sa masse et
     intéragissant électrostatiquement plutôt que gravitationnellement.
     La méthode computeForce remplace donc le calcul de la force
-    gravitationnelle de Newton par celui de la force
-    électrostatique de Coulomb.
+    gravitationnelle de Newton par celui de la force électrostatique de
+    Coulomb.
     """
 
     ### À implémenter ###
@@ -459,7 +457,7 @@ if __name__ == '__main__':
     print " Physical computations ".center(50, "*")
     dt = 0.0001
 
-    # problème à force centrale gravitationnel, cas circulaire
+    # Problème à force centrale gravitationnelle, cas circulaire
     ntimesteps = int(10000 * math.pi)  # durée pour parcourir pi
     center = Particle()
     M = Particle(mass=1, position=Vector(1, 0, 0), speed=Vector(0, 1, 0))

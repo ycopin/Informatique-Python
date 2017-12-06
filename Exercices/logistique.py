@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2012-09-05 02:37 ycopin@lyopc469>
+# Time-stamp: <2017-12-06 18:31:28 ycopin>
 
 import numpy as np
 import random
@@ -21,7 +21,7 @@ def iteration(r, niter=100):
 def generate_diagram(r, ntrials=50):
     """
     Cette fonction retourne (jusqu'à) *ntrials* valeurs d'équilibre
-    pour les *r* d'entrée.  Elle renvoit un tuple:
+    pour les *r* d'entrée.  Elle renvoie un tuple:
 
     + le premier élément est la liste des valeurs prises par le paramètre *r*
     + le second est la liste des points d'équilibre correspondants
@@ -33,7 +33,7 @@ def generate_diagram(r, ntrials=50):
         j = 0
         while j < ntrials:
             xx = iteration(rr)
-            if xx > 0:  # A convergé: il s'agit d'une valeur d'équilibre
+            if xx > 0:  # Convergence: il s'agit d'une valeur d'équilibre
                 r_v.append(rr)
                 x_v.append(xx)
             j += 1                      # Nouvel essai
