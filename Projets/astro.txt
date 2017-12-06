@@ -1,5 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2017-05-29 00:52 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2017-11-26 23:48 ycopin@lyonovae03.in2p3.fr>
 
 .. sectionauthor:: Méthodes numériques pour la physique et les SPI
 
@@ -184,3 +184,11 @@ et les deux potentiels:
    `Copin, Zhao & de Zeeuw
    <http://adsabs.harvard.edu/abs/2000MNRAS.318..781C>`_ (2000; MNRAS,
    **318**, 781).
+
+..
+   TODO:
+   * ajuster loi du corps noir sur données CMB
+     (https://lambda.gsfc.nasa.gov/product/cobe/firas_prod_table.cfm)
+   * Binary pulsar orbit decay
+     (http://adsabs.harvard.edu/abs/1982ApJ...253..908T): quadratic
+     decay vs. no decay

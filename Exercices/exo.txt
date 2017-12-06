@@ -489,9 +489,11 @@ Exercices en vrac
   <http://openclassrooms.com/forum/sujet/entrainez-vous-sur-le-langage-python-54161?page=3#message-85967089>`_
   |fr|
 * `Learn Python The Hard Way <http://learnpythonthehardway.org/book/>`_
-* `Google Code Jam <http://code.google.com/codejam/>`_
+* `Google Code Jam <http://code.google.com/codejam/>`_: compétition de code
+* `Coding Exercises <https://github.com/chiphuyen/coding_exercises>`_:
+  structures et algorithmes classiques
 * `CheckIO <https://checkio.org/>`_
-
+  
 .. _particle:
 
 Points matériels et ions (POO/TDD)
