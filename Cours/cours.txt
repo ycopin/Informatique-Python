@@ -41,12 +41,12 @@ Installation
 Cette introduction repose essentiellement sur les outils suivants:
 
 - `Python 2.7 <https://www.python.org/downloads/>`_ (inclus
-  l'interpréteur de base et la bibliothèque standard)
+  l'interpréteur de base et la bibliothèque standard);
 - les bibliothèques scientifiques `Numpy et Scipy
-  <https://scipy.org/install.html>`_,
-- la bibliothèque graphique: `Matplotlib
-  <http://matplotlib.org/users/installing.html>`_,
-- un interpréteur évolué, p.ex. `ipython <http://ipython.org/install.html>`_,
+  <https://scipy.org/install.html>`_;
+- la bibliothèque graphique `Matplotlib
+  <http://matplotlib.org/users/installing.html>`_;
+- un interpréteur évolué, p.ex. `ipython <http://ipython.org/install.html>`_;
 - un `éditeur de texte évolué
   <https://en.wikipedia.org/wiki/Comparison_of_text_editors>`_, p.ex. `emacs
   <http://www.gnu.org/software/emacs/>`_, `vi <http://www.vim.org/>`_, `gedit
@@ -57,24 +57,25 @@ Ces logiciels peuvent être installés indépendamment, de préférence sous Lin
 <https://fr.wikipedia.org/wiki/Liste_des_distributions_Linux>`_), ou sous
 Windows ou MacOS.  Il existe également des distributions « clés en main »:
 
-- `Python(x,y) <https://python-xy.github.io/>`_ (Windows)
+- `Anaconda <https://www.continuum.io/>`_ (multi-plateforme);
+- `Python(x,y) <https://python-xy.github.io/>`_ (Windows);
 - `Enthought Canopy <https://www.enthought.com/products/canopy>`_
-  (Windows, MacOS, Linux, gratuite pour les étudiants du supérieur)
+  (Windows, MacOS, Linux, gratuite pour les étudiants du supérieur).
 
 Notions d'Unix
 --------------
 
 Les concepts suivants sont supposés connus:
 
-* ligne de commande: éxécutables et options
+* ligne de commande: éxécutables et options;
 * arborescence: chemin relatif (`[./]...`) et absolu (`/...`),
-  navigation (:command:`cd`)
+  navigation (:command:`cd`);
 * gestion des fichiers (:command:`ls`, :command:`rm`, :command:`mv`)
-  et répertoires (:command:`mkdir`)
-* gestion des éxécutables: :envvar:`$PATH`, :command:`chmod +x`
+  et répertoires (:command:`mkdir`);
+* gestion des éxécutables: :envvar:`$PATH`, :command:`chmod +x`;
 * gestion des processus: `&`, :kbd:`Control-c`, :kbd:`Control-z` +
-  :command:`bg`
-* variables d'environnement: :command:`export`, :file:`.bashrc`
+  :command:`bg`;
+* variables d'environnement: :command:`export`, :file:`.bashrc`.
 
 .. rubric:: Liens:
 
@@ -101,13 +102,13 @@ Python:
     Type "help", "copyright", "credits" or "license" for more information.
     >>>
 
-  - :kbd:`Control-d` pour sortir
-  - :samp:`help({commande})` pour obtenir l'aide d'une commande
-  - *A priori*, pas d'historique des commandes ni de complétion
+  - :kbd:`Control-d` pour sortir;
+  - :samp:`help({commande})` pour obtenir l'aide d'une commande;
+  - *a priori*, pas d'historique des commandes ni de complétion
     automatique.
 
   L'interpréteur de base permet également d'interpréter un « script »,
-  càd un ensemble de commandes regroupées dans un fichier texte
+  c.-à-d. un ensemble de commandes regroupées dans un fichier texte
   (généralement avec une extension `.py`): :samp:`python
   {mon_script.py}`
 
@@ -129,17 +130,17 @@ Python:
 
     In [1]:
 
-  - :kbd:`Control-d` pour sortir
-  - :kbd:`Tab` pour la complétion automatique
-  - :kbd:`Haut` et :kbd:`Bas` pour le rappel des commandes
-  - Aide ipython: `object?` pour une aide sur un objet, `object??`
-    pour une aide plus complète (au niveau source)
-  - Commandes *magic* (voir `%magic`):
+  - :kbd:`Control-d` pour sortir;
+  - :kbd:`Tab` pour la complétion automatique;
+  - :kbd:`Haut` et :kbd:`Bas` pour le rappel des commandes;
+  - aide ipython: `object?` pour une aide sur un objet, `object??`
+    pour une aide plus complète (au niveau source);
+  - commandes *magic* (voir `%magic`):
 
     * :samp:`%run {mon_script.py}` pour éxecuter un script *dans*
-      l'interpréteur
-    * `%debug` pour lancer le mode débogage intéractif *post-mortem*
-    * `%cpaste` pour coller et éxecuter un code pré-formaté
+      l'interpréteur,
+    * `%debug` pour lancer le mode débogage intéractif *post-mortem*,
+    * `%cpaste` pour coller et éxecuter un code préformaté.
 
   .. rubric:: Liens:
 
@@ -239,7 +240,7 @@ Structures de programmation
 ===========================
 
 - Les blocs sont définis par l'**indentation** (en général par pas de
-  4 espaces) [#braces]_.
+  quatre espaces) [#braces]_.
 
   .. Warning:: Évitez autant que possible les caractères de
      tabulation, source de confusion.  Configurez votre éditeur de
@@ -257,7 +258,7 @@ Structures de programmation
   - `False`: test logique faux (p.ex. `3 == 4`), valeur nulle, chaîne
     vide (`''`), liste vide (`[]`), etc.
   - `True`: test logique vrai (p.ex. `2 + 2 == 4`), toute valeur ou
-    objet non-nul (et donc s'évaluant par défaut à `True` *sauf exception*)
+    objet non nul (et donc s'évaluant par défaut à `True` *sauf exception*)
   - Tests logiques: `==`, `!=`, `>`, `>=`, etc.
 
     .. Attention:: Ne pas confondre « `=` » (affectation d'une variable)
@@ -280,9 +281,9 @@ Structures de programmation
 
     if (i > 0):    # Condition principale
         print "positif"
-    elif (i < 0):  # Condition secondaire (si nécéssaire)
+    elif (i < 0):  # Condition secondaire (si nécessaire)
         print "négatif"
-    else:          # Cas final (si nécéssaire)
+    else:          # Cas final (si nécessaire)
         print "nul"
 
 .. index:: for ... in
@@ -310,7 +311,7 @@ Structures de programmation
 .. index:: break
 
 - **Boucle while**: :samp:`while {condition}:` se répéte tant que la
-  *condition* est vraie, ou après une sortie explicite avec `break`.
+  *condition* est vraie, ou jusqu'à une sortie explicite avec `break`.
 
   .. Attention:: aux boucles infinies, dont la condition d'exécution
      reste invariablement vraie (typiquement un critère de convergence
@@ -342,14 +343,14 @@ Les chaînes de caractères
 Indexation
 ----------
 
-Les chaînes de caractères sont des objets *itérables* -- càd
+Les chaînes de caractères sont des objets *itérables* -- c.-à-d.
 constitués d'éléments (ici les caractères) sur lesquels il est
-possible de « boucler » (p.ex. avec `for`) -- et *immuables* -- càd
+possible de « boucler » (p.ex. avec `for`) -- et *immuables* -- c.-à-d.
 dont les éléments individuels ne peuvent pas être modifiés
 intrinsèquement.
 
 .. Note:: Comme en C[++], l'indexation en Python commence à 0: le
-   1er élément d'une liste est l'élément n°0, le 2nd est le n°1, etc.
+   1er élément d'une liste est l'élément n°0, le 2e est le n°1, etc.
    Les *n* éléments d'une liste sont donc indexés de 0 à *n-1*.
 
 >>> alpha = 'abcdefghijklmnopqrstuvwxyz'
@@ -357,7 +358,7 @@ intrinsèquement.
 26
 >>> alpha[0]    # 1er élément (l'indexation commence à 0)
 'a'
->>> alpha[-1]   # = alpha[26-1=25], dernier élément (-2: avant dernier, etc.)
+>>> alpha[-1]   # = alpha[26-1=25], dernier élément (-2: avant-dernier, etc.)
 'z'
 
 Sous-liste (*slice*)
@@ -395,7 +396,7 @@ facilitant leur manipulation:
 'Calvin et Hobbes'
 >>> titre.replace('et', '&')  # Remplacement de sous-chaînes (→ nouvelle chaîne)
 'Calvin & Hobbes'
->>> titre                     # titre est immuable et reste inchangée
+>>> titre                     # titre est immuable et reste inchangé
 'Calvin et Hobbes'
 >>> ' & '.join(titre.split(' et ')) # Découpage (split) et jonction (join)
 'Calvin & Hobbes'
@@ -470,7 +471,7 @@ tuples sont *immuables*.
   [1, 3, 5, 7, 9]
   >>> len(l)          # Nb d'éléments dans la liste (i varie de 0 à 4)
   5
-  >>> l[0], l[-2]     # 1er et avant-dernier élément (l'indexation commençe à 0)
+  >>> l[0], l[-2]     # 1er et avant-dernier élément (l'indexation commence à 0)
   (1, 7)
   >>> l[5]            # Erreur: indice hors-bornes
   IndexError: list index out of range
@@ -485,7 +486,7 @@ tuples sont *immuables*.
 
 - Sous-listes (*slices*):
 
-  >>> l[1:-1]        # Du 2ème ('1') *inclus* au dernier ('-1') *exclu*
+  >>> l[1:-1]        # Du 2e ('1') *inclus* au dernier ('-1') *exclu*
   [3, 5, 7]
   >>> l[1:-1:2]      # Idem, tous les 2 éléments
   [3, 7]
@@ -587,7 +588,7 @@ arguments d'entrée.  C'est le concept central de la programmation
 
 `def` permet de définir une fonction: :samp:`def {fonction}({arg1}, {arg2},
 ..., {option1}={valeur1}, {option2}={valeur2}, ...):`.  Les « *args* » sont des
-arguments nécessaires (càd obligatoires), tandis que les « *kwargs* » --
+arguments nécessaires (c.-à-d. obligatoires), tandis que les « *kwargs* » --
 arguments de type :samp:`{option}={valeur}` -- sont optionnels, puisqu'ils
 possèdent une valeur par défaut.  Si la fonction doit retourner une valeur,
 celle-ci est spécifiée par le mot-clé `return`.
@@ -629,12 +630,12 @@ Il faut noter plusieurs choses importantes:
   itérable contenant des éléments pour lesquels les opérations
   effectuées -- somme, exponentiation, division par un entier -- ont
   été préalablement définies (p.ex. des entiers, des complexes, des
-  matrices, etc.).
-- Le typage est *fort*, càd que le type d'une variable ne peut pas
+  matrices, etc.);
+- le typage est *fort*, c.-à-d. que le type d'une variable ne peut pas
   changer à la volée.  Ainsi, `"abra" + "cadabra"` a un sens
   (concaténation de chaînes), mais pas `3 + "cochons"` (entier +
-  chaîne).
-- La définition d'une fonction se fait dans un « espace parallèle » où
+  chaîne);
+- la définition d'une fonction se fait dans un « espace parallèle » où
   les variables ont une portée (*scope*) locale [#scope]_.  Ainsi, la
   variable `s` définie *dans* la fonction `mean_power` n'interfère pas
   avec le « monde extérieur » ; inversement, la définition de
@@ -711,8 +712,8 @@ Vous pouvez définir vos propres bibliothèques en regroupant les
 fonctionnalités au sein d'un même fichier :samp:`{monfichier}.py`.
 
 * Si ce fichier est importé (p.ex. `import monfichier`), il agira
-  comme une bibliothèque;
-* si ce fichier est exécuté -- p.ex. `python ./monfichier.py` -- il
+  comme une bibliothèque.
+* Si ce fichier est exécuté -- p.ex. `python ./monfichier.py` -- il
   agira comme un *script*.
 
 .. Attention:: Toutes les instructions d'un module qui ne sont pas
@@ -724,9 +725,9 @@ fonctionnalités au sein d'un même fichier :samp:`{monfichier}.py`.
 Un code Python peut donc être:
 
 - un module -- s'il n'inclut que des définitions mais pas d'instruction
-  exécutable en dehors d'un éventuel `__main__`,
-- ou un exécutable -- s'il inclut un `__main__` ou des instructions
-  exécutables,
+  exécutable en dehors d'un éventuel `__main__`;
+- un exécutable -- s'il inclut un `__main__` ou des instructions
+  exécutables;
 - ou les deux à la fois.
 
 .. rubric:: Exemple:
@@ -743,7 +744,7 @@ mean_power.py`), auquel cas la partie `__main__` sera exécutée.
     #!/usr/bin/env python
 
 - Un fichier incluant des caractères non-ASCII (p.ex. caractères
-  accentués, ou symboles UTF tel que `±`) *doit* définir le système
+  accentués, ou symboles UTF tels que `±`) *doit* définir le système
   d'encodage, généralement `utf-8`::
 
     # -*- coding: utf-8 -*-
@@ -753,11 +754,11 @@ mean_power.py`), auquel cas la partie `__main__` sera exécutée.
   langue anglaise (variables, commentaires, affichages).
 - `"""doc"""`: la chaîne de documentation de la bibliothèque
   (*docstring*, :pep:`257`), qui sera utilisée comme aide en ligne du
-  module (`help(mean_power)`), doit être la *1ère* instruction du
+  module (`help(mean_power)`), doit être la *1re* instruction du
   script.
 - `from __future__ import division`: permet de ne pas considérer les
   divisions entre entiers comme euclidiennes par défaut.
-- `if __name__ == '__main__':` permet de séparer le `__main__` (càd le
+- `if __name__ == '__main__':` permet de séparer le `__main__` (c.-à-d. le
   corps du programme, à exécuter lors d'une utilisation en script) des
   définitions de fonctions et classes, permettant une utilisation en
   module.
@@ -812,10 +813,10 @@ Entrez un entier: 4
 
 Dans l'élaboration d'un programme, gérez explicitement les erreurs que
 vous auriez pu tester *a priori* et pour lesquels il existe une
-solution de replis, et laissez passer les autres (ce qui provoquera
+solution de repli, et laissez passer les autres (ce qui provoquera
 éventuellement l'interruption du programme).
 
-.. Danger:: Évitez à tout prix les `except` *nus*, càd ne spécifiant
+.. Danger:: Évitez à tout prix les `except` *nus*, c.-à-d. ne spécifiant
    pas la ou les exceptions à gérer, car ils intercepteraient alors
    *toutes* les exceptions, y compris celles que vous n'aviez pas
    prévues!  Trouvez l'erreur dans le code suivant::
@@ -896,17 +897,17 @@ Au concept d'objet sont liées les notions de:
 - **Classe:** il s'agit d'un *modèle* d'objet, dans lequel sont
   définis ses propriétés usuelles.  P.ex. la classe `Forme` peut
   représenter une forme plane caractérisée par sa couleur, et
-  disposant de fonctionnalités propres, p.ex. `change_couleur()`.
-- **Instantiation:** c'est le fait générer un objet concret (une
+  disposant de fonctionnalités propres, p.ex. `change_couleur()`;
+- **Instanciation:** c'est le fait générer un objet concret (une
   *instance*) à partir d'un modèle (une classe).  P.ex. `rosie =
   Forme('rose')` crée une instance *rosie* à partir de la classe
-  `Forme` et d'une couleur (chaîne de caractères `'rose'`).
+  `Forme` et d'une couleur (chaîne de caractères `'rose'`):
 - **Attributs:** variables internes décrivant l'état de l'objet.
-  P.ex., `rosie.couleur` donne la couleur de la `Forme` *rosie*.
+  P.ex., `rosie.couleur` donne la couleur de la `Forme` *rosie*;
 - **Méthodes:** fonctions internes, s'appliquant en premier lieu sur
   l'objet lui-même (`self`), décrivant les capacités de l'objet.
   P.ex. `rosie.change_couleur('bleu')` change la couleur de la `Forme`
-  *rosie*.
+  *rosie*;
 
   .. Attention:: Toutes les méthodes d'une classe doivent au moins
      prendre `self` -- représentant l'objet lui-même -- comme premier
@@ -945,8 +946,8 @@ Au concept d'objet sont liées les notions de:
    :linenos:
 
 .. Note:: Il est traditionnel de commencer les noms de classes avec
-   des majuscules (`Forme`), et les noms d'instances de classe (les
-   variables) avec des minuscules (`rosie`).
+   une majuscule (`Forme`), et les noms d'instances de classe (les
+   variables) avec une minuscule (`rosie`).
 
 .. rubric:: Exemples
 
@@ -1017,16 +1018,16 @@ Cette (brève) introduction à Python se limite à des fonctionnalités
 relativement simples du langage.  De nombreuses fonctionnalités du
 langage n'ont pas été abordées:
 
-- `Variables globales
-  <http://geekandpoke.typepad.com/geekandpoke/2012/04/simply-explained-gv.html>`_
-- Arguments anonymes: `*args` and `**kwargs`
-- Fonction anonyme: `lambda x, y: x + y`
-- Itérateurs et générateurs: `yield`
-- Gestion de contexte: `with ... as` (:pep:`243`)
-- Décorateurs: fonction sur une fonction ou une classe
-  (`@staticmethod`, etc.)
-- Héritages multiples et méthodes de résolution
-- Etc.
+- `variables globales
+  <http://geekandpoke.typepad.com/geekandpoke/2012/04/simply-explained-gv.html>`_;
+- arguments anonymes: `*args` and `**kwargs`;
+- fonction anonyme: `lambda x, y: x + y`;
+- itérateurs et générateurs: `yield`;
+- gestion de contexte: `with ... as` (:pep:`243`);
+- décorateurs: fonction sur une fonction ou une classe
+  (`@staticmethod`, etc.);
+- héritages multiples et méthodes de résolution;
+- etc.
 
 Ces fonctionnalités peuvent évidemment être très utiles, mais ne sont
 généralement pas strictement indispensables pour une première
@@ -1038,8 +1039,8 @@ Python 3.x
 Pour des raisons historiques autant que pratiques [#py3]_, ce cours
 présente le langage Python dans sa version 2.x.  Pourtant, le
 développement actuel de Python se fait uniquement sur la branche 3.x,
-qui constitue une remise à plat *non-rétrocompatible* du langage, et
-la branche 2.x ne sera *a priori* plus supporté au delà de 2020
+qui constitue une remise à plat *non rétrocompatible* du langage, et
+la branche 2.x ne sera *a priori* plus supporté au-delà de 2020
 (:pep:`466`).  Il est donc préférable, si vous vous lancez dans un
 développement substantiel, de passer aussi rapidement que possible à
 Python 3 (voir :ref:`python23`).

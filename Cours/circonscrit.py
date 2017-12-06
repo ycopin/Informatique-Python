@@ -19,9 +19,9 @@ Ce script sert d'illustration à plusieurs concepts indépendants:
 
   Pour exécuter les tests unitaires du module:
 
-  - avec doctest: `python -m doctest -v circonscrit.py`
-  - avec pytests: `py.test --doctest-modules -v circonscrit.py`
-  - avec nose:    `nosetests --with-doctest -v circonscrit.py`
+  - avec doctest: `python -m doctest -v circonscrit.py`;
+  - avec pytests: `py.test --doctest-modules -v circonscrit.py`;
+  - avec nose:    `nosetests --with-doctest -v circonscrit.py`.
 """
 
 __author__ = "Yannick Copin <y.copin@ipnl.in2p3.fr>"
@@ -71,7 +71,7 @@ class Point(object):  # *object* est la classe dont dérivent toutes les autres
 
     def isOrigin(self):
         """
-        Test si le point est à l'origine en testant la nullité des deux
+        Teste si le point est à l'origine en testant la nullité des deux
         coordonnées.
 
         Attention aux éventuelles erreurs d'arrondis: il faut tester

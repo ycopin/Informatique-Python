@@ -5,23 +5,23 @@ Bibliothèques scientifiques avancées
 
 .. contents:: Table des matières
 ..
-    1  Pandas & xarray
+    1  Pandas et xarray
       1.1  Structures
       1.2  Accès aux données
       1.3  Manipulation des données
-      1.4  Regroupement & agrégation de données
+      1.4  Regroupement et agrégation de données
       1.5  Visualisations
       1.6  Xarray
     2  Astropy
       2.1  Tour d'horizon
       2.2  Démonstration
-    3  Autres librairies scientifiques
+    3  Autres bibliothèques scientifiques
 
 
 .. _myPandas:
 
-Pandas & xarray
-===============
+Pandas et xarray
+================
 
 .. index:: module: pandas
 
@@ -29,11 +29,11 @@ pandas_ est une bibliothèque pour la structuration et l'analyse avancée de
 données *hétérogènes* (`PANel DAta`).  Elle fournit notamment:
 
 * des structures de données relationelles (« labellisées »), avec une
-  indexation simple ou hiérarchique (càd à plusieurs niveaux),
+  indexation simple ou hiérarchique (c.-à-d. à plusieurs niveaux);
 * des méthodes d'alignement et d'agrégation des données, avec gestion des
-  données manquantes,
+  données manquantes;
 * un support performant des labels temporels (p.ex. dates, de par son origine
-  dans le domaine de l'économétrie), et des statistiques « glissantes »,
+  dans le domaine de l'économétrie), et des statistiques « glissantes »;
 * de nombreuses fonctions d'entrée/sortie, d'analyse statistiques et de
   visualisation.
 
@@ -462,7 +462,7 @@ Type
 Gc     M3  5272  6.2  16.2     10400.0  13.703  28.383  CVn
 Ds    M40  Win4  8.4   0.8       156.0  12.373  58.083  UMa  Winnecke 4
 El    M49  4472  8.4   8.2  18400000.0  12.497   8.000  Vir
->>> saisons.xs('El', level='Type').head(3) # Sélection sur le 2eme niveau
+>>> saisons.xs('El', level='Type').head(3) # Sélection sur le 2e niveau
           M   NGC  Mag  Size    Distance      RA     Dec  Con Name
 Season
 autumn  M32   221  8.1   7.0    920000.0   0.713  40.867  And
@@ -557,7 +557,7 @@ b   -0.151357
 c   -0.977278
 d    0.410599
 dtype: float64
->>> df.idxmin(axis=1) # Colonne des valeurs minimale le long des colonnes
+>>> df.idxmin(axis=1) # Colonne des valeurs minimales le long des colonnes
 a      one
 b    three
 c      two
@@ -576,8 +576,8 @@ dtype: float64
    :mod:`pandas` en bénéficiera de façon transparente.
 
 
-Regroupement & agrégation de données
-------------------------------------
+Regroupement et agrégation de données
+-------------------------------------
 
 .. rubric:: Histogramme et discrétisation
 
@@ -776,7 +776,7 @@ des données manquantes et d'alignement des tableaux indexés
 <http://www.unidata.ucar.edu/software/netcdf/>`_ :
 
 * :class:`xarray.DataArray`, un tableau N-D indexé généralisant le
-  :class:`pandas.Series`,
+  :class:`pandas.Series`;
 * :class:`xarray.DataSet`, un dictionnaire regroupant plusieurs `DataArray`
   alignés selon une ou plusieurs dimensions, et similaire au
   :class:`pandas.DataFrame`.
@@ -788,7 +788,7 @@ des données manquantes et d'alignement des tableaux indexés
 ...                    dims=('x', 'y'),            # Nom des dimensions
 ...                    coords={'x': list('abc')},  # Indexation des coordonnées en 'x'
 ...                    name='mesures',             # Nom du tableau
-...                    attrs=dict(author='Y. Copin'))  # Méta-données
+...                    attrs=dict(author='Y. Copin'))  # Métadonnées
 >>> data
 <xarray.DataArray 'mesures' (x: 3, y: 4)>
 array([[ 0.,  1.,  2.,  3.],
@@ -911,9 +911,9 @@ Astropy
 
 .. index:: module: astropy
 
-`Astropy <http://astropy.readthedocs.io/>`_ est une librairie astronomique
+`Astropy <http://astropy.readthedocs.io/>`_ est une bibliothèque astronomique
 maintenue par la communauté et visant à fédérer les efforts jusque là
-disparates.  Elle offre en outre une interface unifiée à des `librairies
+disparates.  Elle offre en outre une interface unifiée à des `bibliothèques
 affiliées <http://www.astropy.org/affiliated/>`_ plus spécifiques.
 
 Tour d'horizon
@@ -922,31 +922,31 @@ Tour d'horizon
 - Structures de base:
 
   - :mod:`astropy.constants`: constantes fondamentales (voir également
-    :mod:`scipy.constants`)
-  - :mod:`astropy.units`: unités et quantités dimensionnées
+    :mod:`scipy.constants`);
+  - :mod:`astropy.units`: unités et quantités dimensionnées;
   - :mod:`astropy.nddata`: extension des :class:`numpy.ndarray` (incluant
-    méta-données, masque, unité, incertitude, etc.)
-  - :mod:`astropy.table`: tableaux hétérogènes
-  - :mod:`astropy.time`: manipulation du temps et des dates
-  - :mod:`astropy.coordinates`: systèmes de coordonnées
-  - :mod:`astropy.wcs`: *World Coordinate System*
-  - :mod:`astropy.modeling`: modèles et ajustements
-  - :mod:`astropy.analytic_functions`: fonctions analytiques
+    métadonnées, masque, unité, incertitude, etc.);
+  - :mod:`astropy.table`: tableaux hétérogènes;
+  - :mod:`astropy.time`: manipulation du temps et des dates;
+  - :mod:`astropy.coordinates`: systèmes de coordonnées;
+  - :mod:`astropy.wcs`: *World Coordinate System*;
+  - :mod:`astropy.modeling`: modèles et ajustements;
+  - :mod:`astropy.analytic_functions`: fonctions analytiques.
 
 - Entrées/sorties:
 
-  - :mod:`astropy.io.fits`: fichiers FITS
-  - :mod:`astropy.io.ascii`: tables ASCII
-  - :mod:`astropy.io.votable`: XML VO-tables
-  - :mod:`astropy.io.misc`: divers
-  - :mod:`astropy.vo`: accès au *Virtual Observatory*
+  - :mod:`astropy.io.fits`: fichiers FITS;
+  - :mod:`astropy.io.ascii`: tables ASCII;
+  - :mod:`astropy.io.votable`: XML VO-tables;
+  - :mod:`astropy.io.misc`: divers;
+  - :mod:`astropy.vo`: accès au *Virtual Observatory*.
 
 - Calculs astronomiques:
 
-  - :mod:`astropy.cosmology`: calculs cosmologiques
-  - :mod:`astropy.convolution`: convolution and filtrage
-  - :mod:`astropy.visualization`: visualisation de données
-  - :mod:`astropy.stats`: méthodes astro-statistiques
+  - :mod:`astropy.cosmology`: calculs cosmologiques;
+  - :mod:`astropy.convolution`: convolution et filtrage;
+  - :mod:`astropy.visualization`: visualisation de données;
+  - :mod:`astropy.stats`: méthodes astrostatistiques.
 
 Démonstration
 -------------
@@ -958,43 +958,43 @@ Démonstration
 * `AstroBetter tutorials
   <http://www.astrobetter.com/blog/2014/07/07/astropy-tutorials-learn-how-to-do-common-astro-tasks-with-astropy-and-python/>`_
 
-.. Note:: n'oubliez pas de citer [Astropy13]_ ou de `mentionner
+.. Note:: N'oubliez pas de citer [Astropy13]_ ou de `mentionner
    l'utilisation <http://www.astropy.org/acknowledging.html>`_
    d'astropy dans vos publications et présentations.
 
 
 
-Autres librairies scientifiques
-===============================
+Autres bibliothèques scientifiques
+==================================
 
 Python est maintenant très largement utilisé par la communauté
-scientifique, et dispose d'innombrables librairies dédiées aux
+scientifique, et dispose d'innombrables bibliothèques dédiées aux
 différents domaines de la physique, chimie, etc.:
 
 - Astronomie: `Kapteyn <http://www.astro.rug.nl/software/kapteyn/>`_,
   `AstroML <http://www.astroml.org/>`_, `HyperSpy
-  <http://hyperspy.org/>`_
-- Mécanique quantique: `QuTiP <http://qutip.org/>`_
-- Électromagnétisme: `EMpy <https://lbolla.github.io/EMpy/>`_
+  <http://hyperspy.org/>`_;
+- Mécanique quantique: `QuTiP <http://qutip.org/>`_;
+- Électromagnétisme: `EMpy <https://lbolla.github.io/EMpy/>`_;
 - *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
-  <http://sfepy.org/doc-devel/>`_
+  <http://sfepy.org/doc-devel/>`_;
 - Analyse statistique bayesienne: `PyStan
-  <http://mc-stan.org/interfaces/pystan.html>`_
+  <http://mc-stan.org/interfaces/pystan.html>`_;
 - *Markov Chain Monte-Carlo*: `emcee
   <http://dan.iel.fm/emcee/current/>`_, `PyMC3
-  <https://pymc-devs.github.io/pymc3/>`_,
+  <https://pymc-devs.github.io/pymc3/>`_;
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
   <https://pythonhosted.org/milk/>`_, `MDP
   <http://mdp-toolkit.sourceforge.net/>`_, et autres `modules d'intelligence
   artificielle
-  <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_
+  <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_;
 - Calcul symbolique: `sympy <http://www.sympy.org/>`_ (voir également
   ce `tutoriel sympy
   <https://mattpap.github.io/scipy-2011-tutorial/html/>`_) et `sage
-  <http://www.sagemath.org/>`_
-- `PyROOT <https://root.cern.ch/pyroot>`_
+  <http://www.sagemath.org/>`_;
+- `PyROOT <https://root.cern.ch/pyroot>`_;
 - `High Performance Computing in Python
-  <https://byumcl.bitbucket.io/bootcamp2013/labs/perfomance.html>`_
+  <https://byumcl.bitbucket.io/bootcamp2013/labs/perfomance.html>`_;
 - `Etc. <http://www.scipy.org/topical-software.html>`_
 
 .. rubric:: Notes de bas de page et références bibliographiques

@@ -83,7 +83,7 @@ Création de tableaux
 .. index:: pair: numpy; array
 
 - :func:`numpy.array`: convertit une liste d'éléments homogènes ou
-  coercitibles
+  coercibles
 
   >>> N.array([[1, 2],[3., 4.]]) # Liste de listes d'entiers et de réels
   array([[ 1.,  2.],             # Tableau 2D de réels
@@ -181,8 +181,8 @@ Création de tableaux
   (3, 5, 7, 9) # 3 volumes 3D (x, y, z) de 5 plans (z) × 7 lignes (y) × 9 colonnes (x)
 
   .. Attention:: à l'ordre de variation des indices dans les tableaux
-     multidimensionnel, et aux différences entre
-     :func:`numpy.meshgrid` et :data:`numpy.mgrid`.
+     multidimensionnels, et aux différences entre :func:`numpy.meshgrid` et
+     :data:`numpy.mgrid`.
 
 .. index:: module: numpy.random
 
@@ -222,9 +222,9 @@ array([[[ 0,  1,  2,  3],
        [[12, 13, 14, 15],
         [16, 17, 18, 19],
         [20, 21, 22, 23]]])
->>> y[0, 1, 2]  # 1er plan (axe 0), 2ème ligne (axe 1), 3ème colonne (axe 2)
+>>> y[0, 1, 2]  # 1er plan (axe 0), 2e ligne (axe 1), 3e colonne (axe 2)
 6               # Scalaire, shape *()*, ndim 0
->>> y[0, 1]     # = y[0, 1, :] 1er plan (axe 0), 2ème ligne (axe 1)
+>>> y[0, 1]     # = y[0, 1, :] 1er plan (axe 0), 2e ligne (axe 1)
 array([4, 5, 6, 7])        # Shape (4,)
 >>> y[0]        # = y[0, :, :] 1er plan (axe 0)
 array([[ 0,  1,  2,  3],
@@ -232,14 +232,14 @@ array([[ 0,  1,  2,  3],
        [ 8,  9, 10, 11]])  # Shape (3, 4)
 >>> y[0][1][2]  # = y[0, 1, 2] en ~4× plus lent (slices successives)
 6
->>> y[:, -1]    # = y[:, 2, :] Dernière slice selon le 2ème axe
+>>> y[:, -1]    # = y[:, 2, :] Dernière slice selon le 2e axe
 array([[ 8,  9, 10, 11],
        [20, 21, 22, 23]])  # Shape (2, 4)
->>> y[..., 0]   # = y[:, :, 0] 1ère slice selon le dernier axe
+>>> y[..., 0]   # = y[:, :, 0] 1re slice selon le dernier axe
 array([[ 0,  4,  8],
        [12, 16, 20]])      # Shape (2, 3)
 >>> # On peut vouloir garder explicitement la dimension "tranchée"
->>> y[..., 0:1] # 1ère slice selon le dernier axe *en gardant le rang originel*
+>>> y[..., 0:1] # 1re slice selon le dernier axe *en gardant le rang originel*
 array([[[ 0],
         [ 4],
         [ 8]],
@@ -298,7 +298,7 @@ avec :data:`numpy.newaxis`.
 array([0, 3])
 >>> N.expand_dims(y[..., 0], -1).shape  # Ajoute un axe de dim. 1 en dernière position
 (2, 1)
->>> y[:, N.newaxis].shape               # Ajoute un axe de dim. 1 en 2nde position
+>>> y[:, N.newaxis].shape               # Ajoute un axe de dim. 1 en 2de position
 (2, 1, 3)
 
 .. index::
@@ -353,7 +353,7 @@ array([[[0, 0],
 L'`array broadcasting
 <https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html>`_
 définit les régles selon lesquelles deux tableaux de formats
-*différents* peuvent éventuellement s'apparier:
+*différents* peuvent éventuellement s'apparier.
 
 1. Deux tableaux sont compatibles (*broadcastable*) si, pour chaque
    axe, soit les tailles sont égales, soit l'une d'elles est
@@ -364,7 +364,7 @@ définit les régles selon lesquelles deux tableaux de formats
    volée autant de fois que nécessaire selon cet axe pour attendre la
    taille de l'autre tableau le long de cet axe.  P.ex. un tableau (2,
    1, 3) pourra être transformé en tableau (2, 5, 3) en le dupliquant
-   5 fois le long du 2ème axe (`axis=1`).
+   5 fois le long du 2e axe (`axis=1`).
 3. La taille selon chaque axe après *broadcast* est égale au maximum
    de toutes les tailles d'entrée le long de cet axe.  P.ex. (5, 3, 1)
    × (1, 3, 4) → (5, 3, 4).
@@ -445,7 +445,7 @@ array([3, 1, 0])     # ce sont les minima ligne par ligne (3, *2*) → (3,)
 array([[3],
        [1],
        [0]])
->>> x.min(axis=(0, 1)) # Minima le long des axes 0 *et* 1 (càd ici tous les axes)
+>>> x.min(axis=(0, 1)) # Minima le long des axes 0 *et* 1 (c.-à-d. ici tous les axes)
 0
 
 .. rubric:: Opérations matricielles
@@ -524,12 +524,12 @@ Tableaux évolués
 Par définition, tous les éléments d'un tableau *homogène* doivent être
 du même type.  Cependant, outre les types scalaires élémentaires --
 `bool`, `int`, `float`, `complex`, `str`, etc. -- :mod:`numpy`
-supporte les types *composés*, càd incluant plusieurs sous-éléments de
+supporte les types *composés*, c.-à-d. incluant plusieurs sous-éléments de
 types différents:
 
 >>> dt = N.dtype([('nom', 'S10'),    # 1er  élément: une chaîne de 10 caractères
-...               ('age', 'i'),      # 2ème élément: un entier
-...               ('taille', 'd')])  # 3ème élément: un réel (double)
+...               ('age', 'i'),      # 2e élément: un entier
+...               ('taille', 'd')])  # 3e élément: un réel (double)
 >>> arr = N.array([('Calvin', 6, 1.20), ('Hobbes', 5, 1.80)], dtype=dt); arr
 array([('Calvin', 6, 1.2), ('Hobbes', 6, 1.8)],
       dtype=[('nom', '|S10'), ('age', '<i4'), ('taille', '<f8')])
@@ -584,7 +584,7 @@ array([[-0.55867715,  1.58863893, -1.4449145 ,  1.93265481, -0.17127422],
        [-0.86041806,  1.98317832, -0.32617721,  1.1358607 , -1.66150602],
        [-0.88966893,  1.36185799, -1.54673735, -0.09606195,  2.23438981],
        [ 0.35943269, -0.36134448, -0.82266202,  1.38143768, -1.3175115 ]])
->>> x[x >= 0]        # Donne les éléments >0 du tableau, sans leurs indices
+>>> x[x >= 0]        # Donne les éléments >0 du tableau, sans leur indice
 array([ 1.58863893,  1.93265481,  1.98317832,  1.1358607 ,  1.36185799,
         2.23438981,  0.35943269,  1.38143768])
 >>> (x >= 0).nonzero() # Donne les indices ([i], [j]) des éléments positifs
@@ -610,7 +610,7 @@ array([ 0.35943269,  1.64455841, -1.        ,  1.48331773,  2.23438981])
 
 .. Note:: Les tableaux *évolués* de :mod:`numpy` sont parfois
    suffisants, mais pour une utilisation avancée, il peut être plus
-   pertinent d'invoquer les bibliothèque dédiées :ref:`myPandas`.
+   pertinent d'invoquer les bibliothèques dédiées :ref:`myPandas`.
 
 Entrées/sorties
 ---------------
@@ -657,10 +657,10 @@ Sous-modules
 :mod:`numpy` fournit en outre quelques fonctionnalités
 supplémentaires, parmis lesquelles les sous-modules suivants:
 
-- :mod:`numpy.fft`: *Discrete Fourier Transform*
-- :mod:`numpy.random`: valeurs aléatoires
+- :mod:`numpy.fft`: *Discrete Fourier Transform*;
+- :mod:`numpy.random`: valeurs aléatoires;
 - :mod:`numpy.polynomial`: manipulation des polynômes (racines, polynômes
-  orthogonaux, etc.)
+  orthogonaux, etc.).
 
 Performances
 ------------
@@ -670,8 +670,8 @@ Performances
 
 Même si :mod:`numpy` apporte un gain significatif en performance par
 rapport à du Python standard, il peut être possible d'améliorer la
-vitesse d'exécution par l'utilisation de librairies externes dédiées,
-p.ex.
+vitesse d'exécution par l'utilisation de bibliothèques externes dédiées,
+p.ex.:
 
 * `NumExpr <https://github.com/pydata/numexpr>`_ est un évaluateur
   optimisé d'expressions numériques:
@@ -690,7 +690,7 @@ p.ex.
 * `Bottleneck <https://github.com/kwgoodman/bottleneck>`_ est une
   collection de fonctions accélérées, notamment pour des tableaux
   contenant des `NaN <https://en.wikipedia.org/wiki/NaN>`_ ou pour des
-  statistiques glissantes.
+  statistiques glissantes;
 * `theano <http://deeplearning.net/software/theano/>`_, pour optimiser
   l'évaluation des expressions mathématiques sur les tableaux
   :mod:`numpy`, notamment par l'utilisation des :abbr:`GPU (Graphics
@@ -707,7 +707,7 @@ Scipy
 
 :mod:`scipy` est une bibliothèque *numérique* [#sym]_ d'algorithmes et de
 fonctions mathématiques, basée sur les tableaux :class:`numpy.ndarray`,
-complétant ou améliorant (en terme de performances) les fonctionnalités de
+complétant ou améliorant (en termes de performances) les fonctionnalités de
 :mod:`numpy`.
 
 .. Note:: N'oubliez pas de `citer scipy & co.
@@ -718,19 +718,19 @@ Tour d'horizon
 --------------
 
 - :mod:`scipy.special`: fonctions spéciales (fonctions de Bessel, erf, gamma,
-  etc.)
+  etc.).
 - :mod:`scipy.integrate`: intégration numérique (intégration numérique ou
-  d'équations différentielles)
+  d'équations différentielles).
 - :mod:`scipy.optimize`: méthodes d'optimisation (minimisation,
-  moindres-carrés, zéros d'une fonction, etc.)
-- :mod:`scipy.interpolate`: interpolation (interpolation, splines)
-- :mod:`scipy.fftpack`: transformées de Fourier
+  moindres-carrés, zéros d'une fonction, etc.).
+- :mod:`scipy.interpolate`: interpolation (interpolation, splines).
+- :mod:`scipy.fftpack`: transformées de Fourier.
 - :mod:`scipy.signal`: traitement du signal (convolution, corrélation,
-  filtrage, ondelettes, etc.)
-- :mod:`scipy.linalg`: algèbre linéaire
-- :mod:`scipy.stats`: statistiques (fonctions et distributions statistiques)
-- :mod:`scipy.ndimage`: traitement d'images multi-dimensionnelles
-- :mod:`scipy.io`: entrées/sorties
+  filtrage, ondelettes, etc.).
+- :mod:`scipy.linalg`: algèbre linéaire.
+- :mod:`scipy.stats`: statistiques (fonctions et distributions statistiques).
+- :mod:`scipy.ndimage`: traitement d'images multi-dimensionnelles.
+- :mod:`scipy.io`: entrées/sorties.
 
 .. rubric:: Liens:
 
@@ -742,11 +742,11 @@ Tour d'horizon
 - `Scikits <http://scikits.appspot.com/scikits>`_: modules plus
   spécifiques étroitement liés à :mod:`scipy`, parmi lesquels:
 
-  - `scikit-learn <http://scikit-learn.org/stable/>`_: *machine learning*
-  - `scikit-image <http://scikit-image.org/>`_: *image processing*
+  - `scikit-learn <http://scikit-learn.org/stable/>`_: *machine learning*,
+  - `scikit-image <http://scikit-image.org/>`_: *image processing*,
   - `statsmodel <http://www.statsmodels.org/>`_: modèles statistiques
-    (`tutorial <http://jseabold.net/pages/talks>`_)
-- `Scipy Topical softwares <https://www.scipy.org/topical-software.html>`_
+    (`tutorial <http://jseabold.net/pages/talks>`_),
+- `Scipy Topical softwares <https://www.scipy.org/topical-software.html>`_.
 
 .. rubric:: Exercices:
 
@@ -792,7 +792,7 @@ Matplotlib
 visualisation 2D (avec un support pour la 3D, l'animation et l'interactivité),
 permettant des sorties de haute qualité « prêtes à publier ».  C'est à la fois
 une bibliothèque de *haut niveau*, fournissant des fonctions de visualisation
-« clé en main » (échelle logarithmique, histogramme, courbes de niveau, etc.,
+« clés en main » (échelle logarithmique, histogramme, courbes de niveau, etc.,
 voir la `galerie <http://matplotlib.org/gallery.html>`_), et de *bas niveau*,
 permettant de modifier tous les éléments graphiques de la figure (titre, axes,
 couleurs et styles des lignes, etc., voir `Anatomie d'une figure`_).
@@ -978,12 +978,12 @@ tous les éléments d'une figure (titre, axes, légende, etc.), qui peuvent alor
 .. rubric:: Voir également:
 
 - `MPLD3 <http://mpld3.github.io/>`_, un *backend* matplotlib interactif basé
-  sur la librairie *web* `3D.js <https://d3js.org/>`_;
+  sur la bibliothèque *web* `3D.js <https://d3js.org/>`_;
 - `basemap <http://matplotlib.org/basemap/users/index.html>`_ et `cartopy
   <http://scitools.org.uk/cartopy/docs/latest/gallery.html>`_, bibliothèques de
   cartographie sphérique;
 - `Seaborn <http://seaborn.pydata.org/>`_, une surcouche de visualisation
-  statistique à matplotlib & :ref:`myPandas`;
+  statistique à matplotlib et :ref:`myPandas`;
 - `HoloViews <http://holoviews.org/>`_, une surcouche de visualisation et
   d'analyse à matplotlib;
 - `ggplot <http://ggplot.yhathq.com/>`_, une surcouche orientée `Grammar of
@@ -1041,12 +1041,12 @@ graphique de visualisation 3D s'appuyant sur `Mayavi
 .. rubric:: Voir également:
 
 - `VPython <http://www.vpython.org/>`_: *3D Programming for Ordinary
-  Mortals*
-- `Glowscript <http://www.glowscript.org/>`_: VPython dans le navigateur
+  Mortals*;
+- `Glowscript <http://www.glowscript.org/>`_: VPython dans le navigateur.
 
 .. rubric:: Notes de bas de page et références bibliographiques
 
-.. [#sym] Python dispose également d'une librairie de calcul *formel*,
+.. [#sym] Python dispose également d'une bibliothèque de calcul *formel*,
    `sympy <http://www.sympy.org/>`_, et d'un environnement de calcul
    mathématique, `sage <http://www.sagemath.org/>`_.
 

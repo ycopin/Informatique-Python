@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2014-09-17 18:25:00 ycopin>
+# Time-stamp: <2017-12-06 18:21:48 ycopin>
 
 """
-Calcul du PGCD de deux entiers
+Calcul du PGCD de deux entiers.
 """
-
-__author__ = "Adrien Licari <adrien.licari@ens-lyon.fr>"
 
 # Entiers dont on calcule le PGCD
 a = 306
@@ -21,7 +19,7 @@ if (a < b):
 a0, b0 = a, b                     # On garde une copie des valeurs originales
 
 # On boucle jusqu'à ce que le reste soit nul, d'où la boucle while. Il
-# faut etre sur que l'algorithme converge dans tous les cas!
+# faut être sûr que l'algorithme converge dans tous les cas!
 while (b != 0):
     # On remplace a par b et b par le reste de la division euclidienne
     # de a par b

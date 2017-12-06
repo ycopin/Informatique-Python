@@ -38,7 +38,7 @@ class Forme(object):  # *object* est la classe dont dérivent toutes les autres
 
     def aire(self):
         """
-        Renvoi l'aire de la Forme.
+        Renvoie l'aire de la Forme.
 
         L'aire ne peut pas être calculée dans le cas où la forme n'est
         pas encore spécifiée: c'est ce que l'on appelle une méthode

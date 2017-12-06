@@ -23,7 +23,7 @@ else:                        # Pas d'argument sur la ligne de commande
     n = 101                  # Valeur par défaut
 # end-sys
 
-# Liste des entiers *potentiellement* premiers. Les nb non-premiers
+# Liste des entiers *potentiellement* premiers. Les nb non premiers
 # seront étiquetés par 0 au fur et à mesure.
 l = range(n + 1)                          # <0,...,n>, 0 n'est pas premier
 l[1] = 0                                # 1 n'est pas premier
@@ -35,6 +35,6 @@ while i ** 2 <= n:                        # Inutile de tester jusqu'à n
         l[2 * i::i] = [0] * len(l[2 * i::i])
     i += 1                              # Passer à l'entier à tester suivant
 
-# Afficher la liste des entiers premiers (c-à-d non-étiquetés)
+# Afficher la liste des entiers premiers (c-à-d non étiquetés)
 print "Liste des entiers premiers <= {} :".format(n)
 print [i for i in l if i != 0]

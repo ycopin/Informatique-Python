@@ -2,7 +2,7 @@ Références supplémentaires
 ==========================
 
 Voici une liste très partielle de documents Python disponibles en
-ligne. La majorité des liens sont en anglais, quelques uns |fr| sont
+ligne. La majorité des liens sont en anglais, quelques-uns |fr| sont
 en français.
 
 Documentation générale
@@ -124,7 +124,7 @@ Scientifique
   (avec exercices)
 - `Intro to Python for Data Science
   <https://www.datacamp.com/courses/intro-to-python-for-data-science>`_
-  (DataCamp avec vidéos & exercices)
+  (DataCamp avec vidéos et exercices)
 - `Python for Data Science
   <http://nbviewer.jupyter.org/github/gumption/Python_for_Data_Science/blob/master/Python_for_Data_Science_all.ipynb>`_
 - `Learning Python For Data Science

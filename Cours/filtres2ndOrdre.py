@@ -57,7 +57,7 @@ def asympPhase(x, phases=(0, -N.pi)):
 def diagBode(x, filtres, labels,
              title='', plim=None, gAsymp=None, pAsymp=None):
     """
-    Trace le diagrame de Bode -- gain [dB] et phase [rad] -- des filtres
+    Trace le diagramme de Bode -- gain [dB] et phase [rad] -- des filtres
     de fonction de transfert complexe *filtres* en fonction de la pulsation
     réduite *x*.
     """
@@ -127,7 +127,7 @@ if __name__ == '__main__':
     pcs = [ passeBande(x, Q=q) for q in qs ]
     cbs = [ coupeBande(x, Q=q) for q in qs ]
 
-    # Création des 4 diagrames de Bode
+    # Création des 4 diagrammes de Bode
     figPB = diagBode(x, pbs, labels, title='Filtre passe-bas',
                      plim=(-N.pi, 0),
                      gAsymp=(0, -40), pAsymp=(0, -N.pi))

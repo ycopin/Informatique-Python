@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2014-09-24 17:31:53 ycopin>
+# Time-stamp: <2017-12-06 18:23:45 ycopin>
 
 __author__ = "Adrien Licari <adrien.licari@ens-lyon.fr>; Yannick Copin <y.copin@ipnl.in2p3.fr>"
 
@@ -13,7 +13,7 @@ def suite_syracuse(n):
     [15, 46, 23, 70, 35, 106, 53, 160, 80, 40, 20, 10, 5, 16, 8, 4, 2, 1]
     """
 
-    seq = [n]                      # La suite de syracuse sera complétée...
+    seq = [n]                     # La suite de Syracuse sera complétée...
     while (seq[-1] != 1):         # ...jusqu'à tomber sur 1
         if seq[-1] % 2 == 0:      # u_n est pair
             seq.append(seq[-1] // 2)  # Division euclidienne par 2
