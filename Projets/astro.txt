@@ -1,5 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2017-05-29 00:52 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2018-01-09 12:33:28 ycopin>
 
 .. sectionauthor:: Méthodes numériques pour la physique et les SPI
 
@@ -101,9 +101,9 @@ En coordonnées polaires :
 .. math::
 
    a_r &= \ddot{r} - r\dot{\theta}^2
-   &= -\frac{1}{m}\frac{\partial\Phi}{\partial r} \\
+   = -\frac{1}{m}\frac{\partial\Phi}{\partial r} \\
    a_{\theta} &= 2\dot{r}\dot{\theta}+r\ddot{\theta}
-   &= -\frac{1}{mr}\frac{\partial\Phi}{\partial \theta}
+   = -\frac{1}{mr}\frac{\partial\Phi}{\partial \theta}
 
 Le système peut donc s’écrire :
 
@@ -118,8 +118,8 @@ ou en posant :math:`r_p=\dot{r}` et :math:`\theta_p=\dot{\theta}`:
 
 .. math::
 
-   \dot{r} &= r_p\\
-   \dot{\theta} &= \theta_p\\
+   \dot{r} &= r_p \\
+   \dot{\theta} &= \theta_p \\
    \dot{r_p} &= r\theta_p^2 -\frac{1}{m}\frac{\partial\Phi}{\partial r} \\
    \dot{\theta_p} &=
    -\frac{2}{r}r_p\theta_p-\frac{1}{mr^2}\frac{\partial\Phi}{\partial\theta}
