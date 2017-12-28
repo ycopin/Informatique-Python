@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
@@ -41,30 +41,30 @@ class Point(object):  # *object* est la classe dont dérivent toutes les autres
         """
         Méthode d'instanciation à partir de deux coordonnées réelles.
 
-        >>> Point(0,1)          # doctest: +ELLIPSIS
-        <circonscrit.Point object at 0x...>
-        >>> Point(1+3j)
+        >>> Point(0, 1)          # doctest: +ELLIPSIS
+        <....Point object at 0x...>
+        >>> Point(1 + 3j)
         Traceback (most recent call last):
         ...
-        TypeError: __init__() takes exactly 3 arguments (2 given)
+        TypeError: __init__() missing 1 required positional argument: 'y'
         """
 
         try:  # Convertit les coords en `float`
             self.x = float(x)
             self.y = float(y)
         except (ValueError, TypeError):
-            raise TypeError("Invalid input coordinates ({},{})".format(x, y))
+            raise TypeError("Invalid input coordinates ({}, {})".format(x, y))
 
     def __str__(self):
         """
         Surcharge de la fonction `str()`: l'affichage *informel* de l'objet
-        dans l'interpréteur, p.ex. `print self` sera résolu comme
+        dans l'interpréteur, p.ex. `str(self)` sera résolu comme
         `self.__str__()`
 
         Retourne une chaîne de caractères.
 
-        >>> print Point(1,2)
-        Point (x=1.0, y=2.0)
+        >>> str(Point(1,2))
+        'Point (x=1.0, y=2.0)'
         """
 
         return "Point (x={p.x}, y={p.y})".format(p=self)
@@ -98,9 +98,8 @@ class Point(object):  # *object* est la classe dont dérivent toutes les autres
         1.0
         """
 
-        from math import hypot
-
-        return hypot(self.x - other.x, self.y - other.y)  # sqrt(dx**2 + dy**2)
+        # hypot(dx, dy) = sqrt(dx**2 + dy**2)
+        return ((self.x - other.x)**2 + (self.y - other.y)**2)**0.5
 
 
 # Définition du point origine O
@@ -123,7 +122,7 @@ class Vector(Point):
         Définit le vecteur `AB` à partir des deux points `A` et `B`.
 
         >>> Vector(Point(1,0), Point(1,1)) # doctest: +ELLIPSIS
-        <circonscrit.Vector object at 0x...>
+        <....Vector object at 0x...>
         >>> Vector(0, 1)
         Traceback (most recent call last):
         ...
@@ -138,12 +137,11 @@ class Vector(Point):
 
     def __str__(self):
         """
-        Surcharge de la fonction `str()`: `print self` sera résolu comme
-        `Vector.__str__(self)` (et non pas comme
-        `Point.__str__(self)`)
+        Surcharge de la fonction `str()`: `str(self)` sera résolu comme
+        `Vector.__str__(self)` (et non pas comme `Point.__str__(self)`)
 
-        >>> A = Point(1,0); B = Point(1,1); print Vector(A,B)
-        Vector (x=0.0, y=1.0)
+        >>> A = Point(1, 0); B = Point(1, 1); str(Vector(A, B))
+        'Vector (x=0.0, y=1.0)'
         """
 
         return "Vector (x={v.x}, y={v.y})".format(v=self)
@@ -157,9 +155,9 @@ class Vector(Point):
         coordonnées propres à l'objet `self` et à l'autre opérande
         `other`.
 
-        >>> A = Point(1,0); B = Point(1,1)
-        >>> print Vector(A,B) + Vector(B,O) # = Vector(A,O)
-        Vector (x=-1.0, y=0.0)
+        >>> A = Point(1, 0); B = Point(1, 1)
+        >>> str(Vector(A, B) + Vector(B, O))  # = Vector(A, O)
+        'Vector (x=-1.0, y=0.0)'
         """
 
         return Vector(O, Point(self.x + other.x, self.y + other.y))
@@ -172,10 +170,10 @@ class Vector(Point):
         Attention: ne surcharge pas l'opérateur unaire `-{self}`, géré
         par `__neg__`.
 
-        >>> A = Point(1,0); B = Point(1,1)
-        >>> print Vector(A,B) - Vector(A,B) # Différence
-        Vector (x=0.0, y=0.0)
-        >>> -Vector(A,B)                    # Négation
+        >>> A = Point(1, 0); B = Point(1, 1)
+        >>> str(Vector(A, B) - Vector(A, B))  # Différence
+        'Vector (x=0.0, y=0.0)'
+        >>> -Vector(A, B)                     # Négation
         Traceback (most recent call last):
         ...
         TypeError: bad operand type for unary -: 'Vector'
@@ -188,7 +186,7 @@ class Vector(Point):
         Surcharge du test d'égalité `{self}=={other}`: l'instruction sera
         résolue comme `self.__eq__(other)`.
 
-        >>> Vector(O,Point(0,1)) == Vector(Point(1,0),Point(1,1))
+        >>> Vector(O, Point(0, 1)) == Vector(Point(1, 0), Point(1, 1))
         True
         """
 
@@ -204,7 +202,7 @@ class Vector(Point):
         """
         Surcharge la fonction `abs()` pour retourner la norme du vecteur.
 
-        >>> abs(Vector(Point(1,0), Point(1,1)))
+        >>> abs(Vector(Point(1, 0), Point(1, 1)))
         1.0
         """
 
@@ -218,7 +216,7 @@ class Vector(Point):
         Rotation (dans le sens trigonométrique) du vecteur par un `angle`,
         exprimé en radians ou en degrés.
 
-        >>> Vector(Point(1,0),Point(1,1)).rotate(90,deg=True) == Vector(O,Point(-1,0))
+        >>> Vector(Point(1, 0), Point(1, 1)).rotate(90, deg=True) == Vector(O, Point(-1, 0))
         True
         """
 
@@ -228,7 +226,7 @@ class Vector(Point):
         z = complex(self.x, self.y)
         phase = angle if not deg else angle / 57.29577951308232  # [rad]
         u = rect(1., phase)  # exp(i*phase)
-        zu = z * u  # Rotation complexe
+        zu = z * u           # Rotation complexe
 
         return Vector(O, Point(zu.real, zu.imag))
 
@@ -236,24 +234,22 @@ class Vector(Point):
 def circumscribedCircle(M, N, P):
     """
     Calcule le centre et le rayon du cercle circonscrit aux points
-    M,N,P.
+    M, N, P.
 
-    Retourne: (centre [Point],rayon [float])
+    Retourne: (centre [Point], rayon [float])
 
     Lève une exception `ValueError` si le rayon ou le centre du cercle
     circonscrit n'est pas défini.
 
-    >>> M = Point(-1,0); N = Point(1,0); P = Point(0,1)
-    >>> C,r = circumscribedCircle(M,N,P) # Centre O, rayon 1
-    >>> print C.distance(O), r
-    0.0 1.0
-    >>> circumscribedCircle(M,O,N)       # Indéfini
+    >>> M = Point(-1, 0); N = Point(1, 0); P = Point(0, 1)
+    >>> C, r = circumscribedCircle(M, N, P)  # Centre O, rayon 1
+    >>> C.distance(O), round(r, 6)
+    (0.0, 1.0)
+    >>> circumscribedCircle(M, O, N)         # Indéfini
     Traceback (most recent call last):
     ...
     ValueError: Undefined circumscribed circle radius.
     """
-
-    from math import sqrt
 
     MN = Vector(M, N)
     NP = Vector(N, P)
@@ -266,7 +262,7 @@ def circumscribedCircle(M, N, P):
 
     d = (m + n + p) * (-m + n + p) * (m - n + p) * (m + n - p)
     if d > 0:
-        rad = m * n * p / sqrt(d)
+        rad = m * n * p / d**0.5
     else:
         raise ValueError("Undefined circumscribed circle radius.")
 
@@ -295,14 +291,23 @@ if __name__ == '__main__':
         description=__doc__)
     parser.add_argument('coords', nargs='*', type=str, metavar='x,y',
                         help="Coordinates of point")
-    parser.add_argument('-i', '--input', nargs='?', type=file,
+    parser.add_argument('-i', '--input', nargs='?', type=argparse.FileType('r'),
                         help="Coordinate file (one 'x,y' per line)")
-    parser.add_argument('-p', '--plot', action="store_true", default=False,
+    parser.add_argument('-P', '--plot', action="store_true", default=False,
                         help="Draw the circumscribed circle")
+    parser.add_argument('-T', '--tests', action="store_true", default=False,
+                        help="Run doc tests.")
     parser.add_argument('--version', action='version', version=__version__)
 
     args = parser.parse_args()
     # end-argparse
+
+    if args.tests:              # Auto-test mode
+        import sys, doctest
+
+        doctest.testmod()       # Run doc tests
+        print("No error found.")
+        sys.exit(0)
 
     if args.input:  # Lecture des coordonnées du fichier d'entrée
         # Le fichier a déjà été ouvert en lecture par argparse (type=file)
@@ -322,11 +327,11 @@ if __name__ == '__main__':
                 "Cannot decipher coordinates #{}: '{}'".format(i, arg))
 
         points.append(Point(x, y))  # Création du point et ajout à la liste
-        print "#{:d}: {}".format(i, points[-1])  # Affichage du dernier point
+        print("#{:d}: {}".format(i, points[-1]))  # Affichage du dernier point
 
     # Calcul du cercle cisconscrit (lève une ValueError en cas de problème)
     center, radius = circumscribedCircle(*points)  # Délistage
-    print "Circumscribed circle: {}, radius: {}".format(center, radius)
+    print("Circumscribed circle: {}, radius: {}".format(center, radius))
 
     if args.plot:  # Figure
         import matplotlib.pyplot as P
@@ -340,8 +345,8 @@ if __name__ == '__main__':
                         xytext=(5, 5), textcoords='offset points')
         # Cercle circonscrit
         c = P.matplotlib.patches.Circle((center.x, center.y), radius=radius,
-                                        fc='none')
-        ax.add_patch(c)
-        ax.plot(center.x, center.y, 'r+')
+                                        fc='none', ec='k')
+        ax.add_patch(c)                    # Cercle
+        ax.plot(center.x, center.y, 'r+')  # Centre
 
         P.show()

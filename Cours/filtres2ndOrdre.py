@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import numpy as N
@@ -81,7 +81,7 @@ def diagBode(x, filtres, labels,
     if gAsymp is not None:              # Gain
         axg.plot(x, asympGain(x, gAsymp), 'k:', lw=2, label='_')
     if pAsymp is not None:              # Phase
-        #axp.plot(x, asympPhase(x,pAsymp), 'k:')
+        # axp.plot(x, asympPhase(x,pAsymp), 'k:')
         pass
 
     axg.legend(loc='best', prop=dict(size='small'))
@@ -112,9 +112,8 @@ def diagBode(x, filtres, labels,
 
     return fig
 
-if __name__ == '__main__':
 
-    #P.rc('mathtext', fontset='stixsans')
+if __name__ == '__main__':
 
     x = N.logspace(-1, 1, 1000)              # de 0.1 à 10 en 1000 pas
 

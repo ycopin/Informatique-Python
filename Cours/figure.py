@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Time-stamp: <2014-12-15 16:06:44 ycopin>
+# Time-stamp: <2017-12-28 09:11 ycopin@lyonovae03.in2p3.fr>
 
 """
 Exemple un peu plus compexe de figure, incluant 2 axes, légendes, axes, etc.
@@ -8,10 +8,6 @@ Exemple un peu plus compexe de figure, incluant 2 axes, légendes, axes, etc.
 
 import numpy as N
 import matplotlib.pyplot as P
-try:
-    import seaborn              # Amélioration de la charte graphique
-except ImportError:
-    print u"Seaborn n'est pas accessible, charte graphique par défaut."
 
 x = N.linspace(-N.pi, 3*N.pi, 2*360)
 
@@ -31,18 +27,18 @@ fig = P.figure()                # Création de la Figure
 # 1er axe: composantes
 ax1 = fig.add_subplot(2, 1, 1,  # 1er axe d'une série de 2 × 1
                       ylabel="Composantes",
-                      title=u"Décomposition en série de Fourier")
+                      title="Décomposition en série de Fourier")
 ax1.plot(x, y1, label="Fondamental")
-ax1.plot(x, y2, label=u"1ère harmonique")
-ax1.plot(x, y3, label=u"2nde harmonique")
+ax1.plot(x, y2, label="1ère harmonique")
+ax1.plot(x, y3, label="2nde harmonique")
 ax1.legend(loc="upper left", fontsize="x-small")
 
 # 2nd axe: décomposition
 ax2 = fig.add_subplot(2, 1, 2,  # 2nd axe d'une série de 2 × 1
-                      ylabel=u"Décomposition",
+                      ylabel="Décomposition",
                       xlabel="x [rad]")
-ax2.plot(x, y, lw=2, color='k', label=u"Signal carré")
-ax2.plot(x, ytot, lw=2, ls=':', color='k', label=u"Somme des composantes")
+ax2.plot(x, y, lw=2, color='k', label="Signal carré")
+ax2.plot(x, ytot, lw=2, ls=':', color='k', label="Somme des composantes")
 ax2.legend(loc="upper left", fontsize="x-small")
 
 # Sauvegarde de la figure (pas d'affichage intéractif)
