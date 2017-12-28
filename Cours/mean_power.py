@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
@@ -7,7 +7,6 @@ utilisation en module (`import mean_power`) et en exécutable (`python
 mean_power.py -h`);
 """
 
-from __future__ import division  # Les divisions entre entiers ne sont pas euclidiennes
 
 def mean_power(alist, power=1):
     """
@@ -26,11 +25,8 @@ def mean_power(alist, power=1):
     2.160246899469287
     """
 
-    s = 0.                  # Initialisation de la variable *s* comme *float*
-    for val in alist:       # Boucle sur les éléments de *alist*
-        s += val ** power   # *s* est augmenté de *val* puissance *power*
-    # *mean* = (somme valeurs / nb valeurs)**(1/power)
-    mean = (s / len(alist)) ** (1 / power)  # ATTENTION aux divisions euclidiennes!
+    # *mean* = (somme valeurs**power / nb valeurs)**(1/power)
+    mean = (sum( val ** power for val in alist ) / len(alist)) ** (1 / power)
 
     return mean
 
@@ -43,7 +39,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('list', nargs='*', type=float, metavar='nombres',
                         help="Liste de nombres à moyenner")
-    parser.add_argument('-i', '--input', nargs='?', type=file,
+    parser.add_argument('-i', '--input', nargs='?', type=argparse.FileType('r'),
                         help="Fichier contenant les nombres à moyenner")
     parser.add_argument('-p', '--power', type=float, default=1.,
                         help="'Puissance' de la moyenne (%default)")
@@ -58,16 +54,16 @@ if __name__ == '__main__':
                          if not x.strip().startswith('#')]
         except ValueError:
             parser.error(
-                "Impossible de déchiffrer la ligne '{}' du fichier '{}'".format(
-                    x, args.input))
+                "Impossible de déchiffrer la ligne '{}' du fichier '{}'"
+                .format(x, args.input))
 
     # Vérifie qu'il y a au moins un nombre dans la liste
     if not args.list:
         parser.error("La liste doit contenir au moins un nombre")
 
     # Calcul
-    moyenne = mean_power(alist, args.power)
+    moyenne = mean_power(args.list, args.power)
 
     # Affichage du résultat
-    print "La moyenne des {} nombres à la puissance {} est {}".format(
-        len(alist), args.power, moyenne)
+    print("La moyenne des {} nombres à la puissance {} est {}".format(
+        len(args.list), args.power, moyenne))
