@@ -577,6 +577,8 @@ Il existe de nombreux outils permettant de faciliter la transition 2.x
   <https://wiki.python.org/moin/Python2orPython3>`_
 - `Porting Python 2 Code to Python 3
   <http://python.readthedocs.io/en/latest/howto/pyporting.html>`_
+- `The Conservative Python 3 Porting Guide
+  <http://portingguide.readthedocs.io/>`_
 - `Python 2/3 compatibility <http://python-future.org/>`_
 
 .. rubric:: Notes de bas de page

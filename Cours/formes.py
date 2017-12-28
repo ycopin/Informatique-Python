@@ -1,12 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
 Exemple de Programmation Orientée Objet.
 """
-
-__author__ = "Mathieu Leocmach <mathieu.leocmach@ens-lyon.fr>"
-__version__ = "Time-stamp: <2014-10-03 10:54 mathieu.leocmach@ens-lyon.fr>"
 
 
 # Définition d'une classe ==============================
@@ -26,7 +23,7 @@ class Forme(object):  # *object* est la classe dont dérivent toutes les autres
     def __str__(self):
         """
         Surcharge de la fonction `str()`: l'affichage *informel* de
-        l'objet dans l'interpréteur, p.ex. `print a` sera résolu comme
+        l'objet dans l'interpréteur, p.ex. `print(a)` sera résolu comme
         `a.__str__()`
 
         Retourne une chaîne de caractères.
@@ -50,20 +47,6 @@ class Forme(object):  # *object* est la classe dont dérivent toutes les autres
 
         raise NotImplementedError(
             "Impossible de calculer l'aire d'une forme indéfinie.")
-
-    def __cmp__(self, other):
-        """
-        Comparaison de deux Formes sur la base de leur aire.
-
-        Surcharge des opérateurs de comparaison de type `{self} <
-        {other}`: la comparaison sera résolue comme
-        `self.__cmp__(other)` et le résultat sera correctement
-        interprété.
-
-        .. WARNING:: cette construction n'est plus supportée en Python3.
-        """
-
-        return cmp(self.aire(), other.aire())  # Opérateur de comparaison
 
 
 class Rectangle(Forme):
@@ -124,24 +107,22 @@ class Rectangle(Forme):
 if __name__ == '__main__':
 
     s = Forme()                       # Forme indéfinie et sans couleur
-    print "s:", str(s)                # Interprété comme `s.__str__()`
+    print("s:", str(s))               # Interprété comme `s.__str__()`
     s.change_couleur('rouge')         # On change la couleur
-    print "s après change_couleur:", str(s)
+    print("s après change_couleur:", str(s))
     try:
-        print "Aire de s:", s.aire()  # La méthode abstraite lève une exception
+        print("Aire de s:", s.aire())  # La méthode abstraite lève une exception
     except NotImplementedError as err:
-        print err
+        print(err)
 
     q = Rectangle(1, 4, 'vert')       # Rectangle 1×4 vert
-    print "q:", str(q)
-    print "Aire de q:", q.aire()
+    print("q:", str(q))
+    print("Aire de q:", q.aire())
 
     r = Rectangle(2, 1, 'bleu')       # Rectangle 2×1 bleu
-    print "r:", str(r)
-    print "Aire de r:", r.aire()
+    print("r:", str(r))
+    print("Aire de r:", r.aire())
 
-    print "r >= q:", (r >= q)         # Interprété comme r.__cmp__(q)
-
+    print("Allongement de r d'un facteur 2")
     r.allonger(2)                     # r devient un rectangle 4×1
-    print "Aire de r apres l'avoir allongé d'un facteur 2:", r.aire()
-    print "r >= q:", (r >= q)
+    print("r:", str(r))

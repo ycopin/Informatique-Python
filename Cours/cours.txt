@@ -1047,12 +1047,14 @@ Python 3 (voir :ref:`python23`).
 Python 3 apporte `quelques changements fondamentaux
 <https://docs.python.org/3/whatsnew/3.0.html>`_, notamment:
 
-- `print` n'est plus un mot-clé mais une fonction: :samp:`print({...})`
+- `print` n'est plus un mot-clé mais une fonction: :samp:`print({...})`;
 - l'opérateur `/` ne réalise plus la division euclidienne entre les
-  entiers, mais toujours la division *réelle*
-- un support complet (mais encore complexe) des chaînes Unicode
+  entiers, mais toujours la division *réelle*;
+- un support complet (mais encore complexe) des chaînes Unicode;
 - un nouveau système de formatage des chaînes de caractères
-  (`f-string` du :pep:`498` à partir de Python 3.6)
+  (`f-string` du :pep:`498` à partir de Python 3.6);
+- la fonction de comparaison `cmp` (et la méthode spéciale associée
+  `__cmp__`) n'existe plus.
 
 .. rubric:: Notes de bas de page
 
