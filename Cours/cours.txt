@@ -725,7 +725,7 @@ fonctionnalités au sein d'un même fichier :samp:`{monfichier}.py`.
 Un code Python peut donc être:
 
 - un module -- s'il n'inclut que des définitions mais pas d'instruction
-  exécutable en dehors d'un éventuel `__main__`;
+  exécutable en dehors d'un éventuel `__main__` [#dunder]_;
 - un exécutable -- s'il inclut un `__main__` ou des instructions
   exécutables;
 - ou les deux à la fois.
@@ -1061,8 +1061,9 @@ Python 3 apporte `quelques changements fondamentaux
 
 .. [#braces] ou `from __future__ import braces` :-)
 .. [#scope] La notion de « portée » est plus complexe, je simplifie...
+.. [#dunder] Parfois prononcé *dunder main* (*dunder* désigne le `__`).
 .. [#shebang] Il s'agit d'une fonctionnalité des *shells* d'Unix, pas
-              specifique à Python.
+              spécifique à Python.
 .. [#lbyl] Par opposition au :abbr:`LBYL (Look Before You Leap)` du
            C/C++, basé sur une série *exhaustive* de tests *a priori*.
 .. [#py3] De nombreuses distributions Linux sont encore basées sur
