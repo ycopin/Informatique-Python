@@ -414,7 +414,7 @@ Mise en oeuvre de l'ensemble des connaissances acquises
 
 À l'aide de la fonction :func:`scipy.integrate.odeint`, intégrer les
 équations du mouvement d'un boulet de canon soumis à des forces de
-frottement « turbulentes » (en :math:`v^2`):
+frottement « turbulentes » (en :math:`v^2`):
 
 .. math::
 
@@ -435,6 +435,10 @@ Utiliser les valeurs numériques pour un boulet de canon de `36 livres
     v0 = 450.      # Vitesse initiale [m/s]
     alt = 45.      # Inclinaison du canon [deg]
 
+**Voir également:** `Équations de prédation de Lotka-Volterra
+<https://fr.wikipedia.org/wiki/Équations_de_prédation_de_Lotka-Volterra>`_
+
+    
 Équation d'état de l'eau à partir de la dynamique moléculaire ★★★
 -----------------------------------------------------------------
 

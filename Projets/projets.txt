@@ -22,7 +22,6 @@ Projets
       3.2  Auto-organisation d'un banc de poisson
       3.3  Évacuation d'une salle & déplacement d'une foule dans une rue
       3.4  Suivi de particule(s)
-      3.5  Idées supplémentaires
     4  Projets statistiques
     5  Projets de visualisation
 
