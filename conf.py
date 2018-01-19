@@ -121,13 +121,11 @@ rst_epilog = u""
 
 # A string of reStructuredText that will be included at the start of
 # every source file that is read.
-# rst_prolog = u"""
-# .. Warning::
-#
-#    Le cours du lundi 7/11/2011 est **ANNULÉ**. Veuillez transmettre le
-#    message à vos collègues SVP !
-# """
-rst_prolog = u""
+rst_prolog = u"""
+.. Warning::
+
+   Conversion to Python3 in progress!!!
+"""
 
 # -- Options for HTML output ---------------------------------------------------
 
