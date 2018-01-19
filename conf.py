@@ -66,9 +66,9 @@ author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 # built documents.
 #
 # The short X.Y version.
-version = u"Formation Python"
+version = u'Master de Physique Fondamentale, Université Lyon 1'
 # The full version, including alpha/beta/rc tags.
-release = u'2017'
+release = u'Février 2018'
 
 copyright = ', '.join((release, author))
 
@@ -137,11 +137,25 @@ rst_prolog = u""
 # a list of builtin themes.
 # http://sphinx.pocoo.org/theming.html
 # default, sphinxdoc, scrolls, agogo, traditional, nature, haiku
-html_theme = 'bizstyle'
+html_theme = 'alabaster'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
+
+# Alabaster: see http://alabaster.readthedocs.io/en/latest/customization.html
+html_theme_options = {
+    #'logo': 'scipy2.png',        # Relative to $PROJECT/_static/
+    #'logo_name': project,
+    #'github_user': 'ycopin',
+    #'github_repo': 'Informatique-Python',
+    #'github_banner': True,
+    #'sidebar_collapse': True,
+    #'show_powered_by': True,
+    'page_width': '80%',
+    #'sidebar_width': '20%',
+    #'fixed_sidebar': True,
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
@@ -155,7 +169,7 @@ html_theme = 'bizstyle'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-#html_logo = ''
+html_logo = '_static/scipy2.png'  # Ne pas utiliser avec thème agogo
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -176,15 +190,7 @@ html_static_path = ['_static']
 # html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
-# http://alabaster.readthedocs.io/en/latest/installation.html
-# html_sidebars = {
-#     '**': [
-#         'about.html',
-#         'navigation.html',
-#         #'relations.html',
-#         'searchbox.html',
-#         ]
-#     }
+#html_sidebars = {}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.

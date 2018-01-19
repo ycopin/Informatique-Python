@@ -1,29 +1,69 @@
 .. :orphan:
 
-Informations pratiques 2017
+Informations pratiques 2018
 ===========================
 
-- Formation CNRS *Analyse scientifique avec Python*
+- Atelier *Analyse scientifique avec Python*
 - `Cours en ligne
-  <https://informatique-python.readthedocs.io/fr/>`_
+  <https://informatique-python.readthedocs.io/fr/M2/>`_
 - Responsable: Yannick Copin `<ipnl.in2p3.fr>`, Bureau
   420 de l'`IPNL <http://www.ipnl.in2p3.fr/>`_ (4 rue Fermi)
 
 .. rubric:: Calendrier
 
-Les séances ont lieu du lundi 10 au jeudi 13 Juillet 2017, 9h-12h et
-14h-17h, au bâtiment `Dirac de l'IPNL
-<https://www.ipnl.in2p3.fr/spip.php?rubrique252&lang=fr>`_.
+Toutes les séances ont lieu au bâtiment `Ariane
+<http://oscar.univ-lyon1.fr/appli-externe/plan/plans/fiches_ucbl/751.html>`_.
+
+===============  ===========  =====
+Date             TD           Salle
+===============  ===========  =====
+Lun. 06/02/2017  10h-12h      6
+Lun. 06/02       13h30-15h30  2
+Mar. 07/02       14h-17h      2
+Jeu. 09/02       9h-12h       6
+Ven. 10/02       14h30-16h30  6 (projets)
+===============  ===========  =====
+
+.. rubric:: Participants
+
+====================  ====================  ======  ======
+Nom                   Mail (`prenom.nom+`)  Statut  Projet
+====================  ====================  ======  ======
+Desprez Guillaume     `etu.univ-lyon1.fr`   M2      Diag. HR
+Dumoulin Jeremy       `etu.univ-lyon1.fr`   M2      Poincaré I
+Ikhenache Nadira      `etu.univ-lyon1.fr`   M2      Naine blanche
+Rouzaud Robin         `etu.univ-lyon1.fr`   M2      Poincaré II
+Vericel Arnaud        `etu.univ-lyon1.fr`   M2      Poincaré II
+Girerd Claude         `ipnl.in2p3.fr`       IPNL
+Tromeur William       `ipnl.in2p3.fr`       IPNL
+Arguello Jazmin       `ens-lyon.fr`         ENSL
+====================  ====================  ======  ======
 
 .. rubric:: Installations locales
 
-* Compléter votre `~/.bashrc`::
+Si des programmes ou des librairies Python (p.ex. `ipython`) manquent
+sur votre ordinateur (p.ex. en salle Ariane), il est relativement
+aisé de les installer localement à l'aide du gestionnaire
+d'installation `pip <https://pip.pypa.io/en/stable/>`_.
 
-    if [ -d "/group/python" ] ; then
-        export PATH="/group/python/bin:$PATH"
-        export PYTHONPATH="/group/python/lib/python2.7/site-packages:$PYTHONPATH"
-        export PYTHONSTARTUP="/group/python/etc/pystartup"
-    fi
+* Installer `pip`::
+
+    wget https://bootstrap.pypa.io/get-pip.py
+    ./get-pip.py --user
+
+..
+   * Compléter votre `~/.bashrc`::
+
+       export PATH=$PATH:$HOME/.local/bin/
+       export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages/
+
+* Installer p.ex. `ipython <http://ipython.org/>`_::
+
+    pip install --user ipython
+
+Si vous avez le contrôle de votre ordinateur, il peut être préférable
+d'utiliser le gestionnaire de paquets du système (p.ex. `synaptic` sur
+Ubuntu).
 
 .. |+| image:: ./_static/smile.gif
    :alt: Bon
