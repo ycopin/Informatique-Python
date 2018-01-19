@@ -2,6 +2,9 @@
                    Analyse scientifique avec Python
 *********************************************************************
 
+:Version: |version|, |release| (|today|)
+:Auteur: Yannick Copin `<ipnl.in2p3.fr>`
+
 .. highlight:: python
    :linenothreshold: 3
 
