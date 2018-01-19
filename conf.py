@@ -68,7 +68,7 @@ author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 # The short X.Y version.
 version = u'Master de Physique Fondamentale, Université Lyon 1'
 # The full version, including alpha/beta/rc tags.
-release = u'Février 2018'
+release = u'Janvier 2018'
 
 copyright = ', '.join((release, author))
 
@@ -145,13 +145,6 @@ html_theme = 'alabaster'
 
 # Alabaster: see http://alabaster.readthedocs.io/en/latest/customization.html
 html_theme_options = {
-    #'logo': 'scipy2.png',        # Relative to $PROJECT/_static/
-    #'logo_name': project,
-    #'github_user': 'ycopin',
-    #'github_repo': 'Informatique-Python',
-    #'github_banner': True,
-    #'sidebar_collapse': True,
-    #'show_powered_by': True,
     'page_width': '80%',
     #'sidebar_width': '20%',
     #'fixed_sidebar': True,

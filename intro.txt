@@ -1,9 +1,6 @@
 Introduction
 ############
 
-:Version: |version| du |today|
-:Auteur: Yannick Copin `<ipnl.in2p3.fr>`
-
 .. role:: python(code)
    :language: python
 
