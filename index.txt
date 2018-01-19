@@ -52,6 +52,9 @@
    Annales/exam_1501
    Projets/projets
 
+* :ref:`genindex`
+* :ref:`search`
+
 .. image:: _static/cc-by-nc.png
    :align: center
    :alt: Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0
