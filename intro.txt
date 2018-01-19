@@ -60,8 +60,3 @@ programes les plus complexes (projets de plus de 100 000 lignes).
 
 .. include:: info.txt
 
-Index
-=====
-
-* :ref:`genindex`
-* :ref:`search`
