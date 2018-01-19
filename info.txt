@@ -17,27 +17,22 @@ Toutes les séances ont lieu au bâtiment `Ariane
 ===============  ===========  =====
 Date             TD           Salle
 ===============  ===========  =====
-Lun. 06/02/2017  10h-12h      6
-Lun. 06/02       13h30-15h30  2
-Mar. 07/02       14h-17h      2
-Jeu. 09/02       9h-12h       6
-Ven. 10/02       14h30-16h30  6 (projets)
+Lun. 05/02/2018  10h-12h      
+Lun. 05/02       12h-14h
+Mar. 06/02/2018  10h-12h      
+Mar. 06/02       12h-14h
+Jeu. 08/02/2018  10h-12h      
+Jeu. 08/02       12h-14h      (projets)
 ===============  ===========  =====
 
 .. rubric:: Participants
 
-====================  ====================  ======  ======
-Nom                   Mail (`prenom.nom+`)  Statut  Projet
-====================  ====================  ======  ======
-Desprez Guillaume     `etu.univ-lyon1.fr`   M2      Diag. HR
-Dumoulin Jeremy       `etu.univ-lyon1.fr`   M2      Poincaré I
-Ikhenache Nadira      `etu.univ-lyon1.fr`   M2      Naine blanche
-Rouzaud Robin         `etu.univ-lyon1.fr`   M2      Poincaré II
-Vericel Arnaud        `etu.univ-lyon1.fr`   M2      Poincaré II
-Girerd Claude         `ipnl.in2p3.fr`       IPNL
-Tromeur William       `ipnl.in2p3.fr`       IPNL
-Arguello Jazmin       `ens-lyon.fr`         ENSL
-====================  ====================  ======  ======
+====================  ====================  ======
+Nom                   Mail (`prenom.nom+`)  Statut
+====================  ====================  ======
+XXX                   `etu.univ-lyon1.fr`   M2    
+Amina Annagrebah      `ipnl.in2p3.fr`       IPNL
+====================  ====================  ======
 
 .. rubric:: Installations locales
 
@@ -51,11 +46,10 @@ d'installation `pip <https://pip.pypa.io/en/stable/>`_.
     wget https://bootstrap.pypa.io/get-pip.py
     ./get-pip.py --user
 
-..
-   * Compléter votre `~/.bashrc`::
+* Compléter votre `~/.bashrc`::
 
-       export PATH=$PATH:$HOME/.local/bin/
-       export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages/
+    export PATH=$PATH:$HOME/.local/bin/
+    export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages/
 
 * Installer p.ex. `ipython <http://ipython.org/>`_::
 
