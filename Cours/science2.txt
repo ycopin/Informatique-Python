@@ -708,7 +708,7 @@ Visualisations
 
 .. rubric:: Exemple:
 
-:ref:`Démonstration Pandas/Seaborn <Cours/pokemon.ipynb>` (notebook:
+:ref:`Démonstration Pandas/Seaborn </Cours/pokemon.ipynb>` (notebook:
 :download:`pokemon.ipynb`) sur le jeu de données
 ::download:`Pokemon.csv`.
 
@@ -951,7 +951,7 @@ Tour d'horizon
 Démonstration
 -------------
 
-:ref:`Démonstration Astropy <Cours/astropy.ipynb>` (:download:`astropy.ipynb`)
+:ref:`Démonstration Astropy </Cours/astropy.ipynb>` (:download:`astropy.ipynb`)
 
 .. rubric:: Voir également:
 
