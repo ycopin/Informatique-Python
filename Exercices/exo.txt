@@ -16,7 +16,7 @@ Intégration: méthode des rectangles ★
 -------------------------------------
 
 La `méthode des rectangles
-<https://fr.wikipedia.org/wiki/M%C3%A9thode_du_point_m%C3%A9dian>`_ permet
+<https://fr.wikipedia.org/wiki/Méthode_du_point_médian>`_ permet
 d'approximer numériquement l'intégrale d'une fonction `f`:
 
 .. math::
@@ -59,7 +59,29 @@ PGCD: algorithme d'Euclide ★★
 
 Écrire un programme calculant le :abbr:`PGCD (Plus Grand Commun Dénominateur)`
 de deux nombres (p.ex. 306 et 756) par l'`algorithme d'Euclide
-<https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide>`_.
+<https://fr.wikipedia.org/wiki/Algorithme_d'Euclide>`_.
+
+.. _gauss:
+
+π: algorithme de Gauss-Legendre ★★
+----------------------------------
+
+Calculer π à l'aide de l'`algorithme de Gauss-Legendre
+<https://fr.wikipedia.org/wiki/Formule_de_Brent-Salamin>`_ (appelé également
+*formule de Brent-Salamin*):
+
+* Initialisation: :math:`a_0 = 1`, :math:`b_0 = 1/\sqrt{2}`, :math:`t_0 = 1/4`,
+  :math:`p_0 = 1`
+* Tant que :math:`|a_n - b_n| > \epsilon`:
+
+  .. math::
+
+     a_{n+1} &= \frac{a_n + b_n}{2} \\
+     b_{n+1} &= \sqrt{a_n b_n} \\
+     t_{n+1} &= t_n - p_n(a_n - a_{n+1})^2 \\
+     p_{n+1} &= 2p_n
+
+* On a alors :math:`\pi \approx \dfrac{(a_{n+1} + b_{n+1})^2}{4t_{n+1}}`.
 
 .. _tables:
 
@@ -83,7 +105,7 @@ Crible d'Ératosthène ★
 ----------------------
 
 Implémenter le `crible d'Ératosthène
-<https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne>`_ pour
+<https://fr.wikipedia.org/wiki/Crible_d'Ératosthène>`_ pour
 afficher les nombres premiers compris entre 1 et un entier fixe, p.ex.::
 
   Liste des entiers premiers <= 41
@@ -298,7 +320,7 @@ Schéma de Romberg ★★
 Écrire une fonction `integ_romberg(f, a, b, epsilon=1e-6)` permettant de
 calculer l'intégrale numérique de la fonction *f* entre les bornes *a* et *b*
 avec une précision *epsilon* selon la `méthode de Romberg
-<https://fr.wikipedia.org/wiki/M%C3%A9thode_de_Romberg>`_.
+<https://fr.wikipedia.org/wiki/Méthode_de_Romberg>`_.
 
 Tester sur des solutions analytiques et en comparant à
 :func:`scipy.integrate.romberg`.
@@ -310,7 +332,7 @@ Méthode de Runge-Kutta ★★
 
 Développer un algorithme permettant d'intégrer numériquement une équation
 différentielle du 1er ordre en utilisant la `méthode de Runge-Kutta
-<https://fr.wikipedia.org/wiki/M%C3%A9thodes_de_Runge-Kutta>`_ d'ordre quatre.
+<https://fr.wikipedia.org/wiki/Méthodes_de_Runge-Kutta>`_ d'ordre quatre.
 
 Tester sur des solutions analytiques et en comparant à
 :func:`scipy.integrate.odeint`.
