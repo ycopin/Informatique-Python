@@ -15,6 +15,18 @@ Documentation générale
   <http://rgruet.free.fr/PQR27/PQR2.7.html>`_
 - `The Python Package Index <https://pypi.python.org/pypi>`_
 
+Questions et réponses
+---------------------
+
+Vous pouvez trouver des réponses à de nombreuses questions (et poser vos
+propres questions) sur le site `Stack Overflow <https://stackoverflow.com>`_:
+- `Python Q&A <https://stackoverflow.com/questions/tagged/python>`_
+- `Numpy Q&A <https://stackoverflow.com/questions/tagged/numpy>`_
+- `Scipy Q&A <https://stackoverflow.com/questions/tagged/scipy>`_
+- `Matplotlib Q&A <https://stackoverflow.com/questions/tagged/matplotlib>`_
+- `Pandas Q&A <https://stackoverflow.com/questions/tagged/pandas>`_
+- `Astropy Q&A <https://stackoverflow.com/questions/tagged/astropy>`_
+
 Listes de liens
 ---------------
 
@@ -78,17 +90,22 @@ Livres libres
 Cours en ligne
 --------------
 
+.. Note:: ce cours a été repris par le site `developpez.com`: `Analyse
+   scientifique avec Python
+   <http://yannick-copin.developpez.com/tutoriels/analyse-scientifique-avec-python/>`_
+   |fr|.
+
 Python
 ......
 
 - `Python Tutorial <https://docs.python.org/2/tutorial/>`_ (v2.7)
 - `Tutoriel Python
-  <http://python.developpez.com/cours/TutoVanRossum/>`_ (v2.4) |fr|
+  <https://python.developpez.com/cours/TutoVanRossum/>`_ (v2.4) |fr|
 - `Apprenez à programmer en Python
   <https://openclassrooms.com/courses/apprenez-a-programmer-en-python>`_
 - `Débuter avec Python au lycée <http://python.lycee.free.fr/>`_ |fr|
 - `Présentation de Python
-  <http://python.developpez.com/tutoriels/cours-intensif-scientifique/presentation-debuter/>`_ |fr|
+  <https://python.developpez.com/tutoriels/cours-intensif-scientifique/presentation-debuter/>`_ |fr|
 - `Introduction à Python pour la programmation scientifique
   <http://www.courspython.com/sommaire.html>`_ |fr|
 
@@ -99,7 +116,7 @@ Python
 - `CheckIO <https://checkio.org/>`_, pour apprendre la programmation Python en
   s'amusant !
 - `Python Testing Tools <http://oddbird.net/python-testing-tools-preso/>`_
-- `Python Programming <https://www.codecademy.com/learn/python>`_ (Code Academy)
+- `Python Programming <https://www.codecademy.com/learn/learn-python>`_ (Code Academy)
 
 .. - `Cours Python 3 + exercices <http://perso.limsi.fr/pointal/python:courspython3>`_ |fr|
 
@@ -108,7 +125,7 @@ Scientifique
 
 - `Python Scientific Lecture Notes <http://www.scipy-lectures.org/>`_
 - `Handbook of the Physics Computing Course
-  <http://pentangle.net/python/handbook/>`_ (2002)
+  <https://pentangle.net/python/handbook/>`_ (2002)
 - `Practical Scientific Computing in Python
   <https://www.scribd.com/document/56265218/py4science>`_
 - `Computational Physics with Python
@@ -118,7 +135,6 @@ Scientifique
   <http://conference.scipy.org/scipy2011/tutorials.php>`_, `2012
   <http://conference.scipy.org/scipy2012/tutorials.php>`_, `2013
   <http://conference.scipy.org/scipy2013/tutorials.php>`_,
-- `Scipy Central <http://central.scipy.org/>`_ (*code snippets*)
 
 - `Advance Scientific Programming in Python <https://python.g-node.org/wiki/>`_
 - `Lectures on Computational Economics <http://lectures.quantecon.org/>`_
@@ -134,7 +150,8 @@ Scientifique
   <https://people.duke.edu/~ccc14/sta-663/index.html>`_
 - `Python Data Science Handbook
   <https://nbviewer.jupyter.org/github/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/Index.ipynb>`_
-
+- `A Concrete Introduction to Probability (using Python)
+  <http://nbviewer.jupyter.org/url/norvig.com/ipython/Probability.ipynb>`_
 
 .. rubric:: En français
 
@@ -162,7 +179,7 @@ Scientifique
 ..........
 
 - `Python cheatsheets <https://www.pythonsheets.com/>`_
-- `Scipy Central <http://central.scipy.org/>`_ (*code snippets*)
+.. - `Scipy Central <http://central.scipy.org/>`_ (*code snippets*)
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr

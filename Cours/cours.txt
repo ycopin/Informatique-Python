@@ -45,7 +45,7 @@ Cette introduction repose essentiellement sur les outils suivants:
 - les bibliothèques scientifiques `Numpy et Scipy
   <https://scipy.org/install.html>`_;
 - la bibliothèque graphique `Matplotlib
-  <http://matplotlib.org/users/installing.html>`_;
+  <https://matplotlib.org/users/installing.html>`_;
 - un interpréteur évolué, p.ex. `ipython <http://ipython.org/install.html>`_;
 - un `éditeur de texte évolué
   <https://en.wikipedia.org/wiki/Comparison_of_text_editors>`_, p.ex. `emacs
@@ -57,9 +57,9 @@ Ces logiciels peuvent être installés indépendamment, de préférence sous Lin
 <https://fr.wikipedia.org/wiki/Liste_des_distributions_Linux>`_), ou sous
 Windows ou MacOS.  Il existe également des distributions « clés en main »:
 
-- `Anaconda <https://www.continuum.io/>`_ (multi-plateforme);
+- `Anaconda <https://www.anaconda.com/>`_ (multi-plateforme);
 - `Python(x,y) <https://python-xy.github.io/>`_ (Windows);
-- `Enthought Canopy <https://www.enthought.com/products/canopy>`_
+- `Enthought Canopy <https://www.enthought.com/product/canopy>`_
   (Windows, MacOS, Linux, gratuite pour les étudiants du supérieur).
 
 Notions d'Unix
@@ -233,7 +233,7 @@ Types de base
 - `The Floating Point Guide <http://floating-point-gui.de/>`_
 - `What Every Computer Scientist Should Know About Floating-Point
   Arithmetic
-  <http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>`_
+  <https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>`_
 
 
 Structures de programmation

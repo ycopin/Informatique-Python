@@ -980,9 +980,8 @@ différents domaines de la physique, chimie, etc.:
   <http://sfepy.org/doc-devel/>`_;
 - Analyse statistique bayesienne: `PyStan
   <http://mc-stan.org/interfaces/pystan.html>`_;
-- *Markov Chain Monte-Carlo*: `emcee
-  <http://dan.iel.fm/emcee/current/>`_, `PyMC3
-  <https://pymc-devs.github.io/pymc3/>`_;
+- *Markov Chain Monte-Carlo*: `emcee <http://dfm.io/emcee/current/>`_, `PyMC3
+  <http://docs.pymc.io/>`_;
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
   <https://pythonhosted.org/milk/>`_, `MDP
   <http://mdp-toolkit.sourceforge.net/>`_, et autres `modules d'intelligence
