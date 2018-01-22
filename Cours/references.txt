@@ -9,24 +9,10 @@ Documentation générale
 ----------------------
 
 - `Python <https://www.python.org/>`_
+- `Python Tutorial <https://docs.python.org/2/tutorial/>`_ (v2.7)
 - `Python Wiki <https://wiki.python.org/moin/>`_
 - `Python Frequently Asked Questions <https://docs.python.org/2/faq/>`_
-- `Python 2.7 Quick Reference
-  <http://rgruet.free.fr/PQR27/PQR2.7.html>`_
 - `The Python Package Index <https://pypi.python.org/pypi>`_
-
-Questions et réponses
----------------------
-
-Vous pouvez trouver des réponses à de nombreuses questions (et poser vos
-propres questions) sur le site `Stack Overflow <https://stackoverflow.com>`_:
-
-- `Python Q&A <https://stackoverflow.com/questions/tagged/python>`_
-- `Numpy Q&A <https://stackoverflow.com/questions/tagged/numpy>`_
-- `Scipy Q&A <https://stackoverflow.com/questions/tagged/scipy>`_
-- `Matplotlib Q&A <https://stackoverflow.com/questions/tagged/matplotlib>`_
-- `Pandas Q&A <https://stackoverflow.com/questions/tagged/pandas>`_
-- `Astropy Q&A <https://stackoverflow.com/questions/tagged/astropy>`_
 
 Listes de liens
 ---------------
@@ -99,7 +85,8 @@ Cours en ligne
 Python
 ......
 
-- `Python Tutorial <https://docs.python.org/2/tutorial/>`_ (v2.7)
+- `Python 2.7 Quick Reference
+  <http://rgruet.free.fr/PQR27/PQR2.7.html>`_
 - `Tutoriel Python
   <https://python.developpez.com/cours/TutoVanRossum/>`_ (v2.4) |fr|
 - `Apprenez à programmer en Python
@@ -180,7 +167,21 @@ Extraits de code
 ................
 
 - `Python cheatsheets <https://www.pythonsheets.com/>`_
+  
 .. - `Scipy Central <http://central.scipy.org/>`_ (*code snippets*)
+
+Foire aux questions
+-------------------
+
+Vous pouvez trouver des réponses à de nombreuses questions (et poser vos
+propres questions) sur le site `Stack Overflow <https://stackoverflow.com>`_:
+
+- `Python Q&A <https://stackoverflow.com/questions/tagged/python>`_
+- `Numpy Q&A <https://stackoverflow.com/questions/tagged/numpy>`_
+- `Scipy Q&A <https://stackoverflow.com/questions/tagged/scipy>`_
+- `Matplotlib Q&A <https://stackoverflow.com/questions/tagged/matplotlib>`_
+- `Pandas Q&A <https://stackoverflow.com/questions/tagged/pandas>`_
+- `Astropy Q&A <https://stackoverflow.com/questions/tagged/astropy>`_
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr
