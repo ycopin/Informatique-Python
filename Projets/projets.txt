@@ -77,9 +77,7 @@ la température et du champ magnétique par simulation de Monte-Carlo.
    :width: 50%
    :align: center
 
-   **Figure:** Modèle d'Ising au point critique. Source: `Paul
-   Coddington
-   <http://cs.adelaide.edu.au/~paulc/physics/spinmodels.html>`_.
+   **Figure:** Modèle d'Ising au point critique (réf: Paul Coddington).
 
 Modèle de Potts 3D
 ------------------
