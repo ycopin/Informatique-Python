@@ -20,6 +20,7 @@ Questions et réponses
 
 Vous pouvez trouver des réponses à de nombreuses questions (et poser vos
 propres questions) sur le site `Stack Overflow <https://stackoverflow.com>`_:
+
 - `Python Q&A <https://stackoverflow.com/questions/tagged/python>`_
 - `Numpy Q&A <https://stackoverflow.com/questions/tagged/numpy>`_
 - `Scipy Q&A <https://stackoverflow.com/questions/tagged/scipy>`_
@@ -175,8 +176,8 @@ Scientifique
   ASTERICS-OBELICS International School*, voir *Timetable/Vue
   détaillée*)
 
-*Snippets*
-..........
+Extraits de code
+................
 
 - `Python cheatsheets <https://www.pythonsheets.com/>`_
 .. - `Scipy Central <http://central.scipy.org/>`_ (*code snippets*)
