@@ -77,8 +77,7 @@ Figure (relativement) simple
    :width: 60%
    :alt: Exemple de figure simple.
 
-   Exemple de figure (charte graphique: `seaborn
-   <http://seaborn.pydata.org/>`_)
+   Exemple de figure (relativement) simple.
 
 .. literalinclude:: figure.py
    :linenos:
