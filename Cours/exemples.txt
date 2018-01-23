@@ -1,6 +1,15 @@
 Exemples
 ========
 
+.. contents:: Table des exemples
+..
+   1  Mean power (fonction, argparse)
+   2  Formes (POO)
+   3  Cercle circonscrit (POO, argparse)
+   4  Matplotlib
+     4.1  Figure (relativement) simple
+     4.2  Filtres du 2nd ordre
+     
 .. _mean_power:
 
 Mean power (fonction, argparse)
