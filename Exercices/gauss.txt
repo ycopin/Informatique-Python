@@ -1,0 +1,20 @@
+.. _gaussSol:
+
+Algorithme de Gauss-Legendre
+----------------------------
+
+.. literalinclude:: gauss.py
+   :linenos:
+
+::
+
+  $ python gauss.py 
+
+  Algorithme de Gauss-Legendre, eps=1e-15
+  Iter #0 (|diff|=   0.29): pi=2.914213562373095 (er=  -0.072)
+  Iter #1 (|diff|=  0.013): pi=3.140579250522169 (er=-0.00032)
+  Iter #2 (|diff|=2.4e-05): pi=3.141592646213543 (er=-2.3e-09)
+  Iter #3 (|diff|=8.2e-11): pi=3.141592653589794 (er=+2.2e-16)
+  Valeur vraie:             pi=3.141592653589793
+
+**Source:** :download:`gauss.py`

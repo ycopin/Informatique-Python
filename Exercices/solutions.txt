@@ -4,6 +4,7 @@ Solutions aux exercices
 * :ref:`integSol`
 * :ref:`fizzSol`
 * :ref:`pgcdSol`
+* :ref:`gaussSol`
 * :ref:`cribleSol`
 * :ref:`carreSol`
 * :ref:`syracuseSol`

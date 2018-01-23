@@ -6,7 +6,40 @@ Exercices
 .. Note:: Les exercices sont de difficulté variable, de ★ (simple) à
    ★★★ (complexe).
 
-
+.. 1  Introduction
+     1.1  Intégration: méthode des rectangles ★
+     1.2  Fizz Buzz ★
+     1.3  PGCD: algorithme d'Euclide ★★
+     1.4  Tables de multiplication ★
+     1.5  π: algorithme de Gauss-Legendre ★★
+   2  Manipulation de listes
+     2.1  Crible d'Ératosthène ★
+     2.2  Carré magique ★★
+   3  Programmation
+     3.1  Suite de Syracuse (fonction) ★
+     3.2  Flocon de Koch (programmation récursive) ★★★
+     3.3  Jeu du plus ou moins (exceptions) ★
+     3.4  Animaux (POO/TDD) ★
+     3.5  Jeu de la vie (POO) ★★
+   4  Manipulation de tableaux (`arrays`)
+     4.1  Inversion de matrice ★
+     4.2  *Median Absolute Deviation* ★
+     4.3  Distribution du *pull* ★★★
+   5  Méthodes numériques
+     5.1  Quadrature et zéro d'une fonction ★
+     5.2  Schéma de Romberg ★★
+     5.3  Méthode de Runge-Kutta ★★
+   6  Visualisation (matplotlib)
+     6.1  Quartet d'Anscombe ★
+     6.2  Diagramme de bifurcation: la suite logistique ★★
+     6.3  Ensemble de Julia ★★
+   7  Mise en oeuvre de l'ensemble des connaissances acquises
+     7.1  Équation différentielle ★
+     7.2  Équation d'état de l'eau à partir de la dynamique moléculaire ★★★
+   8  Exercices en vrac
+     8.1  Points matériels et ions (POO/TDD)
+     8.2  *Protein Data Bank*
+   
 Introduction
 ============
 
@@ -61,6 +94,18 @@ PGCD: algorithme d'Euclide ★★
 de deux nombres (p.ex. 306 et 756) par l'`algorithme d'Euclide
 <https://fr.wikipedia.org/wiki/Algorithme_d'Euclide>`_.
 
+.. _tables:
+
+Tables de multiplication ★
+--------------------------
+
+Écrire un programme affichant les tables de multiplication::
+
+  1 x 1 = 1
+  1 x 2 = 2
+  ...
+  9 x 9 = 81
+  
 .. _gauss:
 
 π: algorithme de Gauss-Legendre ★★
@@ -82,18 +127,6 @@ Calculer π à l'aide de l'`algorithme de Gauss-Legendre
      p_{n+1} &= 2p_n
 
 * On a alors :math:`\pi \approx \dfrac{(a_{n+1} + b_{n+1})^2}{4t_{n+1}}`.
-
-.. _tables:
-
-Tables de multiplication ★
---------------------------
-
-Écrire un programme affichant les tables de multiplication::
-
-  1 x 1 = 1
-  1 x 2 = 2
-  ...
-  9 x 9 = 81
 
 
 Manipulation de listes

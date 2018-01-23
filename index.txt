@@ -35,6 +35,7 @@
    Exercices/integ
    Exercices/fizz
    Exercices/pgcd
+   Exercices/gauss
    Exercices/crible
    Exercices/carre
    Exercices/syracuse
