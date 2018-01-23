@@ -145,8 +145,8 @@ html_theme = 'alabaster'
 
 # Alabaster: see http://alabaster.readthedocs.io/en/latest/customization.html
 html_theme_options = {
-    'page_width': '80%',
-    #'sidebar_width': '20%',
+    'page_width': '75%',
+    'sidebar_width': '25%',
     #'fixed_sidebar': True,
 }
 
