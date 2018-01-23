@@ -186,15 +186,16 @@ html_static_path = ['_static']
 #html_last_updated_fmt = '%b %d, %Y'
 
 # If true, SmartyPants will be used to convert quotes and dashes to
-# typographically correct entities.
+# typographically correct entities. **DEPRECATED*
 #html_use_smartypants = True
+smartquotes = True
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
-#html_additional_pages = {}
+# html_additional_pages = {}
 
 # If false, no module index is generated.
 #html_domain_indices = True
@@ -221,6 +222,8 @@ html_show_copyright = True
 
 # This is the file name suffix for HTML files (e.g. ".xhtml").
 #html_file_suffix = None
+
+html_add_permalinks = u'☜' # ☚¶⚐⚑
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'AnalyseScientifiquePython'
