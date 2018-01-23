@@ -6,6 +6,7 @@ Exercices
 .. Note:: Les exercices sont de difficulté variable, de ★ (simple) à
    ★★★ (complexe).
 
+.. contents:: Table des exercices
 .. 1  Introduction
      1.1  Intégration: méthode des rectangles ★
      1.2  Fizz Buzz ★
@@ -89,6 +90,8 @@ PGCD: algorithme d'Euclide ★★
 .. figure:: https://upload.wikimedia.org/wikipedia/commons/5/59/Algorithme_PGCD.png
    :align: center
    :alt: Algorithme d'Euclide.
+
+   Algorithme d'Euclide.
 
 Écrire un programme calculant le :abbr:`PGCD (Plus Grand Commun Dénominateur)`
 de deux nombres (p.ex. 306 et 756) par l'`algorithme d'Euclide
@@ -217,7 +220,7 @@ bibliothèque graphique standard :mod:`turtle` dans une fonction
    :align: center
    :alt: Flocon de Koch d'ordre 3.
 
-   **Figure:** Flocon de Koch d'ordre 3.
+   Flocon de Koch d'ordre 3.
 
 .. _pm:
 
@@ -430,7 +433,7 @@ Générez l'ensemble de ces points d'équilibre pour des valeurs de
    :width: 50%
    :alt: Diagramme de bifurcation
 
-   **Figure:** Diagramme de bifurcation.
+   Diagramme de bifurcation.
 
 **N.B.** Vous utiliserez la bibliothèque :ref:`matplotlibSec` pour tracer vos
 résultats.
@@ -449,7 +452,7 @@ complexe :math:`c = 0.284 + 0.0122j`:
    :width: 50%
    :alt: Ensemble de Julia
 
-   **Figure:** Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
+   Ensemble de Julia pour :math:`c = 0.284 + 0.0122j`.
 
 On utilisera la fonction :func:`numpy.meshgrid` pour construire le plan
 complexe, et l'on affichera le résultat grâce à la fonction

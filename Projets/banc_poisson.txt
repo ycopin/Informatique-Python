@@ -1,5 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2017-07-09 19:13 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2018-01-23 16:17:20 ycopin>
 
 .. sectionauthor:: Hanna Julienne <hanna.julienne@gmail.com>
 
@@ -35,9 +35,8 @@ par rapport à leurs *k* plus proches voisins de la manière suivante:
    :width: 8cm
    :align: center
 
-   **Figure:** Environnement proche du poisson: zones dans lesquelles
-   le positionnement d'un voisin provoque une réponse de la part de
-   l'individu au centre
+   Environnement proche du poisson: zones dans lesquelles le positionnement
+   d'un voisin provoque une réponse de la part de l'individu au centre
 
 Dans notre modèle, nous allons prendre en compte l'influence des *k*
 plus proches voisins. On calculera la contribution de chaque voisin

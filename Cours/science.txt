@@ -839,10 +839,12 @@ Il existe deux interfaces pour deux types d'utilisation:
 
 Dans les deux cas, le résultat est le même:
 
-.. image:: simple.*
+.. figure:: simple.*
    :align: center
    :width: 60%
    :alt: Figure simple.
+
+   Figure simple.
 
 Par la suite, nous nous concentrerons sur l'interface :abbr:`OO (Orientée
 Objet)` :mod:`matplotlib.pyplot`, plus puissante et flexible.
@@ -873,11 +875,13 @@ systèmes d'axes (numérotés de 1 à 6)::
         ax.text(0.5, 0.5, "subplot(2, 2, {})".format(i),
                 ha='center', va='center', size='large')
 
-.. image:: subplots.*
+.. figure:: subplots.*
    :align: center
    :width: 60%
    :alt: Axes et figure.
 
+   Axes et figure.
+         
 .. index:: pair: matplotlib; GridSpec
 
 Pour des mises en page plus complexes, il est possible d'utiliser le kit
@@ -898,11 +902,13 @@ Pour des mises en page plus complexes, il est possible d'utiliser le kit
     ax4 = fig.add_subplot(grid[1, 1], xticks=[], yticks=[])
     ax4.text(0.5, 0.5, "grid[1, 1]", ha='center', va='center', size='large')
 
-.. image:: gridspec.*
+.. figure:: gridspec.*
    :align: center
    :width: 60%
    :alt: GridSpec.
 
+   Utilisation de `GridSpec`.
+         
 Enfin, il est toujours possible (mais peu pratique) de créer soi-même le
 système d'axes dans les coordonnées relatives à la figure::
 
@@ -915,11 +921,13 @@ système d'axes dans les coordonnées relatives à la figure::
     ax2 = fig.add_axes([0.2, 0.3, 0.4, 0.1], xticks=[], yticks=[], fc='0.8')
     ax2.text(0.5, 0.5, "[0.2, 0.3, 0.4, 0.1]", ha='center', va='center', size='large')
 
-.. image:: axes.*
+.. figure:: axes.*
    :align: center
    :width: 60%
    :alt: Axes.
 
+   Définition manuelle des axes.
+         
 
 Sauvegarde et affichage interactif
 ----------------------------------
@@ -938,10 +946,12 @@ Il est également possible d'afficher la figure dans une `fenêtre interactive
 <http://matplotlib.org/users/navigation_toolbar.html>`_ avec la commande
 :func:`matplotlib.pyplot.show`:
 
-.. image:: simpleShow.*
+.. figure:: simpleShow.*
    :align: center
    :width: 60%
    :alt: Figure simple (fenêtre interactive).
+
+   Figure simple (fenêtre interactive).
 
 .. Note:: Utiliser :command:`ipython --pylab` pour l'utilisation
    intéractive des figures dans une session :program:`ipython`.
@@ -960,7 +970,7 @@ tous les éléments d'une figure (titre, axes, légende, etc.), qui peuvent alor
    :target: http://matplotlib.org/examples/showcase/anatomy.html
    :alt: Anatomie d'une figure.
 
-   **Figure:** Anatomie d'une figure.
+   Anatomie d'une figure.
 
 .. Note:: N'oubliez pas de `citer matplotlib
    <http://matplotlib.org/citing.html>`_ (notamment [Matplotlib07]_) dans vos
@@ -1016,7 +1026,7 @@ simples:
    :target: http://matplotlib.org/examples/mplot3d/contourf3d_demo2.html
    :alt: Exemple de figure matplotlib 3D.
 
-   **Figure:** Exemple de figure matplotlib 3D.
+   Exemple de figure matplotlib 3D.
 
 .. index:: module: mayavi/mlab
 
@@ -1031,7 +1041,7 @@ graphique de visualisation 3D s'appuyant sur `Mayavi
    :target: http://docs.enthought.com/mayavi/mayavi/auto/example_mri.html
    :alt: Imagerie par résonance magnétique.
 
-   **Figure:** Imagerie par résonance magnétique.
+   Imagerie par résonance magnétique.
 
 .. Note:: N'oubliez pas de `citer mayavi
    <http://docs.enthought.com/mayavi/mayavi/misc.html#citing-mayavi>`_ dans vos

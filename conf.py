@@ -20,6 +20,10 @@
 # If your documentation needs a minimal Sphinx version, state it here.
 needs_sphinx = '1.3'
 
+# If true, figures, tables and code-blocks are automatically numbered if they
+# have a caption. For now, it works only with the HTML builder.
+numfig = True
+
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
@@ -44,6 +48,9 @@ intersphinx_mapping = {
     'xarray': ('http://xarray.pydata.org/en/stable/', None),
     'astropy': ('http://docs.astropy.org/en/stable/', None),
 }
+
+# Extlinks configuration
+extlinks = {'pypi': ('https://pypi.python.org/pypi/%s', '')}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -180,7 +187,7 @@ html_static_path = ['_static']
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
-# html_use_smartypants = True
+#html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}

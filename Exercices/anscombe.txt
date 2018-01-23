@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-09-03 22:00 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2018-01-23 16:16:22 ycopin>
 
 .. _anscombeSol:
 
@@ -37,4 +37,6 @@ Quartet d'Anscombe
    :align: center
    :width: 50%
 
+   Quartet d'Anscombe.
+           
 **Source:** :download:`anscombe.py`

@@ -1,4 +1,4 @@
-.. Time-stamp: <2017-07-09 19:15 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2018-01-23 16:16:39 ycopin>
 
 .. _pullSol:
 
@@ -12,4 +12,6 @@ Distribution du *pull*
    :align: center
    :width: 60%
 
+   Distribution du *pull*.
+           
 **Source:** :download:`pull.py`

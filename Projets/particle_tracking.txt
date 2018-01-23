@@ -1,5 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2017-07-09 19:18 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2018-01-23 16:17:26 ycopin>
 
 .. sectionauthor:: Mathieu Leocmach <mathieu.leocmach@ens-lyon.fr>
 
@@ -36,5 +36,4 @@ expérimentales de particules Browniennes.
    :width: 25%
    :align: center
 
-   **Figure:** Exemple d'image test où on voudra localiser les
-   particules.
+   Exemple d'image test où on voudra localiser les particules.

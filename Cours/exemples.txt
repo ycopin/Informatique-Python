@@ -51,6 +51,8 @@ Cercle circonscrit (POO, argparse)
    :width: 60%
    :alt: Cercle circonscrit.
 
+   Cercle circonscrit.
+
 **Source:** :download:`circonscrit.py`
 
 Matplotlib
@@ -66,7 +68,7 @@ Figure (relativement) simple
    :width: 60%
    :alt: Exemple de figure simple.
 
-   **Figure:** exemple de figure (charte graphique: `seaborn
+   Exemple de figure (charte graphique: `seaborn
    <http://seaborn.pydata.org/>`_)
 
 .. literalinclude:: figure.py
@@ -84,7 +86,7 @@ Filtres du 2nd ordre
    :width: 60%
    :alt: Filtre passe-haut du 2nd ordre
 
-   **Figure:** Filtre passe-haut du 2nd ordre.
+   Filtre passe-haut du 2nd ordre.
 
 .. literalinclude:: filtres2ndOrdre.py
    :linenos:

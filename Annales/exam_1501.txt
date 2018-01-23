@@ -91,10 +91,9 @@ réalisés.
 .. figure:: ville_L1.*
    :width: 12cm
 
-   **Figure:** Ville-test, avec 20 destinations et trois trajets de
-   longueurs différentes: un trajet aléatoire (*L=774*), un trajet
-   *plus proche voisins* (*L=288*), et un trajet après optimisation
-   *opt-2* (*L=276*).
+   Ville-test, avec 20 destinations et trois trajets de longueurs différentes:
+   un trajet aléatoire (*L=774*), un trajet *plus proche voisins* (*L=288*), et
+   un trajet après optimisation *opt-2* (*L=276*).
 
 Classe `Ville`
 --------------

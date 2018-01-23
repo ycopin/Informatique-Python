@@ -45,12 +45,12 @@ dans un contexte plus `biologique
    :width: 50%
    :align: center
 
-   **Figure:** Résultat d'une agrégation limitée par la diffusion
-   d'environ 33 000 particules obtenue en permettant à des marcheurs
-   aléatoires d'adhérer à une semence centrale. Les couleurs indiquent
-   le temps d'arrivée des marcheurs. Source: `WingkLEE
-   <https://commons.wikimedia.org/wiki/File%3AOf7_p0001_15h.jpg>`_ (Own
-   work) [Public domain], via Wikimedia Commons.
+   Résultat d'une agrégation limitée par la diffusion d'environ 33 000
+   particules obtenue en permettant à des marcheurs aléatoires d'adhérer à une
+   semence centrale. Les couleurs indiquent le temps d'arrivée des
+   marcheurs. Source: `WingkLEE
+   <https://commons.wikimedia.org/wiki/File%3AOf7_p0001_15h.jpg>`_ (Own work)
+   [Public domain], via Wikimedia Commons.
 
 Modèle d'Ising
 --------------
@@ -77,7 +77,7 @@ la température et du champ magnétique par simulation de Monte-Carlo.
    :width: 50%
    :align: center
 
-   **Figure:** Modèle d'Ising au point critique (réf: Paul Coddington).
+   Modèle d'Ising au point critique (réf: Paul Coddington).
 
 Modèle de Potts 3D
 ------------------
@@ -189,11 +189,11 @@ répondre à chacune d’entre elle):
    :width: 50%
    :align: center
 
-   **Figure:** Un mascaret, une vague soliton, dans un estuaire de
-   Grande Bretagne.  *Source*: `Arnold Price
+   Un mascaret, une vague soliton, dans un estuaire de Grande Bretagne.
+   *Source*: `Arnold Price
    <https://commons.wikimedia.org/wiki/File%3ATidal_Bore_-_geograph.org.uk_-_324581.jpg>`_
-   [`CC-BY-SA-2.0 <https://creativecommons.org/licenses/by-sa/2.0>`_],
-   via Wikimedia Commons.
+   [`CC-BY-SA-2.0 <https://creativecommons.org/licenses/by-sa/2.0>`_], via
+   Wikimedia Commons.
 
 Diagramme de phase du potentiel de Lennard-Jones
 ------------------------------------------------
@@ -310,16 +310,14 @@ comparaison entre les deux types de modèle.
    :width: 50%
    :align: center
 
-   **Figure:** 1) la première fourmi trouve la source de nourriture
-   (F), via un chemin quelconque (a), puis revient au nid (N) en
-   laissant derrière elle une piste de phéromone (b). 2) les fourmis
-   empruntent indifféremment les 4 chemins possibles, mais le
-   renforcement de la piste rend plus attractif le chemin le plus
-   court. 3) les fourmis empruntent le chemin le plus court, les
-   portions longues des autres chemins voient la piste de phéromones
-   s'évaporer. Source: `Johann Dréo
-   <https://commons.wikimedia.org/wiki/File:Aco_branches.svg>`_ via
-   Wikimedia Commons.
+   (1) la première fourmi trouve la source de nourriture (F), via un chemin
+   quelconque (a), puis revient au nid (N) en laissant derrière elle une piste
+   de phéromone (b). (2) les fourmis empruntent indifféremment les 4 chemins
+   possibles, mais le renforcement de la piste rend plus attractif le chemin le
+   plus court. (3) les fourmis empruntent le chemin le plus court, les portions
+   longues des autres chemins voient la piste de phéromones s'évaporer. Source:
+   `Johann Dréo <https://commons.wikimedia.org/wiki/File:Aco_branches.svg>`_
+   via Wikimedia Commons.
 
 Auto-organisation d'un banc de poisson
 --------------------------------------
@@ -370,7 +368,7 @@ une foule <http://www2.cnrs.fr/presse/communique/1852.htm>`_).
    :width: 50%
    :align: center
 
-   **Figure:** Un obstacle aide à l'évacuation. Source: `Crowd Behavior
+   Un obstacle aide à l'évacuation. Source: `Crowd Behavior
    <https://www.openabm.org/book/export/html/1955>`_.
 
 Suivi de particule(s)
