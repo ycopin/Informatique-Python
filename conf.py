@@ -223,7 +223,7 @@ html_show_copyright = True
 # This is the file name suffix for HTML files (e.g. ".xhtml").
 #html_file_suffix = None
 
-html_add_permalinks = u'☜' # ☚¶⚐⚑
+html_add_permalinks = u'🔗' # ☜☚¶⚐⚑, 🔗 = link symbol
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'AnalyseScientifiquePython'

@@ -32,6 +32,7 @@ Nom                   Mail (`prenom.nom+`)  Statut
 ====================  ====================  ======
 XXX                   `etu.univ-lyon1.fr`   M2    
 Amina Annagrebah      `ipnl.in2p3.fr`       IPNL
+Pierre Lansonneur     `ipnl.in2p3.fr`       IPNL
 ====================  ====================  ======
 
 .. rubric:: Installations locales
