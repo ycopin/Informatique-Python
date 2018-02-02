@@ -27,13 +27,19 @@ Jeu. 08/02       12h-14h       06 (projets)
 
 .. rubric:: Participants
 
-====================  ====================  ======
-Nom                   Mail (`prenom.nom+`)  Statut
-====================  ====================  ======
-XXX                   `etu.univ-lyon1.fr`   M2    
-Amina Annagrebah      `ipnl.in2p3.fr`       IPNL
-Pierre Lansonneur     `ipnl.in2p3.fr`       IPNL
-====================  ====================  ======
+=====================  ====================  ======
+Nom                    Mail (`prenom.nom+`)  Statut
+=====================  ====================  ======
+adelaide.claeyssens    `etu.univ-lyon1.fr`   M2
+adrien.collard         `etu.univ-lyon1.fr`   M2
+leo.delecourt          `etu.univ-lyon1.fr`   M2
+geoffrey.krouchi       `etu.univ-lyon1.fr`   M2
+christophe.lenert      `etu.univ-lyon1.fr`   M2
+baptiste.pellorce      `etu.univ-lyon1.fr`   M2
+jean-baptiste.sanoner  `etu.univ-lyon1.fr`   M2 
+amina.annagrebah       `ipnl.in2p3.fr`       IPNL
+pierre.lansonneur      `ipnl.in2p3.fr`       IPNL
+=====================  ====================  ======
 
 .. rubric:: Installations locales
 
