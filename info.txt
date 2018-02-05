@@ -18,11 +18,11 @@ Toutes les séances ont lieu au bâtiment `Ariane
 Date             TD           Salle
 ===============  ===========  =====
 Lun. 05/02/2018  10h-12h       06
-Lun. 05/02       12h-14h       06
-Mar. 06/02/2018  10h-1h2       06
-Mar. 06/02       12h-14h       06
+Lun. 05/02       14h-16h       06
+Mar. 06/02/2018  10h-12h       06
+Mar. 06/02       14h-16h       06
 Jeu. 08/02/2018  10h-12h       25
-Jeu. 08/02       12h-14h       06 (projets)
+Jeu. 08/02       14h-16h       06 (projets)
 ===============  ===========  =====
 
 .. rubric:: Participants
@@ -36,7 +36,7 @@ leo.delecourt          `etu.univ-lyon1.fr`   M2
 geoffrey.krouchi       `etu.univ-lyon1.fr`   M2
 christophe.lenert      `etu.univ-lyon1.fr`   M2
 baptiste.pellorce      `etu.univ-lyon1.fr`   M2
-jean-baptiste.sanoner  `etu.univ-lyon1.fr`   M2 
+jean-baptiste.sanoner  `etu.univ-lyon1.fr`   M2
 amina.annagrebah       `ipnl.in2p3.fr`       IPNL
 pierre.lansonneur      `ipnl.in2p3.fr`       IPNL
 =====================  ====================  ======
