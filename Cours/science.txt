@@ -878,7 +878,7 @@ que l'on peut condenser en une seule commande::
 Cette même commande permet de facilement générer une figure à
 plusieurs systèmes d'axes identiques; p.ex. une figure contenant 2
 (vertical) × 3 (horizontal) = 6 systèmes d'axes (numérotés de 1 à 6,
-en héritage de Matlab...)::
+héritage de Matlab...)::
 
   fig, axes = P.subplots(nrows=2, ncols=3,
                          subplot_kw=dict(xticks=[], yticks=[]))
