@@ -846,8 +846,11 @@ Dans les deux cas, le résultat est le même:
 
    Figure simple.
 
-Par la suite, nous nous concentrerons sur l'interface :abbr:`OO (Orientée
-Objet)` :mod:`matplotlib.pyplot`, plus puissante et flexible.
+.. Note:: Par la suite, nous nous concentrerons sur l'interface
+          :abbr:`OO (Orientée Objet)` :mod:`matplotlib.pyplot`, plus
+          puissante et flexible, avec la convention d'import suivante::
+
+            import matplotlib.pyplot as P
 
 
 Figure et axes
@@ -862,8 +865,18 @@ définit et réalise la plupart des éléments graphiques (tracé de courbes,
 définition des axes, annotations, etc.).  Un ou plusieurs de ces systèmes
 d'axes sont regroupés au sein d'une :obj:`matplotlib.figure.Figure`.
 
-Ainsi, pour générer une figure contenant 2 (vertical) × 3 (horizontal) = 6
-systèmes d'axes (numérotés de 1 à 6)::
+Pour une figure simple avec un seul système d'axe::
+
+  fig = P.figure()               # Création d'un objet Figure
+  ax = fig.add_subplot(1, 1, 1)  # Création d'un seul système d'axes
+
+que l'on peut condenser en une seule commande::
+
+  fig, ax = P.subplots()
+
+Pour les cas les plus complexes, il faut créer les systèmes d'axes
+individuellement. Ainsi, pour générer une figure contenant 2
+(vertical) × 3 (horizontal) = 6 systèmes d'axes (numérotés de 1 à 6)::
 
     fig = P.figure()
     for i in range(1, 4):
