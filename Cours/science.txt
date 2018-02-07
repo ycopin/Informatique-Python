@@ -865,40 +865,62 @@ définit et réalise la plupart des éléments graphiques (tracé de courbes,
 définition des axes, annotations, etc.).  Un ou plusieurs de ces systèmes
 d'axes sont regroupés au sein d'une :obj:`matplotlib.figure.Figure`.
 
-Pour une figure simple avec un seul système d'axe::
+Pour une figure la plus usuelle avec un seul système d'axe (exemple
+précédent)::
 
   fig = P.figure()               # Création d'un objet Figure
   ax = fig.add_subplot(1, 1, 1)  # Création d'un seul système d'axes
 
 que l'on peut condenser en une seule commande::
 
-  fig, ax = P.subplots()
+  fig, ax = P.subplots()  # Création de la figure et de l'axe associé
 
-Pour les cas les plus complexes, il faut créer les systèmes d'axes
-individuellement. Ainsi, pour générer une figure contenant 2
-(vertical) × 3 (horizontal) = 6 systèmes d'axes (numérotés de 1 à 6)::
+Cette même commande permet de facilement générer une figure à
+plusieurs systèmes d'axes identiques; p.ex. une figure contenant 2
+(vertical) × 3 (horizontal) = 6 systèmes d'axes (numérotés de 1 à 6,
+en héritage de Matlab...)::
 
-    fig = P.figure()
-    for i in range(1, 4):
-        ax = fig.add_subplot(2, 3, i, xticks=[], yticks=[])
-        ax.text(0.5, 0.5, "subplot(2, 3, {})".format(i),
-                ha='center', va='center', size='large')
-    for i in range(3, 5):
-        ax = fig.add_subplot(2, 2, i, xticks=[], yticks=[])
-        ax.text(0.5, 0.5, "subplot(2, 2, {})".format(i),
-                ha='center', va='center', size='large')
+  fig, axes = P.subplots(nrows=2, ncols=3,
+                         subplot_kw=dict(xticks=[], yticks=[]))
+  for i, ax in enumerate(axes.ravel(), start=1):
+      ax.text(0.5, 0.5, str(i),
+              ha='center', va='center', size='x-large')
 
 .. figure:: subplots.*
    :align: center
    :width: 60%
-   :alt: Axes et figure.
+   :alt: Axes identiques.
 
-   Axes et figure.
+   Figure avec plusieurs systèmes d'axes identiques.
+
+Pour les cas (pas trop) complexes où les systèmes d'axes ne sont pas
+tous identiques, il faut les générer individuellement. Ainsi, pour
+générer une figure contenant une rangée de 3 systèmes d'axes, puis une
+rangée de 2::
+
+    fig = P.figure()
+    for i in range(1, 4):   # 1re rangée de 3 systèmes d'axes
+        ax = fig.add_subplot(2, 3, i, xticks=[], yticks=[])
+        ax.text(0.5, 0.5, "subplot(2, 3, {})".format(i),
+                ha='center', va='center', size='large')
+    for i in range(3, 5):   # 2de rangée de 2 systèmes d'axes
+        ax = fig.add_subplot(2, 2, i, xticks=[], yticks=[])
+        ax.text(0.5, 0.5, "subplot(2, 2, {})".format(i),
+                ha='center', va='center', size='large')
+
+.. figure:: subplots2.*
+   :align: center
+   :width: 60%
+   :alt: Axes différents.
+
+   Figure avec plusieurs système d'axes différents.
+
 
 .. index:: pair: matplotlib; GridSpec
 
-Pour des mises en page plus complexes, il est possible d'utiliser le kit
-`gridspec <http://matplotlib.org/users/gridspec.html>`_, p.ex.::
+Pour des mises en page encore plus complexes, il est possible
+d'utiliser le kit `gridspec
+<http://matplotlib.org/users/gridspec.html>`_, p.ex.::
 
     from matplotlib.gridspec import GridSpec
 
@@ -922,7 +944,7 @@ Pour des mises en page plus complexes, il est possible d'utiliser le kit
 
    Utilisation de `GridSpec`.
 
-Enfin, il est toujours possible (mais peu pratique) de créer soi-même le
+Enfin, il est toujours possible (mais peu pratique) de définir soi-même le
 système d'axes dans les coordonnées relatives à la figure::
 
     fig = P.figure()
@@ -930,9 +952,11 @@ système d'axes dans les coordonnées relatives à la figure::
                        xticks=N.linspace(0, 1, 11), yticks=N.linspace(0, 1, 11))
     ax0.grid(True, ls='--')
     ax1 = fig.add_axes([0.1, 0.2, 0.8, 0.6], xticks=[], yticks=[], fc='0.9')
-    ax1.text(0.5, 0.5, "[0.1, 0.2, 0.8, 0.6]", ha='center', va='center', size='large')
+    ax1.text(0.5, 0.5, "[0.1, 0.2, 0.8, 0.6]",
+             ha='center', va='center', size='large')
     ax2 = fig.add_axes([0.2, 0.3, 0.4, 0.1], xticks=[], yticks=[], fc='0.8')
-    ax2.text(0.5, 0.5, "[0.2, 0.3, 0.4, 0.1]", ha='center', va='center', size='large')
+    ax2.text(0.5, 0.5, "[0.2, 0.3, 0.4, 0.1]",
+             ha='center', va='center', size='large')
 
 .. figure:: axes.*
    :align: center
