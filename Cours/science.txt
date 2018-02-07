@@ -859,6 +859,7 @@ Figure et axes
 .. index::
    pair: matplotlib; Axes
    pair: matplotlib; Figure
+   pair: matplotlib; subplots
 
 L'élément de base est le système d'axes :obj:`matplotlib.axes.Axes`, qui
 définit et réalise la plupart des éléments graphiques (tracé de courbes,
@@ -914,7 +915,6 @@ rangée de 2::
    :alt: Axes différents.
 
    Figure avec plusieurs système d'axes différents.
-
 
 .. index:: pair: matplotlib; GridSpec
 
