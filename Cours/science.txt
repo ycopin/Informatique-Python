@@ -553,7 +553,7 @@ Separated Values)` des objets de Messier :download:`Messier.csv`:
    :linenos:
    :lines: 1-8
 
->>> dt = N.dtype([('M', 'S3'),        # N° catalogue Messier
+>>> dt = N.dtype([('M', 'S4'),        # N° catalogue Messier
 ...               ('NGC', 'i'),       # N° New General Catalogue
 ...               ('Type', 'S2'),     # Code type
 ...               ('Mag', 'f'),       # Magnitude
@@ -881,7 +881,7 @@ systèmes d'axes (numérotés de 1 à 6)::
    :alt: Axes et figure.
 
    Axes et figure.
-         
+
 .. index:: pair: matplotlib; GridSpec
 
 Pour des mises en page plus complexes, il est possible d'utiliser le kit
@@ -908,7 +908,7 @@ Pour des mises en page plus complexes, il est possible d'utiliser le kit
    :alt: GridSpec.
 
    Utilisation de `GridSpec`.
-         
+
 Enfin, il est toujours possible (mais peu pratique) de créer soi-même le
 système d'axes dans les coordonnées relatives à la figure::
 
@@ -927,7 +927,7 @@ système d'axes dans les coordonnées relatives à la figure::
    :alt: Axes.
 
    Définition manuelle des axes.
-         
+
 
 Sauvegarde et affichage interactif
 ----------------------------------
