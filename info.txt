@@ -38,7 +38,6 @@ christophe.lenert      `etu.univ-lyon1.fr`   M2
 baptiste.pellorce      `etu.univ-lyon1.fr`   M2
 jean-baptiste.sanoner  `etu.univ-lyon1.fr`   M2
 amina.annagrebah       `ipnl.in2p3.fr`       IPNL
-pierre.lansonneur      `ipnl.in2p3.fr`       IPNL
 =====================  ====================  ======
 
 .. rubric:: Installations locales
