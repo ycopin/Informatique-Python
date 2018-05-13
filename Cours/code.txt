@@ -506,15 +506,18 @@ solutions d'intégration continue, p.ex.:
   dépôts directement gérés par votre institution, p.ex. `GitLab-IN2P3
   <https://gitlab.in2p3.fr/>`_.
 
-Git_ mérite un cours en soi, et devrait être utilisé très largement
-pour l'ensemble de vos projets (p.ex. rédaction d'articles, de thèse
-de cours, fichiers de configuration, tests numériques, etc.).
+Git_ mérite un cours en soi: il est très puissant, mais pas forcément
+très intuitif. Il peut être utilisé très largement pour l'ensemble de
+vos projets (p.ex. rédaction d'articles, de thèse de cours, fichiers
+de configuration, tests numériques, etc.).
 
 Quelques liens d'introduction:
 
 - `Pro-Git book <https://git-scm.com/book/en/v2>`_, le livre « officiel »;
 - `Git Immersion <http://gitimmersion.com/>`_;
-- `Git Magic <http://www-cs-students.stanford.edu/~blynn/gitmagic/>`_.
+- `Git Magic <http://www-cs-students.stanford.edu/~blynn/gitmagic/>`_;
+- `Introduction to Git and GitHub for Python Developers
+  <https://realpython.com/python-git-github-intro/>`_
 
 Intégration continue
 --------------------
