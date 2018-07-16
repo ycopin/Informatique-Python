@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Time-stamp: <2017-06-27 18:59 ycopin@lyonovae03.in2p3.fr>
+# Time-stamp: <2018-07-16 18:24:30 ycopin>
 
 import random
 
@@ -91,8 +91,10 @@ if __name__ == "__main__":
     # Instantiation (including initialization)
     life = Life(h, w, periodic=True)
 
+    generation = 0
     while True:                         # Infinite loop! (Ctrl-C to break)
-        print life                      # Print current world
-        print "\n"
+        print(generation)
+        print(life)                     # Print current world
+        generation += 1
         time.sleep(0.1)                 # Pause a bit
         life.evolve()                   # Evolve world

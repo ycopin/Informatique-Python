@@ -58,7 +58,7 @@ if __name__ == '__main__':
     # Exemple d'utilisation de la bibliothèque de gestion d'arguments 'argparse'
     import argparse
 
-    desc = u"Tracé (via 'turtle') d'un flocon de Koch d'ordre arbitraire."
+    desc = "Tracé (via 'turtle') d'un flocon de Koch d'ordre arbitraire."
 
     # Définition des options
     parser = argparse.ArgumentParser(description=desc)
@@ -96,7 +96,7 @@ if __name__ == '__main__':
     koch(niveau=args.ordre, taille=args.taille, delta=args.delta)
     if args.figure:
         # Sauvegarde de l'image
-        print "Sauvegarde de la figure dans '{}'".format(args.figure)
+        print("Sauvegarde de la figure dans '{}'".format(args.figure))
         T.getscreen().getcanvas().postscript(file=args.figure)
 
     T.exitonclick()

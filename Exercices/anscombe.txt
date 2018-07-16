@@ -1,4 +1,4 @@
-.. Time-stamp: <2014-09-03 22:00 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2018-07-16 18:10:41 ycopin>
 
 .. _anscombeSol:
 
@@ -10,24 +10,24 @@ Quartet d'Anscombe
 
 ::
 
-  $ python anscombe.py
+  $ python3 anscombe.py
 
-  Dataset 1 ====================
+  ============== Dataset #1 ==============
   x: mean=9.00, variance=10.00
   y: mean=7.50, variance=3.75
   y vs. x: corrcoeff=0.82
   y vs. x: y = 0.50 x + 3.00
-  Dataset 2 ====================
+  ============== Dataset #2 ==============
   x: mean=9.00, variance=10.00
   y: mean=7.50, variance=3.75
   y vs. x: corrcoeff=0.82
   y vs. x: y = 0.50 x + 3.00
-  Dataset 3 ====================
+  ============== Dataset #3 ==============
   x: mean=9.00, variance=10.00
   y: mean=7.50, variance=3.75
   y vs. x: corrcoeff=0.82
   y vs. x: y = 0.50 x + 3.00
-  Dataset 4 ====================
+  ============== Dataset #4 ==============
   x: mean=9.00, variance=10.00
   y: mean=7.50, variance=3.75
   y vs. x: corrcoeff=0.82

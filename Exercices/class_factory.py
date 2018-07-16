@@ -37,6 +37,6 @@ if __name__ == '__main__':
     susie = friendFactory('female')('Susie')
     hobbes = friendFactory('tiger')('Hobbes')
 
-    print calvin
-    print susie
-    print hobbes
+    print(calvin)
+    print(susie)
+    print(hobbes)

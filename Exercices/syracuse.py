@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Time-stamp: <2017-12-06 18:23:45 ycopin>
+# Time-stamp: <2018-07-16 18:31:01 ycopin>
 
 __author__ = "Adrien Licari <adrien.licari@ens-lyon.fr>; Yannick Copin <y.copin@ipnl.in2p3.fr>"
 
@@ -50,7 +50,7 @@ def temps_syracuse(n, altitude=False):
 if __name__ == '__main__':
 
     n = 15
-    print "Suite de Syracuse pour n =", n
-    print suite_syracuse(n)
-    print "Temps de vol total:      ", temps_syracuse(n)
-    print "Temps de vol en altitude:", temps_syracuse(n, altitude=True)
+    print("Suite de Syracuse pour n =", n)
+    print(suite_syracuse(n))
+    print("Temps de vol total:      ", temps_syracuse(n))
+    print("Temps de vol en altitude:", temps_syracuse(n, altitude=True))

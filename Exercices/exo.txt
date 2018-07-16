@@ -31,7 +31,7 @@ On définit la fonction `sq` renvoyant le carré d'un nombre par
 (cf. :ref:`fonctions`)::
 
   def sq(x) :
-      return x*x
+      return x**2
 
 Écrire un programme calculant l'intégrale de cette fonction entre
 *a=0* et *b=1*, en utilisant une subdivision en *n=100* pas dans un

@@ -8,11 +8,11 @@ Méthode des rectangles
 
 ::
 
-  $ python integ.py 
+  $ python3 integ.py 
 
-  Intégrale de x**2 entre a = 0 et b = 1 avec n = 100
-  Résultat numérique:  0.333325
-  Résultat analytique: 0.333333333333
-  Erreur relative: -2.49999999998e-05
+  Intégrale de x**2 entre a = 0 et b = 1 avec n = 100 rectangles
+  Résultat numérique:  0.33332500000000004
+  Résultat analytique: 0.3333333333333333
+  Erreur relative: -2.4999999999830713e-05
 
 **Source:** :download:`integ.py`

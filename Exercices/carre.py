@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Time-stamp: <2017-07-13 14:29 ycopin@lyonovae03.in2p3.fr>
+# Time-stamp: <2018-07-16 18:13:01 ycopin>
 
 """
 Création et affichage d'un carré magique d'ordre impair.
@@ -18,7 +18,7 @@ assert n % 2 == 1, "L'ordre {} n'est pas impair".format(n)
 array = [[0 for j in range(n)] for i in range(n)]
 
 # Initialisation de l'algorithme
-i, j = n, (n + 1) / 2         # Indices de l'algo (1-indexation)
+i, j = n, (n + 1) // 2        # Indices de l'algo (1-indexation)
 array[i - 1][j - 1] = 1       # Attention: python utilise une 0-indexation
 
 # Boucle sur valeurs restant à inclure dans le carré (de 2 à n**2)
@@ -34,8 +34,8 @@ for k in range(2, n**2 + 1):
     array[i - 1][j - 1] = k       # Remplissage de la case
 
 # Affichage, avec vérification des sommes par ligne et par colonne
-print "Carré magique d'ordre {}:".format(n)
+print("Carré magique d'ordre {}:".format(n))
 for row in array:
-    print '  '.join('{:2d}'.format(k) for k in row), '=', sum(row)
-print '  '.join('==' for k in row)
-print '  '.join(str(sum(array[i][j] for i in range(n))) for j in range(n))
+    print('  '.join('{:2d}'.format(k) for k in row), '=', sum(row))
+print('  '.join('==' for k in row))
+print('  '.join(str(sum(array[i][j] for i in range(n))) for j in range(n)))

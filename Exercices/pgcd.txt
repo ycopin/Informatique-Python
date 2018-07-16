@@ -8,7 +8,7 @@ Algorithme d'Euclide
 
 ::
 
-  $ python pgcd.py 
+  $ python3 pgcd.py 
 
   Le PGCD de 756 et 306 vaut 18
   42 x 18 = 756

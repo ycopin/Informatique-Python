@@ -14,12 +14,12 @@ def printStats(x, y):
 
     assert N.shape(x) == N.shape(y), "Incompatible input arrays"
 
-    print "x: mean={:.2f}, variance={:.2f}".format(N.mean(x), N.var(x))
-    print "y: mean={:.2f}, variance={:.2f}".format(N.mean(y), N.var(y))
-    print "y vs. x: corrcoeff={:.2f}".format(SS.pearsonr(x, y)[0])
+    print("x: mean={:.2f}, variance={:.2f}".format(N.mean(x), N.var(x)))
+    print("y: mean={:.2f}, variance={:.2f}".format(N.mean(y), N.var(y)))
+    print("y vs. x: corrcoeff={:.2f}".format(SS.pearsonr(x, y)[0]))
     # slope, intercept, r_value, p_value, std_err
     a, b, _, _, _ = SS.linregress(x, y)
-    print "y vs. x: y = {:.2f} x + {:.2f}".format(a, b)
+    print("y vs. x: y = {:.2f} x + {:.2f}".format(a, b))
 
 
 def plotStats(ax, x, y, title='', fancy=True):
@@ -46,16 +46,17 @@ def plotStats(ax, x, y, title='', fancy=True):
         # Add mean line ± stddev
         m = N.mean(x)
         s = N.std(x, ddof=1)
-        ax.axvline(m, color='g', ls='--', label='_')  # Mean
-        ax.axvspan(m - s, m + s, color='g', alpha=0.2, label='_')  # Std-dev
+        ax.axvline(m, color='g', ls='--', label='_')    # Mean
+        ax.axvspan(m - s, m + s, color='g', alpha=0.2)  # Std-dev
 
         m = N.mean(y)
         s = N.std(y, ddof=1)
-        ax.axhline(m, color='g', ls='--', label='_')  # Mean
-        ax.axhspan(m - s, m + s, color='g', alpha=0.2, label='_')  # Std-dev
+        ax.axhline(m, color='g', ls='--', label='_')    # Mean
+        ax.axhspan(m - s, m + s, color='g', alpha=0.2)  # Std-dev
 
         # Title and labels
-        ax.set_title(title)
+        if title:
+            ax.set_title(title)
         if ax.is_last_row():
             ax.set_xlabel("x")
         if ax.is_first_col():
@@ -70,11 +71,12 @@ if __name__ == '__main__':
 
     for i in range(4):                  # Loop over quartet sets x,y
         ax = fig.add_subplot(2, 2, i + 1)
-        print "Dataset #{} ".format(i + 1) + "=" * 20
+        print(" Dataset #{} ".format(i + 1).center(40, '='))
         x, y = quartet[:, 2 * i:2 * i + 2].T
         printStats(x, y)                # Print main statistics
-        plotStats(ax, x, y, title=str(i + 1))  # Plots
+        plotStats(ax, x, y, title='#'+str(i + 1))  # Plots
 
     fig.suptitle("Anscombe's Quartet", fontsize='x-large')
+    fig.tight_layout()
 
     P.show()

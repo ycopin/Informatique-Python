@@ -8,8 +8,8 @@ Fizz Buzz
 
 ::
 
-  $ python fizz.py
+  $ python3 fizz.py
 
-  1 2 Fizz! 4 Buzz! Fizz! 7 8 Fizz! Buzz! 11 Fizz! 13 14 Fizz Buzz! 16...
+  1 2 Fizz! 4 Buzz! Fizz! 7 8 Fizz! Buzz! 11 Fizz! 13 14 FIZZ BUZZ! 16...
 
 **Source:** :download:`fizz.py`
