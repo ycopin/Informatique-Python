@@ -85,7 +85,7 @@ Us et coutumes
 - *Easier to Ask for Forgiveness than Permission* (`try ... except`)
 - le *Style Guide for Python Code* (:pep:`8`)
 - `Idioms and Anti-Idioms in Python
-  <https://docs.python.org/2/howto/doanddont.html>`_
+  <https://docs.python.org/3/howto/doanddont.html>`_
 - `Code Like a Pythonista: Idiomatic Python
   <http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html>`_
 - `Google Python Style Guide
@@ -214,7 +214,7 @@ on est alors sûr de ne pas avoir cassé les fonctionnalités précédentes
 Nous avons déjà vu aux TD précédents plusieurs façons de rédiger des
 tests unitaires.
 
-* Les `doctest <https://docs.python.org/2/library/doctest.html>`_ sont
+* Les `doctest <https://docs.python.org/3/library/doctest.html>`_ sont
   des exemples (assez simples) d'exécution de code inclus dans les
   *docstring* des classes ou fonctions:
 
@@ -258,7 +258,7 @@ utiles pour développer en Python.
 *Integrated Development Environment*
 ------------------------------------
 
-- `idle <https://docs.python.org/2/library/idle.html>`_, l'IDE intégré à Python
+- `idle <https://docs.python.org/3/library/idle.html>`_, l'IDE intégré à Python
 - :program:`emacs` + `python-mode` pour l'édition, et
   :program:`ipython` pour l'execution de code (voir `Python
   Programming In Emacs
@@ -295,7 +295,7 @@ d'exécution ou juste après une erreur (analyse post-mortem).
 
   Pour déboguer un script, il est possible de l'exécuter sous le
   contrôle du débogueur `pdb
-  <https://docs.python.org/2/library/pdb.html>`_ en s'interrompant dès
+  <https://docs.python.org/3/library/pdb.html>`_ en s'interrompant dès
   la 1re instruction::
 
     python -m pdb script.py
@@ -365,7 +365,7 @@ fonctionne et produit les bons résultats dans tous les cas.  S'il
 reste trop lent ou gourmand en mémoire *pour vos besoins*, il peut
 être nécessaire de l'optimiser.
 
-Le `profilage <https://docs.python.org/2/library/profile.html>`_
+Le `profilage <https://docs.python.org/3/library/profile.html>`_
 permet de déterminer le temps passé dans chacune des sous-fonctions
 d'un code (ou ligne par ligne: `line profiler
 <https://github.com/rkern/line_profiler>`_, ou selon l'utilisation de
@@ -548,8 +548,8 @@ ligne directement connectés au dépôt source. Exemple sur `Astropy`:
 Python 2 vs. Python 3
 =====================
 
-Il existe de nombreux outils permettant de faciliter la transition 2.x
-→ 3.x:
+Si votre code est encore sous python-2.x, il existe de nombreux outils
+permettant de faciliter la transition vers 3.x:
 
 * L'interpréteur Python 2.7 dispose d'une option `-3` mettant en
   évidence dans un code les parties qui devront être modifiées pour un
@@ -569,14 +569,11 @@ Il existe de nombreux outils permettant de faciliter la transition 2.x
   de façon transparente un code compatible simultanément avec les deux
   versions.
 
-.. Avertissement:: Si vous vous lancez dans un nouveau développement,
-   il est dorénavant nettement préférable d'utiliser exclusivement
-   Python 3.
+.. Avertissement:: Si vous vous lancez dans un nouveau développement, il est
+   dorénavant indispensable d'utiliser exclusivement Python 3.
 
 .. rubric:: Liens
 
-- `Python 2 or Python 3?
-  <https://wiki.python.org/moin/Python2orPython3>`_
 - `Py3 Readiness <http://py3readiness.org/>`_: liste (réduite) des bibliothèques
   encore non-compatibles avec Python 3
 - `Porting Python 2 Code to Python 3

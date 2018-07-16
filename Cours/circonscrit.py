@@ -30,7 +30,7 @@ __version__ = "Time-stamp: <2014-01-12 22:19 ycopin@lyonovae03.in2p3.fr>"
 # Définition d'une classe ==============================
 
 
-class Point(object):  # *object* est la classe dont dérivent toutes les autres
+class Point:
 
     """
     Classe définissant un `Point` du plan, caractérisé par ses

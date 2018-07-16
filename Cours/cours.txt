@@ -40,7 +40,7 @@ Installation
 
 Cette introduction repose essentiellement sur les outils suivants:
 
-- `Python 2.7 <https://www.python.org/downloads/>`_ (inclus
+- `Python 3.5+ <https://www.python.org/downloads/>`_ (inclus
   l'interpréteur de base et la bibliothèque standard);
 - les bibliothèques scientifiques `Numpy et Scipy
   <https://scipy.org/install.html>`_;
@@ -94,11 +94,11 @@ Python:
 .. index:: interpréteur; python
 
 * :program:`python`: `interpréteur de base
-  <https://docs.python.org/2/tutorial/interpreter.html>`_::
+  <https://docs.python.org/3/tutorial/interpreter.html>`_::
 
-    $ python
-    Python 2.7.6 (default, Mar 22 2014, 22:59:56)
-    [GCC 4.8.2] on linux2
+    $ python3
+    Python 3.5.2 (default, Nov 23 2017, 16:37:01) 
+    [GCC 5.4.0 20160609] on linux
     Type "help", "copyright", "credits" or "license" for more information.
     >>>
 
@@ -182,9 +182,7 @@ Types de base
   - *Complexes* `complex`: `1+2j`, `5.1j`, `complex(-3.14)`,
     `complex('j')`
 
-  >>> 5 / 2       # !!! Division euclidienne par défaut dans Python 2.x !!!
-  2
-  >>> float(5)/2  # ou ajouter 'from __future__ import division' en début de script
+  >>> 5 / 2       # Division réelle par défaut dans Python 3.x
   2.5
   >>> 6 // 2.5    # Division euclidienne explicite
   2.0
@@ -211,15 +209,23 @@ Types de base
   - *Listes à clés* `dict`: `{'a':1, 'b':[1, 2], 3:'c'}`
   - *Ensembles* non ordonnés d'éléments uniques `set`: `{1, 2, 3, 2}`
 
-  >>> l = ['a', True] # Définition d'une liste
-  >>> x, y = 1, 2.5   # Affectations multiples via tuples (les parenthèses ne sont pas nécessaires)
-  >>> range(5)        # Liste de 5 entiers commençant par 0
+  >>> l = ['a', True]  # Définition d'une liste
+  >>> x, y = 1, 2.5    # Affectations multiples via tuples (les parenthèses ne sont pas nécessaires)
+  >>> list(range(5))   # Liste de 5 entiers commençant par 0
   [0, 1, 2, 3, 4]
-  >>> l + [x, y]      # Concaténation de listes
+  >>> l + [x, y]       # Concaténation de listes
   ['a', True, 1, 2.5]
-  >>> {2, 1, 3} | {1, 2, 'a'}  # Union d'ensembles
+  >>> {2, 1, 3} | {1, 2, 'a'}  # Union d'ensembles (non-ordonnés)
   {'a', 1, 2, 3}
 
+  .. Attention:: en python-3.x, `range` n'est plus un constructeur de liste,
+     mais un *itérateur*, qui doit être converti en liste explicitement:
+
+     >>> range(3)        # Itérateur
+     range(0, 3)
+     >>> list(range(3))  # Liste
+     [0, 1, 2]
+  
 - :samp:`type({obj})` retourne le type de l'objet,
   :samp:`isinstance({obj}, {type})` teste le type de l'objet.
 
@@ -280,11 +286,11 @@ Structures de programmation
   {condition2}: ...] [else: ...]`, p.ex.::
 
     if (i > 0):    # Condition principale
-        print "positif"
+        print("positif")
     elif (i < 0):  # Condition secondaire (si nécessaire)
-        print "négatif"
+        print("négatif")
     else:          # Cas final (si nécessaire)
-        print "nul"
+        print("nul")
 
 .. index:: for ... in
 .. index:: continue
@@ -294,7 +300,7 @@ Structures de programmation
   chacun des *éléments* d'un objet *itérable*:
 
   >>> for val in ['un', (2, 3), 4]:  # Itération sur une liste de 3 éléments
-  ...     print val
+  ...     print(val)
   un
   (2, 3)
   4
@@ -376,8 +382,8 @@ Des portions d'une chaîne peuvent être extraites en utilisant des
 'abc'
 >>> alpha[-3:]  # Du n°26-3=23 (inclus) au dernier inclus (défaut)
 'xyz'
->>> alpha[8:23:3] # Du n°8 (inclus) au n°23 (exclu), tous les 3 éléments
-'iloru'
+>>> alpha[3:9:2]  # Du n°3 (inclus) au n°9 (exclu), tous les 2 éléments
+'dfh'
 >>> alpha[::5]    # Du 1er au dernier élément (défauts), tous les 5 éléments
 'afkpuz'
 
@@ -387,7 +393,7 @@ Méthodes
 .. index:: dir
 
 Les chaînes de caractères disposent de `nombreuses fonctionnalités
-<https://docs.python.org/2/library/stdtypes.html#string-methods>`_ --
+<https://docs.python.org/3/library/stdtypes.html#string-methods>`_ --
 appelées « méthodes » en :abbr:`POO (Programmation Orientée Objet)` --
 facilitant leur manipulation:
 
@@ -407,6 +413,7 @@ True
 >>> titre.center(30, '-')
 '-------Calvin et Hobbes-------'
 >>> dir(str)                        # Liste toutes les méthodes des chaînes
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
 
 .. _print:
 
@@ -416,12 +423,11 @@ Formatage
 .. index:: print
 
 Le système de `formatage
-<https://docs.python.org/2/library/string.html#formatstrings>`_ permet
-un contrôle précis de la conversion de variables en chaînes de
-caractères.  Il s'appuie essentiellement sur la méthode
-:func:`str.format`:
+<https://docs.python.org/3/library/string.html#formatstrings>`_ permet un
+contrôle précis de la conversion de variables en chaînes de caractères.  Il
+s'appuie essentiellement sur la méthode :func:`str.format`:
 
->>> "{0} a {1} ans".format('Calvin', 6)  # args
+>>> "{0} a {1} ans".format('Calvin', 6)  # args énumérés
 'Calvin a 6 ans'
 >>> "{} a {} ans".format('Calvin', 6)    # Raccourci
 'Calvin a 6 ans'
@@ -434,20 +440,11 @@ caractères.  Il s'appuie essentiellement sur la méthode
 :func:`print` affiche à l'écran (plus spécifiquement la sortie
 standard) la conversion d'une variable en chaîne de caractères:
 
->>> print "Calvin and Hobbes\nScientific progress goes 'boink'"
+>>> print("Calvin and Hobbes\nScientific progress goes 'boink'!")
 Calvin and Hobbes
-Scientific progress goes 'boink'
->>> print "{0:2d} fois {1:2d} font {2}".format(3, 4, 3*4) # Formatage et affichage
+Scientific progress goes 'boink'!
+>>> print("{0:2d} fois {1:2d} font {2}".format(3, 4, 3*4))  # Formatage et affichage
  3 fois  4 font 12
-
-.. Python peut également gérer les caractères `Unicode
-.. <https://docs.python.org/2/howto/unicode.html>`_ (mais cela peut vite
-.. devenir fastidieux...):
-
-.. >>> print "α² + β² = γ²"
-.. α² + β² = γ²
-.. >>> for i in range(945, 970):
-.. ...     print i, unichr(i)
 
 .. rubric:: Exercice:
 
@@ -467,7 +464,7 @@ tuples sont *immuables*.
 
 - Accès indexé: conforme à celui des chaînes de caractères
 
-  >>> l = range(1, 10, 2); l  # De 1 (inclus) à 10 (exclu) par pas de 2
+  >>> l = list(range(1, 10, 2)); l  # De 1 (inclus) à 10 (exclu) par pas de 2
   [1, 3, 5, 7, 9]
   >>> len(l)          # Nb d'éléments dans la liste (i varie de 0 à 4)
   5
@@ -475,7 +472,7 @@ tuples sont *immuables*.
   (1, 7)
   >>> l[5]            # Erreur: indice hors-bornes
   IndexError: list index out of range
-  >>> d = dict(a=1, b=2) # Création du dictionnaire {'a':1, 'b':2}
+  >>> d = dict(a=1, b=2)  # Création du dictionnaire {'a':1, 'b':2}
   >>> d['a']          # Accès à une entrée via sa clé
   1
   >>> d['c']          # Erreur: clé inexistante!
@@ -514,7 +511,7 @@ tuples sont *immuables*.
 
   .. Attention:: à la modification des objets *mutables*:
 
-     >>> l = range(3)  # l pointe vers la liste [0, 1, 2]
+     >>> l = [0, 1, 2]
      >>> m = l; m      # m est un *alias* de la liste l: c'est le même objet
      [0, 1, 2]
      >>> id(l); id(m); m is l
@@ -533,7 +530,7 @@ tuples sont *immuables*.
 
 - Liste en compréhension: elle permet la construction d'une liste à la volée
 
-  >>> [ i**2 for i in range(5) ] # Carré de tous les éléments de [0, ..., 4]
+  >>> [ i**2 for i in range(5) ]  # Carré de tous les éléments de [0, ..., 4]
   [0, 1, 4, 9, 16]
   >>> [ 2*i for i in range(10) if (i%3 != 0) ]  # Compréhension conditionnelle
   [2, 4, 8, 10, 14, 16]
@@ -550,18 +547,18 @@ tuples sont *immuables*.
 
   >>> humans = ['Calvin', 'Wallace', 'Boule']
   >>> for i in range(len(humans)):  # Boucle sur les indices de humans
-  ...     print i, humans[i]        # Accès explicite, pas pythonique :-(
+  ...     print(i, humans[i])       # Accès explicite, pas pythonique :-(
   0 Calvin
   1 Wallace
   2 Boule
   >>> for i, name in enumerate(humans):  # Boucle sur (indice, valeur) de humans
-  ...     print i, name                  # Pythonique :-D
+  ...     print(i, name)                 # Pythonique :-D
   0 Calvin
   1 Wallace
   2 Boule
   >>> animals = ['Hobbes', 'Gromit', 'Bill']
   >>> for boy, dog in zip(humans, animals):  # Boucle simultanée sur 2 listes (ou +)
-  ...     print boy, 'et', dog
+  ...     print(boy, 'et', dog)
   Calvin et Hobbes
   Wallace et Gromit
   Boule et Bill
@@ -741,7 +738,7 @@ mean_power.py`), auquel cas la partie `__main__` sera exécutée.
   la première ligne d'un script défini l'interpréteur à utiliser
   [#shebang]_::
 
-    #!/usr/bin/env python
+    #!/usr/bin/env python3
 
 - Un fichier incluant des caractères non-ASCII (p.ex. caractères
   accentués, ou symboles UTF tels que `±`) *doit* définir le système
@@ -750,14 +747,12 @@ mean_power.py`), auquel cas la partie `__main__` sera exécutée.
     # -*- coding: utf-8 -*-
 
   Notez que les noms de variables, fonctions, etc. doivent être
-  purement ASCII (`a-zA-Z0-9_`).  De manière générale, favorisez la
+  purement ASCII [#fnunicode]_ (`a-zA-Z0-9_`).  De manière générale, favorisez la
   langue anglaise (variables, commentaires, affichages).
 - `"""doc"""`: la chaîne de documentation de la bibliothèque
   (*docstring*, :pep:`257`), qui sera utilisée comme aide en ligne du
   module (`help(mean_power)`), doit être la *1re* instruction du
   script.
-- `from __future__ import division`: permet de ne pas considérer les
-  divisions entre entiers comme euclidiennes par défaut.
 - `if __name__ == '__main__':` permet de séparer le `__main__` (c.-à-d. le
   corps du programme, à exécuter lors d'une utilisation en script) des
   définitions de fonctions et classes, permettant une utilisation en
@@ -787,19 +782,19 @@ instruction, on « tente sa chance » d'abord, quitte à gérer les
 erreurs *a posteriori*.  Cette gestion des `Exception` se fait par la
 construction `try ... except`.
 
-.. _raw_input:
+.. _input:
 
 .. code-block:: python
    :linenos:
 
    def lireEntier():
        while True:
-           chaine = raw_input('Entrez un entier: ') # Lecture du clavier
+           chaine = input('Entrez un entier: ')  # Lecture du clavier
            try:
                # La conversion en type entier génère `ValueError` si nécessaire
                return int(chaine)
-           except ValueError:             # Gestion de l'exception ValueError
-               print "'{}' n'est pas un entier".format(chaine)
+           except ValueError:                    # Gestion de l'exception ValueError
+               print("'{}' n'est pas un entier".format(chaine))
 
 >>> lireEntier()
 Entrez un entier: toto
@@ -824,9 +819,9 @@ solution de repli, et laissez passer les autres (ce qui provoquera
      y = 2
      try:
         x = z                 # Copie y dans x
-        print "Tout va bien"
+        print("Tout va bien")
      except:
-        print "Rien ne va plus"
+        print("Rien ne va plus")
 
 Vos procédures doivent également générer des exceptions
 (*documentées*) -- avec l'instruction :samp:`raise {Exception}` -- si
@@ -869,11 +864,11 @@ si l'hypothèse n'est pas vérifiée, génère une `AssertionError`):
        Returns x**2 - y**2 for x >= y, AssertionError otherwise.
        """
 
-       assert x >= y, "x={} < y={}".format(x, y) # Test et msg d'erreur
+       assert x >= y, "x={} < y={}".format(x, y)  # Test et msg d'erreur
        return x**2 - y**2
 
 .. Note:: La règle générale à retenir concernant la gestion des
-          erreurs:
+   erreurs:
 
               **Fail early, fail often, fail better!**
 
@@ -919,9 +914,6 @@ Au concept d'objet sont liées les notions de:
   les opérateurs de comparaison (`<`, `>=`, etc.) dans la classe
   `Forme` pour que les opérations du genre `forme1 < forme2` aient un
   sens (p.ex. en comparant les aires).
-
-  `Liste des méthodes standard et des surcharges d'opérateur
-  <http://rgruet.free.fr/PQR27/PQR2.7.html#SpecialMethods>`_
 - **Héritage de classe:** il s'agit de définir une classe à partir
   d'une (ou plusieurs) classe(s) parente(s).  La nouvelle classe
   *hérite* des attributs et méthodes de sa (ses) parente(s), que l'on
@@ -929,9 +921,6 @@ Au concept d'objet sont liées les notions de:
   hérite de la classe `Forme` (elle partage la notion de couleur et
   d'aire), et lui ajoute des méthodes propres à la notion de rectangle
   (p.ex. formule explicite de l'aire, étirement).
-
-  .. Attention:: Toutes les classes doivent au moins hériter de la
-     classe principale `object`.
 
 .. rubric:: Exemple de définition de classe
 
@@ -974,10 +963,10 @@ Intéractif
 ----------
 
 .. index:: print
-.. index:: raw_input
+.. index:: input
 
 Comme nous avons pu le voir précédemment, l'affichage à l'écran se
-fait par print_, la lecture du clavier par raw_input_.
+fait par print_, la lecture du clavier par input_.
 
 Fichiers
 --------
@@ -987,7 +976,7 @@ Fichiers
 
 La gestion des fichiers (lecture et écriture) se fait à partir de la
 fonction :func:`open` retournant un objet de type `file
-<https://docs.python.org/2/library/stdtypes.html#bltin-file-objects>`_:
+<https://docs.python.org/3/library/stdtypes.html#bltin-file-objects>`_:
 
 .. code-block:: python
    :linenos:
@@ -1006,9 +995,9 @@ fonction :func:`open` retournant un objet de type `file
        try:                     # Essayons de lire 2 entiers sur cette ligne
            x, x2 = [ int(tok) for tok in line.split() ]
        except ValueError:       # Gestion des erreurs
-           print "Cannot decipher line '{}'".format(line)
+           print("Cannot decipher line '{}'".format(line))
            continue
-       print "{}**3 = {}".format(x, x**3)
+       print("{}**3 = {}".format(x, x**3))
 
 
 Éléments passés sous silence
@@ -1036,14 +1025,13 @@ utilisation de Python dans un contexte scientifique.
 Python 3.x
 ----------
 
-Pour des raisons historiques autant que pratiques [#py3]_, ce cours
-présente le langage Python dans sa version 2.x.  Pourtant, le
-développement actuel de Python se fait uniquement sur la branche 3.x,
-qui constitue une remise à plat *non rétrocompatible* du langage, et
-la branche 2.x ne sera *a priori* plus supporté au-delà de 2020
-(:pep:`466`).  Il est donc préférable, si vous vous lancez dans un
-développement substantiel, de passer aussi rapidement que possible à
-Python 3 (voir :ref:`python23`).
+Pour des raisons historiques autant que pratiques [#py3]_, ce cours présentait
+initialement le langage Python dans sa version 2.  Cependant, puisque le
+développement actuel de Python (et de certaines de ses bibliothèques clés) se
+fait maintenant uniquement sur la branche 3.x, qui constitue une remise à plat
+*non rétrocompatible* du langage, et que la branche 2.x ne sera *a priori* plus
+supporté au-delà de 2020 (:pep:`466`), le cours a été porté sur Python 3 (voir
+:ref:`python23`).
 
 Python 3 apporte `quelques changements fondamentaux
 <https://docs.python.org/3/whatsnew/3.0.html>`_, notamment:
@@ -1063,11 +1051,18 @@ Python 3 apporte `quelques changements fondamentaux
 .. [#scope] La notion de « portée » est plus complexe, je simplifie...
 .. [#dunder] Parfois prononcé *dunder main* (*dunder* désigne le `__`).
 .. [#shebang] Il s'agit d'une fonctionnalité des *shells* d'Unix, pas
-              spécifique à Python.
+   spécifique à Python.
+.. [#fnunicode] En fait, python-3.x gère nativement les caractères
+   `Unicode <https://docs.python.org/3/howto/unicode.html>`_:
+
+   >>> α, β = 3, 4
+   >>> print("α² + β² =", α**2 + β**2)
+   α² + β² = 25
+
 .. [#lbyl] Par opposition au :abbr:`LBYL (Look Before You Leap)` du
-           C/C++, basé sur une série *exhaustive* de tests *a priori*.
+   C/C++, basé sur une série *exhaustive* de tests *a priori*.
 .. [#py3] De nombreuses distributions Linux sont encore basées sur
-          Python 2.7 par défaut.
+   Python 2.7 par défaut.
 
 .. |DANGER| unicode:: 0x2620 .. ☠ = SKULL AND CROSSBONES
 .. |:-)| unicode:: 0x263a .. ☺ = WHITE SMILING FACE

@@ -17,9 +17,9 @@ données, interactions avec le système, gestion des fichiers et des
 processus, protocoles de communication (internet, mail, FTP, etc.),
 multimédia, etc.
 
-* `The Python Standard Library <https://docs.python.org/2/library/>`_
-  (v2.7)
-* `Python Module of the Week <https://pymotw.com/2/contents.html>`_
+* `The Python Standard Library <https://docs.python.org/3/library/>`_
+  (v3.x)
+* `Python Module of the Week <https://pymotw.com/>`_ (v3.x)
 
 .. _optparse:
 
@@ -119,7 +119,7 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
   1.2246467991473532e-16j
 
 * `autres modules numériques et mathématiques
-  <https://docs.python.org/2/library/numeric.html>`_;
+  <https://docs.python.org/3/library/numeric.html>`_;
 
 .. .. index::
 ..    module: collections
@@ -151,7 +151,7 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 .. .. index::
 ..    module: re
 
-* `expressions rationnelles <https://docs.python.org/2/howto/regex.html>`_:
+* `expressions rationnelles <https://docs.python.org/3/howto/regex.html>`_:
   :mod:`re`;
 
 .. .. index::
@@ -187,7 +187,7 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 .. .. index::
 ..    module: urllib2
 
-* `lecture d'une URL <https://docs.python.org/2/howto/urllib2.html>`_
+* `lecture d'une URL <https://docs.python.org/3/howto/urllib2.html>`_
   (p.ex. page web): :mod:`urllib2`.
 
 

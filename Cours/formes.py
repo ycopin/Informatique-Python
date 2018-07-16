@@ -8,7 +8,7 @@ Exemple de Programmation Orientée Objet.
 
 # Définition d'une classe ==============================
 
-class Forme(object):  # *object* est la classe dont dérivent toutes les autres
+class Forme:
 
     """Une forme plane, avec éventuellement une couleur."""
 
@@ -29,7 +29,7 @@ class Forme(object):  # *object* est la classe dont dérivent toutes les autres
         Retourne une chaîne de caractères.
         """
 
-        return "Forme encore indéfinie de couleur {}".format(self.couleur)
+        return "forme encore indéfinie de couleur {}".format(self.couleur)
 
     def change_couleur(self, newcolor):
         """Change la couleur de la Forme."""
@@ -46,11 +46,10 @@ class Forme(object):  # *object* est la classe dont dérivent toutes les autres
         """
 
         raise NotImplementedError(
-            "Impossible de calculer l'aire d'une forme indéfinie.")
+            "ATTENTION: impossible de calculer l'aire d'une forme indéfinie.")
 
 
 class Rectangle(Forme):
-
     """
     Un Rectangle est une Forme particulière.
 
@@ -58,9 +57,8 @@ class Rectangle(Forme):
     classe-mère, mais peut les surcharger (i.e. en changer la
     définition), ou en ajouter de nouveaux:
 
-    - les méthodes `Rectangle.change_couleur()` et
-      `Rectangle.__cmp__()` dérivent directement de
-      `Forme.change_couleur()` et `Forme.__cmp__()`;
+    - la méthode `Rectangle.change_couleur()` dérive directement de
+      `Forme.change_couleur()`;
     - `Rectangle.__str__()` surcharge `Forme.__str__()`;
     - `Rectangle.aire()` définit la méthode jusqu'alors abstraite
       `Forme.aire()`;
@@ -85,7 +83,7 @@ class Rectangle(Forme):
     def __str__(self):
         """Surcharge de `Forme.__str__()`."""
 
-        return "Rectangle {}x{}, de couleur {}".format(
+        return "rectangle {}x{}, de couleur {}".format(
             self.longueur, self.largeur, self.couleur)
 
     def aire(self):
@@ -111,18 +109,18 @@ if __name__ == '__main__':
     s.change_couleur('rouge')         # On change la couleur
     print("s après change_couleur:", str(s))
     try:
-        print("Aire de s:", s.aire())  # La méthode abstraite lève une exception
+        print("aire de s:", s.aire())  # La méthode abstraite lève une exception
     except NotImplementedError as err:
         print(err)
 
     q = Rectangle(1, 4, 'vert')       # Rectangle 1×4 vert
     print("q:", str(q))
-    print("Aire de q:", q.aire())
+    print("aire de q:", q.aire())
 
     r = Rectangle(2, 1, 'bleu')       # Rectangle 2×1 bleu
     print("r:", str(r))
-    print("Aire de r:", r.aire())
+    print("aire de r:", r.aire())
 
-    print("Allongement de r d'un facteur 2")
+    print("allongement de r d'un facteur 2")
     r.allonger(2)                     # r devient un rectangle 4×1
     print("r:", str(r))

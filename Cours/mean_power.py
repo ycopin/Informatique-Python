@@ -65,5 +65,5 @@ if __name__ == '__main__':
     moyenne = mean_power(args.list, args.power)
 
     # Affichage du résultat
-    print("La moyenne des {} nombres à la puissance {} est {}".format(
-        len(args.list), args.power, moyenne))
+    print("La moyenne puissance 1/{} des {} nombres à la puissance {} est {}".format(
+        args.power, len(args.list), args.power, moyenne))

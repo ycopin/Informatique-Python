@@ -10,9 +10,7 @@ Documentation générale
 
 - `Python <https://www.python.org/>`_
 - `Python Wiki <https://wiki.python.org/moin/>`_
-- `Python Frequently Asked Questions <https://docs.python.org/2/faq/>`_
-- `Python 2.7 Quick Reference
-  <http://rgruet.free.fr/PQR27/PQR2.7.html>`_
+- `Python Frequently Asked Questions <https://docs.python.org/3/faq/index.html>`_
 - `The Python Package Index <https://pypi.python.org/pypi>`_
 
 Listes de liens
@@ -80,9 +78,7 @@ Cours en ligne
 Python
 ......
 
-- `Python Tutorial <https://docs.python.org/2/tutorial/>`_ (v2.7)
-- `Tutoriel Python
-  <http://python.developpez.com/cours/TutoVanRossum/>`_ (v2.4) |fr|
+- `Python Tutorial <https://docs.python.org/3/tutorial/>`_ (v3.7)
 - `Apprenez à programmer en Python
   <https://openclassrooms.com/courses/apprenez-a-programmer-en-python>`_
 - `Débuter avec Python au lycée <http://python.lycee.free.fr/>`_ |fr|
