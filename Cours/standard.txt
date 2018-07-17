@@ -7,7 +7,7 @@ Bibliothèque standard
 .. contents:: Table des matières
 ..
     1  Gestion des arguments/options de la ligne de commande
-    2  [c]Pickle: sérialisation des données
+    2  Pickle: sérialisation des données
     3  *Batteries included*
     4  *Text/Graphical User Interfaces*
 
@@ -57,46 +57,47 @@ P.ex.:
 
 Cette solution génère automatiquement une aide en ligne, p.ex.::
 
-  $ python circonscrit.py -h
+  $ python3 circonscrit.py -h
   usage: circonscrit.py [-p/--plot] [-i/--input coordfile | x1,y1 x2,y2 x3,y3]
 
   Compute the circumscribed circle to 3 points in the plan.
 
   positional arguments:
-    x,y                   Coordinates 'x,y' of point
+    x,y                   Coordinates of point
 
   optional arguments:
     -h, --help            show this help message and exit
     -i [INPUT], --input [INPUT]
                           Coordinate file (one 'x,y' per line)
     -p, --plot            Draw the circumscribed circle
+    -T, --tests           Run doc tests
     --version             show program's version number and exit
 
 
 .. _pickle:
 
-[c]Pickle: sérialisation des données
-====================================
+Pickle: sérialisation des données
+=================================
 
 .. index::
-   module: pickle/cPickle
+   module: pickle
 
-Les modules :mod:`pickle`/:mod:`cPickle` permettent la sauvegarde
-pérenne d'objets python (« sérialisation »).
+Le module :mod:`pickle` permet la sauvegarde pérenne d'objets python
+(« sérialisation »).
 
 >>> d = dict(a=1, b=2, c=3)
->>> l = range(10000)
->>> import cPickle as pickle         # 'cPickle' est + rapide que 'pickle'
->>> pkl = open('archive.pkl', 'w')   # Overture du fichier en écriture
+>>> l = ["Calvin", 6, 1.20]
+>>> import pickle
+>>> pkl = open('archive.pkl', 'wb')        # Overture du fichier en écriture binaire
 >>> pickle.dump((d, l), pkl, protocol=-1)  # Sérialisation du tuple (d, l)
->>> pkl.close()                      # *IMPORTANT!* Fermeture du fichier
->>> d2, l2 = pickle.load(open('archive.pkl')) # Désérialisation (relecture)
+>>> pkl.close()                            # *IMPORTANT!* Fermeture du fichier
+>>> d2, l2 = pickle.load(open('archive.pkl', 'rb')) # Désérialisation (relecture)
 >>> (d == d2) and (l == l2)
 True
 
-.. Attention:: les `pickles` ne sont pas un format d'échange de
-   données. Ils sont spécifiques à python, et peuvent dépendre de la
-   machine utilisée.
+.. Attention:: les `pickles` ne sont pas un format d'échange de données. Ils
+   sont spécifiques à python, et peuvent dépendre de la machine utilisée. Ils
+   peuvent en outre constituer une faille de sécurité.
 
 
 *Batteries included*
@@ -172,10 +173,10 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 
 .. .. index::
 ..    module: cvs
-..    module: pickle/cPickle
+..    module: pickle
 ..    module: ConfigParser
 
-* lecture et sauvegarde des données (outre :mod:`pickle`/:mod:`cPickle`):
+* lecture et sauvegarde des données (outre :mod:`pickle`):
 
   - :mod:`csv`: lecture/sauvegarde de fichiers :abbr:`CSV (Comma
     Separated Values)`,

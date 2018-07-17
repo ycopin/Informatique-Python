@@ -288,7 +288,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(
         usage="%(prog)s [-p/--plot] [-i/--input coordfile | x1,y1 x2,y2 x3,y3]",
-        description=__doc__)
+        description="Compute the circumscribed circle to 3 points in the plan.")
     parser.add_argument('coords', nargs='*', type=str, metavar='x,y',
                         help="Coordinates of point")
     parser.add_argument('-i', '--input', nargs='?', type=argparse.FileType('r'),
@@ -296,18 +296,17 @@ if __name__ == '__main__':
     parser.add_argument('-P', '--plot', action="store_true", default=False,
                         help="Draw the circumscribed circle")
     parser.add_argument('-T', '--tests', action="store_true", default=False,
-                        help="Run doc tests.")
+                        help="Run doc tests")
     parser.add_argument('--version', action='version', version=__version__)
 
     args = parser.parse_args()
     # end-argparse
 
-    if args.tests:              # Auto-test mode
+    if args.tests:                                    # Auto-test mode
         import sys, doctest
 
-        doctest.testmod()       # Run doc tests
-        print("No error found.")
-        sys.exit(0)
+        fails, tests = doctest.testmod(verbose=True)  # Run doc tests
+        sys.exit(fails > 0)
 
     if args.input:  # Lecture des coordonnées du fichier d'entrée
         # Le fichier a déjà été ouvert en lecture par argparse (type=file)
@@ -333,7 +332,7 @@ if __name__ == '__main__':
     center, radius = circumscribedCircle(*points)  # Délistage
     print("Circumscribed circle: {}, radius: {}".format(center, radius))
 
-    if args.plot:  # Figure
+    if args.plot:                   # Figure
         import matplotlib.pyplot as P
 
         fig = P.figure()
