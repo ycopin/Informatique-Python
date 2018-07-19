@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import pytest                   # Module (non standard) de tests
 
 
-class Animal(object):  # *object* est la classe dont dérivent toutes les autres
+class Animal:
 
     """
     Classe définissant un `Animal`, caractérisé par son nom et son
@@ -45,10 +45,14 @@ class Animal(object):  # *object* est la classe dont dérivent toutes les autres
 
         pass
 
-    def __cmp__(self, other):
+    def __lt__(self, other):
         """
-        Surcharge des opérateurs de comparaison, sur la base de la masse
-        des animaux.
+        Surcharge l'opérateur de comparaison '<' uniquement, sur la
+        base de la masse des animaux.
+
+        Note: Py3 impose de surcharger *explicitement* tous les opérateurs
+        de comparaison: '__lt__' pour '<', __le__ pour '<=', '__eq__'
+        pour '==', etc.
         """
 
         return False
@@ -98,15 +102,19 @@ class Chien(Animal):
 
         return vivant
 
+#########################################################
+# Il est *INTERDIT* de modifier les tests ci-dessous!!! #
+#########################################################
+
 # start-tests
 def test_empty_init():
     with pytest.raises(TypeError):
-        youki = Animal()
+        Animal()
 
 
 def test_wrong_init():
     with pytest.raises(ValueError):
-        youki = Animal('Youki', 'lalala')
+        Animal('Youki', 'lalala')
 
 
 def test_init():

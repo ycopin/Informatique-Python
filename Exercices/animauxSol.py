@@ -1,11 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import pytest                   # Module (non-standard) de tests
+import pytest                   # Module (non standard) de tests
 
 
-class Animal(object):  # *object* est la classe dont dérivent toutes les autres
-
+class Animal:
     """
     Classe définissant un `Animal`, caractérisé par son nom et son
     poids.
@@ -21,8 +20,8 @@ class Animal(object):  # *object* est la classe dont dérivent toutes les autres
         self.nom = str(nom)
         self.masse = float(masse)
 
-        self.vivant = True       # Les animaux sont vivant à l'instantiation
-        self.empoisonne = False  # Animal empoisonné?
+        self.vivant = True       # Les animaux sont vivants à l'instanciation
+        self.empoisonne = False  # Animal empoisonné ?
 
     def __str__(self):
         """
@@ -45,13 +44,17 @@ class Animal(object):  # *object* est la classe dont dérivent toutes les autres
 
         self.vivant = False
 
-    def __cmp__(self, other):
+    def __lt__(self, other):
         """
-        Surcharge des opérateurs de comparaison, sur la base de la masse
-        des animaux.
+        Surcharge l'opérateur de comparaison '<' uniquement, sur la
+        base de la masse des animaux.
+
+        Note: Py3 impose de surcharger *explicitement* tous les opérateurs
+        de comparaison: '__lt__' pour '<', __le__ pour '<=', '__eq__'
+        pour '==', etc.
         """
 
-        return cmp(self.masse, other.masse)
+        return self.masse < other.masse
 
     def __call__(self, other):
         """
@@ -73,10 +76,9 @@ class Animal(object):  # *object* est la classe dont dérivent toutes les autres
 
 
 class Chien(Animal):
-
     """
     Un `Chien` hérite de `Animal` avec des méthodes additionnelles
-    (p.ex. l'aboyement et l'odorat).
+    (p.ex. l'aboiement et l'odorat).
     """
 
     def __init__(self, nom, masse=20, odorat=0.5):
@@ -107,9 +109,11 @@ class Chien(Animal):
 
         return vivant
 
+#########################################################
+# Il est *INTERDIT* de modifier les tests ci-dessous!!! #
+#########################################################
+
 # start-tests
-
-
 def test_empty_init():
     with pytest.raises(TypeError):
         Animal()

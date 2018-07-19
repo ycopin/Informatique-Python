@@ -113,7 +113,7 @@ Création de tableaux
   éventuellement le *start*, le *end* et le *step* (similaire à
   :func:`range` pour les listes)
 
-  >>> N.arange(10, 30, 5) # De 10 à 30 (exclu) par pas de 5, type entier par défaut
+  >>> N.arange(10, 30, 5)     # De 10 à 30 (exclu) par pas de 5, type entier par défaut
   array([10, 15, 20, 25])
   >>> N.arange(0.5, 2.1, 0.3) # Accepte des réels en argument, DANGER!
   array([ 0.5,  0.8,  1.1,  1.4,  1.7,  2. ])
@@ -316,8 +316,8 @@ array([[0, 1],
        [0, 1],
        [2, 3]])
 
-.. .. Attention:: `N.resize(arr, shape)` (complétion avec des copies de
-..    `arr`) est différent de `arr.resize(shape)` (complétion avec des 0).
+.. Attention:: `N.resize(arr, shape)` (complétion avec des copies de `arr`) est
+   différent de `arr.resize(shape)` (complétion avec des 0).
 
 .. rubric:: Exercice:
 
