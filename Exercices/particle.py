@@ -1,9 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Time-stamp: <2017-12-06 18:35:00 ycopin>
+# Time-stamp: <2018-07-19 10:29 ycopin@lyonovae03.in2p3.fr>
 
 
-from __future__ import division  # division réelle de type python 3, admis
 import pytest                    # pytest importé pour les tests unitaires
 import math
 
@@ -26,7 +25,7 @@ tolerance = 1e-8
 ### Définition de la classe Vector, utile pour la position et la vitesse. ###
 #############################################################################
 
-class Vector(object):
+class Vector:
     """
     Une classe-structure simple contenant 3 coordonnées.
     Une méthode est disponible pour en calculer la norme et
@@ -222,7 +221,7 @@ def test_VectorClone():
 ##### Une classe point matériel qui se gère en interne #####
 ############################################################
 
-class Particle(object):
+class Particle:
 
     """
     La classe Particle représente un point matériel doté d'une masse,
@@ -336,7 +335,7 @@ def test_ParticleUpdate():
 ##### Une classe Ion qui hérite de point matériel #####
 #######################################################
 
-class Ion (Particle):
+class Ion(Particle):
     """
     Un Ion est une particule ayant une charge en plus de sa masse et
     intéragissant électrostatiquement plutôt que gravitationnellement.
@@ -429,8 +428,8 @@ def test_IonForce():
 if __name__ == '__main__':
 
     # On lance tous les tests en bloc pour commencer
-    print " Test functions ".center(50, "*")
-    print "Testing Vector class...",
+    print(" Test functions ".center(50, "*"))
+    print("Testing Vector class...", end=' ')
     test_VectorInit()
     test_VectorStr()
     test_VectorEq()
@@ -439,43 +438,43 @@ if __name__ == '__main__':
     test_VectorMul()
     test_VectorNorm()
     test_VectorClone()
-    print "ok"
-    print "Testing Particle class...",
+    print("ok")
+    print("Testing Particle class...", end=' ')
     test_ParticleInit()
     test_ParticleStr()
     test_ParticleForce()
     test_ParticleUpdate()
-    print "ok"
-    print "Testing Ion class...",
+    print("ok")
+    print("Testing Ion class...", end=' ')
     test_IonInit()
     test_IonStr()
     test_IonForce()
-    print "ok"
-    print " Test end ".center(50, "*"), "\n"
+    print("ok")
+    print(" Test end ".center(50, "*"), "\n")
 
     # Un petit calcul physique
-    print " Physical computations ".center(50, "*")
+    print(" Physical computations ".center(50, "*"))
     dt = 0.0001
 
     # Problème à force centrale gravitationnelle, cas circulaire
     ntimesteps = int(10000 * math.pi)  # durée pour parcourir pi
     center = Particle()
     M = Particle(mass=1, position=Vector(1, 0, 0), speed=Vector(0, 1, 0))
-    print "** Gravitationnal computation of central-force motion for a {}" \
-        .format(str(M))
+    print("** Gravitationnal computation of central-force motion for a {}" \
+        .format(str(M)))
     for i in range(ntimesteps):
         M.computeForce(center)
         M.update(dt)
-    print "\t => Final system : {}".format(str(M))
+    print("\t => Final system : {}".format(str(M)))
 
     # problème à force centrale électrostatique, cas rectiligne
     center = Ion()
     M = Ion(charge=4, position=Vector(0, 0, 1), speed=Vector(0, 0, -1))
-    print "** Electrostatic computation of central-force motion for a {}" \
-        .format(str(M))
+    print("** Electrostatic computation of central-force motion for a {}" \
+        .format(str(M)))
     for i in range(ntimesteps):
         M.computeForce(center)
         M.update(dt)
-    print "\t => Final system : {}".format(str(M))
+    print("\t => Final system : {}".format(str(M)))
 
-    print " Physical computations end ".center(50, "*")
+    print(" Physical computations end ".center(50, "*"))
