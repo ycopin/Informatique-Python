@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import numpy as N
@@ -54,14 +54,14 @@ if __name__ == '__main__':
     p = pull(x, dx)                       # Pull computation
 
     m, s = p.mean(), p.std(ddof=1)
-    print "Pull ({} entries): mean={:.2f}, std={:.2f}".format(n, m, s)
+    print("Pull ({} entries): mean={:.2f}, std={:.2f}".format(n, m, s))
 
     fig, ax = P.subplots()
     _, bins, _ = ax.hist(p, bins='auto', normed=True,
                          histtype='stepfilled',
-                         label=u"#={}, µ={:.3f}, σ={:.3f}".format(n, m, s))
+                         label="#={}, µ={:.3f}, σ={:.3f}".format(n, m, s))
     y = N.linspace(-3, 3)
-    ax.plot(y, SS.norm.pdf(y), label=ur"$\mathcal{N}$(µ=0, σ²=1)")
+    ax.plot(y, SS.norm.pdf(y), label=r"$\mathcal{N}$(µ=0, σ²=1)")
     ax.set(title='Pull distribution', xlabel='Pull')
     ax.legend(loc='upper left')
 

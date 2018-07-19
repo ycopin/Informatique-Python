@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Time-stamp: <2017-12-06 18:31:28 ycopin>
+# Time-stamp: <2018-07-19 10:42 ycopin@lyonovae03.in2p3.fr>
 
 import numpy as np
 import random

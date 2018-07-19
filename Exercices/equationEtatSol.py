@@ -1,9 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Time-stamp: <2014-10-09 01:19 ycopin@lyonovae03.in2p3.fr>
+# Time-stamp: <2018-07-19 10:38 ycopin@lyonovae03.in2p3.fr>
 
-
-from __future__ import division  # division reelle de type python 3, admis
 
 import numpy as N
 import matplotlib.pyplot as P
@@ -26,8 +24,7 @@ tolerance = 1e-8  # Un seuil de tolérance pour les égalités sur réels
 ##### A Simulation class #####
 ##############################
 
-class Simulation(object):
-
+class Simulation:
     """
     La classe Simulation représente une simulation de dynamique
     moléculaire, donc un point de l'équation d'état. Son constructeur
@@ -98,10 +95,10 @@ class Simulation(object):
                 TypeError si skipSteps n'est pas un entier.
         """
         fig, (axen, axpress) = P.subplots(2, sharex=True)
-        axen.plot(range(skipSteps, len(self.tot)), self.tot[skipSteps:],
+        axen.plot(list(range(skipSteps, len(self.tot))), self.tot[skipSteps:],
                   'rd--')
         axen.set_title("Internal energy (Ha)")
-        axpress.plot(range(skipSteps, len(self.press)), self.press[skipSteps:],
+        axpress.plot(list(range(skipSteps, len(self.press))), self.press[skipSteps:],
                      'rd--')
         axpress.set_title("Pressure (GPa)")
         axpress.set_xlabel("Timesteps")

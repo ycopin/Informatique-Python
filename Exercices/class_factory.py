@@ -1,7 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 
-class AbstractBuddy(object):
+class AbstractBuddy:
 
     genre = None
 

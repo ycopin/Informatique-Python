@@ -36,7 +36,7 @@ extensions = [
 
 # Intersphinx configuration
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/2', None),
+    'python': ('https://docs.python.org/', None),
     'numpy': ('https://docs.scipy.org/doc/numpy/', None),
     'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None),
     'matplotlib': ('http://matplotlib.org/', None),
@@ -66,9 +66,9 @@ author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 # built documents.
 #
 # The short X.Y version.
-version = u"École d'été Euclid 2017"
+version = u"École d'été Euclid 2018"
 # The full version, including alpha/beta/rc tags.
-release = u'Juin 2017'
+release = u'Août 2018'
 
 copyright = ', '.join((release, author))
 

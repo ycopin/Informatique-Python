@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Source: http://en.wikipedia.org/wiki/Hilbert_curve#Implementation
