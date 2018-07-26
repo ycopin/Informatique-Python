@@ -54,10 +54,10 @@ identifier l'approche la plus efficace.
    significativement, et pas nécessairement de manière rétro-compatible. Nous
    travaillons ici sur les versions:
 
-   * `pandas <http://pandas.pydata.org/>`_ `0.20.x
-     <http://pandas.pydata.org/pandas-docs/version/0.20/whatsnew.html>`_
-   * `xarray <http://xarray.pydata.org/>`_ `0.9.x
-     <http://xarray.pydata.org/en/v0.9.6/whats-new.html>`_
+   * `pandas <http://pandas.pydata.org/>`_ `0.21.x
+     <http://pandas.pydata.org/pandas-docs/version/0.21/whatsnew.html>`_
+   * `xarray <http://xarray.pydata.org/>`_ `0.10.x
+     <http://xarray.pydata.org/en/v0.10.0/whats-new.html>`_
 
 Structures
 ----------
@@ -708,9 +708,8 @@ Visualisations
 
 .. rubric:: Exemple:
 
-:ref:`Démonstration Pandas/Seaborn <Cours/pokemon.ipynb>` (notebook:
-:download:`pokemon.ipynb`) sur le jeu de données
-::download:`Pokemon.csv`.
+`Démonstration Pandas/Seaborn <Cours/pokemon.ipynb>`_ (notebook:
+:download:`pokemon.ipynb`) sur le jeu de données :download:`Pokemon.csv`.
 
 .. rubric:: Références:
 
@@ -720,7 +719,7 @@ Visualisations
   <http://seaborn.pydata.org/>`_
 
 .. rubric:: Autres exemples de visualisation de jeux de données complexes
-            (utilisation de pandas et seaborn)
+   (utilisation de pandas et seaborn)
 
 * `Iris Dataset <https://www.kaggle.com/benhamner/python-data-visualizations>`_
 * `Histoire des sujets télévisés
@@ -951,7 +950,7 @@ Tour d'horizon
 Démonstration
 -------------
 
-:ref:`Démonstration Astropy <Cours/astropy.ipynb>` (:download:`astropy.ipynb`)
+`Démonstration Astropy <Cours/astropy.ipynb>`_ (:download:`astropy.ipynb`)
 
 .. rubric:: Voir également:
 

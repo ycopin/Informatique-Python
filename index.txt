@@ -28,8 +28,8 @@
 .. toctree::
    :hidden:
 
-   Cours/astropy
-   Cours/pokemon
+   Cours/astropy.ipynb
+   Cours/pokemon.ipynb
    Exercices/integ
    Exercices/fizz
    Exercices/pgcd
@@ -43,11 +43,11 @@
    Exercices/life
    Exercices/mad
    Exercices/pull
-   Exercices/numerique
+   Exercices/numerique.ipynb
    Exercices/anscombe
    Exercices/logistique
    Exercices/julia
-   Exercices/canon
+   Exercices/canon.ipynb
    Exercices/equationEtat
    Exercices/solutions
    Annales/exam_1501

@@ -161,10 +161,10 @@ erreurs) et d'accroître les possibilités d'extension.
 L'application de ces principes de développement dépend évidemment de l'objectif
 final du code:
 
-- une bibliothèque *centrale* (utilisée par de nombreux programmes) favorisera
-  la robustesse et la réutilisabilité aux dépends de la flexibilité: elle devra
-  être particulièrement bien pensée, et ne pourra être modifiée qu'avec
-  parcimonie;
+- une bibliothèque de bas niveau, utilisée par de nombreux programmes
+  (p.ex. :mod:`numpy`), favorisera la robustesse et la réutilisabilité
+  aux dépends de la flexibilité: elle devra être particulièrement bien
+  pensée, et ne pourra être modifiée qu'avec parcimonie;
 - inversement, un script d'analyse de haut niveau, d'utilisation restreinte,
   pourra être plus flexible mais plus fragile et peu réutilisable.
 
@@ -191,7 +191,7 @@ Le cycle préconisé par TDD comporte cinq étapes :
    l'améliorer (rapidité, lisibilité) tout en gardant les mêmes
    fonctionnalités.
 
-Diviser pour mieux régner: chaque fonction, classe ou méthode est
+«~Diviser pour mieux régner~»: chaque fonction, classe ou méthode est
 testée indépendemment.  Ainsi, lorsqu'un nouveau morceau de code ne
 passe pas les tests qui y sont associés, il est certain que l'erreur
 provient de cette nouvelle partie et non des fonctions ou objets que
@@ -391,17 +391,17 @@ les parties qui gagneront à être optimisées.
      ...:     return l
      ...:
      ...: def t2(n):
-     ...:     return [ i**2 for i in xrange(n) ]
+     ...:     return [ i**2 for i in range(n) ]
      ...:
      ...: def t3(n):
      ...:     return N.arange(n)**2
      ...:
      In [2]: %timeit t1(10000)
-     1000 loops, best of 3: 950 µs per loop
+     2.7 ms ± 12.4 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
      In [3]: %timeit t2(10000)
-     1000 loops, best of 3: 599 µs per loop
+     2.29 ms ± 13.2 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
      In [4]: %timeit t3(10000)
-     10000 loops, best of 3: 18.1 µs per loop
+     15.9 µs ± 120 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 
 - :mod:`cProfile` et :mod:`pstats`, et :samp:`%prun {statement}` sous
   :program:`ipython`::
@@ -556,8 +556,8 @@ permettant de faciliter la transition vers 3.x:
   passage à Python 3.
 * Le script `2to3 <https://docs.python.org/2.7/library/2to3.html>`_
   permet également d'automatiser la conversion du code 2.x en 3.x.
-* La bibliothèque standard :mod:`__future__` permet d'utiliser
-  nativement des constructions 3.x dans un code 2.x, p.ex.::
+* La bibliothèque standard :mod:`__future__` permet d'introduire des
+  constructions 3.x dans un code 2.x, p.ex.::
 
     from __future__ import print_function  # Fonction print()
     from __future__ import division        # Division non-euclidienne
@@ -594,5 +594,5 @@ permettant de faciliter la transition vers 3.x:
 .. [#gitW] Et maintenant du `code Windows
    <https://arstechnica.com/information-technology/2017/05/90-of-windows-devs-now-using-git-creating-1760-windows-builds-per-day/>`_!
 
-.. _pytest: https://docs.pytest.org/en/latest/
-.. _nose:   http://nose.readthedocs.io/en/latest/
+.. _pytest: https://docs.pytest.org/
+.. _nose:   http://nose.readthedocs.io/

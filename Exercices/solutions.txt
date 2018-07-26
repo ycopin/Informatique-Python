@@ -14,11 +14,11 @@ Solutions aux exercices
 * :ref:`lifeSol`
 * :ref:`madSol`
 * :ref:`pullSol`
-* :ref:`Calculs numériques <Exercices/numerique.ipynb>`
+* `Calculs numériques <Exercices/numerique.ipynb>`_
   (:download:`numerique.ipynb`)
 * :ref:`anscombeSol`
 * :ref:`logistiqueSol`
 * :ref:`juliaSol`
-* :ref:`Trajectoire d'un boulet de canon <Exercices/canon.ipynb>`
+* `Trajectoire d'un boulet de canon <Exercices/canon.ipynb>`_
   (:download:`canon.ipynb`)
 * :ref:`equationEtatSol`

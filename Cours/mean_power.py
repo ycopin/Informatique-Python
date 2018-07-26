@@ -9,7 +9,7 @@ mean_power.py -h`);
 
 
 def mean_power(alist, power=1):
-    """
+    r"""
     Retourne la racine `power` de la moyenne des éléments de `alist` à
     la puissance `power`:
 
