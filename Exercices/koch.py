@@ -18,39 +18,39 @@ Voir également:
 - Autres exemples: http://natesoares.com/tutorials/python-fractals/
 """
 
+import turtle as T
+
 __version__ = "Time-stamp: <2013-01-14 00:49 ycopin@lyopc469>"
 __author__ = "Yannick Copin <y.copin@ipnl.in2p3.fr>"
 
-import turtle as T
 
-
-def koch(niveau=3, iter=0, taille=100, delta=0):
+def koch(ordre=3, niveau=0, taille=100, delta=0):
     """
-    Tracé du flocon de Koch de niveau 'niveau', de taille 'taille'
+    Tracé du flocon de Koch d'ordre 'ordre', de taille 'taille'
     (px).
 
-    Cette fonction récursive permet d'initialiser le flocon (iter=0,
-    par défaut), de tracer les branches fractales (0<iter<=niveau) ou
-    bien juste de tracer un segment (iter>niveau).
+    Cette fonction récursive permet d'initialiser le flocon (niveau=0,
+    par défaut), de tracer les branches fractales (0 < niveau <= ordre) ou
+    bien juste de tracer un segment (niveau > ordre).
     """
 
-    if iter == 0:                         # Dessine le triangle de niveau 0
-        T.title("Flocon de Koch - niveau {}".format(niveau))
-        koch(iter=1, niveau=niveau, taille=taille, delta=delta)
+    if niveau == 0:                         # Dessine le triangle de niveau 0
+        T.title("Flocon de Koch - ordre {}".format(ordre))
+        koch(niveau=1, ordre=ordre, taille=taille, delta=delta)
         T.right(120)
-        koch(iter=1, niveau=niveau, taille=taille, delta=delta)
+        koch(niveau=1, ordre=ordre, taille=taille, delta=delta)
         T.right(120)
-        koch(iter=1, niveau=niveau, taille=taille, delta=delta)
-    elif iter <= niveau:                  # Trace une section _/\_ du flocon
-        koch(iter=iter + 1, niveau=niveau, taille=taille, delta=delta)
+        koch(niveau=1, ordre=ordre, taille=taille, delta=delta)
+    elif niveau <= ordre:                  # Trace une section _/\_ du flocon
+        koch(niveau=niveau + 1, ordre=ordre, taille=taille, delta=delta)
         T.left(60 + delta)
-        koch(iter=iter + 1, niveau=niveau, taille=taille, delta=delta)
+        koch(niveau=niveau + 1, ordre=ordre, taille=taille, delta=delta)
         T.right(120 + 2 * delta)
-        koch(iter=iter + 1, niveau=niveau, taille=taille, delta=delta)
+        koch(niveau=niveau + 1, ordre=ordre, taille=taille, delta=delta)
         T.left(60 + delta)
-        koch(iter=iter + 1, niveau=niveau, taille=taille, delta=delta)
+        koch(niveau=niveau + 1, ordre=ordre, taille=taille, delta=delta)
     else:                               # Trace le segment de dernier niveau
-        T.forward(taille / 3 ** (niveau + 1))
+        T.forward(taille / 3 ** (ordre + 1))
 
 if __name__ == '__main__':
 
@@ -92,8 +92,8 @@ if __name__ == '__main__':
         T.hideturtle()
         T.speed(0)
 
-    # Tracé du flocon de Koch de niveau 3
-    koch(niveau=args.ordre, taille=args.taille, delta=args.delta)
+    # Tracé du flocon de Koch d'ordre 3
+    koch(ordre=args.ordre, taille=args.taille, delta=args.delta)
     if args.figure:
         # Sauvegarde de l'image
         print("Sauvegarde de la figure dans '{}'".format(args.figure))

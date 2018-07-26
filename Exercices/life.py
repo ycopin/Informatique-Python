@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Time-stamp: <2018-07-16 18:24:30 ycopin>
+# Time-stamp: <2018-07-26 16:54 ycopin@lyonovae03.in2p3.fr>
+
+"""
+Jeu de la vie (programmation orientée objet).
+"""
 
 import random
 
 
-class Life(object):
+class Life:
 
     cells = {False: ".", True: "#"}  # Dead and living cell representations
 

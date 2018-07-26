@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Time-stamp: <2018-07-16 18:31:01 ycopin>
+# Time-stamp: <2018-07-26 16:57 ycopin@lyonovae03.in2p3.fr>
 
 __author__ = "Adrien Licari <adrien.licari@ens-lyon.fr>; Yannick Copin <y.copin@ipnl.in2p3.fr>"
 
@@ -14,7 +14,7 @@ def suite_syracuse(n):
     """
 
     seq = [n]                     # La suite de Syracuse sera complétée...
-    while (seq[-1] != 1):         # ...jusqu'à tomber sur 1
+    while seq[-1] != 1:           # ...jusqu'à tomber sur 1
         if seq[-1] % 2 == 0:      # u_n est pair
             seq.append(seq[-1] // 2)  # Division euclidienne par 2
         else:                     # u_n est impair

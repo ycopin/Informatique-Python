@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+"""
+Exercice: programmation orientée objet, développement dirigé par les tests.
+"""
+
 import pytest                   # Module (non standard) de tests
 
 

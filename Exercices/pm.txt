@@ -1,4 +1,4 @@
-.. Time-stamp: <2015-01-13 12:12:55 ycopin>
+.. Time-stamp: <2018-07-26 16:36 ycopin@lyonovae03.in2p3.fr>
 
 .. _pmSol:
 
@@ -9,5 +9,3 @@ Jeu du plus ou moins
    :linenos:
 
 **Source:** :download:`pm.py`
-
-
