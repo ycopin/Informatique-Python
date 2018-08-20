@@ -59,8 +59,8 @@ programmes les plus complexes (projets de plus de 100 000 lignes).
 * `Python Advocacy <https://docs.python.org/2/howto/advocacy.html>`_
 
 
-Index
-=====
+Index et recherche
+==================
 
 * :ref:`genindex`
 * :ref:`search`

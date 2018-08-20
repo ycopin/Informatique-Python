@@ -406,8 +406,19 @@ les parties qui gagneront à être optimisées.
 - :mod:`cProfile` et :mod:`pstats`, et :samp:`%prun {statement}` sous
   :program:`ipython`::
 
-    $ python -m cProfile -o output.pstats monScript.py
-    $ python -m pstats output.pstats
+    $ python -m cProfile calc_pi.py
+    3.1415925580959025
+             10000005 function calls in 4.594 seconds
+
+       Ordered by: standard name
+
+       ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+            1    1.612    1.612    4.594    4.594 calc_pi.py:10(approx_pi)
+            1    0.000    0.000    4.594    4.594 calc_pi.py:5(<module>)
+     10000000    2.982    0.000    2.982    0.000 calc_pi.py:5(recip_square)
+            1    0.000    0.000    4.594    4.594 {built-in method builtins.exec}
+            1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+            1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
 
 - `Tutoriel de profilage
   <http://scikit-learn.sourceforge.net/dev/developers/performance.html#profiling-python-code>`_
