@@ -26,9 +26,9 @@ Initiation à Python
     10  Entrées-sorties
       10.1  Intéractif
       10.2  Fichiers
-    11  Éléments additionels
+    11  Fonctionnalités supplémentaires
       11.1  Arguments anonymes
-      11.2  Dépaquetage des arguments
+      11.2  Dépaquetage des arguments et des itérables
       11.3  Fonction anonyme
       11.4  Éléments passés sous silence
       11.5  Python 3.x
@@ -1007,8 +1007,8 @@ fonction :func:`open` retournant un objet de type `file
        print("{}**3 = {}".format(x, x**3))
 
 
-Éléments additionels
-====================
+Fonctionnalités supplémentaires
+===============================
 
 Cette brève introduction à Python se limite à des fonctionnalités
 relativement simples du langage.  De nombreuses fonctionnalités du
@@ -1039,10 +1039,16 @@ Cela laisse une grande flexibilité dans la signature de la fonction,
 mais au prix d'une d'une très mauvaise lisibilité. *À utiliser avec
 parcimonie...*
 
-Dépaquetage des arguments
--------------------------
+Dépaquetage des arguments et des itérables
+------------------------------------------
 
-Il est possible de dépaqueter les `[kw]args` à la volée, p.ex.:
+.. index::
+   *
+   **
+
+Il est possible de dépaqueter les `[kw]args` d'une fonction à la volée
+à l'aide de l'opérateur `[*]*`.  Ainsi, avec la même fonction `f`
+précédemment définie:
 
 >>> f(1, 2, 3, x=4, y=5)             # 3 args (1, 2 et 3) et 2 kwargs (x et y)
 args: (1, 2, 3)
@@ -1053,6 +1059,24 @@ kwargs: {}
 >>> f(*[1, 2, 3], **{'x':4, 'y':5})  # 3 args (1, 2 et 3) et 2 kwargs (x et y)
 args: (1, 2, 3)
 kwargs: {'x': 4, 'y': 5}
+
+À partir de Python 3.5, il est plus facile d'utiliser un ou plusieurs
+de ces opérateurs conjointement aux `[kw]args` traditionnels
+(:pep:`448`), dans la limite où les `args` sont toujours situés
+*avant* les `kwargs`:
+
+>>> f(0, *[1, 2], 3, **dict(a=3, b=4), c=5)
+args: (0, 1, 2, 3)
+kwargs: {'b': 4, 'a': 3, 'c': 5}
+
+Noter qu'il est également possible d'utiliser l'opérateur `*` pour les
+affectations multiples (:pep:`3132`):
+
+>>> a, b, c = 1, 2, 3, 4
+ValueError: too many values to unpack (expected 3)
+>>> a, *b, c = 1, 2, 3, 4
+>>> a, b, c
+(1, [2, 3], 4)
 
 Fonction anonyme
 ----------------
@@ -1077,18 +1101,31 @@ Function:   <lambda>
 Arguments:  1 2
 Result:     3
 
-La définition d'une fonction `lambda` ne peut utiliser qu'**une
+La définition d'une fonction `lambda` ne peut inclure qu'**une
 seule** expression, et est donc contrainte *de facto* à être très
-simple.
+simple, généralement pour être utilisée comme argument d'une autre
+fonction:
+
+>>> pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+>>> pairs.sort(key=lambda pair: pair[1])
+>>> pairs
+[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+
+**Voir également:** `Functional Programming
+<https://docs.python.org/3/howto/functional.html>`_
 
 Éléments passés sous silence
 ----------------------------
+
+Il existe encore beaucoup d'éléments passés sous silence:
 
 - itérateurs et générateurs: `yield`;
 - gestion de contexte: `with ... as` (:pep:`243`);
 - décorateurs: fonction sur une fonction ou une classe
   (`@staticmethod`, etc.);
 - héritages multiples et méthodes de résolution;
+- annotations de fonctions (:pep:`484`) et de variables (:pep:`526`);
+- `f-strings` (:pep:`498`);
 - etc.
 
 Ces fonctionnalités peuvent évidemment être très utiles, mais ne sont
@@ -1114,7 +1151,7 @@ Python 3 apporte `quelques changements fondamentaux
   entiers, mais toujours la division *réelle*;
 - un support complet (mais encore complexe) des chaînes Unicode;
 - un nouveau système de formatage des chaînes de caractères
-  (`f-string` du :pep:`498` à partir de Python 3.6);
+  (`f-string` du :pep:`498` à partir de Python 3.6);
 - la fonction de comparaison `cmp` (et la méthode spéciale associée
   `__cmp__`) n'existe plus.
 
