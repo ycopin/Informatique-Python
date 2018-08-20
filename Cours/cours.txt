@@ -1153,7 +1153,7 @@ Python 3 apporte `quelques changements fondamentaux
 - un nouveau système de formatage des chaînes de caractères
   (`f-string` du :pep:`498` à partir de Python 3.6);
 - la fonction de comparaison `cmp` (et la méthode spéciale associée
-  `__cmp__`) n'existe plus.
+  `__cmp__`) n'existe plus (mais voir :func:`functools.total_ordering`).
 
 .. rubric:: Notes de bas de page
 

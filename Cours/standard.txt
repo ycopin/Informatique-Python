@@ -106,6 +106,7 @@ True
 .. .. index::
 ..    module: math
 ..    module: cmath
+..    module: fractions
 
 Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 
@@ -118,6 +119,18 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 
   >>> cmath.exp(cmath.pi * 1j) + 1
   1.2246467991473532e-16j
+
+* :mod:`fractions`: définition des nombres rationnels
+
+  >>> print(fractions.Fraction(2, 3) + fractions.Fraction(5, 6))
+  3/2
+
+* :mod:`random`: générateurs de nombres aléatoires
+
+  >>> random.sample(range(10), 3)  # Échantillon de 3 éléments sans remplacement
+  [9, 1, 6]
+  >>> random.gauss(0, 1)           # Distribution normale centrée réduite
+  0.1245612752121385
 
 * `autres modules numériques et mathématiques
   <https://docs.python.org/3/library/numeric.html>`_;
