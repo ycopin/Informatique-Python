@@ -26,8 +26,12 @@ Initiation à Python
     10  Entrées-sorties
       10.1  Intéractif
       10.2  Fichiers
-    11  Éléments passés sous silence
-      11.1  Python 3.x
+    11  Éléments additionels
+      11.1  Arguments anonymes
+      11.2  Dépaquetage des arguments
+      11.3  Fonction anonyme
+      11.4  Éléments passés sous silence
+      11.5  Python 3.x
 
 
 .. _td1:
@@ -97,7 +101,7 @@ Python:
   <https://docs.python.org/3/tutorial/interpreter.html>`_::
 
     $ python3
-    Python 3.5.2 (default, Nov 23 2017, 16:37:01) 
+    Python 3.5.2 (default, Nov 23 2017, 16:37:01)
     [GCC 5.4.0 20160609] on linux
     Type "help", "copyright", "credits" or "license" for more information.
     >>>
@@ -218,14 +222,14 @@ Types de base
   >>> {2, 1, 3} | {1, 2, 'a'}  # Union d'ensembles (non-ordonnés)
   {'a', 1, 2, 3}
 
-  .. Attention:: en python-3.x, `range` n'est plus un constructeur de liste,
+  .. Attention:: en Python 3, `range` n'est plus un constructeur de liste,
      mais un *itérateur*, qui doit être converti en liste explicitement:
 
      >>> range(3)        # Itérateur
      range(0, 3)
      >>> list(range(3))  # Liste
      [0, 1, 2]
-  
+
 - :samp:`type({obj})` retourne le type de l'objet,
   :samp:`isinstance({obj}, {type})` teste le type de l'objet.
 
@@ -581,7 +585,10 @@ assignations, branchements, boucles, etc. -- s'appliquant sur des
 arguments d'entrée.  C'est le concept central de la programmation
 *impérative*.
 
-.. index:: def
+.. index::
+   def
+   args
+   kwargs
 
 `def` permet de définir une fonction: :samp:`def {fonction}({arg1}, {arg2},
 ..., {option1}={valeur1}, {option2}={valeur2}, ...):`.  Les « *args* » sont des
@@ -1000,17 +1007,83 @@ fonction :func:`open` retournant un objet de type `file
        print("{}**3 = {}".format(x, x**3))
 
 
-Éléments passés sous silence
-============================
+Éléments additionels
+====================
 
-Cette (brève) introduction à Python se limite à des fonctionnalités
+Cette brève introduction à Python se limite à des fonctionnalités
 relativement simples du langage.  De nombreuses fonctionnalités du
-langage n'ont pas été abordées:
+langage n'ont pas encore été abordées [#global]_.
 
-- `variables globales
-  <http://geekandpoke.typepad.com/geekandpoke/2012/04/simply-explained-gv.html>`_;
-- arguments anonymes: `*args` and `**kwargs`;
-- fonction anonyme: `lambda x, y: x + y`;
+Arguments anonymes
+------------------
+
+.. index::
+   args
+   kwargs
+
+Il est possible de laisser libre *a priori* le nombre et le nom des
+arguments d'une fonction, traditionnellement nommés `args` (arguments
+nécessaires) et `kwargs` (arguments optionnels).  P.ex.:
+
+>>> def f(*args, **kwargs):
+...     print("args:", args)
+...     print("kwargs:", kwargs)
+>>> f()
+args: ()
+kwargs: {}
+>>> f(1, 2, 3, x=4, y=5)
+args: (1, 2, 3)
+kwargs: {'y': 5, 'x': 4}
+
+Cela laisse une grande flexibilité dans la signature de la fonction,
+mais au prix d'une d'une très mauvaise lisibilité. *À utiliser avec
+parcimonie...*
+
+Dépaquetage des arguments
+-------------------------
+
+Il est possible de dépaqueter les `[kw]args` à la volée, p.ex.:
+
+>>> f(1, 2, 3, x=4, y=5)             # 3 args (1, 2 et 3) et 2 kwargs (x et y)
+args: (1, 2, 3)
+kwargs: {'y': 5, 'x': 4}
+>>> f([1, 2, 3], {'x':4, 'y':5})     # 2 args (1 liste et 1 dict.) et 0 kwarg
+args: ([1, 2, 3], {'x': 4, 'y': 5})
+kwargs: {}
+>>> f(*[1, 2, 3], **{'x':4, 'y':5})  # 3 args (1, 2 et 3) et 2 kwargs (x et y)
+args: (1, 2, 3)
+kwargs: {'x': 4, 'y': 5}
+
+Fonction anonyme
+----------------
+
+.. index:: lambda
+
+Il est parfois nécéssaire d'utiliser une fonction intermédiaire
+*simple* que l'on ne souhaite pas définir explicitement et nommément à
+l'aide de `def`.  Cela est possible avec l'opérateur fonctionnel
+:samp:`lambda {args}: {expression}`.  P.ex.:
+
+>>> def print_result(fn, *args):
+...     print("Function:  ", fn.__name__)
+...     print("Arguments: ", *args)
+...     print("Result:    ", fn(*args))
+>>> print_result(sum, [1, 2])               # Fonction nommée à 1 argument
+Function:   sum
+Arguments:  [1, 2]
+Result:     3
+>>> print_result(lambda x, y: x + y, 1, 2)  # Fonction anonyme à 2 arguments
+Function:   <lambda>
+Arguments:  1 2
+Result:     3
+
+La définition d'une fonction `lambda` ne peut utiliser qu'**une
+seule** expression, et est donc contrainte *de facto* à être très
+simple.
+
+Éléments passés sous silence
+----------------------------
+
 - itérateurs et générateurs: `yield`;
 - gestion de contexte: `with ... as` (:pep:`243`);
 - décorateurs: fonction sur une fonction ou une classe
@@ -1029,7 +1102,7 @@ Pour des raisons historiques autant que pratiques [#py3]_, ce cours présentait
 initialement le langage Python dans sa version 2.  Cependant, puisque le
 développement actuel de Python (et de certaines de ses bibliothèques clés) se
 fait maintenant uniquement sur la branche 3.x, qui constitue une remise à plat
-*non rétrocompatible* du langage, et que la branche 2.x ne sera *a priori* plus
+*non rétrocompatible* du langage, et que la branche 2.x ne sera *a priori* plus
 supporté au-delà de 2020 (:pep:`466`), le cours a été porté sur Python 3 (voir
 :ref:`python23`).
 
@@ -1052,7 +1125,7 @@ Python 3 apporte `quelques changements fondamentaux
 .. [#dunder] Parfois prononcé *dunder main* (*dunder* désigne le `__`).
 .. [#shebang] Il s'agit d'une fonctionnalité des *shells* d'Unix, pas
    spécifique à Python.
-.. [#fnunicode] En fait, python-3.x gère nativement les caractères
+.. [#fnunicode] En fait, Python 3 gère nativement les caractères
    `Unicode <https://docs.python.org/3/howto/unicode.html>`_:
 
    >>> α, β = 3, 4
@@ -1061,6 +1134,8 @@ Python 3 apporte `quelques changements fondamentaux
 
 .. [#lbyl] Par opposition au :abbr:`LBYL (Look Before You Leap)` du
    C/C++, basé sur une série *exhaustive* de tests *a priori*.
+.. [#global] Je ne parlerai pas ici des `variables globales
+   <http://geekandpoke.typepad.com/geekandpoke/2012/04/simply-explained-gv.html>`_...
 .. [#py3] De nombreuses distributions Linux sont encore basées sur
    Python 2.7 par défaut.
 
