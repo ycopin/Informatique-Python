@@ -26,12 +26,14 @@ Initiation à Python
     10  Entrées-sorties
       10.1  Intéractif
       10.2  Fichiers
-    11  Fonctionnalités supplémentaires
+    11  Fonctionnalités avancées
       11.1  Arguments anonymes
-      11.2  Dépaquetage des arguments et des itérables
-      11.3  Fonction anonyme
-      11.4  Éléments passés sous silence
-      11.5  Python 3.x
+      11.2  Dépaquetage des arguments
+      11.3  Dépaquetage des itérables
+      11.4  Décorateurs
+      11.5  Fonction anonyme
+      11.6  Éléments passés sous silence
+      11.7  Python 3.x
 
 
 .. _td1:
@@ -119,8 +121,8 @@ Python:
 .. index:: interpréteur; ipython
 
 * :program:`ipython`: `interpréteur évolué
-  <http://ipython.readthedocs.io/en/5.x/index.html>`_ (avec historique
-  et complétion automatique des commandes)::
+  <http://ipython.readthedocs.io/en/5.x/>`_ (avec historique et
+  complétion automatique des commandes)::
 
     $ ipython
     Python 2.7.12 (default, Nov 19 2016, 06:48:10)
@@ -161,7 +163,7 @@ Types de base
 
 - `None` (rien)
 
-.. index:: itérables; str
+.. index:: pair: itérables; str
 
 - **Chaînes de caractères**: `str`
 
@@ -260,7 +262,9 @@ Structures de programmation
 - Les commentaires commencent par `#`, et s'étendent jusqu'à la fin de la
   ligne.
 
-.. index:: pair: booléen; True/False
+.. index::
+   pair: type numérique; bool
+   opérateur ternaire (... if ... else ...)
 
 - **Expression booléenne**: une condition est une expression
   s'évaluant à `True` ou `False`:
@@ -296,9 +300,10 @@ Structures de programmation
     else:          # Cas final (si nécessaire)
         print("nul")
 
-.. index:: for ... in
-.. index:: continue
-.. index:: break
+.. index::
+   for ... in
+   continue
+   break
 
 - **Boucle for**: :samp:`for {element} in {iterable}:`, s'éxecute sur
   chacun des *éléments* d'un objet *itérable*:
@@ -317,8 +322,9 @@ Structures de programmation
      langages C[++]/fortran, pour lesquels l'itération porte sur les
      *indices* plutôt que sur les éléments eux-mêmes.
 
-.. index:: while
-.. index:: break
+.. index::
+   while
+   break
 
 - **Boucle while**: :samp:`while {condition}:` se répéte tant que la
   *condition* est vraie, ou jusqu'à une sortie explicite avec `break`.
@@ -334,7 +340,10 @@ Structures de programmation
         niter = 0
         while (error > 1e-6) and (niter < 100):
             error = ...   # A priori, error va décroître, et la boucle s'interrompre
-            niter += 1    # Mais on n'est jamais assez prudent!
+        niter += 1    # Mais on n'est jamais assez prudent!
+
+.. Note:: Il n'y a pas en Python d'équivalent natif à l'instruction
+   `switch` du C.
 
 .. rubric:: Exercices:
 
@@ -771,7 +780,7 @@ mean_power.py`), auquel cas la partie `__main__` sera exécutée.
 Exceptions
 ==========
 
-.. index:: try ... except
+.. index:: pair: exceptions; try ... except
 
 Lorsqu'il rencontre une erreur dans l'exécution d'une instruction,
 l'interpréteur Python génère (`raise`) une erreur (`Exception`), de
@@ -811,7 +820,7 @@ Entrez un entier: 3,4
 Entrez un entier: 4
 4
 
-.. index:: raise
+.. index:: pair: exceptions; raise
 
 Dans l'élaboration d'un programme, gérez explicitement les erreurs que
 vous auriez pu tester *a priori* et pour lesquels il existe une
@@ -856,7 +865,7 @@ appelante de les gérer si besoin:
 
        return x**2 - y**2
 
-.. index:: assert
+.. index:: pair: exceptions; assert
 
 Avant de se lancer dans un calcul long et complexe, on peut vouloir
 tester la validité de certaines hypothèses fondamentales, soit par une
@@ -1007,19 +1016,19 @@ fonction :func:`open` retournant un objet de type `file
        print("{}**3 = {}".format(x, x**3))
 
 
-Fonctionnalités supplémentaires
-===============================
+Fonctionnalités avancées
+========================
 
 Cette brève introduction à Python se limite à des fonctionnalités
-relativement simples du langage.  De nombreuses fonctionnalités du
-langage n'ont pas encore été abordées [#global]_.
+relativement simples du langage.  De nombreuses fonctionnalités plus
+avancées n'ont pas encore été abordées [#global]_.
 
 Arguments anonymes
 ------------------
 
 .. index::
-   args
-   kwargs
+   *args
+   **kwargs
 
 Il est possible de laisser libre *a priori* le nombre et le nom des
 arguments d'une fonction, traditionnellement nommés `args` (arguments
@@ -1036,40 +1045,45 @@ args: (1, 2, 3)
 kwargs: {'y': 5, 'x': 4}
 
 Cela laisse une grande flexibilité dans la signature de la fonction,
-mais au prix d'une d'une très mauvaise lisibilité. *À utiliser avec
-parcimonie...*
+mais au prix d'une d'une très mauvaise lisibilité de la signature de
+la fonction. **À utiliser avec parcimonie...**
 
-Dépaquetage des arguments et des itérables
-------------------------------------------
+Dépaquetage des arguments
+-------------------------
 
 .. index::
-   *
-   **
+   pair: dépaquetage; *
+   pair: dépaquetage; **
 
 Il est possible de dépaqueter les `[kw]args` d'une fonction à la volée
 à l'aide de l'opérateur `[*]*`.  Ainsi, avec la même fonction `f`
 précédemment définie:
 
->>> f(1, 2, 3, x=4, y=5)             # 3 args (1, 2 et 3) et 2 kwargs (x et y)
-args: (1, 2, 3)
-kwargs: {'y': 5, 'x': 4}
->>> f([1, 2, 3], {'x':4, 'y':5})     # 2 args (1 liste et 1 dict.) et 0 kwarg
-args: ([1, 2, 3], {'x': 4, 'y': 5})
+>>> my_args = (1, 2, 3)
+>>> my_kwargs = dict(x=4, y=5)
+>>> f(my_args, my_kwargs)     # 2 args (1 liste et 1 dict.) et 0 kwarg
+args: ((1, 2, 3), {'x': 4, 'y': 5})
 kwargs: {}
->>> f(*[1, 2, 3], **{'x':4, 'y':5})  # 3 args (1, 2 et 3) et 2 kwargs (x et y)
+>>> f(*my_args, **my_kwargs)  # 3 args (1, 2 et 3) et 2 kwargs (x et y)
 args: (1, 2, 3)
 kwargs: {'x': 4, 'y': 5}
 
-À partir de Python 3.5, il est plus facile d'utiliser un ou plusieurs
-de ces opérateurs conjointement aux `[kw]args` traditionnels
+À partir de Python 3.5, il est encore plus facile d'utiliser un ou
+plusieurs de ces opérateurs conjointement aux `[kw]args` traditionnels
 (:pep:`448`), dans la limite où les `args` sont toujours situés
 *avant* les `kwargs`:
 
->>> f(0, *[1, 2], 3, **dict(a=3, b=4), c=5)
-args: (0, 1, 2, 3)
-kwargs: {'b': 4, 'a': 3, 'c': 5}
+>>> f(0, *my_args, 9, **my_kwargs, z=6)
+args: (0, 1, 2, 3, 9)
+kwargs: {'x': 4, 'z': 6, 'y': 5}
 
-Noter qu'il est également possible d'utiliser l'opérateur `*` pour les
+Dépaquetage des itérables
+-------------------------
+
+.. index::
+   pair: dépaquetage; *
+
+Il est également possible d'utiliser l'opérateur `*` pour les
 affectations multiples (:pep:`3132`):
 
 >>> a, b, c = 1, 2, 3, 4
@@ -1077,6 +1091,100 @@ ValueError: too many values to unpack (expected 3)
 >>> a, *b, c = 1, 2, 3, 4
 >>> a, b, c
 (1, [2, 3], 4)
+
+Décorateurs
+-----------
+
+.. index:: pair: décorateur; @
+
+Les fonctions (et méthodes) sont en Python des objets comme les
+autres, et peuvent donc être utilisées comme arguments d'une fonction,
+ou retournées comme résultat d'une fonction.
+
+.. code-block:: python
+   :linenos:
+
+   def compute_and_print(fn, *args, **kwargs):
+
+       print("Function:  ", fn.__name__)
+       print("Arguments: ", args, kwargs)
+       result = fn(*args, **kwargs)
+       print("Result:    ", result)
+
+       return result
+
+Les décorateurs sont des *fonctions* s'appliquant sur une fonction ou
+une méthode pour en modifier le comportement: elles retournent de
+façon transparente une version « *décorée* » (augmentée) de la
+fonction initiale.
+
+.. code-block:: python
+   :linenos:
+
+   def verbose(fn):       # fonction → fonction décorée
+
+       def decorated(*args, **kwargs):
+           print("Function:  ", fn.__name__)
+           print("Arguments: ", args, kwargs)
+           result = fn(*args, **kwargs)
+           print("Result:    ", result)
+
+           return result
+
+       return decorated   # version décorée de la fonction initiale
+
+>>> verbose_sum = verbose(sum)  # Décore la fonction standard 'sum'
+>>> verbose_sum([1, 2, 3])
+Function:   sum
+Arguments:  ([1, 2, 3],) {}
+Result:     6
+
+Il est possible de décorer une fonction à la volée lors de sa
+définition avec la notation `@`::
+
+   @verbose
+   def null(*args, **kwargs):
+       pass
+
+qui n'est qu'une façon concise d'écrire `null = verbose(null)`.
+
+>>> null(1, 2, x=3)
+Function:   null
+Arguments:  (1, 2) {'x': 3}
+Result:     None
+
+Noter qu'il est possible d'ajouter plusieurs décorateurs, et de passer
+des arguments supplémentaires aux décorateurs.
+
+.. rubric:: Lien
+
+`A guide to Python's function decorators
+<https://www.thecodeship.com/patterns/guide-to-python-function-decorators/>`_
+
+Python dispose de quelques décorateurs natifs d'intérêt pour les
+méthodes, notamment:
+
+- :func:`staticmethod` transforme une méthode en une méthode statique,
+  c.-à-d. ne s'appliquant pas à l'instance::
+
+    class C:
+        @staticmethod
+        def f(arg1, arg2, ...):  # L'instance self n'est pas le 1er argument!
+            ...
+
+  La méthode statique peut alors être invoquée via la classe `C.f()`
+  ou via une instance `C().f()`.
+
+- :func:`classmethod` transforme une méthode en une méthode de classe,
+  c.-à-d. s'appliquant à la classe plutôt qu'à l'instance::
+
+    class C:
+        @classmethod
+        def f(cls, arg1, arg2, ...):  # La classe cls est le 1er argument!
+            ...
+
+  La méthode de classe peut alors être invoquée via la classe `C.f()`
+  ou via une instance `C().f()`.
 
 Fonction anonyme
 ----------------
@@ -1088,17 +1196,13 @@ Il est parfois nécéssaire d'utiliser une fonction intermédiaire
 l'aide de `def`.  Cela est possible avec l'opérateur fonctionnel
 :samp:`lambda {args}: {expression}`.  P.ex.:
 
->>> def print_result(fn, *args):
-...     print("Function:  ", fn.__name__)
-...     print("Arguments: ", *args)
-...     print("Result:    ", fn(*args))
->>> print_result(sum, [1, 2])               # Fonction nommée à 1 argument
+>>> compute_and_print(sum, [1, 2])               # Fn nommée à 1 argument
 Function:   sum
-Arguments:  [1, 2]
+Arguments:  ([1, 2],), {}
 Result:     3
->>> print_result(lambda x, y: x + y, 1, 2)  # Fonction anonyme à 2 arguments
+>>> compute_and_print(lambda x, y: x + y, 1, 2)  # Fn anonyme à 2 arguments
 Function:   <lambda>
-Arguments:  1 2
+Arguments:  (1, 2) {}
 Result:     3
 
 La définition d'une fonction `lambda` ne peut inclure qu'**une
@@ -1111,8 +1215,18 @@ fonction:
 >>> pairs
 [(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
 
+.. Note:: *de facto*, il est possible de « nommer » une fonction
+   anonyme, p.ex.::
+
+     >>> adder = lambda x, y: x + y
+
+   Cependant, cela est considéré comme une faute de style, puisque ce
+   n'est justement pas l'objectif d'une fonction anonyme! Il n'y a
+   p.ex. pas de *docstring* associée.
+
 **Voir également:** `Functional Programming
 <https://docs.python.org/3/howto/functional.html>`_
+
 
 Éléments passés sous silence
 ----------------------------
@@ -1121,8 +1235,6 @@ Il existe encore beaucoup d'éléments passés sous silence:
 
 - itérateurs et générateurs: `yield`;
 - gestion de contexte: `with ... as` (:pep:`243`);
-- décorateurs: fonction sur une fonction ou une classe
-  (`@staticmethod`, etc.);
 - héritages multiples et méthodes de résolution;
 - annotations de fonctions (:pep:`484`) et de variables (:pep:`526`);
 - `f-strings` (:pep:`498`);
@@ -1153,7 +1265,7 @@ Python 3 apporte `quelques changements fondamentaux
 - un nouveau système de formatage des chaînes de caractères
   (`f-string` du :pep:`498` à partir de Python 3.6);
 - la fonction de comparaison `cmp` (et la méthode spéciale associée
-  `__cmp__`) n'existe plus (mais voir :func:`functools.total_ordering`).
+  `__cmp__`) n'existe plus [#total]_.
 
 .. rubric:: Notes de bas de page
 
@@ -1174,7 +1286,8 @@ Python 3 apporte `quelques changements fondamentaux
 .. [#global] Je ne parlerai pas ici des `variables globales
    <http://geekandpoke.typepad.com/geekandpoke/2012/04/simply-explained-gv.html>`_...
 .. [#py3] De nombreuses distributions Linux sont encore basées sur
-   Python 2.7 par défaut.
+   Python 2.7 par défaut.
+.. [#total] Voir :func:`functools.total_ordering` pour une alternative.
 
 .. |DANGER| unicode:: 0x2620 .. ☠ = SKULL AND CROSSBONES
 .. |:-)| unicode:: 0x263a .. ☺ = WHITE SMILING FACE
