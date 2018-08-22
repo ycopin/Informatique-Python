@@ -1183,8 +1183,15 @@ méthodes, notamment:
         def f(cls, arg1, arg2, ...):  # La classe cls est le 1er argument!
             ...
 
-  La méthode de classe peut alors être invoquée via la classe `C.f()`
-  ou via une instance `C().f()`.
+  Comme une méthode statique, une méthode de classe peut être invoquée
+  via la classe `C.f()` ou via une instance `C().f()`.
+
+Les méthodes statiques sont souvent d'intérêt plus général, sans être
+spécifique à une instance particulière: c'est une fonction
+indépendante stockée à l'intérieur de la classe.  Les méthodes de
+classe sont quant à elles souvent utilisées pour des initialisations
+alternatives (voir un `exemple d'utilisation et discussion associée
+<https://stackoverflow.com/questions/12179271/>`_).
 
 Fonction anonyme
 ----------------
