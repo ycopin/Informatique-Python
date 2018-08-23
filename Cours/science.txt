@@ -118,15 +118,19 @@ Création de tableaux
   >>> N.arange(0.5, 2.1, 0.3) # Accepte des réels en argument, DANGER!
   array([ 0.5,  0.8,  1.1,  1.4,  1.7,  2. ])
 
-.. index:: pair: numpy; linspace
+.. index::
+   pair: numpy; linspace
+   pair: numpy; logspace
 
-- :func:`numpy.linspace`: répartition uniforme d'un nombre fixe de
-  points entre un *start* et un *end* (préférable à
-  :func:`numpy.arange` sur des réels).
+- :func:`numpy.linspace` (resp. :func:`numpy.logspace`): répartition
+  uniforme (resp. logarithmique) d'un nombre fixe de points entre un
+  *start* et un *end* (préférable à :func:`numpy.arange` sur des
+  réels).
 
   >>> N.linspace(0, 2*N.pi, 5) # 5 nb entre 0 et 2π *inclus*, type réel par défaut
   array([ 0.,  1.57079633,  3.14159265,  4.71238898,  6.28318531])
-
+  >>> N.logspace(-1, 1, 5)     # 5 nb répartis log. entre 10**(±1)
+  array([  0.1       ,   0.31622777,   1.        ,   3.16227766,  10.        ])
 
 .. index:: pair: numpy; meshgrid
 
