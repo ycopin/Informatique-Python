@@ -165,7 +165,7 @@ Types de base
 
 .. index:: pair: itérables; str
 
-- **Chaînes de caractères**: `str`
+- **Chaînes de caractères**: :class:`str`
 
   - Entre (simples ou triples) apostrophes `'` ou guillemets `"`:
     `'Calvin'`, `"Calvin'n'Hobbes"`, `'''Deux\\\nlignes'''`,
@@ -180,13 +180,13 @@ Types de base
 
 - **Types numériques**:
 
-  - *Booléens* `bool` (vrai/faux): `True`, `False`, `bool(3)`
-  - *Entiers* `int` (pas de valeur limite explicite, correspond *au
-    moins* au `long` du C): `-2`, `int(2.1)`, `int("4")`
-  - *Réels* `float` (entre ±1.7e±308, correspond au `double` du C):
-    `2.`, `3.5e-6`, `float(3)`
-  - *Complexes* `complex`: `1+2j`, `5.1j`, `complex(-3.14)`,
-    `complex('j')`
+  - *Booléens* :class:`bool` (vrai/faux): `True`, `False`, `bool(3)`
+  - *Entiers* :class:`int` (pas de valeur limite explicite, correspond
+    *au moins* au `long` du C): `-2`, `int(2.1)`, `int("4")`
+  - *Réels* :class:`float` (entre ±1.7e±308, correspond au `double` du
+    C): `2.`, `3.5e-6`, `float(3)`
+  - *Complexes* :class:`complex`: `1+2j` (sans espace), `5.1j`,
+    `complex(-3.14)`, `complex('j')`
 
   >>> 5 / 2       # Division réelle par défaut dans Python 3.x
   2.5
@@ -208,12 +208,13 @@ Types de base
 
 - **Objets itérables**:
 
-  - *Listes* `list`: `['a', 3, [1, 2], 'a']`
-  - *Listes immuables* `tuple`: `(2, 3.1, 'a', [])` (selon les
+  - *Listes* :class:`list`: `['a', 3, [1, 2], 'a']`
+  - *Listes immuables* :class:`tuple`: `(2, 3.1, 'a', [])` (selon les
     conditions d'utilisation, les parenthèses ne sont pas toujours
     nécessaires)
-  - *Listes à clés* `dict`: `{'a':1, 'b':[1, 2], 3:'c'}`
-  - *Ensembles* non ordonnés d'éléments uniques `set`: `{1, 2, 3, 2}`
+  - *Listes à clés* :class:`dict`: `{'a':1, 'b':[1, 2], 3:'c'}`
+  - *Ensembles* non ordonnés d'éléments uniques :class:`set`: `{1, 2,
+    3, 2}`
 
   >>> l = ['a', True]  # Définition d'une liste
   >>> x, y = 1, 2.5    # Affectations multiples via tuples (les parenthèses ne sont pas nécessaires)
@@ -224,8 +225,9 @@ Types de base
   >>> {2, 1, 3} | {1, 2, 'a'}  # Union d'ensembles (non-ordonnés)
   {'a', 1, 2, 3}
 
-  .. Attention:: en Python 3, `range` n'est plus un constructeur de liste,
-     mais un *itérateur*, qui doit être converti en liste explicitement:
+  .. Attention:: en Python 3, :func:`range` n'est plus un constructeur
+     de liste, mais un *itérateur*, qui doit être converti en liste
+     explicitement (équivalent à `xrange` de Python 2):
 
      >>> range(3)        # Itérateur
      range(0, 3)
@@ -643,7 +645,8 @@ Il faut noter plusieurs choses importantes:
   itérable contenant des éléments pour lesquels les opérations
   effectuées -- somme, exponentiation, division par un entier -- ont
   été préalablement définies (p.ex. des entiers, des complexes, des
-  matrices, etc.);
+  matrices, etc.): c'est ce que l'on appelle le :term:`duck-typing`
+  [#duck]_, favorisant le polymorphisme des fonctions;
 - le typage est *fort*, c.-à-d. que le type d'une variable ne peut pas
   changer à la volée.  Ainsi, `"abra" + "cadabra"` a un sens
   (concaténation de chaînes), mais pas `3 + "cochons"` (entier +
@@ -783,12 +786,12 @@ Exceptions
 .. index:: pair: exceptions; try ... except
 
 Lorsqu'il rencontre une erreur dans l'exécution d'une instruction,
-l'interpréteur Python génère (`raise`) une erreur (`Exception`), de
-`nature <http://rgruet.free.fr/PQR27/PQR2.7.html#BuiltInExc>`_
-différente selon la nature de l'erreur: `KeyError`, `ValueError`,
-`AttributeError`, `NameError`, `TypeError`, `IOError`,
-`NotImplementedError`, etc.  La levée d'une erreur n'est cependant pas
-nécessairement fatale, puisque Python dispose d'un mécanisme de
+l'interpréteur Python génère (:func:`raise`) une erreur (`Exception`),
+de nature différente selon la nature de l'erreur: :exc:`KeyError`,
+:exc:`ValueError`, :exc:`AttributeError`, :exc:`NameError`,
+:exc:`TypeError`, :exc:`IOError`, :exc:`NotImplementedError`,
+:exc:`KeyboardInterrupt`, etc.  La levée d'une erreur n'est cependant
+pas nécessairement fatale, puisque Python dispose d'un mécanisme de
 *gestion des erreurs*.
 
 Il est d'usage en Python d'utiliser la philosophie :abbr:`EAFP (Easier
@@ -840,7 +843,7 @@ solution de repli, et laissez passer les autres (ce qui provoquera
         print("Rien ne va plus")
 
 Vos procédures doivent également générer des exceptions
-(*documentées*) -- avec l'instruction :samp:`raise {Exception}` -- si
+(*documentées*) -- avec l'instruction :samp:`raise {Exception()}` -- si
 elles ne peuvent conclure leur action, à charge pour la procédure
 appelante de les gérer si besoin:
 
@@ -870,7 +873,7 @@ appelante de les gérer si besoin:
 Avant de se lancer dans un calcul long et complexe, on peut vouloir
 tester la validité de certaines hypothèses fondamentales, soit par une
 structure `if ... raise`, ou plus facilement à l'aide d'`assert` (qui,
-si l'hypothèse n'est pas vérifiée, génère une `AssertionError`):
+si l'hypothèse n'est pas vérifiée, génère une :exc:`AssertionError`):
 
 .. code-block:: python
    :linenos:
@@ -1240,7 +1243,8 @@ fonction:
 
 Il existe encore beaucoup d'éléments passés sous silence:
 
-- itérateurs et générateurs: `yield`;
+- :term:`iterator` (:func:`next`) et :term:`generator`
+  (:func:`yield`);
 - gestion de contexte: `with ... as` (:pep:`243`);
 - héritages multiples et méthodes de résolution;
 - annotations de fonctions (:pep:`484`) et de variables (:pep:`526`);
@@ -1268,6 +1272,9 @@ Python 3 apporte `quelques changements fondamentaux
 - `print` n'est plus un mot-clé mais une fonction: :samp:`print({...})`;
 - l'opérateur `/` ne réalise plus la division euclidienne entre les
   entiers, mais toujours la division *réelle*;
+- la plupart des fonctions qui retournaient des itérables en Python 2
+  (p.ex. :func:`range`) retournent maintenant des itérateurs, plus
+  légers en mémoire;
 - un support complet (mais encore complexe) des chaînes Unicode;
 - un nouveau système de formatage des chaînes de caractères
   (`f-string` du :pep:`498` à partir de Python 3.6);
@@ -1277,6 +1284,8 @@ Python 3 apporte `quelques changements fondamentaux
 .. rubric:: Notes de bas de page
 
 .. [#braces] ou `from __future__ import braces` :-)
+.. [#duck] *If it looks like a duck and quacks like a duck, it must be
+   a duck.*
 .. [#scope] La notion de « portée » est plus complexe, je simplifie...
 .. [#dunder] Parfois prononcé *dunder main* (*dunder* désigne le `__`).
 .. [#shebang] Il s'agit d'une fonctionnalité des *shells* d'Unix, pas

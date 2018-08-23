@@ -79,8 +79,7 @@ Cette solution génère automatiquement une aide en ligne, p.ex.::
 Pickle: sérialisation des données
 =================================
 
-.. index::
-   module: pickle
+.. index:: module: pickle
 
 Le module :mod:`pickle` permet la sauvegarde pérenne d'objets python
 (« sérialisation »).
@@ -124,6 +123,8 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 
   >>> print(fractions.Fraction(2, 3) + fractions.Fraction(5, 6))
   3/2
+  >>> print(fractions.Fraction(*(3.5).as_integer_ratio()))
+  7/2
 
 * :mod:`random`: générateurs de nombres aléatoires
 
@@ -165,8 +166,12 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 .. .. index::
 ..    module: re
 
-* `expressions rationnelles <https://docs.python.org/3/howto/regex.html>`_:
+* `expressions rationnelles
+  <https://docs.python.org/3/howto/regex.html>`_ (ou *regex*):
   :mod:`re`;
+
+* :mod:`warnings` et :mod:`logging`: gestion des avertissements
+  d'éxécution et mécanismes de *logging*
 
 .. .. index::
 ..    module: time
@@ -191,6 +196,7 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 
 * lecture et sauvegarde des données (outre :mod:`pickle`):
 
+  - :mod:`pprint`: affichage « amélioré » d'un objet,
   - :mod:`csv`: lecture/sauvegarde de fichiers :abbr:`CSV (Comma
     Separated Values)`,
   - :mod:`ConfigParser`: fichiers de configuration,
