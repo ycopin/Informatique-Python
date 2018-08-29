@@ -984,8 +984,8 @@ différents domaines de la physique, chimie, etc.:
   <https://pymc-devs.github.io/pymc3/>`_;
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
   <https://pythonhosted.org/milk/>`_, `MDP
-  <http://mdp-toolkit.sourceforge.net/>`_, et autres `modules d'intelligence
-  artificielle
+  <http://mdp-toolkit.sourceforge.net/>`_, `Keras <https://keras.io/>`_ et
+  autres `modules d'intelligence artificielle
   <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_;
 - Calcul symbolique: `sympy <http://www.sympy.org/>`_ (voir également
   ce `tutoriel sympy
