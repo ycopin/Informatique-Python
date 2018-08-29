@@ -1,4 +1,6 @@
 * scinder Cours en "intro" et "avancé"
+* Utiliser directive ipython
+  (https://matplotlib.org/sampledoc/ipython_directive.html)
 
 Cours avancé:
 
@@ -7,7 +9,7 @@ Cours avancé:
 * Data Classes (https://www.python.org/dev/peps/pep-0557/, ou
   https://pypi.org/project/dataclasses/ pour Python 3.6)
 * f-strings (uniquement 3.6+)
-* setuptools
+* distutils, setuptools (e.g. https://docs.python.org/3/distributing/)
 
 Science:
 
@@ -19,3 +21,4 @@ Science avancée:
 
 * Format de données: HDF5 (h5py), FITS (astropy.io.fits), NetCDF
 * optimisation / parallélisation
+* Tuto Pandas (https://www.marsja.se/pandas-dataframe-read-csv-excel-subset/)

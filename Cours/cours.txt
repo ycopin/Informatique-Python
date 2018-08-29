@@ -121,7 +121,7 @@ Python:
 .. index:: interpréteur; ipython
 
 * :program:`ipython`: `interpréteur évolué
-  <http://ipython.readthedocs.io/en/5.x/>`_ (avec historique et
+  <http://ipython.readthedocs.io/>`_ (avec historique et
   complétion automatique des commandes)::
 
     $ ipython
@@ -151,9 +151,9 @@ Python:
   .. rubric:: Liens:
 
   - `Tutorial
-    <http://ipython.readthedocs.io/en/5.x/interactive/tutorial.html>`_
+    <http://ipython.readthedocs.io/en/stable/interactive/tutorial.html>`_
   - `IPython Tips & Tricks
-    <http://ipython.readthedocs.io/en/5.x/interactive/tips.html>`_
+    <http://ipython.readthedocs.io/en/stable/interactive/tips.html>`_
 
 
 Types de base
@@ -280,7 +280,7 @@ Structures de programmation
     .. Attention:: Ne pas confondre « `=` » (affectation d'une variable)
        et « `==` » (test logique d'égalité).
 
-  - Opérateurs logiques: `and`, `or`, `not`
+  - Opérateurs logiques: :keyword:`and`, :keyword:`or`, :keyword:`not`
 
     >>> (5 >= 6) or (not 3 > 4)
     True
@@ -316,9 +316,9 @@ Structures de programmation
   (2, 3)
   4
 
-  - `continue`: interrompt l'itération courante, et reprend la boucle
+  - :keyword:`continue`: interrompt l'itération courante, et reprend la boucle
     à l'itération suivante,
-  - `break`: interrompt complètement la boucle.
+  - :keyword:`break`: interrompt complètement la boucle.
 
   .. Note:: la logique des boucles Python est assez différente des
      langages C[++]/fortran, pour lesquels l'itération porte sur les
@@ -329,7 +329,7 @@ Structures de programmation
    break
 
 - **Boucle while**: :samp:`while {condition}:` se répéte tant que la
-  *condition* est vraie, ou jusqu'à une sortie explicite avec `break`.
+  *condition* est vraie, ou jusqu'à une sortie explicite avec :keyword:`break`.
 
   .. Attention:: aux boucles infinies, dont la condition d'exécution
      reste invariablement vraie (typiquement un critère de convergence
@@ -341,9 +341,11 @@ Structures de programmation
 
         niter = 0
         while (error > 1e-6) and (niter < 100):
-            error = ...   # A priori, error va décroître, et la boucle s'interrompre
-        niter += 1    # Mais on n'est jamais assez prudent!
-
+            error = ...   # A priori, error va décroître, et la boucle s'interrompre...
+            niter += 1    # ... mais on n'est jamais assez prudent!
+        if niter == 100:  # Ne pas oublier de tester l'absence de convergence!!!
+            print("Erreur de convergence!")
+            
 .. Note:: Il n'y a pas en Python d'équivalent natif à l'instruction
    `switch` du C.
 
@@ -407,10 +409,11 @@ Méthodes
 
 .. index:: dir
 
-Les chaînes de caractères disposent de `nombreuses fonctionnalités
-<https://docs.python.org/3/library/stdtypes.html#string-methods>`_ --
-appelées « méthodes » en :abbr:`POO (Programmation Orientée Objet)` --
-facilitant leur manipulation:
+Comme la plupart des objets en Python, les chaînes de caractères disposent de
+`nombreuses fonctionnalités
+<https://docs.python.org/3/library/stdtypes.html#string-methods>`_ -- appelées
+« méthodes » en :abbr:`POO (Programmation Orientée Objet)` -- facilitant leur
+manipulation:
 
 >>> enfant, peluche = "Calvin", 'Hobbes'      # Affectations mutiples
 >>> titre = enfant + ' et ' + peluche; titre  # +: Concaténation de chaînes
@@ -606,7 +609,7 @@ arguments d'entrée.  C'est le concept central de la programmation
 arguments nécessaires (c.-à-d. obligatoires), tandis que les « *kwargs* » --
 arguments de type :samp:`{option}={valeur}` -- sont optionnels, puisqu'ils
 possèdent une valeur par défaut.  Si la fonction doit retourner une valeur,
-celle-ci est spécifiée par le mot-clé `return`.
+celle-ci est spécifiée par le mot-clé :keyword:`return`.
 
 .. rubric:: Exemples:
 
@@ -786,7 +789,7 @@ Exceptions
 .. index:: pair: exceptions; try ... except
 
 Lorsqu'il rencontre une erreur dans l'exécution d'une instruction,
-l'interpréteur Python génère (:func:`raise`) une erreur (`Exception`),
+l'interpréteur Python génère (:keyword:`raise`) une erreur (`Exception`),
 de nature différente selon la nature de l'erreur: :exc:`KeyError`,
 :exc:`ValueError`, :exc:`AttributeError`, :exc:`NameError`,
 :exc:`TypeError`, :exc:`IOError`, :exc:`NotImplementedError`,
@@ -798,7 +801,7 @@ Il est d'usage en Python d'utiliser la philosophie :abbr:`EAFP (Easier
 to Ask for Forgiveness than Permission)` [#lbyl]_: plutôt que de
 tester explicitement toutes les conditions de validité d'une
 instruction, on « tente sa chance » d'abord, quitte à gérer les
-erreurs *a posteriori*.  Cette gestion des `Exception` se fait par la
+erreurs *a posteriori*.  Cette gestion des exceptions se fait par la
 construction `try ... except`.
 
 .. _input:
@@ -808,7 +811,7 @@ construction `try ... except`.
 
    def lireEntier():
        while True:
-           chaine = input('Entrez un entier: ')  # Lecture du clavier
+           chaine = input('Entrez un entier: ')  # Lecture du clavier → str
            try:
                # La conversion en type entier génère `ValueError` si nécessaire
                return int(chaine)
@@ -830,10 +833,10 @@ vous auriez pu tester *a priori* et pour lesquels il existe une
 solution de repli, et laissez passer les autres (ce qui provoquera
 éventuellement l'interruption du programme).
 
-.. Danger:: Évitez à tout prix les `except` *nus*, c.-à-d. ne spécifiant
-   pas la ou les exceptions à gérer, car ils intercepteraient alors
-   *toutes* les exceptions, y compris celles que vous n'aviez pas
-   prévues!  Trouvez l'erreur dans le code suivant::
+.. Danger:: Évitez à tout prix les :keyword:`except` *nus*, c.-à-d. ne
+   spécifiant pas la ou les exceptions à gérer, car ils intercepteraient alors
+   *toutes* les exceptions, y compris celles que vous n'aviez pas prévues!
+   Trouvez l'erreur dans le code suivant::
 
      y = 2
      try:
@@ -872,7 +875,7 @@ appelante de les gérer si besoin:
 
 Avant de se lancer dans un calcul long et complexe, on peut vouloir
 tester la validité de certaines hypothèses fondamentales, soit par une
-structure `if ... raise`, ou plus facilement à l'aide d'`assert` (qui,
+structure `if ... raise`, ou plus facilement à l'aide d':keyword:`assert` (qui,
 si l'hypothèse n'est pas vérifiée, génère une :exc:`AssertionError`):
 
 .. code-block:: python
@@ -994,8 +997,7 @@ Fichiers
 .. index:: file
 
 La gestion des fichiers (lecture et écriture) se fait à partir de la
-fonction :func:`open` retournant un objet de type `file
-<https://docs.python.org/3/library/stdtypes.html#bltin-file-objects>`_:
+fonction :func:`open` retournant un objet de type :term:`file object`:
 
 .. code-block:: python
    :linenos:
@@ -1047,9 +1049,9 @@ kwargs: {}
 args: (1, 2, 3)
 kwargs: {'y': 5, 'x': 4}
 
-Cela laisse une grande flexibilité dans la signature de la fonction,
-mais au prix d'une d'une très mauvaise lisibilité de la signature de
-la fonction. **À utiliser avec parcimonie...**
+.. Attention:: Cela laisse une grande flexibilité dans la signature de la
+   fonction, mais au prix d'une d'une très mauvaise lisibilité de la signature
+   de la fonction. *À utiliser avec parcimonie...*
 
 Dépaquetage des arguments
 -------------------------
@@ -1225,8 +1227,7 @@ fonction:
 >>> pairs
 [(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
 
-.. Note:: *de facto*, il est possible de « nommer » une fonction
-   anonyme, p.ex.::
+.. Note:: il est possible de « nommer » une fonction anonyme, p.ex.::
 
      >>> adder = lambda x, y: x + y
 
@@ -1244,8 +1245,8 @@ fonction:
 Il existe encore beaucoup d'éléments passés sous silence:
 
 - :term:`iterator` (:func:`next`) et :term:`generator`
-  (:func:`yield`);
-- gestion de contexte: `with ... as` (:pep:`243`);
+  (:keyword:`yield`);
+- gestion de contexte: :keyword:`with` (:pep:`343`);
 - héritages multiples et méthodes de résolution;
 - annotations de fonctions (:pep:`484`) et de variables (:pep:`526`);
 - `f-strings` (:pep:`498`);
@@ -1269,7 +1270,7 @@ supporté au-delà de 2020 (:pep:`466`), le cours a été porté sur Python 3 (
 Python 3 apporte `quelques changements fondamentaux
 <https://docs.python.org/3/whatsnew/3.0.html>`_, notamment:
 
-- `print` n'est plus un mot-clé mais une fonction: :samp:`print({...})`;
+- :func:`print` n'est plus un mot-clé mais une fonction: :samp:`print({...})`;
 - l'opérateur `/` ne réalise plus la division euclidienne entre les
   entiers, mais toujours la division *réelle*;
 - la plupart des fonctions qui retournaient des itérables en Python 2
