@@ -284,6 +284,8 @@ Structures de programmation
 
     >>> (5 >= 6) or (not 3 > 4)
     True
+    >>> x = 3; 0 < x <= 5   # Conditions chaînées
+    True
 
   - Opérateur ternaire (:pep:`308`): :samp:`{value} if {condition}
     else {altvalue}`, p.ex.

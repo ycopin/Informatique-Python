@@ -21,4 +21,5 @@ Science avancée:
 
 * Format de données: HDF5 (h5py), FITS (astropy.io.fits), NetCDF
 * optimisation / parallélisation
+  (p.ex. https://chryswoods.com/parallel_python/index.html)
 * Tuto Pandas (https://www.marsja.se/pandas-dataframe-read-csv-excel-subset/)
