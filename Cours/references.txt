@@ -28,7 +28,8 @@ Listes de liens
   <https://pythontips.com/2016/02/27/learning-python-for-data-science/>`_ (2016)
 - `Awesome Python <https://awesome-python.com/>`_
 - `A curated list of courses on Python <http://bafflednerd.com/learn-python-online/>`_
-
+- `Real Python tutorials <https://realpython.com/>`_
+  
 .. rubric:: ipython
 
 - `IPython tutorial
@@ -67,6 +68,7 @@ Livres libres
 - `Learn Python the Hard Way <https://learnpythonthehardway.org/>`_
 - `Python for Informatics: Exploring Information <http://www.pythonlearn.com/>`_
 - `Intermediate Python <http://book.pythontips.com/en/latest/>`_
+- `The Best Python Books <https://realpython.com/best-python-books/>`_
 
 - `Apprendre à programmer avec Python <http://inforef.be/swi/python.htm>`_ |fr|
 - `Programmation Python

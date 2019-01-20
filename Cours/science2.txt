@@ -975,6 +975,9 @@ différents domaines de la physique, chimie, etc.:
   <http://hyperspy.org/>`_;
 - Mécanique quantique: `QuTiP <http://qutip.org/>`_;
 - Électromagnétisme: `EMpy <https://lbolla.github.io/EMpy/>`_;
+- Optique physique: `Physical Optics Propagation in PYthon
+  <https://poppy-optics.readthedocs.io/>`_, `OpticsPy
+  <http://opticspy.org/>`_;
 - *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
   <http://sfepy.org/doc-devel/>`_;
 - Analyse statistique bayesienne: `PyStan
