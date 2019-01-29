@@ -58,7 +58,11 @@ programmes les plus complexes (projets de plus de 100 000 lignes).
 * `Getting Started <https://www.python.org/about/gettingstarted/>`_
 * `Python Advocacy <https://docs.python.org/2/howto/advocacy.html>`_
 
+.. Informations pratiques
+.. ======================
 
+.. include:: info.txt
+  
 Index et recherche
 ==================
 
