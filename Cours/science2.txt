@@ -410,7 +410,7 @@ M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring
    c  9  9  10  11
 
    Lien: `Returning a view versus a copy
-   <http://pandas.pydata.org/pandas-docs/stable/indexing.html#returning-a-view-versus-a-copy>`_
+   <http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-view-versus-copy>`_
 
 
 .. rubric:: Indéxation hiérarchique
@@ -730,13 +730,9 @@ Visualisations
 
 * `Pandas Tutorial
   <http://pandas.pydata.org/pandas-docs/stable/tutorials.html>`_
-* `Pandas Cookbook
-  <github.com/jvns/pandas-cookbook>`_
+* `Pandas Cookbook <github.com/jvns/pandas-cookbook>`_
 * `Pandas Lessons for New Users <https://bitbucket.org/hrojas/learn-pandas>`_
 * `Practical Data Analysis <http://wavedatalab.github.io/datawithpython/>`_
-* `Modern Pandas <http://tomaugspurger.github.io/modern-1.html>`_
-* `Various tutorials
-  <http://pandas.pydata.org/pandas-docs/stable/tutorials.html#various-tutorials>`_
 
 .. rubric:: Exercices:
 
