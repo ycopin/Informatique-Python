@@ -14,6 +14,18 @@ Documentation générale
 - `Python Frequently Asked Questions <https://docs.python.org/2/faq/>`_
 - `The Python Package Index <https://pypi.python.org/pypi>`_
 
+Questions et réponses
+---------------------
+
+Vous pouvez trouver des réponses à de nombreuses questions (et poser vos
+propres questions) sur le site `Stack Overflow <https://stackoverflow.com>`_:
+- `Python Q&A <https://stackoverflow.com/questions/tagged/python>`_
+- `Numpy Q&A <https://stackoverflow.com/questions/tagged/numpy>`_
+- `Scipy Q&A <https://stackoverflow.com/questions/tagged/scipy>`_
+- `Matplotlib Q&A <https://stackoverflow.com/questions/tagged/matplotlib>`_
+- `Pandas Q&A <https://stackoverflow.com/questions/tagged/pandas>`_
+- `Astropy Q&A <https://stackoverflow.com/questions/tagged/astropy>`_
+
 Listes de liens
 ---------------
 

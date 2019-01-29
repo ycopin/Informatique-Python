@@ -54,6 +54,7 @@ programmes les plus complexes (projets de plus de 100 000 lignes).
 
 * `Getting Started <https://www.python.org/about/gettingstarted/>`_
 * `Python Advocacy <https://docs.python.org/3.1/howto/advocacy.html>`_
+<<<<<<< HEAD
 
 
 Organisation des TDs
@@ -77,4 +78,6 @@ Une suggestion d'organisation en TD de 2-3 heures:
 .. ======================
 
 .. include:: info.txt
+=======
+>>>>>>> master
 
