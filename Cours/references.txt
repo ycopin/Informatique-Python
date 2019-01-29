@@ -115,7 +115,6 @@ Scientifique
   <http://conference.scipy.org/scipy2011/tutorials.php>`_, `2012
   <http://conference.scipy.org/scipy2012/tutorials.php>`_, `2013
   <http://conference.scipy.org/scipy2013/tutorials.php>`_,
-- `Scipy Central <http://central.scipy.org/>`_ (*code snippets*)
 
 - `Advance Scientific Programming in Python <https://python.g-node.org/wiki/>`_
 - `Lectures on Computational Economics <http://lectures.quantecon.org/>`_
@@ -139,8 +138,6 @@ Scientifique
 - `NumPy et SciPy
   <http://python.developpez.com/tutoriels/cours-intensif-scientifique/module-numpy-scipy/>`_
   |fr|
-- `L’informatique scientifique avec Python
-  <http://www.dakarlug.org/pat/scientifique/html/>`_ |fr|
 - `La programmation scientifique avec Python
   <https://openclassrooms.com/courses/la-programmation-scientifique-avec-python>`_
   |fr|
@@ -159,7 +156,6 @@ Scientifique
 ..........
 
 - `Python cheatsheets <https://www.pythonsheets.com/>`_
-- `Scipy Central <http://central.scipy.org/>`_ (*code snippets*)
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr

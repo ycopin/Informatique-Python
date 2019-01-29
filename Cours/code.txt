@@ -84,15 +84,13 @@ Us et coutumes
 - *Fail early, fail often, fail better!* (`raise`)
 - *Easier to Ask for Forgiveness than Permission* (`try ... except`)
 - le *Style Guide for Python Code* (:pep:`8`)
-- `Idioms and Anti-Idioms in Python
-  <https://docs.python.org/3/howto/doanddont.html>`_
-- `Code Like a Pythonista: Idiomatic Python
-  <http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html>`_
 - `Google Python Style Guide
   <https://google.github.io/styleguide/pyguide.html>`_
 - `The Best of the Best Practices (BOBP) Guide for Python
   <https://gist.github.com/sloria/7001839>`_
-
+- The hitchhiker's guide to Python `Code Style
+  <https://docs.python-guide.org/writing/style/>`_
+  
 .. rubric:: Quelques conseils supplémentaires:
 
 - « Ne réinventez pas la roue, sauf si vous souhaitez en savoir plus
