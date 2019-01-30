@@ -37,6 +37,7 @@ antoine.rocher         `etu.univ-lyon1.fr`   M2 Astro
 deborah.polderman      `etu.univ-lyon1.fr`   M2 PAMMCO
 fabien.rondepierre     `etu.univ-lyon1.fr`   M2 PAMMCO
 antonin.pardon         `univ-lyon1.fr`       ILM
+floriane.perrier       `univ-lyon1.fr`       ILM
 =====================  ====================  ======
 
 .. rubric:: Installations locales

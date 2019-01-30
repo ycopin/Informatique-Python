@@ -142,15 +142,15 @@ Scientifique
   <https://openclassrooms.com/courses/la-programmation-scientifique-avec-python>`_
   |fr|
 
-.. rubric:: Astronomie
+.. rubric:: Astrophysique et physique des hautes énergies
 
 - `Practical Python for Astronomers <https://python4astronomers.github.io/>`_
 - `Astropy tutorials <http://www.astropy.org/astropy-tutorials/>`_
 - `Python for Euclid 2016 <https://github.com/aboucaud/python-euclid2016>`_
-- `Advanced software programming for astrophysics and astroparticle
-  physics <https://indico.in2p3.fr/event/14227/>`_ (*1st
-  ASTERICS-OBELICS International School*, voir *Timetable/Vue
-  détaillée*)
+- Advanced software programming for astrophysics and astroparticle physics,
+  *ASTERICS-OBELICS International School*, `2017
+  <https://indico.in2p3.fr/event/14227/>`_, `2018
+  <https://indico.in2p3.fr/event/16864/>`_
 
 *Snippets*
 ..........
