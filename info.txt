@@ -17,12 +17,12 @@ Toutes les séances ont lieu au bâtiment `Ariane
 ===============  ===========  =====
 Date             TD           Salle
 ===============  ===========  =====
-Lun. 04/02/2018  10h-12h30     XX
-Lun. 04/02       14h-16h30     XX
-Mar. 05/02/2018  10h-12h30     XX
-Mar. 05/02       14h-16h30     XX
-Jeu. 07/02/2018  10h-12h30     XX
-Jeu. 07/02       14h-16h30     XX (projets)
+Lun. 04/02/2019  10h-12h30     05
+                 14h-16h30     
+Mar. 05/02       10h-12h30     05
+                 14h-16h30     
+Jeu. 07/02       10h-12h30     01
+                 14h-16h30     (projets)
 ===============  ===========  =====
 
 .. rubric:: Participants
@@ -41,7 +41,7 @@ antonin.pardon         `univ-lyon1.fr`       ILM
 
 .. rubric:: Installations locales
 
-.. WARNING:: le cours utilise **Python 3**.
+.. WARNING:: le cours utilise dorénavant **Python 3**.
             
 Si des programmes ou des librairies Python (p.ex. `ipython`) manquent
 sur votre ordinateur (p.ex. en salle Ariane), il est relativement
