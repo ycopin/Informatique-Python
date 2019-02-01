@@ -38,6 +38,7 @@ deborah.polderman      `etu.univ-lyon1.fr`   M2 PAMMCO
 fabien.rondepierre     `etu.univ-lyon1.fr`   M2 PAMMCO
 antonin.pardon         `univ-lyon1.fr`       ILM
 floriane.perrier       `univ-lyon1.fr`       ILM
+clement.bernard        `ipnl.in2p3.fr`       IPNL
 =====================  ====================  ======
 
 .. rubric:: Installations locales
