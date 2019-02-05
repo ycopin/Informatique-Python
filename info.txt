@@ -18,9 +18,9 @@ Toutes les séances ont lieu au bâtiment `Ariane
 Date             TD           Salle
 ===============  ===========  =====
 Lun. 04/02/2019  10h-12h30     05
-                 14h-16h30     
+                 14h-16h30
 Mar. 05/02       10h-12h30     05
-                 14h-16h30     
+                 14h-16h30
 Jeu. 07/02       10h-12h30     01
                  14h-16h30     (projets)
 ===============  ===========  =====
@@ -32,7 +32,7 @@ Nom                    Mail (`prenom.nom+`)  Statut
 =====================  ====================  ======
 vivien.duboisdendien   `etu.univ-lyon1.fr`   M2 Astro
 marion.farcy           `etu.univ-lyon1.fr`   M2 Astro
-maxime.rey             `etu.univ-lyon1.fr`   M2 Astro
+maxime.rey2            `etu.univ-lyon1.fr`   M2 Astro
 antoine.rocher         `etu.univ-lyon1.fr`   M2 Astro
 deborah.polderman      `etu.univ-lyon1.fr`   M2 PAMMCO
 fabien.rondepierre     `etu.univ-lyon1.fr`   M2 PAMMCO
@@ -44,7 +44,7 @@ clement.bernard        `ipnl.in2p3.fr`       IPNL
 .. rubric:: Installations locales
 
 .. WARNING:: le cours utilise dorénavant **Python 3**.
-            
+
 Si des programmes ou des librairies Python (p.ex. `ipython`) manquent
 sur votre ordinateur (p.ex. en salle Ariane), il est relativement
 aisé de les installer localement à l'aide du gestionnaire
