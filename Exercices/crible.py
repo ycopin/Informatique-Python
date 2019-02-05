@@ -31,8 +31,11 @@ l[1] = 0                                # 1 n'est pas premier
 i = 2                                   # Entier à tester
 while i**2 <= n:                        # Inutile de tester jusqu'à n
     if l[i] != 0:                       # Si i n'est pas étiqueté (=0)...
-        # ...étiqueter tous les multiples de i
-        l[2 * i::i] = [0] * len(l[2 * i::i])
+        # ...étiqueter tous les multiples de i: de 2 * i à n (inclu) par pas de i
+        for j in range(2 * i, n + 1, i):
+            l[j] = 0
+        # Les 2 lignes précédentes peuvent être fusionnées:
+        # l[2 * i::i] = [0] * len(l[2 * i::i])
     i += 1                              # Passer à l'entier à tester suivant
 
 # Afficher la liste des entiers premiers (c-à-d non étiquetés)
