@@ -90,7 +90,7 @@ Us et coutumes
   <https://gist.github.com/sloria/7001839>`_
 - The hitchhiker's guide to Python `Code Style
   <https://docs.python-guide.org/writing/style/>`_
-  
+
 .. rubric:: Quelques conseils supplémentaires:
 
 - « Ne réinventez pas la roue, sauf si vous souhaitez en savoir plus
@@ -103,9 +103,10 @@ Us et coutumes
   codez *proprement*, structurez vos algorithmes, commentez votre
   code, utilisez des noms de variable qui ont un sens, soignez le
   style et le formatage, etc.
-- Codez proprement *dès le début*: ne croyez pas que vous ne relirez
-  jamais votre code (ou même que personne n'aura jamais à le lire), ou
-  que vous aurez le temps de le refaire mieux plus tard...
+- *Code is read far more often than it is written.* Ne croyez pas que
+  vous ne relirez jamais votre code (ou même que personne n'aura
+  jamais à le lire), ou que vous aurez le temps de le refaire mieux
+  plus tard...
 - « L'optimisation prématurée est la source de tous les maux » (Donald
   Knuth [#opt]_): mieux vaut un code lent mais juste et maintenable
   qu'un code rapide et faux ou incompréhensible. Dans l'ordre absolu
