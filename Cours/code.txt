@@ -280,9 +280,9 @@ leur mise en oeuvre...
 
 - `pycodestyle <https://github.com/PyCQA/pycodestyle/>`_ (ex-`pep8`) et
   `autopep8 <https://github.com/hhatto/autopep8>`_
-- `pyflakes <https://pypi.python.org/pypi/pyflakes>`_
+- `pyflakes <https://pypi.org/project/pyflakes>`_
 - `pychecker <http://pychecker.sourceforge.net/>`_
-- `pylint <https://pypi.python.org/pypi/pylint>`_
+- `pylint <https://pypi.org/project/pylint>`_
 
 Débogage
 --------
@@ -369,7 +369,7 @@ permet de déterminer le temps passé dans chacune des sous-fonctions
 d'un code (ou ligne par ligne: `line profiler
 <https://github.com/rkern/line_profiler>`_, ou selon l'utilisation de
 la mémoire: `memory profiler
-<https://pypi.python.org/pypi/memory_profiler>`_), afin d'y identifier
+<https://pypi.org/project/memory_profiler>`_), afin d'y identifier
 les parties qui gagneront à être optimisées.
 
 - `python -O`, `__debug__`, `assert`
@@ -429,7 +429,7 @@ généraux:
 * utiliser des opérations sur les tableaux, plutôt que sur des
   éléments individuels (*vectorization*): listes en compréhension,
   tableaux :mod:`numpy` (qui ont eux-mêmes été optimisés);
-* `cython <http://cython.org/>`_ est un langage de programmation
+* `cython <https://cython.org/>`_ est un langage de programmation
   **compilé** très similaire à python.  Il permet d'écrire des
   extensions en C avec la facilité de python (voir notamment `Working
   with Numpy
@@ -473,7 +473,7 @@ Documentation
     <http://pythonhosted.org/an_example_pypi_project/sphinx.html>`_;
   - `A Guide to NumPy/SciPy Documentation
     <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_;
-  - `Sample doc <http://matplotlib.org/sampledoc/>`_ (matplotlib).
+  - `Sample doc <https://matplotlib.org/sampledoc/>`_ (matplotlib).
 
 .. rubric:: Lien:
 
@@ -574,7 +574,7 @@ permettant de faciliter la transition vers 3.x:
 
     print(1/2)                             # Affichera '0.5'
 
-* La bibliothèque *non* standard `six <http://pythonhosted.org/six/>`_
+* La bibliothèque *non* standard `six <https://pythonhosted.org/six/>`_
   fournit une couche de compatibilité 2.x-3.x, permettant de produire
   de façon transparente un code compatible simultanément avec les deux
   versions.
@@ -605,4 +605,4 @@ permettant de faciliter la transition vers 3.x:
    <https://arstechnica.com/information-technology/2017/05/90-of-windows-devs-now-using-git-creating-1760-windows-builds-per-day/>`_!
 
 .. _pytest: https://docs.pytest.org/
-.. _nose:   http://nose.readthedocs.io/
+.. _nose:   https://nose.readthedocs.io/

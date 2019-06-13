@@ -1,45 +1,13 @@
 .. :orphan:
 
-Informations pratiques 2019
-===========================
+Informations pratiques
+======================
 
-- Atelier *Analyse scientifique avec Python*
+- Formation *Analyse scientifique avec Python*
 - `Cours en ligne
-  <https://informatique-python.readthedocs.io/fr/m2/>`_
+  <https://informatique-python.readthedocs.io/fr/latest/>`_
 - Responsable: Yannick Copin `<ipnl.in2p3.fr>`, Bureau
   420 de l'`IPNL <http://www.ipnl.in2p3.fr/>`_ (4 rue Fermi)
-
-.. rubric:: Calendrier
-
-Toutes les séances ont lieu au bâtiment `Ariane
-<http://oscar.univ-lyon1.fr/appli-externe/plan/plans/fiches_ucbl/751.html>`_.
-
-===============  ===========  =====
-Date             TD           Salle
-===============  ===========  =====
-Lun. 04/02/2019  10h-12h30     05
-                 14h-16h30
-Mar. 05/02       10h-12h30     05
-                 14h-16h30
-Jeu. 07/02       10h-12h30     01
-                 14h-16h30     (projets)
-===============  ===========  =====
-
-.. rubric:: Participants
-
-=====================  ====================  ======
-Nom                    Mail (`prenom.nom+`)  Statut
-=====================  ====================  ======
-vivien.duboisdendien   `etu.univ-lyon1.fr`   M2 Astro
-marion.farcy           `etu.univ-lyon1.fr`   M2 Astro
-maxime.rey2            `etu.univ-lyon1.fr`   M2 Astro
-antoine.rocher         `etu.univ-lyon1.fr`   M2 Astro
-deborah.polderman      `etu.univ-lyon1.fr`   M2 PAMMCO
-fabien.rondepierre     `etu.univ-lyon1.fr`   M2 PAMMCO
-antonin.pardon         `univ-lyon1.fr`       ILM
-floriane.perrier       `univ-lyon1.fr`       ILM
-clement.bernard        `ipnl.in2p3.fr`       IPNL
-=====================  ====================  ======
 
 .. rubric:: Installations locales
 

@@ -73,9 +73,9 @@ author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 # built documents.
 #
 # The short X.Y version.
-version = u'Master de Physique Fondamentale, Université Lyon 1'
+version = u'Informatique Python'
 # The full version, including alpha/beta/rc tags.
-release = u'Février 2019'
+release = u'Juillet 2019'
 
 copyright = ', '.join((release, author))
 

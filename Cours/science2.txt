@@ -977,23 +977,22 @@ différents domaines de la physique, chimie, etc.:
 - *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
   <http://sfepy.org/doc-devel/>`_;
 - Analyse statistique bayesienne: `PyStan
-  <http://mc-stan.org/interfaces/pystan.html>`_;
-- *Markov Chain Monte-Carlo*: `emcee
-  <http://dan.iel.fm/emcee/current/>`_, `PyMC3
+  <https://mc-stan.org/interfaces/pystan.html>`_;
+- *Markov Chain Monte-Carlo*: `emcee <https://emcee.readthedocs.io/>`_, `PyMC3
   <https://pymc-devs.github.io/pymc3/>`_;
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
   <https://pythonhosted.org/milk/>`_, `MDP
   <http://mdp-toolkit.sourceforge.net/>`_, `Keras <https://keras.io/>`_ et
   autres `modules d'intelligence artificielle
   <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_;
-- Calcul symbolique: `sympy <http://www.sympy.org/>`_ (voir également
+- Calcul symbolique: `sympy <https://www.sympy.org/>`_ (voir également
   ce `tutoriel sympy
   <https://mattpap.github.io/scipy-2011-tutorial/html/>`_) et `sage
   <http://www.sagemath.org/>`_;
 - `PyROOT <https://root.cern.ch/pyroot>`_;
 - `High Performance Computing in Python
   <https://byumcl.bitbucket.io/bootcamp2013/labs/perfomance.html>`_;
-- `Etc. <http://www.scipy.org/topical-software.html>`_
+- `Etc. <https://www.scipy.org/topical-software.html>`_
 
 .. rubric:: Notes de bas de page et références bibliographiques
 

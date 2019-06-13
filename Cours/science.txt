@@ -750,8 +750,8 @@ Tour d'horizon
 - `Scikits <http://scikits.appspot.com/scikits>`_: modules plus
   spécifiques étroitement liés à :mod:`scipy`, parmi lesquels:
 
-  - `scikit-learn <http://scikit-learn.org/stable/>`_: *machine learning*,
-  - `scikit-image <http://scikit-image.org/>`_: *image processing*,
+  - `scikit-learn <https://scikit-learn.org/stable/>`_: *machine learning*,
+  - `scikit-image <https://scikit-image.org/>`_: *image processing*,
   - `statsmodel <http://www.statsmodels.org/>`_: modèles statistiques
     (`tutorial <http://jseabold.net/pages/talks>`_),
 - `Scipy Topical softwares <https://www.scipy.org/topical-software.html>`_.
@@ -773,7 +773,7 @@ Quelques exemples complets
   - `odeint notebook
     <http://nbviewer.jupyter.org/gist/dpsanders/d417c1ffbb76f13f678c>`_
   - `Zombie Apocalypse
-    <http://scipy-cookbook.readthedocs.io/items/Zombie_Apocalypse_ODEINT.html>`_
+    <https://scipy-cookbook.readthedocs.io/items/Zombie_Apocalypse_ODEINT.html>`_
 
 * `Optimisation
   <https://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html>`_
@@ -796,12 +796,12 @@ Matplotlib
 
 .. index:: module: matplotlib
 
-`Matplotlib <http://matplotlib.org/>`_ est une bibliothèque graphique de
+`Matplotlib <https://matplotlib.org/>`_ est une bibliothèque graphique de
 visualisation 2D (avec un support pour la 3D, l'animation et l'interactivité),
 permettant des sorties de haute qualité « prêtes à publier ».  C'est à la fois
 une bibliothèque de *haut niveau*, fournissant des fonctions de visualisation
 « clés en main » (échelle logarithmique, histogramme, courbes de niveau, etc.,
-voir la `galerie <http://matplotlib.org/gallery.html>`_), et de *bas niveau*,
+voir la `galerie <https://matplotlib.org/gallery.html>`_), et de *bas niveau*,
 permettant de modifier tous les éléments graphiques de la figure (titre, axes,
 couleurs et styles des lignes, etc., voir `Anatomie d'une figure`_).
 
@@ -889,7 +889,7 @@ systèmes d'axes (numérotés de 1 à 6)::
 .. index:: pair: matplotlib; GridSpec
 
 Pour des mises en page plus complexes, il est possible d'utiliser le kit
-`gridspec <http://matplotlib.org/users/gridspec.html>`_, p.ex.::
+`gridspec <https://matplotlib.org/users/gridspec.html>`_, p.ex.::
 
     from matplotlib.gridspec import GridSpec
 
@@ -940,10 +940,10 @@ La méthode :meth:`matplotlib.figure.Figure.savefig` permet de
 sauvegarder la figure dans un fichier dont le format est
 automatiquement défini par son extension, `png` (*raster*), `[e]ps`,
 `pdf`, `svg` (*vector*), etc., via différents `backends
-<http://matplotlib.org/faq/usage_faq.html#what-is-a-backend>`_.
+<https://matplotlib.org/faq/usage_faq.html#what-is-a-backend>`_.
 
 Il est également possible d'afficher la figure dans une `fenêtre interactive
-<http://matplotlib.org/users/navigation_toolbar.html>`_ avec la commande
+<https://matplotlib.org/users/navigation_toolbar.html>`_ avec la commande
 :func:`matplotlib.pyplot.show`:
 
 .. image:: simpleShow.*
@@ -962,22 +962,22 @@ L'interface :abbr:`OO (Orientée Objet)` :mod:`matplotlib.pyplot` donne accès �
 tous les éléments d'une figure (titre, axes, légende, etc.), qui peuvent alors
 être ajustés (couleur, police, taille, etc.).
 
-.. figure:: http://matplotlib.org/_images/anatomy.png
+.. figure:: https://matplotlib.org/_images/anatomy.png
    :align: center
    :width: 60%
-   :target: http://matplotlib.org/examples/showcase/anatomy.html
+   :target: https://matplotlib.org/examples/showcase/anatomy.html
    :alt: Anatomie d'une figure.
 
    **Figure:** Anatomie d'une figure.
 
 .. Note:: N'oubliez pas de `citer matplotlib
-   <http://matplotlib.org/citing.html>`_ (notamment [Matplotlib07]_) dans vos
+   <https://matplotlib.org/citing.html>`_ (notamment [Matplotlib07]_) dans vos
    publications et présentations utilisant cet outil.
 
 .. rubric:: Liens:
 
-- `User's Guide <http://matplotlib.org/users/>`_
-- `Gallery <http://matplotlib.org/gallery.html>`_
+- `User's Guide <https://matplotlib.org/users/>`_
+- `Gallery <https://matplotlib.org/gallery.html>`_
 - `Tutorial matplotlib
   <http://www.labri.fr/perso/nrougier/teaching/matplotlib/>`_
 - `Tutoriel matplotlib
@@ -987,7 +987,7 @@ tous les éléments d'une figure (titre, axes, légende, etc.), qui peuvent alor
 
 - `MPLD3 <http://mpld3.github.io/>`_, un *backend* matplotlib interactif basé
   sur la bibliothèque *web* `3D.js <https://d3js.org/>`_;
-- `basemap <http://matplotlib.org/basemap/users/index.html>`_ et `cartopy
+- `basemap <https://matplotlib.org/basemap/users/index.html>`_ et `cartopy
   <http://scitools.org.uk/cartopy/docs/latest/gallery.html>`_, bibliothèques de
   cartographie sphérique;
 - `Seaborn <http://seaborn.pydata.org/>`_, une surcouche de visualisation
@@ -1015,13 +1015,13 @@ Visualisation 3D
 .. index:: pair: matplotlib; mplot3d
 
 Matplotlib fournit d'emblée une interface `mplot3d
-<http://matplotlib.org/gallery.html#mplot3d>`_ pour des figures 3D assez
+<https://matplotlib.org/gallery.html#mplot3d>`_ pour des figures 3D assez
 simples:
 
-.. figure:: http://matplotlib.org/_images/contourf3d_demo22.png
+.. figure:: https://matplotlib.org/_images/contourf3d_demo22.png
    :align: center
    :width: 60%
-   :target: http://matplotlib.org/examples/mplot3d/contourf3d_demo2.html
+   :target: https://matplotlib.org/examples/mplot3d/contourf3d_demo2.html
    :alt: Exemple de figure matplotlib 3D.
 
    **Figure:** Exemple de figure matplotlib 3D.

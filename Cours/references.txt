@@ -11,7 +11,7 @@ Documentation générale
 - `Python <https://www.python.org/>`_
 - `Python Wiki <https://wiki.python.org/moin/>`_
 - `Python Frequently Asked Questions <https://docs.python.org/3/faq/index.html>`_
-- `The Python Package Index <https://pypi.python.org/pypi>`_
+- `The Python Package Index <https://pypi.org>`_
 
 Listes de liens
 ---------------
@@ -27,7 +27,6 @@ Listes de liens
 - `Learning Python For Data Science
   <https://pythontips.com/2016/02/27/learning-python-for-data-science/>`_ (2016)
 - `Awesome Python <https://awesome-python.com/>`_
-- `A curated list of courses on Python <http://bafflednerd.com/learn-python-online/>`_
 - `Real Python tutorials <https://realpython.com/>`_
   
 .. rubric:: ipython
@@ -95,7 +94,6 @@ Python
 - `Google's Python Class <https://developers.google.com/edu/python/>`_
 - `CheckIO <https://checkio.org/>`_, pour apprendre la programmation Python en
   s'amusant !
-- `Python Testing Tools <http://oddbird.net/python-testing-tools-preso/>`_
 - `Python Programming <https://www.codecademy.com/learn/python>`_ (Code Academy)
 
 .. - `Cours Python 3 + exercices <http://perso.limsi.fr/pointal/python:courspython3>`_ |fr|
