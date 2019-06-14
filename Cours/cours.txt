@@ -914,19 +914,19 @@ Un objet est une entité de programmation, disposant de ses propres
 Au concept d'objet sont liées les notions de:
 
 - **Classe:** il s'agit d'un *modèle* d'objet, dans lequel sont
-  définis ses propriétés usuelles.  P.ex. la classe `Forme` peut
-  représenter une forme plane caractérisée par sa couleur, et
-  disposant de fonctionnalités propres, p.ex. `change_couleur()`;
+  définis ses propriétés usuelles.  P.ex. la classe `Animal` peut
+  représenter un animal caractérisé par sa masse, et
+  disposant de fonctionnalités propres, p.ex. `grossit()`;
 - **Instanciation:** c'est le fait générer un objet concret (une
-  *instance*) à partir d'un modèle (une classe).  P.ex. `rosie =
-  Forme('rose')` crée une instance *rosie* à partir de la classe
-  `Forme` et d'une couleur (chaîne de caractères `'rose'`):
+  *instance*) à partir d'un modèle (une classe).  P.ex. `vache =
+  Animal(500.)` crée une instance *vache* à partir de la classe
+  `Animal` et d'une masse (`float`):
 - **Attributs:** variables internes décrivant l'état de l'objet.
-  P.ex., `rosie.couleur` donne la couleur de la `Forme` *rosie*;
+  P.ex., `vache.masse` donne la masse de l'`Animal` *vache*;
 - **Méthodes:** fonctions internes, s'appliquant en premier lieu sur
   l'objet lui-même (`self`), décrivant les capacités de l'objet.
-  P.ex. `rosie.change_couleur('bleu')` change la couleur de la `Forme`
-  *rosie*;
+  P.ex. `vache.grossit(10)` modifie la masse de l'`Animal`
+  *vache*;
 
   .. Attention:: Toutes les méthodes d'une classe doivent au moins
      prendre `self` -- représentant l'objet lui-même -- comme premier
@@ -936,35 +936,38 @@ Au concept d'objet sont liées les notions de:
   et fonctions usuels (`+`, `abs()`, `str()`, etc.), pour simplifier
   l'écriture d'opérations sur les objets.  Ainsi, on peut redéfinir
   les opérateurs de comparaison (`<`, `>=`, etc.) dans la classe
-  `Forme` pour que les opérations du genre `forme1 < forme2` aient un
-  sens (p.ex. en comparant les aires).
-- **Héritage de classe:** il s'agit de définir une classe à partir
-  d'une (ou plusieurs) classe(s) parente(s).  La nouvelle classe
-  *hérite* des attributs et méthodes de sa (ses) parente(s), que l'on
-  peut alors modifier ou compléter.  P.ex. la classe `Rectangle`
-  hérite de la classe `Forme` (elle partage la notion de couleur et
-  d'aire), et lui ajoute des méthodes propres à la notion de rectangle
-  (p.ex. formule explicite de l'aire, étirement).
+  `Animal` pour que les opérations du genre `animal1 < animal2` aient un
+  sens (p.ex. en comparant les masses).
+- **Héritage de classe:** il s'agit de définir une classe à partir d'une (ou
+  plusieurs) classe(s) parente(s).  La nouvelle classe *hérite* des attributs
+  et méthodes de sa (ses) parente(s), que l'on peut alors modifier ou
+  compléter.  P.ex. la classe `AnimalFeroce` hérite de la classe `Animal` (elle
+  partage la notion de masse), et lui ajoute des méthodes propres à la notion
+  d'animal féroce (p.ex. dévorer un autre animal).
 
 .. rubric:: Exemple de définition de classe
 
-.. literalinclude:: formes.py
-   :pyobject: Forme
+.. literalinclude:: animal.py
+   :pyobject: Animal
    :linenos:
 
 .. rubric:: Exemple d'héritage de classe
 
-.. literalinclude:: formes.py
-   :pyobject: Rectangle
+.. literalinclude:: animal.py
+   :pyobject: AnimalFeroce
+   :linenos:
+
+.. literalinclude:: animal.py
+   :pyobject: AnimalGentil
    :linenos:
 
 .. Note:: Il est traditionnel de commencer les noms de classes avec
-   une majuscule (`Forme`), et les noms d'instances de classe (les
-   variables) avec une minuscule (`rosie`).
+   une majuscule (`Animal`), et les noms d'instances de classe (les
+   variables) avec une minuscule (`vache`).
 
 .. rubric:: Exemples
 
-:ref:`formes`, :ref:`circonscrit`
+:ref:`animal`, :ref:`circonscrit`
 
 .. rubric:: Études de cas
 

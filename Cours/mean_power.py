@@ -42,7 +42,7 @@ if __name__ == '__main__':
     parser.add_argument('-i', '--input', nargs='?', type=argparse.FileType('r'),
                         help="Fichier contenant les nombres à moyenner")
     parser.add_argument('-p', '--power', type=float, default=1.,
-                        help="'Puissance' de la moyenne (%default)")
+                        help="'Puissance' de la moyenne (par défaut: %(default)s)")
 
     args = parser.parse_args()
     # end-argparse

@@ -11,15 +11,30 @@ Mean power (fonction, argparse)
 
 **Source:** :download:`mean_power.py`
 
-.. _formes:
+.. _animal:
 
-Formes (POO)
+Animal (POO)
 ------------
 
-.. literalinclude:: formes.py
+.. literalinclude:: animal.py
    :linenos:
 
-**Source:** :download:`formes.py`
+Exécution du code::
+  
+  $ ./animal.py
+  =====================Une tragédie en trois actes======================
+  --------------------Acte I: la vache prend 10 kg.---------------------
+  Animal vivant, 510 kg
+  ----------------------Acte II: Dumbo l'éléphant-----------------------
+  Dumbo, un animal gentil bien vivant, 1000 kg
+  -----------------------Acte III: le féroce lion-----------------------
+  Animal féroce bien vivant, 200 kg
+  -------------Scène tragique: le lion dévore l'éléphant...-------------
+  Pauvre Dumbo, paix à son âme...
+  Dumbo, un animal gentil mais mort, 980 kg
+  Animal féroce bien vivant, 220 kg
+      
+**Source:** :download:`animal.py`
 
 .. _circonscrit:
 
