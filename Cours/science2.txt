@@ -4,6 +4,7 @@ Bibliothèques scientifiques avancées
 ####################################
 
 .. contents:: Table des matières
+   :local:
 ..
     1  Pandas et xarray
       1.1  Structures

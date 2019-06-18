@@ -5,6 +5,7 @@ Bibliothèque standard
 #####################
 
 .. contents:: Table des matières
+   :local:
 ..
     1  Gestion des arguments/options de la ligne de commande
     2  Pickle: sérialisation des données

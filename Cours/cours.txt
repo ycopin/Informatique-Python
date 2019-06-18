@@ -4,6 +4,7 @@ Initiation à Python
 ###################
 
 .. contents:: Table des matières              
+   :local:
 ..
     1   Introduction
       1.1  Installation

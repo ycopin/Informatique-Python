@@ -4,6 +4,7 @@ Bibliothèques numériques de base
 ################################
 
 .. contents:: Table des matières
+   :local:
 ..
     1  Numpy
       1.1  Tableaux
