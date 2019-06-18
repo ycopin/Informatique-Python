@@ -175,6 +175,8 @@ html_theme_options = {
     'page_width': '75%',
     'sidebar_width': '25%',
     #'fixed_sidebar': True,
+    'sidebar_includehidden': False,
+    'description': u"Une introduction à Python utilisé dans un contexte scientifique."
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
