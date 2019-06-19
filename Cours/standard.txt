@@ -220,10 +220,8 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 
 .. rubric:: Bibliothèques externes:
 
-- TUI: `termcolor <https://pypi.org/project/termcolor>`_ (texte
-  coloré ANSII), `blessed <https://pypi.org/project/blessed>`_
-  (mise en page)
-- GUI: `PyGI <https://pygobject.readthedocs.io/>`_ (GTK3), `PyQt
+- TUI: :pypi:`termcolor` (texte coloré ANSII), :pypi:`blessed` (mise en page)
+- GUI: :rtd:`pygobject` (GTK3), `PyQt
   <https://riverbankcomputing.com/software/pyqt/intro>`_ / `pySide
-  <https://wiki.qt.io/PySide>`_ (Qt), `wxPython
-  <https://www.wxpython.org/>`_ (wxWidgets)
+  <https://wiki.qt.io/PySide>`_ (Qt), `wxPython <https://www.wxpython.org/>`_
+  (wxWidgets)

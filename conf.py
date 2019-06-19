@@ -33,6 +33,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'sphinx.ext.intersphinx',
+    'sphinx.ext.extlinks',
     # External extensions
     #'sphinxcontrib.email',      # Mail obfuscation (incompatible w/ RTFD)
     'nbsphinx',                 # Support for Ipython Notebooks
@@ -50,7 +51,10 @@ intersphinx_mapping = {
 }
 
 # Extlinks configuration
-extlinks = {'pypi': ('https://pypi.org/project/%s', '')}
+extlinks = {
+    'pypi': ('https://pypi.org/project/%s', ''),
+    'rtd': ('https://%s.readthedocs.io/', '')      # readthedocs.io
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

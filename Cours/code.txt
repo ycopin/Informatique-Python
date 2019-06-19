@@ -278,11 +278,10 @@ constructions dangereuses, les variables non-définies, etc.  Ces
 outils ne testent pas nécessairement la validité des algorithmes et de
 leur mise en oeuvre...
 
-- `pycodestyle <https://github.com/PyCQA/pycodestyle/>`_ (ex-`pep8`) et
-  `autopep8 <https://github.com/hhatto/autopep8>`_
-- `pyflakes <https://pypi.org/project/pyflakes>`_
-- `pychecker <http://pychecker.sourceforge.net/>`_
-- `pylint <https://pypi.org/project/pylint>`_
+- :pypi:`pycodestyle` (ex-`pep8`) et :pypi:`autopep8`
+- :pypi:`pyflakes`
+- :pypi:`pychecker`
+- :pypi:`pylint`
 
 Débogage
 --------
@@ -364,13 +363,11 @@ fonctionne et produit les bons résultats dans tous les cas.  S'il
 reste trop lent ou gourmand en mémoire *pour vos besoins*, il peut
 être nécessaire de l'optimiser.
 
-Le `profilage <https://docs.python.org/3/library/profile.html>`_
-permet de déterminer le temps passé dans chacune des sous-fonctions
-d'un code (ou ligne par ligne: `line profiler
-<https://github.com/rkern/line_profiler>`_, ou selon l'utilisation de
-la mémoire: `memory profiler
-<https://pypi.org/project/memory_profiler>`_), afin d'y identifier
-les parties qui gagneront à être optimisées.
+Le `profilage <https://docs.python.org/3/library/profile.html>`_ permet de
+déterminer le temps passé dans chacune des sous-fonctions d'un code (ou ligne
+par ligne: :pypi:`line profiler <line-profiler>`, ou selon l'utilisation de la
+mémoire: :pypi:`memory profiler <memory-profiler>`), afin d'y identifier les
+parties qui gagneront à être optimisées.
 
 - `python -O`, `__debug__`, `assert`
 
