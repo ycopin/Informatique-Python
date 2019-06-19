@@ -18,7 +18,7 @@
 # -- General configuration -----------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-needs_sphinx = '1.3'
+needs_sphinx = '2.0'
 
 # If true, figures, tables and code-blocks are automatically numbered if they
 # have a caption. For now, it works only with the HTML builder.
@@ -50,7 +50,7 @@ intersphinx_mapping = {
 }
 
 # Extlinks configuration
-extlinks = {'pypi': ('https://pypi.python.org/pypi/%s', '')}
+extlinks = {'pypi': ('https://pypi.org/project/%s', '')}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

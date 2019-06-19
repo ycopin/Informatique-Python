@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 # Time-stamp: <2018-07-26 16:57 ycopin@lyonovae03.in2p3.fr>
 
 __author__ = "Adrien Licari <adrien.licari@ens-lyon.fr>; Yannick Copin <y.copin@ipnl.in2p3.fr>"

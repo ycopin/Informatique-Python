@@ -4,6 +4,6 @@ matplotlib
 astropy
 pandas
 xarray
-sphinx>=1.4
+sphinx>=2.0
 ipykernel
 nbsphinx

@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 # Time-stamp: <2018-07-19 10:43 ycopin@lyonovae03.in2p3.fr>
 
 """
