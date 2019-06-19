@@ -534,21 +534,21 @@ du même type.  Cependant, outre les types scalaires élémentaires --
 supporte les types *composés*, c.-à-d. incluant plusieurs sous-éléments de
 types différents:
 
->>> dt = N.dtype([('nom', 'S10'),    # 1er  élément: une chaîne de 10 caractères
+>>> dt = N.dtype([('nom', 'U10'),    # 1er  élément: une chaîne de 10 caractères unicode
 ...               ('age', 'i'),      # 2e élément: un entier
 ...               ('taille', 'd')])  # 3e élément: un réel (double)
 >>> arr = N.array([('Calvin', 6, 1.20), ('Hobbes', 5, 1.80)], dtype=dt); arr
 array([('Calvin', 6, 1.2), ('Hobbes', 6, 1.8)],
-      dtype=[('nom', '|S10'), ('age', '<i4'), ('taille', '<f8')])
+      dtype=[('nom', '<U10'), ('age', '<i4'), ('taille', '<f8')])
 >>> arr[0]                           # Accès par élément
 ('Calvin', 6, 1.2)
 >>> arr['nom']                       # Accès par sous-type
-array(['Calvin', 'Hobbes'], dtype='|S10')
->>> rec = arr.view(N.recarray); arr  # Vue de type 'recarray'
+array(['Calvin', 'Hobbes'], dtype='<U10')
+>>> rec = arr.view(N.recarray); rec  # Vue de type 'recarray'
 rec.array([('Calvin', 6, 1.2), ('Hobbes', 5, 1.8)],
-      dtype=[('nom', '|S10'), ('age', '<i4'), ('taille', '<f8')])
+      dtype=[('nom', '<U10'), ('age', '<i4'), ('taille', '<f8')])
 >>> rec.nom                          # Accès direct par attribut
-chararray(['Calvin', 'Hobbes'], dtype='|S10')
+array(['Calvin', 'Hobbes'], dtype='<U10')
 
 .. _messier:
 
@@ -560,17 +560,17 @@ Separated Values)` des objets de Messier :download:`Messier.csv`:
    :linenos:
    :lines: 1-8
 
->>> dt = N.dtype([('M', 'S3'),        # N° catalogue Messier
+>>> dt = N.dtype([('M', 'U3'),        # N° catalogue Messier
 ...               ('NGC', 'i'),       # N° New General Catalogue
-...               ('Type', 'S2'),     # Code type
+...               ('Type', 'U2'),     # Code type
 ...               ('Mag', 'f'),       # Magnitude
 ...               ('Size', 'f'),      # Taille [arcmin]
 ...               ('Distance', 'f'),  # Distance [pc]
 ...               ('RA', 'f'),        # Ascension droite [h]
 ...               ('Dec', 'f'),       # Déclinaison [deg]
-...               ('Con', 'S3'),      # Code constellation
-...               ('Season', 'S6'),   # Saison
-...               ('Name', 'S30')])   # Nom alternatif
+...               ('Con', 'U3'),      # Code constellation
+...               ('Season', 'U6'),   # Saison
+...               ('Name', 'U30')])   # Nom alternatif
 >>> messier = N.genfromtxt("Messier.csv", dtype=dt, delimiter=',', comments='#')
 >>> messier[1]
 ('M1', 1952, 'Sn',  8.39999962,  5.,  1930.,  5.57499981,  22.0170002, 'Tau', 'winter', 'Crab Nebula')

@@ -791,7 +791,7 @@ array([[ 0.,  1.,  2.,  3.],
        [ 4.,  5.,  6.,  7.],
        [ 8.,  9., 10., 11.]])
 Coordinates:
-  * x        (x) |S1 'a' 'b' 'c'
+  * x        (x) <U1 'a' 'b' 'c'
 Dimensions without coordinates: y
 Attributes:
     author:     Y. Copin
@@ -820,7 +820,7 @@ c 0      8.0
 ('x', 'y')
 >>> data.coords
 Coordinates:
-  * x        (x) |S1 'a' 'b' 'c'
+  * x        (x) <U1 'a' 'b' 'c'
 >>> data.values
 array([[  0.,   1.,   2.,   3.],
        [  4.,   5.,   6.,   7.],
@@ -832,17 +832,17 @@ OrderedDict([('author', 'Y. Copin')])
 <xarray.DataArray 'mesures' (x: 3)>
 array([ 1.,  5.,  9.])
 Coordinates:
-  * x        (x) |S1 'a' 'b' 'c'
+  * x        (x) <U1 'a' 'b' 'c'
 >>> data.loc['a':'b', -1]  # Accès par labels
 <xarray.DataArray 'mesures' (x: 2)>
 array([ 3.,  7.])
 Coordinates:
-  * x        (x) |S1 'a' 'b'
+  * x        (x) <U1 'a' 'b'
 >>> data.sel(x=['a', 'c'], y=2)
 <xarray.DataArray 'mesures' (x: 2)>
 array([  2.,  10.])
 Coordinates:
-  * x        (x) |S1 'a' 'c'
+  * x        (x) <U1 'a' 'c'
 
 >>> data.mean(dim='x')  # Moyenne le long de la dimension 'x' = data.mean(axis=0)
 <xarray.DataArray 'mesures' (y: 4)>
@@ -880,7 +880,7 @@ array([[  0.,   1.,   2.,   3.],
        [  4.,   5.,   6.,   7.],
        [  8.,   9.,  10.,  11.]])
 Coordinates:
-  * x        (x) |S1 'a' 'b' 'c'
+  * x        (x) <U1 'a' 'b' 'c'
     isSmall  (x) bool True False False
 Dimensions without coordinates: y
 >>> data.groupby('isSmall').mean(dim='x')  # Regroupement et agrégation
