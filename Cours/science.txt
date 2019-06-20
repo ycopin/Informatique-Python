@@ -357,27 +357,25 @@ array([[[0, 0],
    pair: numpy; newaxis
 
 L'`array broadcasting
-<https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html>`_
-définit les régles selon lesquelles deux tableaux de formats
-*différents* peuvent éventuellement s'apparier.
+<https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html>`_ définit les
+régles selon lesquelles deux tableaux de formats *différents* peuvent
+éventuellement s'apparier.
 
-1. Deux tableaux sont compatibles (*broadcastable*) si, pour chaque
-   axe, soit les tailles sont égales, soit l'une d'elles est
-   exactement égale à 1.  P.ex. (5, 3) et (1, 3) sont des formats
-   *broadcastable*, (5, 3) et (5, 1) également, mais (5, 3) et (3, 1)
-   ne le sont pas.
-2. Si un tableau a un axe de taille 1, le tableau sera dupliqué à la
-   volée autant de fois que nécessaire selon cet axe pour attendre la
-   taille de l'autre tableau le long de cet axe.  P.ex. un tableau (2,
-   1, 3) pourra être transformé en tableau (2, 5, 3) en le dupliquant
-   5 fois le long du 2e axe (`axis=1`).
-3. La taille selon chaque axe après *broadcast* est égale au maximum
-   de toutes les tailles d'entrée le long de cet axe.  P.ex. (5, 3, 1)
-   × (1, 3, 4) → (5, 3, 4).
-4. Si un des tableaux a un rang (`ndim`) inférieur à l'autre, alors
-   son format (`shape`) est précédé d'autant de 1 que nécessaire pour
-   atteindre le même rang.  P.ex. (5, 3, 1) × (4,) = (5, 3, 1) × (1,
-   1, 4) → (5, 3, 4).
+1. Deux tableaux de même rang sont compatibles (*broadcastable*) si, pour chaque
+   axe, soit les tailles sont égales, soit l'une d'elles est exactement égale
+   à 1.  P.ex. (5, 3) et (1, 3) sont des formats *broadcastable*, (5, 3) et
+   (5, 1) également, mais (5, 3) et (3, 1) ne le sont pas.
+2. Si un tableau a un axe de taille 1, le tableau sera dupliqué à la volée
+   autant de fois que nécessaire selon cet axe pour attendre la taille de
+   l'autre tableau le long de cet axe.  P.ex. un tableau (2, 1, 3) pourra être
+   transformé en tableau (2, 5, 3) en le dupliquant 5 fois le long du 2e axe
+   (`axis=1`).
+3. La taille selon chaque axe après *broadcast* est égale au maximum de toutes
+   les tailles d'entrée le long de cet axe.  P.ex. (5, 3, 1) × (1, 3, 4) → (5,
+   3, 4).
+4. Si un des tableaux a un rang (`ndim`) inférieur à l'autre, alors son format
+   (`shape`) est précédé d'autant de 1 que nécessaire pour atteindre le même
+   rang.  P.ex. (5, 3, 1) × (4,) = (5, 3, 1) × (1, 1, 4) → (5, 3, 4).
 
 >>> a = N.arange(6).reshape(2, 3); a # Shape (2, 3)
 array([[0, 1, 2],
@@ -461,6 +459,7 @@ array([[3],
    pair: numpy; matrix
    pair: numpy; identity
    pair: numpy; dot
+   pair: numpy; @
    module: numpy.linalg
 
 Les opérations de base s'appliquent sur les *éléments* des tableaux,
@@ -475,7 +474,7 @@ array([[1, 0],
 >>> m * i             # Attention! opération * sur les éléments
 array([[0, 0],
        [0, 3]])
->>> N.dot(m, i)       # Multiplication *matricielle* des tableaux: M × I = M
+>>> m @ i             # Multiplication *matricielle* = N.dot(m, i): M × I = M
 array([[0, 1],
        [2, 3]])
 
@@ -628,7 +627,8 @@ Entrées/sorties
    pair: numpy; genfromtxt
 
 :mod:`numpy` peut lire -- :func:`numpy.loadtxt` -- ou sauvegarder --
-:func:`numpy.savetxt` -- des tableaux dans un simple fichier ASCII:
+:func:`numpy.savetxt` -- des tableaux (uni- ou bi-dimensionnels) dans un simple
+fichier ASCII:
 
 >>> x = N.linspace(-1, 1, 100)
 >>> N.savetxt('archive_x.dat', x)   # Sauvegarde dans le fichier 'archive_x.dat'
@@ -640,8 +640,8 @@ True
    ne supporte pas les données manquantes; utiliser alors la fonction
    :func:`numpy.genfromtxt`, plus robuste mais plus lente.
 
-Le format texte n'est pas optimal pour de gros tableaux: il peut alors
-être avantageux d'utiliser le format binaire `.npy`, beaucoup plus
+Le format texte n'est pas optimal pour de gros tableaux (ou de rang > 2): il
+peut alors être avantageux d'utiliser le format binaire `.npy`, beaucoup plus
 compact (mais non *human readable*):
 
 >>> x = N.linspace(-1, 1, 1e6)
@@ -680,8 +680,7 @@ rapport à du Python standard, il peut être possible d'améliorer la
 vitesse d'exécution par l'utilisation de bibliothèques externes dédiées,
 p.ex.:
 
-* `NumExpr <https://github.com/pydata/numexpr>`_ est un évaluateur
-  optimisé d'expressions numériques:
+* :pypi:`numexpr` est un évaluateur optimisé d'expressions numériques:
 
   >>> a = N.arange(1e6)
   >>> b = N.arange(1e6)
@@ -694,16 +693,12 @@ p.ex.:
   >>> timeit numexpr.evaluate("exp(-a)") # Multi-threaded
   10 loops, best of 3: 19.3 ms per loop
 
-* `Bottleneck <https://github.com/kwgoodman/bottleneck>`_ est une
-  collection de fonctions accélérées, notamment pour des tableaux
-  contenant des `NaN <https://en.wikipedia.org/wiki/NaN>`_ ou pour des
-  statistiques glissantes;
-* `theano <http://deeplearning.net/software/theano/>`_, pour optimiser
-  l'évaluation des expressions mathématiques sur les tableaux
-  :mod:`numpy`, notamment par l'utilisation des :abbr:`GPU (Graphics
-  Processing Unit)` et de code C généré à la volée.
-
-  .. Attention:: `theano` n'est officiellement plus soutenu.
+* :pypi:`bottleneck` est une collection de fonctions accélérées, notamment pour
+  des tableaux contenant des `NaN <https://en.wikipedia.org/wiki/NaN>`_ ou pour
+  des statistiques glissantes;
+* :pypi:`theano`, pour optimiser l'évaluation des expressions mathématiques sur
+  les tableaux :mod:`numpy`, notamment par l'utilisation des :abbr:`GPU
+  (Graphics Processing Unit)` et de code C généré à la volée.
 
 Voir également :ref:`ProfOpt`.
 
@@ -751,7 +746,7 @@ Tour d'horizon
 - `Scikits <http://scikits.appspot.com/scikits>`_: modules plus
   spécifiques étroitement liés à :mod:`scipy`, parmi lesquels:
 
-  - `scikit-learn <https://scikit-learn.org/stable/>`_: *machine learning*,
+  - `scikit-learn <https://scikit-learn.org/>`_: *machine learning*,
   - `scikit-image <https://scikit-image.org/>`_: *image processing*,
   - `statsmodel <http://www.statsmodels.org/>`_: modèles statistiques
     (`tutorial <http://jseabold.net/pages/talks>`_),
@@ -986,11 +981,10 @@ tous les éléments d'une figure (titre, axes, légende, etc.), qui peuvent alor
 
 .. rubric:: Voir également:
 
-- `MPLD3 <http://mpld3.github.io/>`_, un *backend* matplotlib interactif basé
-  sur la bibliothèque *web* `3D.js <https://d3js.org/>`_;
-- `basemap <https://matplotlib.org/basemap/users/index.html>`_ et `cartopy
-  <http://scitools.org.uk/cartopy/docs/latest/gallery.html>`_, bibliothèques de
-  cartographie sphérique;
+- :pypi:`mpld3`, un *backend* matplotlib interactif basé sur la bibliothèque
+  *web* `3D.js <https://d3js.org/>`_;
+- `basemap <https://matplotlib.org/basemap/users/index.html>`_ et
+  :pypi:`cartopy`, bibliothèques de cartographie sphérique;
 - `Seaborn <http://seaborn.pydata.org/>`_, une surcouche de visualisation
   statistique à matplotlib et :ref:`myPandas`;
 - `HoloViews <http://holoviews.org/>`_, une surcouche de visualisation et

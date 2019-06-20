@@ -571,10 +571,9 @@ three    0.052007
 two      1.020315
 dtype: float64
 
-.. Note:: Si les bibliothèques d'optimisation de performances
-   `Bottleneck <https://github.com/kwgoodman/bottleneck>`_ et `NumExpr
-   <https://github.com/pydata/numexpr>`_ sont installées,
-   :mod:`pandas` en bénéficiera de façon transparente.
+.. Note:: Si les bibliothèques d'optimisation de performances :pypi:`bottleneck`
+   et :pypi:`numexpr` sont installées, :mod:`pandas` en bénéficiera de façon
+   transparente.
 
 
 Regroupement et agrégation de données
@@ -907,10 +906,10 @@ Astropy
 
 .. index:: module: astropy
 
-`Astropy <http://astropy.readthedocs.io/>`_ est une bibliothèque astronomique
-maintenue par la communauté et visant à fédérer les efforts jusque là
-disparates.  Elle offre en outre une interface unifiée à des `bibliothèques
-affiliées <http://www.astropy.org/affiliated/>`_ plus spécifiques.
+:rtfd:`astropy` est une bibliothèque astronomique maintenue par la communauté et
+visant à fédérer les efforts jusque là disparates.  Elle offre en outre une
+interface unifiée à des `bibliothèques affiliées
+<http://www.astropy.org/affiliated/>`_ plus spécifiques.
 
 Tour d'horizon
 --------------
@@ -967,25 +966,20 @@ Python est maintenant très largement utilisé par la communauté
 scientifique, et dispose d'innombrables bibliothèques dédiées aux
 différents domaines de la physique, chimie, etc.:
 
-- Astronomie: `Kapteyn <http://www.astro.rug.nl/software/kapteyn/>`_,
-  `AstroML <http://www.astroml.org/>`_, `HyperSpy
-  <http://hyperspy.org/>`_;
+- Astronomie: `Kapteyn <http://www.astro.rug.nl/software/kapteyn/>`_, `AstroML
+  <http://www.astroml.org/>`_, `HyperSpy <http://hyperspy.org/>`_;
 - Mécanique quantique: `QuTiP <http://qutip.org/>`_;
 - Électromagnétisme: `EMpy <https://lbolla.github.io/EMpy/>`_;
 - Optique physique: `Physical Optics Propagation in PYthon
-  <https://poppy-optics.readthedocs.io/>`_, `OpticsPy
-  <http://opticspy.org/>`_;
+  <https://poppy-optics.readthedocs.io/>`_, `OpticsPy <http://opticspy.org/>`_;
 - *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
-  <http://sfepy.org/doc-devel/>`_;
+  <http://sfepy.org/>`_;
 - Analyse statistique bayesienne: `PyStan
   <https://mc-stan.org/interfaces/pystan.html>`_;
-- *Markov Chain Monte-Carlo*: `emcee <https://emcee.readthedocs.io/>`_, `PyMC3
-  <https://pymc-devs.github.io/pymc3/>`_;
-- *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
-  <https://pythonhosted.org/milk/>`_, `MDP
-  <http://mdp-toolkit.sourceforge.net/>`_, `Keras <https://keras.io/>`_ et
-  autres `modules d'intelligence artificielle
-  <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_;
+- *Markov Chain Monte-Carlo*: :rtfd:`emcee`, :pypi:`PyMC3>`;
+- *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, :pypi:`milk`,
+  :pypi:`mdp`, `Keras <https://keras.io/>`_ et autres `modules d'intelligence
+  artificielle <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_;
 - Calcul symbolique: `sympy <https://www.sympy.org/>`_ (voir également
   ce `tutoriel sympy
   <https://mattpap.github.io/scipy-2011-tutorial/html/>`_) et `sage

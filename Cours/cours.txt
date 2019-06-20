@@ -3,7 +3,7 @@
 Initiation à Python
 ###################
 
-.. contents:: Table des matières              
+.. contents:: Table des matières
    :local:
 ..
     1   Introduction
@@ -113,8 +113,7 @@ Python:
 
 .. index:: interpréteur; ipython
 
-* :program:`ipython`: `interpréteur évolué
-  <http://ipython.readthedocs.io/>`_ (avec historique et
+* :program:`ipython`: :rtfd:`interpréteur évolué <ipython>` (avec historique et
   complétion automatique des commandes)::
 
     $ ipython
@@ -340,7 +339,7 @@ Structures de programmation
             niter += 1    # ... mais on n'est jamais assez prudent!
         if niter == 100:  # Ne pas oublier de tester l'absence de convergence!!!
             print("Erreur de convergence!")
-            
+
 .. Note:: Il n'y a pas en Python d'équivalent natif à l'instruction
    `switch` du C.
 
@@ -659,7 +658,7 @@ Il faut noter plusieurs choses importantes:
 Pour les noms de variables, fonctions, etc. utilisez de préférence des
 caractères purement ASCII [#fnunicode]_ (`a-zA-Z0-9_`); de manière générale,
 favorisez plutôt la langue anglaise (variables, commentaires, affichages).
-  
+
 .. rubric:: Exercice:
 
 :ref:`syracuse`

@@ -486,11 +486,9 @@ Comment installer/créer des modules externes:
   <http://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/>`_;
 - `Packaging a python library
   <https://blog.ionelmc.ro/2014/05/25/python-packaging/>`_;
-- `Cookiecutter <http://cookiecutter.readthedocs.io/>`_ est un
-  générateur de squelettes de projet via des *templates* (pas
-  uniquement pour Python);
-- `cx-freeze <http://cx-freeze.readthedocs.io/>`, pour générer un
-  exécutable à partir d'un script.
+- :rtfd:`cookiecutter` est un générateur de squelettes de projet via des
+  *templates* (pas uniquement pour Python);
+- :rtfd:`cx-freeze`, pour générer un exécutable à partir d'un script.
 
 Système de gestion de versions
 ------------------------------

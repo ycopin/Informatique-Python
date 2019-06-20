@@ -216,12 +216,12 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 ================================
 
 - :abbr:`TUI (Text User Interface)`: :mod:`curses`
-- :abbr:`GUI (Graphical User Interface)`: :mod:`Tkinter`,
+- :abbr:`GUI (Graphical User Interface)`: :mod:`tkinter`,
 
 .. rubric:: Bibliothèques externes:
 
 - TUI: :pypi:`termcolor` (texte coloré ANSII), :pypi:`blessed` (mise en page)
-- GUI: :rtd:`pygobject` (GTK3), `PyQt
+- GUI: :rtfd:`pygobject` (GTK3), `PyQt
   <https://riverbankcomputing.com/software/pyqt/intro>`_ / `pySide
   <https://wiki.qt.io/PySide>`_ (Qt), `wxPython <https://www.wxpython.org/>`_
   (wxWidgets)

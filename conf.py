@@ -53,7 +53,7 @@ intersphinx_mapping = {
 # Extlinks configuration
 extlinks = {
     'pypi': ('https://pypi.org/project/%s', ''),
-    'rtd': ('https://%s.readthedocs.io/', '')      # readthedocs.io
+    'rtfd': ('https://%s.readthedocs.io/', '')      # readthedocs.io
 }
 
 # Add any paths that contain templates here, relative to this directory.
