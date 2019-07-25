@@ -1,0 +1,508 @@
+.. _cours2:
+
+Python avancé
+#############
+
+.. contents:: Table des matières
+   :local:
+..
+    1  Fonctionnalités avancées
+      1.1  Arguments anonymes
+      1.2  Dépaquetage des arguments
+      1.3  Dépaquetage des itérables
+      1.4  Décorateurs
+      1.5  Fonction anonyme
+    2  Programmation Orientée Objet avancée
+      2.1  Variables de classe
+      2.2  Méthodes statiques
+      2.3  Méthodes de classe
+      2.4  Attributs et méthodes privées
+      2.5  Propriétés
+    3  Éléments passés sous silence
+    4  Python 3.x
+      4.1  Transition Python 2 à Python 3
+
+
+Fonctionnalités avancées
+========================
+
+La brève introduction à Python se limite à des fonctionnalités
+relativement simples du langage.  De nombreuses fonctionnalités plus
+avancées n'ont pas encore été abordées [#global]_.
+
+Arguments anonymes
+------------------
+
+.. index::
+   *args
+   **kwargs
+
+Il est possible de laisser libre *a priori* le nombre et le nom des
+arguments d'une fonction, traditionnellement nommés `args` (arguments
+nécessaires) et `kwargs` (arguments optionnels).  P.ex.:
+
+>>> def f(*args, **kwargs):
+...     print("args:", args)
+...     print("kwargs:", kwargs)
+>>> f()
+args: ()
+kwargs: {}
+>>> f(1, 2, 3, x=4, y=5)
+args: (1, 2, 3)
+kwargs: {'y': 5, 'x': 4}
+
+.. Attention:: Cela laisse une grande flexibilité dans la signature de la
+   fonction, mais au prix d'une d'une très mauvaise lisibilité de la signature
+   de la fonction. *À utiliser avec parcimonie...*
+
+Dépaquetage des arguments
+-------------------------
+
+.. index::
+   pair: dépaquetage; *
+   pair: dépaquetage; **
+
+Il est possible de dépaqueter les `[kw]args` d'une fonction à la volée
+à l'aide de l'opérateur `[*]*`.  Ainsi, avec la même fonction `f`
+précédemment définie:
+
+>>> my_args = (1, 2, 3)
+>>> my_kwargs = dict(x=4, y=5)
+>>> f(my_args, my_kwargs)     # 2 args (1 liste et 1 dict.) et 0 kwarg
+args: ((1, 2, 3), {'x': 4, 'y': 5})
+kwargs: {}
+>>> f(*my_args, **my_kwargs)  # 3 args (1, 2 et 3) et 2 kwargs (x et y)
+args: (1, 2, 3)
+kwargs: {'x': 4, 'y': 5}
+
+À partir de Python 3.5, il est encore plus facile d'utiliser un ou
+plusieurs de ces opérateurs conjointement aux `[kw]args` traditionnels
+(:pep:`448`), dans la limite où les `args` sont toujours situés
+*avant* les `kwargs`:
+
+>>> f(0, *my_args, 9, **my_kwargs, z=6)
+args: (0, 1, 2, 3, 9)
+kwargs: {'x': 4, 'z': 6, 'y': 5}
+
+Dépaquetage des itérables
+-------------------------
+
+.. index::
+   pair: dépaquetage; *
+
+Il est également possible d'utiliser l'opérateur `*` pour les
+affectations multiples (:pep:`3132`):
+
+>>> a, b, c = 1, 2, 3, 4
+ValueError: too many values to unpack (expected 3)
+>>> a, *b, c = 1, 2, 3, 4
+>>> a, b, c
+(1, [2, 3], 4)
+
+Décorateurs
+-----------
+
+.. index:: pair: décorateur; @
+
+Les fonctions (et méthodes) sont en Python des objets comme les
+autres, et peuvent donc être utilisées comme arguments d'une fonction,
+ou retournées comme résultat d'une fonction.
+
+.. code-block:: python
+   :linenos:
+
+   def compute_and_print(fn, *args, **kwargs):
+
+       print("Function:  ", fn.__name__)
+       print("Arguments: ", args, kwargs)
+       result = fn(*args, **kwargs)
+       print("Result:    ", result)
+
+       return result
+
+Les décorateurs sont des *fonctions* s'appliquant sur une fonction ou
+une méthode pour en modifier le comportement: elles retournent de
+façon transparente une version « *décorée* » (augmentée) de la
+fonction initiale.
+
+.. code-block:: python
+   :linenos:
+
+   def verbose(fn):       # fonction → fonction décorée
+
+       def decorated(*args, **kwargs):
+           print("Function:  ", fn.__name__)
+           print("Arguments: ", args, kwargs)
+           result = fn(*args, **kwargs)
+           print("Result:    ", result)
+
+           return result
+
+       return decorated   # version décorée de la fonction initiale
+
+>>> verbose_sum = verbose(sum)  # Décore la fonction standard 'sum'
+>>> verbose_sum([1, 2, 3])
+Function:   sum
+Arguments:  ([1, 2, 3],) {}
+Result:     6
+
+Il est possible de décorer une fonction à la volée lors de sa
+définition avec la notation `@`::
+
+   @verbose
+   def null(*args, **kwargs):
+       pass
+
+qui n'est qu'une façon concise d'écrire `null = verbose(null)`.
+
+>>> null(1, 2, x=3)
+Function:   null
+Arguments:  (1, 2) {'x': 3}
+Result:     None
+
+Noter qu'il est possible d'ajouter plusieurs décorateurs, et de passer
+des arguments supplémentaires aux décorateurs.
+
+.. rubric:: Exemple 1: ajouter un attribut à une fonction/méthode
+
+.. literalinclude:: avance.py
+   :pyobject: add_attrs
+   :linenos:
+
+.. rubric:: Exemple 2: `monkey patching
+   <https://thecodebits.com/monkey-patching-in-python-explained-with-examples/>`_
+   (modification à la volée des propriétés d'un objet)
+
+.. literalinclude:: avance.py
+   :pyobject: make_method
+   :linenos:
+
+.. rubric:: Liens:
+
+- `Python et les décorateurs
+  <http://gillesfabio.com/blog/2010/12/16/python-et-les-decorateurs/>`_
+- `Primer on Python Decorators
+  <https://realpython.com/primer-on-python-decorators/>`_
+- `A guide to Python's function decorators
+  <https://www.thecodeship.com/patterns/guide-to-python-function-decorators/>`_
+- `Python Decorator Library
+  <https://wiki.python.org/moin/PythonDecoratorLibrary>`_
+
+
+Fonction anonyme
+----------------
+
+.. index:: lambda
+
+Il est parfois nécéssaire d'utiliser une fonction intermédiaire
+*simple* que l'on ne souhaite pas définir explicitement et nommément à
+l'aide de `def`.  Cela est possible avec l'opérateur fonctionnel
+:samp:`lambda {args}: {expression}`.  P.ex.:
+
+>>> compute_and_print(sum, [1, 2])               # Fn nommée à 1 argument
+Function:   sum
+Arguments:  ([1, 2],), {}
+Result:     3
+>>> compute_and_print(lambda x, y: x + y, 1, 2)  # Fn anonyme à 2 arguments
+Function:   <lambda>
+Arguments:  (1, 2) {}
+Result:     3
+
+La définition d'une fonction `lambda` ne peut inclure qu'**une
+seule** expression, et est donc contrainte *de facto* à être très
+simple, généralement pour être utilisée comme argument d'une autre
+fonction:
+
+>>> pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+>>> pairs.sort(key=lambda pair: pair[1])
+>>> pairs
+[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+
+.. Note:: il est possible de « nommer » une fonction anonyme, p.ex.::
+
+     >>> adder = lambda x, y: x + y
+
+   Cependant, cela est considéré comme une faute de style, puisque ce
+   n'est justement pas l'objectif d'une fonction anonyme! Il n'y a
+   p.ex. pas de *docstring* associée.
+
+**Voir également:** `Functional Programming
+<https://docs.python.org/3/howto/functional.html>`_
+
+
+Programmation Orientée Objet avancée
+====================================
+
+.. https://aboucaud.github.io/slides/2016/python-classes/
+
+Variables de classe
+-------------------
+
+.. index:: pair: class; variable
+
+Il s'agit d'attributs fondamentaux communs à toutes les instances de la classe,
+contrairement aux attributs d'instance (définis à l'initialisation).
+
+.. code-block:: python
+
+   class MyClass:
+
+       version = 1.2           # Variable de classe (commun à toutes les instances)
+
+       def __init__(self, x):
+
+           self.x = x          # Attribut d'instance (spécifique à chaque instance)
+
+Méthodes statiques
+------------------
+
+.. index::
+   staticmethod
+   pair: class; méthode statique
+
+Ce sont des méthodes qui ne travaillent pas sur une instance (le `self` en
+premier argument).  Elles sont définies à l'aide de la fonction
+:func:`staticmethod` généralement utilisée en décorateur.
+
+Elles sont souvent utilisées pour héberger dans le code d'une classe des
+méthodes génériques qui y sont liées, mais qui pourrait être utilisées
+indépendamment (p.ex. des outils de vérification ou de conversion).
+
+.. code-block:: python
+
+   class MyClass:
+
+       def __init__(self, speed):
+
+           self.speed = speed  # [m/s]
+
+       @staticmethod
+       def ms_to_kmh(speed):
+           "Conversion m/s → km/h."
+
+           return speed * 3.6  # [m/s] → [km/h]
+
+Une méthode statique peut être invoquée directement via la classe en dehors de
+toute instanciation (p.ex. `MyClass.ms_to_kmh()`), ou via une instance
+(p.ex. `self.ms_to_kmh()`).
+
+Méthodes de classe
+------------------
+
+.. index::
+   classmethod
+   pair: class; méthode de classe
+
+Ce sont des méthodes qui ne travaillent pas sur une instance (`self` en premier
+argument) mais directement sur la classe elle-même (`cls` en premier argument).
+Elles sont définies à l'aide de la fonction :func:`classmethod` généralement
+utilisée en décorateur.
+
+Elles sont souvent utilisées pour fournir des méthodes d'instanciation
+alternatives.
+
+.. code-block:: python
+
+   class MyClass:
+
+       def __init__(self, x, y):
+          "Initialisation classique."
+
+          self.x, self.y = x, y
+
+       @classmethod
+       def init_from_file(cls, filename):
+           "Initialisation à partir d'un fichier."
+
+           x, y = ...  # Lire x et y depuis le fichier.
+
+           return cls(x, y)  # Cette initialisation retourne bien une instance
+
+       @classmethod
+       def init_from_web(cls, url):
+           "Initialisation à partir d'une URL."
+
+           x, y = ...  # Lire x et y depuis le Web.
+
+           return cls(x, y)  # Cette initialisation retourne bien une instance
+
+.. rubric:: Exemple
+
+.. literalinclude:: avance.py
+   :pyobject: Date
+   :linenos:
+
+Attributs et méthodes privées
+-----------------------------
+
+Contrairement p.ex. au C++, Python n'offre pas vraiment de mécanisme de
+*privatisation* des attributs ou méthodes [#adults]_:
+
+* Les attributs/méthodes standards (qui ne commencent pas par `_`) sont
+  publiques, librement accessibles et modifiables (ce qui n'est pas une
+  raison pour faire n'importe quoi):
+
+  >>> youki = Animal(10.); youki.masse
+  10.0
+  >>> youki.masse = -5; youki.masse
+  -5.0
+
+* Les attributs/méthodes qui commencent par un simple `_` sont *réputées*
+  privées (mais sont en fait parfaitement publiques): une interface est
+  généralement prévue (*setter* et *getter*), même si vous pouvez y accéder
+  directement *à vos risques et périls*.
+
+  .. literalinclude:: avance.py
+     :pyobject: AnimalPrive
+     :linenos:
+
+  >>> youki = AnimalPrive(10); youki.get_mass()
+  10.0
+  >>> youki.set_mass(-5)
+  ValueError: Mass should be a positive float.
+  >>> youki._mass = -5; youki.get_mass()
+  -5.0
+
+* Les attributs/méthodes qui commencent par un double `__` (*dunder*) sont
+  « cachées » sous un nom complexe mais prévisible (cf. :pep:`8`).
+
+  .. literalinclude:: avance.py
+     :pyobject: AnimalTresPrive
+     :linenos:
+
+  >>> youki = AnimalTresPrive(10); youki.get_mass()
+  10.0
+  >>> youki.__mass = -5; c.get_mass()  # L'attribut __mass n'existe pas sous ce nom...
+  10.0
+  >>> c._AnimalTresPrive__mass = -5; c.get_mass()  # ... mais sous un alias compliqué.
+  -5.0
+
+Propriétés
+----------
+
+.. index:: property
+
+Compte tenu de la nature foncièrement publique des attributs, le mécanisme des
+*getters* et *setters* n'est pas considéré comme très pythonique.  Il est
+préférable d'utiliser la notion de :class:`property` (utilisée en décorateur).
+
+.. literalinclude:: avance.py
+   :pyobject: AnimalProperty
+   :linenos:
+
+>>> youki = AnimalProperty(10); youki.mass
+10.0
+>>> youki.mass = -5
+ValueError: Mass should be a positive float.
+>>> youki._mass = -5; youki.mass
+-5.0
+
+Les propriétés sont également utilisées pour accéder à des quantités calculées
+à la volée à partir d'attributs intrinsèques.
+
+.. literalinclude:: avance.py
+   :pyobject: Interval
+   :linenos:
+
+>>> i = Interval((0, 10)); i.min, i.middle, i.max
+(0, 5, 10)
+>>> i.max = 100
+AttributeError: can't set attribute
+
+
+Éléments passés sous silence
+============================
+
+Il existe encore beaucoup d'éléments passés sous silence:
+
+- :term:`iterator` (:func:`next`) et :term:`generator`
+  (:keyword:`yield`);
+- gestion de contexte: :keyword:`with` (:pep:`343`);
+- héritages multiples et méthodes de résolution;
+- annotations de fonctions (:pep:`484`) et de variables (:pep:`526`);
+- `f-strings` (:pep:`498`);
+- `__repr__` vs. `__str__`, `__new__` vs. `__init__`;
+- *class factory*,
+- etc.
+
+Ces fonctionnalités peuvent évidemment être très utiles, mais ne sont
+généralement pas strictement indispensables pour une première utilisation de
+Python dans un contexte scientifique.
+
+
+Python 3.x
+==========
+
+Pour des raisons historiques autant que pratiques [#py3]_, ce cours présentait
+initialement le langage Python dans sa version 2.  Cependant, puisque le
+développement actuel de Python (et de certaines de ses bibliothèques clés) se
+fait maintenant uniquement sur la branche 3.x, qui constitue une remise à plat
+*non rétrocompatible* du langage, et que la branche 2.x ne sera *a priori* plus
+supporté au-delà de 2020 (:pep:`466`), le cours a été porté sur Python 3 (voir
+:ref:`python23`).
+
+Python 3 apporte `quelques changements fondamentaux
+<https://docs.python.org/3/whatsnew/3.0.html>`_, notamment:
+
+- :func:`print` n'est plus un mot-clé mais une fonction: :samp:`print({...})`;
+- l'opérateur `/` ne réalise plus la division euclidienne entre les
+  entiers, mais toujours la division *réelle*;
+- la plupart des fonctions qui retournaient des itérables en Python 2
+  (p.ex. :func:`range`) retournent maintenant des itérateurs, plus
+  légers en mémoire;
+- un support complet (mais encore complexe) des chaînes Unicode;
+- un nouveau système de formatage des chaînes de caractères
+  (`f-string` du :pep:`498` à partir de Python 3.6);
+- la fonction de comparaison `cmp` (et la méthode spéciale associée
+  `__cmp__`) n'existe plus [#total]_.
+
+
+.. _python23:
+
+Transition Python 2 à Python 3
+------------------------------
+
+.. Avertissement:: Si vous vous lancez dans un nouveau développement, il est
+   dorénavant indispensable d'utiliser exclusivement Python 3.
+
+Si votre code est encore sous python-2.x, il existe de nombreux outils
+permettant de **faciliter** la transition vers 3.x (mais pas de la repousser
+*ad eternam*):
+
+* L'interpréteur Python 2.7 dispose d'une option `-3` mettant en
+  évidence dans un code les parties qui devront être modifiées pour un
+  passage à Python 3.
+* Le script `2to3 <https://docs.python.org/2.7/library/2to3.html>`_
+  permet également d'automatiser la conversion du code 2.x en 3.x.
+* La bibliothèque standard :mod:`__future__` permet d'introduire des
+  constructions 3.x dans un code 2.x, p.ex.::
+
+    from __future__ import print_function  # Fonction print()
+    from __future__ import division        # Division non-euclidienne
+
+    print(1/2)                             # Affichera '0.5'
+
+* La bibliothèque *non* standard `six <https://pythonhosted.org/six/>`_
+  fournit une couche de compatibilité 2.x-3.x, permettant de produire
+  de façon transparente un code compatible simultanément avec les deux
+  versions.
+
+.. rubric:: Liens
+
+- `Py3 Readiness <http://py3readiness.org/>`_: liste (réduite) des bibliothèques
+  encore non-compatibles avec Python 3
+- `Porting Python 2 Code to Python 3
+  <http://python.readthedocs.io/en/latest/howto/pyporting.html>`_
+- `The Conservative Python 3 Porting Guide
+  <http://portingguide.readthedocs.io/>`_
+- `Python 2/3 compatibility <http://python-future.org/>`_
+
+
+.. rubric:: Notes de bas de page
+
+.. [#global] Je ne parlerai pas ici des `variables globales
+   <http://geekandpoke.typepad.com/geekandpoke/2012/04/simply-explained-gv.html>`_...
+.. [#adults] *We're all consenting adults.*
+.. [#py3] De nombreuses distributions Linux sont encore basées sur
+   Python 2.7 par défaut.
+.. [#total] Voir :func:`functools.total_ordering` pour une alternative.

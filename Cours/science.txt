@@ -4,6 +4,7 @@ Bibliothèques numériques de base
 ################################
 
 .. contents:: Table des matières
+   :local:
 ..
     1  Numpy
       1.1  Tableaux
@@ -356,27 +357,25 @@ array([[[0, 0],
    pair: numpy; newaxis
 
 L'`array broadcasting
-<https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html>`_
-définit les régles selon lesquelles deux tableaux de formats
-*différents* peuvent éventuellement s'apparier.
+<https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html>`_ définit les
+régles selon lesquelles deux tableaux de formats *différents* peuvent
+éventuellement s'apparier.
 
-1. Deux tableaux sont compatibles (*broadcastable*) si, pour chaque
-   axe, soit les tailles sont égales, soit l'une d'elles est
-   exactement égale à 1.  P.ex. (5, 3) et (1, 3) sont des formats
-   *broadcastable*, (5, 3) et (5, 1) également, mais (5, 3) et (3, 1)
-   ne le sont pas.
-2. Si un tableau a un axe de taille 1, le tableau sera dupliqué à la
-   volée autant de fois que nécessaire selon cet axe pour attendre la
-   taille de l'autre tableau le long de cet axe.  P.ex. un tableau (2,
-   1, 3) pourra être transformé en tableau (2, 5, 3) en le dupliquant
-   5 fois le long du 2e axe (`axis=1`).
-3. La taille selon chaque axe après *broadcast* est égale au maximum
-   de toutes les tailles d'entrée le long de cet axe.  P.ex. (5, 3, 1)
-   × (1, 3, 4) → (5, 3, 4).
-4. Si un des tableaux a un rang (`ndim`) inférieur à l'autre, alors
-   son format (`shape`) est précédé d'autant de 1 que nécessaire pour
-   atteindre le même rang.  P.ex. (5, 3, 1) × (4,) = (5, 3, 1) × (1,
-   1, 4) → (5, 3, 4).
+1. Deux tableaux de même rang sont compatibles (*broadcastable*) si, pour chaque
+   axe, soit les tailles sont égales, soit l'une d'elles est exactement égale
+   à 1.  P.ex. (5, 3) et (1, 3) sont des formats *broadcastable*, (5, 3) et
+   (5, 1) également, mais (5, 3) et (3, 1) ne le sont pas.
+2. Si un tableau a un axe de taille 1, le tableau sera dupliqué à la volée
+   autant de fois que nécessaire selon cet axe pour attendre la taille de
+   l'autre tableau le long de cet axe.  P.ex. un tableau (2, 1, 3) pourra être
+   transformé en tableau (2, 5, 3) en le dupliquant 5 fois le long du 2e axe
+   (`axis=1`).
+3. La taille selon chaque axe après *broadcast* est égale au maximum de toutes
+   les tailles d'entrée le long de cet axe.  P.ex. (5, 3, 1) × (1, 3, 4) → (5,
+   3, 4).
+4. Si un des tableaux a un rang (`ndim`) inférieur à l'autre, alors son format
+   (`shape`) est précédé d'autant de 1 que nécessaire pour atteindre le même
+   rang.  P.ex. (5, 3, 1) × (4,) = (5, 3, 1) × (1, 1, 4) → (5, 3, 4).
 
 >>> a = N.arange(6).reshape(2, 3); a # Shape (2, 3)
 array([[0, 1, 2],
@@ -460,6 +459,7 @@ array([[3],
    pair: numpy; matrix
    pair: numpy; identity
    pair: numpy; dot
+   pair: numpy; @
    module: numpy.linalg
 
 Les opérations de base s'appliquent sur les *éléments* des tableaux,
@@ -474,7 +474,7 @@ array([[1, 0],
 >>> m * i             # Attention! opération * sur les éléments
 array([[0, 0],
        [0, 3]])
->>> N.dot(m, i)       # Multiplication *matricielle* des tableaux: M × I = M
+>>> m @ i             # Multiplication *matricielle* = N.dot(m, i): M × I = M
 array([[0, 1],
        [2, 3]])
 
@@ -533,21 +533,21 @@ du même type.  Cependant, outre les types scalaires élémentaires --
 supporte les types *composés*, c.-à-d. incluant plusieurs sous-éléments de
 types différents:
 
->>> dt = N.dtype([('nom', 'S10'),    # 1er  élément: une chaîne de 10 caractères
+>>> dt = N.dtype([('nom', 'U10'),    # 1er  élément: une chaîne de 10 caractères unicode
 ...               ('age', 'i'),      # 2e élément: un entier
 ...               ('taille', 'd')])  # 3e élément: un réel (double)
 >>> arr = N.array([('Calvin', 6, 1.20), ('Hobbes', 5, 1.80)], dtype=dt); arr
 array([('Calvin', 6, 1.2), ('Hobbes', 6, 1.8)],
-      dtype=[('nom', '|S10'), ('age', '<i4'), ('taille', '<f8')])
+      dtype=[('nom', '<U10'), ('age', '<i4'), ('taille', '<f8')])
 >>> arr[0]                           # Accès par élément
 ('Calvin', 6, 1.2)
 >>> arr['nom']                       # Accès par sous-type
-array(['Calvin', 'Hobbes'], dtype='|S10')
->>> rec = arr.view(N.recarray); arr  # Vue de type 'recarray'
+array(['Calvin', 'Hobbes'], dtype='<U10')
+>>> rec = arr.view(N.recarray); rec  # Vue de type 'recarray'
 rec.array([('Calvin', 6, 1.2), ('Hobbes', 5, 1.8)],
-      dtype=[('nom', '|S10'), ('age', '<i4'), ('taille', '<f8')])
+      dtype=[('nom', '<U10'), ('age', '<i4'), ('taille', '<f8')])
 >>> rec.nom                          # Accès direct par attribut
-chararray(['Calvin', 'Hobbes'], dtype='|S10')
+array(['Calvin', 'Hobbes'], dtype='<U10')
 
 .. _messier:
 
@@ -559,17 +559,17 @@ Separated Values)` des objets de Messier :download:`Messier.csv`:
    :linenos:
    :lines: 1-8
 
->>> dt = N.dtype([('M', 'S3'),        # N° catalogue Messier
+>>> dt = N.dtype([('M', 'U3'),        # N° catalogue Messier
 ...               ('NGC', 'i'),       # N° New General Catalogue
-...               ('Type', 'S2'),     # Code type
+...               ('Type', 'U2'),     # Code type
 ...               ('Mag', 'f'),       # Magnitude
 ...               ('Size', 'f'),      # Taille [arcmin]
 ...               ('Distance', 'f'),  # Distance [pc]
 ...               ('RA', 'f'),        # Ascension droite [h]
 ...               ('Dec', 'f'),       # Déclinaison [deg]
-...               ('Con', 'S3'),      # Code constellation
-...               ('Season', 'S6'),   # Saison
-...               ('Name', 'S30')])   # Nom alternatif
+...               ('Con', 'U3'),      # Code constellation
+...               ('Season', 'U6'),   # Saison
+...               ('Name', 'U30')])   # Nom alternatif
 >>> messier = N.genfromtxt("Messier.csv", dtype=dt, delimiter=',', comments='#')
 >>> messier[1]
 ('M1', 1952, 'Sn',  8.39999962,  5.,  1930.,  5.57499981,  22.0170002, 'Tau', 'winter', 'Crab Nebula')
@@ -627,7 +627,8 @@ Entrées/sorties
    pair: numpy; genfromtxt
 
 :mod:`numpy` peut lire -- :func:`numpy.loadtxt` -- ou sauvegarder --
-:func:`numpy.savetxt` -- des tableaux dans un simple fichier ASCII:
+:func:`numpy.savetxt` -- des tableaux (uni- ou bi-dimensionnels) dans un simple
+fichier ASCII:
 
 >>> x = N.linspace(-1, 1, 100)
 >>> N.savetxt('archive_x.dat', x)   # Sauvegarde dans le fichier 'archive_x.dat'
@@ -639,8 +640,8 @@ True
    ne supporte pas les données manquantes; utiliser alors la fonction
    :func:`numpy.genfromtxt`, plus robuste mais plus lente.
 
-Le format texte n'est pas optimal pour de gros tableaux: il peut alors
-être avantageux d'utiliser le format binaire `.npy`, beaucoup plus
+Le format texte n'est pas optimal pour de gros tableaux (ou de rang > 2): il
+peut alors être avantageux d'utiliser le format binaire `.npy`, beaucoup plus
 compact (mais non *human readable*):
 
 >>> x = N.linspace(-1, 1, 1e6)
@@ -679,8 +680,7 @@ rapport à du Python standard, il peut être possible d'améliorer la
 vitesse d'exécution par l'utilisation de bibliothèques externes dédiées,
 p.ex.:
 
-* `NumExpr <https://github.com/pydata/numexpr>`_ est un évaluateur
-  optimisé d'expressions numériques:
+* :pypi:`numexpr` est un évaluateur optimisé d'expressions numériques:
 
   >>> a = N.arange(1e6)
   >>> b = N.arange(1e6)
@@ -693,16 +693,12 @@ p.ex.:
   >>> timeit numexpr.evaluate("exp(-a)") # Multi-threaded
   10 loops, best of 3: 19.3 ms per loop
 
-* `Bottleneck <https://github.com/kwgoodman/bottleneck>`_ est une
-  collection de fonctions accélérées, notamment pour des tableaux
-  contenant des `NaN <https://en.wikipedia.org/wiki/NaN>`_ ou pour des
-  statistiques glissantes;
-* `theano <http://deeplearning.net/software/theano/>`_, pour optimiser
-  l'évaluation des expressions mathématiques sur les tableaux
-  :mod:`numpy`, notamment par l'utilisation des :abbr:`GPU (Graphics
-  Processing Unit)` et de code C généré à la volée.
-
-  .. Attention:: `theano` n'est officiellement plus soutenu.
+* :pypi:`bottleneck` est une collection de fonctions accélérées, notamment pour
+  des tableaux contenant des `NaN <https://en.wikipedia.org/wiki/NaN>`_ ou pour
+  des statistiques glissantes;
+* :pypi:`theano`, pour optimiser l'évaluation des expressions mathématiques sur
+  les tableaux :mod:`numpy`, notamment par l'utilisation des :abbr:`GPU
+  (Graphics Processing Unit)` et de code C généré à la volée.
 
 Voir également :ref:`ProfOpt`.
 
@@ -750,8 +746,8 @@ Tour d'horizon
 - `Scikits <http://scikits.appspot.com/scikits>`_: modules plus
   spécifiques étroitement liés à :mod:`scipy`, parmi lesquels:
 
-  - `scikit-learn <http://scikit-learn.org/stable/>`_: *machine learning*,
-  - `scikit-image <http://scikit-image.org/>`_: *image processing*,
+  - `scikit-learn <https://scikit-learn.org/>`_: *machine learning*,
+  - `scikit-image <https://scikit-image.org/>`_: *image processing*,
   - `statsmodel <http://www.statsmodels.org/>`_: modèles statistiques
     (`tutorial <http://jseabold.net/pages/talks>`_),
 - `Scipy Topical softwares <https://www.scipy.org/topical-software.html>`_.
@@ -773,7 +769,7 @@ Quelques exemples complets
   - `odeint notebook
     <http://nbviewer.jupyter.org/gist/dpsanders/d417c1ffbb76f13f678c>`_
   - `Zombie Apocalypse
-    <http://scipy-cookbook.readthedocs.io/items/Zombie_Apocalypse_ODEINT.html>`_
+    <https://scipy-cookbook.readthedocs.io/items/Zombie_Apocalypse_ODEINT.html>`_
 
 * `Optimisation
   <https://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html>`_
@@ -796,12 +792,12 @@ Matplotlib
 
 .. index:: module: matplotlib
 
-`Matplotlib <http://matplotlib.org/>`_ est une bibliothèque graphique de
+`Matplotlib <https://matplotlib.org/>`_ est une bibliothèque graphique de
 visualisation 2D (avec un support pour la 3D, l'animation et l'interactivité),
 permettant des sorties de haute qualité « prêtes à publier ».  C'est à la fois
 une bibliothèque de *haut niveau*, fournissant des fonctions de visualisation
 « clés en main » (échelle logarithmique, histogramme, courbes de niveau, etc.,
-voir la `galerie <http://matplotlib.org/gallery.html>`_), et de *bas niveau*,
+voir la `galerie <https://matplotlib.org/gallery.html>`_), et de *bas niveau*,
 permettant de modifier tous les éléments graphiques de la figure (titre, axes,
 couleurs et styles des lignes, etc., voir `Anatomie d'une figure`_).
 
@@ -889,7 +885,7 @@ systèmes d'axes (numérotés de 1 à 6)::
 .. index:: pair: matplotlib; GridSpec
 
 Pour des mises en page plus complexes, il est possible d'utiliser le kit
-`gridspec <http://matplotlib.org/users/gridspec.html>`_, p.ex.::
+`gridspec <https://matplotlib.org/users/gridspec.html>`_, p.ex.::
 
     from matplotlib.gridspec import GridSpec
 
@@ -940,10 +936,10 @@ La méthode :meth:`matplotlib.figure.Figure.savefig` permet de
 sauvegarder la figure dans un fichier dont le format est
 automatiquement défini par son extension, `png` (*raster*), `[e]ps`,
 `pdf`, `svg` (*vector*), etc., via différents `backends
-<http://matplotlib.org/faq/usage_faq.html#what-is-a-backend>`_.
+<https://matplotlib.org/faq/usage_faq.html#what-is-a-backend>`_.
 
 Il est également possible d'afficher la figure dans une `fenêtre interactive
-<http://matplotlib.org/users/navigation_toolbar.html>`_ avec la commande
+<https://matplotlib.org/users/navigation_toolbar.html>`_ avec la commande
 :func:`matplotlib.pyplot.show`:
 
 .. image:: simpleShow.*
@@ -962,22 +958,22 @@ L'interface :abbr:`OO (Orientée Objet)` :mod:`matplotlib.pyplot` donne accès �
 tous les éléments d'une figure (titre, axes, légende, etc.), qui peuvent alors
 être ajustés (couleur, police, taille, etc.).
 
-.. figure:: http://matplotlib.org/_images/anatomy.png
+.. figure:: https://matplotlib.org/_images/anatomy.png
    :align: center
    :width: 60%
-   :target: http://matplotlib.org/examples/showcase/anatomy.html
+   :target: https://matplotlib.org/examples/showcase/anatomy.html
    :alt: Anatomie d'une figure.
 
    **Figure:** Anatomie d'une figure.
 
 .. Note:: N'oubliez pas de `citer matplotlib
-   <http://matplotlib.org/citing.html>`_ (notamment [Matplotlib07]_) dans vos
+   <https://matplotlib.org/citing.html>`_ (notamment [Matplotlib07]_) dans vos
    publications et présentations utilisant cet outil.
 
 .. rubric:: Liens:
 
-- `User's Guide <http://matplotlib.org/users/>`_
-- `Gallery <http://matplotlib.org/gallery.html>`_
+- `User's Guide <https://matplotlib.org/users/>`_
+- `Gallery <https://matplotlib.org/gallery.html>`_
 - `Tutorial matplotlib
   <http://www.labri.fr/perso/nrougier/teaching/matplotlib/>`_
 - `Tutoriel matplotlib
@@ -985,11 +981,10 @@ tous les éléments d'une figure (titre, axes, légende, etc.), qui peuvent alor
 
 .. rubric:: Voir également:
 
-- `MPLD3 <http://mpld3.github.io/>`_, un *backend* matplotlib interactif basé
-  sur la bibliothèque *web* `3D.js <https://d3js.org/>`_;
-- `basemap <http://matplotlib.org/basemap/users/index.html>`_ et `cartopy
-  <http://scitools.org.uk/cartopy/docs/latest/gallery.html>`_, bibliothèques de
-  cartographie sphérique;
+- :pypi:`mpld3`, un *backend* matplotlib interactif basé sur la bibliothèque
+  *web* `3D.js <https://d3js.org/>`_;
+- `basemap <https://matplotlib.org/basemap/users/index.html>`_ et
+  :pypi:`cartopy`, bibliothèques de cartographie sphérique;
 - `Seaborn <http://seaborn.pydata.org/>`_, une surcouche de visualisation
   statistique à matplotlib et :ref:`myPandas`;
 - `HoloViews <http://holoviews.org/>`_, une surcouche de visualisation et
@@ -1015,13 +1010,13 @@ Visualisation 3D
 .. index:: pair: matplotlib; mplot3d
 
 Matplotlib fournit d'emblée une interface `mplot3d
-<http://matplotlib.org/gallery.html#mplot3d>`_ pour des figures 3D assez
+<https://matplotlib.org/gallery.html#mplot3d>`_ pour des figures 3D assez
 simples:
 
-.. figure:: http://matplotlib.org/_images/contourf3d_demo22.png
+.. figure:: https://matplotlib.org/_images/contourf3d_demo22.png
    :align: center
    :width: 60%
-   :target: http://matplotlib.org/examples/mplot3d/contourf3d_demo2.html
+   :target: https://matplotlib.org/examples/mplot3d/contourf3d_demo2.html
    :alt: Exemple de figure matplotlib 3D.
 
    **Figure:** Exemple de figure matplotlib 3D.

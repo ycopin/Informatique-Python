@@ -18,7 +18,11 @@
 # -- General configuration -----------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-needs_sphinx = '1.3'
+needs_sphinx = '2.0'
+
+# If true, figures, tables and code-blocks are automatically numbered if they
+# have a caption. For now, it works only with the HTML builder.
+numfig = True
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
@@ -29,6 +33,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'sphinx.ext.intersphinx',
+    'sphinx.ext.extlinks',
     # External extensions
     #'sphinxcontrib.email',      # Mail obfuscation (incompatible w/ RTFD)
     'nbsphinx',                 # Support for Ipython Notebooks
@@ -45,6 +50,12 @@ intersphinx_mapping = {
     'astropy': ('http://docs.astropy.org/en/stable/', None),
 }
 
+# Extlinks configuration
+extlinks = {
+    'pypi': ('https://pypi.org/project/%s', ''),
+    'rtfd': ('https://%s.readthedocs.io/', '')      # readthedocs.io
+}
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -58,7 +69,7 @@ source_encoding = 'utf-8-sig'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Analyse scientifique avec Python'
+project = 'Analyse scientifique avec Python'
 author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -66,9 +77,9 @@ author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 # built documents.
 #
 # The short X.Y version.
-version = u"École d'été Euclid 2018"
+version = "École d'été Euclid"
 # The full version, including alpha/beta/rc tags.
-release = u'Août 2018'
+release = 'Août 2019'
 
 copyright = ', '.join((release, author))
 
@@ -121,12 +132,12 @@ rst_epilog = u""
 
 # A string of reStructuredText that will be included at the start of
 # every source file that is read.
-rst_prolog = u""
 # rst_prolog = u"""
 # .. Warning::
 #
 #    Conversion to Python3 in progress!!!
 # """
+rst_prolog = u""
 
 nbsphinx_epilog = r"""
 {% set docname = env.doc2path(env.docname, base=None) %}
@@ -165,14 +176,11 @@ html_theme = 'alabaster'
 
 # Alabaster: see http://alabaster.readthedocs.io/en/latest/customization.html
 html_theme_options = {
-    #'logo': 'logoEuclid_trans.png',        # Relative to $PROJECT/_static/
-    #'logo_name': version,
-    #'description': version,
-    #'sidebar_collapse': True,
-    #'show_powered_by': True,
     'page_width': '80%',
-    #'sidebar_width': '20%',
+    'sidebar_width': '20%',
     #'fixed_sidebar': True,
+    'sidebar_includehidden': False,
+    'description': u"Une introduction à Python utilisé dans un contexte scientifique."
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -204,23 +212,16 @@ html_static_path = ['_static']
 #html_last_updated_fmt = '%b %d, %Y'
 
 # If true, SmartyPants will be used to convert quotes and dashes to
-# typographically correct entities.
-# html_use_smartypants = True
+# typographically correct entities. **DEPRECATED*
+#html_use_smartypants = True
+smartquotes = True
 
 # Custom sidebar templates, maps document names to template names.
-# http://alabaster.readthedocs.io/en/latest/installation.html
-# html_sidebars = {
-#     '**': [
-#         'about.html',
-#         'navigation.html',
-#         #'relations.html',
-#         'searchbox.html',
-#         ]
-#     }
+#html_sidebars = {}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
-#html_additional_pages = {}
+# html_additional_pages = {}
 
 # If false, no module index is generated.
 #html_domain_indices = True
@@ -247,6 +248,8 @@ html_show_copyright = True
 
 # This is the file name suffix for HTML files (e.g. ".xhtml").
 #html_file_suffix = None
+
+html_add_permalinks = u'🔗' # ☜☚¶⚐⚑, 🔗 = link symbol
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'AnalyseScientifiquePython'

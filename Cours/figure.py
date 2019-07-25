@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 # Time-stamp: <2018-01-09 15:03:52 ycopin>
 
 """

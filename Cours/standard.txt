@@ -5,6 +5,7 @@ Bibliothèque standard
 #####################
 
 .. contents:: Table des matières
+   :local:
 ..
     1  Gestion des arguments/options de la ligne de commande
     2  Pickle: sérialisation des données
@@ -141,7 +142,15 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 ..    module: itertools
 
 * :mod:`collections` définit de nouveaux types spécialisés, p.ex.
-  :class:`collections.OrderedDict`, un dictionnaire *ordonné*;
+  :class:`collections.OrderedDict`, un dictionnaire *ordonné*, ou
+  :class:`collections.namedtuple`, pour la création d'objets simples:
+
+   >>> Point = collections.namedtuple("Point", "x y")
+   >>> p = Point(3, 4)
+   >>> print(p)
+   Point(x=3, y=4)
+   >>> (p.x**2 + p.y**2)**0.5
+   5.0
 
 * :mod:`itertools` fournit des générateurs de boucle (*itérateurs*) et de
   combinatoire:
@@ -215,14 +224,12 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 ================================
 
 - :abbr:`TUI (Text User Interface)`: :mod:`curses`
-- :abbr:`GUI (Graphical User Interface)`: :mod:`Tkinter`,
+- :abbr:`GUI (Graphical User Interface)`: :mod:`tkinter`,
 
 .. rubric:: Bibliothèques externes:
 
-- TUI: `termcolor <https://pypi.python.org/pypi/termcolor>`_ (texte
-  coloré ANSII), `blessed <https://pypi.python.org/pypi/blessed>`_
-  (mise en page)
-- GUI: `PyGI <https://pygobject.readthedocs.io/>`_ (GTK3), `PyQt
+- TUI: :pypi:`termcolor` (texte coloré ANSII), :pypi:`blessed` (mise en page)
+- GUI: :rtfd:`pygobject` (GTK3), `PyQt
   <https://riverbankcomputing.com/software/pyqt/intro>`_ / `pySide
-  <https://wiki.qt.io/PySide>`_ (Qt), `wxPython
-  <https://www.wxpython.org/>`_ (wxWidgets)
+  <https://wiki.qt.io/PySide>`_ (Qt), `wxPython <https://www.wxpython.org/>`_
+  (wxWidgets)

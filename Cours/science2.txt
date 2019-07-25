@@ -4,6 +4,7 @@ Bibliothèques scientifiques avancées
 ####################################
 
 .. contents:: Table des matières
+   :local:
 ..
     1  Pandas et xarray
       1.1  Structures
@@ -570,10 +571,9 @@ three    0.052007
 two      1.020315
 dtype: float64
 
-.. Note:: Si les bibliothèques d'optimisation de performances
-   `Bottleneck <https://github.com/kwgoodman/bottleneck>`_ et `NumExpr
-   <https://github.com/pydata/numexpr>`_ sont installées,
-   :mod:`pandas` en bénéficiera de façon transparente.
+.. Note:: Si les bibliothèques d'optimisation de performances :pypi:`bottleneck`
+   et :pypi:`numexpr` sont installées, :mod:`pandas` en bénéficiera de façon
+   transparente.
 
 
 Regroupement et agrégation de données
@@ -790,7 +790,7 @@ array([[ 0.,  1.,  2.,  3.],
        [ 4.,  5.,  6.,  7.],
        [ 8.,  9., 10., 11.]])
 Coordinates:
-  * x        (x) |S1 'a' 'b' 'c'
+  * x        (x) <U1 'a' 'b' 'c'
 Dimensions without coordinates: y
 Attributes:
     author:     Y. Copin
@@ -819,7 +819,7 @@ c 0      8.0
 ('x', 'y')
 >>> data.coords
 Coordinates:
-  * x        (x) |S1 'a' 'b' 'c'
+  * x        (x) <U1 'a' 'b' 'c'
 >>> data.values
 array([[  0.,   1.,   2.,   3.],
        [  4.,   5.,   6.,   7.],
@@ -831,17 +831,17 @@ OrderedDict([('author', 'Y. Copin')])
 <xarray.DataArray 'mesures' (x: 3)>
 array([ 1.,  5.,  9.])
 Coordinates:
-  * x        (x) |S1 'a' 'b' 'c'
+  * x        (x) <U1 'a' 'b' 'c'
 >>> data.loc['a':'b', -1]  # Accès par labels
 <xarray.DataArray 'mesures' (x: 2)>
 array([ 3.,  7.])
 Coordinates:
-  * x        (x) |S1 'a' 'b'
+  * x        (x) <U1 'a' 'b'
 >>> data.sel(x=['a', 'c'], y=2)
 <xarray.DataArray 'mesures' (x: 2)>
 array([  2.,  10.])
 Coordinates:
-  * x        (x) |S1 'a' 'c'
+  * x        (x) <U1 'a' 'c'
 
 >>> data.mean(dim='x')  # Moyenne le long de la dimension 'x' = data.mean(axis=0)
 <xarray.DataArray 'mesures' (y: 4)>
@@ -879,7 +879,7 @@ array([[  0.,   1.,   2.,   3.],
        [  4.,   5.,   6.,   7.],
        [  8.,   9.,  10.,  11.]])
 Coordinates:
-  * x        (x) |S1 'a' 'b' 'c'
+  * x        (x) <U1 'a' 'b' 'c'
     isSmall  (x) bool True False False
 Dimensions without coordinates: y
 >>> data.groupby('isSmall').mean(dim='x')  # Regroupement et agrégation
@@ -906,10 +906,10 @@ Astropy
 
 .. index:: module: astropy
 
-`Astropy <http://astropy.readthedocs.io/>`_ est une bibliothèque astronomique
-maintenue par la communauté et visant à fédérer les efforts jusque là
-disparates.  Elle offre en outre une interface unifiée à des `bibliothèques
-affiliées <http://www.astropy.org/affiliated/>`_ plus spécifiques.
+:rtfd:`astropy` est une bibliothèque astronomique maintenue par la communauté et
+visant à fédérer les efforts jusque là disparates.  Elle offre en outre une
+interface unifiée à des `bibliothèques affiliées
+<http://www.astropy.org/affiliated/>`_ plus spécifiques.
 
 Tour d'horizon
 --------------
@@ -966,34 +966,28 @@ Python est maintenant très largement utilisé par la communauté
 scientifique, et dispose d'innombrables bibliothèques dédiées aux
 différents domaines de la physique, chimie, etc.:
 
-- Astronomie: `Kapteyn <http://www.astro.rug.nl/software/kapteyn/>`_,
-  `AstroML <http://www.astroml.org/>`_, `HyperSpy
-  <http://hyperspy.org/>`_;
+- Astronomie: `Kapteyn <http://www.astro.rug.nl/software/kapteyn/>`_, `AstroML
+  <http://www.astroml.org/>`_, `HyperSpy <http://hyperspy.org/>`_;
 - Mécanique quantique: `QuTiP <http://qutip.org/>`_;
 - Électromagnétisme: `EMpy <https://lbolla.github.io/EMpy/>`_;
 - Optique physique: `Physical Optics Propagation in PYthon
-  <https://poppy-optics.readthedocs.io/>`_, `OpticsPy
-  <http://opticspy.org/>`_;
+  <https://poppy-optics.readthedocs.io/>`_, `OpticsPy <http://opticspy.org/>`_;
 - *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
-  <http://sfepy.org/doc-devel/>`_;
+  <http://sfepy.org/>`_;
 - Analyse statistique bayesienne: `PyStan
-  <http://mc-stan.org/interfaces/pystan.html>`_;
-- *Markov Chain Monte-Carlo*: `emcee
-  <http://dan.iel.fm/emcee/current/>`_, `PyMC3
-  <https://pymc-devs.github.io/pymc3/>`_;
-- *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, `milk
-  <https://pythonhosted.org/milk/>`_, `MDP
-  <http://mdp-toolkit.sourceforge.net/>`_, `Keras <https://keras.io/>`_ et
-  autres `modules d'intelligence artificielle
-  <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_;
-- Calcul symbolique: `sympy <http://www.sympy.org/>`_ (voir également
+  <https://mc-stan.org/interfaces/pystan.html>`_;
+- *Markov Chain Monte-Carlo*: :rtfd:`emcee`, :pypi:`PyMC3>`;
+- *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, :pypi:`milk`,
+  :pypi:`mdp`, `Keras <https://keras.io/>`_ et autres `modules d'intelligence
+  artificielle <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_;
+- Calcul symbolique: `sympy <https://www.sympy.org/>`_ (voir également
   ce `tutoriel sympy
   <https://mattpap.github.io/scipy-2011-tutorial/html/>`_) et `sage
   <http://www.sagemath.org/>`_;
 - `PyROOT <https://root.cern.ch/pyroot>`_;
 - `High Performance Computing in Python
   <https://byumcl.bitbucket.io/bootcamp2013/labs/perfomance.html>`_;
-- `Etc. <http://www.scipy.org/topical-software.html>`_
+- `Etc. <https://www.scipy.org/topical-software.html>`_
 
 .. rubric:: Notes de bas de page et références bibliographiques
 

@@ -1,9 +1,11 @@
-* scinder Cours en "intro" et "avancé"
+
+✓ scinder Cours en "intro" et "avancé"
 * Utiliser directive ipython
   (https://matplotlib.org/sampledoc/ipython_directive.html)
 
 Cours avancé:
 
+✓ Classes avancées: https://aboucaud.github.io/slides/2016/python-classes/#/
 * Annotations (type hints: https://www.python.org/dev/peps/pep-0484/, variable
   annotations: https://www.python.org/dev/peps/pep-0526/)
 * Data Classes (https://www.python.org/dev/peps/pep-0557/, ou
@@ -23,3 +25,4 @@ Science avancée:
 * optimisation / parallélisation
   (p.ex. https://chryswoods.com/parallel_python/index.html)
 * Tuto Pandas (https://www.marsja.se/pandas-dataframe-read-csv-excel-subset/)
+* Check https://github.com/paris-saclay-cds/python-workshop

@@ -1,5 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2017-05-29 00:50 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2019-07-25 19:18 ycopin@lyonovae03.in2p3.fr>
 
 .. sectionauthor:: Hanna Julienne <hanna.julienne@gmail.com>
 
@@ -70,7 +70,5 @@ Ce projet vise à :
 .. rubric:: Liens :
 
 * `Craig Reynolds Boids <http://www.red3d.com/cwr/boids/>`_
-* `Décrypter les interactions entre poissons au sein d'un banc
-  <http://www.cnrs.fr/insb/recherche/parutions/articles2012/g-theraulaz2.htm>`_
-
-.. * `Nuées d’oiseaux <http://mpt2013.fr/nuees-doiseaux/>`_ et `bancs de poissons <http://mpt2013.fr/bancs-de-poissons/>`_
+* `Comment les poissons interagissent et coordonnent leurs déplacements dans un
+  banc <http://archives.cnrs.fr/insb/article/950>`_

@@ -11,7 +11,7 @@ Documentation générale
 - `Python <https://www.python.org/>`_
 - `Python Wiki <https://wiki.python.org/moin/>`_
 - `Python Frequently Asked Questions <https://docs.python.org/3/faq/index.html>`_
-- `The Python Package Index <https://pypi.python.org/pypi>`_
+- `The Python Package Index <https://pypi.org>`_
 
 Listes de liens
 ---------------
@@ -27,9 +27,8 @@ Listes de liens
 - `Learning Python For Data Science
   <https://pythontips.com/2016/02/27/learning-python-for-data-science/>`_ (2016)
 - `Awesome Python <https://awesome-python.com/>`_
-- `A curated list of courses on Python <http://bafflednerd.com/learn-python-online/>`_
 - `Real Python tutorials <https://realpython.com/>`_
-  
+
 .. rubric:: ipython
 
 - `IPython tutorial
@@ -81,6 +80,8 @@ Python
 ......
 
 - `Python Tutorial <https://docs.python.org/3/tutorial/>`_ (v3.7)
+- `Python 3 Patterns, Recipes and Idioms
+  <https://python-3-patterns-idioms-test.readthedocs.io/>`_
 - `Apprenez à programmer en Python
   <https://openclassrooms.com/courses/apprenez-a-programmer-en-python>`_
 - `Débuter avec Python au lycée <http://python.lycee.free.fr/>`_ |fr|
@@ -95,10 +96,7 @@ Python
 - `Google's Python Class <https://developers.google.com/edu/python/>`_
 - `CheckIO <https://checkio.org/>`_, pour apprendre la programmation Python en
   s'amusant !
-- `Python Testing Tools <http://oddbird.net/python-testing-tools-preso/>`_
 - `Python Programming <https://www.codecademy.com/learn/python>`_ (Code Academy)
-
-.. - `Cours Python 3 + exercices <http://perso.limsi.fr/pointal/python:courspython3>`_ |fr|
 
 Scientifique
 ............
@@ -131,7 +129,6 @@ Scientifique
 - `Python Data Science Handbook
   <https://nbviewer.jupyter.org/github/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/Index.ipynb>`_
 
-
 .. rubric:: En français
 
 - `Formation à Python scientifique <http://python-prepa.github.io/>`_ |fr|
@@ -142,15 +139,15 @@ Scientifique
   <https://openclassrooms.com/courses/la-programmation-scientifique-avec-python>`_
   |fr|
 
-.. rubric:: Astronomie
+.. rubric:: Astrophysique et physique des hautes énergies
 
 - `Practical Python for Astronomers <https://python4astronomers.github.io/>`_
 - `Astropy tutorials <http://www.astropy.org/astropy-tutorials/>`_
 - `Python for Euclid 2016 <https://github.com/aboucaud/python-euclid2016>`_
-- `Advanced software programming for astrophysics and astroparticle
-  physics <https://indico.in2p3.fr/event/14227/>`_ (*1st
-  ASTERICS-OBELICS International School*, voir *Timetable/Vue
-  détaillée*)
+- Advanced software programming for astrophysics and astroparticle physics,
+  *ASTERICS-OBELICS International School*, `2017
+  <https://indico.in2p3.fr/event/14227/>`_, `2018
+  <https://indico.in2p3.fr/event/16864/>`_
 
 *Snippets*
 ..........

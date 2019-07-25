@@ -2,8 +2,9 @@ Développer en Python
 ####################
 
 .. contents:: Table des matières
+   :local:
 ..
-    1  Le zen du python
+    1  Le zen du Python
       1.1  Us et coutumes
       1.2  Principes de conception logicielle
     2  Développement piloté par les tests
@@ -16,7 +17,6 @@ Développer en Python
       3.6  *Python packages*
       3.7  Système de gestion de versions
       3.8  Intégration continue
-    4  Python 2 vs. python 3
 
 
 .. _td7:
@@ -90,7 +90,7 @@ Us et coutumes
   <https://gist.github.com/sloria/7001839>`_
 - The hitchhiker's guide to Python `Code Style
   <https://docs.python-guide.org/writing/style/>`_
-  
+
 .. rubric:: Quelques conseils supplémentaires:
 
 - « Ne réinventez pas la roue, sauf si vous souhaitez en savoir plus
@@ -103,9 +103,10 @@ Us et coutumes
   codez *proprement*, structurez vos algorithmes, commentez votre
   code, utilisez des noms de variable qui ont un sens, soignez le
   style et le formatage, etc.
-- Codez proprement *dès le début*: ne croyez pas que vous ne relirez
-  jamais votre code (ou même que personne n'aura jamais à le lire), ou
-  que vous aurez le temps de le refaire mieux plus tard...
+- *Code is read far more often than it is written.* Ne croyez pas que
+  vous ne relirez jamais votre code (ou même que personne n'aura
+  jamais à le lire), ou que vous aurez le temps de le refaire mieux
+  plus tard...
 - « L'optimisation prématurée est la source de tous les maux » (Donald
   Knuth [#opt]_): mieux vaut un code lent mais juste et maintenable
   qu'un code rapide et faux ou incompréhensible. Dans l'ordre absolu
@@ -277,11 +278,10 @@ constructions dangereuses, les variables non-définies, etc.  Ces
 outils ne testent pas nécessairement la validité des algorithmes et de
 leur mise en oeuvre...
 
-- `pycodestyle <https://github.com/PyCQA/pycodestyle/>`_ (ex-`pep8`) et
-  `autopep8 <https://github.com/hhatto/autopep8>`_
-- `pyflakes <https://pypi.python.org/pypi/pyflakes>`_
-- `pychecker <http://pychecker.sourceforge.net/>`_
-- `pylint <https://pypi.python.org/pypi/pylint>`_
+- :pypi:`pycodestyle` (ex-`pep8`) et :pypi:`autopep8`
+- :pypi:`pyflakes`
+- :pypi:`pychecker`
+- :pypi:`pylint`
 
 Débogage
 --------
@@ -363,13 +363,11 @@ fonctionne et produit les bons résultats dans tous les cas.  S'il
 reste trop lent ou gourmand en mémoire *pour vos besoins*, il peut
 être nécessaire de l'optimiser.
 
-Le `profilage <https://docs.python.org/3/library/profile.html>`_
-permet de déterminer le temps passé dans chacune des sous-fonctions
-d'un code (ou ligne par ligne: `line profiler
-<https://github.com/rkern/line_profiler>`_, ou selon l'utilisation de
-la mémoire: `memory profiler
-<https://pypi.python.org/pypi/memory_profiler>`_), afin d'y identifier
-les parties qui gagneront à être optimisées.
+Le `profilage <https://docs.python.org/3/library/profile.html>`_ permet de
+déterminer le temps passé dans chacune des sous-fonctions d'un code (ou ligne
+par ligne: :pypi:`line profiler <line-profiler>`, ou selon l'utilisation de la
+mémoire: :pypi:`memory profiler <memory-profiler>`), afin d'y identifier les
+parties qui gagneront à être optimisées.
 
 - `python -O`, `__debug__`, `assert`
 
@@ -428,7 +426,7 @@ généraux:
 * utiliser des opérations sur les tableaux, plutôt que sur des
   éléments individuels (*vectorization*): listes en compréhension,
   tableaux :mod:`numpy` (qui ont eux-mêmes été optimisés);
-* `cython <http://cython.org/>`_ est un langage de programmation
+* `cython <https://cython.org/>`_ est un langage de programmation
   **compilé** très similaire à python.  Il permet d'écrire des
   extensions en C avec la facilité de python (voir notamment `Working
   with Numpy
@@ -472,7 +470,7 @@ Documentation
     <http://pythonhosted.org/an_example_pypi_project/sphinx.html>`_;
   - `A Guide to NumPy/SciPy Documentation
     <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_;
-  - `Sample doc <http://matplotlib.org/sampledoc/>`_ (matplotlib).
+  - `Sample doc <https://matplotlib.org/sampledoc/>`_ (matplotlib).
 
 .. rubric:: Lien:
 
@@ -488,11 +486,9 @@ Comment installer/créer des modules externes:
   <http://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/>`_;
 - `Packaging a python library
   <https://blog.ionelmc.ro/2014/05/25/python-packaging/>`_;
-- `Cookiecutter <http://cookiecutter.readthedocs.io/>`_ est un
-  générateur de squelettes de projet via des *templates* (pas
-  uniquement pour Python);
-- `cx-freeze <http://cx-freeze.readthedocs.io/>`, pour générer un
-  exécutable à partir d'un script.
+- :rtfd:`cookiecutter` est un générateur de squelettes de projet via des
+  *templates* (pas uniquement pour Python);
+- :rtfd:`cx-freeze`, pour générer un exécutable à partir d'un script.
 
 Système de gestion de versions
 ------------------------------
@@ -552,44 +548,6 @@ ligne directement connectés au dépôt source. Exemple sur `Astropy`:
   développement logiciel dans le monde académique (*measure the value
   of software that powers science*).
 
-.. _python23:
-
-Python 2 vs. Python 3
-=====================
-
-Si votre code est encore sous python-2.x, il existe de nombreux outils
-permettant de faciliter la transition vers 3.x:
-
-* L'interpréteur Python 2.7 dispose d'une option `-3` mettant en
-  évidence dans un code les parties qui devront être modifiées pour un
-  passage à Python 3.
-* Le script `2to3 <https://docs.python.org/2.7/library/2to3.html>`_
-  permet également d'automatiser la conversion du code 2.x en 3.x.
-* La bibliothèque standard :mod:`__future__` permet d'introduire des
-  constructions 3.x dans un code 2.x, p.ex.::
-
-    from __future__ import print_function  # Fonction print()
-    from __future__ import division        # Division non-euclidienne
-
-    print(1/2)                             # Affichera '0.5'
-
-* La bibliothèque *non* standard `six <http://pythonhosted.org/six/>`_
-  fournit une couche de compatibilité 2.x-3.x, permettant de produire
-  de façon transparente un code compatible simultanément avec les deux
-  versions.
-
-.. Avertissement:: Si vous vous lancez dans un nouveau développement, il est
-   dorénavant indispensable d'utiliser exclusivement Python 3.
-
-.. rubric:: Liens
-
-- `Py3 Readiness <http://py3readiness.org/>`_: liste (réduite) des bibliothèques
-  encore non-compatibles avec Python 3
-- `Porting Python 2 Code to Python 3
-  <http://python.readthedocs.io/en/latest/howto/pyporting.html>`_
-- `The Conservative Python 3 Porting Guide
-  <http://portingguide.readthedocs.io/>`_
-- `Python 2/3 compatibility <http://python-future.org/>`_
 
 .. rubric:: Notes de bas de page
 
@@ -604,4 +562,4 @@ permettant de faciliter la transition vers 3.x:
    <https://arstechnica.com/information-technology/2017/05/90-of-windows-devs-now-using-git-creating-1760-windows-builds-per-day/>`_!
 
 .. _pytest: https://docs.pytest.org/
-.. _nose:   http://nose.readthedocs.io/
+.. _nose:   https://nose.readthedocs.io/
