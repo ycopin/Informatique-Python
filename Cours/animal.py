@@ -16,12 +16,12 @@ class Animal:
         """
         Initialisation d'un Animal, a priori vivant.
 
-        :param float masse: masse en kg (> 0) 
+        :param float masse: masse en kg (> 0)
         :raise ValueError: masse non réelle ou négative
         """
 
         self.estVivant = True
-        
+
         self.masse = float(masse)
         if self.masse < 0:
             raise ValueError("La masse ne peut pas être négative.")
@@ -59,7 +59,7 @@ class Animal:
         """
 
         self.masse += float(masse)
-        
+
 
 # Définition d'une classe héritée ==============================
 
@@ -86,7 +86,7 @@ class AnimalFeroce(Animal):
         return "Animal féroce {}, {:.0f} kg".format(
             "bien vivant" if self.estVivant else "mais mort",
             self.masse)
-        
+
     def devore(self, other):
         """
         L'animal (self) devore un autre animal (other).
@@ -156,23 +156,23 @@ class AnimalGentil(Animal):
 
         Animal.meurt(self)
         print("Pauvre {0.nom}, paix à son âme...".format(self))
-        
-    
+
+
 if __name__ == '__main__':
 
     # Exemple d'utilisation des classes définies ci-dessus
 
     print("Une tragédie en trois actes".center(70, '='))
-    
+
     print("Acte I: la vache prend 10 kg.".center(70, '-'))
     vache = Animal(500.)        # Instantiation d'un animal de 500 kg
     vache.grossit(10)           # La vache grossit de 10 kg
     print(vache)
-    
+
     print("Acte II: Dumbo l'éléphant".center(70, '-'))
     elephant = AnimalGentil(1000., "Dumbo")  # Instantiation d'un animal gentil
     print(elephant)
-    
+
     print("Acte III: le féroce lion".center(70, '-'))
     lion = AnimalFeroce(200)    # Instantiation d'un animal féroce
     print(lion)

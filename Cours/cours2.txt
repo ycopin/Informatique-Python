@@ -12,7 +12,12 @@ Python avancé
       1.3  Dépaquetage des itérables
       1.4  Décorateurs
       1.5  Fonction anonyme
-    2  Objets avancés
+    2  Programmation Orientée Objet avancée
+      2.1  Variables de classe
+      2.2  Méthodes statiques
+      2.3  Méthodes de classe
+      2.4  Attributs et méthodes privées
+      2.5  Propriétés
     3  Éléments passés sous silence
     4  Python 3.x
       4.1  Transition Python 2 à Python 3
@@ -158,42 +163,31 @@ Result:     None
 Noter qu'il est possible d'ajouter plusieurs décorateurs, et de passer
 des arguments supplémentaires aux décorateurs.
 
-.. rubric:: Lien
+.. rubric:: Exemple 1: ajouter un attribut à une fonction/méthode
 
-`A guide to Python's function decorators
-<https://www.thecodeship.com/patterns/guide-to-python-function-decorators/>`_
+.. literalinclude:: avance.py
+   :pyobject: add_attrs
+   :linenos:
 
-Python dispose de quelques décorateurs natifs d'intérêt pour les
-méthodes, notamment:
+.. rubric:: Exemple 2: `monkey patching
+   <https://thecodebits.com/monkey-patching-in-python-explained-with-examples/>`_
+   (modification à la volée des propriétés d'un objet)
 
-- :func:`staticmethod` transforme une méthode en une méthode statique,
-  c.-à-d. ne s'appliquant pas à l'instance::
+.. literalinclude:: avance.py
+   :pyobject: make_method
+   :linenos:
 
-    class C:
-        @staticmethod
-        def f(arg1, arg2, ...):  # L'instance self n'est pas le 1er argument!
-            ...
+.. rubric:: Liens:
 
-  La méthode statique peut alors être invoquée via la classe `C.f()`
-  ou via une instance `C().f()`.
+- `Python et les décorateurs
+  <http://gillesfabio.com/blog/2010/12/16/python-et-les-decorateurs/>`_
+- `Primer on Python Decorators
+  <https://realpython.com/primer-on-python-decorators/>`_
+- `A guide to Python's function decorators
+  <https://www.thecodeship.com/patterns/guide-to-python-function-decorators/>`_
+- `Python Decorator Library
+  <https://wiki.python.org/moin/PythonDecoratorLibrary>`_
 
-- :func:`classmethod` transforme une méthode en une méthode de classe,
-  c.-à-d. s'appliquant à la classe plutôt qu'à l'instance::
-
-    class C:
-        @classmethod
-        def f(cls, arg1, arg2, ...):  # La classe cls est le 1er argument!
-            ...
-
-  Comme une méthode statique, une méthode de classe peut être invoquée
-  via la classe `C.f()` ou via une instance `C().f()`.
-
-Les méthodes statiques sont souvent d'intérêt plus général, sans être
-spécifique à une instance particulière: c'est une fonction
-indépendante stockée à l'intérieur de la classe.  Les méthodes de
-classe sont quant à elles souvent utilisées pour des initialisations
-alternatives (voir un `exemple d'utilisation et discussion associée
-<https://stackoverflow.com/questions/12179271/>`_).
 
 Fonction anonyme
 ----------------
@@ -236,17 +230,184 @@ fonction:
 <https://docs.python.org/3/howto/functional.html>`_
 
 
-Objets avancés
-==============
+Programmation Orientée Objet avancée
+====================================
 
 .. https://aboucaud.github.io/slides/2016/python-classes/
 
-* méthodes de classe (`@classmethod`), utilisation avec les classes héritées
-* méthodes statiques (`@staticmethod`)
-* `__repr__` vs. `__str__`
-* propriétés (`@property`)
-* attributs (semi) privés et *name mangling*
-* *monkey patching*
+Variables de classe
+-------------------
+
+.. index:: pair: class; variable
+
+Il s'agit d'attributs fondamentaux communs à toutes les instances de la classe,
+contrairement aux attributs d'instance (définis à l'initialisation).
+
+.. code-block:: python
+
+   class MyClass:
+
+       version = 1.2           # Variable de classe (commun à toutes les instances)
+
+       def __init__(self, x):
+
+           self.x = x          # Attribut d'instance (spécifique à chaque instance)
+
+Méthodes statiques
+------------------
+
+.. index::
+   staticmethod
+   pair: class; méthode statique
+
+Ce sont des méthodes qui ne travaillent pas sur une instance (le `self` en
+premier argument).  Elles sont définies à l'aide de la fonction
+:func:`staticmethod` généralement utilisée en décorateur.
+
+Elles sont souvent utilisées pour héberger dans le code d'une classe des
+méthodes génériques qui y sont liées, mais qui pourrait être utilisées
+indépendamment (p.ex. des outils de vérification ou de conversion).
+
+.. code-block:: python
+
+   class MyClass:
+
+       def __init__(self, speed):
+
+           self.speed = speed  # [m/s]
+
+       @staticmethod
+       def ms_to_kmh(speed):
+           "Conversion m/s → km/h."
+
+           return speed * 3.6  # [m/s] → [km/h]
+
+Une méthode statique peut être invoquée directement via la classe en dehors de
+toute instanciation (p.ex. `MyClass.ms_to_kmh()`), ou via une instance
+(p.ex. `self.ms_to_kmh()`).
+
+Méthodes de classe
+------------------
+
+.. index::
+   classmethod
+   pair: class; méthode de classe
+
+Ce sont des méthodes qui ne travaillent pas sur une instance (`self` en premier
+argument) mais directement sur la classe elle-même (`cls` en premier argument).
+Elles sont définies à l'aide de la fonction :func:`classmethod` généralement
+utilisée en décorateur.
+
+Elles sont souvent utilisées pour fournir des méthodes d'instanciation
+alternatives.
+
+.. code-block:: python
+
+   class MyClass:
+
+       def __init__(self, x, y):
+          "Initialisation classique."
+
+          self.x, self.y = x, y
+
+       @classmethod
+       def init_from_file(cls, filename):
+           "Initialisation à partir d'un fichier."
+
+           x, y = ...  # Lire x et y depuis le fichier.
+
+           return cls(x, y)  # Cette initialisation retourne bien une instance
+
+       @classmethod
+       def init_from_web(cls, url):
+           "Initialisation à partir d'une URL."
+
+           x, y = ...  # Lire x et y depuis le Web.
+
+           return cls(x, y)  # Cette initialisation retourne bien une instance
+
+.. rubric:: Exemple
+
+.. literalinclude:: avance.py
+   :pyobject: Date
+   :linenos:
+
+Attributs et méthodes privées
+-----------------------------
+
+Contrairement p.ex. au C++, Python n'offre pas vraiment de mécanisme de
+*privatisation* des attributs ou méthodes [#adults]_:
+
+* Les attributs/méthodes standards (qui ne commencent pas par `_`) sont
+  publiques, librement accessibles et modifiables (ce qui n'est pas une
+  raison pour faire n'importe quoi):
+
+  >>> youki = Animal(10.); youki.masse
+  10.0
+  >>> youki.masse = -5; youki.masse
+  -5.0
+
+* Les attributs/méthodes qui commencent par un simple `_` sont *réputées*
+  privées (mais sont en fait parfaitement publiques): une interface est
+  généralement prévue (*setter* et *getter*), même si vous pouvez y accéder
+  directement *à vos risques et périls*.
+
+  .. literalinclude:: avance.py
+     :pyobject: AnimalPrive
+     :linenos:
+
+  >>> youki = AnimalPrive(10); youki.get_mass()
+  10.0
+  >>> youki.set_mass(-5)
+  ValueError: Mass should be a positive float.
+  >>> youki._mass = -5; youki.get_mass()
+  -5.0
+
+* Les attributs/méthodes qui commencent par un double `__` (*dunder*) sont
+  « cachées » sous un nom complexe mais prévisible (cf. :pep:`8`).
+
+  .. literalinclude:: avance.py
+     :pyobject: AnimalTresPrive
+     :linenos:
+
+  >>> youki = AnimalTresPrive(10); youki.get_mass()
+  10.0
+  >>> youki.__mass = -5; c.get_mass()  # L'attribut __mass n'existe pas sous ce nom...
+  10.0
+  >>> c._AnimalTresPrive__mass = -5; c.get_mass()  # ... mais sous un alias compliqué.
+  -5.0
+
+Propriétés
+----------
+
+.. index:: property
+
+Compte tenu de la nature foncièrement publique des attributs, le mécanisme des
+*getters* et *setters* n'est pas considéré comme très pythonique.  Il est
+préférable d'utiliser la notion de :class:`property` (utilisée en décorateur).
+
+.. literalinclude:: avance.py
+   :pyobject: AnimalProperty
+   :linenos:
+
+>>> youki = AnimalProperty(10); youki.mass
+10.0
+>>> youki.mass = -5
+ValueError: Mass should be a positive float.
+>>> youki._mass = -5; youki.mass
+-5.0
+
+Les propriétés sont également utilisées pour accéder à des quantités calculées
+à la volée à partir d'attributs intrinsèques.
+
+.. literalinclude:: avance.py
+   :pyobject: Interval
+   :linenos:
+
+>>> i = Interval((0, 10)); i.min, i.middle, i.max
+(0, 5, 10)
+>>> i.max = 100
+AttributeError: can't set attribute
 
 
 Éléments passés sous silence
@@ -260,11 +421,13 @@ Il existe encore beaucoup d'éléments passés sous silence:
 - héritages multiples et méthodes de résolution;
 - annotations de fonctions (:pep:`484`) et de variables (:pep:`526`);
 - `f-strings` (:pep:`498`);
+- `__repr__` vs. `__str__`, `__new__` vs. `__init__`;
+- *class factory*,
 - etc.
 
 Ces fonctionnalités peuvent évidemment être très utiles, mais ne sont
-généralement pas strictement indispensables pour une première
-utilisation de Python dans un contexte scientifique.
+généralement pas strictement indispensables pour une première utilisation de
+Python dans un contexte scientifique.
 
 
 Python 3.x
@@ -327,7 +490,7 @@ permettant de **faciliter** la transition vers 3.x (mais pas de la repousser
 .. rubric:: Liens
 
 - `Py3 Readiness <http://py3readiness.org/>`_: liste (réduite) des bibliothèques
-  encore non-compatibles avec Python 3
+  encore non-compatibles avec Python 3
 - `Porting Python 2 Code to Python 3
   <http://python.readthedocs.io/en/latest/howto/pyporting.html>`_
 - `The Conservative Python 3 Porting Guide
@@ -339,6 +502,7 @@ permettant de **faciliter** la transition vers 3.x (mais pas de la repousser
 
 .. [#global] Je ne parlerai pas ici des `variables globales
    <http://geekandpoke.typepad.com/geekandpoke/2012/04/simply-explained-gv.html>`_...
+.. [#adults] *We're all consenting adults.*
 .. [#py3] De nombreuses distributions Linux sont encore basées sur
    Python 2.7 par défaut.
 .. [#total] Voir :func:`functools.total_ordering` pour une alternative.

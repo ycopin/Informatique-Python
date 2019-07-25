@@ -915,8 +915,8 @@ Au concept d'objet sont liées les notions de:
   P.ex. `vache.grossit(10)` modifie la masse de l'`Animal`
   *vache*;
 
-  .. Attention:: Toutes les méthodes d'une classe doivent au moins
-     prendre `self` -- représentant l'objet lui-même -- comme premier
+  .. Attention:: Toutes les méthodes d'une classe doivent au moins prendre
+     `self` -- représentant l'instance même de l'objet -- comme premier
      argument.
 
 - **Surcharge d'opérateurs:** cela permet de redéfinir les opérateurs
@@ -1019,7 +1019,7 @@ fonction :func:`open` retournant un objet de type :term:`file object`:
 .. [#duck] *If it looks like a duck and quacks like a duck, it must be
    a duck.*
 .. [#scope] La notion de « portée » est plus complexe, je simplifie...
-.. [#dunder] Parfois prononcé *dunder main* (*dunder* désigne le `__`).
+.. [#dunder] Parfois prononcé *dunder main* (*dunder* désigne le double `_`).
 .. [#shebang] Il s'agit d'une fonctionnalité des *shells* d'Unix, pas
    spécifique à Python.
 .. [#fnunicode] En fait, Python 3 gère nativement les caractères

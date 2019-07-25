@@ -142,7 +142,15 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 ..    module: itertools
 
 * :mod:`collections` définit de nouveaux types spécialisés, p.ex.
-  :class:`collections.OrderedDict`, un dictionnaire *ordonné*;
+  :class:`collections.OrderedDict`, un dictionnaire *ordonné*, ou
+  :class:`collections.namedtuple`, pour la création d'objets simples:
+
+   >>> Point = collections.namedtuple("Point", "x y")
+   >>> p = Point(3, 4)
+   >>> print(p)
+   Point(x=3, y=4)
+   >>> (p.x**2 + p.y**2)**0.5
+   5.0
 
 * :mod:`itertools` fournit des générateurs de boucle (*itérateurs*) et de
   combinatoire:

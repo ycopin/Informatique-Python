@@ -28,7 +28,7 @@ Listes de liens
   <https://pythontips.com/2016/02/27/learning-python-for-data-science/>`_ (2016)
 - `Awesome Python <https://awesome-python.com/>`_
 - `Real Python tutorials <https://realpython.com/>`_
-  
+
 .. rubric:: ipython
 
 - `IPython tutorial
@@ -80,6 +80,8 @@ Python
 ......
 
 - `Python Tutorial <https://docs.python.org/3/tutorial/>`_ (v3.7)
+- `Python 3 Patterns, Recipes and Idioms
+  <https://python-3-patterns-idioms-test.readthedocs.io/>`_
 - `Apprenez à programmer en Python
   <https://openclassrooms.com/courses/apprenez-a-programmer-en-python>`_
 - `Débuter avec Python au lycée <http://python.lycee.free.fr/>`_ |fr|
@@ -95,8 +97,6 @@ Python
 - `CheckIO <https://checkio.org/>`_, pour apprendre la programmation Python en
   s'amusant !
 - `Python Programming <https://www.codecademy.com/learn/python>`_ (Code Academy)
-
-.. - `Cours Python 3 + exercices <http://perso.limsi.fr/pointal/python:courspython3>`_ |fr|
 
 Scientifique
 ............
@@ -128,7 +128,6 @@ Scientifique
   <https://people.duke.edu/~ccc14/sta-663/index.html>`_
 - `Python Data Science Handbook
   <https://nbviewer.jupyter.org/github/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/Index.ipynb>`_
-
 
 .. rubric:: En français
 
