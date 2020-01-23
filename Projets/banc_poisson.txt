@@ -1,5 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2019-06-13 17:17:02 ycopin>
+.. Time-stamp: <2020-01-23 17:12:43 ycopin>
 
 .. sectionauthor:: Hanna Julienne <hanna.julienne@gmail.com>
 
@@ -71,4 +71,4 @@ Ce projet vise à :
 
 * `Craig Reynolds Boids <http://www.red3d.com/cwr/boids/>`_
 * `Comment les poissons interagissent et coordonnent leurs déplacements dans un
-  banc <http://archives.cnrs.fr/insb/article/950`_
+  banc <http://archives.cnrs.fr/insb/article/950>`_

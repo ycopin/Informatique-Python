@@ -77,9 +77,9 @@ author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 # built documents.
 #
 # The short X.Y version.
-version = u'Informatique Python'
+version = u'Master de Physique Fondamentale, Université Lyon 1'
 # The full version, including alpha/beta/rc tags.
-release = u'Juillet 2019'
+release = u'Janvier 2020'
 
 copyright = ', '.join((release, author))
 
@@ -179,8 +179,6 @@ html_theme_options = {
     'page_width': '75%',
     'sidebar_width': '25%',
     #'fixed_sidebar': True,
-    'sidebar_includehidden': False,
-    'description': u"Une introduction à Python utilisé dans un contexte scientifique."
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
