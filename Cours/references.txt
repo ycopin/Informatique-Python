@@ -135,9 +135,10 @@ Scientifique
 - `NumPy et SciPy
   <http://python.developpez.com/tutoriels/cours-intensif-scientifique/module-numpy-scipy/>`_
   |fr|
-- `La programmation scientifique avec Python
-  <https://openclassrooms.com/courses/la-programmation-scientifique-avec-python>`_
-  |fr|
+..
+   - `La programmation scientifique avec Python
+     <https://openclassrooms.com/courses/la-programmation-scientifique-avec-python>`_
+     |fr|
 
 .. rubric:: Astrophysique et physique des hautes énergies
 

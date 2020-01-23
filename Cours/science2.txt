@@ -976,7 +976,7 @@ différents domaines de la physique, chimie, etc.:
   <http://sfepy.org/>`_;
 - Analyse statistique bayesienne: `PyStan
   <https://mc-stan.org/interfaces/pystan.html>`_;
-- *Markov Chain Monte-Carlo*: :rtfd:`emcee`, :pypi:`PyMC3>`;
+- *Markov Chain Monte-Carlo*: :rtfd:`emcee`, :pypi:`PyMC3`;
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, :pypi:`milk`,
   :pypi:`mdp`, `Keras <https://keras.io/>`_ et autres `modules d'intelligence
   artificielle <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_;

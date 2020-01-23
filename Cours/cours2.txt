@@ -482,10 +482,9 @@ permettant de **faciliter** la transition vers 3.x (mais pas de la repousser
 
     print(1/2)                             # Affichera '0.5'
 
-* La bibliothèque *non* standard `six <https://pythonhosted.org/six/>`_
-  fournit une couche de compatibilité 2.x-3.x, permettant de produire
-  de façon transparente un code compatible simultanément avec les deux
-  versions.
+* La bibliothèque *non* standard :pypi:`six` fournit une couche de
+  compatibilité 2.x-3.x, permettant de produire de façon transparente un code
+  compatible simultanément avec les deux versions.
 
 .. rubric:: Liens
 
