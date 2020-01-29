@@ -11,18 +11,21 @@ Informations pratiques 2020
 
 .. rubric:: Calendrier
 
-Toutes les séances ont lieu au bâtiment `Ariane
-<http://oscar.univ-lyon1.fr/appli-externe/plan/plans/fiches_ucbl/751.html>`_.
+Les séances ont lieu au bâtiment `Ariane
+<https://www.univ-lyon1.fr/campus/plan-des-campus/batiment-ariane-lyontech-la-doua-868543.kjsp>`_
+ou `Berthollet
+<https://www.univ-lyon1.fr/campus/plan-des-campus/batiment-berthollet-959401.kjsp>`_.
 
 ===============  ===========  =====
 Date             TD           Salle
 ===============  ===========  =====
-lun. 03/02/2020  9h30-12h30
-                 16h-18h
-mar. 04/02       16h-18h
-merc. 05/02      9h30-12h30
-merc. 05/02      16h-18h
-ven. 07/02       9h30-12h30   (projets)
+lun. 03/02/2020  11h30-13h    Ariane 23
+                 16h-18h      Ariane 22
+mar. 04/02       16h-18h      Berthollet 204
+merc. 05/02      9h30-13h     Ariane 22
+merc. 05/02      16h-18h      Ariane 21
+ven. 07/02       9h30-11h30   Ariane 22 (TBC)
+                 11h30-13h    Berthollet 202 (TBC)
 ===============  ===========  =====
 
 .. rubric:: Participants
@@ -30,39 +33,53 @@ ven. 07/02       9h30-12h30   (projets)
 =====================  ====================  ======
 Nom                    Mail (`prenom.nom+`)  Statut
 =====================  ====================  ======
-maxime.jabarian        `etu.univ-lyon1.fr`   M2 Astro
-audric.lemonnier       `etu.univ-lyon1.fr`   M2 Astro
-alexandre.revol        `etu.univ-lyon1.fr`   M2 Astro
-mathilde.vancuyck      `etu.univ-lyon1.fr`   M2 Astro
-pierre.cuinet          `etu.univ-lyon1.fr`   M2 Astro
-stephane.michoulier    `etu.univ-lyon1.fr`   M2 Astro
-beatrice.basset        `etu.univ-lyon1.fr`   M2 SUBA
-fatima.hojeij          `etu.univ-lyon1.fr`   M2 SUBA
-aya.kanj               `etu.univ-lyon1.fr`   M2 SUBA
-sane.le-troadec        `etu.univ-lyon1.fr`   M2 SUBA
-mathieu.ouillon        `etu.univ-lyon1.fr`   M2 SUBA
-thibault.rancien       `etu.univ-lyon1.fr`   M2 SUBA
-thomas.battard         `etu.univ-lyon1.fr`   M2 PAMMCO
-sylvian.lequeux        `etu.univ-lyon1.fr`   M2 PAMMCO
+maxime.jabarian        `etu.univ-lyon1.fr`   Astro
+audric.lemonnier       `etu.univ-lyon1.fr`   Astro
+alexandre.revol        `etu.univ-lyon1.fr`   Astro
+mathilde.van-cuyck     `etu.univ-lyon1.fr`   Astro
+pierre.cuinet          `etu.univ-lyon1.fr`   Astro
+stephane.michoulier    `etu.univ-lyon1.fr`   Astro
+beatrice.basset        `etu.univ-lyon1.fr`   SUBA
+thomas.battard         `etu.univ-lyon1.fr`   SUBA
+tanguy.billon          `etu.univ-lyon1.fr`   SUBA
+fatima.hojeij          `etu.univ-lyon1.fr`   SUBA
+aya.kanj               `etu.univ-lyon1.fr`   SUBA
+sylvian.lequeux        `etu.univ-lyon1.fr`   SUBA
+sane.le-troadec        `etu.univ-lyon1.fr`   SUBA
+mathieu.ouillon        `etu.univ-lyon1.fr`   SUBA
+thibaut.rancien        `etu.univ-lyon1.fr`   SUBA
+leo.colliard           `etu.univ-lyon1.fr`   PAMMCO
+youssef.hirchaou       `etu.univ-lyon1.fr`   PAMMCO
+leo.martin             `etu.univ-lyon1.fr`   PAMMCO
+deborah.polderman      `etu.univ-lyon1.fr`   PAMMCO
+jami.torki             `etu.univ-lyon1.fr`   PAMMCO
 clementine.panetier    `ipnl.in2p3.fr`       IPNL
+guilherem.grams        `ipnl.in2p3.fr`       IPNL
 =====================  ====================  ======
 
 ..
    maxime.jabarian@etu.univ-lyon1.fr
    audric.lemonnier@etu.univ-lyon1.fr
    alexandre.revol@etu.univ-lyon1.fr
-   mathilde.vancuyck@etu.univ-lyon1.fr
+   mathilde.van-cuyck@etu.univ-lyon1.fr
    pierre.cuinet@etu.univ-lyon1.fr
    stephane.michoulier@etu.univ-lyon1.fr
    beatrice.basset@etu.univ-lyon1.fr
+   thomas.battard@etu.univ-lyon1.fr
+   tanguy.billon@etu.univ-lyon1.fr
    fatima.hojeij@etu.univ-lyon1.fr
    aya.kanj@etu.univ-lyon1.fr
+   sylvian.lequeux@etu.univ-lyon1.fr
    sane.le-troadec@etu.univ-lyon1.fr
    mathieu.ouillon@etu.univ-lyon1.fr
-   thibault.rancien@etu.univ-lyon1.fr
-   thomas.battard@etu.univ-lyon1.fr
-   sylvian.lequeux@etu.univ-lyon1.fr
-   clementine.panetier@ipnl.in2p3.fr
+   thibaut.rancien@etu.univ-lyon1.fr
+   leo.colliard@etu.univ-lyon1.fr
+   youssef.hirchaou@etu.univ-lyon1.fr
+   leo.martin@etu.univ-lyon1.fr
+   deborah.polderman@etu.univ-lyon1.fr
+   jami.torki@etu.univ-lyon1.fr
+   c.panetier@ipnl.in2p3.fr
+   grams@ipnl.in2p3.fr
 
 .. rubric:: Installations locales
 
