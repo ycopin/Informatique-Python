@@ -20,18 +20,18 @@ ou `Berthollet
 Date             TD           Salle
 ===============  ===========  =====
 lun. 03/02/2020  11h30-13h    Ariane 23
-                 16h-18h      Ariane 22
+--               16h-18h      Ariane 22
 mar. 04/02       16h-18h      Berthollet 204
 merc. 05/02      9h30-13h     Ariane 22
 merc. 05/02      16h-18h      Ariane 21
-ven. 07/02       9h30-11h30   Ariane 22 (TBC)
-                 11h30-13h    Berthollet 202 (TBC)
+ven. 07/02       9h30-11h15   Ariane 22
+--               11h30-13h    Berthollet 202
 ===============  ===========  =====
 
 .. rubric:: Participants
 
 =====================  ====================  ======
-Nom                    Mail (`prenom.nom+`)  Statut
+Nom                    Mail (`prenom.nom@`)  Statut
 =====================  ====================  ======
 maxime.jabarian        `etu.univ-lyon1.fr`   Astro
 audric.lemonnier       `etu.univ-lyon1.fr`   Astro
@@ -41,7 +41,9 @@ pierre.cuinet          `etu.univ-lyon1.fr`   Astro
 stephane.michoulier    `etu.univ-lyon1.fr`   Astro
 beatrice.basset        `etu.univ-lyon1.fr`   SUBA
 thomas.battard         `etu.univ-lyon1.fr`   SUBA
-tanguy.billon          `etu.univ-lyon1.fr`   SUBA
+alexis.boudon          `etu.univ-lyon1.fr`   SUBA
+mohamed.boussejra      `etu.univ-lyon1.fr`   SUBA
+yasmine.demane         `etu.univ-lyon1.fr`   SUBA
 fatima.hojeij          `etu.univ-lyon1.fr`   SUBA
 aya.kanj               `etu.univ-lyon1.fr`   SUBA
 sylvian.lequeux        `etu.univ-lyon1.fr`   SUBA
@@ -66,7 +68,9 @@ guilherem.grams        `ipnl.in2p3.fr`       IPNL
    stephane.michoulier@etu.univ-lyon1.fr
    beatrice.basset@etu.univ-lyon1.fr
    thomas.battard@etu.univ-lyon1.fr
-   tanguy.billon@etu.univ-lyon1.fr
+   alexis.boudon@etu.univ-lyon1.fr
+   mohamed.boussejra@etu.univ-lyon1.fr
+   yasmine.demane@etu.univ-lyon1.fr
    fatima.hojeij@etu.univ-lyon1.fr
    aya.kanj@etu.univ-lyon1.fr
    sylvian.lequeux@etu.univ-lyon1.fr
