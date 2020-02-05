@@ -42,7 +42,7 @@ stephane.michoulier    `etu.univ-lyon1.fr`   Astro
 beatrice.basset        `etu.univ-lyon1.fr`   SUBA
 thomas.battard         `etu.univ-lyon1.fr`   SUBA
 alexis.boudon          `etu.univ-lyon1.fr`   SUBA
-mohamed.boussejra      `etu.univ-lyon1.fr`   SUBA
+amine.boussejra        `etu.univ-lyon1.fr`   SUBA
 yasmine.demane         `etu.univ-lyon1.fr`   SUBA
 fatima.hojeij          `etu.univ-lyon1.fr`   SUBA
 aya.kanj               `etu.univ-lyon1.fr`   SUBA
@@ -69,7 +69,7 @@ guilherem.grams        `ipnl.in2p3.fr`       IPNL
    beatrice.basset@etu.univ-lyon1.fr
    thomas.battard@etu.univ-lyon1.fr
    alexis.boudon@etu.univ-lyon1.fr
-   mohamed.boussejra@etu.univ-lyon1.fr
+   mohamed-amine.boussejra@etu.univ-lyon1.fr
    yasmine.demane@etu.univ-lyon1.fr
    fatima.hojeij@etu.univ-lyon1.fr
    aya.kanj@etu.univ-lyon1.fr

@@ -419,10 +419,12 @@ Il existe encore beaucoup d'éléments passés sous silence:
   (:keyword:`yield`);
 - gestion de contexte: :keyword:`with` (:pep:`343`);
 - héritages multiples et méthodes de résolution;
-- annotations de fonctions (:pep:`484`) et de variables (:pep:`526`);
-- `f-strings` (:pep:`498`);
 - `__repr__` vs. `__str__`, `__new__` vs. `__init__`;
 - *class factory*,
+- annotations de fonctions (:pep:`484`) et de variables (:pep:`526`);
+- le nouveau système de formatage des chaînes de caractères
+  (`f-string` du :pep:`498` à partir de Python 3.6);
+- l'opérateur "morse" `:=` (:pep:`572` à partir de Python 3.8).
 - etc.
 
 Ces fonctionnalités peuvent évidemment être très utiles, mais ne sont
@@ -451,8 +453,6 @@ Python 3 apporte `quelques changements fondamentaux
   (p.ex. :func:`range`) retournent maintenant des itérateurs, plus
   légers en mémoire;
 - un support complet (mais encore complexe) des chaînes Unicode;
-- un nouveau système de formatage des chaînes de caractères
-  (`f-string` du :pep:`498` à partir de Python 3.6);
 - la fonction de comparaison `cmp` (et la méthode spéciale associée
   `__cmp__`) n'existe plus [#total]_.
 

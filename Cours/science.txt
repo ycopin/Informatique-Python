@@ -191,16 +191,14 @@ Création de tableaux
 
 .. index:: module: numpy.random
 
-- :func:`numpy.random.rand` crée un tableau d'un format donné de réels
-  aléatoires dans [0, 1[; :func:`numpy.random.randn` génère un tableau
-  d'un format donné de réels tirés aléatoirement d'une distribution
+- :meth:`numpy.random.rand <numpy.random.mtrand.RandomState.rand>` crée un
+  tableau d'un format donné de réels aléatoires dans [0, 1[;
+  :meth:`numpy.random.randn <numpy.random.mtrand.RandomState.randn>` génère un
+  tableau d'un format donné de réels tirés aléatoirement d'une distribution
   gaussienne (normale) standard :math:`\mathcal{N}(\mu=0, \sigma^2=1)`.
 
-.. (μ=0, σ²=1).
-
-  Le sous-module :mod:`numpy.random` fournit des générateurs de
-  nombres aléatoires pour de nombreuses distributions discrètes et
-  continues.
+  La class :class:`numpy.random.Generator` fournit des générateurs de nombres
+  aléatoires pour de nombreuses distributions discrètes et continues.
 
 
 Manipulations sur les tableaux
