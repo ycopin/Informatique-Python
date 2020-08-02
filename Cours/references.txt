@@ -80,8 +80,7 @@ Python
 ......
 
 - `Python Tutorial <https://docs.python.org/3/tutorial/>`_ (v3.7)
-- `Python 3 Patterns, Recipes and Idioms
-  <https://python-3-patterns-idioms-test.readthedocs.io/>`_
+- :rtfd:`Python 3 Patterns, Recipes and Idioms <python-3-patterns-idioms-test>`
 - `Apprenez à programmer en Python
   <https://openclassrooms.com/courses/apprenez-a-programmer-en-python>`_
 - `Débuter avec Python au lycée <http://python.lycee.free.fr/>`_ |fr|
