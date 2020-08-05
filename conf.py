@@ -41,11 +41,11 @@ extensions = [
 
 # Intersphinx configuration
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/', None),
-    'numpy': ('https://docs.scipy.org/doc/numpy/', None),
+    'python': ('https://docs.python.org/3/', None),
+    'numpy': ('https://numpy.org/doc/stable/', None),
     'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None),
-    'matplotlib': ('http://matplotlib.org/', None),
-    'pandas': ('http://pandas.pydata.org/pandas-docs/stable/', None),
+    'matplotlib': ('https://matplotlib.org/', None),
+    'pandas': ('https://pandas.pydata.org/pandas-docs/stable/', None),
     'xarray': ('http://xarray.pydata.org/en/stable/', None),
     'astropy': ('https://docs.astropy.org/en/stable/', None),
 }

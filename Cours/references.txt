@@ -12,7 +12,7 @@ Documentation générale
 - `Python Documentation <https://docs.python.org/3/>`_ |en|
 - `Documentation Python <https://docs.python.org/fr/3/>`_ |fr|
 - `Python Wiki <https://wiki.python.org/moin/>`_
-- `Python Frequently Asked Questions <https://docs.python.org/3/faq/index.html>`_
+- :doc:`Python Frequently Asked Questions <python:faq/index>`
 - `The Python Package Index <https://pypi.org>`_
 
 Listes de liens
@@ -81,7 +81,7 @@ Cours en ligne
 Python
 ......
 
-- `Python Tutorial <https://docs.python.org/3/tutorial/>`_ (v3.7)
+- :doc:`Python Tutorial <python:tutorial/index>` (v3.7)
 - :rtfd:`Python 3 Patterns, Recipes and Idioms <python-3-patterns-idioms-test>`
 - `Apprenez à programmer en Python
   <https://openclassrooms.com/courses/apprenez-a-programmer-en-python>`_

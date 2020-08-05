@@ -226,8 +226,7 @@ fonction:
    n'est justement pas l'objectif d'une fonction anonyme! Il n'y a
    p.ex. pas de *docstring* associée.
 
-**Voir également:** `Functional Programming
-<https://docs.python.org/3/howto/functional.html>`_
+**Voir également:** :doc:`Functional Programming <python:howto/functional>`
 
 
 Programmation Orientée Objet avancée
@@ -436,12 +435,12 @@ Pour des raisons historiques autant que pratiques [#py3]_, ce cours présentait
 initialement le langage Python dans sa version 2.  Cependant, puisque le
 développement actuel de Python (et de certaines de ses bibliothèques clés) se
 fait maintenant uniquement sur la branche 3.x, qui constitue une remise à plat
-*non rétrocompatible* du langage, et que la branche 2.x ne sera *a priori* plus
-supporté au-delà de 2020 (:pep:`466`), le cours a été porté sur Python 3 (voir
+*non rétrocompatible* du langage, et que la branche 2.x n'est plus supporté
+depuis janvier 2020 (:pep:`466`), le cours a été porté sur Python 3 (voir
 :ref:`python23`).
 
-Python 3 apporte `quelques changements fondamentaux
-<https://docs.python.org/3/whatsnew/3.0.html>`_, notamment:
+Python 3 apporte :doc:`quelques changements fondamentaux <python:whatsnew/3.0>`,
+notamment:
 
 - :func:`print` n'est plus un mot-clé mais une fonction: :samp:`print({...})`;
 - l'opérateur `/` ne réalise plus la division euclidienne entre les
@@ -455,6 +454,8 @@ Python 3 apporte `quelques changements fondamentaux
 - la fonction de comparaison `cmp` (et la méthode spéciale associée
   `__cmp__`) n'existe plus [#total]_.
 
+.. Note:: La branche 3.x a pris un certain temps de maturation, et Python 3
+          n'est vraiment considéré fonctionnel qu'à partir de la version 3.5.
 
 .. _python23:
 
@@ -500,6 +501,6 @@ permettant de **faciliter** la transition vers 3.x (mais pas de la repousser
 .. [#global] Je ne parlerai pas ici des `variables globales
    <http://geekandpoke.typepad.com/geekandpoke/2012/04/simply-explained-gv.html>`_...
 .. [#adults] *We're all consenting adults.*
-.. [#py3] De nombreuses distributions Linux sont encore basées sur
-   Python 2.7 par défaut.
+.. [#py3] De nombreuses distributions Linux utilisent encore des outils
+   Python 2.7.
 .. [#total] Voir :func:`functools.total_ordering` pour une alternative.

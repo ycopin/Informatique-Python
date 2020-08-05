@@ -225,9 +225,8 @@ on est alors sûr de ne pas avoir cassé les fonctionnalités précédentes
 Nous avons déjà vu aux TD précédents plusieurs façons de rédiger des
 tests unitaires.
 
-* Les `doctest <https://docs.python.org/3/library/doctest.html>`_ sont
-  des exemples (assez simples) d'exécution de code inclus dans les
-  *docstring* des classes ou fonctions:
+* Un *doctest* est un exemple (assez simple) d'exécution de code inclus dans la
+  *docstring* d'une classe ou d'une fonction:
 
   .. literalinclude:: mean_power.py
      :pyobject: mean_power
@@ -237,8 +236,7 @@ tests unitaires.
   Les *doctests* peuvent être exécutés de différentes façons (voir
   ci-dessous):
 
-  - avec le module standard :mod:`doctest`: `python -m doctest -v
-    mean_power.py`
+  - avec le module standard :mod:`doctest`: `python -m doctest -v mean_power.py`
   - avec pytest_: `py.test --doctest-modules -v mean_power.py`
   - avec nose_: `nosetests --with-doctest -v mean_power.py`
 
@@ -269,7 +267,7 @@ utiles pour développer en Python.
 *Integrated Development Environment*
 ------------------------------------
 
-- `idle <https://docs.python.org/3/library/idle.html>`_, l'IDE intégré à Python
+- :ref:`idle <python:idle>`, l'IDE intégré à Python
 - :program:`emacs` + `python-mode` pour l'édition, et
   :program:`ipython` pour l'execution de code (voir `Python
   Programming In Emacs
@@ -303,10 +301,8 @@ d'exécution ou juste après une erreur (analyse post-mortem).
 
 - Module de la bibliothèque standard: :mod:`pdb`
 
-  Pour déboguer un script, il est possible de l'exécuter sous le
-  contrôle du débogueur `pdb
-  <https://docs.python.org/3/library/pdb.html>`_ en s'interrompant dès
-  la 1re instruction::
+  Pour déboguer un script, il est possible de l'exécuter sous le contrôle du
+  débogueur :mod:`pdb` en s'interrompant dès la 1re instruction::
 
     python -m pdb script.py
     (Pdb)
@@ -375,11 +371,11 @@ fonctionne et produit les bons résultats dans tous les cas.  S'il
 reste trop lent ou gourmand en mémoire *pour vos besoins*, il peut
 être nécessaire de l'optimiser.
 
-Le `profilage <https://docs.python.org/3/library/profile.html>`_ permet de
-déterminer le temps passé dans chacune des sous-fonctions d'un code (ou ligne
-par ligne: :pypi:`line profiler <line-profiler>`, ou selon l'utilisation de la
-mémoire: :pypi:`memory profiler <memory-profiler>`), afin d'y identifier les
-parties qui gagneront à être optimisées.
+Le :ref:`profilage <python:profile>` permet de déterminer le temps passé dans
+chacune des sous-fonctions d'un code (ou ligne par ligne: :pypi:`line profiler
+<line-profiler>`, ou selon l'utilisation de la mémoire: :pypi:`memory profiler
+<memory-profiler>`), afin d'y identifier les parties qui gagneront à être
+optimisées.
 
 - `python -O`, `__debug__`, `assert`
 
