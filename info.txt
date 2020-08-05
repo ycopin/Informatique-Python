@@ -7,11 +7,11 @@ Informations pratiques
 - `Cours en ligne
   <https://informatique-python.readthedocs.io/fr/latest/>`_
 - Responsable: Yannick Copin `<ipnl.in2p3.fr>`, Bureau
-  420 de l'`IPNL <http://www.ipnl.in2p3.fr/>`_ (4 rue Fermi)
+  420 de l'`IP2I Lyon <http://www.ip2i.in2p3.fr/>`_ (4 rue Fermi)
 
 .. rubric:: Installations locales
 
-.. WARNING:: le cours utilise dorénavant **Python 3**.
+.. WARNING:: le cours utilise dorénavant **Python 3.6+**.
 
 Si des programmes ou des librairies Python (p.ex. `ipython`) manquent
 sur votre ordinateur (p.ex. en salle Ariane), il est relativement

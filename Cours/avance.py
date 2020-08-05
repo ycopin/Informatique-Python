@@ -66,7 +66,7 @@ class Date:
 
             return cls(day, month, year)
         else:
-            raise IOError("'{}' is not a valid date string.".format(astring))
+            raise IOError(f"{astring!r} is not a valid date string.")
 
     @staticmethod
     def is_valid_date(astring):

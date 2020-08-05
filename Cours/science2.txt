@@ -914,7 +914,7 @@ Astropy
 :rtfd:`astropy` est une bibliothèque astronomique maintenue par la communauté et
 visant à fédérer les efforts jusque là disparates.  Elle offre en outre une
 interface unifiée à des `bibliothèques affiliées
-<http://www.astropy.org/affiliated/>`_ plus spécifiques.
+<https://www.astropy.org/affiliated/>`_ plus spécifiques.
 
 Tour d'horizon
 --------------
@@ -959,7 +959,7 @@ Démonstration
   <http://www.astrobetter.com/blog/2014/07/07/astropy-tutorials-learn-how-to-do-common-astro-tasks-with-astropy-and-python/>`_
 
 .. Note:: N'oubliez pas de citer [Astropy13]_ ou de `mentionner
-   l'utilisation <http://www.astropy.org/acknowledging.html>`_
+   l'utilisation <https://www.astropy.org/acknowledging.html>`_
    d'astropy dans vos publications et présentations.
 
 
@@ -972,10 +972,10 @@ scientifique, et dispose d'innombrables bibliothèques dédiées aux
 différents domaines de la physique, chimie, etc.:
 
 - Ajustement & optimisation (statistiques fréquentistes): :rtfd:`iminuit`,
-  :rtfd:`kafe` ;
+  :rtfd:`kafe`;
 - Analyse statistique bayesienne: `PyStan
   <https://mc-stan.org/interfaces/pystan.html>`_;
-- *Markov Chain Monte-Carlo*: :rtfd:`emcee`, :pypi:`PyMC3>` ;
+- *Markov Chain Monte-Carlo*: :rtfd:`emcee`, :pypi:`pymc3`;
 - *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, :pypi:`milk`,
   :pypi:`mdp`, `Keras <https://keras.io/>`_ et autres `modules d'intelligence
   artificielle <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_;
@@ -991,7 +991,8 @@ différents domaines de la physique, chimie, etc.:
   ce `tutoriel sympy
   <https://mattpap.github.io/scipy-2011-tutorial/html/>`_) et `sage
   <http://www.sagemath.org/>`_;
-- `PyROOT <https://root.cern.ch/pyroot>`_;
+- `pyroot <https://root.cern/manual/python/>`_ & `rootpy
+  <https://www.rootpy.org>`_;
 - `High Performance Computing in Python
   <https://byumcl.bitbucket.io/bootcamp2013/labs/perfomance.html>`_;
 - `Etc. <https://www.scipy.org/topical-software.html>`_
@@ -1003,8 +1004,7 @@ différents domaines de la physique, chimie, etc.:
    arbitraire) sont considérées comme **dépréciées** et seront retirées dans
    une version ultérieure.  Utiliser une indexation hiérarchique ou
    :mod:`xarray`.
-.. [Astropy13] `2013A&A...558A..33A
-               <http://adsabs.harvard.edu/abs/2013A%26A...558A..33A>`_
+.. [Astropy13] :ads:`2013A&A...558A..33A`
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr

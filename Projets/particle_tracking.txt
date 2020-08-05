@@ -1,5 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2017-05-29 00:49 ycopin@lyonovae03.in2p3.fr>
+.. Time-stamp: <2020-08-02 11:35 ycopin@lyonovae03>
 
 .. sectionauthor:: Mathieu Leocmach <mathieu.leocmach@ens-lyon.fr>
 
@@ -12,7 +12,7 @@ vers la terre pour la détruire, etc.
 Dans ce projet, on essayera d'abord de localiser une particule unique
 dans une image à 2 dimensions (niveaux de gris) en utilisant
 l'algorithme de Crocker & Grier décrit `ici
-<http://physics.nyu.edu/grierlab/methods/methods.html>`_. On utilisera
+<https://physics.nyu.edu/grierlab/methods/methods.html>`_. On utilisera
 sans retenue les fonctions de la bibliothèque `scipy.ndimage`.
 
 On essayera d'obtenir une localisation plus fine que la taille du

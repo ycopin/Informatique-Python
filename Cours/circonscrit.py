@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding: utf-8
 
 """
 Calcule le cercle circonscrit à 3 points du plan.
@@ -52,7 +53,7 @@ class Point:
             self.x = float(x)
             self.y = float(y)
         except (ValueError, TypeError):
-            raise TypeError("Invalid input coordinates ({}, {})".format(x, y))
+            raise TypeError(f"Invalid input coordinates ({x}, {y})")
 
     def __str__(self):
         """
@@ -66,7 +67,7 @@ class Point:
         'Point (x=1.0, y=2.0)'
         """
 
-        return "Point (x={p.x}, y={p.y})".format(p=self)
+        return f"Point (x={self.x}, y={self.y})"
 
     def isOrigin(self):
         """
@@ -143,7 +144,7 @@ class Vector(Point):
         'Vector (x=0.0, y=1.0)'
         """
 
-        return "Vector (x={v.x}, y={v.y})".format(v=self)
+        return f"Vector (x={self.x}, y={self.y})"
 
     def __add__(self, other):
         """
@@ -313,23 +314,22 @@ if __name__ == '__main__':
                        if not coords.strip().startswith('#')]
 
     if len(args.coords) != 3:  # Vérifie le nb de points
-        parser.error("Specify 3 points by their coordinates 'x,y' (got {})"
-                     .format(len(args.coords)))
+        parser.error("Specify 3 points by their coordinates 'x,y' "
+                     f"(got {len(args.coords)})")
 
     points = []  # Liste des points
     for i, arg in enumerate(args.coords, start=1):
         try:  # Déchiffrage de l'argument 'x,y'
             x, y = (float(t) for t in arg.split(','))
         except ValueError:
-            parser.error(
-                "Cannot decipher coordinates #{}: '{}'".format(i, arg))
+            parser.error(f"Cannot decipher coordinates #{i}: {arg!r}")
 
-        points.append(Point(x, y))  # Création du point et ajout à la liste
-        print("#{:d}: {}".format(i, points[-1]))  # Affichage du dernier point
+        points.append(Point(x, y))      # Création du point et ajout à la liste
+        print(f"#{i:d}: {points[-1]}")  # Affichage du dernier point
 
     # Calcul du cercle cisconscrit (lève une ValueError en cas de problème)
     center, radius = circumscribedCircle(*points)  # Délistage
-    print("Circumscribed circle: {}, radius: {}".format(center, radius))
+    print(f"Circumscribed circle: {center}, radius: {radius}")
 
     if args.plot:                   # Figure
         import matplotlib.pyplot as P
@@ -339,7 +339,7 @@ if __name__ == '__main__':
         # Points
         ax.plot([p.x for p in points], [p.y for p in points], 'ko')
         for i, p in enumerate(points, start=1):
-            ax.annotate("#{}".format(i), (p.x, p.y),
+            ax.annotate(f"#{i}", (p.x, p.y),
                         xytext=(5, 5), textcoords='offset points')
         # Cercle circonscrit
         c = P.matplotlib.patches.Circle((center.x, center.y), radius=radius,

@@ -1,5 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2018-01-09 12:33:28 ycopin>
+.. Time-stamp: <2020-08-02 11:21 ycopin@lyonovae03>
 
 .. sectionauthor:: Méthodes numériques pour la physique et les SPI
 
@@ -134,10 +134,9 @@ constitue une *section de Poincaré*.
 Nous étudierons plus particulièrement le cas particulier :math:`m=1`
 et les deux potentiels:
 
-#. le potentiel intégrable de `Sridhar & Touma
-   <http://adsabs.harvard.edu/abs/1997MNRAS.287L...1S>`_ (1997; MNRAS,
-   **287**, L1) [2]_, qui s’exprime naturellement dans les coordonnées
-   polaires :math:`(r,\theta)`:
+#. le potentiel intégrable de :ads:`Sridhar & Touma <1997MNRAS.287L...1S>`
+   (1997; MNRAS, **287**, L1) [2]_, qui s’exprime naturellement dans les
+   coordonnées polaires :math:`(r,\theta)`:
 
    .. math::
 
@@ -180,7 +179,5 @@ et les deux potentiels:
    On se place dans toute la suite du problème dans un espace à deux
    dimensions.
 
-.. [2] Nous utiliserons toutefois les notations de l’appendice de
-   `Copin, Zhao & de Zeeuw
-   <http://adsabs.harvard.edu/abs/2000MNRAS.318..781C>`_ (2000; MNRAS,
-   **318**, 781).
+.. [2] Nous utiliserons toutefois les notations de l’appendice de :ads:`Copin,
+   Zhao & de Zeeuw <2000MNRAS.318..781C>` (2000; MNRAS, **318**, 781).

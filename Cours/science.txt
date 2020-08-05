@@ -636,8 +636,8 @@ fichier ASCII:
 >>> (x == y).all()                  # Test d'égalité stricte
 True
 
-.. Attention:: :func:`numpy.loadtxt` supporte les types composés, mais
-   ne supporte pas les données manquantes; utiliser alors la fonction
+.. Attention:: :func:`numpy.loadtxt` supporte les types composés, mais ne
+   supporte pas les données manquantes; utiliser alors la fonction
    :func:`numpy.genfromtxt`, plus robuste mais plus lente.
 
 Le format texte n'est pas optimal pour de gros tableaux (ou de rang > 2): il
@@ -870,11 +870,11 @@ systèmes d'axes (numérotés de 1 à 6)::
     fig = P.figure()
     for i in range(1, 4):
         ax = fig.add_subplot(2, 3, i, xticks=[], yticks=[])
-        ax.text(0.5, 0.5, "subplot(2, 3, {})".format(i),
+        ax.text(0.5, 0.5, f"subplot(2, 3, {i})",
                 ha='center', va='center', size='large')
     for i in range(3, 5):
         ax = fig.add_subplot(2, 2, i, xticks=[], yticks=[])
-        ax.text(0.5, 0.5, "subplot(2, 2, {})".format(i),
+        ax.text(0.5, 0.5, f"subplot(2, 2, {i})",
                 ha='center', va='center', size='large')
 
 .. image:: subplots.*
@@ -1057,8 +1057,7 @@ graphique de visualisation 3D s'appuyant sur `Mayavi
    `sympy <http://www.sympy.org/>`_, et d'un environnement de calcul
    mathématique, `sage <http://www.sagemath.org/>`_.
 
-.. [Matplotlib07] `2007CSE.....9...90H
-   <http://adsabs.harvard.edu/abs/2007CSE.....9...90H>`_
+.. [Matplotlib07] :ads:`2007CSE.....9...90H`
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr

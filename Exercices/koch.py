@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding: utf-8
 
 from __future__ import division  # Pas de division euclidienne par défaut
 
@@ -34,7 +35,7 @@ def koch(ordre=3, niveau=0, taille=100, delta=0):
     """
 
     if niveau == 0:                         # Dessine le triangle de niveau 0
-        T.title("Flocon de Koch - ordre {}".format(ordre))
+        T.title(f"Flocon de Koch - ordre {ordre}")
         koch(niveau=1, ordre=ordre, taille=taille, delta=delta)
         T.right(120)
         koch(niveau=1, ordre=ordre, taille=taille, delta=delta)
@@ -81,7 +82,7 @@ if __name__ == '__main__':
 
     # Quelques tests sur les args et options
     if not args.ordre > 0:
-        parser.error("Ordre requis '{}' invalide".format(args.ordre))
+        parser.error(f"Ordre requis {args.ordre!r} invalide")
 
     if not args.taille > 0:
         parser.error("La taille de la figure doit être positive")
@@ -95,7 +96,7 @@ if __name__ == '__main__':
     koch(ordre=args.ordre, taille=args.taille, delta=args.delta)
     if args.figure:
         # Sauvegarde de l'image
-        print("Sauvegarde de la figure dans '{}'".format(args.figure))
+        print(f"Sauvegarde de la figure dans {args.figure!r}")
         T.getscreen().getcanvas().postscript(file=args.figure)
 
     T.exitonclick()
