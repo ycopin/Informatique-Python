@@ -454,16 +454,17 @@ notamment:
 - la fonction de comparaison `cmp` (et la méthode spéciale associée
   `__cmp__`) n'existe plus [#total]_.
 
-.. Note:: La branche 3.x a pris un certain temps de maturation, et Python 3
-          n'est vraiment considéré fonctionnel qu'à partir de la version 3.5.
+.. Note:: La branche 3.x a pris un certain temps pour mûrir, et Python 3 n'est
+   vraiment considéré fonctionnel (et maintenu) qu'à partir de la version 3.5.
+   Inversement, la dernière version supportée de Python 2 a été 2.7.
 
 .. _python23:
 
 Transition Python 2 à Python 3
 ------------------------------
 
-.. Avertissement:: Si vous vous lancez dans un nouveau développement, il est
-   dorénavant indispensable d'utiliser exclusivement Python 3.
+.. Avertissement:: Python 2 n'étant plus supporté, il est dorénavant
+   indispensable d'utiliser exclusivement Python 3.
 
 Si votre code est encore sous python-2.x, il existe de nombreux outils
 permettant de **faciliter** la transition vers 3.x (mais pas de la repousser
