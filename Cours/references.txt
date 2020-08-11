@@ -9,8 +9,10 @@ Documentation générale
 ----------------------
 
 - `Python <https://www.python.org/>`_
+- `Python Documentation <https://docs.python.org/3/>`_ |en|
+- `Documentation Python <https://docs.python.org/fr/3/>`_ |fr|
 - `Python Wiki <https://wiki.python.org/moin/>`_
-- `Python Frequently Asked Questions <https://docs.python.org/3/faq/index.html>`_
+- :doc:`Python Frequently Asked Questions <python:faq/index>`
 - `The Python Package Index <https://pypi.org>`_
 
 Listes de liens
@@ -19,7 +21,7 @@ Listes de liens
 - `Python facile
   <http://pythonfacile.free.fr/python/ressources.html>`_ (2005) |fr|
 - `Python: quelques références, trucs et astuces:
-  <http://dvillers.umons.ac.be/wiki/floss:python>`_ (2014) |fr|
+  <https://dvillers.umons.ac.be/wiki/floss:python>`_ (2014) |fr|
 - `Improving your programming style in Python
   <http://gael-varoquaux.info/programming/improving-your-programming-style-in-python.html>`_ (2014)
 - `Starter Kit (py4science)
@@ -79,9 +81,8 @@ Cours en ligne
 Python
 ......
 
-- `Python Tutorial <https://docs.python.org/3/tutorial/>`_ (v3.7)
-- `Python 3 Patterns, Recipes and Idioms
-  <https://python-3-patterns-idioms-test.readthedocs.io/>`_
+- :doc:`Python Tutorial <python:tutorial/index>` (v3.7)
+- :rtfd:`Python 3 Patterns, Recipes and Idioms <python-3-patterns-idioms-test>`
 - `Apprenez à programmer en Python
   <https://openclassrooms.com/courses/apprenez-a-programmer-en-python>`_
 - `Débuter avec Python au lycée <http://python.lycee.free.fr/>`_ |fr|
@@ -90,6 +91,7 @@ Python
 - `Introduction à Python pour la programmation scientifique
   <http://www.courspython.com/sommaire.html>`_ |fr|
 
+- `Google's Python Class <https://developers.google.com/edu/python/>`_
 - `Begginer's Guide <https://wiki.python.org/moin/BeginnersGuide>`_
 - `DIY python workshop
   <http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
@@ -97,13 +99,18 @@ Python
 - `CheckIO <https://checkio.org/>`_, pour apprendre la programmation Python en
   s'amusant !
 - `Python Programming <https://www.codecademy.com/learn/python>`_ (Code Academy)
+- Tutoriaux *Zeste de savoir* |fr|: `programmation orientée objet
+  <https://zestedesavoir.com/tutoriels/1253/la-programmation-orientee-objet-en-python/>`_,
+  `notions avancées
+  <https://zestedesavoir.com/tutoriels/954/notions-de-python-avancees/>`_,
 
 Scientifique
 ............
 
 - `Python Scientific Lecture Notes <http://www.scipy-lectures.org/>`_
 - `Handbook of the Physics Computing Course
-  <http://pentangle.net/python/handbook/>`_ (2002)
+  <http://www-teaching.physics.ox.ac.uk/computing/handbook_Python/handbook_Python.html>`_
+  (Oxford, 2003)
 - `Practical Scientific Computing in Python
   <https://www.scribd.com/document/56265218/py4science>`_
 - `Computational Physics with Python
@@ -135,9 +142,8 @@ Scientifique
 - `NumPy et SciPy
   <http://python.developpez.com/tutoriels/cours-intensif-scientifique/module-numpy-scipy/>`_
   |fr|
-- `La programmation scientifique avec Python
-  <https://openclassrooms.com/courses/la-programmation-scientifique-avec-python>`_
-  |fr|
+- `Introduction à la programmation Python pour la biologie
+  <https://python.sdv.univ-paris-diderot.fr/>`_ |fr|
 
 .. rubric:: Astrophysique et physique des hautes énergies
 

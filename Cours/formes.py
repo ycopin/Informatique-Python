@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding: utf-8
 
 """
 Exemple de Programmation Orientée Objet.
@@ -28,7 +29,7 @@ class Forme:
         Retourne une chaîne de caractères.
         """
 
-        return "forme encore indéfinie de couleur {}".format(self.couleur)
+        return f"forme encore indéfinie de couleur {self.couleur}"
 
     def change_couleur(self, newcolor):
         """Change la couleur de la Forme."""
@@ -82,8 +83,8 @@ class Rectangle(Forme):
     def __str__(self):
         """Surcharge de `Forme.__str__()`."""
 
-        return "rectangle {}x{}, de couleur {}".format(
-            self.longueur, self.largeur, self.couleur)
+        return f"rectangle {self.longueur}x{self.largeur}, " \
+            f"de couleur {self.couleur}"
 
     def aire(self):
         """

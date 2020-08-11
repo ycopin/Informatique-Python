@@ -41,19 +41,20 @@ extensions = [
 
 # Intersphinx configuration
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/', None),
-    'numpy': ('https://docs.scipy.org/doc/numpy/', None),
+    'python': ('https://docs.python.org/3/', None),
+    'numpy': ('https://numpy.org/doc/stable/', None),
     'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None),
-    'matplotlib': ('http://matplotlib.org/', None),
-    'pandas': ('http://pandas.pydata.org/pandas-docs/stable/', None),
-    'xarray': ('http://xarray.pydata.org/en/stable/', None),
-    'astropy': ('http://docs.astropy.org/en/stable/', None),
+    'matplotlib': ('https://matplotlib.org/', None),
+    'pandas': ('https://pandas.pydata.org/pandas-docs/stable/', None),
+    'xarray': ('https://xarray.pydata.org/en/stable/', None),
+    'astropy': ('https://docs.astropy.org/en/stable/', None),
 }
 
 # Extlinks configuration
 extlinks = {
-    'pypi': ('https://pypi.org/project/%s', ''),
-    'rtfd': ('https://%s.readthedocs.io/', '')      # readthedocs.io
+    'pypi': ('https://pypi.org/project/%s', ''),     # Pypi
+    'rtfd': ('https://%s.readthedocs.io/', ''),      # readthedocs.io
+    'ads': ('https://ui.adsabs.harvard.edu/abs/%s/abstract', ''), # ADS
 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -139,6 +140,15 @@ rst_epilog = u""
 # """
 rst_prolog = u""
 
+nbsphinx_prolog = r"""
+{% set docname = env.doc2path(env.docname, base=None) %}
+.. raw:: latex
+
+   \nbsphinxstartnotebook{\scriptsize\noindent\strut
+   \textcolor{gray}{The following section was generated from
+   \sphinxcode{\sphinxupquote{\strut {{ docname | escape_latex }}}} \dotfill}}
+"""
+
 nbsphinx_epilog = r"""
 {% set docname = env.doc2path(env.docname, base=None) %}
 .. only:: html
@@ -152,13 +162,22 @@ nbsphinx_epilog = r"""
 
 .. raw:: latex
 
-   \vfil\penalty-1\vfilneg
-   \vspace{\baselineskip}
-   \textcolor{gray}{The following section was generated from
-   \texttt{\strut{}{{ docname }}}\\[-0.5\baselineskip]
-   \noindent\rule{\textwidth}{0.4pt}}
-   \vspace{-2\baselineskip}
+   \nbsphinxstopnotebook{\scriptsize\noindent\strut
+   \textcolor{gray}{\dotfill\ \sphinxcode{\sphinxupquote{\strut
+   {{ docname | escape_latex }}}} ends here.}}
 """
+
+mathjax_config = {
+    'TeX': {'equationNumbers': {'autoNumber': 'AMS', 'useLabelIds': True}},
+}
+
+# Additional files needed for generating LaTeX/PDF output:
+latex_additional_files = ['references.bib']
+
+# Support for notebook formats other than .ipynb
+nbsphinx_custom_formats = {
+    '.pct.py': ['jupytext.reads', {'fmt': 'py:percent'}],
+}
 
 
 # -- Options for HTML output ---------------------------------------------------
@@ -299,3 +318,14 @@ latex_documents = [
 
 # If false, no module index is generated.
 #latex_domain_indices = True
+
+
+# -- Options for linkcheck --------------------------------------------------
+
+# Ignore intersphinx links
+linkcheck_ignore = [
+    r'https://docs.python.org/3/reference/',              # Python reference
+    r'https://docs.python.org/3/library/',                # Python library
+    r'https://numpy.org/doc/stable/reference/generated/', # Numpy doc
+    r'https://pandas.pydata.org/pandas-doc/stable/reference/generated/', # Pandas
+]

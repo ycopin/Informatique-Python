@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding: utf-8
 
 """
 Crible d'Ératosthène.
@@ -16,8 +17,7 @@ if sys.argv[1:]:  # Présence d'au moins un argument sur la ligne de commande
     try:
         n = int(sys.argv[1])  # Essayer de lire le 1er argument comme un entier
     except ValueError:
-        raise ValueError("L'argument '{}' n'est pas un entier"
-                         .format(sys.argv[1]))
+        raise ValueError(f"L'argument {sys.argv[1]!r} n'est pas un entier")
 else:                         # Pas d'argument sur la ligne de commande
     n = 101                   # Valeur par défaut
 # end-sys
@@ -38,5 +38,5 @@ while i**2 <= n:                        # Inutile de tester jusqu'à n
     i += 1                              # Passer à l'entier à tester suivant
 
 # Afficher la liste des entiers premiers (c-à-d non étiquetés)
-print("Liste des entiers premiers <= {} :".format(n))
+print(f"Liste des entiers premiers <= {n} :")
 print([i for i in l if i != 0])

@@ -76,9 +76,10 @@ la température et du champ magnétique par simulation de Monte-Carlo.
    :width: 50%
    :align: center
 
-   **Figure:** Modèle d'Ising au point critique. Source: `Paul
-   Coddington
-   <http://cs.adelaide.edu.au/~paulc/physics/spinmodels.html>`_.
+   **Figure:** Modèle d'Ising au point critique.
+
+.. Source: `Paul Coddington
+.. <http://cs.adelaide.edu.au/~paulc/physics/spinmodels.html>`_.
 
 Modèle de Potts 3D
 ------------------
@@ -266,10 +267,6 @@ d’effectuer des moyennes sur un très grand nombre de tirages
 * `Percolation theory <https://en.wikipedia.org/wiki/Percolation_theory>`_
 * `Concepts fondamentaux de la percolation
   <http://percolation.free.fr/theseweb003.html>`_
-* Percolation exercises: `2006
-  <http://pages.physics.cornell.edu/~sethna/StatMech/ComputerExercises/Percolation/Percolation.html>`_,
-  `2012
-  <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/ComputerExercises/Percolation/Percolation.html>`_
 
 Autres possibilités
 -------------------
@@ -371,8 +368,7 @@ une foule <http://www2.cnrs.fr/presse/communique/1852.htm>`_).
    :width: 50%
    :align: center
 
-   **Figure:** Un obstacle aide à l'évacuation. Source: `Crowd Behavior
-   <https://www.openabm.org/book/export/html/1955>`_.
+   **Figure:** Un obstacle aide à l'évacuation (DR).
 
 Suivi de particule(s)
 ---------------------
@@ -387,8 +383,7 @@ Projets statistiques
   Methods <http://www.itl.nist.gov/div898/handbook/>`_,
   p.ex. `Comparisons based on data from two processes
   <http://www.itl.nist.gov/div898/handbook/prc/section3/prc3.htm>`_
-- Statistiques robustes, p.ex. `Beers et al. (1990)
-  <http://adsabs.harvard.edu/abs/1990AJ....100...32B>`_
+- Statistiques robustes, p.ex. :ads:`Beers et al. (1990) <1990AJ....100...32B>`
 
 
 Projets de visualisation
@@ -435,8 +430,7 @@ visualisation sous Python/Matplotlib.
   - Données photométriques: p.ex. :download:`M55 <./M55_BV.dat>`
     (source: `BVI photometry in M55
     <http://cdsarc.u-strasbg.fr/viz-bin/Cat?J/AJ/134/825>`_)
-  - Données théoriques: p.ex. `Padova database of stellar evolutionary
-    tracks and isochrones <http://pleiadi.pd.astro.it/>`_
+  - Données théoriques: p.ex. `CMD <http://stev.oapd.inaf.it/cgi-bin/cmd>`_
 
 .. https://sites.google.com/site/roguewavesoftwarefrance/tutoriels/Python-Clustering-k-Means
 

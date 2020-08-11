@@ -54,42 +54,38 @@ donnant les grands principes du Python::
 Une traduction libre en français:
 
 1. Préfèrer le beau au laid,
-2. l’explicite à l’implicite,
-3. le simple au complexe,
-4. le complexe au compliqué,
-5. le déroulé à l’imbriqué,
-6. l’aéré au compact.
+2. ... l’explicite à l’implicite
+3. ... le simple au complexe,
+4. ... le complexe au compliqué,
+5. ... le déroulé à l’imbriqué,
+6. ... l’aéré au compact.
 7. La lisibilité compte.
 8. Les cas particuliers ne le sont jamais assez pour violer les règles,
-9. même s'il faut privilégier l’aspect pratique à la pureté.
+9. ... même s'il faut privilégier la praticité à la pureté.
 10. Ne jamais passer les erreurs sous silence,
-11. ou les faire taire explicitement.
-12. Face à l’ambiguïté, ne pas se laisser tenter à deviner.
-13. Il doit y avoir une -- et si possible une seule -- façon évidente de
+11. ... ou les faire taire explicitement.
+12. En cas d’ambiguïté, résister à la tentation de deviner.
+13. Il devrait y avoir une -- et de préférence une seule -- façon évidente de
     procéder,
-14. même si cette façon n’est pas évidente à première vue, à moins
+14. ... même si cette façon n’est pas évidente à première vue, à moins
     d’être Hollandais.
-15. Mieux vaut maintenant que jamais,
-16. même si jamais est souvent mieux qu’immédiatement.
+15. Mieux vaut *maintenant* que *jamais*,
+16. ... même si *jamais* est souvent préférable à *immédiatement*.
 17. Si l’implémentation s’explique difficilement, c’est une mauvaise
     idée.
 18. Si l’implémentation s’explique facilement, c’est peut-être une bonne
     idée.
-19. Les espaces de nommage sont une sacrée bonne idée, utilisons-les
+19. Les espaces de noms sont une sacrée bonne idée, utilisons-les
     plus souvent !
 
 Us et coutumes
 --------------
 
+- **Keep it simple, stupid!**
+- *Don't repeat yourself*
 - *Fail early, fail often, fail better!* (`raise`)
 - *Easier to Ask for Forgiveness than Permission* (`try ... except`)
-- le *Style Guide for Python Code* (:pep:`8`)
-- `Google Python Style Guide
-  <https://google.github.io/styleguide/pyguide.html>`_
-- `The Best of the Best Practices (BOBP) Guide for Python
-  <https://gist.github.com/sloria/7001839>`_
-- The hitchhiker's guide to Python `Code Style
-  <https://docs.python-guide.org/writing/style/>`_
+- *We’re all consenting adults here* (attributs privés)
 
 .. rubric:: Quelques conseils supplémentaires:
 
@@ -107,6 +103,8 @@ Us et coutumes
   vous ne relirez jamais votre code (ou même que personne n'aura
   jamais à le lire), ou que vous aurez le temps de le refaire mieux
   plus tard...
+- *You ain't gonna need it*: se concentrer sur les fonctionnalités nécessaires
+  plutôt que de prévoir d'emblée l'ensembles des cas.
 - « L'optimisation prématurée est la source de tous les maux » (Donald
   Knuth [#opt]_): mieux vaut un code lent mais juste et maintenable
   qu'un code rapide et faux ou incompréhensible. Dans l'ordre absolu
@@ -117,6 +115,20 @@ Us et coutumes
   3. *Make it fast.*
 
 - *Respectez* le zen du python, il vous le rendra.
+
+.. rubric:: Voir également:
+
+- le *Style Guide for Python Code* (:pep:`8`)
+- `Google Python Style Guide
+  <https://google.github.io/styleguide/pyguide.html>`_
+- `The Best of the Best Practices (BOBP) Guide for Python
+  <https://gist.github.com/sloria/7001839>`_
+- The hitchhiker's guide to Python `Code Style
+  <https://docs.python-guide.org/writing/style/>`_
+- `les secrets d'un code pythonique
+  <https://zestedesavoir.com/articles/1079/les-secrets-dun-code-pythonique/>`_
+  |fr|
+
 
 Principes de conception logicielle
 ----------------------------------
@@ -213,9 +225,8 @@ on est alors sûr de ne pas avoir cassé les fonctionnalités précédentes
 Nous avons déjà vu aux TD précédents plusieurs façons de rédiger des
 tests unitaires.
 
-* Les `doctest <https://docs.python.org/3/library/doctest.html>`_ sont
-  des exemples (assez simples) d'exécution de code inclus dans les
-  *docstring* des classes ou fonctions:
+* Un *doctest* est un exemple (assez simple) d'exécution de code inclus dans la
+  *docstring* d'une classe ou d'une fonction:
 
   .. literalinclude:: mean_power.py
      :pyobject: mean_power
@@ -225,8 +236,7 @@ tests unitaires.
   Les *doctests* peuvent être exécutés de différentes façons (voir
   ci-dessous):
 
-  - avec le module standard :mod:`doctest`: `python -m doctest -v
-    mean_power.py`
+  - avec le module standard :mod:`doctest`: `python -m doctest -v mean_power.py`
   - avec pytest_: `py.test --doctest-modules -v mean_power.py`
   - avec nose_: `nosetests --with-doctest -v mean_power.py`
 
@@ -257,7 +267,7 @@ utiles pour développer en Python.
 *Integrated Development Environment*
 ------------------------------------
 
-- `idle <https://docs.python.org/3/library/idle.html>`_, l'IDE intégré à Python
+- :ref:`idle <python:idle>`, l'IDE intégré à Python
 - :program:`emacs` + `python-mode` pour l'édition, et
   :program:`ipython` pour l'execution de code (voir `Python
   Programming In Emacs
@@ -291,10 +301,8 @@ d'exécution ou juste après une erreur (analyse post-mortem).
 
 - Module de la bibliothèque standard: :mod:`pdb`
 
-  Pour déboguer un script, il est possible de l'exécuter sous le
-  contrôle du débogueur `pdb
-  <https://docs.python.org/3/library/pdb.html>`_ en s'interrompant dès
-  la 1re instruction::
+  Pour déboguer un script, il est possible de l'exécuter sous le contrôle du
+  débogueur :mod:`pdb` en s'interrompant dès la 1re instruction::
 
     python -m pdb script.py
     (Pdb)
@@ -363,11 +371,11 @@ fonctionne et produit les bons résultats dans tous les cas.  S'il
 reste trop lent ou gourmand en mémoire *pour vos besoins*, il peut
 être nécessaire de l'optimiser.
 
-Le `profilage <https://docs.python.org/3/library/profile.html>`_ permet de
-déterminer le temps passé dans chacune des sous-fonctions d'un code (ou ligne
-par ligne: :pypi:`line profiler <line-profiler>`, ou selon l'utilisation de la
-mémoire: :pypi:`memory profiler <memory-profiler>`), afin d'y identifier les
-parties qui gagneront à être optimisées.
+Le :ref:`profilage <python:profile>` permet de déterminer le temps passé dans
+chacune des sous-fonctions d'un code (ou ligne par ligne: :pypi:`line profiler
+<line-profiler>`, ou selon l'utilisation de la mémoire: :pypi:`memory profiler
+<memory-profiler>`), afin d'y identifier les parties qui gagneront à être
+optimisées.
 
 - `python -O`, `__debug__`, `assert`
 
@@ -456,11 +464,11 @@ Documentation
 * Outils de documentation, ou comment transformer *automagiquement* un
   code-source bien documenté en une documentation fonctionnelle.
 
-  - `Sphinx <http://www.sphinx-doc.org/en/stable/>`_;
+  - `Sphinx <https://www.sphinx-doc.org/en/stable/>`_;
   - `reStructuredText for Sphinx
-    <http://www.sphinx-doc.org/en/stable/rest.html>`_;
+    <https://www.sphinx-doc.org/en/stable/rest.html>`_;
   - `Awesome Sphinx <https://github.com/yoloseem/awesome-sphinxdoc>`_;
-  - `apidoc <http://www.sphinx-doc.org/en/stable/man/sphinx-apidoc.html>`_
+  - `apidoc <https://www.sphinx-doc.org/en/stable/man/sphinx-apidoc.html>`_
     (documentation automatique).
 
 * Conventions de documentation:
@@ -482,8 +490,7 @@ Documentation
 Comment installer/créer des modules externes:
 
 - `pip <https://pip.pypa.io/en/latest/>`_;
-- `Hitchhiker’s Guide to Packaging
-  <http://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/>`_;
+- :rtfd:`Hitchhiker’s Guide to Packaging <the-hitchhikers-guide-to-packaging>`;
 - `Packaging a python library
   <https://blog.ionelmc.ro/2014/05/25/python-packaging/>`_;
 - :rtfd:`cookiecutter` est un générateur de squelettes de projet via des
@@ -506,7 +513,7 @@ référence et de solution de sauvegarde, et offrant généralement des
 solutions d'intégration continue, p.ex.:
 
 * les très célèbres `GitHub <https://github.com/>`_ et `GitLab
-  <https://gitlab.com/>`_, gratuits pour les projets libres;
+  <https://about.gitlab.com/>`_, gratuits pour les projets libres;
 * pour des projets liés à votre travail, je conseille plutôt des
   dépôts directement gérés par votre institution, p.ex. `GitLab-IN2P3
   <https://gitlab.in2p3.fr/>`_.
@@ -518,7 +525,7 @@ de cours, fichiers de configuration, tests numériques, etc.).
 Quelques liens d'introduction:
 
 - `Pro-Git book <https://git-scm.com/book/en/v2>`_, le livre « officiel »;
-- `Git Immersion <http://gitimmersion.com/>`_;
+- `Git Immersion <https://gitimmersion.com/>`_;
 - `Git Magic <http://www-cs-students.stanford.edu/~blynn/gitmagic/>`_.
 
 Intégration continue
@@ -542,8 +549,7 @@ ligne directement connectés au dépôt source. Exemple sur `Astropy`:
   continue;
 * `Coveralls <https://coveralls.io/github/astropy/astropy>`_ taux de
   couverture des tests unitaires;
-* `Readthedocs <https://readthedocs.org/projects/astropy/>`_
-  documentation en ligne;
+* :rtfd:`Readthedocs <astropy>` documentation en ligne;
 * `Depsy <http://depsy.org/package/python/astropy>`_ mise en valeur du
   développement logiciel dans le monde académique (*measure the value
   of software that powers science*).
@@ -563,3 +569,8 @@ ligne directement connectés au dépôt source. Exemple sur `Astropy`:
 
 .. _pytest: https://docs.pytest.org/
 .. _nose:   https://nose.readthedocs.io/
+
+.. |fr| image:: ../_static/france_flag_icon.png
+   :alt: Fr
+.. |en| image:: ../_static/uk_flag_icon.png
+   :alt: En

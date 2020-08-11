@@ -76,7 +76,7 @@ officiellement supportées.  Dans sa version `v2.1
 - quelques bibliothèques spécialisées, p.ex. :pypi:`pyFFTW` (*Fastest Fourier
   Transform in the West*), `scikit-learn <http://scikit-learn.org/>`_ (*machine
   learning*), :rtfd:`emcee` (*MCMC*), :rtfd:`iminuit` (minimisation);
-* `cython <http://cython.org/>`_ pour de l'optimisation statique de code;
+- `cython <http://cython.org/>`_ pour de l'optimisation statique de code;
 - entrées/sorties FITS: `fitsio <https://github.com/esheldon/fitsio>`_ (plus
   rapide que :mod:`astropy.io.fits`);
 - librairies astronomiques: :rtfd:`healpy` (une interface à `HEALPix

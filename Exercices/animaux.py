@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding: utf-8
 
 """
 Exercice: programmation orientée objet, développement dirigé par les tests.
@@ -36,7 +37,7 @@ class Animal:
         Retourne une chaîne de caractères.
         """
 
-        return "{0}".format(self.nom)
+        return self.nom
 
     def estVivant(self):
         """Méthode booléenne, vraie si l'animal est vivant."""

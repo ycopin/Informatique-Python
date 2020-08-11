@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding: utf-8
 
 """
 Exemple (tragique) de Programmation Orientée Objet.
@@ -37,9 +38,8 @@ class Animal:
         :return: une chaîne de caractères
         """
 
-        return "Animal {}, {:.0f} kg".format(
-            "vivant" if self.estVivant else "mort",
-            self.masse)
+        return f"Animal {'vivant' if self.estVivant else 'mort'}, " \
+            f"{self.masse:.0f} kg"
 
 
     def meurt(self):
@@ -83,9 +83,9 @@ class AnimalFeroce(Animal):
         Surcharge de la fonction `str()`.
         """
 
-        return "Animal féroce {}, {:.0f} kg".format(
-            "bien vivant" if self.estVivant else "mais mort",
-            self.masse)
+        return "Animal féroce " \
+            f"{'bien vivant' if self.estVivant else 'mais mort'}, " \
+            f"{self.masse:.0f} kg"
 
     def devore(self, other):
         """
@@ -145,9 +145,9 @@ class AnimalGentil(Animal):
         Surcharge de la fonction `str()`.
         """
 
-        return "{0.nom}, un animal gentil {1}, {0.masse:.0f} kg".format(
-            self,
-            "bien vivant" if self.estVivant else "mais mort")
+        return f"{self.nom}, un animal gentil " \
+            f"{'bien vivant' if self.estVivant else 'mais mort'}, " \
+            f"{self.masse:.0f} kg"
 
     def meurt(self):
         """
@@ -155,7 +155,7 @@ class AnimalGentil(Animal):
         """
 
         Animal.meurt(self)
-        print("Pauvre {0.nom}, paix à son âme...".format(self))
+        print(f"Pauvre {self.nom} meurt, paix à son âme...")
 
 
 if __name__ == '__main__':

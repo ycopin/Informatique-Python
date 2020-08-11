@@ -668,8 +668,8 @@ fichier ASCII:
 >>> (x == y).all()                  # Test d'égalité stricte
 True
 
-.. Attention:: :func:`numpy.loadtxt` supporte les types composés, mais
-   ne supporte pas les données manquantes; utiliser alors la fonction
+.. Attention:: :func:`numpy.loadtxt` supporte les types composés, mais ne
+   supporte pas les données manquantes; utiliser alors la fonction
    :func:`numpy.genfromtxt`, plus robuste mais plus lente.
 
 Le format texte n'est pas optimal pour de gros tableaux (ou de rang > 2): il
@@ -772,7 +772,7 @@ Tour d'horizon
 .. rubric:: Liens:
 
 - `Scipy Reference <https://docs.scipy.org/doc/scipy/reference/>`_
-- `Scipy Cookbook <http://scipy-cookbook.readthedocs.io/>`_
+- :rtfd:`Scipy Cookbook <scipy-cookbook>`
 
 .. rubric:: Voir également:
 
@@ -793,29 +793,21 @@ Tour d'horizon
 Quelques exemples complets
 --------------------------
 
-* `Interpolation
-  <https://docs.scipy.org/doc/scipy/reference/tutorial/interpolate.html>`_
-* `Integration
-  <https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html>`_
-  (intégrales numériques, équations différentielles)
+* :doc:`scipy:tutorial/interpolate` (interpolation, lissage)
+* :doc:`scipy:tutorial/integrate` (intégrales numériques, équations
+  différentielles)
 
   - `odeint notebook
     <http://nbviewer.jupyter.org/gist/dpsanders/d417c1ffbb76f13f678c>`_
   - `Zombie Apocalypse
     <https://scipy-cookbook.readthedocs.io/items/Zombie_Apocalypse_ODEINT.html>`_
 
-* `Optimisation
-  <https://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html>`_
-  (moindres carrés, ajustements, recherche de zéros)
-* `Traitement du signal
-  <https://docs.scipy.org/doc/scipy/reference/tutorial/signal.html>`_
-  (splines, convolution, filtrage)
-* `Algèbre linéaire
-  <https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html>`_
-  (systèmes linéaires, moindres carrés, décompositions)
-* `Statistiques
-  <https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html>`_
-  (variables aléatoires, distributions, tests)
+* :doc:`scipy:tutorial/optimize` (moindres carrés, ajustements, recherche de
+  zéros)
+* :doc:`scipy:tutorial/signal` (splines, convolution, filtrage)
+* :doc:`scipy:tutorial/linalg` (systèmes linéaires, moindres carrés,
+  décompositions)
+* :doc:`scipy:tutorial/stats` (variables aléatoires, distributions, tests)
 
 
 .. _matplotlibSec:
@@ -903,11 +895,11 @@ systèmes d'axes (numérotés de 1 à 6)::
     fig = P.figure()
     for i in range(1, 4):
         ax = fig.add_subplot(2, 3, i, xticks=[], yticks=[])
-        ax.text(0.5, 0.5, "subplot(2, 3, {})".format(i),
+        ax.text(0.5, 0.5, f"subplot(2, 3, {i})",
                 ha='center', va='center', size='large')
     for i in range(3, 5):
         ax = fig.add_subplot(2, 2, i, xticks=[], yticks=[])
-        ax.text(0.5, 0.5, "subplot(2, 2, {})".format(i),
+        ax.text(0.5, 0.5, f"subplot(2, 2, {i})",
                 ha='center', va='center', size='large')
 
 .. image:: subplots.*
@@ -1026,7 +1018,9 @@ tous les éléments d'une figure (titre, axes, légende, etc.), qui peuvent alor
   Graphics <https://ramnathv.github.io/pycon2014-r/visualize/ggplot2.html>`_ à
   matplotlib;
 - `Bokeh <http://bokeh.pydata.org/>`_, une bibliothèque graphique alternative à
-  matplotlib plus orientée *web*/temps réel.
+  matplotlib plus orientée *web*/temps réel;
+- :pypi:`plotext`, :pypi:`termplotlib`, pour réaliser des figures directement
+  dans le terminal (voir également le *backend* :pypi:`drawilleplot`).
 
 .. rubric:: Exemples:
 
@@ -1078,7 +1072,9 @@ graphique de visualisation 3D s'appuyant sur `Mayavi
 
 - `VPython <http://www.vpython.org/>`_: *3D Programming for Ordinary
   Mortals*;
-- `Glowscript <http://www.glowscript.org/>`_: VPython dans le navigateur.
+- `Glowscript <http://www.glowscript.org/>`_: VPython dans le navigateur;
+- `ipyvolume <https://github.com/maartenbreddels/ipyvolume>`_: visualisation 3D
+  dans le notebook Jupyter.
 
 .. rubric:: Notes de bas de page et références bibliographiques
 
@@ -1086,8 +1082,7 @@ graphique de visualisation 3D s'appuyant sur `Mayavi
    `sympy <http://www.sympy.org/>`_, et d'un environnement de calcul
    mathématique, `sage <http://www.sagemath.org/>`_.
 
-.. [Matplotlib07] `2007CSE.....9...90H
-   <http://adsabs.harvard.edu/abs/2007CSE.....9...90H>`_
+.. [Matplotlib07] :ads:`2007CSE.....9...90H`
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr

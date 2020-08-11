@@ -14,7 +14,7 @@ Bibliothèques scientifiques avancées
       1.5  Visualisations
       1.6  Xarray
     2  Astropy
-      2.1  Tour d'horizon
+      2.1  Tour d'horizon (v4.0)
       2.2  Démonstration
     3  Autres bibliothèques scientifiques
 
@@ -38,27 +38,22 @@ données *hétérogènes* (`PANel DAta`).  Elle fournit notamment:
 * de nombreuses fonctions d'entrée/sortie, d'analyse statistiques et de
   visualisation.
 
-Les fonctionnalités de :mod:`pandas` sont *très* riches et couvrent de
-nombreux aspects (données manquantes, dates, analyse statistiques,
-etc.): il n'est pas question de toutes les aborder ici.  Avant de vous
-lancer dans une manipulation qui vous semble complexe, bien inspecter
-la `documentation <http://pandas.pydata.org/pandas-docs/stable/>`_,
-très complète (p.ex. les recettes du `cookbook
-<http://pandas.pydata.org/pandas-docs/stable/cookbook.html>`_), pour
-vérifier qu'elle n'est pas déjà implémentée ou documentée, ou pour
-identifier l'approche la plus efficace.
+Les fonctionnalités de :mod:`pandas` sont *très* riches et couvrent de nombreux
+aspects (données manquantes, dates, analyse statistiques, etc.): il n'est pas
+question de toutes les aborder ici.  Avant de vous lancer dans une manipulation
+qui vous semble complexe, bien inspecter la `documentation
+<https://pandas.pydata.org/pandas-docs/stable/>`_, très complète (p.ex. les
+recettes du :doc:`pandas:user_guide/cookbook`), pour vérifier qu'elle n'est pas
+déjà implémentée ou documentée, ou pour identifier l'approche la plus efficace.
 
 .. Note:: La convention utilisée ici est « `import pandas as PD` ».
 
-.. Attention:: Les bibliothèques pandas_ et xarray_ sont encore en phase de
-   développement assez intense, et vont probablement être amenées à évoluer
-   significativement, et pas nécessairement de manière rétro-compatible. Nous
-   travaillons ici sur les versions:
+.. Attention:: La bibliothèque pandas_ est maintenant considérée comme stable
+   (v1.x) mais xarray_ est encore en phase de développement.  Nous travaillons
+   ici sur les versions:
 
-   * `pandas <http://pandas.pydata.org/>`_ `0.21.x
-     <http://pandas.pydata.org/pandas-docs/version/0.21/whatsnew.html>`_
-   * `xarray <http://xarray.pydata.org/>`_ `0.10.x
-     <http://xarray.pydata.org/en/v0.10.0/whats-new.html>`_
+   * `pandas <https://pandas.pydata.org/>`_ :doc:`1.1 <pandas:whatsnew/v1.1.0>`
+   * `xarray <https://xarray.pydata.org/>`_ :doc:`0.16 <xarray:whats-new>`
 
 Structures
 ----------
@@ -67,8 +62,7 @@ Structures
    pair: pandas; Series
    pair: pandas; DataFrame
 
-**Références:** `Introduction to Data Structures
-<http://pandas.pydata.org/pandas-docs/stable/dsintro.html>`_
+**Références:** :doc:`pandas:user_guide/dsintro`
 
 Pandas dispose de deux grandes structures de données [#panels]_:
 
@@ -196,8 +190,7 @@ Accès aux données
    pair: pandas; filter
    pair: pandas; query
 
-**Référence:** `Indexing and Selecting Data
-<http://pandas.pydata.org/pandas-docs/stable/indexing.html>`_
+**Référence:** :doc:`pandas:user_guide/indexing`
 
 L'accès par colonne retourne une :class:`pandas.Series` (avec la même
 indexation) pour une colonne unique, ou un nouveau
@@ -384,8 +377,7 @@ M1  1952   Sn  8.4   5.0    1930.0   5.575  22.017  Tau  winter  Crab Nebula
 M2  7089   Gc  6.5  12.9   11600.0  21.558   0.817  Aqr  autumn
 M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring
 
-**Référence:** `Working with missing data
-<http://pandas.pydata.org/pandas-docs/stable/missing_data.html>`_
+**Référence:** :doc:`pandas:user_guide/missing_data`
 
 .. Attention:: par défaut, beaucoup d'opérations retournent une
    *copie* de la structure, sauf si l'opération se fait « sur place »
@@ -411,13 +403,12 @@ M3  5272   Gc  6.2  16.2   10400.0  13.703  28.383  CVn  spring
    c  9  9  10  11
 
    Lien: `Returning a view versus a copy
-   <http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-view-versus-copy>`_
+   <https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-view-versus-copy>`_
 
 
 .. rubric:: Indéxation hiérarchique
 
-**Références:** `Multi-index / Advanced Indexing
-<http://pandas.pydata.org/pandas-docs/stable/advanced.html>`_
+**Références:** :doc:`pandas:user_guide/advanced`
 
 .. index::
    pair: pandas; reset_index
@@ -493,8 +484,7 @@ autumn El     M32   221
 Manipulation des données
 ------------------------
 
-**Références:** `Essential Basic Functionality
-<http://pandas.pydata.org/pandas-docs/stable/basics.html>`_
+**Références:** :doc:`pandas:user_guide/basics`
 
 Comme dans :mod:`numpy`, il est possible de modifier les valeurs,
 ajouter/retirer des colonnes ou des lignes, tout en gérant les données
@@ -617,8 +607,7 @@ Name: Mag, dtype: int64
    pair: pandas; groupby
    pair: pandas; agg
 
-**Référence:** `Group By: split-apply-combine
-<http://pandas.pydata.org/pandas-docs/stable/groupby.html>`_
+**Référence:** :doc:`pandas:user_guide/groupby`
 
 Pandas offre la possibilité de regrouper les données selon divers
 critères (:meth:`pandas.DataFrame.groupby`), de les agréger au sein
@@ -690,8 +679,7 @@ Medium autumn     4  7.500000   9.250000   3.304038
 .. index::
    pair: pandas; pivot_table
 
-**Référence:** `Reshaping and Pivot Tables
-<http://pandas.pydata.org/pandas-docs/stable/reshaping.html>`_
+**Référence:** :doc:`pandas:user_guide/reshaping`
 
 Calculer la magnitude et la taille moyennes des objets Messier selon
 leur type avec :meth:`pandas.DataFrame.pivot_table`:
@@ -713,10 +701,8 @@ Visualisations
 
 .. rubric:: Références:
 
-* `Visualization
-  <http://pandas.pydata.org/pandas-docs/stable/visualization.html>`_
-* `Seaborn: statistical data visualization
-  <http://seaborn.pydata.org/>`_
+* :doc:`pandas:user_guide/visualization`
+* `Seaborn: statistical data visualization <http://seaborn.pydata.org/>`_
 
 .. rubric:: Autres exemples de visualisation de jeux de données complexes
    (utilisation de pandas et seaborn)
@@ -728,8 +714,7 @@ Visualisations
 
 .. rubric:: Liens
 
-* `Pandas Tutorial
-  <http://pandas.pydata.org/pandas-docs/stable/tutorials.html>`_
+* :doc:`Pandas tutorials <pandas:getting_started/tutorials>`
 * `Pandas Cookbook <github.com/jvns/pandas-cookbook>`_
 * `Pandas Lessons for New Users <https://bitbucket.org/hrojas/learn-pandas>`_
 * `Practical Data Analysis <http://wavedatalab.github.io/datawithpython/>`_
@@ -737,6 +722,11 @@ Visualisations
 .. rubric:: Exercices:
 
 * `Exercices for New Users <https://github.com/guipsamora/pandas_exercises>`_
+
+.. rubric:: Voir également:
+
+* :rtfd:`geopandas`: extension pour des opérations spatiales sur des formes
+  géométriques
 
 
 .. _myXarray:
@@ -892,7 +882,7 @@ Dimensions without coordinates: y
 
 .. rubric:: Exemples plus complexes:
 
-* `Examples Data <http://xarray.pydata.org/en/stable/examples.html>`_
+* :doc:`xarray:examples`
 
 .. Note:: N'oubliez pas de `citer xarray
    <http://xarray.pydata.org/en/stable/faq.html#how-should-i-cite-xarray>`_
@@ -909,10 +899,10 @@ Astropy
 :rtfd:`astropy` est une bibliothèque astronomique maintenue par la communauté et
 visant à fédérer les efforts jusque là disparates.  Elle offre en outre une
 interface unifiée à des `bibliothèques affiliées
-<http://www.astropy.org/affiliated/>`_ plus spécifiques.
+<https://www.astropy.org/affiliated/>`_ plus spécifiques.
 
-Tour d'horizon
---------------
+Tour d'horizon (v4.0)
+---------------------
 
 - Structures de base:
 
@@ -923,16 +913,17 @@ Tour d'horizon
     métadonnées, masque, unité, incertitude, etc.);
   - :mod:`astropy.table`: tableaux hétérogènes;
   - :mod:`astropy.time`: manipulation du temps et des dates;
+  - :mod:`astropy.timeseries`: manipulation de séries temporelles;
   - :mod:`astropy.coordinates`: systèmes de coordonnées;
   - :mod:`astropy.wcs`: *World Coordinate System*;
   - :mod:`astropy.modeling`: modèles et ajustements;
-  - :mod:`astropy.analytic_functions`: fonctions analytiques.
+  - :mod:`astropy.uncertainty`: manipulation d'incertitudes.
 
 - Entrées/sorties:
 
   - :mod:`astropy.io.fits`: fichiers FITS;
   - :mod:`astropy.io.ascii`: tables ASCII;
-  - :mod:`astropy.io.votable`: XML VO-tables;
+  - :mod:`astropy.io.votable`: XML *Virtual Observatory* tables;
   - :mod:`astropy.io.misc`: divers;
   - :mod:`astropy.vo`: accès au *Virtual Observatory*.
 
@@ -954,7 +945,7 @@ Démonstration
   <http://www.astrobetter.com/blog/2014/07/07/astropy-tutorials-learn-how-to-do-common-astro-tasks-with-astropy-and-python/>`_
 
 .. Note:: N'oubliez pas de citer [Astropy13]_ ou de `mentionner
-   l'utilisation <http://www.astropy.org/acknowledging.html>`_
+   l'utilisation <https://www.astropy.org/acknowledging.html>`_
    d'astropy dans vos publications et présentations.
 
 
@@ -962,29 +953,33 @@ Démonstration
 Autres bibliothèques scientifiques
 ==================================
 
-Python est maintenant très largement utilisé par la communauté
-scientifique, et dispose d'innombrables bibliothèques dédiées aux
-différents domaines de la physique, chimie, etc.:
+Python est maintenant très largement utilisé par la communauté scientifique, et
+dispose d'innombrables bibliothèques dédiées aux différents domaines de
+l'analyse statistique de données, physique, chimie, etc.:
 
+- Propagation des incertitudes: :pypi:`uncertainties`;
+- Ajustement & optimisation (statistiques fréquentistes): :rtfd:`iminuit`,
+  :rtfd:`kafe`;
+- Analyse statistique bayesienne: `PyStan
+  <https://mc-stan.org/interfaces/pystan.html>`_;
+- *Markov Chain Monte-Carlo*: :rtfd:`emcee`, :pypi:`pymc3`;
+- *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, :pypi:`milk`,
+  :pypi:`mdp`, `Keras <https://keras.io/>`_ et autres `modules d'intelligence
+  artificielle <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_;
 - Astronomie: `Kapteyn <http://www.astro.rug.nl/software/kapteyn/>`_, `AstroML
   <http://www.astroml.org/>`_, `HyperSpy <http://hyperspy.org/>`_;
 - Mécanique quantique: `QuTiP <http://qutip.org/>`_;
 - Électromagnétisme: `EMpy <https://lbolla.github.io/EMpy/>`_;
-- Optique physique: `Physical Optics Propagation in PYthon
-  <https://poppy-optics.readthedocs.io/>`_, `OpticsPy <http://opticspy.org/>`_;
+- Optique physique: :rtfd:`Physical Optics Propagation in PYthon
+  <poppy-optics>`, `OpticsPy <http://opticspy.org/>`_;
 - *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
   <http://sfepy.org/>`_;
-- Analyse statistique bayesienne: `PyStan
-  <https://mc-stan.org/interfaces/pystan.html>`_;
-- *Markov Chain Monte-Carlo*: :rtfd:`emcee`, :pypi:`PyMC3>`;
-- *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, :pypi:`milk`,
-  :pypi:`mdp`, `Keras <https://keras.io/>`_ et autres `modules d'intelligence
-  artificielle <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_;
 - Calcul symbolique: `sympy <https://www.sympy.org/>`_ (voir également
   ce `tutoriel sympy
   <https://mattpap.github.io/scipy-2011-tutorial/html/>`_) et `sage
   <http://www.sagemath.org/>`_;
-- `PyROOT <https://root.cern.ch/pyroot>`_;
+- `pyroot <https://root.cern/manual/python/>`_ & `rootpy
+  <https://www.rootpy.org>`_;
 - `High Performance Computing in Python
   <https://byumcl.bitbucket.io/bootcamp2013/labs/perfomance.html>`_;
 - `Etc. <https://www.scipy.org/topical-software.html>`_
@@ -996,8 +991,7 @@ différents domaines de la physique, chimie, etc.:
    arbitraire) sont considérées comme **dépréciées** et seront retirées dans
    une version ultérieure.  Utiliser une indexation hiérarchique ou
    :mod:`xarray`.
-.. [Astropy13] `2013A&A...558A..33A
-               <http://adsabs.harvard.edu/abs/2013A%26A...558A..33A>`_
+.. [Astropy13] :ads:`2013A&A...558A..33A`
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr

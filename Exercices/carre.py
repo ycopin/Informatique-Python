@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-# Time-stamp: <2018-07-16 18:13:01 ycopin>
+# coding: utf-8
+
+# Time-stamp: <2020-08-05 11:48 ycopin@lyonovae03>
 
 """
 Création et affichage d'un carré magique d'ordre impair.
@@ -10,7 +12,7 @@ __author__ = "Yannick Copin <y.copin@ipnl.in2p3.fr>"
 n = 5                                   # Ordre du carré magique
 
 # On vérifie que l'ordre est bien impair
-assert n % 2 == 1, "L'ordre {} n'est pas impair".format(n)
+assert n % 2 == 1, f"L'ordre {n} n'est pas impair."
 
 # Le carré sera stocké dans une liste de n listes de n entiers
 # Initialisation du carré: liste de n listes de n zéros.
@@ -33,8 +35,8 @@ for k in range(2, n**2 + 1):
     array[i - 1][j - 1] = k       # Remplissage de la case
 
 # Affichage, avec vérification des sommes par ligne et par colonne
-print("Carré magique d'ordre {}:".format(n))
+print(f"Carré magique d'ordre {n}:")
 for row in array:
-    print('  '.join('{:2d}'.format(k) for k in row), '=', sum(row))
+    print('  '.join(f'{k:2d}' for k in row), '=', sum(row))
 print('  '.join('==' for k in row))
 print('  '.join(str(sum(array[i][j] for i in range(n))) for j in range(n)))
