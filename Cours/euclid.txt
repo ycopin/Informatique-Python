@@ -48,7 +48,16 @@ Developers' Workshops
   (oct. 2017)
 - `Developers' Workshop #5
   <https://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop5>`_
-  (**nov. 2018, Groningen**)
+  (nov. 2018)
+- `Developers' Workshop #6
+  <https://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop6>`_
+  (oct. 2019)
+- `C++ and Python Programming Sessions #2
+  <https://euclid.roe.ac.uk/projects/codeen-users/wiki/C++PythonProgrammingSessions2>`_
+  (nov. 2019)
+- `Developers' Workshop #7
+  <https://euclid.roe.ac.uk/projects/codeen-users/wiki/DevelopersWorkshop7>`_
+  (oct. 2020)
 
 .. Warning:: certains liens de cette page requièrent un accès à l'`Euclid
    Redmine <https://euclid.roe.ac.uk/>`_.
@@ -57,22 +66,22 @@ Developers' Workshops
 Librairies EDEN
 ===============
 
-`EDEN <https://euclid.roe.ac.uk/projects/codeen-users/wiki/EDEN>`_ est
-un environnement contraint incluant un nombre très restreint de
-bibliothèques Python.  La liste **exhaustive** pour EDEN v2.0
-(automne 2017) est la suivante:
+`EDEN <https://euclid.roe.ac.uk/projects/codeen-users/wiki/EDEN>`_ est un
+environnement contraint incluant un nombre restreint de bibliothèques Python
+officiellement supportées.  Dans sa version `v2.1
+<https://euclid.roe.ac.uk/projects/codeen-users/wiki/EDEN_V21>`_ (printemps
+2020), il contient notamment:
 
-- pile numérique usuelle: `numpy`, `scipy` et `matplotlib`
-- les bibliothèques spécialisées `pyFFTW
-  <https://pypi.python.org/pypi/pyFFTW>`_ (*Fastest Fourier Transform
-  in the West*), `scikit-learn <http://scikit-learn.org/>`_
-  (*machine learning*) et `cython <http://cython.org/>`_ 
-- entrées/sorties FITS: `fitsio <https://github.com/esheldon/fitsio>`_
-- librairies astronomiques: `healpy
-  <http://healpy.readthedocs.io/en/latest/>`_ (une interface à
-  `HEALPix <http://healpix.sourceforge.net/>`_, pour l'analyse et la
-  visualisation de données sur une sphère), `astropy
-  <http://astropy.readthedocs.io/en/stable/>`_ et `pyEphem
+- pile numérique usuelle: `numpy`, `scipy` et `matplotlib`, ainsi que `pandas`;
+- quelques bibliothèques spécialisées, p.ex. :pypi:`pyFFTW` (*Fastest Fourier
+  Transform in the West*), `scikit-learn <http://scikit-learn.org/>`_ (*machine
+  learning*), :rtfd:`emcee` (*MCMC*), :rtfd:`iminuit` (minimisation);
+* `cython <http://cython.org/>`_ pour de l'optimisation statique de code;
+- entrées/sorties FITS: `fitsio <https://github.com/esheldon/fitsio>`_ (plus
+  rapide que :mod:`astropy.io.fits`);
+- librairies astronomiques: :rtfd:`healpy` (une interface à `HEALPix
+  <http://healpix.sourceforge.net/>`_, pour l'analyse et la visualisation de
+  données sur une sphère), :rtfd:`astropy` et `pyEphem
   <http://rhodesmill.org/pyephem/>`_ (éphémérides)
 - :abbr:`GUI (Graphical User Interface)`: `PyQt
   <https://riverbankcomputing.com/software/pyqt/intro>`_
@@ -81,12 +90,10 @@ bibliothèques Python.  La liste **exhaustive** pour EDEN v2.0
 .. Attention:: Dans le cadre du SGS, vous ne devez donc pas développer
    de code dépendant d'autres bibliothèques que celles-ci.
 
-Toutefois, si une librairie absolument cruciale manque, il est
-possible de demander son inclusion via une procédure de `Change
-requests
+Toutefois, si une librairie absolument cruciale manque, il est possible de
+demander son inclusion via une procédure de `Change requests
 <https://euclid.roe.ac.uk/projects/ct_change_process/wiki/Change_Requests>`_,
-qui sera examinée et arbitrée par le :abbr:`CCB (Change Control
-Board)`.
+qui sera examinée et arbitrée par le :abbr:`CCB (Change Control Board)`.
 
 Git et GitLab
 =============

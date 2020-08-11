@@ -79,7 +79,7 @@ author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 # The short X.Y version.
 version = "École d'été Euclid"
 # The full version, including alpha/beta/rc tags.
-release = 'Août 2019'
+release = 'Août 2020'
 
 copyright = ', '.join((release, author))
 
