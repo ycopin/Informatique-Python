@@ -46,7 +46,7 @@ intersphinx_mapping = {
     'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None),
     'matplotlib': ('https://matplotlib.org/', None),
     'pandas': ('https://pandas.pydata.org/pandas-docs/stable/', None),
-    'xarray': ('http://xarray.pydata.org/en/stable/', None),
+    'xarray': ('https://xarray.pydata.org/en/stable/', None),
     'astropy': ('https://docs.astropy.org/en/stable/', None),
 }
 
@@ -322,8 +322,10 @@ latex_documents = [
 
 # -- Options for linkcheck --------------------------------------------------
 
+# Ignore intersphinx links
 linkcheck_ignore = [
-    r'https://numpy.org/doc/stable/reference/generated/', # Numpy doc
     r'https://docs.python.org/3/reference/',              # Python reference
     r'https://docs.python.org/3/library/',                # Python library
+    r'https://numpy.org/doc/stable/reference/generated/', # Numpy doc
+    r'https://pandas.pydata.org/pandas-doc/stable/reference/generated/', # Pandas
 ]

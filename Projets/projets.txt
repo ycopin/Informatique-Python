@@ -267,10 +267,6 @@ d’effectuer des moyennes sur un très grand nombre de tirages
 * `Percolation theory <https://en.wikipedia.org/wiki/Percolation_theory>`_
 * `Concepts fondamentaux de la percolation
   <http://percolation.free.fr/theseweb003.html>`_
-* Percolation exercises: `2006
-  <http://pages.physics.cornell.edu/~sethna/StatMech/ComputerExercises/Percolation/Percolation.html>`_,
-  `2012
-  <http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/ComputerExercises/Percolation/Percolation.html>`_
 
 Autres possibilités
 -------------------
@@ -372,8 +368,7 @@ une foule <http://www2.cnrs.fr/presse/communique/1852.htm>`_).
    :width: 50%
    :align: center
 
-   **Figure:** Un obstacle aide à l'évacuation. Source: `Crowd Behavior
-   <https://www.openabm.org/book/export/html/1955>`_.
+   **Figure:** Un obstacle aide à l'évacuation (DR).
 
 Suivi de particule(s)
 ---------------------

@@ -21,7 +21,7 @@ Listes de liens
 - `Python facile
   <http://pythonfacile.free.fr/python/ressources.html>`_ (2005) |fr|
 - `Python: quelques références, trucs et astuces:
-  <http://dvillers.umons.ac.be/wiki/floss:python>`_ (2014) |fr|
+  <https://dvillers.umons.ac.be/wiki/floss:python>`_ (2014) |fr|
 - `Improving your programming style in Python
   <http://gael-varoquaux.info/programming/improving-your-programming-style-in-python.html>`_ (2014)
 - `Starter Kit (py4science)

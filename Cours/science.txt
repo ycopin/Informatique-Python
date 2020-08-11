@@ -760,29 +760,21 @@ Tour d'horizon
 Quelques exemples complets
 --------------------------
 
-* `Interpolation
-  <https://docs.scipy.org/doc/scipy/reference/tutorial/interpolate.html>`_
-* `Integration
-  <https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html>`_
-  (intégrales numériques, équations différentielles)
+* :doc:`scipy:tutorial/interpolate` (interpolation, lissage)
+* :doc:`scipy:tutorial/integrate` (intégrales numériques, équations
+  différentielles)
 
   - `odeint notebook
     <http://nbviewer.jupyter.org/gist/dpsanders/d417c1ffbb76f13f678c>`_
   - `Zombie Apocalypse
     <https://scipy-cookbook.readthedocs.io/items/Zombie_Apocalypse_ODEINT.html>`_
 
-* `Optimisation
-  <https://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html>`_
-  (moindres carrés, ajustements, recherche de zéros)
-* `Traitement du signal
-  <https://docs.scipy.org/doc/scipy/reference/tutorial/signal.html>`_
-  (splines, convolution, filtrage)
-* `Algèbre linéaire
-  <https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html>`_
-  (systèmes linéaires, moindres carrés, décompositions)
-* `Statistiques
-  <https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html>`_
-  (variables aléatoires, distributions, tests)
+* :doc:`scipy:tutorial/optimize` (moindres carrés, ajustements, recherche de
+  zéros)
+* :doc:`scipy:tutorial/signal` (splines, convolution, filtrage)
+* :doc:`scipy:tutorial/linalg` (systèmes linéaires, moindres carrés,
+  décompositions)
+* :doc:`scipy:tutorial/stats` (variables aléatoires, distributions, tests)
 
 
 .. _matplotlibSec:

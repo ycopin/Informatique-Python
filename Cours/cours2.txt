@@ -223,7 +223,7 @@ fonction:
      >>> adder = lambda x, y: x + y
 
    Cependant, cela est considéré comme une faute de style, puisque ce
-   n'est justement pas l'objectif d'une fonction anonyme! Il n'y a
+   n'est justement pas l'objectif d'une fonction anonyme!  Il n'y a
    p.ex. pas de *docstring* associée.
 
 **Voir également:** :doc:`Functional Programming <python:howto/functional>`
