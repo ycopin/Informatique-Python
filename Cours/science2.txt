@@ -241,7 +241,7 @@ Name: M31, dtype: object
 M
 M31   Sp  Andromeda Galaxy
 M51   Sp  Whirlpool Galaxy
->>> messier.loc['M31':'M33', ['Type', 'Name']]     # De M31 à M33 inclu
+>>> messier.loc['M31':'M33', ['Type', 'Name']]     # De M31 à M33 *inclu*
     Type               Name
 M
 M31   Sp   Andromeda Galaxy
@@ -269,7 +269,7 @@ permettent d'accéder *rapidement* aux données individuelles:
 
 >>> messier.at['M31', 'NGC']  # 20× plus rapide que messier.loc['M31']['NGC']
 '224'
->>> messier.iat[30, 0]        # 20× plus rapide que messier.iloc[0][0]
+>>> messier.iat[30, 0]        # 20× plus rapide que messier.iloc[30][0]
 '224'
 
 Noter qu'il existe une façon de filtrer les données sur les colonnes
@@ -986,11 +986,10 @@ l'analyse statistique de données, physique, chimie, etc.:
 
 .. rubric:: Notes de bas de page et références bibliographiques
 
-.. [#panels] Les structures :class:`pandas.Panel` (de rang 3),
+.. [#panels] Les structures :class:`pandas.Panel` (de rang 3), et
    :class:`pandas.Panel4D` (de rang 4) et :class:`pandas.PanelND` (de rang
-   arbitraire) sont considérées comme **dépréciées** et seront retirées dans
-   une version ultérieure.  Utiliser une indexation hiérarchique ou
-   :mod:`xarray`.
+   arbitraire) ont été respectivement **dépréciées** aux versions 0.20 et 0.19.
+   Utiliser une indexation hiérarchique ou :mod:`xarray`.
 .. [Astropy13] :ads:`2013A&A...558A..33A`
 
 .. |fr| image:: ../_static/france_flag_icon.png

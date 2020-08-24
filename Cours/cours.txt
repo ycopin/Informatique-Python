@@ -886,10 +886,9 @@ Classes
 
 .. index:: class
 
-Un objet est une entité de programmation, disposant de ses propres
-états et fonctionnalités.  C'est le concept central de la
-`Programmation Orientée Objet
-<https://fr.wikipedia.org/wiki/Programmation_orientée_objet>`_.
+Un objet est une entité de programmation, disposant de son propre état interne
+et de fonctionnalités associées.  C'est le concept central de la `Programmation
+Orientée Objet <https://fr.wikipedia.org/wiki/Programmation_orientée_objet>`_.
 
 Au concept d'objet sont liées les notions de:
 
