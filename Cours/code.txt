@@ -551,7 +551,7 @@ ligne directement connectés au dépôt source. Exemple sur `Astropy`:
 * :rtfd:`Readthedocs <astropy>` documentation en ligne;
 * `Depsy <http://depsy.org/package/python/astropy>`_ mise en valeur du
   développement logiciel dans le monde académique (*measure the value
-  of software that powers science*).
+  of software that powers science*, **non maintenu**).
 
 
 .. rubric:: Notes de bas de page

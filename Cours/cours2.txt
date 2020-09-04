@@ -371,9 +371,9 @@ Contrairement p.ex. au C++, Python n'offre *pas* de mécanisme de
 
   >>> youki = AnimalTresPrive(10); youki.get_mass()
   10.0
-  >>> youki.__mass = -5; c.get_mass()  # L'attribut __mass n'existe pas sous ce nom...
+  >>> youki.__mass = -5; youki.get_mass()  # L'attribut __mass n'existe pas sous ce nom...
   10.0
-  >>> c._AnimalTresPrive__mass = -5; c.get_mass()  # ... mais sous un alias compliqué.
+  >>> c._AnimalTresPrive__mass = -5; youki.get_mass()  # ... mais sous un alias compliqué.
   -5.0
 
 Propriétés
