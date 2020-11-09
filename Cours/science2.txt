@@ -13,6 +13,7 @@ Bibliothèques scientifiques avancées
       1.4  Regroupement et agrégation de données
       1.5  Visualisations
       1.6  Xarray
+      1.7  Autres types de tableaux
     2  Astropy
       2.1  Tour d'horizon (v4.0)
       2.2  Démonstration
@@ -888,6 +889,20 @@ Dimensions without coordinates: y
    <http://xarray.pydata.org/en/stable/faq.html#how-should-i-cite-xarray>`_
    dans vos publications et présentations.
 
+Autres types de tableaux
+------------------------
+
+Il existe de nombreuses autres bibliothèques proposant des tableaux avancés avec
+une syntaxe de type `numpy`, p.ex.:
+* :pypi:`awkward1`: tableaux hétérogènes de taille variable avec données
+  manquantes,
+* :pypi:`cupy`: tableaux sur :abbr:`GPU (Graphics Processing Unit)` via CUDA,
+* :pypi:`sparse`: tableaux clairsemés,
+* etc.
+
+Voir `Beyond Numpy Arrays in Python
+<https://matthewrocklin.com/blog/work/2018/05/27/beyond-numpy>`_ pour une
+discussion.
 
 .. _myAstropy:
 

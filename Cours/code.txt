@@ -443,7 +443,15 @@ généraux:
   via le compilateur `LLVM <http://llvm.org/>`_, avec une optimisation
   selon le CPU (éventuellement le GPU) utilisé, p.ex.::
 
-    from numba import guvectorize
+    from numba import jit  # compilation à la volée (seulement au 1e appel)
+
+    @jit
+    def crible(n):
+        ...
+
+  ou::
+
+    from numba import guvectorize  # ufunc numpy compilée
 
     @guvectorize(['void(float64[:], intp[:], float64[:])'], '(n),()->(n)')
     def move_mean(a, window_arr, out):
