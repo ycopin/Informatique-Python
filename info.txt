@@ -9,6 +9,45 @@ Informations pratiques
 - Responsable: Yannick Copin `<ipnl.in2p3.fr>`, Bureau
   420 de l'`IP2I Lyon <http://www.ip2i.in2p3.fr/>`_ (4 rue Fermi)
 
+.. rubric:: Calendrier
+
+Toutes les séances ont lieu en distanciel via Webex.
+
+===============  =======
+Date             TD
+===============  =======
+Lun. 16/11/2020   8h-12h 14h-18h
+Mar. 17           8h-12h 14h-18h
+Jeu. 19           8h-12h 14h-18h
+Ven. 20           8h-12h
+===============  =======
+
+.. rubric:: Participants
+
+=====================  ====================  ======
+Nom                    Mail (`prenom.nom+`)  Statut
+=====================  ====================  ======
+antoine.bard           univ-lyon1.fr
+guillaume.bort         univ-lyon1.fr
+isabelle.compagnon     univ-lyon1.fr
+eric.constant          univ-lyon1.fr
+valentina.giordano     univ-lyon1.fr
+gaetan.laurens         etu.univ-lyon1.fr
+benoit.mahler          univ-lyon1.fr
+joachim.poutaraud      msh-lse.fr
+farid.rizk             univ-lyon1.fr
+guillaume.thiam        univ-lyon1.fr
+vincent.toanen         univ-lyon1.fr
+florent.tournus        univ-lyon1.fr
+=====================  ====================  ======
+
+.. rubric:: Installation Datalore
+
+* Créer un compte sur https://datalore.io/,
+* Suivre le tutoriel,
+* Créer un notebook,
+* Le partager avec `yncopin[AT]gmail[DOT]com`.
+
 .. rubric:: Installations locales
 
 .. WARNING:: le cours utilise dorénavant **Python 3.6+**.

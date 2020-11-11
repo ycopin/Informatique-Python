@@ -150,6 +150,8 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
    >>> (p.x**2 + p.y**2)**0.5
    5.0
 
+* :mod:`functools` est une collection d'outils s'appliquant sur des fonctions
+  (mémorisation, fonction partielle, fonction générique, *wrapping*, etc.)
 * :mod:`itertools` fournit des générateurs de boucle (*itérateurs*) et de
   combinatoire:
 

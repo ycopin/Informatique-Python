@@ -80,7 +80,7 @@ author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
 # The short X.Y version.
 version = u'Informatique Python'
 # The full version, including alpha/beta/rc tags.
-release = u'Juillet 2019'
+release = u'Novembre 2020'
 
 copyright = ', '.join((release, author))
 

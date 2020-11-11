@@ -4,4 +4,4 @@
   (ispell-local-dictionary . "francais")
   (indent-tabs-mode . nil)
   )
- )
+)

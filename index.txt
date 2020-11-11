@@ -48,10 +48,12 @@
    Exercices/logistique
    Exercices/julia
    Exercices/canon.ipynb
+   Exercices/TD_numpy.ipynb
    Exercices/equationEtat
    Exercices/solutions
    Annales/exam_1501
    Projets/projets
+   Projets/sridhar_touma.ipynb
 
 .. image:: _static/cc-by-nc.png
    :align: center
