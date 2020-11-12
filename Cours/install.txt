@@ -11,9 +11,10 @@ Installation et interpréteurs
     3  Interpréteurs
       3.1  L'interpréteur de base `python`
       3.2  L'interpréteur avancé `ipython`
-      3.3  L'interface `jupyter notebook`
-      3.4  L'interface `jupyter lab`
-      3.5  Interpréteurs en ligne
+      3.3  Les interfaces `jupyter`
+        3.3.1  Interface `jupyter notebook`
+        3.3.2  Interface `jupyter lab`
+      3.4  Interpréteurs en ligne
 
 .. WARNING:: Le cours utilise **Python 3.6+**.
 
@@ -118,8 +119,16 @@ commandes, mais avec peu de fonctionnalités::
 
 - :kbd:`Ctrl-d` pour sortir;
 - :samp:`help({commande})` pour obtenir l'aide d'une commande;
-- *a priori*, pas d'historique des commandes ni de complétion automatique;
-- documentation: :doc:`interpréteur de base <python:tutorial/interpreter>`
+- *a priori*, pas d'historique des commandes ni de complétion automatique.
+
+.. rubric:: Liens:
+
+- documentation :doc:`interpréteur de base <python:tutorial/interpreter>`
+
+.. Note:: Je ne parle pas ici d':ref:`ide`, surcouche logicielle à
+   l'interpréteur de base (p.ex. `spyder
+   <https://github.com/spyder-ide/spyder>`_, `pyCharm
+   <https://www.jetbrains.com/pycharm/>`_, etc.).
 
 L'interpréteur avancé `ipython`
 -------------------------------
@@ -140,9 +149,9 @@ terminal*, il est préférable d'utiliser l'interpréteur évolué :rtfd:`ipytho
 - :kbd:`Ctrl-d` pour sortir;
 - :kbd:`Tab` pour la complétion automatique;
 - :kbd:`Haut` et :kbd:`Bas` pour le rappel des commandes;
-- :kbd:`%quickref` pour les commandes spécifiques à :program:`ipyhon`, notamment
-  `object?` pour une aide sur un objet, `object??` pour une aide plus complète
-  (au niveau source);
+- :kbd:`%quickref` pour les commandes spécifiques à :program:`ipython`,
+  notamment `object?` pour une aide sur un objet, `object??` pour une aide plus
+  complète (au niveau source);
 - :kbd:`%magic` pour la liste des commandes *magiques*, dont
 
   * :samp:`%run {mon_script.py}` pour éxecuter un script *dans* l'interpréteur,
@@ -156,62 +165,89 @@ terminal*, il est préférable d'utiliser l'interpréteur évolué :rtfd:`ipytho
 - `IPython Tips & Tricks
   <http://ipython.readthedocs.io/en/stable/interactive/tips.html>`_
 
-L'interface `jupyter notebook`
-------------------------------
+Les interfaces `jupyter`
+------------------------
 
-.. index:: interface; jupyter notebook
+.. index:: interfaces; jupyter
 
-Pour une expérience plus riche, combinant lignes de code, résultats, textes
-formatés et figures, etc. dans un *notebook* accessible depuis le navigateur, il
-peut être intéressant d'utiliser l'interface :rtfd:`jupyter notebook
-<jupyter-notebook>`::
+Issu du développement de :program:`ipython`, `jupyter <https://jupyter.org/>`_
+découple strictement le *kernel* [#kernel]_ (le *backend*), en charge de
+l'interprétation et de l'exécution des commandes, de l'interface (le
+*frontend*), en charge de l'interaction avec l'utilisateur et le reste du monde.
+
+Interface `jupyter notebook`
+............................
+
+L'interface :rtfd:`jupyter notebook <jupyter-notebook>` introduit la notion de
+*notebook* (fichier JSON d'extension `.ipynb`), accessible via une application
+web (utilisable depuis le navigateur) incorporant lignes de code, résultats,
+textes formatés, équations, figures, etc., et fournissant des outils d'édition
+et de conversion (HTML, LaTeX, présentation, etc.) et une documentation en
+ligne::
 
   $ jupyter notebook
 
-Cette commande initialise un *kernel* `ipython` (en charge de l'interprétation
-des commandes) en arrière plan, et ouvre un *notebook dashboard* dans votre
-navigateur, à partir duquel vous pouvez créer de nouveaux *notebooks* ou en
-ouvrir d'anciens.  Le navigateur n'héberge que l'interface web, l'interprétation
-reste à la charge du kernel.
+Cette commande initialise un *kernel* en arrière plan (qui peut servir plusieurs
+*notebooks*), et ouvre le *notebook dashboard*, à partir duquel vous pouvez
+créer de nouveaux *notebooks* ou en ouvrir d'anciens.
 
-.. image:: jupyter.png
+.. figure:: jupyter.png
    :align: center
    :width: 60%
    :alt: Interface `jupyter notebook`.
 
-L'interface `jupyter lab`
--------------------------
+   Copie d'écran du *notebook* :ref:`pokemon.ipynb </Cours/pokemon.ipynb>`.
 
-.. index:: interface; jupyter lab
+.. rubric:: Liens
 
-Pour une expérience encore plus intégrée, incluant des outils de développement
-(notebook, console `ipython`, explorateur de fichiers, terminal, etc.), vous
-pouvez utiliser l'interface :rtfd:`JupyterLab <jupyterlab>`::
+* `nbviewer <https://nbviewer.jupyter.org/>`_, **visualiseur** en ligne de
+  *notebook* (non interactif, voir ci-dessous pour des interpréteurs en ligne);
+* `Python Notebook Viewer
+  <https://addons.mozilla.org/en-US/firefox/addon/python-notebook-viewer/>`_,
+  une extension :program:`firefox` de **visualisation** de *notebook*;
+* `A gallery of interesting Jupyter Notebooks
+  <https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks>`_;
+* :rtfd:`Unofficial Jupyter Notebook Extensions <jupyter-contrib-nbextensions>`.
+
+Interface `jupyter lab`
+.......................
+
+L'interface :rtfd:`JupyterLab <jupyterlab>` permet une expérience encore plus
+intégrée, incluant des outils de développement (notebook, console `ipython`,
+explorateur de fichiers, terminal, etc.)::
 
   $ jupyter lab
 
-.. image:: jupyterlab.png
+.. figure:: jupyterlab.png
    :align: center
    :width: 60%
    :alt: Interface `jupyter lab`.
 
+   Copie d'écran d'un Jupyter Lab, incluant le *notebook* :ref:`canon.ipynb
+   </Exercices/canon.ipynb>`.
+
+.. Note:: L'univers JupyterLab est en développement très actif, et peut être
+   complété de nombreuses `extensions
+   <https://www.npmjs.com/search?q=keywords%3Ajupyterlab-extension&ranking=popularity>`_
+   (incompatibles avec les extensions notebook).
+
 Interpréteurs en ligne
 ----------------------
 
-Il existe de nombreux services en ligne (généralement *freemium*) offrant des
-interpréteurs de *notebook* dans le *cloud*.  Cela permet de développer à
-distance sans se soucier des installations et mises à jour, et de travailler
-interactivement et de collaborer sur des *notebooks* partagés.
+Il existe de nombreux services en ligne (généralement sur un modèle *freemium*)
+offrant des interpréteurs de *notebook* dans le *cloud*.  Cela permet de
+développer à distance sans se soucier des installations et mises à jour, et de
+travailler interactivement et de collaborer sur des *notebooks* partagés.
 
 .. rubric:: Comparatif
 
 - `Six easy ways to run your Jupyter Notebook in the cloud
   <https://www.dataschool.io/cloud-services-for-jupyter-notebook/>`_
 
-.. rubric:: Binder
+.. rubric:: MyBinder
 
 Le lien suivant permet d'ouvrir ce cours avec une interface de type `jupyter`
-via le service `binder <https://mybinder.org/>`_:
+via le service `MyBinder <https://mybinder.org/>`_:
 
 .. image:: https://mybinder.org/badge_logo.svg
    :align: center
@@ -229,7 +265,12 @@ Pour le cours en distanciel, nous utiliserons le service `datalore
   collaboration en temps réel,
 * Le publier, pour tester les commentaires en ligne.
 
-.. [#ti83] Y compris sur des calculettes!.
+.. rubric:: Notes de bas de page
+
+.. [#ti83] Y compris maintenant sur des calculettes!
+.. [#kernel] Pas nécessairement Python, d'où le nom de `jupyter` pour
+   Julia-Python-R, les trois langages initialement supportés. Il en existe
+   maintenant plusieurs dizaines.
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr

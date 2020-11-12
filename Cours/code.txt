@@ -263,19 +263,22 @@ Outils de développement
 Je fournis ici essentiellement des liens vers des outils pouvant être
 utiles pour développer en Python.
 
+.. _ide:
+
 *Integrated Development Environment*
 ------------------------------------
 
 - :ref:`idle <python:idle>`, l'IDE intégré à Python
-- :program:`emacs` + `python-mode` pour l'édition, et
-  :program:`ipython` pour l'execution de code (voir `Python
-  Programming In Emacs
+- :program:`emacs` + `python-mode` pour l'édition, et :program:`ipython` pour
+  l'execution de code (voir `Python Programming In Emacs
   <https://www.emacswiki.org/emacs/PythonProgrammingInEmacs>`_)
 - `spyder <https://github.com/spyder-ide/spyder>`_
-- `PythonToolkit <http://pythontoolkit.sourceforge.net/>`_
 - `pyCharm <https://www.jetbrains.com/pycharm/>`_ (la version `community` est
   gratuite)
-- `Etc.
+- `eclipse-pydev <https://www.pydev.org/>`_
+- `Visual Studio <https://code.visualstudio.com/>`_
+- `10 Best Python IDE & Code Editors <https://hackr.io/blog/best-python-ide>`_
+- `List of IDEs for Python
   <https://en.wikipedia.org/wiki/List_of_integrated_development_environments_for_Python#Python>`_
 
 Vérification du code

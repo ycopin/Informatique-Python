@@ -29,6 +29,7 @@ Nom                    Mail (`prenom.nom+`)  Statut
 =====================  ====================  ======
 antoine.bard           univ-lyon1.fr
 guillaume.bort         univ-lyon1.fr
+etienne.cleyet-merle   univ-lyon1.fr
 isabelle.compagnon     univ-lyon1.fr
 eric.constant          univ-lyon1.fr
 valentina.giordano     univ-lyon1.fr
