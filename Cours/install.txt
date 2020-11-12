@@ -6,8 +6,8 @@ Installation et interpréteurs
 .. contents:: Table des matières
    :local:
 ..
-    1  Installation
-    2  Notions d'Unix
+    1  Notions d'Unix
+    2  Installation
     3  Interpréteurs
       3.1  L'interpréteur de base `python`
       3.2  L'interpréteur avancé `ipython`
@@ -16,6 +16,35 @@ Installation et interpréteurs
       3.5  Interpréteurs en ligne
 
 .. WARNING:: Le cours utilise **Python 3.6+**.
+
+
+Notions d'Unix
+==============
+
+Python est un langage disponible sur de très nombreuses plateformes [#ti83]_;
+cependant, dans le cadre de ce cours, nous supposerons être sous un système
+d'exploitation de la famille Unix (p.ex. Linux, Mac OS X).
+
+Les concepts suivants sont supposés connus:
+
+* ligne de commande: éxécutables et options;
+* arborescence: chemin relatif (`[./]...`) et absolu (`/...`),
+  navigation (:command:`cd`);
+* gestion des fichiers (:command:`ls`, :command:`rm`, :command:`mv`)
+  et répertoires (:command:`mkdir`);
+* gestion des éxécutables: :envvar:`$PATH`, :command:`chmod +x`;
+* gestion des processus: `&`, :kbd:`Ctrl-c`, :kbd:`Ctrl-z` +
+  :command:`bg`;
+* variables d'environnement: :command:`export`, :file:`.bashrc`.
+
+.. rubric:: Liens:
+
+* `Quelques notions et commandes d'UNIX
+  <https://www.ip2i.in2p3.fr/perso/ycopin/_static/enseignements/notions_unix.pdf>`_
+  |fr|
+* `Introduction to Unix Study Guide
+  <http://faculty.salina.k-state.edu/tim/unix_sg/>`_
+
 
 Installation
 ============
@@ -36,10 +65,8 @@ Ce cours repose essentiellement sur les outils suivants:
   <https://wiki.gnome.org/Apps/Gedit>`_ ou `Atom <https://atom.io/>`_.
 
 Si vous souhaitez utiliser votre ordinateur personnel, ces logiciels peuvent
-être installés indépendamment, sous Linux (p.ex. `Ubuntu
-<http://ubuntu-fr.org/>`_ ou votre `distribution préférée
-<https://fr.wikipedia.org/wiki/Liste_des_distributions_Linux>`_), Windows ou
-MacOS.  Il existe également des distributions « clés en main », p.ex.  `Conda
+être installés indépendamment, sous Linux, Windows ou MacOS.  Il existe
+également des distributions python « clés en main », p.ex. `Conda
 <https://docs.conda.io/>`_ (multi-plateforme).
 
 .. rubric:: Installations locales
@@ -63,30 +90,6 @@ Python (p.ex. `ipython`) manquantes à l'aide du gestionnaire d'installation `pi
 
     export PATH=$PATH:$HOME/.local/bin/
     export PYTHONPATH=$HOME/.local/lib/python3.6/site-packages/
-
-Notions d'Unix
-==============
-
-Dans le cadre de ce cours, les concepts suivants sont supposés connus:
-
-* ligne de commande: éxécutables et options;
-* arborescence: chemin relatif (`[./]...`) et absolu (`/...`),
-  navigation (:command:`cd`);
-* gestion des fichiers (:command:`ls`, :command:`rm`, :command:`mv`)
-  et répertoires (:command:`mkdir`);
-* gestion des éxécutables: :envvar:`$PATH`, :command:`chmod +x`;
-* gestion des processus: `&`, :kbd:`Ctrl-c`, :kbd:`Ctrl-z` +
-  :command:`bg`;
-* variables d'environnement: :command:`export`, :file:`.bashrc`.
-
-.. rubric:: Liens:
-
-* `Quelques notions et commandes d'UNIX
-  <https://www.ip2i.in2p3.fr/perso/ycopin/_static/enseignements/notions_unix.pdf>`_
-  |fr|
-* `Introduction to Unix Study Guide
-  <http://faculty.salina.k-state.edu/tim/unix_sg/>`_
-
 
 Interpréteurs
 =============
@@ -200,9 +203,9 @@ interpréteurs de *notebook* dans le *cloud*.  Cela permet de développer à
 distance sans se soucier des installations et mises à jour, et de travailler
 interactivement et de collaborer sur des *notebooks* partagés.
 
-.. rubric:: Liens
+.. rubric:: Comparatif
 
-- Comparatif `Six easy ways to run your Jupyter Notebook in the cloud
+- `Six easy ways to run your Jupyter Notebook in the cloud
   <https://www.dataschool.io/cloud-services-for-jupyter-notebook/>`_
 
 .. rubric:: Binder
@@ -225,6 +228,8 @@ Pour le cours en distanciel, nous utiliserons le service `datalore
 * Le partager avec un collègue (p.ex. `yncopin[AT]gmail[DOT]com`) pour tester la
   collaboration en temps réel,
 * Le publier, pour tester les commentaires en ligne.
+
+.. [#ti83] Y compris sur des calculettes!.
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr
