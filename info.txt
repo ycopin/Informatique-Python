@@ -3,11 +3,11 @@
 Informations pratiques
 ======================
 
-- Formation *Analyse scientifique avec Python*
+- Formation *Analyse scientifique avec Python*;
 - `Cours en ligne
-  <https://informatique-python.readthedocs.io/fr/latest/>`_
+  <https://informatique-python.readthedocs.io/fr/latest/>`_;
 - Responsable: Yannick Copin `<ipnl.in2p3.fr>`, Bureau
-  420 de l'`IP2I Lyon <http://www.ip2i.in2p3.fr/>`_ (4 rue Fermi)
+  420 de l'`IP2I Lyon <http://www.ip2i.in2p3.fr/>`_.
 
 .. rubric:: Calendrier
 
@@ -40,35 +40,6 @@ guillaume.thiam        univ-lyon1.fr
 vincent.toanen         univ-lyon1.fr
 florent.tournus        univ-lyon1.fr
 =====================  ====================  ======
-
-.. rubric:: Installation Datalore
-
-* Créer un compte sur https://datalore.io/,
-* Suivre le tutoriel,
-* Créer un notebook,
-* Le partager avec `yncopin[AT]gmail[DOT]com`.
-
-.. rubric:: Installations locales
-
-.. WARNING:: le cours utilise dorénavant **Python 3.6+**.
-
-Si des programmes ou des librairies Python (p.ex. `ipython`) manquent
-sur votre ordinateur (p.ex. en salle Ariane), il est relativement
-aisé de les installer localement à l'aide du gestionnaire
-d'installation `pip <https://pip.pypa.io/en/stable/>`_.
-
-* Compléter votre `~/.bashrc`::
-
-    export PATH=$PATH:$HOME/.local/bin/
-    export PYTHONPATH=$HOME/.local/lib/python3.6/site-packages/
-
-* Installer p.ex. `ipython <http://ipython.org/>`_::
-
-    pip3 install --user ipython
-
-Si vous avez le contrôle de votre ordinateur, il peut être préférable
-d'utiliser le gestionnaire de paquets du système (p.ex. `synaptic` sur
-Ubuntu).
 
 .. |+| image:: ./_static/smile.gif
    :alt: Bon

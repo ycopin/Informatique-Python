@@ -14,6 +14,9 @@ Cours avancé:
 ✓ f-strings (uniquement 3.6+) :pep:`498`
 * distutils, setuptools (e.g. https://docs.python.org/3/distributing/)
 
+  Ajouter une section "Installation et création de librairies" dans "Python
+  avancé", avec exemples pip et setuptools. Environnements virtuels?
+
 Science:
 
 * ipython avancé & jupyter: sessions, notebook

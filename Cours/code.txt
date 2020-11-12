@@ -498,6 +498,8 @@ Comment installer/créer des modules externes:
 
 - `pip <https://pip.pypa.io/en/latest/>`_;
 - :rtfd:`Hitchhiker’s Guide to Packaging <the-hitchhikers-guide-to-packaging>`;
+- `Packaging Python Projects
+  <https://packaging.python.org/tutorials/packaging-projects/>`_
 - `Packaging a python library
   <https://blog.ionelmc.ro/2014/05/25/python-packaging/>`_;
 - :rtfd:`cookiecutter` est un générateur de squelettes de projet via des

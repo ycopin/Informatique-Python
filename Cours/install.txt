@@ -1,0 +1,232 @@
+.. _install:
+
+Installation et interpréteurs
+#############################
+
+.. contents:: Table des matières
+   :local:
+..
+    1  Installation
+    2  Notions d'Unix
+    3  Interpréteurs
+      3.1  L'interpréteur de base `python`
+      3.2  L'interpréteur avancé `ipython`
+      3.3  L'interface `jupyter notebook`
+      3.4  L'interface `jupyter lab`
+      3.5  Interpréteurs en ligne
+
+.. WARNING:: Le cours utilise **Python 3.6+**.
+
+Installation
+============
+
+Ce cours repose essentiellement sur les outils suivants:
+
+- `Python 3.6+ <https://www.python.org/downloads/>`_ (inclus l'interpréteur de
+  base et la bibliothèque standard);
+- les bibliothèques scientifiques `Numpy et Scipy
+  <https://scipy.org/install.html>`_;
+- la bibliothèque graphique :doc:`Matplotlib <matplotlib:users/installing>`;
+- un interpréteur interactif évolué, p.ex. `ipython
+  <http://ipython.org/install.html>`__ ou `jupyter
+  <https://jupyter.org/install>`__;
+- un `éditeur de texte évolué
+  <https://en.wikipedia.org/wiki/Comparison_of_text_editors>`_, p.ex. `emacs
+  <http://www.gnu.org/software/emacs/>`_, `vi <https://www.vim.org/>`_, `gedit
+  <https://wiki.gnome.org/Apps/Gedit>`_ ou `Atom <https://atom.io/>`_.
+
+Si vous souhaitez utiliser votre ordinateur personnel, ces logiciels peuvent
+être installés indépendamment, sous Linux (p.ex. `Ubuntu
+<http://ubuntu-fr.org/>`_ ou votre `distribution préférée
+<https://fr.wikipedia.org/wiki/Liste_des_distributions_Linux>`_), Windows ou
+MacOS.  Il existe également des distributions « clés en main », p.ex.  `Conda
+<https://docs.conda.io/>`_ (multi-plateforme).
+
+.. rubric:: Installations locales
+
+Si vous avez le contrôle entier de votre ordinateur, il peut être préférable
+d'utiliser le gestionnaire de paquets du système (p.ex. `synaptic` sur Ubuntu),
+avec le risque d'installer des versions un peu anciennes.
+
+Même si vous travaillez sur un ordinateur public (p.ex. en salle Ariane) , il
+est relativement aisé d'installer sous votre compte les programmes ou librairies
+Python (p.ex. `ipython`) manquantes à l'aide du gestionnaire d'installation `pip
+<https://pip.pypa.io/en/stable/>`_.
+
+* Vérifier la disponibilité du code sous `PYthon Package Index
+  <https://pypi.org/>`_ (plus de 270 000 projets!)
+* Installer p.ex. `ipython <http://ipython.org/>`_ (mode *single user*)::
+
+    pip3 install --user ipython
+
+* Compléter votre `~/.bashrc`::
+
+    export PATH=$PATH:$HOME/.local/bin/
+    export PYTHONPATH=$HOME/.local/lib/python3.6/site-packages/
+
+Notions d'Unix
+==============
+
+Dans le cadre de ce cours, les concepts suivants sont supposés connus:
+
+* ligne de commande: éxécutables et options;
+* arborescence: chemin relatif (`[./]...`) et absolu (`/...`),
+  navigation (:command:`cd`);
+* gestion des fichiers (:command:`ls`, :command:`rm`, :command:`mv`)
+  et répertoires (:command:`mkdir`);
+* gestion des éxécutables: :envvar:`$PATH`, :command:`chmod +x`;
+* gestion des processus: `&`, :kbd:`Ctrl-c`, :kbd:`Ctrl-z` +
+  :command:`bg`;
+* variables d'environnement: :command:`export`, :file:`.bashrc`.
+
+.. rubric:: Liens:
+
+* `Quelques notions et commandes d'UNIX
+  <https://www.ip2i.in2p3.fr/perso/ycopin/_static/enseignements/notions_unix.pdf>`_
+  |fr|
+* `Introduction to Unix Study Guide
+  <http://faculty.salina.k-state.edu/tim/unix_sg/>`_
+
+
+Interpréteurs
+=============
+
+L'interpréteur de base `python`
+-------------------------------
+
+.. index:: interpréteur; python
+
+L'interpréteur du langage Python s'appelle :program:`python` (ou
+:program:`python3` selon les installations); c'est **toujours** celui que l'on
+utilisera en mode non-intéractif pour exécuter (interpréter) un « script »,
+c.-à-d. un ensemble de commandes regroupées dans un fichier texte (généralement
+avec une extension `.py`), p.ex.::
+
+  $ python3 code.py
+
+Le :program:`python` peut également faire office d'interpréteur *interactif* de
+commandes, mais avec peu de fonctionnalités::
+
+  $ python3
+  Python 3.6.11 (default, Jun 29 2020, 05:15:03)
+  [GCC 5.4.0 20160609] on linux
+  Type "help", "copyright", "credits" or "license" for more information.
+  >>>
+
+- :kbd:`Ctrl-d` pour sortir;
+- :samp:`help({commande})` pour obtenir l'aide d'une commande;
+- *a priori*, pas d'historique des commandes ni de complétion automatique;
+- documentation: :doc:`interpréteur de base <python:tutorial/interpreter>`
+
+L'interpréteur avancé `ipython`
+-------------------------------
+
+.. index:: interpréteur; ipython
+
+Pour une utilisation intéractive avancée (historique, complétion automatique des
+commandes, introspection et aide en ligne, interface système, etc.) *dans un
+terminal*, il est préférable d'utiliser l'interpréteur évolué :rtfd:`ipython`::
+
+  $ ipython
+  Python 3.6.11 (default, Jun 29 2020, 05:15:03)
+  Type 'copyright', 'credits' or 'license' for more information
+  IPython 7.16.1 -- An enhanced Interactive Python. Type '?' for help.
+
+  In [1]:
+
+- :kbd:`Ctrl-d` pour sortir;
+- :kbd:`Tab` pour la complétion automatique;
+- :kbd:`Haut` et :kbd:`Bas` pour le rappel des commandes;
+- :kbd:`%quickref` pour les commandes spécifiques à :program:`ipyhon`, notamment
+  `object?` pour une aide sur un objet, `object??` pour une aide plus complète
+  (au niveau source);
+- :kbd:`%magic` pour la liste des commandes *magiques*, dont
+
+  * :samp:`%run {mon_script.py}` pour éxecuter un script *dans* l'interpréteur,
+  * `%debug` pour lancer le mode débogage intéractif *post-mortem*,
+  * `%cpaste` pour coller et éxecuter un code préformaté.
+
+.. rubric:: Liens:
+
+- `Tutorial
+  <http://ipython.readthedocs.io/en/stable/interactive/tutorial.html>`_
+- `IPython Tips & Tricks
+  <http://ipython.readthedocs.io/en/stable/interactive/tips.html>`_
+
+L'interface `jupyter notebook`
+------------------------------
+
+.. index:: interface; jupyter notebook
+
+Pour une expérience plus riche, combinant lignes de code, résultats, textes
+formatés et figures, etc. dans un *notebook* accessible depuis le navigateur, il
+peut être intéressant d'utiliser l'interface :rtfd:`jupyter notebook
+<jupyter-notebook>`::
+
+  $ jupyter notebook
+
+Cette commande initialise un *kernel* `ipython` (en charge de l'interprétation
+des commandes) en arrière plan, et ouvre un *notebook dashboard* dans votre
+navigateur, à partir duquel vous pouvez créer de nouveaux *notebooks* ou en
+ouvrir d'anciens.  Le navigateur n'héberge que l'interface web, l'interprétation
+reste à la charge du kernel.
+
+.. image:: jupyter.png
+   :align: center
+   :width: 60%
+   :alt: Interface `jupyter notebook`.
+
+L'interface `jupyter lab`
+-------------------------
+
+.. index:: interface; jupyter lab
+
+Pour une expérience encore plus intégrée, incluant des outils de développement
+(notebook, console `ipython`, explorateur de fichiers, terminal, etc.), vous
+pouvez utiliser l'interface :rtfd:`JupyterLab <jupyterlab>`::
+
+  $ jupyter lab
+
+.. image:: jupyterlab.png
+   :align: center
+   :width: 60%
+   :alt: Interface `jupyter lab`.
+
+Interpréteurs en ligne
+----------------------
+
+Il existe de nombreux services en ligne (généralement *freemium*) offrant des
+interpréteurs de *notebook* dans le *cloud*.  Cela permet de développer à
+distance sans se soucier des installations et mises à jour, et de travailler
+interactivement et de collaborer sur des *notebooks* partagés.
+
+.. rubric:: Liens
+
+- Comparatif `Six easy ways to run your Jupyter Notebook in the cloud
+  <https://www.dataschool.io/cloud-services-for-jupyter-notebook/>`_
+
+.. rubric:: Binder
+
+Le lien suivant permet d'ouvrir ce cours avec une interface de type `jupyter`
+via le service `binder <https://mybinder.org/>`_:
+
+.. image:: https://mybinder.org/badge_logo.svg
+   :align: center
+   :target: https://mybinder.org/v2/gh/ycopin/Informatique-Python/HEAD
+
+.. rubric:: Datalore
+
+Pour le cours en distanciel, nous utiliserons le service `datalore
+<https://datalore.io/>`_, qui permet une collaboration en temps réel.
+
+* Créer un compte sur https://datalore.io/,
+* Suivre le tutoriel,
+* Créer un notebook,
+* Le partager avec un collègue (p.ex. `yncopin[AT]gmail[DOT]com`) pour tester la
+  collaboration en temps réel,
+* Le publier, pour tester les commentaires en ligne.
+
+.. |fr| image:: ../_static/france_flag_icon.png
+   :alt: Fr
+.. |en| image:: ../_static/uk_flag_icon.png
+   :alt: En

@@ -135,6 +135,8 @@ Scientifique
   <https://people.duke.edu/~ccc14/sta-663/index.html>`_
 - `Python Data Science Handbook
   <https://nbviewer.jupyter.org/github/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/Index.ipynb>`_
+- `An Introduction To Machine Learning
+  <https://github.com/cbernet/introduction_machine_learning>`_
 
 .. rubric:: En français
 
