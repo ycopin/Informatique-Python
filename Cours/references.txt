@@ -151,6 +151,7 @@ Scientifique
 
 - `Practical Python for Astronomers <https://python4astronomers.github.io/>`_
 - `Astropy tutorials <http://www.astropy.org/astropy-tutorials/>`_
+- `Python for Astronomers <https://prappleizer.github.io/>`_
 - `Python for Euclid 2016 <https://github.com/aboucaud/python-euclid2016>`_
 - Advanced software programming for astrophysics and astroparticle physics,
   *ASTERICS-OBELICS International School*, `2017

@@ -196,7 +196,8 @@ créer de nouveaux *notebooks* ou en ouvrir d'anciens.
    :width: 60%
    :alt: Interface `jupyter notebook`.
 
-   Copie d'écran du *notebook* :ref:`pokemon.ipynb </Cours/pokemon.ipynb>`.
+   Copie d'écran du *notebook* `pokemon.ipynb
+   <https://nbviewer.jupyter.org/github/ycopin/Informatique-Python/blob/master/Cours/pokemon.ipynb>`_.
 
 .. rubric:: Liens
 
@@ -223,8 +224,8 @@ explorateur de fichiers, terminal, etc.)::
    :width: 60%
    :alt: Interface `jupyter lab`.
 
-   Copie d'écran d'un Jupyter Lab, incluant le *notebook* :ref:`canon.ipynb
-   </Exercices/canon.ipynb>`.
+   Copie d'écran d'un Jupyter Lab, incluant le *notebook* `canon.ipynb
+   <https://nbviewer.jupyter.org/github/ycopin/Informatique-Python/blob/master/Exercices/canon.ipynb>`_.
 
 .. Note:: L'univers JupyterLab est en développement très actif, et peut être
    complété de nombreuses `extensions

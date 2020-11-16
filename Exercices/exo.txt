@@ -58,7 +58,7 @@ PGCD: algorithme d'Euclide ★★
    :alt: Algorithme d'Euclide.
 
 Écrire un programme calculant le :abbr:`PGCD (Plus Grand Commun Dénominateur)`
-de deux nombres (p.ex. 306 et 756) par l'`algorithme d'Euclide
+de deux nombres (p.ex. 756 et 306) par l'`algorithme d'Euclide
 <https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide>`_.
 
 .. _tables:

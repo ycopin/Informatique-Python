@@ -1,6 +1,7 @@
 Général:
 
 ✓ scinder Cours en "intro" et "avancé"
+✓ introduire jupyter
 * Utiliser directive ipython
   (https://matplotlib.org/sampledoc/ipython_directive.html)
 
@@ -19,7 +20,7 @@ Cours avancé:
 
 Science:
 
-* ipython avancé & jupyter: sessions, notebook
+* ipython avancé & jupyter notebooks/lab
 
   - https://www.dataquest.io/blog/jupyter-notebook-tutorial/
   - :pypi:`nbdime`: diffing and merging of Jupyter Notebooks
