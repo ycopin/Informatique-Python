@@ -5,9 +5,6 @@
 Exercice: programmation orientée objet, développement dirigé par les tests.
 """
 
-import pytest                   # Module (non standard) de tests
-
-
 class Animal:
     """
     Classe définissant un `Animal`, caractérisé par son nom et son
@@ -24,7 +21,7 @@ class Animal:
         self.nom = str(nom)
         self.masse = float(masse)
 
-        self.vivant = True       # Les animaux sont vivants à l'instanciation
+        self.vivant = True       # Les animaux sont supposés vivants à l'instanciation
         self.empoisonne = False  # Animal empoisonné ?
 
     def __str__(self):
@@ -64,8 +61,8 @@ class Animal:
         """
         Surcharge de l'opérateur '()' pour manger un autre animal (qui
         meurt s'il est vivant) et prendre du poids (mais pas plus que
-        la masse de l'autre ou 10% de son propre poids).  Attention aux
-        animaux empoisonnés!
+        la masse de l'autre ou 10 % de son propre poids).  Attention aux
+        animaux empoisonnés !
 
         L'instruction `self(other)` sera résolue comme
         `self.__call__(other).
@@ -117,6 +114,8 @@ class Chien(Animal):
 # Il est *INTERDIT* de modifier les tests ci-dessous!!! #
 #########################################################
 
+import pytest                   # Module (non standard) de tests
+
 # start-tests
 def test_empty_init():
     with pytest.raises(TypeError):
@@ -132,7 +131,6 @@ def test_init():
     youki = Animal('Youki', 600)
     assert youki.masse == 600
     assert youki.vivant
-    assert youki.estVivant()
     assert not youki.empoisonne
 # end-tests
 

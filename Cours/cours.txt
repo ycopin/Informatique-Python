@@ -22,7 +22,7 @@ Initiation à Python
     8  Classes
     9  Entrées-sorties
       9.1  Intéractif
-      9.2  Fichiers
+      9.2  Fichiers texte
 
 .. _td1:
 
@@ -871,8 +871,8 @@ Intéractif
 Comme nous avons pu le voir précédemment, l'affichage à l'écran se
 fait par print_, la lecture du clavier par input_.
 
-Fichiers
---------
+Fichiers texte
+--------------
 
 .. index:: open
 .. index:: file
@@ -884,13 +884,13 @@ fonction :func:`open` retournant un objet de type :term:`file object`:
    :linenos:
 
    # ========== ÉCRITURE ==========
-   outfile = open("carres.dat", 'w') # Ouverture du fichier "carres.dat" en écriture
+   outfile = open("carres.dat", 'w') # Ouverture du fichier texte "carres.dat" en écriture
    for i in range(1, 10):
        outfile.write(f"{i}  {i**2}\n") # Noter la présence du '\n' (non-automatique)
    outfile.close()                   # Fermeture du fichier (nécessaire)
 
    # ========== LECTURE ==========
-   infile = open("carres.dat")  # Ouverture du fichier "carres.dat" en lecture
+   infile = open("carres.dat")  # Ouverture du fichier texte "carres.dat" en lecture
    for line in infile:          # Boucle sur les lignes du fichier
        if line.strip().startswith('#'): # Ne pas considérer les lignes "commentées"
            continue
