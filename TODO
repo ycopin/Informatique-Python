@@ -18,6 +18,8 @@ Cours avancé:
   Ajouter une section "Installation et création de librairies" dans "Python
   avancé", avec exemples pip et setuptools. Environnements virtuels?
 
+* Interface librairie/fonction C
+
 Science:
 
 * ipython avancé & jupyter notebooks/lab

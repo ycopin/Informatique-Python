@@ -37,8 +37,12 @@ efficace de larges tableaux multidimensionnels, et de routines
 mathématiques de haut niveau (fonctions spéciales, algèbre linéaire,
 statistiques, etc.).
 
-.. Note:: La convention d'import utilisé dans les exemples est
-   « `import numpy as N` ».
+.. Note::
+
+   * La convention d'import utilisé dans les exemples est « `import numpy as
+     N` ».
+   * N'oubliez pas de `citer numpy <https://scipy.org/citing.html#numpy>`_ dans
+     vos publications et présentations utilisant ces outils.
 
 .. rubric:: Liens:
 
@@ -305,9 +309,9 @@ ValueError: total size of new array must be unchanged
 :meth:`numpy.ndarray.ravel` « déroule » tous les axes et retourne un
 tableau de rang 1:
 
->>> y.ravel()              # *1st axis slowest, last axis fastest*
+>>> y.ravel()              # Ordre C par défaut: *1st axis slowest, last axis fastest*
 array([ 0, 1, 2, 3, 4, 5]) # Shape (2, 3) → (6,) (*size* inchangé)
->>> y.ravel('F')           # *1st axis fastest, last axis slowest* (ordre Fortran)
+>>> y.ravel('F')           # Ordre Fortran: *1st axis fastest, last axis slowest*
 array([0, 3, 1, 4, 2, 5])
 
 .. index::
@@ -569,7 +573,7 @@ types différents:
 ...               ('age', 'i'),      # 2e élément: un entier
 ...               ('taille', 'd')])  # 3e élément: un réel (double)
 >>> arr = N.array([('Calvin', 6, 1.20), ('Hobbes', 5, 1.80)], dtype=dt); arr
-array([('Calvin', 6, 1.2), ('Hobbes', 6, 1.8)],
+array([('Calvin', 6, 1.2), ('Hobbes', 5, 1.8)],
       dtype=[('nom', '<U10'), ('age', '<i4'), ('taille', '<f8')])
 >>> arr[0]                           # Accès par élément
 ('Calvin', 6, 1.2)
@@ -761,7 +765,7 @@ Tour d'horizon
 - :mod:`scipy.optimize`: méthodes d'optimisation (minimisation,
   moindres-carrés, zéros d'une fonction, etc.).
 - :mod:`scipy.interpolate`: interpolation (interpolation, splines).
-- :mod:`scipy.fftpack`: transformées de Fourier.
+- :mod:`scipy.fft`: transformées de Fourier.
 - :mod:`scipy.signal`: traitement du signal (convolution, corrélation,
   filtrage, ondelettes, etc.).
 - :mod:`scipy.linalg`: algèbre linéaire.
@@ -834,7 +838,7 @@ couleurs et styles des lignes, etc., voir `Anatomie d'une figure`_).
    pair: matplotlib; pylab
    pair: matplotlib; pyplot
 
-Il existe deux interfaces pour deux types d'utilisation:
+Il existe (schématiquement) deux interfaces pour deux types d'utilisation:
 
 * :mod:`pylab`: interface procédurale, originellement très similaire à MATLAB™
   et généralement réservée à l'analyse interactive:
@@ -883,14 +887,40 @@ Figure et axes
 .. index::
    pair: matplotlib; Axes
    pair: matplotlib; Figure
+   pair: matplotlib; subplots
 
 L'élément de base est le système d'axes :obj:`matplotlib.axes.Axes`, qui
 définit et réalise la plupart des éléments graphiques (tracé de courbes,
 définition des axes, annotations, etc.).  Un ou plusieurs de ces systèmes
 d'axes sont regroupés au sein d'une :obj:`matplotlib.figure.Figure`.
 
+La méthode la plus simple pour générer simultanément une figure et un ou
+plusieurs systèmes axes est d'utiliser la fonction de haut niveau
+:func:`matplotlib.pyplot.subplots`, p.ex.::
+
+   fig, ax = P.subplots()  # génère une figure et un système d'axes
+
+   fig, (axG, axD) = P.subplots(nrows=1, ncols=2)  # 1 fig, 2 axes en ligne
+
 Ainsi, pour générer une figure contenant 2 (vertical) × 3 (horizontal) = 6
 systèmes d'axes (numérotés de 1 à 6)::
+
+   fig, axs = P.subplots(nrows=2, ncols=3)  # 1 fig, liste de 2×3 axes
+   for (i, j), ax in N.ndenumerate(axs):
+       ax.set(xticks=[], yticks=[])
+       ax.text(0.5, 0.5,
+               f"axs[{i}][{j}]\n#{i*axs.shape[1] + j + 1}",
+               ha='center', va='center', size='large')
+   fig.suptitle("fig, axs = P.subplots(nrows=2, ncols=3)", fontsize='x-large')
+
+.. image:: subplots.*
+   :align: center
+   :width: 60%
+   :alt: Axes et figure.
+
+Pour un contrôle plus fin de la disposition des systèmes d'axes dans une figure,
+il est possible de générer les axes un à un via la méthode
+:meth:`matplotlib.figure.Figure.add_subplot`::
 
     fig = P.figure()
     for i in range(1, 4):
@@ -902,7 +932,7 @@ systèmes d'axes (numérotés de 1 à 6)::
         ax.text(0.5, 0.5, f"subplot(2, 2, {i})",
                 ha='center', va='center', size='large')
 
-.. image:: subplots.*
+.. image:: subplots2.*
    :align: center
    :width: 60%
    :alt: Axes et figure.
@@ -932,8 +962,8 @@ Pour des mises en page plus complexes, il est possible d'utiliser le kit
    :width: 60%
    :alt: GridSpec.
 
-Enfin, il est toujours possible (mais peu pratique) de créer soi-même le
-système d'axes dans les coordonnées relatives à la figure::
+Enfin, il est toujours possible de créer soi-même le système d'axes dans les
+coordonnées relatives à la figure::
 
     fig = P.figure()
     ax0 = fig.add_axes([0, 0, 1, 1], frameon=False,
@@ -992,8 +1022,8 @@ tous les éléments d'une figure (titre, axes, légende, etc.), qui peuvent alor
    **Figure:** Anatomie d'une figure.
 
 .. Note:: N'oubliez pas de `citer matplotlib
-   <https://matplotlib.org/citing.html>`_ (notamment [Matplotlib07]_) dans vos
-   publications et présentations utilisant cet outil.
+   <https://matplotlib.org/citing.html>`_ dans vos publications et présentations
+   utilisant cet outil.
 
 .. rubric:: Liens:
 
@@ -1006,17 +1036,15 @@ tous les éléments d'une figure (titre, axes, légende, etc.), qui peuvent alor
 
 .. rubric:: Voir également:
 
+- `Third party packages <https://matplotlib.org/thirdpartypackages>`_, une liste
+  de bibliothèques complétant `matplotlib`: cartographie, visualisation
+  interactive, implémentation de la `Grammar of Graphics
+  <https://ramnathv.github.io/pycon2014-r/visualize/ggplot2.html>`_, graphiques
+  spécialisés, animations, interactivité, etc.
 - :pypi:`mpld3`, un *backend* matplotlib interactif basé sur la bibliothèque
   *web* `3D.js <https://d3js.org/>`_;
-- `basemap <https://matplotlib.org/basemap/users/index.html>`_ et
-  :pypi:`cartopy`, bibliothèques de cartographie sphérique;
 - `Seaborn <http://seaborn.pydata.org/>`_, une surcouche de visualisation
   statistique à matplotlib et :ref:`myPandas`;
-- `HoloViews <http://holoviews.org/>`_, une surcouche de visualisation et
-  d'analyse à matplotlib;
-- `ggplot <http://ggplot.yhathq.com/>`_, une surcouche orientée `Grammar of
-  Graphics <https://ramnathv.github.io/pycon2014-r/visualize/ggplot2.html>`_ à
-  matplotlib;
 - `Bokeh <http://bokeh.pydata.org/>`_, une bibliothèque graphique alternative à
   matplotlib plus orientée *web*/temps réel;
 - :pypi:`plotext`, :pypi:`termplotlib`, pour réaliser des figures directement
@@ -1081,8 +1109,6 @@ graphique de visualisation 3D s'appuyant sur `Mayavi
 .. [#sym] Python dispose également d'une bibliothèque de calcul *formel*,
    `sympy <http://www.sympy.org/>`_, et d'un environnement de calcul
    mathématique, `sage <http://www.sagemath.org/>`_.
-
-.. [Matplotlib07] :ads:`2007CSE.....9...90H`
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr

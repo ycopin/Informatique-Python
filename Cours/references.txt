@@ -107,6 +107,8 @@ Python
 Scientifique
 ............
 
+- :rtfd:`Scipy Cookbook <scipy-cookbook>` (inclut `numpy`, `scipy`,
+  `matplotlib`, etc.)
 - `Python Scientific Lecture Notes <http://www.scipy-lectures.org/>`_
 - `Handbook of the Physics Computing Course
   <http://www-teaching.physics.ox.ac.uk/computing/handbook_Python/handbook_Python.html>`_

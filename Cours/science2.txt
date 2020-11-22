@@ -754,7 +754,7 @@ des données manquantes et d'alignement des tableaux indexés
 
 .. index::
    pair: xarray; DataArray
-   pair: xarray; DataSet
+   pair: xarray; Dataset
    pair: xarray; loc
    pair: xarray; sel
 
@@ -763,7 +763,7 @@ des données manquantes et d'alignement des tableaux indexés
 
 * :class:`xarray.DataArray`, un tableau N-D indexé généralisant le
   :class:`pandas.Series`;
-* :class:`xarray.DataSet`, un dictionnaire regroupant plusieurs `DataArray`
+* :class:`xarray.Dataset`, un dictionnaire regroupant plusieurs `DataArray`
   alignés selon une ou plusieurs dimensions, et similaire au
   :class:`pandas.DataFrame`.
 
