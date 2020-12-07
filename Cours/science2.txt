@@ -977,7 +977,8 @@ l'analyse statistique de données, physique, chimie, etc.:
   <https://veusz.github.io/>`_;
 - Propagation des incertitudes: :pypi:`uncertainties`;
 - Ajustement & optimisation (statistiques fréquentistes): :rtfd:`iminuit`,
-  :rtfd:`kafe`;
+  :rtfd:`kafe`, :rtfd:`zfit` (basé sur `TensorFlow
+  <https://www.tensorflow.org/>`_));
 - Analyse statistique bayesienne: `PyStan
   <https://mc-stan.org/interfaces/pystan.html>`_;
 - *Markov Chain Monte-Carlo*: :rtfd:`emcee`, :pypi:`pymc3`;
