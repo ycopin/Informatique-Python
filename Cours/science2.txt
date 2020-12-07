@@ -973,6 +973,8 @@ Python est maintenant très largement utilisé par la communauté scientifique, 
 dispose d'innombrables bibliothèques dédiées aux différents domaines de
 l'analyse statistique de données, physique, chimie, etc.:
 
+- Analyse et visualisation interactives de données: `Veusz
+  <https://veusz.github.io/>`_;
 - Propagation des incertitudes: :pypi:`uncertainties`;
 - Ajustement & optimisation (statistiques fréquentistes): :rtfd:`iminuit`,
   :rtfd:`kafe`;
