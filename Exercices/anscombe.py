@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding: utf-8
 
 import numpy as N
 import scipy.stats as SS
@@ -13,12 +14,12 @@ def printStats(x, y):
 
     assert N.shape(x) == N.shape(y), "Incompatible input arrays"
 
-    print("x: mean={:.2f}, variance={:.2f}".format(N.mean(x), N.var(x)))
-    print("y: mean={:.2f}, variance={:.2f}".format(N.mean(y), N.var(y)))
-    print("y vs. x: corrcoeff={:.2f}".format(SS.pearsonr(x, y)[0]))
+    print(f"x: mean={N.mean(x):.2f}, variance={N.var(x):.2f}")
+    print(f"y: mean={N.mean(y):.2f}, variance={N.var(y):.2f}")
+    print(f"y vs. x: corrcoeff={SS.pearsonr(x, y)[0]:.2f}")
     # slope, intercept, r_value, p_value, std_err
     a, b, _, _, _ = SS.linregress(x, y)
-    print("y vs. x: y = {:.2f} x + {:.2f}".format(a, b))
+    print(f"y vs. x: y = {a:.2f} x + {b:.2f}")
 
 
 def plotStats(ax, x, y, title='', fancy=True):
@@ -32,12 +33,12 @@ def plotStats(ax, x, y, title='', fancy=True):
     a, b, r, _, _ = SS.linregress(x, y)
 
     # Data + corrcoeff
-    ax.plot(x, y, 'bo', label="r = {:.2f}".format(r))
+    ax.plot(x, y, 'bo', label=f"r = {r:.2f}")
 
     # Linear regression
     xx = N.array([0, 20])
     yy = a * xx + b
-    ax.plot(xx, yy, 'r-', label="y = {:.2f} x + {:.2f}".format(a, b))
+    ax.plot(xx, yy, 'r-', label=f"y = {a:.2f} x + {b:.2f}")
 
     leg = ax.legend(loc='upper left', fontsize='small')
 
@@ -70,7 +71,7 @@ if __name__ == '__main__':
 
     for i in range(4):                  # Loop over quartet sets x,y
         ax = fig.add_subplot(2, 2, i + 1)
-        print(" Dataset #{} ".format(i + 1).center(40, '='))
+        print(f" Dataset #{i+1} ".center(40, '='))
         x, y = quartet[:, 2 * i:2 * i + 2].T
         printStats(x, y)                # Print main statistics
         plotStats(ax, x, y, title='#'+str(i + 1))  # Plots

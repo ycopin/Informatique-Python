@@ -76,9 +76,10 @@ la température et du champ magnétique par simulation de Monte-Carlo.
    :width: 50%
    :align: center
 
-   **Figure:** Modèle d'Ising au point critique. Source: `Paul
-   Coddington
-   <http://cs.adelaide.edu.au/~paulc/physics/spinmodels.html>`_.
+   **Figure:** Modèle d'Ising au point critique.
+
+.. Source: `Paul Coddington
+.. <http://cs.adelaide.edu.au/~paulc/physics/spinmodels.html>`_.
 
 Modèle de Potts 3D
 ------------------
@@ -387,8 +388,7 @@ Projets statistiques
   Methods <http://www.itl.nist.gov/div898/handbook/>`_,
   p.ex. `Comparisons based on data from two processes
   <http://www.itl.nist.gov/div898/handbook/prc/section3/prc3.htm>`_
-- Statistiques robustes, p.ex. `Beers et al. (1990)
-  <http://adsabs.harvard.edu/abs/1990AJ....100...32B>`_
+- Statistiques robustes, p.ex. :ads:`Beers et al. (1990) <1990AJ....100...32B>`
 
 
 Projets de visualisation
@@ -435,8 +435,7 @@ visualisation sous Python/Matplotlib.
   - Données photométriques: p.ex. :download:`M55 <./M55_BV.dat>`
     (source: `BVI photometry in M55
     <http://cdsarc.u-strasbg.fr/viz-bin/Cat?J/AJ/134/825>`_)
-  - Données théoriques: p.ex. `Padova database of stellar evolutionary
-    tracks and isochrones <http://pleiadi.pd.astro.it/>`_
+  - Données théoriques: p.ex. `CMD <http://stev.oapd.inaf.it/cgi-bin/cmd>`_
 
 .. https://sites.google.com/site/roguewavesoftwarefrance/tutoriels/Python-Clustering-k-Means
 

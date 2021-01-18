@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
+# coding: utf-8
 
 import random
 
 nmin, nmax = 1, 100
 nsol = random.randint(nmin, nmax)
 
-print("Vous devez deviner un nombre entre {} et {}.".format(nmin, nmax))
+print(f"Vous devez deviner un nombre entre {nmin} et {nmax}.")
 ncoups = 0                      # Compteur de coups
 
 while True:                     # Boucle infinie: sortie explicite par break
@@ -16,13 +17,13 @@ while True:                     # Boucle infinie: sortie explicite par break
             raise ValueError()
 
     except ValueError:
-        print("Votre proposition {!r} n'est pas un entier compris entre {} et {}."
-              .format(proposition, nmin, nmax))
+        print(f"Votre proposition {proposition!r} "
+              f"n'est pas un entier compris entre {nmin} et {nmax}.")
         continue                # Nouvel essai
 
     except (KeyboardInterrupt, EOFError):  # Interception de Ctrl-C et Ctrl-D
-        print("\nVous abandonnez après seulement {} coup{}!"
-              .format(ncoups, 's' if ncoups > 1 else ''))
+        print("\nVous abandonnez après seulement "
+              f"{ncoups} coup{'s' if ncoups > 1 else ''}!")
         break                   # Interrompt la boucle while
 
     # Si la proposition est valide, le jeu peut continuer.
@@ -32,6 +33,5 @@ while True:                     # Boucle infinie: sortie explicite par break
     elif nsol < ntest:
         print("C'est moins.")
     else:
-        print("Vous avez trouvé en {} coup{}!"
-              .format(ncoups, 's' if ncoups > 1 else ''))
+        print(f"Vous avez trouvé en {ncoups} coup{'s' if ncoups > 1 else ''}!")
         break                   # Interrompt la boucle while

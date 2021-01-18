@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding: utf-8
 
 """
 Exemple de script (shebang, docstring, etc.) permettant une
@@ -52,9 +53,8 @@ if __name__ == '__main__':
             args.list = [float(x) for x in args.input
                          if not x.strip().startswith('#')]
         except ValueError:
-            parser.error(
-                "Impossible de déchiffrer la ligne '{}' du fichier '{}'"
-                .format(x, args.input))
+            parser.error("Impossible de déchiffrer la ligne "
+                         f"{x!r} du fichier {args.input!r}")
 
     # Vérifie qu'il y a au moins un nombre dans la liste
     if not args.list:
@@ -64,5 +64,5 @@ if __name__ == '__main__':
     moyenne = mean_power(args.list, args.power)
 
     # Affichage du résultat
-    print("La moyenne puissance 1/{} des {} nombres à la puissance {} est {}".format(
-        args.power, len(args.list), args.power, moyenne))
+    print("La moyenne puissance 1/{0} des {1} nombres à la puissance {0}"
+          " est {2}.".format(args.power, len(args.list), moyenne))

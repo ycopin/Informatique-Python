@@ -39,7 +39,7 @@ Installation
 
 Cette introduction repose essentiellement sur les outils suivants:
 
-- `Python 3.5+ <https://www.python.org/downloads/>`_ (inclus
+- `Python 3.6+ <https://www.python.org/downloads/>`_ (inclus
   l'interpréteur de base et la bibliothèque standard);
 - les bibliothèques scientifiques `Numpy et Scipy
   <https://scipy.org/install.html>`_;
@@ -54,12 +54,8 @@ Cette introduction repose essentiellement sur les outils suivants:
 Ces logiciels peuvent être installés indépendamment, de préférence sous Linux
 (p.ex. `Ubuntu <http://ubuntu-fr.org/>`_ ou votre `distribution préférée
 <https://fr.wikipedia.org/wiki/Liste_des_distributions_Linux>`_), ou sous
-Windows ou MacOS.  Il existe également des distributions « clés en main »:
-
-- `Anaconda <https://www.anaconda.com/>`_ (multi-plateforme);
-- `Python(x,y) <https://python-xy.github.io/>`_ (Windows);
-- `Enthought Canopy <https://www.enthought.com/product/canopy>`_
-  (Windows, MacOS, Linux, gratuite pour les étudiants du supérieur).
+Windows ou MacOS.  Il existe également des distributions « clés en main », p.ex.
+`Conda <https://docs.conda.io/>`_ (multi-plateforme).
 
 Notions d'Unix
 --------------
@@ -79,7 +75,7 @@ Les concepts suivants sont supposés connus:
 .. rubric:: Liens:
 
 * `Quelques notions et commandes d'UNIX
-  <https://www.ipnl.in2p3.fr/perso/ycopin/_static/enseignements/notions_unix.pdf>`_
+  <https://www.ip2i.in2p3.fr/perso/ycopin/_static/enseignements/notions_unix.pdf>`_
   |fr|
 * `Introduction to Unix Study Guide
   <http://faculty.salina.k-state.edu/tim/unix_sg/>`_
@@ -96,7 +92,7 @@ Python:
   <https://docs.python.org/3/tutorial/interpreter.html>`_::
 
     $ python3
-    Python 3.5.2 (default, Nov 23 2017, 16:37:01)
+    Python 3.6.11 (default, Jun 29 2020, 05:15:03)
     [GCC 5.4.0 20160609] on linux
     Type "help", "copyright", "credits" or "license" for more information.
     >>>
@@ -117,23 +113,19 @@ Python:
   complétion automatique des commandes)::
 
     $ ipython
-    Python 2.7.12 (default, Nov 19 2016, 06:48:10)
-    Type "copyright", "credits" or "license" for more information.
-
-    IPython 5.3.0 -- An enhanced Interactive Python.
-    ?         -> Introduction and overview of IPython's features.
-    %quickref -> Quick reference.
-    help      -> Python's own help system.
-    object?   -> Details about 'object', use 'object??' for extra details.
+    Python 3.6.11 (default, Jun 29 2020, 05:15:03)
+    Type 'copyright', 'credits' or 'license' for more information
+    IPython 7.16.1 -- An enhanced Interactive Python. Type '?' for help.
 
     In [1]:
 
   - :kbd:`Control-d` pour sortir;
   - :kbd:`Tab` pour la complétion automatique;
   - :kbd:`Haut` et :kbd:`Bas` pour le rappel des commandes;
-  - aide ipython: `object?` pour une aide sur un objet, `object??`
+  - :kbd:`%quickref` pour les commandes spécifiques à :program:`ipyhon`,
+    notamment `object?` pour une aide sur un objet, `object??`
     pour une aide plus complète (au niveau source);
-  - commandes *magic* (voir `%magic`):
+  - :kbd:`%magic` pour la liste des commandes *magiques*, dont
 
     * :samp:`%run {mon_script.py}` pour éxecuter un script *dans*
       l'interpréteur,
@@ -434,20 +426,25 @@ Formatage
 
 .. index:: print
 
-Le système de `formatage
-<https://docs.python.org/3/library/string.html#formatstrings>`_ permet un
-contrôle précis de la conversion de variables en chaînes de caractères.  Il
-s'appuie essentiellement sur la méthode :func:`str.format`:
+Le système de formatage permet un contrôle précis de la conversion de variables
+en chaînes de caractères.  Après quelques tergiversations historiques
+[#format]_, le système de choix est dorénavant (Python 3.6+) celui des chaînes
+formattées (:term:`f-strings`, voir :pep:`498`), qui permet d'*interpoler*
+directement les éléments `{var[:fmt]}` d'une chaîne:
 
->>> "{0} a {1} ans".format('Calvin', 6)  # args énumérés
-'Calvin a 6 ans'
->>> "{} a {} ans".format('Calvin', 6)    # Raccourci
-'Calvin a 6 ans'
->>> "{nom} a {age} ans".format(nom='Calvin', age=6)  # kwargs
-'Calvin a 6 ans'
+>>> nom, age = 'calvin', 6
+>>> f"{nom} a {age} ans."  # Interpolation simple
+'calvin a 6 ans.'
+>>> f"L'année prochaine, {nom.capitalize()} aura {age+1} ans"  # Interprétation
+"L'année prochaine, Calvin aura 7 ans."
+
+Le formattage des chaînes s'appuie sur la `grammaire standard
+<https://docs.python.org/3/library/stdtypes.html#old-string-formatting>`_
+héritée du C:
+
 >>> pi = 3.1415926535897931
->>> "{x:f}  {x:.2f}  {y:f}  {y:g}".format(x=pi, y=pi*1e9)  # Options de formatage
-'3.141593  3.14  3141592653.589793  3.14159e+09'
+>>> f"{pi:f}, {pi:+06.2f}, {pi*1e9:f}, {pi*1e9:.3g}"  # Options de formatage
+'3.141593, +03.14, 3141592653.589793, 3.14e+09'
 
 :func:`print` affiche à l'écran (plus spécifiquement la sortie
 standard) la conversion d'une variable en chaîne de caractères:
@@ -455,7 +452,7 @@ standard) la conversion d'une variable en chaîne de caractères:
 >>> print("Calvin and Hobbes\nScientific progress goes 'boink'!")
 Calvin and Hobbes
 Scientific progress goes 'boink'!
->>> print("{0:2d} fois {1:2d} font {2}".format(3, 4, 3*4))  # Formatage et affichage
+>>> print(f"{3:2d} fois {4:2d} font {3*4:2d}")  # Formatage et affichage
  3 fois  4 font 12
 
 .. rubric:: Exercice:
@@ -805,7 +802,7 @@ construction `try ... except`.
                # La conversion en type entier génère `ValueError` si nécessaire
                return int(chaine)
            except ValueError:                    # Gestion de l'exception ValueError
-               print("'{}' n'est pas un entier".format(chaine))
+               print(f"{chaine!r} n'est pas un entier")
 
 >>> lireEntier()
 Entrez un entier: toto
@@ -856,7 +853,7 @@ appelante de les gérer si besoin:
        """
 
        if x < y:
-           raise ValueError("x={} < y={}".format(x, y))
+           raise ValueError(f"x={x} < y={y}")
 
        return x**2 - y**2
 
@@ -875,7 +872,7 @@ si l'hypothèse n'est pas vérifiée, génère une :exc:`AssertionError`):
        Returns x**2 - y**2 for x >= y, AssertionError otherwise.
        """
 
-       assert x >= y, "x={} < y={}".format(x, y)  # Test et msg d'erreur
+       assert x >= y, f"x={x} < y={y}"  # Test et msg d'erreur
        return x**2 - y**2
 
 .. Note:: La règle générale à retenir concernant la gestion des
@@ -948,9 +945,9 @@ Au concept d'objet sont liées les notions de:
    :pyobject: AnimalGentil
    :linenos:
 
-.. Note:: Il est traditionnel de commencer les noms de classes avec
-   une majuscule (`Animal`), et les noms d'instances de classe (les
-   variables) avec une minuscule (`vache`).
+.. Note:: Il est traditionnel d'écrire les noms de classes en *CamelCase*
+   (`AnimalGentil`), et les noms d'instances de classe (les variables) en
+   minuscules (`vache`).
 
 .. rubric:: Exemples
 
@@ -997,7 +994,7 @@ fonction :func:`open` retournant un objet de type :term:`file object`:
    # ========== ÉCRITURE ==========
    outfile = open("carres.dat", 'w') # Ouverture du fichier "carres.dat" en écriture
    for i in range(1, 10):
-       outfile.write("{}  {}\n".format(i, i**2)) # Noter la présence du '\n' (non-automatique)
+       outfile.write(f"{i}  {i**2}\n") # Noter la présence du '\n' (non-automatique)
    outfile.close()                   # Fermeture du fichier (nécessaire)
 
    # ========== LECTURE ==========
@@ -1008,14 +1005,20 @@ fonction :func:`open` retournant un objet de type :term:`file object`:
        try:                     # Essayons de lire 2 entiers sur cette ligne
            x, x2 = [ int(tok) for tok in line.split() ]
        except ValueError:       # Gestion des erreurs
-           print("Cannot decipher line '{}'".format(line))
+           print(f"Cannot decipher line {line!r}.")
            continue
-       print("{}**3 = {}".format(x, x**3))
+       print(f"{x}**3 = {x**3}")
 
 
 .. rubric:: Notes de bas de page
 
 .. [#braces] ou `from __future__ import braces` :-)
+.. [#format] Utilisation native du `%` avec la grammaire C `printf
+   <https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting>_`,
+   et plus récemment de la méthode de `formattage des chaînes
+   <https://docs.python.org/3/library/string.html#formatstrings>`_; ces deux
+   méthodes sont encore valables et largement utilisées, mais progressivement
+   dépréciées.
 .. [#duck] *If it looks like a duck and quacks like a duck, it must be
    a duck.*
 .. [#scope] La notion de « portée » est plus complexe, je simplifie...

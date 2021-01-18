@@ -468,11 +468,11 @@ Documentation
 * Outils de documentation, ou comment transformer *automagiquement* un
   code-source bien documenté en une documentation fonctionnelle.
 
-  - `Sphinx <http://www.sphinx-doc.org/en/stable/>`_;
+  - `Sphinx <https://www.sphinx-doc.org/en/stable/>`_;
   - `reStructuredText for Sphinx
-    <http://www.sphinx-doc.org/en/stable/rest.html>`_;
+    <https://www.sphinx-doc.org/en/stable/rest.html>`_;
   - `Awesome Sphinx <https://github.com/yoloseem/awesome-sphinxdoc>`_;
-  - `apidoc <http://www.sphinx-doc.org/en/stable/man/sphinx-apidoc.html>`_
+  - `apidoc <https://www.sphinx-doc.org/en/stable/man/sphinx-apidoc.html>`_
     (documentation automatique).
 
 * Conventions de documentation:

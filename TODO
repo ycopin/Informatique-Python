@@ -1,4 +1,3 @@
-
 ✓ scinder Cours en "intro" et "avancé"
 * Utiliser directive ipython
   (https://matplotlib.org/sampledoc/ipython_directive.html)
@@ -10,7 +9,7 @@ Cours avancé:
   annotations: https://www.python.org/dev/peps/pep-0526/)
 * Data Classes (https://www.python.org/dev/peps/pep-0557/, ou
   https://pypi.org/project/dataclasses/ pour Python 3.6)
-* f-strings (uniquement 3.6+)
+✓ f-strings (uniquement 3.6+) :pep:`498`
 * distutils, setuptools (e.g. https://docs.python.org/3/distributing/)
 
 Science:
@@ -27,3 +26,12 @@ Science avancée:
   (p.ex. https://chryswoods.com/parallel_python/index.html)
 * Tuto Pandas (https://www.marsja.se/pandas-dataframe-read-csv-excel-subset/)
 * Check https://github.com/paris-saclay-cds/python-workshop
+
+* Python 3.6+
+  - underscores: 1_000_000 et '{:_}' (:pep:`515`)
+
+* Python 3.8+ (https://docs.python.org/3/whatsnew/3.8.html)
+  - f-string {expr=}
+  - assignment expression, opérateur morse (walrus) :=
+  - positional-only parameters
+  
