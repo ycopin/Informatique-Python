@@ -1,6 +1,7 @@
 Général:
 
 ✓ scinder Cours en "intro" et "avancé"
+✓ introduire jupyter/jupyterlab
 * Utiliser directive ipython
   (https://matplotlib.org/sampledoc/ipython_directive.html)
 
@@ -14,12 +15,19 @@ Cours avancé:
 ✓ f-strings (uniquement 3.6+) :pep:`498`
 * distutils, setuptools (e.g. https://docs.python.org/3/distributing/)
 
+  Ajouter une section "Installation et création de librairies" dans "Python
+  avancé", avec exemples pip et setuptools. Environnements virtuels?
+
+* Interface librairie/fonction C
+* Interface web: https://atlastk.org/
+
 Science:
 
-* ipython avancé & jupyter: sessions, notebook
+* ipython avancé & jupyter notebooks/lab
 
   - https://www.dataquest.io/blog/jupyter-notebook-tutorial/
   - :pypi:`nbdime`: diffing and merging of Jupyter Notebooks
+  - IDE en ligne: https://repl.it/
 
 Science avancée:
 
@@ -37,3 +45,6 @@ Science avancée:
   - assignment expression, opérateur morse (walrus) :=
   - positional-only parameters
   
+Projets/exercices:
+
+* jeu du taquin

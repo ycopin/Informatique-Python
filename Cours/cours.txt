@@ -6,137 +6,25 @@ Initiation à Python
 .. contents:: Table des matières
    :local:
 ..
-    1   Introduction
-      1.1  Installation
-      1.2  Notions d'Unix
-      1.3  L'invite de commande
-    2   Types de base
-    3   Structures de programmation
-    4   Les chaînes de caractères
-      4.1  Indexation
-      4.2  Sous-liste (*slice*)
-      4.3  Méthodes
-      4.4  Formatage
-    5   Objets itérables
-    6   Fonctions
-    7   Bibliothèques et scripts
-      7.1  Bibliothèques externes
-      7.2  Bibliothèques personnelles et scripts
-    8   Exceptions
-    9   Classes
-    10  Entrées-sorties
-      10.1  Intéractif
-      10.2  Fichiers
-
+    1  Types de base
+    2  Structures de programmation
+    3  Les chaînes de caractères
+      3.1  Indexation
+      3.2  Sous-liste (*slice*)
+      3.3  Méthodes
+      3.4  Formatage
+    4  Objets itérables
+    5  Fonctions
+    6  Bibliothèques et scripts
+      6.1  Bibliothèques externes
+      6.2  Bibliothèques personnelles et scripts
+    7  Exceptions
+    8  Classes
+    9  Entrées-sorties
+      9.1  Intéractif
+      9.2  Fichiers texte
 
 .. _td1:
-
-Introduction
-============
-
-Installation
-------------
-
-Cette introduction repose essentiellement sur les outils suivants:
-
-- `Python 3.6+ <https://www.python.org/downloads/>`_ (inclus
-  l'interpréteur de base et la bibliothèque standard);
-- les bibliothèques scientifiques `Numpy et Scipy
-  <https://scipy.org/install.html>`_;
-- la bibliothèque graphique :doc:`Matplotlib <matplotlib:users/installing>`;
-- un interpréteur évolué, p.ex. `ipython <http://ipython.org/install.html>`_;
-- un `éditeur de texte évolué
-  <https://en.wikipedia.org/wiki/Comparison_of_text_editors>`_, p.ex. `emacs
-  <http://www.gnu.org/software/emacs/>`_, `vi <https://www.vim.org/>`_, `gedit
-  <https://wiki.gnome.org/Apps/Gedit>`_ ou `Atom <https://atom.io/>`_.
-
-Ces logiciels peuvent être installés indépendamment, de préférence sous Linux
-(p.ex. `Ubuntu <http://ubuntu-fr.org/>`_ ou votre `distribution préférée
-<https://fr.wikipedia.org/wiki/Liste_des_distributions_Linux>`_), ou sous
-Windows ou MacOS.  Il existe également des distributions « clés en main », p.ex.
-`Conda <https://docs.conda.io/>`_ (multi-plateforme).
-
-Notions d'Unix
---------------
-
-Les concepts suivants sont supposés connus:
-
-* ligne de commande: éxécutables et options;
-* arborescence: chemin relatif (`[./]...`) et absolu (`/...`),
-  navigation (:command:`cd`);
-* gestion des fichiers (:command:`ls`, :command:`rm`, :command:`mv`)
-  et répertoires (:command:`mkdir`);
-* gestion des éxécutables: :envvar:`$PATH`, :command:`chmod +x`;
-* gestion des processus: `&`, :kbd:`Control-c`, :kbd:`Control-z` +
-  :command:`bg`;
-* variables d'environnement: :command:`export`, :file:`.bashrc`.
-
-.. rubric:: Liens:
-
-* `Quelques notions et commandes d'UNIX
-  <https://www.ip2i.in2p3.fr/perso/ycopin/_static/enseignements/notions_unix.pdf>`_
-  |fr|
-* `Introduction to Unix Study Guide
-  <http://faculty.salina.k-state.edu/tim/unix_sg/>`_
-
-L'invite de commande
---------------------
-
-Il existe principalement deux interpréteurs intéractifs de commandes
-Python:
-
-.. index:: interpréteur; python
-
-* :program:`python`: :doc:`interpréteur de base <python:tutorial/interpreter>`::
-
-    $ python3
-    Python 3.6.11 (default, Jun 29 2020, 05:15:03)
-    [GCC 5.4.0 20160609] on linux
-    Type "help", "copyright", "credits" or "license" for more information.
-    >>>
-
-  - :kbd:`Control-d` pour sortir;
-  - :samp:`help({commande})` pour obtenir l'aide d'une commande;
-  - *a priori*, pas d'historique des commandes ni de complétion
-    automatique.
-
-  L'interpréteur de base permet également d'interpréter un « script »,
-  c.-à-d. un ensemble de commandes regroupées dans un fichier texte
-  (généralement avec une extension `.py`): :samp:`python
-  {mon_script.py}`
-
-.. index:: interpréteur; ipython
-
-* :program:`ipython`: :rtfd:`interpréteur évolué <ipython>` (avec historique et
-  complétion automatique des commandes)::
-
-    $ ipython
-    Python 3.6.11 (default, Jun 29 2020, 05:15:03)
-    Type 'copyright', 'credits' or 'license' for more information
-    IPython 7.16.1 -- An enhanced Interactive Python. Type '?' for help.
-
-    In [1]:
-
-  - :kbd:`Control-d` pour sortir;
-  - :kbd:`Tab` pour la complétion automatique;
-  - :kbd:`Haut` et :kbd:`Bas` pour le rappel des commandes;
-  - :kbd:`%quickref` pour les commandes spécifiques à :program:`ipyhon`,
-    notamment `object?` pour une aide sur un objet, `object??`
-    pour une aide plus complète (au niveau source);
-  - :kbd:`%magic` pour la liste des commandes *magiques*, dont
-
-    * :samp:`%run {mon_script.py}` pour éxecuter un script *dans*
-      l'interpréteur,
-    * `%debug` pour lancer le mode débogage intéractif *post-mortem*,
-    * `%cpaste` pour coller et éxecuter un code préformaté.
-
-  .. rubric:: Liens:
-
-  - `Tutorial
-    <http://ipython.readthedocs.io/en/stable/interactive/tutorial.html>`_
-  - `IPython Tips & Tricks
-    <http://ipython.readthedocs.io/en/stable/interactive/tips.html>`_
-
 
 Types de base
 =============
@@ -253,20 +141,21 @@ Structures de programmation
 - **Expression booléenne**: une condition est une expression
   s'évaluant à `True` ou `False`:
 
-  - `False`: test logique faux (p.ex. `3 == 4`), valeur nulle, chaîne
+  - `False`: test logique faux (p.ex. `3 > 4`), valeur nulle, chaîne
     vide (`''`), liste vide (`[]`), etc.
-  - `True`: test logique vrai (p.ex. `2 + 2 == 4`), toute valeur ou
+  - `True`: test logique vrai (p.ex. `2 in [1, 2, 3]`), toute valeur ou
     objet non nul (et donc s'évaluant par défaut à `True` *sauf exception*)
-  - Tests logiques: `==`, `!=`, `>`, `>=`, etc.
+  - Tests logiques: `==`, `!=`, `>`, `>=`, `in`, etc.
 
     .. Attention:: Ne pas confondre « `=` » (affectation d'une variable)
        et « `==` » (test logique d'égalité).
 
   - Opérateurs logiques: :keyword:`and`, :keyword:`or`, :keyword:`not`
 
-    >>> (5 >= 6) or (not 3 > 4)
+    >>> x = 3
+    >>> not ((x <= 0) or (x > 5))
     True
-    >>> x = 3; 0 < x <= 5   # Conditions chaînées
+    >>> 0 < x <= 5   # Conditions chaînées
     True
 
   - Opérateur ternaire (:pep:`308`): :samp:`{value} if {condition}
@@ -330,8 +219,16 @@ Structures de programmation
         if niter == 100:  # Ne pas oublier de tester l'absence de convergence!!!
             print("Erreur de convergence!")
 
-.. Note:: Il n'y a pas en Python d'équivalent natif à l'instruction
-   `switch` du C.
+.. Note:: Il n'y a pas en Python d'équivalent natif à l'instruction `switch`
+   du C, ni à la structure :samp:`do ... while {condition}`; cette dernière peut
+   être remplacée par:
+
+   .. code-block:: python
+
+      while True:
+          # calcul de la condition d'arrêt
+          if condition:
+              break
 
 .. rubric:: Exercices:
 
@@ -974,8 +871,8 @@ Intéractif
 Comme nous avons pu le voir précédemment, l'affichage à l'écran se
 fait par print_, la lecture du clavier par input_.
 
-Fichiers
---------
+Fichiers texte
+--------------
 
 .. index:: open
 .. index:: file
@@ -987,13 +884,13 @@ fonction :func:`open` retournant un objet de type :term:`file object`:
    :linenos:
 
    # ========== ÉCRITURE ==========
-   outfile = open("carres.dat", 'w') # Ouverture du fichier "carres.dat" en écriture
+   outfile = open("carres.dat", 'w') # Ouverture du fichier texte "carres.dat" en écriture
    for i in range(1, 10):
        outfile.write(f"{i}  {i**2}\n") # Noter la présence du '\n' (non-automatique)
    outfile.close()                   # Fermeture du fichier (nécessaire)
 
    # ========== LECTURE ==========
-   infile = open("carres.dat")  # Ouverture du fichier "carres.dat" en lecture
+   infile = open("carres.dat")  # Ouverture du fichier texte "carres.dat" en lecture
    for line in infile:          # Boucle sur les lignes du fichier
        if line.strip().startswith('#'): # Ne pas considérer les lignes "commentées"
            continue

@@ -754,7 +754,7 @@ des données manquantes et d'alignement des tableaux indexés
 
 .. index::
    pair: xarray; DataArray
-   pair: xarray; DataSet
+   pair: xarray; Dataset
    pair: xarray; loc
    pair: xarray; sel
 
@@ -763,7 +763,7 @@ des données manquantes et d'alignement des tableaux indexés
 
 * :class:`xarray.DataArray`, un tableau N-D indexé généralisant le
   :class:`pandas.Series`;
-* :class:`xarray.DataSet`, un dictionnaire regroupant plusieurs `DataArray`
+* :class:`xarray.Dataset`, un dictionnaire regroupant plusieurs `DataArray`
   alignés selon une ou plusieurs dimensions, et similaire au
   :class:`pandas.DataFrame`.
 
@@ -973,9 +973,12 @@ Python est maintenant très largement utilisé par la communauté scientifique, 
 dispose d'innombrables bibliothèques dédiées aux différents domaines de
 l'analyse statistique de données, physique, chimie, etc.:
 
+- Analyse et visualisation interactives de données: `Veusz
+  <https://veusz.github.io/>`_;
 - Propagation des incertitudes: :pypi:`uncertainties`;
 - Ajustement & optimisation (statistiques fréquentistes): :rtfd:`iminuit`,
-  :rtfd:`kafe`;
+  :rtfd:`kafe`, :rtfd:`zfit` (basé sur `TensorFlow
+  <https://www.tensorflow.org/>`_));
 - Analyse statistique bayesienne: `PyStan
   <https://mc-stan.org/interfaces/pystan.html>`_;
 - *Markov Chain Monte-Carlo*: :rtfd:`emcee`, :pypi:`pymc3`;

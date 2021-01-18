@@ -107,6 +107,8 @@ Python
 Scientifique
 ............
 
+- :rtfd:`Scipy Cookbook <scipy-cookbook>` (inclut `numpy`, `scipy`,
+  `matplotlib`, etc.)
 - `Python Scientific Lecture Notes <http://www.scipy-lectures.org/>`_
 - `Handbook of the Physics Computing Course
   <http://www-teaching.physics.ox.ac.uk/computing/handbook_Python/handbook_Python.html>`_
@@ -135,6 +137,8 @@ Scientifique
   <https://people.duke.edu/~ccc14/sta-663/index.html>`_
 - `Python Data Science Handbook
   <https://nbviewer.jupyter.org/github/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/Index.ipynb>`_
+- `An Introduction To Machine Learning
+  <https://github.com/cbernet/introduction_machine_learning>`_
 
 .. rubric:: En français
 
@@ -149,6 +153,7 @@ Scientifique
 
 - `Practical Python for Astronomers <https://python4astronomers.github.io/>`_
 - `Astropy tutorials <http://www.astropy.org/astropy-tutorials/>`_
+- `Python for Astronomers <https://prappleizer.github.io/>`_
 - `Python for Euclid 2016 <https://github.com/aboucaud/python-euclid2016>`_
 - Advanced software programming for astrophysics and astroparticle physics,
   *ASTERICS-OBELICS International School*, `2017

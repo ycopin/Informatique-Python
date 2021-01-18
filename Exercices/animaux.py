@@ -5,11 +5,7 @@
 Exercice: programmation orientée objet, développement dirigé par les tests.
 """
 
-import pytest                   # Module (non standard) de tests
-
-
 class Animal:
-
     """
     Classe définissant un `Animal`, caractérisé par son nom et son
     poids.
@@ -25,7 +21,7 @@ class Animal:
         self.nom = nom
         self.masse = masse
 
-        self.vivant = True       # Les animaux sont vivants à l'instanciation
+        self.vivant = False      # Les animaux sont supposés vivants à l'instanciation
         self.empoisonne = False  # Animal empoisonné ?
 
     def __str__(self):
@@ -72,11 +68,10 @@ class Animal:
         `self.__call__(other).
         """
 
-        pass
+        raise NotImplementedError()
 
 
 class Chien(Animal):
-
     """
     Un `Chien` hérite de `Animal` avec des méthodes additionnelles
     (p.ex. l'aboiement et l'odorat).
@@ -110,6 +105,8 @@ class Chien(Animal):
 # Il est *INTERDIT* de modifier les tests ci-dessous!!! #
 #########################################################
 
+import pytest                   # Module (non standard) de tests
+
 # start-tests
 def test_empty_init():
     with pytest.raises(TypeError):
@@ -125,7 +122,6 @@ def test_init():
     youki = Animal('Youki', 600)
     assert youki.masse == 600
     assert youki.vivant
-    assert youki.estVivant()
     assert not youki.empoisonne
 # end-tests
 

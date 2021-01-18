@@ -199,14 +199,14 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 .. .. index::
 ..    module: cvs
 ..    module: pickle
-..    module: ConfigParser
+..    module: configparser
 
 * lecture et sauvegarde des données (outre :mod:`pickle`):
 
   - :mod:`pprint`: affichage « amélioré » d'un objet,
   - :mod:`csv`: lecture/sauvegarde de fichiers :abbr:`CSV (Comma
     Separated Values)`,
-  - :mod:`ConfigParser`: fichiers de configuration,
+  - :mod:`configparser`: fichiers de configuration,
   - :mod:`json`: *lightweight data interchange format*;
 
 .. - yaml: http://pyyaml.org/

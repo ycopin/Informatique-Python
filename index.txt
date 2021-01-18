@@ -13,6 +13,7 @@
    :numbered:
 
    intro
+   Cours/install
    Cours/cours
    Cours/cours2
    Cours/standard

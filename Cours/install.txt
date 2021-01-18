@@ -1,0 +1,279 @@
+.. _install:
+
+Installation et interpréteurs
+#############################
+
+.. contents:: Table des matières
+   :local:
+..
+    1  Notions d'Unix
+    2  Installation
+    3  Interpréteurs
+      3.1  L'interpréteur de base `python`
+      3.2  L'interpréteur avancé `ipython`
+      3.3  Les interfaces `jupyter`
+        3.3.1  Interface `jupyter notebook`
+        3.3.2  Interface `jupyter lab`
+      3.4  Interpréteurs en ligne
+
+.. WARNING:: Le cours utilise **Python 3.6+**.
+
+
+Notions d'Unix
+==============
+
+Python est un langage disponible sur de très nombreuses plateformes [#ti83]_;
+cependant, dans le cadre de ce cours, nous supposerons être sous un système
+d'exploitation de la famille Unix (p.ex. Linux, Mac OS X).
+
+Les concepts suivants sont supposés connus:
+
+* ligne de commande: éxécutables et options;
+* arborescence: chemin relatif (`[./]...`) et absolu (`/...`),
+  navigation (:command:`cd`);
+* gestion des fichiers (:command:`ls`, :command:`rm`, :command:`mv`)
+  et répertoires (:command:`mkdir`);
+* gestion des éxécutables: :envvar:`$PATH`, :command:`chmod +x`;
+* gestion des processus: `&`, :kbd:`Ctrl-c`, :kbd:`Ctrl-z` +
+  :command:`bg`;
+* variables d'environnement: :command:`export`, :file:`.bashrc`.
+
+.. rubric:: Liens:
+
+* `Quelques notions et commandes d'UNIX
+  <https://www.ip2i.in2p3.fr/perso/ycopin/_static/enseignements/notions_unix.pdf>`_
+  |fr|
+* `Introduction to Unix Study Guide
+  <http://faculty.salina.k-state.edu/tim/unix_sg/>`_
+
+
+Installation
+============
+
+Ce cours repose essentiellement sur les outils suivants:
+
+- `Python 3.6+ <https://www.python.org/downloads/>`_ (inclus l'interpréteur de
+  base et la bibliothèque standard);
+- les bibliothèques scientifiques `Numpy et Scipy
+  <https://scipy.org/install.html>`_;
+- la bibliothèque graphique :doc:`Matplotlib <matplotlib:users/installing>`;
+- un interpréteur interactif évolué, p.ex. `ipython
+  <http://ipython.org/install.html>`__ ou `jupyter
+  <https://jupyter.org/install>`__;
+- un `éditeur de texte évolué
+  <https://en.wikipedia.org/wiki/Comparison_of_text_editors>`_, p.ex. `emacs
+  <http://www.gnu.org/software/emacs/>`_, `vi <https://www.vim.org/>`_, `gedit
+  <https://wiki.gnome.org/Apps/Gedit>`_ ou `Atom <https://atom.io/>`_.
+
+Si vous souhaitez utiliser votre ordinateur personnel, ces logiciels peuvent
+être installés indépendamment, sous Linux, Windows ou MacOS.  Il existe
+également des distributions python « clés en main », p.ex. `Conda
+<https://docs.conda.io/>`_ (multi-plateforme).
+
+.. rubric:: Installations locales
+
+Si vous avez le contrôle entier de votre ordinateur, il peut être préférable
+d'utiliser le gestionnaire de paquets du système (p.ex. `synaptic` sur Ubuntu),
+avec le risque d'installer des versions un peu anciennes.
+
+Même si vous travaillez sur un ordinateur public (p.ex. en salle Ariane) , il
+est relativement aisé d'installer sous votre compte les programmes ou librairies
+Python (p.ex. `ipython`) manquantes à l'aide du gestionnaire d'installation `pip
+<https://pip.pypa.io/en/stable/>`_.
+
+* Vérifier la disponibilité du code sous `PYthon Package Index
+  <https://pypi.org/>`_ (plus de 270 000 projets!)
+* Installer p.ex. `ipython <http://ipython.org/>`_ (mode *single user*)::
+
+    pip3 install --user ipython
+
+* Compléter votre `~/.bashrc`::
+
+    export PATH=$PATH:$HOME/.local/bin/
+    export PYTHONPATH=$HOME/.local/lib/python3.6/site-packages/
+
+Interpréteurs
+=============
+
+L'interpréteur de base `python`
+-------------------------------
+
+.. index:: interpréteur; python
+
+L'interpréteur du langage Python s'appelle :program:`python` (ou
+:program:`python3` selon les installations); c'est **toujours** celui que l'on
+utilisera en mode non-intéractif pour exécuter (interpréter) un « script »,
+c.-à-d. un ensemble de commandes regroupées dans un fichier texte (généralement
+avec une extension `.py`), p.ex.::
+
+  $ python3 code.py
+
+Le :program:`python` peut également faire office d'interpréteur *interactif* de
+commandes, mais avec peu de fonctionnalités::
+
+  $ python3
+  Python 3.6.11 (default, Jun 29 2020, 05:15:03)
+  [GCC 5.4.0 20160609] on linux
+  Type "help", "copyright", "credits" or "license" for more information.
+  >>>
+
+- :kbd:`Ctrl-d` pour sortir;
+- :samp:`help({commande})` pour obtenir l'aide d'une commande;
+- *a priori*, pas d'historique des commandes ni de complétion automatique.
+
+.. rubric:: Liens:
+
+- documentation :doc:`interpréteur de base <python:tutorial/interpreter>`
+
+.. Note:: Je ne parle pas ici d':ref:`ide`, surcouche logicielle à
+   l'interpréteur de base (p.ex. `spyder
+   <https://github.com/spyder-ide/spyder>`_, `pyCharm
+   <https://www.jetbrains.com/pycharm/>`_, etc.).
+
+L'interpréteur avancé `ipython`
+-------------------------------
+
+.. index:: interpréteur; ipython
+
+Pour une utilisation intéractive avancée (historique, complétion automatique des
+commandes, introspection et aide en ligne, interface système, etc.) *dans un
+terminal*, il est préférable d'utiliser l'interpréteur évolué :rtfd:`ipython`::
+
+  $ ipython
+  Python 3.6.11 (default, Jun 29 2020, 05:15:03)
+  Type 'copyright', 'credits' or 'license' for more information
+  IPython 7.16.1 -- An enhanced Interactive Python. Type '?' for help.
+
+  In [1]:
+
+- :kbd:`Ctrl-d` pour sortir;
+- :kbd:`Tab` pour la complétion automatique;
+- :kbd:`Haut` et :kbd:`Bas` pour le rappel des commandes;
+- :kbd:`%quickref` pour les commandes spécifiques à :program:`ipython`,
+  notamment `object?` pour une aide sur un objet, `object??` pour une aide plus
+  complète (au niveau source);
+- :kbd:`%magic` pour la liste des commandes *magiques*, dont
+
+  * :samp:`%run {mon_script.py}` pour éxecuter un script *dans* l'interpréteur,
+  * `%debug` pour lancer le mode débogage intéractif *post-mortem*,
+  * `%cpaste` pour coller et éxecuter un code préformaté.
+
+.. rubric:: Liens:
+
+- `Tutorial
+  <http://ipython.readthedocs.io/en/stable/interactive/tutorial.html>`_
+- `IPython Tips & Tricks
+  <http://ipython.readthedocs.io/en/stable/interactive/tips.html>`_
+
+Les interfaces `jupyter`
+------------------------
+
+.. index:: interfaces; jupyter
+
+Issu du développement de :program:`ipython`, `jupyter <https://jupyter.org/>`_
+découple strictement le *kernel* [#kernel]_ (le *backend*), en charge de
+l'interprétation et de l'exécution des commandes, de l'interface (le
+*frontend*), en charge de l'interaction avec l'utilisateur et le reste du monde.
+
+Interface `jupyter notebook`
+............................
+
+L'interface :rtfd:`jupyter notebook <jupyter-notebook>` introduit la notion de
+*notebook* (fichier JSON d'extension `.ipynb`), accessible via une application
+web (utilisable depuis le navigateur) incorporant lignes de code, résultats,
+textes formatés, équations, figures, etc., et fournissant des outils d'édition
+et de conversion (HTML, LaTeX, présentation, etc.) et une documentation en
+ligne::
+
+  $ jupyter notebook
+
+Cette commande initialise un *kernel* en arrière plan (qui peut servir plusieurs
+*notebooks*), et ouvre le *notebook dashboard*, à partir duquel vous pouvez
+créer de nouveaux *notebooks* ou en ouvrir d'anciens.
+
+.. figure:: jupyter.png
+   :align: center
+   :width: 60%
+   :alt: Interface `jupyter notebook`.
+
+   Copie d'écran du *notebook* `pokemon.ipynb
+   <https://nbviewer.jupyter.org/github/ycopin/Informatique-Python/blob/master/Cours/pokemon.ipynb>`_.
+
+.. rubric:: Liens
+
+* `nbviewer <https://nbviewer.jupyter.org/>`_, **visualiseur** en ligne de
+  *notebook* (non interactif, voir ci-dessous pour des interpréteurs en ligne);
+* `Python Notebook Viewer
+  <https://addons.mozilla.org/en-US/firefox/addon/python-notebook-viewer/>`_,
+  une extension :program:`firefox` de **visualisation** de *notebook*;
+* `A gallery of interesting Jupyter Notebooks
+  <https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks>`_;
+* :rtfd:`Unofficial Jupyter Notebook Extensions <jupyter-contrib-nbextensions>`.
+
+Interface `jupyter lab`
+.......................
+
+L'interface :rtfd:`JupyterLab <jupyterlab>` permet une expérience encore plus
+intégrée, incluant des outils de développement (notebook, console `ipython`,
+explorateur de fichiers, terminal, etc.)::
+
+  $ jupyter lab
+
+.. figure:: jupyterlab.png
+   :align: center
+   :width: 60%
+   :alt: Interface `jupyter lab`.
+
+   Copie d'écran d'un Jupyter Lab, incluant le *notebook* `canon.ipynb
+   <https://nbviewer.jupyter.org/github/ycopin/Informatique-Python/blob/master/Exercices/canon.ipynb>`_.
+
+.. Note:: L'univers JupyterLab est en développement très actif, et peut être
+   complété de nombreuses `extensions
+   <https://www.npmjs.com/search?q=keywords%3Ajupyterlab-extension&ranking=popularity>`_
+   (incompatibles avec les extensions notebook).
+
+Interpréteurs en ligne
+----------------------
+
+Il existe de nombreux services en ligne (généralement sur un modèle *freemium*)
+offrant des interpréteurs de *notebook* dans le *cloud*.  Cela permet de
+développer à distance sans se soucier des installations et mises à jour, et de
+travailler interactivement et de collaborer sur des *notebooks* partagés.
+
+.. rubric:: Comparatif
+
+- `Six easy ways to run your Jupyter Notebook in the cloud
+  <https://www.dataschool.io/cloud-services-for-jupyter-notebook/>`_
+
+.. rubric:: MyBinder
+
+Le lien suivant permet d'ouvrir ce cours avec une interface de type `jupyter`
+via le service `MyBinder <https://mybinder.org/>`_:
+
+.. image:: https://mybinder.org/badge_logo.svg
+   :align: center
+   :target: https://mybinder.org/v2/gh/ycopin/Informatique-Python/HEAD
+
+.. rubric:: Datalore
+
+Pour le cours en distanciel, nous utiliserons le service `datalore
+<https://datalore.io/>`_, qui permet une collaboration en temps réel.
+
+* Créer un compte sur https://datalore.io/,
+* Suivre le tutoriel,
+* Créer un notebook,
+* Le partager avec un collègue (p.ex. `yncopin[AT]gmail[DOT]com`) pour tester la
+  collaboration en temps réel,
+* Le publier, pour tester les commentaires en ligne.
+
+.. rubric:: Notes de bas de page
+
+.. [#ti83] Y compris maintenant sur des calculettes!
+.. [#kernel] Pas nécessairement Python, d'où le nom de `jupyter` pour
+   Julia-Python-R, les trois langages initialement supportés. Il en existe
+   maintenant plusieurs dizaines.
+
+.. |fr| image:: ../_static/france_flag_icon.png
+   :alt: Fr
+.. |en| image:: ../_static/uk_flag_icon.png
+   :alt: En

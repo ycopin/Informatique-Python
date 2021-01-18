@@ -1,6 +1,6 @@
 .. :orphan:
 
-Informations pratiques 2020
+Informations pratiques 2021
 ===========================
 
 - Atelier *Analyse scientifique avec Python*
@@ -21,7 +21,7 @@ lun 25/01/21     9h-12h
 mar 26           9h-12h
                  16h-18h
 jeu 28           9h-12h
-                 16h-18h 
+                 16h-18h
 ===============  =======
 
 .. rubric:: Participants (`etu.univ-lyon1.fr`)
@@ -56,35 +56,6 @@ paul.stevens                   SUBA
 antoine.syx                    SUBA
 godefroy.vannoye               SUBA
 =============================  ======
-
-.. rubric:: Installation Datalore
-
-* Créer un compte sur https://datalore.io/,
-* Suivre le tutoriel,
-* Créer un notebook,
-* Le partager avec `yncopin[AT]gmail[DOT]com`.
-
-.. rubric:: Installations locales
-
-.. WARNING:: le cours utilise dorénavant **Python 3.6+**.
-
-Si des programmes ou des librairies Python (p.ex. `ipython`) manquent
-sur votre ordinateur (p.ex. en salle Ariane), il est relativement
-aisé de les installer localement à l'aide du gestionnaire
-d'installation `pip <https://pip.pypa.io/en/stable/>`_.
-
-* Compléter votre `~/.bashrc`::
-
-    export PATH=$PATH:$HOME/.local/bin/
-    export PYTHONPATH=$HOME/.local/lib/python3.6/site-packages/
-
-* Installer p.ex. `ipython <http://ipython.org/>`_::
-
-    pip3 install --user ipython
-
-Si vous avez le contrôle de votre ordinateur, il peut être préférable
-d'utiliser le gestionnaire de paquets du système (p.ex. `synaptic` sur
-Ubuntu).
 
 .. |+| image:: ./_static/smile.gif
    :alt: Bon

@@ -58,7 +58,7 @@ PGCD: algorithme d'Euclide ★★
    :alt: Algorithme d'Euclide.
 
 Écrire un programme calculant le :abbr:`PGCD (Plus Grand Commun Dénominateur)`
-de deux nombres (p.ex. 306 et 756) par l'`algorithme d'Euclide
+de deux nombres (p.ex. 756 et 306) par l'`algorithme d'Euclide
 <https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide>`_.
 
 .. _tables:
@@ -187,11 +187,17 @@ interruption (`KeyboardInterrupt`).
 Animaux (POO/TDD) ★
 -------------------
 
-Téléchargez :download:`animaux.py` et complétez les classes `Animal`
-et `Chien` pour qu'elles passent avec succès tous les tests (voir
-:ref:`TDD`).  On appellera les tests via la ligne de commande::
+Téléchargez le fichier :download:`animaux.py` et exécutez les tests prédéfinis
+(dans la seconde partie du fichier) via la *ligne de commande* (à éxecuter dans
+un terminal système)::
 
-  py.test animaux.py
+  $ py.test animaux.py
+
+Dans un premier temps, les tests échouent, puisque le proto-code (dans la
+première partie du fichier) n'est pas encore correct.  L'exercice consiste donc
+à modifier progressivement les classes `Animal` et `Chien` pour qu'elles passent
+avec succès tous les tests.  C'est le principe du *Test Driven Development*
+(voir :ref:`TDD`).
 
 .. _life:
 
