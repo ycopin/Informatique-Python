@@ -1,0 +1,26 @@
+Gestion GIT des branches
+------------------------
+
+Pour mettre à jour une branche (p.ex. master) vis-à-vis d'une autre
+(p.ex. euclid-py3) plus récente::
+
+  git checkout master
+  git diff master..euclid-py3
+
+et pour tous les fichiers à màj (p.ex. fichier)::
+
+  git checkout -p euclid-py3 fichier
+
+Datalore
+--------
+
+Source: https://www.dataschool.io/cloud-services-for-jupyter-notebook/
+
+* Créer un compte sur https://datalore.io/
+* Créer un notebook "Formation python, jour 1"
+* Le partager avec yncopin@gmail.com
+
+Enseignement avec Jupyter
+-------------------------
+
+Voir https://jupyter4edu.github.io/jupyter-edu-book/

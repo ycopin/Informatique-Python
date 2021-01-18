@@ -81,20 +81,19 @@ Une traduction libre en français:
 Us et coutumes
 --------------
 
-- **Keep it simple, stupid!**
-- *Don't repeat yourself*
+- *Keep it simple, stupid!*
+- *Don't repeat yourself.*
 - *Fail early, fail often, fail better!* (`raise`)
 - *Easier to Ask for Forgiveness than Permission* (`try ... except`)
-- *We’re all consenting adults here* (attributs privés)
+- *We’re all consenting adults here.* (attributs privés)
 
 .. rubric:: Quelques conseils supplémentaires:
 
-- « Ne réinventez pas la roue, sauf si vous souhaitez en savoir plus
-  sur les roues » (Jeff Atwood [#wheel]_): cherchez si ce que vous
-  voulez faire n'a pas déjà été fait (éventuellement en mieux...) pour
-  vous concentrer sur *votre* valeur ajoutée, réutilisez le code (en
-  citant évidemment vos sources), améliorez le, et contribuez en
-  retour si possible!
+- « *Don't reinvent the wheel, unless you plan on learning more about wheels* »
+  (Jeff Atwood): cherchez si ce que vous voulez faire n'a pas déjà été fait
+  (éventuellement en mieux...) pour vous concentrer sur *votre* valeur ajoutée,
+  réutilisez le code (en citant évidemment vos sources), améliorez le, et
+  contribuez en retour si possible!
 - Écrivez des programmes pour les humains, pas pour les ordinateurs:
   codez *proprement*, structurez vos algorithmes, commentez votre
   code, utilisez des noms de variable qui ont un sens, soignez le
@@ -104,9 +103,9 @@ Us et coutumes
   jamais à le lire), ou que vous aurez le temps de le refaire mieux
   plus tard...
 - *You ain't gonna need it*: se concentrer sur les fonctionnalités nécessaires
-  plutôt que de prévoir d'emblée l'ensembles des cas.
-- « L'optimisation prématurée est la source de tous les maux » (Donald
-  Knuth [#opt]_): mieux vaut un code lent mais juste et maintenable
+  plutôt que de prévoir d'emblée l'ensemble des cas.
+- « *Premature optimization is the root of all evil* » (Donald
+  Knuth): mieux vaut un code lent mais juste et maintenable
   qu'un code rapide et faux ou incompréhensible. Dans l'ordre absolu
   des priorités:
 
@@ -444,7 +443,15 @@ généraux:
   via le compilateur `LLVM <http://llvm.org/>`_, avec une optimisation
   selon le CPU (éventuellement le GPU) utilisé, p.ex.::
 
-    from numba import guvectorize
+    from numba import jit  # compilation à la volée (seulement au 1e appel)
+
+    @jit
+    def crible(n):
+        ...
+
+  ou::
+
+    from numba import guvectorize  # ufunc numpy compilée
 
     @guvectorize(['void(float64[:], intp[:], float64[:])'], '(n),()->(n)')
     def move_mean(a, window_arr, out):
@@ -552,7 +559,7 @@ ligne directement connectés au dépôt source. Exemple sur `Astropy`:
 * :rtfd:`Readthedocs <astropy>` documentation en ligne;
 * `Depsy <http://depsy.org/package/python/astropy>`_ mise en valeur du
   développement logiciel dans le monde académique (*measure the value
-  of software that powers science*).
+  of software that powers science*, **non maintenu**).
 
 
 .. rubric:: Notes de bas de page
@@ -560,10 +567,6 @@ ligne directement connectés au dépôt source. Exemple sur `Astropy`:
 .. [#zen] Dont seulement 19 ont été écrits.
 .. [#py.test] pytest_ ne fait pas partie de la bibliothèque standard.  Il vous
    faudra donc l'installer indépendemment si vous voulez l'utiliser.
-.. [#wheel] « *Don't reinvent the wheel, unless you plan on learning more about
-   wheels* » -- Jeff Atwood
-.. [#opt] « *Premature optimization is the root of all evil* » --
-   Donald Knuth
 .. [#gitW] Et maintenant du `code Windows
    <https://arstechnica.com/information-technology/2017/05/90-of-windows-devs-now-using-git-creating-1760-windows-builds-per-day/>`_!
 

@@ -70,17 +70,17 @@ source_encoding = 'utf-8-sig'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Analyse scientifique avec Python'
-author = 'Yannick Copin <y.copin(at)ipnl.in2p3.fr>'
+project = "Analyse scientifique avec Python"
+author = "Yannick Copin <y.copin(at)ipnl.in2p3.fr>"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = u'Master de Physique Fondamentale, Université Lyon 1'
+version = "Master de Physique Fondamentale, Université Lyon 1"
 # The full version, including alpha/beta/rc tags.
-release = u'Janvier 2020'
+release = "Janvier 2021"
 
 copyright = ', '.join((release, author))
 
@@ -129,16 +129,16 @@ pygments_style = 'sphinx'
 
 # A string of reStructuredText that will be included at the end of
 # every source file that is read.
-rst_epilog = u""
+rst_epilog = ""
 
 # A string of reStructuredText that will be included at the start of
 # every source file that is read.
-# rst_prolog = u"""
+# rst_prolog = """
 # .. Warning::
 #
 #    Conversion to Python3 in progress!!!
 # """
-rst_prolog = u""
+rst_prolog = ""
 
 nbsphinx_prolog = r"""
 {% set docname = env.doc2path(env.docname, base=None) %}
@@ -266,7 +266,7 @@ html_show_copyright = True
 # This is the file name suffix for HTML files (e.g. ".xhtml").
 #html_file_suffix = None
 
-html_add_permalinks = u'🔗' # ☜☚¶⚐⚑, 🔗 = link symbol
+html_add_permalinks = '🔗' # ☜☚¶⚐⚑, 🔗 = link symbol
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'AnalyseScientifiquePython'
@@ -293,8 +293,8 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'analyseScientifiquePython.tex',
-   u'Analyse scientifique avec Python',
-   u'Yannick Copin', 'manual'),
+   'Analyse scientifique avec Python',
+   'Yannick Copin', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

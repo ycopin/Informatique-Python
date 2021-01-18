@@ -1,5 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2020-01-23 17:12:43 ycopin>
+.. Time-stamp: <2019-07-25 19:18 ycopin@lyonovae03.in2p3.fr>
 
 .. sectionauthor:: Hanna Julienne <hanna.julienne@gmail.com>
 

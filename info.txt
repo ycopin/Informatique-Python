@@ -7,62 +7,62 @@ Informations pratiques 2020
 - `Cours en ligne
   <https://informatique-python.readthedocs.io/fr/m2/>`_
 - Responsable: Yannick Copin `<ipnl.in2p3.fr>`, Bureau
-  420 de l'`IP2I Lyon <http://www.ip2i.in2p3.fr/>`_ (4 rue Fermi)
+  409 de l'`IP2I Lyon <http://www.ip2i.in2p3.fr/>`_ (4 rue Fermi)
 
 .. rubric:: Calendrier
 
-Toutes les séances ont lieu au bâtiment `Ariane
-<http://oscar.univ-lyon1.fr/appli-externe/plan/plans/fiches_ucbl/751.html>`_.
+Toutes les séances (15h) ont lieu en distanciel via Webex.
 
-===============  ===========  =====
-Date             TD           Salle
-===============  ===========  =====
-lun. 03/02/2020  9h30-12h30
+===============  =======
+Date             TD
+===============  =======
+lun 25/01/21     9h-12h
                  16h-18h
-mar. 04/02       16h-18h
-merc. 05/02      9h30-12h30
-merc. 05/02      16h-18h
-ven. 07/02       9h30-12h30   (projets)
-===============  ===========  =====
+mar 26           9h-12h
+                 16h-18h
+jeu 28           9h-12h
+                 16h-18h 
+===============  =======
 
-.. rubric:: Participants
+.. rubric:: Participants (`etu.univ-lyon1.fr`)
 
-=====================  ====================  ======
-Nom                    Mail (`prenom.nom+`)  Statut
-=====================  ====================  ======
-maxime.jabarian        `etu.univ-lyon1.fr`   M2 Astro
-audric.lemonnier       `etu.univ-lyon1.fr`   M2 Astro
-alexandre.revol        `etu.univ-lyon1.fr`   M2 Astro
-mathilde.vancuyck      `etu.univ-lyon1.fr`   M2 Astro
-pierre.cuinet          `etu.univ-lyon1.fr`   M2 Astro
-stephane.michoulier    `etu.univ-lyon1.fr`   M2 Astro
-beatrice.basset        `etu.univ-lyon1.fr`   M2 SUBA
-fatima.hojeij          `etu.univ-lyon1.fr`   M2 SUBA
-aya.kanj               `etu.univ-lyon1.fr`   M2 SUBA
-sane.le-troadec        `etu.univ-lyon1.fr`   M2 SUBA
-mathieu.ouillon        `etu.univ-lyon1.fr`   M2 SUBA
-thibault.rancien       `etu.univ-lyon1.fr`   M2 SUBA
-thomas.battard         `etu.univ-lyon1.fr`   M2 PAMMCO
-sylvian.lequeux        `etu.univ-lyon1.fr`   M2 PAMMCO
-clementine.panetier    `ipnl.in2p3.fr`       IPNL
-=====================  ====================  ======
+=============================  ======
+Nom                            Statut
+=============================  ======
+hanae.belaouchi                Astro
+chaan.champagne                Astro
+quentin.dos-santos             Astro
+audrey.ficot                   Astro
+tiffanie.gay                   Astro
+joshua.gonnet                  Astro
+maxence.lab                    Astro
+ariane.le-cardinal             Astro
+leonard.martinez               Astro
+thibault.menez                 Astro
+marawan.barakat                SUBA
+thomas.belle                   SUBA
+antoine.corbel                 SUBA
+joel.dai                       SUBA
+mathieu.flayol                 SUBA
+christopher.greenberg-bonilla  SUBA
+elsa.guy                       SUBA
+sarah.herrmann                 SUBA
+alexia.hocine                  SUBA
+sukyung.kim                    SUBA
+andres-felipe.munoz-ricardo    SUBA
+corentin.pecontal              SUBA
+mathis.ravera                  SUBA
+paul.stevens                   SUBA
+antoine.syx                    SUBA
+godefroy.vannoye               SUBA
+=============================  ======
 
-..
-   maxime.jabarian@etu.univ-lyon1.fr
-   audric.lemonnier@etu.univ-lyon1.fr
-   alexandre.revol@etu.univ-lyon1.fr
-   mathilde.vancuyck@etu.univ-lyon1.fr
-   pierre.cuinet@etu.univ-lyon1.fr
-   stephane.michoulier@etu.univ-lyon1.fr
-   beatrice.basset@etu.univ-lyon1.fr
-   fatima.hojeij@etu.univ-lyon1.fr
-   aya.kanj@etu.univ-lyon1.fr
-   sane.le-troadec@etu.univ-lyon1.fr
-   mathieu.ouillon@etu.univ-lyon1.fr
-   thibault.rancien@etu.univ-lyon1.fr
-   thomas.battard@etu.univ-lyon1.fr
-   sylvian.lequeux@etu.univ-lyon1.fr
-   clementine.panetier@ipnl.in2p3.fr
+.. rubric:: Installation Datalore
+
+* Créer un compte sur https://datalore.io/,
+* Suivre le tutoriel,
+* Créer un notebook,
+* Le partager avec `yncopin[AT]gmail[DOT]com`.
 
 .. rubric:: Installations locales
 

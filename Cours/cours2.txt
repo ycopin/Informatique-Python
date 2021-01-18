@@ -51,9 +51,9 @@ kwargs: {}
 args: (1, 2, 3)
 kwargs: {'y': 5, 'x': 4}
 
-.. Attention:: Cela laisse une grande flexibilité dans la signature de la
-   fonction, mais au prix d'une d'une très mauvaise lisibilité de la signature
-   de la fonction. *À utiliser avec parcimonie...*
+.. Attention:: Cela laisse une grande flexibilité dans l'appel de la fonction,
+   mais au prix d'une très mauvaise lisibilité de sa signature (interface de
+   programmation). *À utiliser avec parcimonie...*
 
 Dépaquetage des arguments
 -------------------------
@@ -180,7 +180,7 @@ des arguments supplémentaires aux décorateurs.
 .. rubric:: Liens:
 
 - `Python et les décorateurs
-  <http://gillesfabio.com/blog/2010/12/16/python-et-les-decorateurs/>`_
+  <http://gillesfabio.com/blog/2010/12/16/python-et-les-decorateurs/>`_ |fr|
 - `Primer on Python Decorators
   <https://realpython.com/primer-on-python-decorators/>`_
 - `A guide to Python's function decorators
@@ -208,13 +208,13 @@ Function:   <lambda>
 Arguments:  (1, 2) {}
 Result:     3
 
-La définition d'une fonction `lambda` ne peut inclure qu'**une
+La définition d'une fonction :term:`lambda` ne peut inclure qu'**une
 seule** expression, et est donc contrainte *de facto* à être très
 simple, généralement pour être utilisée comme argument d'une autre
 fonction:
 
 >>> pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
->>> pairs.sort(key=lambda pair: pair[1])
+>>> pairs.sort(key=lambda pair: pair[1]) # tri sur le 2e élément de la paire
 >>> pairs
 [(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
 
@@ -334,7 +334,7 @@ alternatives.
 Attributs et méthodes privées
 -----------------------------
 
-Contrairement p.ex. au C++, Python n'offre pas vraiment de mécanisme de
+Contrairement p.ex. au C++, Python n'offre *pas* de mécanisme de
 *privatisation* des attributs ou méthodes [#adults]_:
 
 * Les attributs/méthodes standards (qui ne commencent pas par `_`) sont
@@ -343,7 +343,7 @@ Contrairement p.ex. au C++, Python n'offre pas vraiment de mécanisme de
 
   >>> youki = Animal(10.); youki.masse
   10.0
-  >>> youki.masse = -5; youki.masse
+  >>> youki.masse = -5; youki.masse  # C'est vous qui voyez...
   -5.0
 
 * Les attributs/méthodes qui commencent par un simple `_` sont *réputées*
@@ -359,7 +359,7 @@ Contrairement p.ex. au C++, Python n'offre pas vraiment de mécanisme de
   10.0
   >>> youki.set_mass(-5)
   ValueError: Mass should be a positive float.
-  >>> youki._mass = -5; youki.get_mass()
+  >>> youki._mass = -5; youki.get_mass()  # C'est vous qui voyez...
   -5.0
 
 * Les attributs/méthodes qui commencent par un double `__` (*dunder*) sont
@@ -371,9 +371,9 @@ Contrairement p.ex. au C++, Python n'offre pas vraiment de mécanisme de
 
   >>> youki = AnimalTresPrive(10); youki.get_mass()
   10.0
-  >>> youki.__mass = -5; c.get_mass()  # L'attribut __mass n'existe pas sous ce nom...
+  >>> youki.__mass = -5; youki.get_mass()  # L'attribut __mass n'existe pas sous ce nom...
   10.0
-  >>> c._AnimalTresPrive__mass = -5; c.get_mass()  # ... mais sous un alias compliqué.
+  >>> c._AnimalTresPrive__mass = -5; youki.get_mass()  # ... mais sous un alias compliqué.
   -5.0
 
 Propriétés
@@ -436,8 +436,7 @@ initialement le langage Python dans sa version 2.  Cependant, puisque le
 développement actuel de Python (et de certaines de ses bibliothèques clés) se
 fait maintenant uniquement sur la branche 3.x, qui constitue une remise à plat
 *non rétrocompatible* du langage, et que la branche 2.x n'est plus supporté
-depuis janvier 2020 (:pep:`466`), le cours a été porté sur Python 3 (voir
-:ref:`python23`).
+depuis janvier 2020 (:pep:`466`), le cours a été porté sur Python 3.
 
 Python 3 apporte :doc:`quelques changements fondamentaux <python:whatsnew/3.0>`,
 notamment:
@@ -466,7 +465,7 @@ Transition Python 2 à Python 3
 .. Avertissement:: Python 2 n'étant plus supporté, il est dorénavant
    indispensable d'utiliser exclusivement Python 3.
 
-Si votre code est encore sous python-2.x, il existe de nombreux outils
+Si votre code est encore sous Python 2.x, il existe de nombreux outils
 permettant de **faciliter** la transition vers 3.x (mais pas de la repousser
 *ad eternam*):
 
@@ -474,7 +473,7 @@ permettant de **faciliter** la transition vers 3.x (mais pas de la repousser
   évidence dans un code les parties qui devront être modifiées pour un
   passage à Python 3.
 * Le script `2to3 <https://docs.python.org/2.7/library/2to3.html>`_
-  permet également d'automatiser la conversion du code 2.x en 3.x.
+  permet d'automatiser la conversion du code 2.x en 3.x.
 * La bibliothèque standard :mod:`__future__` permet d'introduire des
   constructions 3.x dans un code 2.x, p.ex.::
 
@@ -505,3 +504,8 @@ permettant de **faciliter** la transition vers 3.x (mais pas de la repousser
 .. [#py3] De nombreuses distributions Linux utilisent encore des outils
    Python 2.7.
 .. [#total] Voir :func:`functools.total_ordering` pour une alternative.
+
+.. |fr| image:: ../_static/france_flag_icon.png
+   :alt: Fr
+.. |en| image:: ../_static/uk_flag_icon.png
+   :alt: En
