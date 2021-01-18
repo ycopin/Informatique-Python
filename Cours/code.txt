@@ -54,42 +54,38 @@ donnant les grands principes du Python::
 Une traduction libre en français:
 
 1. Préfèrer le beau au laid,
-2. l’explicite à l’implicite,
-3. le simple au complexe,
-4. le complexe au compliqué,
-5. le déroulé à l’imbriqué,
-6. l’aéré au compact.
+2. ... l’explicite à l’implicite
+3. ... le simple au complexe,
+4. ... le complexe au compliqué,
+5. ... le déroulé à l’imbriqué,
+6. ... l’aéré au compact.
 7. La lisibilité compte.
 8. Les cas particuliers ne le sont jamais assez pour violer les règles,
-9. même s'il faut privilégier l’aspect pratique à la pureté.
+9. ... même s'il faut privilégier la praticité à la pureté.
 10. Ne jamais passer les erreurs sous silence,
-11. ou les faire taire explicitement.
-12. Face à l’ambiguïté, ne pas se laisser tenter à deviner.
-13. Il doit y avoir une -- et si possible une seule -- façon évidente de
+11. ... ou les faire taire explicitement.
+12. En cas d’ambiguïté, résister à la tentation de deviner.
+13. Il devrait y avoir une -- et de préférence une seule -- façon évidente de
     procéder,
-14. même si cette façon n’est pas évidente à première vue, à moins
+14. ... même si cette façon n’est pas évidente à première vue, à moins
     d’être Hollandais.
-15. Mieux vaut maintenant que jamais,
-16. même si jamais est souvent mieux qu’immédiatement.
+15. Mieux vaut *maintenant* que *jamais*,
+16. ... même si *jamais* est souvent préférable à *immédiatement*.
 17. Si l’implémentation s’explique difficilement, c’est une mauvaise
     idée.
 18. Si l’implémentation s’explique facilement, c’est peut-être une bonne
     idée.
-19. Les espaces de nommage sont une sacrée bonne idée, utilisons-les
+19. Les espaces de noms sont une sacrée bonne idée, utilisons-les
     plus souvent !
 
 Us et coutumes
 --------------
 
+- **Keep it simple, stupid!**
+- *Don't repeat yourself*
 - *Fail early, fail often, fail better!* (`raise`)
 - *Easier to Ask for Forgiveness than Permission* (`try ... except`)
-- le *Style Guide for Python Code* (:pep:`8`)
-- `Google Python Style Guide
-  <https://google.github.io/styleguide/pyguide.html>`_
-- `The Best of the Best Practices (BOBP) Guide for Python
-  <https://gist.github.com/sloria/7001839>`_
-- The hitchhiker's guide to Python `Code Style
-  <https://docs.python-guide.org/writing/style/>`_
+- *We’re all consenting adults here* (attributs privés)
 
 .. rubric:: Quelques conseils supplémentaires:
 
@@ -107,6 +103,8 @@ Us et coutumes
   vous ne relirez jamais votre code (ou même que personne n'aura
   jamais à le lire), ou que vous aurez le temps de le refaire mieux
   plus tard...
+- *You ain't gonna need it*: se concentrer sur les fonctionnalités nécessaires
+  plutôt que de prévoir d'emblée l'ensembles des cas.
 - « L'optimisation prématurée est la source de tous les maux » (Donald
   Knuth [#opt]_): mieux vaut un code lent mais juste et maintenable
   qu'un code rapide et faux ou incompréhensible. Dans l'ordre absolu
@@ -117,6 +115,20 @@ Us et coutumes
   3. *Make it fast.*
 
 - *Respectez* le zen du python, il vous le rendra.
+
+.. rubric:: Voir également:
+
+- le *Style Guide for Python Code* (:pep:`8`)
+- `Google Python Style Guide
+  <https://google.github.io/styleguide/pyguide.html>`_
+- `The Best of the Best Practices (BOBP) Guide for Python
+  <https://gist.github.com/sloria/7001839>`_
+- The hitchhiker's guide to Python `Code Style
+  <https://docs.python-guide.org/writing/style/>`_
+- `les secrets d'un code pythonique
+  <https://zestedesavoir.com/articles/1079/les-secrets-dun-code-pythonique/>`_
+  |fr|
+
 
 Principes de conception logicielle
 ----------------------------------

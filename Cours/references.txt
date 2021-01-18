@@ -97,6 +97,10 @@ Python
 - `CheckIO <https://checkio.org/>`_, pour apprendre la programmation Python en
   s'amusant !
 - `Python Programming <https://www.codecademy.com/learn/python>`_ (Code Academy)
+- Tutoriaux *Zeste de savoir* |fr|: `programmation orientée objet
+  <https://zestedesavoir.com/tutoriels/1253/la-programmation-orientee-objet-en-python/>`_,
+  `notions avancées
+  <https://zestedesavoir.com/tutoriels/954/notions-de-python-avancees/>`_,
 
 Scientifique
 ............
@@ -138,6 +142,8 @@ Scientifique
 - `La programmation scientifique avec Python
   <https://openclassrooms.com/courses/la-programmation-scientifique-avec-python>`_
   |fr|
+- `Introduction à la programmation Python pour la biologie
+  <https://python.sdv.univ-paris-diderot.fr/>`_ |fr|
 
 .. rubric:: Astrophysique et physique des hautes énergies
 

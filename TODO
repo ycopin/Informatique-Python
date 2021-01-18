@@ -18,6 +18,7 @@ Science:
 * ipython avancé & jupyter: sessions, notebook
 
   - https://www.dataquest.io/blog/jupyter-notebook-tutorial/
+  - :pypi:`nbdime`: diffing and merging of Jupyter Notebooks
 
 Science avancée:
 

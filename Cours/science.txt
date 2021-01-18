@@ -993,7 +993,9 @@ tous les éléments d'une figure (titre, axes, légende, etc.), qui peuvent alor
   Graphics <https://ramnathv.github.io/pycon2014-r/visualize/ggplot2.html>`_ à
   matplotlib;
 - `Bokeh <http://bokeh.pydata.org/>`_, une bibliothèque graphique alternative à
-  matplotlib plus orientée *web*/temps réel.
+  matplotlib plus orientée *web*/temps réel;
+- :pypi:`plotext`, :pypi:`termplotlib`, pour réaliser des figures directement
+  dans le terminal (voir également le *backend* :pypi:`drawilleplot`).
 
 .. rubric:: Exemples:
 
