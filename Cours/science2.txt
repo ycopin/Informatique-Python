@@ -14,7 +14,7 @@ Bibliothèques scientifiques avancées
       1.5  Visualisations
       1.6  Xarray
     2  Astropy
-      2.1  Tour d'horizon
+      2.1  Tour d'horizon (v4.0)
       2.2  Démonstration
     3  Autres bibliothèques scientifiques
 
@@ -916,8 +916,8 @@ visant à fédérer les efforts jusque là disparates.  Elle offre en outre une
 interface unifiée à des `bibliothèques affiliées
 <https://www.astropy.org/affiliated/>`_ plus spécifiques.
 
-Tour d'horizon
---------------
+Tour d'horizon (v4.0)
+---------------------
 
 - Structures de base:
 
@@ -928,16 +928,17 @@ Tour d'horizon
     métadonnées, masque, unité, incertitude, etc.);
   - :mod:`astropy.table`: tableaux hétérogènes;
   - :mod:`astropy.time`: manipulation du temps et des dates;
+  - :mod:`astropy.timeseries`: manipulation de séries temporelles;
   - :mod:`astropy.coordinates`: systèmes de coordonnées;
   - :mod:`astropy.wcs`: *World Coordinate System*;
   - :mod:`astropy.modeling`: modèles et ajustements;
-  - :mod:`astropy.analytic_functions`: fonctions analytiques.
+  - :mod:`astropy.uncertainty`: manipulation d'incertitudes.
 
 - Entrées/sorties:
 
   - :mod:`astropy.io.fits`: fichiers FITS;
   - :mod:`astropy.io.ascii`: tables ASCII;
-  - :mod:`astropy.io.votable`: XML VO-tables;
+  - :mod:`astropy.io.votable`: XML *Virtual Observatory* tables;
   - :mod:`astropy.io.misc`: divers;
   - :mod:`astropy.vo`: accès au *Virtual Observatory*.
 
@@ -967,10 +968,11 @@ Démonstration
 Autres bibliothèques scientifiques
 ==================================
 
-Python est maintenant très largement utilisé par la communauté
-scientifique, et dispose d'innombrables bibliothèques dédiées aux
-différents domaines de la physique, chimie, etc.:
+Python est maintenant très largement utilisé par la communauté scientifique, et
+dispose d'innombrables bibliothèques dédiées aux différents domaines de
+l'analyse statistique de données, physique, chimie, etc.:
 
+- Propagation des incertitudes: :pypi:`uncertainties`;
 - Ajustement & optimisation (statistiques fréquentistes): :rtfd:`iminuit`,
   :rtfd:`kafe`;
 - Analyse statistique bayesienne: `PyStan

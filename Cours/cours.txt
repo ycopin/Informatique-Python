@@ -43,8 +43,7 @@ Cette introduction repose essentiellement sur les outils suivants:
   l'interpréteur de base et la bibliothèque standard);
 - les bibliothèques scientifiques `Numpy et Scipy
   <https://scipy.org/install.html>`_;
-- la bibliothèque graphique `Matplotlib
-  <http://matplotlib.org/users/installing.html>`_;
+- la bibliothèque graphique :doc:`Matplotlib <matplotlib:users/installing>`;
 - un interpréteur évolué, p.ex. `ipython <http://ipython.org/install.html>`_;
 - un `éditeur de texte évolué
   <https://en.wikipedia.org/wiki/Comparison_of_text_editors>`_, p.ex. `emacs
