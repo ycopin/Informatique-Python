@@ -18,8 +18,7 @@ données, interactions avec le système, gestion des fichiers et des
 processus, protocoles de communication (internet, mail, FTP, etc.),
 multimédia, etc.
 
-* `The Python Standard Library <https://docs.python.org/3/library/>`_
-  (v3.x)
+* :ref:`The Python Standard Library <python:library-index>` (v3.x)
 * `Python Module of the Week <https://pymotw.com/>`_ (v3.x)
 
 .. _optparse:
@@ -134,8 +133,7 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
   >>> random.gauss(0, 1)           # Distribution normale centrée réduite
   0.1245612752121385
 
-* `autres modules numériques et mathématiques
-  <https://docs.python.org/3/library/numeric.html>`_;
+* :doc:`autres modules numériques et mathématiques <python:library/numeric>`;
 
 .. .. index::
 ..    module: collections
@@ -175,9 +173,7 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 .. .. index::
 ..    module: re
 
-* `expressions rationnelles
-  <https://docs.python.org/3/howto/regex.html>`_ (ou *regex*):
-  :mod:`re`;
+* :doc:`expressions rationnelles <python:howto/regex>` (ou *regex*): :mod:`re`;
 
 * :mod:`warnings` et :mod:`logging`: gestion des avertissements
   d'éxécution et mécanismes de *logging*
@@ -216,8 +212,8 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 .. .. index::
 ..    module: urllib2
 
-* `lecture d'une URL <https://docs.python.org/3/howto/urllib2.html>`_
-  (p.ex. page web): :mod:`urllib2`.
+* :doc:`lecture d'une URL <python:howto/urllib2>` (p.ex. page web):
+  :mod:`urllib2`.
 
 
 *Text/Graphical User Interfaces*

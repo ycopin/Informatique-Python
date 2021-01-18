@@ -88,8 +88,7 @@ Python:
 
 .. index:: interpréteur; python
 
-* :program:`python`: `interpréteur de base
-  <https://docs.python.org/3/tutorial/interpreter.html>`_::
+* :program:`python`: :doc:`interpréteur de base <python:tutorial/interpreter>`::
 
     $ python3
     Python 3.6.11 (default, Jun 29 2020, 05:15:03)
@@ -396,8 +395,7 @@ Méthodes
 .. index:: dir
 
 Comme la plupart des objets en Python, les chaînes de caractères disposent de
-`nombreuses fonctionnalités
-<https://docs.python.org/3/library/stdtypes.html#string-methods>`_ -- appelées
+:ref:`nombreuses fonctionnalités <python:string-methods>` -- appelées
 « méthodes » en :abbr:`POO (Programmation Orientée Objet)` -- facilitant leur
 manipulation:
 
@@ -428,9 +426,9 @@ Formatage
 
 Le système de formatage permet un contrôle précis de la conversion de variables
 en chaînes de caractères.  Après quelques tergiversations historiques
-[#format]_, le système de choix est dorénavant (Python 3.6+) celui des chaînes
-formattées (:term:`f-strings`, voir :pep:`498`), qui permet d'*interpoler*
-directement les éléments `{var[:fmt]}` d'une chaîne:
+[#format]_, le système de choix est dorénavant (Python 3.6+) celui de la chaîne
+formattée (:term:`f-string`, voir :pep:`498`), qui *interpole* directement les
+éléments du type `{var[:fmt]}`:
 
 >>> nom, age = 'calvin', 6
 >>> f"{nom} a {age} ans."  # Interpolation simple
@@ -438,9 +436,8 @@ directement les éléments `{var[:fmt]}` d'une chaîne:
 >>> f"L'année prochaine, {nom.capitalize()} aura {age+1} ans"  # Interprétation
 "L'année prochaine, Calvin aura 7 ans."
 
-Le formattage des chaînes s'appuie sur la `grammaire standard
-<https://docs.python.org/3/library/stdtypes.html#old-string-formatting>`_
-héritée du C:
+Le formattage des chaînes hérite de la :ref:`grammaire standard
+<python:old-string-formatting>` du C:
 
 >>> pi = 3.1415926535897931
 >>> f"{pi:f}, {pi:+06.2f}, {pi*1e9:f}, {pi*1e9:.3g}"  # Options de formatage
@@ -643,8 +640,8 @@ Il faut noter plusieurs choses importantes:
   [#duck]_, favorisant le polymorphisme des fonctions;
 - le typage est *fort*, c.-à-d. que le type d'une variable ne peut pas
   changer à la volée.  Ainsi, `"abra" + "cadabra"` a un sens
-  (concaténation de chaînes), mais pas `3 + "cochons"` (entier +
-  chaîne);
+  (concaténation de chaînes), mais pas `1 + "2"` ou `3 + "cochons"`
+  (entier + chaîne);
 - la définition d'une fonction se fait dans un « espace parallèle » où
   les variables ont une portée (*scope*) locale [#scope]_.  Ainsi, la
   variable `s` définie *dans* la fonction `mean_power` n'interfère pas
@@ -1013,12 +1010,10 @@ fonction :func:`open` retournant un objet de type :term:`file object`:
 .. rubric:: Notes de bas de page
 
 .. [#braces] ou `from __future__ import braces` :-)
-.. [#format] Utilisation native du `%` avec la grammaire C `printf
-   <https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting>_`,
-   et plus récemment de la méthode de `formattage des chaînes
-   <https://docs.python.org/3/library/string.html#formatstrings>`_; ces deux
-   méthodes sont encore valables et largement utilisées, mais progressivement
-   dépréciées.
+.. [#format] Utilisation native du `%` avec la grammaire C :ref:`printf
+   <python:old-string-formatting>`, et plus récemment de la méthode de
+   formattage des chaînes :meth:`python:str.format`; ces deux options sont
+   encore valables et largement utilisées.
 .. [#duck] *If it looks like a duck and quacks like a duck, it must be
    a duck.*
 .. [#scope] La notion de « portée » est plus complexe, je simplifie...
@@ -1026,7 +1021,7 @@ fonction :func:`open` retournant un objet de type :term:`file object`:
 .. [#shebang] Il s'agit d'une fonctionnalité des *shells* d'Unix, pas
    spécifique à Python.
 .. [#fnunicode] En fait, Python 3 gère nativement les caractères
-   `Unicode <https://docs.python.org/3/howto/unicode.html>`_:
+   :doc:`Unicode <python:howto/unicode>`:
 
    >>> α, β = 3, 4
    >>> print("α² + β² =", α**2 + β**2)
