@@ -47,7 +47,7 @@ Cette introduction repose essentiellement sur les outils suivants:
 - un interpréteur évolué, p.ex. `ipython <http://ipython.org/install.html>`_;
 - un `éditeur de texte évolué
   <https://en.wikipedia.org/wiki/Comparison_of_text_editors>`_, p.ex. `emacs
-  <http://www.gnu.org/software/emacs/>`_, `vi <http://www.vim.org/>`_, `gedit
+  <http://www.gnu.org/software/emacs/>`_, `vi <https://www.vim.org/>`_, `gedit
   <https://wiki.gnome.org/Apps/Gedit>`_ ou `Atom <https://atom.io/>`_.
 
 Ces logiciels peuvent être installés indépendamment, de préférence sous Linux
@@ -426,8 +426,8 @@ Formatage
 Le système de formatage permet un contrôle précis de la conversion de variables
 en chaînes de caractères.  Après quelques tergiversations historiques
 [#format]_, le système de choix est dorénavant (Python 3.6+) celui de la chaîne
-formattée (:term:`f-string`, voir :pep:`498`), qui *interpole* directement les
-éléments du type `{var[:fmt]}`:
+formatée (:term:`f-string`), qui interprète directement les éléments du type
+`"{var[:fmt]}"` dans une chaîne:
 
 >>> nom, age = 'calvin', 6
 >>> f"{nom} a {age} ans."  # Interpolation simple
@@ -435,7 +435,7 @@ formattée (:term:`f-string`, voir :pep:`498`), qui *interpole* directement les
 >>> f"L'année prochaine, {nom.capitalize()} aura {age+1} ans"  # Interprétation
 "L'année prochaine, Calvin aura 7 ans."
 
-Le formattage des chaînes hérite de la :ref:`grammaire standard
+Le formatage des chaînes hérite de la :ref:`grammaire standard
 <python:old-string-formatting>` du C:
 
 >>> pi = 3.1415926535897931
@@ -1011,7 +1011,7 @@ fonction :func:`open` retournant un objet de type :term:`file object`:
 .. [#braces] ou `from __future__ import braces` :-)
 .. [#format] Utilisation native du `%` avec la grammaire C :ref:`printf
    <python:old-string-formatting>`, et plus récemment de la méthode de
-   formattage des chaînes :meth:`python:str.format`; ces deux options sont
+   formatage des chaînes :meth:`python:str.format`; ces deux options sont
    encore valables et largement utilisées.
 .. [#duck] *If it looks like a duck and quacks like a duck, it must be
    a duck.*

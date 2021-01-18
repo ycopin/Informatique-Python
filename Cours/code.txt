@@ -513,7 +513,7 @@ référence et de solution de sauvegarde, et offrant généralement des
 solutions d'intégration continue, p.ex.:
 
 * les très célèbres `GitHub <https://github.com/>`_ et `GitLab
-  <https://gitlab.com/>`_, gratuits pour les projets libres;
+  <https://about.gitlab.com/>`_, gratuits pour les projets libres;
 * pour des projets liés à votre travail, je conseille plutôt des
   dépôts directement gérés par votre institution, p.ex. `GitLab-IN2P3
   <https://gitlab.in2p3.fr/>`_.
@@ -525,7 +525,7 @@ de cours, fichiers de configuration, tests numériques, etc.).
 Quelques liens d'introduction:
 
 - `Pro-Git book <https://git-scm.com/book/en/v2>`_, le livre « officiel »;
-- `Git Immersion <http://gitimmersion.com/>`_;
+- `Git Immersion <https://gitimmersion.com/>`_;
 - `Git Magic <http://www-cs-students.stanford.edu/~blynn/gitmagic/>`_.
 
 Intégration continue
