@@ -739,7 +739,7 @@ Tour d'horizon
 .. rubric:: Liens:
 
 - `Scipy Reference <https://docs.scipy.org/doc/scipy/reference/>`_
-- `Scipy Cookbook <http://scipy-cookbook.readthedocs.io/>`_
+- :rtfd:`Scipy Cookbook <scipy-cookbook>`
 
 .. rubric:: Voir également:
 
@@ -1047,7 +1047,9 @@ graphique de visualisation 3D s'appuyant sur `Mayavi
 
 - `VPython <http://www.vpython.org/>`_: *3D Programming for Ordinary
   Mortals*;
-- `Glowscript <http://www.glowscript.org/>`_: VPython dans le navigateur.
+- `Glowscript <http://www.glowscript.org/>`_: VPython dans le navigateur;
+- `ipyvolume <https://github.com/maartenbreddels/ipyvolume>`_: visualisation 3D
+  dans le notebook Jupyter.
 
 .. rubric:: Notes de bas de page et références bibliographiques
 

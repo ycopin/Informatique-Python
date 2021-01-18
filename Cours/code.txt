@@ -494,8 +494,7 @@ Documentation
 Comment installer/créer des modules externes:
 
 - `pip <https://pip.pypa.io/en/latest/>`_;
-- `Hitchhiker’s Guide to Packaging
-  <http://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/>`_;
+- :rtfd:`Hitchhiker’s Guide to Packaging <the-hitchhikers-guide-to-packaging>`;
 - `Packaging a python library
   <https://blog.ionelmc.ro/2014/05/25/python-packaging/>`_;
 - :rtfd:`cookiecutter` est un générateur de squelettes de projet via des
@@ -554,8 +553,7 @@ ligne directement connectés au dépôt source. Exemple sur `Astropy`:
   continue;
 * `Coveralls <https://coveralls.io/github/astropy/astropy>`_ taux de
   couverture des tests unitaires;
-* `Readthedocs <https://readthedocs.org/projects/astropy/>`_
-  documentation en ligne;
+* :rtfd:`Readthedocs <astropy>` documentation en ligne;
 * `Depsy <http://depsy.org/package/python/astropy>`_ mise en valeur du
   développement logiciel dans le monde académique (*measure the value
   of software that powers science*).
@@ -575,3 +573,8 @@ ligne directement connectés au dépôt source. Exemple sur `Astropy`:
 
 .. _pytest: https://docs.pytest.org/
 .. _nose:   https://nose.readthedocs.io/
+
+.. |fr| image:: ../_static/france_flag_icon.png
+   :alt: Fr
+.. |en| image:: ../_static/uk_flag_icon.png
+   :alt: En

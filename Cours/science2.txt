@@ -738,6 +738,11 @@ Visualisations
 
 * `Exercices for New Users <https://github.com/guipsamora/pandas_exercises>`_
 
+.. rubric:: Voir également:
+
+* :rtfd:`geopandas`: extension pour des opérations spatiales sur des formes
+  géométriques
+
 
 .. _myXarray:
 
@@ -966,20 +971,22 @@ Python est maintenant très largement utilisé par la communauté
 scientifique, et dispose d'innombrables bibliothèques dédiées aux
 différents domaines de la physique, chimie, etc.:
 
+- Ajustement & optimisation (statistiques fréquentistes): :rtfd:`iminuit`,
+  :rtfd:`kafe` ;
+- Analyse statistique bayesienne: `PyStan
+  <https://mc-stan.org/interfaces/pystan.html>`_;
+- *Markov Chain Monte-Carlo*: :rtfd:`emcee`, :pypi:`PyMC3>` ;
+- *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, :pypi:`milk`,
+  :pypi:`mdp`, `Keras <https://keras.io/>`_ et autres `modules d'intelligence
+  artificielle <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_;
 - Astronomie: `Kapteyn <http://www.astro.rug.nl/software/kapteyn/>`_, `AstroML
   <http://www.astroml.org/>`_, `HyperSpy <http://hyperspy.org/>`_;
 - Mécanique quantique: `QuTiP <http://qutip.org/>`_;
 - Électromagnétisme: `EMpy <https://lbolla.github.io/EMpy/>`_;
-- Optique physique: `Physical Optics Propagation in PYthon
-  <https://poppy-optics.readthedocs.io/>`_, `OpticsPy <http://opticspy.org/>`_;
+- Optique physique: :rtfd:`Physical Optics Propagation in PYthon
+  <poppy-optics>`, `OpticsPy <http://opticspy.org/>`_;
 - *PDE solver*: `FiPy <http://www.ctcms.nist.gov/fipy/>`_, `SfePy
   <http://sfepy.org/>`_;
-- Analyse statistique bayesienne: `PyStan
-  <https://mc-stan.org/interfaces/pystan.html>`_;
-- *Markov Chain Monte-Carlo*: :rtfd:`emcee`, :pypi:`PyMC3>`;
-- *Machine Learning*: `mlpy <http://mlpy.sourceforge.net/>`_, :pypi:`milk`,
-  :pypi:`mdp`, `Keras <https://keras.io/>`_ et autres `modules d'intelligence
-  artificielle <https://wiki.python.org/moin/PythonForArtificialIntelligence>`_;
 - Calcul symbolique: `sympy <https://www.sympy.org/>`_ (voir également
   ce `tutoriel sympy
   <https://mattpap.github.io/scipy-2011-tutorial/html/>`_) et `sage

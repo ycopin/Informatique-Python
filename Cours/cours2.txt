@@ -493,8 +493,7 @@ permettant de **faciliter** la transition vers 3.x (mais pas de la repousser
   encore non-compatibles avec Python 3
 - `Porting Python 2 Code to Python 3
   <http://python.readthedocs.io/en/latest/howto/pyporting.html>`_
-- `The Conservative Python 3 Porting Guide
-  <http://portingguide.readthedocs.io/>`_
+- :rtfd:`The Conservative Python 3 Porting Guide <portingguide>`
 - `Python 2/3 compatibility <http://python-future.org/>`_
 
 
