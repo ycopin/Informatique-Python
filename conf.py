@@ -55,6 +55,8 @@ extlinks = {
     'pypi': ('https://pypi.org/project/%s', ''),     # Pypi
     'rtfd': ('https://%s.readthedocs.io/', ''),      # readthedocs.io
     'ads': ('https://ui.adsabs.harvard.edu/abs/%s/abstract', ''), # ADS
+    'wfr': ('https://fr.wikipedia.org/wiki/%s', ''), # Wikipedia.fr
+    'wen': ('https://en.wikipedia.org/wiki/%s', ''), # Wikipedia
 }
 
 # Add any paths that contain templates here, relative to this directory.

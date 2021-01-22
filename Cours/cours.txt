@@ -644,7 +644,7 @@ bibliothèque (p.ex. `import mean_power`) dans un autre code Python, ou
 bien être exécuté depuis la ligne de commande (p.ex. `python
 mean_power.py`), auquel cas la partie `__main__` sera exécutée.
 
-- `#!` (`Hash-bang <https://en.wikipedia.org/wiki/Shebang_(Unix)>`_):
+- `#!` (:wen:`Hash-bang <Shebang_(Unix)>`):
   la première ligne d'un script défini l'interpréteur à utiliser
   [#shebang]_::
 
@@ -768,8 +768,7 @@ si l'hypothèse n'est pas vérifiée, génère une :exc:`AssertionError`):
        assert x >= y, f"x={x} < y={y}"  # Test et msg d'erreur
        return x**2 - y**2
 
-.. Note:: La règle générale à retenir concernant la gestion des
-   erreurs:
+.. Note:: La règle générale à retenir concernant la gestion des erreurs:
 
               **Fail early, fail often, fail better!**
 
@@ -784,8 +783,8 @@ Classes
 .. index:: class
 
 Un objet est une entité de programmation, disposant de son propre état interne
-et de fonctionnalités associées.  C'est le concept central de la `Programmation
-Orientée Objet <https://fr.wikipedia.org/wiki/Programmation_orientée_objet>`_.
+et de fonctionnalités associées: c'est le concept central de la
+:wfr:`Programmation Orientée Objet <Programmation_orientée_objet>` (POO).
 
 Au concept d'objet sont liées les notions de:
 

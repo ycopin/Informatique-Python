@@ -44,7 +44,6 @@ thomas.belle                   SUBA
 antoine.corbel                 SUBA
 joel.dai                       SUBA
 mathieu.flayol                 SUBA
-christopher.greenberg-bonilla  SUBA
 elsa.guy                       SUBA
 sarah.herrmann                 SUBA
 alexia.hocine                  SUBA
@@ -56,6 +55,8 @@ paul.stevens                   SUBA
 antoine.syx                    SUBA
 godefroy.vannoye               SUBA
 =============================  ======
+
+.. christopher.greenberg-bonilla  SUBA
 
 .. |+| image:: ./_static/smile.gif
    :alt: Bon

@@ -1,3 +1,6 @@
+.. -*- mode: rst -*-
+.. Time-stamp: <2021-01-22 02:20 ycopin@lyonovae03>
+
 Général:
 
 ✓ scinder Cours en "intro" et "avancé"
@@ -44,7 +47,3 @@ Science avancée:
   - f-string {expr=}
   - assignment expression, opérateur morse (walrus) :=
   - positional-only parameters
-  
-Projets/exercices:
-
-* jeu du taquin

@@ -731,8 +731,7 @@ p.ex.:
   10 loops, best of 3: 19.3 ms per loop
 
 * :pypi:`bottleneck` est une collection de fonctions accélérées, notamment pour
-  des tableaux contenant des `NaN <https://en.wikipedia.org/wiki/NaN>`_ ou pour
-  des statistiques glissantes;
+  des tableaux contenant des :wen:`NaN` ou pour des statistiques glissantes;
 * :pypi:`theano`, pour optimiser l'évaluation des expressions mathématiques sur
   les tableaux :mod:`numpy`, notamment par l'utilisation des :abbr:`GPU
   (Graphics Processing Unit)` et de code C généré à la volée.
@@ -751,7 +750,7 @@ fonctions mathématiques, basée sur les tableaux :class:`numpy.ndarray`,
 complétant ou améliorant (en termes de performances) les fonctionnalités de
 :mod:`numpy`.
 
-.. Note:: N'oubliez pas de `citer scipy & co.
+.. Note:: N'oubliez pas de `citer scipy & Co.
    <https://scipy.org/citing.html>`_ dans vos publications et présentations
    utilisant ces outils.
 

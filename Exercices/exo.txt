@@ -15,9 +15,8 @@ Introduction
 Intégration: méthode des rectangles ★
 -------------------------------------
 
-La `méthode des rectangles
-<https://fr.wikipedia.org/wiki/M%C3%A9thode_du_point_m%C3%A9dian>`_ permet
-d'approximer numériquement l'intégrale d'une fonction `f`:
+La :wfr:`méthode des rectangles <Méthode_du_point_médian>` permet d'approximer
+numériquement l'intégrale d'une fonction `f`:
 
 .. math::
 
@@ -43,8 +42,7 @@ dépend-elle du nombre de pas?
 Fizz Buzz ★
 -----------
 
-Écrire un programme jouant au `Fizz Buzz
-<https://en.wikipedia.org/wiki/Fizz_buzz>`_ jusqu'à 99::
+Écrire un programme jouant au :wen:`Fizz Buzz` jusqu'à 99::
 
   1 2 Fizz! 4 Buzz! Fizz! 7 8 Fizz! Buzz! 11 Fizz! 13 14 Fizz Buzz! 16...
 
@@ -58,8 +56,7 @@ PGCD: algorithme d'Euclide ★★
    :alt: Algorithme d'Euclide.
 
 Écrire un programme calculant le :abbr:`PGCD (Plus Grand Commun Dénominateur)`
-de deux nombres (p.ex. 756 et 306) par l'`algorithme d'Euclide
-<https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide>`_.
+de deux nombres (p.ex. 756 et 306) par l':wfr:`algorithme d'Euclide`.
 
 .. _tables:
 
@@ -82,9 +79,8 @@ Manipulation de listes
 Crible d'Ératosthène ★
 ----------------------
 
-Implémenter le `crible d'Ératosthène
-<https://fr.wikipedia.org/wiki/Crible_d%27%C3%89ratosth%C3%A8ne>`_ pour
-afficher les nombres premiers compris entre 1 et un entier fixe, p.ex.::
+Implémenter le :wfr:`Crible_d'Ératosthène` pour afficher les nombres premiers
+compris entre 1 et un entier fixe, p.ex.::
 
   Liste des entiers premiers <= 41
   [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41]
@@ -131,12 +127,10 @@ Programmation
 Suite de Syracuse (fonction) ★
 ------------------------------
 
-Écrire une fonction `suite_syracuse(n)` retournant la (partie
-non-triviale de la) `suite de Syracuse
-<https://fr.wikipedia.org/wiki/Conjecture_de_Syracuse>`_ pour un entier
-*n*.  Écrire une fonction `temps_syracuse(n, altitude=False)`
-retournant le temps de vol (éventuellement en altitude) correspondant
-à l'entier *n*.  Tester ces fonctions sur *n=15*:
+Écrire une fonction `suite_syracuse(n)` retournant la (partie non-triviale de
+la) :wfr:`suite de Syracuse` pour un entier *n*.  Écrire une fonction
+`temps_syracuse(n, altitude=False)` retournant le temps de vol (éventuellement
+en altitude) correspondant à l'entier *n*.  Tester ces fonctions sur *n=15*:
 
   >>> suite_syracuse(15)
   [15, 46, 23, 70, 35, 106, 53, 160, 80, 40, 20, 10, 5, 16, 8, 4, 2, 1]
@@ -153,10 +147,9 @@ Flocon de Koch (programmation récursive) ★★★
 .. index::
    module: turtle
 
-En utilisant les commandes `left`, `right` et `forward` de la
-bibliothèque graphique standard :mod:`turtle` dans une fonction
-*récursive*, générer à l'écran un `flocon de Koch
-<https://fr.wikipedia.org/wiki/Flocon_de_Koch>`_ d'ordre arbitraire.
+En utilisant les commandes `left`, `right` et `forward` de la bibliothèque
+graphique standard :mod:`turtle` dans une fonction *récursive*, générer à
+l'écran un :wfr:`flocon de Koch` d'ordre arbitraire.
 
 .. figure:: koch_3.*
    :align: center
@@ -204,8 +197,8 @@ avec succès tous les tests.  C'est le principe du *Test Driven Development*
 Jeu de la vie (POO) ★★
 ----------------------
 
-On se propose de programmer l'automate cellulaire le plus célèbre, `le
-Jeu de la vie <https://fr.wikipedia.org/wiki/Jeu_de_la_vie>`_.
+On se propose de programmer l'automate cellulaire le plus célèbre, le
+:wfr:`Jeu de la vie`.
 
 Pour cela, vous créerez une classe `Life` qui contiendra la grille du
 jeu ainsi que les méthodes qui permettront son évolution.  Vous
@@ -303,8 +296,7 @@ Schéma de Romberg ★★
 
 Écrire une fonction `integ_romberg(f, a, b, epsilon=1e-6)` permettant de
 calculer l'intégrale numérique de la fonction *f* entre les bornes *a* et *b*
-avec une précision *epsilon* selon la `méthode de Romberg
-<https://fr.wikipedia.org/wiki/M%C3%A9thode_de_Romberg>`_.
+avec une précision *epsilon* selon la :wfr:`Méthode_de_Romberg`.
 
 Tester sur des solutions analytiques et en comparant à
 :func:`scipy.integrate.romberg`.
@@ -315,8 +307,8 @@ Méthode de Runge-Kutta ★★
 -------------------------
 
 Développer un algorithme permettant d'intégrer numériquement une équation
-différentielle du 1er ordre en utilisant la `méthode de Runge-Kutta
-<https://fr.wikipedia.org/wiki/M%C3%A9thodes_de_Runge-Kutta>`_ d'ordre quatre.
+différentielle du 1er ordre en utilisant les :wfr:`Méthodes_de_Runge-Kutta`
+d'ordre quatre.
 
 Tester sur des solutions analytiques et en comparant à
 :func:`scipy.integrate.odeint`.
@@ -368,13 +360,12 @@ que la droite de régression linéaire.
 Diagramme de bifurcation: la suite logistique ★★
 ------------------------------------------------
 
-Écrivez une fonction qui calcule la valeur d'équilibre de la `suite
-logistique <https://fr.wikipedia.org/wiki/Suite_logistique>`_ pour un
-:math:`x_0` (nécessairement compris entre 0 et 1) et un paramètre
-:math:`r` (parfois noté :math:`\mu`) donné.
+Écrivez une fonction qui calcule la valeur d'équilibre de la
+:wfr:`Suite logistique` pour un :math:`x_0` (nécessairement compris entre 0
+et 1) et un paramètre :math:`r` (parfois noté :math:`\mu`) donné.
 
 Générez l'ensemble de ces points d'équilibre pour des valeurs de
-:math:`r` comprises entre 0 et 4:
+:math:`r` comprises entre 0 et 4:
 
 .. figure:: logistique.*
    :align: center
@@ -391,9 +382,8 @@ résultats.
 Ensemble de Julia ★★
 --------------------
 
-Représentez l'`ensemble de Julia
-<https://fr.wikipedia.org/wiki/Ensemble_de_Julia>`_ pour la constante
-complexe :math:`c = 0.284 + 0.0122j`:
+Représentez l':wfr:`ensemble de Julia` pour la constante complexe :math:`c =
+0.284 + 0.0122j`:
 
 .. figure:: julia.*
    :align: center
@@ -426,8 +416,7 @@ frottement « turbulentes » (en :math:`v^2`):
 
    \ddot{\mathbf{r}} = \mathbf{g} - \frac{\alpha}{m}v\times\mathbf{v}.
 
-Utiliser les valeurs numériques pour un boulet de canon de `36 livres
-<https://fr.wikipedia.org/wiki/Canon_de_36_livres>`_:
+Utiliser les valeurs numériques pour un boulet de :wfr:`canon de 36 livres`:
 
 .. code-block:: python
 
@@ -441,8 +430,7 @@ Utiliser les valeurs numériques pour un boulet de canon de `36 livres
     v0 = 450.      # Vitesse initiale [m/s]
     alt = 45.      # Inclinaison du canon [deg]
 
-**Voir également:** `Équations de prédation de Lotka-Volterra
-<https://fr.wikipedia.org/wiki/Équations_de_prédation_de_Lotka-Volterra>`_
+**Voir également:** :wfr:`Équations_de_prédation_de_Lotka-Volterra`.
 
 
 Équation d'état de l'eau à partir de la dynamique moléculaire ★★★
@@ -498,7 +486,7 @@ Exercices en vrac
 * `Entraînez-vous !
   <http://openclassrooms.com/forum/sujet/entrainez-vous-sur-le-langage-python-54161?page=3#message-85967089>`_
   |fr|
-* `Learn Python The Hard Way <http://learnpythonthehardway.org/book/>`_
+* `Learn Python The Hard Way <https://learnpythonthehardway.org/book/>`_
 * `Google Code Jam <https://codingcompetitions.withgoogle.com/codejam>`_
 * `CheckIO <https://checkio.org/>`_
 
@@ -535,9 +523,8 @@ l'exécution, la sortie du terminal doit être::
 *Protein Data Bank*
 -------------------
 
-On chercher a réaliser un script qui analyse un fichier de données de
-type `Protein Data Bank
-<https://fr.wikipedia.org/wiki/Protein_Data_Bank>`_.
+On chercher a réaliser un script qui analyse un fichier de données de type
+:wfr:`Protein Data Bank`.
 
 La banque de données `Worldwide Protein Data Bank
 <http://www.wwpdb.org/>`_ regroupe les structures obtenues par
@@ -556,8 +543,7 @@ On propose d'assurer une lecture de ce fichier pour calculer notamment :
 
 On propose de considerer par exemple la structure resolue pour la `GFP
 <http://pdb101.rcsb.org/motm/42>`_ (*Green Fluorescent Protein*, Prix
-Nobel 2008) (`Fichier PDB
-<http://www.rcsb.org/pdb/explore.do?structureId=1GFL>`_)
+Nobel 2008) (`Fichier PDB <http://www.rcsb.org/structure/1GFL>`_)
 
 .. |fr| image:: ../_static/france_flag_icon.png
    :alt: Fr

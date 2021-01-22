@@ -1,9 +1,12 @@
 Références supplémentaires
 ==========================
 
-Voici une liste très partielle de documents Python disponibles en
-ligne. La majorité des liens sont en anglais, quelques-uns |fr| sont
-en français.
+Voici une liste très partielle de documents Python disponibles en ligne.  La
+majorité des liens sont en anglais, quelques-uns |fr| sont en français.
+
+.. Note:: N'hésitez pas à me faire des retours sur les différents liens (j'avoue
+          ne pas les avoir tous testés...) ou sur d'autres que vous avez trouvé
+          particulièrement utiles.
 
 Documentation générale
 ----------------------
@@ -53,6 +56,10 @@ Listes de liens
 Livres libres
 -------------
 
+- `19 Free Python eBooks
+  <https://medium.mybridge.co/19-free-ebooks-to-learn-programming-with-python-8f6f0ad4a7f8>`_
+- `10 Free Python Programming Books
+  <http://www.coderholic.com/free-python-programming-books/>`_
 - `How to Think Like a Computer Scientist
   <http://www.greenteapress.com/thinkpython/thinkpython.html>`_
 
@@ -61,19 +68,18 @@ Livres libres
     <http://interactivepython.org/runestone/static/thinkcspy/index.html>`_
 
 - `Dive into Python <http://www.diveintopython.net/>`_
-- `10 Free Python Programming Books
-  <http://www.coderholic.com/free-python-programming-books/>`_
-
 - `A Python Book <http://www.davekuhlman.org/python_book_01.html>`_
-- `Start Programming with Python <http://python-ebook.blogspot.fr/>`_
 - `Learn Python the Hard Way <https://learnpythonthehardway.org/>`_
-- `Python for Informatics: Exploring Information <http://www.pythonlearn.com/>`_
+- `Python for Everybody <http://www.py4e.com/>`_
 - `Intermediate Python <http://book.pythontips.com/en/latest/>`_
 - `The Best Python Books <https://realpython.com/best-python-books/>`_
 
 - `Apprendre à programmer avec Python <http://inforef.be/swi/python.htm>`_ |fr|
 - `Programmation Python
   <https://fr.wikibooks.org/wiki/Programmation_Python>`_ |fr|
+
+.. - `Start Programming with Python <http://python-ebook.blogspot.fr/>`_
+
 
 Cours en ligne
 --------------
@@ -89,13 +95,15 @@ Python
 - `Présentation de Python
   <http://python.developpez.com/tutoriels/cours-intensif-scientifique/presentation-debuter/>`_ |fr|
 - `Introduction à Python pour la programmation scientifique
-  <http://www.courspython.com/sommaire.html>`_ |fr|
+  <https://www.courspython.com/sommaire.html>`_ |fr|
 
 - `Google's Python Class <https://developers.google.com/edu/python/>`_
 - `Begginer's Guide <https://wiki.python.org/moin/BeginnersGuide>`_
 - `DIY python workshop
-  <http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
+  <https://www.astrobetter.com/wiki/tiki-index.php?page=Python+Tutorial+For+Astronomers+Who+Use+IDL>`_
 - `Google's Python Class <https://developers.google.com/edu/python/>`_
+- `Hack in Science <https://www.hackinscience.org/exercises/>`_, plusieurs
+  dizaines d'exercices et corrections interactives |fr|
 - `CheckIO <https://checkio.org/>`_, pour apprendre la programmation Python en
   s'amusant !
 - `Python Programming <https://www.codecademy.com/learn/python>`_ (Code Academy)
@@ -109,7 +117,7 @@ Scientifique
 
 - :rtfd:`Scipy Cookbook <scipy-cookbook>` (inclut `numpy`, `scipy`,
   `matplotlib`, etc.)
-- `Python Scientific Lecture Notes <http://www.scipy-lectures.org/>`_
+- `Python Scientific Lecture Notes <https://www.scipy-lectures.org/>`_
 - `Handbook of the Physics Computing Course
   <http://www-teaching.physics.ox.ac.uk/computing/handbook_Python/handbook_Python.html>`_
   (Oxford, 2003)
@@ -152,7 +160,7 @@ Scientifique
 .. rubric:: Astrophysique et physique des hautes énergies
 
 - `Practical Python for Astronomers <https://python4astronomers.github.io/>`_
-- `Astropy tutorials <http://www.astropy.org/astropy-tutorials/>`_
+- `Learn Astropy <https://learn.astropy.org/>`_
 - `Python for Astronomers <https://prappleizer.github.io/>`_
 - `Python for Euclid 2016 <https://github.com/aboucaud/python-euclid2016>`_
 - Advanced software programming for astrophysics and astroparticle physics,

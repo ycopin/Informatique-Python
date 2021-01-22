@@ -278,8 +278,8 @@ utiles pour développer en Python.
 - `eclipse-pydev <https://www.pydev.org/>`_
 - `Visual Studio <https://code.visualstudio.com/>`_
 - `10 Best Python IDE & Code Editors <https://hackr.io/blog/best-python-ide>`_
-- `List of IDEs for Python
-  <https://en.wikipedia.org/wiki/List_of_integrated_development_environments_for_Python#Python>`_
+- :wen:`List of IDEs for Python
+  <List_of_integrated_development_environments_for_Python#Python>`
 
 Vérification du code
 --------------------
@@ -443,7 +443,7 @@ généraux:
   <http://docs.cython.org/en/latest/src/tutorial/numpy.html>`_);
 * `numba <http://numba.pydata.org/>`_ permet *automagiquement* de
   compiler *à la volée* (:abbr:`JIT(Just In Time)`) du pur code python
-  via le compilateur `LLVM <http://llvm.org/>`_, avec une optimisation
+  via le compilateur `LLVM <https://llvm.org/>`_, avec une optimisation
   selon le CPU (éventuellement le GPU) utilisé, p.ex.::
 
     from numba import jit  # compilation à la volée (seulement au 1e appel)
@@ -461,7 +461,7 @@ généraux:
         ...
 
 * à l'avenir, l'interpréteur CPython actuel sera éventuellement
-  remplacé par `pypy <http://pypy.org/>`_, basé sur une compilation
+  remplacé par `pypy <https://pypy.org/>`_, basé sur une compilation
   :abbr:`JIT(Just In Time)`.
 
 .. rubric:: Lien:
@@ -485,7 +485,7 @@ Documentation
 
   - *Docstring convention*: :pep:`257`;
   - `Documenting Your Project Using Sphinx
-    <http://pythonhosted.org/an_example_pypi_project/sphinx.html>`_;
+    <https://pythonhosted.org/an_example_pypi_project/sphinx.html>`_;
   - `A Guide to NumPy/SciPy Documentation
     <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_;
   - `Sample doc <https://matplotlib.org/sampledoc/>`_ (matplotlib).

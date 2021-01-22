@@ -60,8 +60,7 @@ Ce cours repose essentiellement sur les outils suivants:
 - un interpréteur interactif évolué, p.ex. `ipython
   <http://ipython.org/install.html>`__ ou `jupyter
   <https://jupyter.org/install>`__;
-- un `éditeur de texte évolué
-  <https://en.wikipedia.org/wiki/Comparison_of_text_editors>`_, p.ex. `emacs
+- un :wen:`éditeur de texte évolué <Comparison_of_text_editors>`, p.ex. `emacs
   <http://www.gnu.org/software/emacs/>`_, `vi <https://www.vim.org/>`_, `gedit
   <https://wiki.gnome.org/Apps/Gedit>`_ ou `Atom <https://atom.io/>`_.
 

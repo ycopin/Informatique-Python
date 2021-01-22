@@ -23,8 +23,8 @@
    Cours/references
    Cours/exemples
    Exercices/exo
-   Annales/annales
    Projets/projets
+   Annales/annales
 
 .. toctree::
    :hidden:
@@ -52,9 +52,8 @@
    Exercices/TD_numpy.ipynb
    Exercices/equationEtat
    Exercices/solutions
-   Annales/exam_1501
-   Projets/projets
    Projets/sridhar_touma.ipynb
+   Annales/exam_1501
 
 .. image:: _static/cc-by-nc.png
    :align: center

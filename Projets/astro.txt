@@ -1,7 +1,5 @@
 .. -*- mode: rst -*-
-.. Time-stamp: <2020-08-02 11:21 ycopin@lyonovae03>
-
-.. sectionauthor:: Méthodes numériques pour la physique et les SPI
+.. Time-stamp: <2021-01-21 12:09 ycopin@lyonovae03>
 
 Relation masse/rayon d'une naine blanche
 ----------------------------------------

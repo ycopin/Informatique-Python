@@ -170,7 +170,7 @@ des arguments supplémentaires aux décorateurs.
    :linenos:
 
 .. rubric:: Exemple 2: `monkey patching
-   <https://thecodebits.com/monkey-patching-in-python-explained-with-examples/>`_
+   <https://thecodebits.com/monkey-patching-in-python-explained-with-examples/>`_ ☠
    (modification à la volée des propriétés d'un objet)
 
 .. literalinclude:: avance.py
@@ -499,7 +499,7 @@ permettant de **faciliter** la transition vers 3.x (mais pas de la repousser
 .. rubric:: Notes de bas de page
 
 .. [#global] Je ne parlerai pas ici des `variables globales
-   <http://geekandpoke.typepad.com/geekandpoke/2012/04/simply-explained-gv.html>`_...
+   <https://geekandpoke.typepad.com/geekandpoke/2012/04/simply-explained-gv.html>`_...
 .. [#adults] *We're all consenting adults.*
 .. [#py3] De nombreuses distributions Linux utilisent encore des outils
    Python 2.7.
