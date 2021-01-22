@@ -249,9 +249,11 @@ travailler interactivement et de collaborer sur des *notebooks* partagés.
 Le lien suivant permet d'ouvrir ce cours avec une interface de type `jupyter`
 via le service `MyBinder <https://mybinder.org/>`_:
 
-.. image:: https://mybinder.org/badge_logo.svg
-   :align: center
-   :target: https://mybinder.org/v2/gh/ycopin/Informatique-Python/HEAD
+.. only:: html
+
+   .. image:: https://mybinder.org/badge_logo.svg
+      :align: center
+      :target: https://mybinder.org/v2/gh/ycopin/Informatique-Python/HEAD
 
 .. rubric:: Datalore
 

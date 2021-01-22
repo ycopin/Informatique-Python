@@ -277,17 +277,14 @@ htmlhelp_basename = 'AnalyseScientifiquePython'
 # -- Options for LaTeX output --------------------------------------------------
 
 latex_elements = {
-    # The paper size ('letterpaper' or 'a4paper').
     'papersize': 'a4paper',
-
-    # The font size ('10pt', '11pt' or '12pt').
     'pointsize': '10pt',
-
-    # Additional stuff for the LaTeX preamble.
-    'preamble': r"""
-    \usepackage{lmodern}                % heavier typewriter font
-    \DeclareUnicodeCharacter{2605}{*}   % star
-    \DeclareUnicodeCharacter{9760}{*}   % skull
+    'fontpkg': r"\usepackage{lmodern}",
+    'babel': r"\usepackage[french]{babel}",
+    'fontenc': r"\usepackage[LGR,T1]{fontenc}",
+    'utf8extra': r"""
+    \DeclareUnicodeCharacter{2605}{*}          % star ★
+    \DeclareUnicodeCharacter{2620}{*}          % skull and bones ☠
     """,
 }
 
