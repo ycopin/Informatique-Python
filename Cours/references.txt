@@ -16,6 +16,7 @@ Documentation générale
 - `Documentation Python <https://docs.python.org/fr/3/>`_ |fr|
 - `Python Wiki <https://wiki.python.org/moin/>`_
 - :doc:`Python Frequently Asked Questions <python:faq/index>`
+- :doc:`Python Tutorial <python:tutorial/index>` (v3.7)
 - `The Python Package Index <https://pypi.org>`_
 
 Listes de liens
@@ -49,6 +50,7 @@ Listes de liens
 
   .. rubric:: Python 3.x
 
+- :rtfd:`Python 3 Patterns, Recipes and Idioms <python-3-patterns-idioms-test>`
 - `10 awesome features of Python that you can't use because you refuse
   to upgrade to Python 3
   <http://www.asmeurer.com/python3-presentation/slides.html>`_
@@ -87,8 +89,8 @@ Cours en ligne
 Python
 ......
 
-- :doc:`Python Tutorial <python:tutorial/index>` (v3.7)
-- :rtfd:`Python 3 Patterns, Recipes and Idioms <python-3-patterns-idioms-test>`
+- `6 formations en ligne
+  <https://www.lemondeinformatique.fr/actualites/lire-6-formations-en-ligne-pour-apprendre-python-74349.html>`_ |fr|;
 - `Apprenez à programmer en Python
   <https://openclassrooms.com/courses/apprenez-a-programmer-en-python>`_
 - `Débuter avec Python au lycée <http://python.lycee.free.fr/>`_ |fr|

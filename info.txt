@@ -50,13 +50,28 @@ alexia.hocine                  SUBA
 sukyung.kim                    SUBA
 andres-felipe.munoz-ricardo    SUBA
 corentin.pecontal              SUBA
-mathis.ravera                  SUBA
 paul.stevens                   SUBA
-antoine.syx                    SUBA
 godefroy.vannoye               SUBA
 =============================  ======
 
 .. christopher.greenberg-bonilla  SUBA
+.. mathis.ravera                  SUBA
+.. antoine.syx                    SUBA
+
+.. rubric:: Évaluation
+
+L'évaluation de l'atelier se fera sur un mini-projet à développer durant la
+semaine (intégralement dédiée à cette activité, y compris en dehors des heures
+de cours):
+
+* s'organiser en binôme, et choisir un sujet de :ref:`miniprojets`, ou proposer
+  le sien propre;
+* développer et partager le code correspondant *uniquement sous la forme d'un
+  notebook Datalore* `NOM1_NOM2` (pouvant évidemment faire appel à des
+  bibliothèques externes);
+* le dernier jour, éxécuter et présenter oralement en **5 min** les objectifs,
+  les méthodes choisies et les résultats.
+
 
 .. |+| image:: ./_static/smile.gif
    :alt: Bon

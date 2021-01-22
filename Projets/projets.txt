@@ -115,6 +115,8 @@ Suivi de particule(s)
 
 .. include:: particle_tracking.txt
 
+.. _miniprojets:
+
 Mini-projets
 ============
 
