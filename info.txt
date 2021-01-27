@@ -26,36 +26,36 @@ jeu 28           9h-12h
 
 .. rubric:: Participants (`etu.univ-lyon1.fr`)
 
-=============================  ======
-Nom                            Statut
-=============================  ======
-hanae.belaouchi                Astro
-chaan.champagne                Astro
-quentin.dos-santos             Astro
-audrey.ficot                   Astro
-tiffanie.gay                   Astro
-joshua.gonnet                  Astro
-maxence.lab                    Astro
-ariane.le-cardinal             Astro
-leonard.martinez               Astro
-thibault.menez                 Astro
-marawan.barakat                SUBA
-thomas.belle                   SUBA
-antoine.corbel                 SUBA
-joel.dai                       SUBA
-mathieu.flayol                 SUBA
-elsa.guy                       SUBA
-sarah.herrmann                 SUBA
-alexia.hocine                  SUBA
-sukyung.kim                    SUBA
-andres-felipe.munoz-ricardo    SUBA
-corentin.pecontal              SUBA
-paul.stevens                   SUBA
-godefroy.vannoye               SUBA
-=============================  ======
+=============================  ======  ============
+Nom                            Statut  Projet
+=============================  ======  ============
+hanae.belaouchi                 Astro  Romains
+chaan.champagne                 Astro  MasterMind
+quentin.dos-santos              Astro  Casino
+audrey.ficot                    Astro  Taquin
+tiffanie.gay                    Astro  2048
+joshua.gonnet                   Astro  Oiseaux 2
+maxence.lab                     Astro  Oiseaux 2
+ariane.le-cardinal              Astro  Taquin
+leonard.martinez                Astro  2048
+thibault.menez                  Astro  HR 2
+marawan.barakat                 SUBA
+thomas.belle                    SUBA   HR 1
+antoine.corbel                  SUBA   HR 1
+joel.dai                        SUBA   Oiseaux 1
+mathieu.flayol                  SUBA   MasterMind
+alexia.hocine                   SUBA   Tas de sable
+sukyung.kim                     SUBA   Romains
+corentin.pecontal               SUBA   Tas de sable
+godefroy.vannoye                SUBA   Oiseaux 1
+=============================  ======  ============
 
 .. christopher.greenberg-bonilla  SUBA
+.. elsa.guy                       SUBA
+.. sarah.herrmann                 SUBA
+.. andres-felipe.munoz-ricardo    SUBA
 .. mathis.ravera                  SUBA
+.. paul.stevens                   SUBA
 .. antoine.syx                    SUBA
 
 .. rubric:: Évaluation
@@ -65,13 +65,17 @@ semaine (intégralement dédiée à cette activité, y compris en dehors des heu
 de cours):
 
 * s'organiser en binôme, et choisir un sujet de :ref:`miniprojets`, ou proposer
-  le sien propre;
-* développer et partager le code correspondant *uniquement sous la forme d'un
-  notebook Datalore* `NOM1_NOM2` (pouvant évidemment faire appel à des
-  bibliothèques externes);
-* le dernier jour, éxécuter et présenter oralement en **5 min** les objectifs,
-  les méthodes choisies et les résultats.
-
+  le sien propre (à discuter);
+* partager le code correspondant sous la forme d'un notebook Datalore
+  `NOM1_NOM2` (pouvant évidemment faire appel à des bibliothèques externes)
+  partagé avec `yncopin[AT]gmail[DOT]com`, *ou bien* (p.ex. pour les programmes
+  demandant une intéraction avec l'utilisateur) d'un fichier `NOM1_NOM2.py` (qui
+  doit être fonctionnel et autonome) envoyé à la même adresse;
+* date limite de soumission des projets: **jeu. 28/01, 16h**
+* lors de la soutenance, éxécuter et présenter oralement en **5 min** les
+  objectifs, les méthodes choisies et les résultats.
+* `Planning des soutenances
+  <https://docs.google.com/spreadsheets/d/1g9arvxVQbLiOWUZHha-Nebdvd-Gn4VwLEFP8Rdxlijg/edit#gid=941844501>`_
 
 .. |+| image:: ./_static/smile.gif
    :alt: Bon
