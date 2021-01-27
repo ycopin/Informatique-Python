@@ -141,7 +141,7 @@ Quelques modules de la bibliothèque standard qui peuvent être d'intérêt:
 
 * :mod:`collections` définit de nouveaux types spécialisés, p.ex.
   :class:`collections.OrderedDict`, un dictionnaire *ordonné*, ou
-  :class:`collections.namedtuple`, pour la création d'objets simples:
+  :func:`collections.namedtuple`, pour la création d'objets simples:
 
    >>> Point = collections.namedtuple("Point", "x y")
    >>> p = Point(3, 4)
