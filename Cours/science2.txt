@@ -318,12 +318,17 @@ M76    Little Dumbbell Nebula
 M78                       NaN
 M97                Owl Nebula
 Name: Name, dtype: object
->>> messier.query("(Mag < 5) & (Size > 60)").Name
+
+.. https://jbencook.com/pandas-query/
+   
+La méthode :meth:`pandas.DataFrame.query` permet de faire des sélections
+avancées et rapides:
+
+>>> minsize = 80
+>>> messier.query("Mag < Mag.mean() and Size > @minsize and Name").Name
 M
-M7          Ptolemy's Cluster
 M24    Sagittarius Star Cloud
 M31          Andromeda Galaxy
-M42     Great Nebula in Orion
 M44           Beehive Cluster
 M45                  Pleiades
 Name: Name, dtype: object
